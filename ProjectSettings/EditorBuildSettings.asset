@@ -6,7 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Constant/Constant_Hub.unity
+    guid: 9f17eb5997f09614996dd340da24f461
+  - enabled: 1
+    path: Assets/Scenes/Constant/Constant_Lavernis.unity
+    guid: 4ea412c89c87f704fa94aaea331d3b70
+  - enabled: 1
+    path: Assets/Scenes/Constant/Constant_Sylmare.unity
+    guid: 65150d1191c3de04688a64394788f686
+  - enabled: 1
+    path: Assets/Scenes/Constant/Constant_Eidron.unity
+    guid: c2375ba53f8eadf468241bd9536aa26c
+  - enabled: 1
+    path: Assets/Legacy/Scenes/Main/Main.unity
+    guid: f1aacfca45028654b9ea8f46f2595877
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 22a171633c818624ea64273545116c5d, type: 3}
+  m_UseUCBPForAssetBundles: 0
