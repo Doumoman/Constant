@@ -1,16 +1,19 @@
 {
-    "name": "StarNight.Rewrite.Player",
-    "rootNamespace": "StarNight.Rewrite.Player",
+    "name": "StarNight.Rewrite.Editor",
+    "rootNamespace": "StarNight.Rewrite.Editor",
     "references": [
         "StarNight.Rewrite.Core",
-        "Unity.InputSystem"
+        "StarNight.Rewrite.Player",
+        "StarNight.Rewrite.UI"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": true,
+    "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false

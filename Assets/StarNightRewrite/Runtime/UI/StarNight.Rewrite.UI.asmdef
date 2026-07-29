@@ -1,9 +1,11 @@
 {
-    "name": "StarNight.Rewrite.Player",
-    "rootNamespace": "StarNight.Rewrite.Player",
+    "name": "StarNight.Rewrite.UI",
+    "rootNamespace": "StarNight.Rewrite.UI",
     "references": [
         "StarNight.Rewrite.Core",
-        "Unity.InputSystem"
+        "StarNight.Rewrite.Player",
+        "Unity.TextMeshPro",
+        "Unity.ugui"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
