@@ -2,9 +2,10 @@
 
 - 기준 기획서: `별을_물어오는_밤_게임시스템_전면리뉴얼_하네스_v1.0.md`
 - 감사일: 2026-07-29
-- 현재 브랜치: `main`
-- 현재 HEAD: `d6a80fb`
-- 단계: RW0-A~C 완료, RW0-D 진입 보류
+- 현재 브랜치: `rewrite/system-v1`
+- M6 기준선 커밋: `d61798f`
+- M6 기준선 태그: `m6-full-prototype-v1.0`
+- 단계: RW0 기술 조건 완료, 수동 CH1 클리어 영상·성능 기록 보류, RW1 진입 가능
 - Unity 확인 버전: `6000.3.8f1`
 
 ## 1. 결론
@@ -13,15 +14,9 @@
 
 기존 M6는 플레이 가능한 참고본으로 봉인한다. 새 버전에서는 기존 씬의 배경 구성, 스프라이트, 애니메이션, 음향/대화 인터페이스 같은 표현 자산만 선별해서 가져오고, 플레이 규칙과 상태 모델은 새 어셈블리에서 다시 작성한다.
 
-현재는 M6의 핵심 파일이 Git 미추적 상태이므로 아직 기준선 태그나 브랜치를 만들 수 없다. 이 파일들을 먼저 하나의 기준선 커밋으로 묶지 않고 태그를 만들면, 태그에서 M6 프로젝트가 복원되지 않는다.
+감사 시작 시 M6의 핵심 파일은 Git 미추적 상태였다. 해당 상태에서 태그를 만들면 M6가 복원되지 않으므로, 실행에 필요한 범위만 선별해 기준선 커밋 `d61798f`로 묶었다. 이 커밋에서 보존 브랜치 `legacy/m6-full-prototype`와 태그 `m6-full-prototype-v1.0`을 만들고, 새 작업을 `rewrite/system-v1`로 분리했다.
 
-따라서 안전한 순서는 다음과 같다.
-
-1. 현재 M6 전체를 기준선 커밋으로 스냅샷한다.
-2. 그 커밋에서 `legacy/m6-full-prototype` 브랜치와 태그를 만든다.
-3. `rewrite/system-v1` 브랜치에서 새 코드 루트와 최소 부트 씬을 만든다.
-4. 새 코드가 `StarFetchingNight.Runtime`을 참조하지 않는지 자동 검사한다.
-5. 그 뒤에 RW1 플레이어와 경량 소지품을 구현한다.
+리라이트 브랜치에는 새 코드 루트, 최소 부트 씬, 레거시 무참조 자동 검사가 추가되었다. 따라서 다음 작업은 RW1 플레이어와 경량 소지품 구현이다.
 
 ## 2. 새 버전의 한 문장
 
@@ -281,51 +276,54 @@ Tools, Promise, Maru 등은 해당 RW 단계에 들어갈 때 분리한다. 초�
 | 주요 코드 결합 감사 | 완료 | `StarNightRunState` 참조 94개 |
 | 재사용/변환/폐기 분류 | 완료 | 본 문서 5절 |
 | 새 코드 격리 계약 | 완료 | 본 문서 6절 |
-| M6 기준선 커밋 | 보류 | M6 대부분이 Git 미추적 |
-| M6 레거시 브랜치/태그 | 보류 | 기준선 커밋 후 생성 |
-| 새 rewrite 브랜치 | 보류 | M6 봉인 후 생성 |
-| 빈 CH1 부트 씬 | 보류 | rewrite 브랜치에서 생성 |
-| 레거시 참조 자동 검사 | 보류 | 새 asmdef 생성과 함께 추가 |
+| M6 기준선 커밋 | 완료 | `d61798f` |
+| M6 레거시 브랜치/태그 | 완료 | `legacy/m6-full-prototype`, `m6-full-prototype-v1.0` |
+| 새 rewrite 브랜치 | 완료 | `rewrite/system-v1` |
+| 빈 CH1 부트 씬 | 완료 | `RW_CH1_Bootstrap.unity` |
+| 레거시 참조 자동 검사 | 완료 | EditMode 3/3 통과 |
 | Unity Editor 기준선 검증 | 완료 | Unity 6000.3.8f1, EditMode 149/149 통과 |
+| 현재 CH1 클리어 영상·성능 기록 | 보류 | 실제 조작 플레이 세션에서 별도 수집 |
 | Codex 등록 MCP 클라이언트 복구 | 보류 | 서버는 정상이나 등록 클라이언트 초기화만 실패; HTTP MCP로 교차 검증 |
 
-## 8. 기준선 커밋 전 확인할 범위
+## 8. 기준선 커밋 범위
 
-현재 Git 상태에는 StarNight 외 변경도 함께 있다.
+기준선에는 다음 항목을 포함했다.
+
+- StarNight 7개 씬
+- StarNight 런타임, 에디터 빌더, EditMode 테스트
+- StarNight 기획/QA 문서
+- 7개 씬의 Build Settings
+- 한글 표시를 위해 갱신된 TMP 폰트
+
+다음 항목은 사용자 작업 또는 임시 산출물로 판단해 기준선 커밋에서 제외했다.
 
 - `Assets/Scenes/Constant/Constant_Sylmare.unity`
-- `Assets/TextMesh Pro/Fonts/NeoDunggeunmoPro-Regular.asset`
 - `Constant.slnx`
-- `ProjectSettings/EditorBuildSettings.asset`
-- StarNight 씬, 런타임, 에디터, 테스트, 문서, 스크린샷
+- 임시 스크린샷
 - `Assets/_Recovery`
 
-기준선 커밋은 “현재 M6를 완전히 재현하는 데 필요한 파일”만 포함해야 한다. `_Recovery`와 임시 스크린샷은 별도 보관 여부를 판정하고, 기존 Constant 씬 변경이 M6 실행에 필요한지 diff로 확인한 뒤 포함 여부를 정한다.
+제외한 파일은 수정하거나 삭제하지 않았으며 현재 워크트리에 그대로 보존되어 있다.
 
 ## 9. 다음 체크포인트
 
-### RW0-D: M6 봉인
+### 완료된 RW0-D/E
 
-사용자 승인 후 다음 작업을 수행한다.
+1. `StarNight.Rewrite.Core`, `StarNight.Rewrite.Player`, `StarNight.Rewrite.Tests` asmdef를 만들었다.
+2. `RW_CH1_Bootstrap.unity`를 만들었다.
+3. 씬에는 `RewriteSceneRoot`, 직교 카메라, Global Light 2D만 두었다.
+4. 기존 StarNight 컴포넌트가 없음을 소스 검사와 씬 YAML로 확인했다.
+5. 씬 검증 결과 누락 스크립트 0, 깨진 프리팹 0이었다.
+6. EditMode 격리 테스트 3/3이 통과했다.
+7. Play Mode로 부팅한 뒤 콘솔 오류 0을 확인했다.
 
-1. 변경 파일을 M6 필수/증빙/임시로 다시 분류한다.
-2. M6 필수 파일만 기준선 커밋한다.
-3. `legacy/m6-full-prototype` 브랜치와 태그를 만든다.
-4. `rewrite/system-v1` 브랜치를 만든다.
+### 다음: RW1
 
-### RW0-E: 깨끗한 리라이트 부트
+RW1은 아래 순서로 구현한다.
 
-1. `StarNight.Rewrite.Core`와 `StarNight.Rewrite.Player` asmdef를 만든다.
-2. `RW_CH1_Bootstrap.unity`를 만든다.
-3. 카메라, 2D 조명, 빈 시작점만 둔다.
-4. 기존 StarNight 컴포넌트 0개를 확인한다.
-5. 컴파일, EditMode 검사, PlayMode 부팅을 검증한다.
+1. 입력 추상화와 2D 플레이어 모터
+2. 코요테 타임, 점프 버퍼, 가변 점프 높이
+3. 체력 4칸과 피격/안전지대 복귀
+4. 금화, 밧줄, 폭탄, 손도구 1칸, 약속 물건 1칸의 상태 모델
+5. 인벤토리 화면 없이 HUD로만 상태 표시
 
-### RW1 진입 조건
-
-- M6 기준선이 독립적으로 복원되고 실행된다.
-- rewrite 브랜치의 부트 씬이 레거시 참조 없이 열린다.
-- 새 어셈블리가 컴파일된다.
-- 레거시 참조 금지 검사가 통과한다.
-
-이 네 조건 전에는 플레이어 모터나 인벤토리를 구현하지 않는다.
+RW1에서는 아직 도구의 월드 상호작용, 약속 퀘스트, 마루 타이머를 구현하지 않는다.
