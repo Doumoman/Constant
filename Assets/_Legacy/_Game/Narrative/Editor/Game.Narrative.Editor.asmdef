@@ -1,0 +1,19 @@
+{
+  "name": "Game.Narrative.Editor",
+  "rootNamespace": "StarNight.Narrative.Editor",
+  "references": [
+    "Game.Narrative.Runtime",
+    "Game.Stage.Runtime",
+    "Unity.TextMeshPro",
+    "YarnSpinner.Unity"
+  ],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

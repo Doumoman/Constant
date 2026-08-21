@@ -1,0 +1,22 @@
+{
+  "name": "Game.Integration.Runtime",
+  "rootNamespace": "StarNight.Integration",
+  "references": [
+    "Game.Core.Runtime",
+    "Game.Interaction.Runtime",
+    "Game.Player.Runtime",
+    "Game.Stage.Runtime",
+    "Game.UI.Runtime",
+    "Game.Narrative.Runtime",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ToolAuthoring.Editor",
+  "rootNamespace": "StarNight.ToolAuthoring.Editor",
+  "references": [
+    "Game.Interaction.Runtime",
+    "Game.Integration.Runtime",
+    "Game.Tools.Runtime",
+    "Game.WorldObjects.Runtime",
+    "Game.Map.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

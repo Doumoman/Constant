@@ -1,0 +1,11 @@
+patch_id: MAP04_03_IMPLEMENT_CORE_PATCH_GROWER
+patch_version: 1.0
+applied_at: 2026-08-13T14:39:15.1852176+09:00
+manifest_sha256: bba3969f607b538021aa876b988291cf9948ddd334f02ef026c881cb548f65e4
+copy_operations:
+  - destination: MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md
+    sha256: e1e33bbc209ff8682a688acc6d7e75cccef995aa9a4fe7deab2cfb150e03afae
+  - destination: MapDesign/MCP/06_IMPLEMENTATION_STATUS.md
+    sha256: 117483fec65ec3277baacebc3ef4af33369ab46ab8629e6f8cdf24e237dfa20c
+  - destination: MapDesign/MCP/TASKS/MAP04_03_IMPLEMENT_CORE_PATCH_GROWER.md
+    sha256: 85c70ea26f11e12db1c08d8dc81969d05d3e938e8aaffc46a6a46a89c9af7cf0

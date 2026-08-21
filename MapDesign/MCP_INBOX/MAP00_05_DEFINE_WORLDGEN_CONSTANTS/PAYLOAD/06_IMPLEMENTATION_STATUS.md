@@ -1,0 +1,82 @@
+# Map Implementation Status
+
+## Generator Package
+
+```text
+Spec Baseline: GDD v0.3
+Implementation Package Baseline: Map Package v1.0
+MCP Starter Rules: v1.2
+Status Finalize Rules: v1.0
+Master Task Backlog: v1.0 / 205 tasks
+```
+
+## Current Task
+
+```text
+TASKS/MAP00_05_DEFINE_WORLDGEN_CONSTANTS.md
+```
+
+## Status
+
+| Task | Status |
+|---|---|
+| MAP00_01_PROJECT_AUDIT | COMPLETE |
+| MAP00_02_FOLDER_AND_ASMDEF_PLAN | COMPLETE |
+| MAP00_03_CREATE_MAP_MODULE_STRUCTURE | COMPLETE |
+| MAP00_04_CREATE_TEST_STRUCTURE | COMPLETE |
+| MAP00_05_DEFINE_WORLDGEN_CONSTANTS | CURRENT |
+| MAP00_06_IMPLEMENT_COORDINATE_VALUE_TYPES | LOCKED |
+| MAP00_07_IMPLEMENT_COORDINATE_CONVERSIONS | LOCKED |
+| MAP00_08_CREATE_COORDINATE_TESTS | LOCKED |
+| MAP00_09_CREATE_COORDINATE_DEBUG_VIEW | LOCKED |
+| MAP00_10_MAP00_EXIT_AUDIT | LOCKED |
+| MAP01_* CSV LOADER AND REGISTRY | LOCKED |
+| MAP02_* WORLD GRID | LOCKED |
+| MAP03_* SITE RESERVATION | LOCKED |
+| MAP04_* BIOME PATCH | LOCKED |
+| MAP05_* MANDATORY ROUTE | LOCKED |
+| MAP06_* TYPE0 OPTIONAL | LOCKED |
+| MAP07_* MICROCHUNK AUTHORING | LOCKED |
+| MAP08_* BOUNDARY CONTENT | LOCKED |
+| MAP09_* SECTOR ASSEMBLY | LOCKED |
+| MAP10_* SPECIAL MAP AND VILLAGE | LOCKED |
+| MAP11_* TILEMAP STREAMING SAVE | LOCKED |
+| MAP12_* POPULATION | LOCKED |
+| MAP13_* VALIDATION AND SEED QA | LOCKED |
+| MAP14_* EDITOR AND REPLAY | LOCKED |
+| MAP15_* MOONPALACE VERTICAL SLICE | LOCKED |
+
+## Last Completed Task
+
+```text
+MAP00_04_CREATE_TEST_STRUCTURE
+```
+
+## Last Result
+
+```text
+REPORTS/MAP00_04_CREATE_TEST_STRUCTURE_RESULT.md
+STATUS: PASS
+```
+
+## Confirmed Baseline
+
+- Unity: `6000.3.8f1`
+- Runtime assembly: `Game.Map.Runtime`
+- Runtime namespace boundary: `StarNight.Map.WorldGeneration.*`
+- Editor assembly: `MapAuthoring.Editor`
+- Runtime EditMode assembly: `Game.Map.Tests.EditMode`
+- Editor EditMode assembly: `MapAuthoring.Tests.EditMode`
+- PlayMode assembly: `Game.Map.Tests.PlayMode`
+- New asmdef: `NO`
+- MAP00_03: approved 36 directories and folder `.meta` files present
+- MAP00_04: architecture fixtures 3개, actual EditMode cases 10/10 PASS
+- MAP01_01 premade patch: `HOLD / DO NOT RUN` until MAP00_10 PASS
+
+## Master Backlog Rule
+
+`MASTER_IMPLEMENTATION_TASK_LIST.md`의 205개 Task 순서를 상위 기준으로 사용한다.
+
+현재는 `MAP00_05_DEFINE_WORLDGEN_CONSTANTS` 하나만 수행한다. 좌표 값 타입, 좌표 변환, CSV, 생성 알고리즘은 선행 구현하지 않는다.
+
+MAP00_05가 PASS해도 MAP00_06을 자동 시작하지 않는다. STATUS FINALIZE는 MAP00_05를 COMPLETE로 바꾸고 Current Task를 NONE으로 만든 뒤 종료한다.

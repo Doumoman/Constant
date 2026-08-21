@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a61ded40b71fa243868bed44625d438, type: 3}
+  m_Name: LAB_CARRY_HEAVY
+  m_EditorClassIdentifier: Game.Interaction.Runtime::StarNight.Interaction.Carry.CarryObjectDefinition
+  objectId: LAB_CARRY_HEAVY
+  footprint: {x: 1, y: 1}
+  weightClass: 2
+  primaryUseMode: 0
+  criticalCarry: 0
+  forceHeavyImpact: 0
+  pivotCell: {x: 0, y: 0}
+  heldVisualOffset: {x: 0, y: 0}
+  throwProfile:
+    HorizontalVelocity: {x: 2.7, y: 0.5}
+    UpVelocity: {x: 0, y: 0}
+    MaximumSpeed: 10
+  hookResponse: 0
+  plateWeight: 2
+  impactVfx: {fileID: 0}
+  impactSfx: {fileID: 0}

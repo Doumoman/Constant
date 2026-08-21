@@ -1,0 +1,7 @@
+﻿boundary_profile_id,display_name_ko,boundary_type,allowed_orientations,width_microchunks_min,width_microchunks_max,warning_microchunks_min,mandatory_route_allowed,tool_requirement,hard_border,active,notes
+BOUND_SOFT_BLEND,완만 혼합,SOFT_BLEND,HORIZONTAL|VERTICAL,1,2,2,1,NONE,0,1,
+BOUND_CLIFF,절벽 경계,CLIFF,HORIZONTAL|VERTICAL,1,2,2,1,NONE,0,1,
+BOUND_TUNNEL,침투 통로,TUNNEL_INTRUSION,HORIZONTAL|VERTICAL,1,3,2,1,NONE,0,1,
+BOUND_LAYER,상하 층 경계,LAYER,VERTICAL,1,2,2,1,NONE,0,1,
+BOUND_RUIN,폐허 침식,RUIN,HORIZONTAL|VERTICAL,1,3,2,1,NONE,0,1,
+BOUND_HARD_STARSTONE,별돌 경계,HARD_STARSTONE,HORIZONTAL|VERTICAL,1,1,1,0,NONE,1,1,

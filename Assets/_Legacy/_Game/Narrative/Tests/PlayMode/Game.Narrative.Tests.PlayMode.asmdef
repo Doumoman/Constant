@@ -1,0 +1,23 @@
+{
+  "name": "Game.Narrative.Tests.PlayMode",
+  "rootNamespace": "StarNight.Narrative.Tests",
+  "references": [
+    "Game.Narrative.Runtime",
+    "Game.Core.Runtime",
+    "Game.Interaction.Runtime",
+    "Game.Player.Runtime",
+    "Game.Stage.Runtime",
+    "Unity.TextMeshPro",
+    "YarnSpinner.Unity"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": ["TestAssemblies"]
+}

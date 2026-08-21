@@ -1,0 +1,17 @@
+{
+  "name": "Game.Player.Runtime",
+  "rootNamespace": "StarNight.Player",
+  "references": [
+    "Game.Core.Runtime",
+    "Game.Interaction.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

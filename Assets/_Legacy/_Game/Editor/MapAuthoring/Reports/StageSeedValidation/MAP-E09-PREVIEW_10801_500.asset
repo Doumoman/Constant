@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48fdf33e9db1c44bb0a8d363fcc348b, type: 3}
+  m_Name: MAP-E09-PREVIEW_10801_500
+  m_EditorClassIdentifier: MapAuthoring.Editor::StarNight.MapAuthoring.Editor.StageSeedValidationReport
+  StageId: MAP-E09-PREVIEW
+  StartSeed: 10801
+  SeedCount: 500
+  PassedSeedCount: 500
+  FailedSeedCount: 0
+  TotalRooms: 3749
+  TotalConnections: 3448
+  OuterEscapeFailureCount: 0
+  FloorGapFailureCount: 0
+  PortalGapFailureCount: 0
+  MainRouteFailureCount: 0
+  MaruRouteFailureCount: 0
+  OtherFailureCount: 0
+  UniqueValidationHashCount: 500
+  DurationMilliseconds: 37.5628
+  GeneratedAtUtc: 2026-08-03T16:20:14.1062093Z
+  JsonReportPath: Assets/_Game/Editor/MapAuthoring/Reports/StageSeedValidation/MAP-E09-PREVIEW_10801_500.json
+  CsvReportPath: Assets/_Game/Editor/MapAuthoring/Reports/StageSeedValidation/MAP-E09-PREVIEW_10801_500.csv
+  FamilyCounts:
+  - Family: 0
+    Count: 114
+  - Family: 1
+    Count: 103
+  - Family: 2
+    Count: 96
+  - Family: 3
+    Count: 90
+  - Family: 4
+    Count: 97
+  Failures: []

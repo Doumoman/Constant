@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d94b36811df325469628fc0074f829e, type: 3}
+  m_Name: P9_RecordGuestCatalog
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Folklore.P9.P9RecordGuestCatalog
+  definitions:
+  - guestId: record_seo_bok
+    displayName: "\uC11C\uBCF5\uC758 \uAE30\uB85D"
+    region: 1
+    symbolicMotif: "\uBD88\uB85C\uC57D\uC744 \uCC3E\uB294 \uC5EC\uD589"
+    immediateSupport: 0
+    nextStageSupport: 0
+    helpSentence: "\uAC00\uC7A5 \uAC00\uAE4C\uC6B4 \uD68C\uBCF5 \uC218\uB2E8\uACFC
+      \uC57D\uBCD1\uC758 \uBC29\uD5A5\uC744 \uAC00\uB9AC\uD0A8\uB2E4."
+    requiresCulturalReview: 1
+  - guestId: record_hyecho
+    displayName: "\uD61C\uCD08\uC758 \uAE30\uB85D"
+    region: 2
+    symbolicMotif: "\uBA3C \uAE38\uC744 \uAC74\uB10C \uC5EC\uD589"
+    immediateSupport: 1
+    nextStageSupport: 1
+    helpSentence: "\uC548\uC804\uD55C \uBA54\uC778 \uACBD\uB85C\uC640 \uC704\uD5D8\uD55C
+      \uC6B0\uD68C\uB85C\uB97C \uAD6C\uBD84\uD574 \uAC00\uB9AC\uD0A8\uB2E4."
+    requiresCulturalReview: 1
+  - guestId: record_jang_bogo
+    displayName: "\uC7A5\uBCF4\uACE0\uC758 \uAE30\uB85D"
+    region: 3
+    symbolicMotif: "\uBC14\uB2E4 \uD56D\uB85C"
+    immediateSupport: 2
+    nextStageSupport: 2
+    helpSentence: "\uBB3C\uC0B4\uC758 \uBC29\uD5A5\uACFC \uAC00\uC7A5 \uAC00\uCE58
+      \uB192\uC740 \uBCF4\uBB3C\uC758 \uC704\uCE58\uB97C \uD45C\uC2DC\uD55C\uB2E4."
+    requiresCulturalReview: 1
+  - guestId: record_kim_jeong_ho
+    displayName: "\uAE40\uC815\uD638\uC758 \uAE30\uB85D"
+    region: 4
+    symbolicMotif: "\uC9C0\uB3C4"
+    immediateSupport: 3
+    nextStageSupport: 3
+    helpSentence: "\uD604\uC7AC \uBC29 \uADF8\uB798\uD504\uC640 \uBE44\uBC00\uBC29
+      \uD558\uB098\uC758 \uC874\uC7AC\uB97C \uBCF4\uC5EC\uC900\uB2E4."
+    requiresCulturalReview: 1
+  - guestId: record_jang_yeong_sil
+    displayName: "\uC7A5\uC601\uC2E4\uC758 \uAE30\uB85D"
+    region: 5
+    symbolicMotif: "\uCC9C\uBB38\uACFC \uC2DC\uAC04 \uC7A5\uCE58"
+    immediateSupport: 4
+    nextStageSupport: 4
+    helpSentence: "\uB2E4\uC74C \uBC29\uC6B8\uAE4C\uC9C0 \uB0A8\uC740 \uC2DC\uAC04\uC744
+      \uC2DC\uAC01\uC801\uC73C\uB85C \uBCF4\uC5EC\uC900\uB2E4."
+    requiresCulturalReview: 1
+  - guestId: record_hong_dae_yong
+    displayName: "\uD64D\uB300\uC6A9\uC758 \uAE30\uB85D"
+    region: 6
+    symbolicMotif: "\uBCC4\uACFC \uC138\uACC4\uC758 \uAD00\uCC30"
+    immediateSupport: 5
+    nextStageSupport: 5
+    helpSentence: "\uC720\uBB3C \uC7A5\uCE58\uC640 \uAE30\uC5B5 \uBB38\uC758 \uBC29\uD5A5\uC744
+      \uACF5\uBA85\uC73C\uB85C \uD45C\uC2DC\uD55C\uB2E4."
+    requiresCulturalReview: 1

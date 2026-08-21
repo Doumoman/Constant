@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d57d63c6ea756947b780825d400df03, type: 3}
+  m_Name: COMMON_Lab_Spike
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementDefinition
+  ElementId: COMMON_Lab_Spike
+  DisplayName: "1\xD71 Spike"
+  Category: 2
+  AllowedRegions: 1
+  RuntimePrefab: {fileID: 8379636050892770502, guid: ec0aeeb93d566d0488be92b33bc80db7, type: 3}
+  BakedVisualProfile: {fileID: 11400000, guid: d28cc1495ead1f545928842ec520095e, type: 2}
+  Footprint:
+    BoundsSize: {x: 1, y: 1}
+    PivotCell: {x: 0, y: 0}
+    OccupiedCells:
+    - {x: 0, y: 0}
+    SupportRequiredCells: []
+    ClearanceRequiredCells: []
+    HazardCells:
+    - {x: 0, y: 0}
+    TriggerCells:
+    - {x: 0, y: 0}
+  VisualProfile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 1, y: 1}
+    VisualOffsetCells: {x: 0, y: 0}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 1, g: 1, b: 1, a: 1}
+    FlipX: 0
+    FlipY: 0
+  CollisionProfile:
+    Mode: 1
+    IsSolid: 1
+    IsOneWay: 0
+    IsTriggerOnly: 0
+    PhysicsMaterial: {fileID: 0}
+    SolidShapes:
+    - ShapeType: 0
+      OffsetCells: {x: 0, y: -0.38}
+      SizeCells: {x: 0.96, y: 0.22}
+      RadiusCells: 0.5
+      Points: []
+    TriggerShapes:
+    - ShapeType: 0
+      OffsetCells: {x: 0, y: 0.06}
+      SizeCells: {x: 0.82, y: 0.72}
+      RadiusCells: 0.5
+      Points: []
+    CollisionMask:
+      serializedVersion: 2
+      m_Bits: 0
+  BehaviorProfile:
+    InitialState: 1
+    WarningSeconds: 0.35
+    ActiveSeconds: 0.9
+    CooldownSeconds: 0.6
+    ResetOnRoomReenter: 0
+    PersistBrokenState: 1
+    PauseWhenRoomInactive: 1
+    Path:
+      Nodes: []
+      ClosedLoop: 0
+      SpeedCellsPerSecond: 1
+      WaitSeconds: 0
+      Easing: 0
+      PingPong: 0
+      StartForward: 1
+      ResetOnRoomReenter: 0
+    ProjectilePattern:
+      ProjectilePrefab: {fileID: 0}
+      ProjectileCount: 1
+      IntervalSeconds: 0
+      SpeedCellsPerSecond: 1
+      Direction: {x: 1, y: 0}
+      AimAtPlayer: 0
+  PlacementProfile:
+    Surface: 0
+    MinimumPortalDistanceCells: 0
+    MinimumSafeCellDistanceCells: 0
+    AllowMainRoute: 1
+    AllowBranchRoute: 1
+    AllowSecretRoute: 1
+    AllowMirrorX: 0
+    AllowMirrorY: 0
+    MaxPerRoom: 0
+    ForbiddenNeighborTags: []
+    RequiredNeighborTags: []
+  BudgetProfile:
+    ThreatCost: 2
+    UtilityValue: 0
+    CognitiveCost: 0
+    MotionCost: 0
+  ToolReactions:
+    Entries:
+    - Tool: 1
+      Reaction: 2
+      StrengthRequired: 0
+      ResultState: 
+      ReactionVfx: {fileID: 0}
+  MaruReaction:
+    IsTarget: 0
+    Reaction: 0
+    ResultState: 
+    DelaySeconds: 0
+  BakeMetadata:
+    SchemaVersion: 1
+    SourceGuid: 64af5087e6f99f54ea28dc3a6a113fc5
+    SourceHash: db4624160c0c4cca09f3661590d2c57eeb39ebc52e9b3b234bff789029fe641f
+    RuntimePrefabGuid: ec0aeeb93d566d0488be92b33bc80db7
+    LastBakedUnityVersion: 6000.3.8f1
+    LastBakedAtUtc: 2026-08-02T15:50:37.6332846Z

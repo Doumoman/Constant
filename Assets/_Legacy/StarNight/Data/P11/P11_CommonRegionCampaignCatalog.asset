@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45513e9a9e6421540a445d220bae37e2, type: 3}
+  m_Name: P11_CommonRegionCampaignCatalog
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Campaign.P11.P11CampaignCatalog
+  stages:
+  - stageId: 301
+    displayName: "\uBD84\uC2E4\uBB3C \uBD84\uB958\uC18C"
+    region: 4
+    stageSlot: 1
+    archetype: 3
+    traversalAxis: 2
+    mechanics: 51
+    guarantees: 65
+    boss: 0
+    coreActionSentence: "\uAC19\uC740 \uADF8\uB9BC\uC758 \uC18C\uD3EC\uB97C \uBD84\uB958\uD558\uBA70
+      \uACE0\uC815\uB41C \uCD9C\uAD6C \uD750\uB984\uC744 \uB530\uB978\uB2E4."
+    recommendedMinutesMin: 2
+    recommendedMinutesMax: 3
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 302
+    displayName: "\uBC18\uC1A1 \uBCF5\uB3C4"
+    region: 4
+    stageSlot: 2
+    archetype: 3
+    traversalAxis: 2
+    mechanics: 29
+    guarantees: 31
+    boss: 0
+    coreActionSentence: "\uBC18\uC1A1 \uB3C4\uC7A5\uACFC \uC6B0\uD3B8\uAD00\uC744
+      \uC774\uC6A9\uD574 \uC21C\uD658 \uBCF5\uB3C4\uB97C \uC695\uC2EC\uB0B4\uC5B4
+      \uD0D0\uC0C9\uD55C\uB2E4."
+    recommendedMinutesMin: 3
+    recommendedMinutesMax: 5
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 303
+    displayName: "\uC911\uC559 \uBC18\uC1A1\uAE30"
+    region: 4
+    stageSlot: 3
+    archetype: 0
+    traversalAxis: 0
+    mechanics: 262207
+    guarantees: 1440
+    boss: 1
+    coreActionSentence: "\uC720\uB3C4 \uC18C\uD3EC\uC640 \uBC18\uC1A1 \uB3C4\uC7A5\uC744
+      \uD3EC\uD3EC\uC5D0\uAC8C \uB418\uB3CC\uB9B0\uB2E4."
+    recommendedMinutesMin: 3
+    recommendedMinutesMax: 5
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 401
+    displayName: "\uC5B4\uB9B0 \uC0BC\uC871\uC624"
+    region: 5
+    stageSlot: 1
+    archetype: 0
+    traversalAxis: 1
+    mechanics: 448
+    guarantees: 321
+    boss: 0
+    coreActionSentence: "\uBC1D\uC740 \uCD9C\uAD6C \uAE38\uC5D0\uC11C \uD68C\uC804
+      \uD574\uC0B4\uACFC \uADF8\uB9BC\uC790 \uC528\uC557\uC744 \uC77D\uB294\uB2E4."
+    recommendedMinutesMin: 2
+    recommendedMinutesMax: 3
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 402
+    displayName: "\uAEBC\uC9C4 \uD0DC\uC591 \uB465\uC9C0"
+    region: 5
+    stageSlot: 2
+    archetype: 2
+    traversalAxis: 1
+    mechanics: 1856
+    guarantees: 95
+    boss: 0
+    coreActionSentence: "\uBB3C\uC744 \uC8FC\uACE0 \uBD09\uC778 \uACE0\uB9AC\uB97C
+      \uD480\uC5B4 \uC0BC\uC871\uC624 \uB465\uC9C0\uB97C \uBCF5\uAD6C\uD55C\uB2E4."
+    recommendedMinutesMin: 3
+    recommendedMinutesMax: 5
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 403
+    displayName: "\uBA48\uCD98 \uD558\uB8E8"
+    region: 5
+    stageSlot: 3
+    archetype: 2
+    traversalAxis: 1
+    mechanics: 264128
+    guarantees: 672
+    boss: 2
+    coreActionSentence: "\uBE5B\uACFC \uADF8\uB9BC\uC790\uB97C \uAD50\uCC28\uC2DC\uCF1C
+      \uD574\uAF43\uC758 \uBCC4\uB9E4\uB4ED\uC744 \uB4DC\uB7EC\uB0B8\uB2E4."
+    recommendedMinutesMin: 3
+    recommendedMinutesMax: 5
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 501
+    displayName: "\uADC0\uD658 \uAE30\uB85D\uC2E4"
+    region: 6
+    stageSlot: 1
+    archetype: 3
+    traversalAxis: 2
+    mechanics: 143360
+    guarantees: 2113
+    boss: 0
+    coreActionSentence: "\uADC0\uD658\uC7A5\uACFC \uBD88\uBCC0 \uBCC4\uBE14\uB85D
+      \uC0AC\uC774\uC5D0\uC11C \uB9C8\uB8E8\uC758 \uADC0\uD658 \uAE30\uB85D\uC744
+      \uBCF8\uB2E4."
+    recommendedMinutesMin: 2
+    recommendedMinutesMax: 3
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 502
+    displayName: "\uBD81\uADF9\uC131 \uC2B9\uAC15\uB85C"
+    region: 6
+    stageSlot: 2
+    archetype: 2
+    traversalAxis: 1
+    mechanics: 114688
+    guarantees: 1823
+    boss: 0
+    coreActionSentence: "\uADA4\uB3C4 \uBC1C\uD310\uACFC \uBCC4\uC790\uB9AC \uB2E4\uB9AC\uB97C
+      \uB530\uB77C \uBD81\uADF9\uC131\uC73C\uB85C \uC0C1\uC2B9\uD55C\uB2E4."
+    recommendedMinutesMin: 3
+    recommendedMinutesMax: 5
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1
+  - stageId: 503
+    displayName: "\uB9C8\uB8E8\uC758 \uBCC4\uBAA9\uAC78\uC774"
+    region: 6
+    stageSlot: 3
+    archetype: 2
+    traversalAxis: 1
+    mechanics: 520192
+    guarantees: 2208
+    boss: 3
+    coreActionSentence: "\uBCC4\uB9E4\uB4ED\xB7\uBA85\uB839 \uAE30\uB465\xB7\uAE30\uC5B5
+      \uBC29\uC6B8 \uC911 \uD55C \uBC29\uC2DD\uC73C\uB85C \uB9C8\uB8E8\uB97C \uB05D\uB0B8\uB2E4."
+    recommendedMinutesMin: 3
+    recommendedMinutesMax: 5
+    mainPathToolFree: 1
+    optionalStoryNeverGatesExit: 1

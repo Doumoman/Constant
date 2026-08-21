@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40aef04a5583a34482f2f11b805c6f0, type: 3}
+  m_Name: TOOL_WATERING_CAN
+  m_EditorClassIdentifier: Game.Tools.Runtime::StarNight.Tools.Core.HandToolDefinition
+  toolId: TOOL_WATERING_CAN
+  displayName: "\uBB3C\uBFCC\uB9AC\uAC1C"
+  toolTags: 8
+  resourceMode: 2
+  maxResource: 6
+  groundAction:
+    WindupSeconds: 0.08
+    ImpactSeconds: 0.08
+    ActiveSeconds: 0.42
+    RecoverySeconds: 0.15
+    MovementMultiplier: 1
+    AimMode: 1
+    AnimatorTrigger: 
+    ActionSfx: {fileID: 0}
+    ActionVfx: {fileID: 0}
+  airAction:
+    WindupSeconds: 0.08
+    ImpactSeconds: 0.08
+    ActiveSeconds: 0.42
+    RecoverySeconds: 0.15
+    MovementMultiplier: 1
+    AimMode: 1
+    AnimatorTrigger: 
+    ActionSfx: {fileID: 0}
+    ActionVfx: {fileID: 0}
+  targetCellOffsets:
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  runtimePrefab: {fileID: 212801645141905139, guid: ffbaa1515cf2a5c408a678143514d43f, type: 3}
+  hudIcon: {fileID: 0}
+  heldSprite: {fileID: 0}
+  animatorController: {fileID: 0}
+  shopPriceWon: 200
+  useSfx: {fileID: 0}
+  useVfx: {fileID: 0}
+  failureFeedback: 2
+  previewRangeCells: 3
+  previewAngleDegrees: 0

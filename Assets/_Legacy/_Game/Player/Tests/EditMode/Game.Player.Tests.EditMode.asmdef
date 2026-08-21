@@ -1,0 +1,23 @@
+{
+  "name": "Game.Player.Tests.EditMode",
+  "rootNamespace": "StarNight.Player.Tests",
+  "references": [
+    "Game.Core.Runtime",
+    "Game.Player.Runtime",
+    "Game.Interaction.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

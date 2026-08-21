@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40aef04a5583a34482f2f11b805c6f0, type: 3}
+  m_Name: TOOL_POUNDER
+  m_EditorClassIdentifier: Game.Tools.Runtime::StarNight.Tools.Core.HandToolDefinition
+  toolId: TOOL_POUNDER
+  displayName: "\uB2EC\uD1A0\uB07C\uC758 \uC808\uAD7F\uACF5\uC774"
+  toolTags: 528
+  resourceMode: 1
+  maxResource: 8
+  groundAction:
+    WindupSeconds: 0.16
+    ImpactSeconds: 0.18
+    ActiveSeconds: 0.18
+    RecoverySeconds: 0.28
+    MovementMultiplier: 0.25
+    AimMode: 0
+    AnimatorTrigger: 
+    ActionSfx: {fileID: 0}
+    ActionVfx: {fileID: 0}
+  airAction:
+    WindupSeconds: 0.16
+    ImpactSeconds: 0.18
+    ActiveSeconds: 0.18
+    RecoverySeconds: 0.28
+    MovementMultiplier: 0.25
+    AimMode: 2
+    AnimatorTrigger: 
+    ActionSfx: {fileID: 0}
+    ActionVfx: {fileID: 0}
+  targetCellOffsets:
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  runtimePrefab: {fileID: 7364328366141861269, guid: ab66b6842db18f54c9e1bc3bb7e5991e, type: 3}
+  hudIcon: {fileID: 0}
+  heldSprite: {fileID: 0}
+  animatorController: {fileID: 0}
+  shopPriceWon: 300
+  useSfx: {fileID: 0}
+  useVfx: {fileID: 0}
+  failureFeedback: 2
+  previewRangeCells: 1
+  previewAngleDegrees: 0

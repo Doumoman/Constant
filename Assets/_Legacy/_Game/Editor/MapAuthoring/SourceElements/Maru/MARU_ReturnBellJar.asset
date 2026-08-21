@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d57d63c6ea756947b780825d400df03, type: 3}
+  m_Name: MARU_ReturnBellJar
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementDefinition
+  ElementId: MARU_ReturnBellJar
+  DisplayName: "\uADC0\uD658 \uBC29\uC6B8\uB2E8\uC9C0"
+  Category: 9
+  AllowedRegions: 255
+  RuntimePrefab: {fileID: 826804991978408028, guid: e60d1f7863c0c5042bbc4b0e67fe2b75, type: 3}
+  BakedVisualProfile: {fileID: 11400000, guid: 39eb61f55434fb844802f98e84b05dc7, type: 2}
+  Footprint:
+    BoundsSize: {x: 1, y: 1}
+    PivotCell: {x: 0, y: 0}
+    OccupiedCells:
+    - {x: 0, y: 0}
+    SupportRequiredCells: []
+    ClearanceRequiredCells: []
+    HazardCells: []
+    TriggerCells: []
+  VisualProfile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 1, y: 1}
+    VisualOffsetCells: {x: 0, y: 0}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.58, g: 0.76, b: 0.94, a: 1}
+    FlipX: 0
+    FlipY: 0
+  CollisionProfile:
+    Mode: 1
+    IsSolid: 1
+    IsOneWay: 0
+    IsTriggerOnly: 0
+    PhysicsMaterial: {fileID: 0}
+    SolidShapes:
+    - ShapeType: 0
+      OffsetCells: {x: 0, y: 0}
+      SizeCells: {x: 0.82, y: 0.92}
+      RadiusCells: 0.5
+      Points: []
+    TriggerShapes: []
+    CollisionMask:
+      serializedVersion: 2
+      m_Bits: 0
+  BehaviorProfile:
+    InitialState: 1
+    WarningSeconds: 0
+    ActiveSeconds: 0
+    CooldownSeconds: 0
+    ResetOnRoomReenter: 0
+    PersistBrokenState: 1
+    PauseWhenRoomInactive: 1
+    Path:
+      Nodes: []
+      ClosedLoop: 0
+      SpeedCellsPerSecond: 1
+      WaitSeconds: 0
+      Easing: 0
+      PingPong: 0
+      StartForward: 1
+      ResetOnRoomReenter: 0
+    ProjectilePattern:
+      ProjectilePrefab: {fileID: 0}
+      ProjectileCount: 1
+      IntervalSeconds: 0
+      SpeedCellsPerSecond: 1
+      Direction: {x: 1, y: 0}
+      AimAtPlayer: 0
+  PlacementProfile:
+    Surface: 0
+    MinimumPortalDistanceCells: 0
+    MinimumSafeCellDistanceCells: 3
+    AllowMainRoute: 0
+    AllowBranchRoute: 1
+    AllowSecretRoute: 1
+    AllowMirrorX: 0
+    AllowMirrorY: 0
+    MaxPerRoom: 0
+    ForbiddenNeighborTags:
+    - AutomaticHazard
+    RequiredNeighborTags: []
+  BudgetProfile:
+    ThreatCost: 2
+    UtilityValue: 2
+    CognitiveCost: 0
+    MotionCost: 0
+  CommonProfile:
+    Kind: 0
+    Damage: 1
+    Knockback: {x: 4, y: 2}
+    WeakHitsRequired: 1
+    TriggerDwellSeconds: 0
+    GravityScale: 0
+    SightOrBeamRangeCells: 0
+    ProjectileSpeedCellsPerSecond: 0
+    OpenSpeedCellsPerSecond: 0
+    WeightThreshold: 1
+    SignalMode: 0
+    SignalChannel: 
+    PulseSeconds: 0
+    VolumeSizeCells: {x: 1, y: 1}
+    ForceCellsPerSecond: 0
+    CycleOnSeconds: 0
+    CycleOffSeconds: 0
+    LaunchHeightCells: 0
+    DamageCooldownSeconds: 0.15
+  MaruProfile:
+    Kind: 2
+    DurabilityStages: 1
+    RewardMoney: 300
+    RewardId: currency_silver_ingot
+    PreviewRewardText: "+300\uC6D0 \uC740 \uC8FC\uAD34"
+    PreviewPenaltyText: "12\uCD08 \uD6C4 \uD604\uC7AC \uBC29 \uC9C4\uC785"
+    ScheduledEntryDelaySeconds: 12
+    TimerRateMultiplier: 1
+    GuidanceSeconds: 0
+    ShortenNextBellSeconds: 0
+    MarkerCostType: 0
+    MarkerCostValue: 0
+    NoiseLevel: 0
+    PressureWeight: 1
+    MinimumExitRoomDistance: 0
+    MaximumExitRoomDistance: 0
+    MinimumAutomaticHazardDistanceCells: 3
+    ForbidExitRoom: 0
+    RecordGuideEffect: 0
+  ToolReactions:
+    Entries:
+    - Tool: 771
+      Reaction: 2
+      StrengthRequired: 1
+      ResultState: 
+      ReactionVfx: {fileID: 0}
+  MaruReaction:
+    IsTarget: 0
+    Reaction: 0
+    ResultState: 
+    DelaySeconds: 0
+  BakeMetadata:
+    SchemaVersion: 1
+    SourceGuid: f48575b0be04ad14ba0aa367e8ee1365
+    SourceHash: 77f12f85b77babef61999b6294fbf5e863425400fcc7d7ff4488cac9cc060ca5
+    RuntimePrefabGuid: e60d1f7863c0c5042bbc4b0e67fe2b75
+    LastBakedUnityVersion: 6000.3.8f1
+    LastBakedAtUtc: 2026-08-02T16:34:58.8761581Z

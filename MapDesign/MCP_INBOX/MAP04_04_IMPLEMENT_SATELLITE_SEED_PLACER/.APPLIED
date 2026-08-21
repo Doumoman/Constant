@@ -1,0 +1,11 @@
+patch_id: MAP04_04_IMPLEMENT_SATELLITE_SEED_PLACER
+patch_version: 1.0
+applied_at: 2026-08-13T15:33:49.8027078+09:00
+manifest_sha256: b229d83b674b1b610fbfbc3a6884c167fee60ddd6bc10b0cd47f6c0061f2cdea
+copy_operations:
+  - destination: MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md
+    sha256: 3a43bef04890bac5fd5f305df72d78bff5bf837f7f772f6144049ea30962f994
+  - destination: MapDesign/MCP/06_IMPLEMENTATION_STATUS.md
+    sha256: 3a685e45712d2b8968e798e0d4f1a43527d525b7cafd7f8454d3329d79bcc5f2
+  - destination: MapDesign/MCP/TASKS/MAP04_04_IMPLEMENT_SATELLITE_SEED_PLACER.md
+    sha256: 0139263b48a99d25b36feb902af45afff0fe7853a89c28125cda9d40ef4c0a30

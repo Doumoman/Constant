@@ -1,0 +1,22 @@
+{
+  "name": "Game.UI.Tests.EditMode",
+  "rootNamespace": "StarNight.UI.Tests",
+  "references": [
+    "Game.UI.Runtime",
+    "Game.Stage.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df28494e1fc38440916cb443c4c0038, type: 3}
+  m_Name: P7_StarlessSea_Population
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Population.P7.P7RegionPlacementProfileAsset
+  region: 7
+  enemyBudgets: {x: 19, y: 25, z: 18}
+  hazardBudgets: {x: 13, y: 17, z: 12}
+  enemyBudgetFloors: {x: 11, y: 15, z: 10}
+  hazardBudgetFloors: {x: 7, y: 10, z: 7}
+  mainPathGoldTarget: 4
+  enemyWeights:
+  - kind: 0
+    cost: 1
+    weight: 2
+  - kind: 1
+    cost: 1
+    weight: 2
+  - kind: 2
+    cost: 2
+    weight: 3
+  - kind: 3
+    cost: 2
+    weight: 3
+  - kind: 4
+    cost: 2
+    weight: 3
+  - kind: 5
+    cost: 2
+    weight: 3
+  - kind: 6
+    cost: 2
+    weight: 2
+  trapWeights:
+  - kind: 17
+    cost: 3
+    weight: 5
+  - kind: 15
+    cost: 2
+    weight: 2
+  - kind: 4
+    cost: 2
+    weight: 2
+  - kind: 7
+    cost: 2
+    weight: 2
+  shopProducts: 00000000010000000200000003000000040000000500000006000000

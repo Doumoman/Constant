@@ -1,0 +1,6 @@
+﻿battery_id,display_name_ko,fuel_cost,battery_item_cost,delivery_mode,blast_radius_tiles,damage,knockback,destroys_soft_soil,destroys_cracked_terrain,destroys_hard_terrain,destroys_starstone,terrain_damage_enabled,fuse_seconds,prefab_id,active,notes
+BAT_MINI,미니 전지,5,1,PLACE,1.5,1,2.0,1,0,0,0,1,1.2,PREFAB_BAT_MINI,1,얇은 흙·소형 장애물
+BAT_AIR_CANNON,공기포 전지,20,1,BLAST_CONE,3.5,1,8.0,1,0,0,0,1,0.5,PREFAB_BAT_AIR,1,흙 파괴와 밀침 최적화
+BAT_STANDARD,일반 폭탄 전지,20,1,PLACE,3.0,3,5.0,1,1,0,0,1,2.5,PREFAB_BAT_STANDARD,1,기본 지형 파괴
+BAT_MEGA,메가 폭탄 전지,50,1,PLACE,5.0,6,9.0,1,1,1,0,1,3.0,PREFAB_BAT_MEGA,1,별돌 제외 넓은 파괴
+BAT_GRENADE,수류탄 전지,20,1,THROW,2.5,5,6.0,0,0,0,0,0,1.8,PREFAB_BAT_GRENADE,1,"적 피해 전용, 지형 파괴 없음"

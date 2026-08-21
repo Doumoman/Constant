@@ -1,0 +1,25 @@
+title: STG_MOON_1_1_Intro
+tags: blocking conversation
+---
+<<ui_mode conversation>>
+<<lock_player true>>
+NARRATOR: 달빛이 바닥의 오래된 발자국을 드러낸다. #line:stg_moon_1_1_intro_01
+RANI: 종이 울리기 전에 길을 찾아야 해. #line:stg_moon_1_1_intro_02
+<<lock_player false>>
+===
+
+title: NPC_Moon_Dabok_FirstMeet
+tags: field bubble
+---
+<<ui_mode bubble>>
+DABOK: 쉿, 저쪽 벽 너머에서 별빛 냄새가 나. #line:npc_moon_dabok_firstmeet_01
+===
+
+title: OBS_MOON_1_2_StatueBroken
+tags: blocking narration
+---
+<<ui_mode narration>>
+<<lock_player true>>
+부서진 석상 안쪽에 작은 별가루가 남아 있다. #line:obs_moon_1_2_statuebroken_01
+<<lock_player false>>
+===

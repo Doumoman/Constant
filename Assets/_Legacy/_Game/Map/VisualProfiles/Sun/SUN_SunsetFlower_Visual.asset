@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af9e518c2aba9046b631f23cdc6719c, type: 3}
+  m_Name: SUN_SunsetFlower_Visual
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementVisualProfileAsset
+  ElementId: SUN_SunsetFlower
+  SourceHash: cd9b09c1f5b8a6788d3fc9dd9b90506a8b73345355ffabbc20081b9cb444c6c7
+  Profile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 2, y: 2}
+    VisualOffsetCells: {x: 0.5, y: 0.5}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.96, g: 0.52, b: 0.28, a: 1}
+    FlipX: 0
+    FlipY: 0

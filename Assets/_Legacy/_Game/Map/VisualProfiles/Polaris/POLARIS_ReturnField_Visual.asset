@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af9e518c2aba9046b631f23cdc6719c, type: 3}
+  m_Name: POLARIS_ReturnField_Visual
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementVisualProfileAsset
+  ElementId: POLARIS_ReturnField
+  SourceHash: 9492d36b2f5b8ad017462e1ca450f785632023fc145074481c080566085f3582
+  Profile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 4, y: 2}
+    VisualOffsetCells: {x: 1.5, y: 0.5}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.42, g: 0.34, b: 0.78, a: 0.8}
+    FlipX: 0
+    FlipY: 0

@@ -1,0 +1,20 @@
+{
+  "name": "Game.Map.Tests.PlayMode",
+  "rootNamespace": "StarNight.Map.Tests",
+  "references": [
+    "Game.Map.Runtime",
+    "Game.Stage.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

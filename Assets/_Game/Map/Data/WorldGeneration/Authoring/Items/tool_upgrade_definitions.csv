@@ -1,0 +1,7 @@
+﻿tool_id,upgrade_level,required_blueprint_fragments,gold_cost,max_durability_multiplier,work_speed_multiplier,special_effect_id,active,notes
+TOOL_PICKAXE,1,3,40,1.25,1.0,,1,단계별 배율은 이전 단계에 누적 적용하지 않고 최종 표를 사용
+TOOL_PICKAXE,2,4,80,1.25,1.35,,1,단계별 배율은 이전 단계에 누적 적용하지 않고 최종 표를 사용
+TOOL_PICKAXE,3,5,140,1.2,1.2,EFFECT_PICKAXE_ORE_SENSE,1,단계별 배율은 이전 단계에 누적 적용하지 않고 최종 표를 사용
+TOOL_SHOVEL,1,3,40,1.25,1.0,,1,단계별 배율은 이전 단계에 누적 적용하지 않고 최종 표를 사용
+TOOL_SHOVEL,2,4,80,1.25,1.35,,1,단계별 배율은 이전 단계에 누적 적용하지 않고 최종 표를 사용
+TOOL_SHOVEL,3,5,140,1.2,1.2,EFFECT_SHOVEL_BURIED_SENSE,1,단계별 배율은 이전 단계에 누적 적용하지 않고 최종 표를 사용

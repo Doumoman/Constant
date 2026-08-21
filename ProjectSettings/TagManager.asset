@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - platform
+  - CriticalCarry
+  - UmbrellaDeflectable
   layers:
   - Default
   - TransparentFX
@@ -24,17 +26,17 @@ TagManager:
   - Sensor
   - MovingPlatform
   - Holdable
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Interaction
+  - TerrainSolid
+  - UnbreakableBoundary
+  - DynamicObject
+  - HeldObject
+  - PortalBoundary
+  - VoidRecovery
+  - TerrainOneWay
+  - Enemy
+  - Hazard
+  - Rope
   - 
   - 
   - Player

@@ -1,0 +1,19 @@
+{
+  "name": "Game.Stage.Runtime",
+  "rootNamespace": "StarNight.Stage",
+  "references": [
+    "Game.Core.Runtime",
+    "Game.Interaction.Runtime",
+    "Game.Map.Runtime",
+    "Game.Player.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

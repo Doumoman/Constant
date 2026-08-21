@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40aef04a5583a34482f2f11b805c6f0, type: 3}
+  m_Name: EQUIPMENT_SPRING
+  m_EditorClassIdentifier: Game.Tools.Runtime::StarNight.Tools.Core.HandToolDefinition
+  itemId: 301
+  useCategory: 1
+  maxDurability: 8
+  allowDuplicate: 1
+  canDrop: 1
+  tabSelectable: 1
+  selectionOrder: 301
+  toolId: EQUIPMENT_SPRING
+  displayName: "\uC2A4\uD504\uB9C1 \uC2E0\uBC1C"
+  toolTags: 0
+  resourceMode: 1
+  maxResource: 8
+  groundAction:
+    WindupSeconds: 0
+    ImpactSeconds: 0
+    ActiveSeconds: 0
+    RecoverySeconds: 0
+    MovementMultiplier: 1
+    AimMode: 0
+    AnimatorTrigger: 
+    ActionSfx: {fileID: 0}
+    ActionVfx: {fileID: 0}
+  airAction:
+    WindupSeconds: 0
+    ImpactSeconds: 0
+    ActiveSeconds: 0
+    RecoverySeconds: 0
+    MovementMultiplier: 1
+    AimMode: 0
+    AnimatorTrigger: 
+    ActionSfx: {fileID: 0}
+    ActionVfx: {fileID: 0}
+  targetCellOffsets: []
+  runtimePrefab: {fileID: 6386252417150254410, guid: eadb5221061cbd245b8837250db243b8, type: 3}
+  hudIcon: {fileID: 0}
+  heldSprite: {fileID: 0}
+  animatorController: {fileID: 0}
+  shopPriceWon: 500
+  useSfx: {fileID: 0}
+  useVfx: {fileID: 0}
+  failureFeedback: 2
+  previewRangeCells: 1
+  previewAngleDegrees: 0

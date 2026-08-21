@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac562005a420d0438cbeade8b995954, type: 3}
+  m_Name: P1_MovementTuning
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Player.P1MovementTuning
+  colliderSize: {x: 0.72, y: 0.9}
+  maxRunSpeed: 3.75
+  groundAcceleration: 30
+  groundDeceleration: 40
+  airControl: 0.75
+  jumpHeight: 2.2
+  gravity: 24
+  jumpReleaseGravityMultiplier: 2.4
+  maxFallSpeed: 18
+  coyoteTime: 0.1
+  jumpBufferTime: 0.12
+  groundProbeDistance: 0.08
+  safeCellDwellTime: 0.3
+  recoveryBelowWorldMargin: 1
+  maxHealth: 4

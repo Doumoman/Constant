@@ -1,0 +1,22 @@
+{
+  "name": "Game.Interaction.Tests.EditMode",
+  "rootNamespace": "StarNight.Interaction.Tests",
+  "references": [
+    "Game.Interaction.Runtime",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

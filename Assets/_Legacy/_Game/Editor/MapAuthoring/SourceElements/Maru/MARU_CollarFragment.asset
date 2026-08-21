@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d57d63c6ea756947b780825d400df03, type: 3}
+  m_Name: MARU_CollarFragment
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementDefinition
+  ElementId: MARU_CollarFragment
+  DisplayName: "\uBCC4\uBAA9\uC904 \uD30C\uD3B8"
+  Category: 7
+  AllowedRegions: 255
+  RuntimePrefab: {fileID: 8579887575070057612, guid: d4db98deb8004e343b083db1096c1f71, type: 3}
+  BakedVisualProfile: {fileID: 11400000, guid: 05dfccbd2d7d7d343bc91f13cfb8d374, type: 2}
+  Footprint:
+    BoundsSize: {x: 1, y: 1}
+    PivotCell: {x: 0, y: 0}
+    OccupiedCells:
+    - {x: 0, y: 0}
+    SupportRequiredCells: []
+    ClearanceRequiredCells: []
+    HazardCells: []
+    TriggerCells: []
+  VisualProfile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 1, y: 1}
+    VisualOffsetCells: {x: 0, y: 0}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.88, g: 0.72, b: 0.32, a: 1}
+    FlipX: 0
+    FlipY: 0
+  CollisionProfile:
+    Mode: 1
+    IsSolid: 1
+    IsOneWay: 0
+    IsTriggerOnly: 0
+    PhysicsMaterial: {fileID: 0}
+    SolidShapes:
+    - ShapeType: 0
+      OffsetCells: {x: 0, y: 0}
+      SizeCells: {x: 0.74, y: 0.36}
+      RadiusCells: 0.5
+      Points: []
+    TriggerShapes: []
+    CollisionMask:
+      serializedVersion: 2
+      m_Bits: 0
+  BehaviorProfile:
+    InitialState: 1
+    WarningSeconds: 0
+    ActiveSeconds: 0
+    CooldownSeconds: 0
+    ResetOnRoomReenter: 0
+    PersistBrokenState: 1
+    PauseWhenRoomInactive: 1
+    Path:
+      Nodes: []
+      ClosedLoop: 0
+      SpeedCellsPerSecond: 1
+      WaitSeconds: 0
+      Easing: 0
+      PingPong: 0
+      StartForward: 1
+      ResetOnRoomReenter: 0
+    ProjectilePattern:
+      ProjectilePrefab: {fileID: 0}
+      ProjectileCount: 1
+      IntervalSeconds: 0
+      SpeedCellsPerSecond: 1
+      Direction: {x: 1, y: 0}
+      AimAtPlayer: 0
+  PlacementProfile:
+    Surface: 0
+    MinimumPortalDistanceCells: 0
+    MinimumSafeCellDistanceCells: 0
+    AllowMainRoute: 0
+    AllowBranchRoute: 1
+    AllowSecretRoute: 1
+    AllowMirrorX: 0
+    AllowMirrorY: 0
+    MaxPerRoom: 0
+    ForbiddenNeighborTags: []
+    RequiredNeighborTags: []
+  BudgetProfile:
+    ThreatCost: 0
+    UtilityValue: 3
+    CognitiveCost: 0
+    MotionCost: 0
+  CommonProfile:
+    Kind: 0
+    Damage: 1
+    Knockback: {x: 4, y: 2}
+    WeakHitsRequired: 1
+    TriggerDwellSeconds: 0
+    GravityScale: 0
+    SightOrBeamRangeCells: 0
+    ProjectileSpeedCellsPerSecond: 0
+    OpenSpeedCellsPerSecond: 0
+    WeightThreshold: 1
+    SignalMode: 0
+    SignalChannel: 
+    PulseSeconds: 0
+    VolumeSizeCells: {x: 1, y: 1}
+    ForceCellsPerSecond: 0
+    CycleOnSeconds: 0
+    CycleOffSeconds: 0
+    LaunchHeightCells: 0
+    DamageCooldownSeconds: 0.15
+  MaruProfile:
+    Kind: 3
+    DurabilityStages: 1
+    RewardMoney: 0
+    RewardId: maru_clue_next_stage
+    PreviewRewardText: "\uAE30\uB85D\uBC29\xB7\uB2E4\uC74C \uC2A4\uD14C\uC774\uC9C0
+      \uB2E8\uC11C"
+    PreviewPenaltyText: "\uC18C\uC9C0 \uC911 \uBC29\uC6B8 +15%"
+    ScheduledEntryDelaySeconds: 0
+    TimerRateMultiplier: 1.15
+    GuidanceSeconds: 0
+    ShortenNextBellSeconds: 0
+    MarkerCostType: 0
+    MarkerCostValue: 0
+    NoiseLevel: 0
+    PressureWeight: 2
+    MinimumExitRoomDistance: 0
+    MaximumExitRoomDistance: 0
+    MinimumAutomaticHazardDistanceCells: 0
+    ForbidExitRoom: 0
+    RecordGuideEffect: 0
+  ToolReactions:
+    Entries: []
+  MaruReaction:
+    IsTarget: 0
+    Reaction: 0
+    ResultState: 
+    DelaySeconds: 0
+  BakeMetadata:
+    SchemaVersion: 1
+    SourceGuid: 28cdf0c58e786e24e89044dfb5f6044c
+    SourceHash: dff9ab1481bba78e726582fe76a137f14c8df31041d7cdf95197a715f725ca13
+    RuntimePrefabGuid: d4db98deb8004e343b083db1096c1f71
+    LastBakedUnityVersion: 6000.3.8f1
+    LastBakedAtUtc: 2026-08-02T16:34:59.6829440Z

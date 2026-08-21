@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b63891080465a46b0f0264a2d913c1, type: 3}
+  m_Name: P2_Moonstone_Definition
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Tiles.TileDefinition
+  id: moonstone
+  tile: {fileID: 11400000, guid: 63c20926353eb0d47bc3fdb0a8f38e97, type: 2}
+  materialKind: 0
+  solid: 1
+  breakableBy: 2
+  sacred: 0
+  requiredEventCore: 0

@@ -1,0 +1,24 @@
+{
+  "name": "Game.Stage.Tests.PlayMode",
+  "rootNamespace": "StarNight.Stage.Tests",
+  "references": [
+    "Game.Stage.Runtime",
+    "Game.Core.Runtime",
+    "Game.Player.Runtime",
+    "Game.Interaction.Runtime",
+    "Game.Tools.Runtime",
+    "Game.Map.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

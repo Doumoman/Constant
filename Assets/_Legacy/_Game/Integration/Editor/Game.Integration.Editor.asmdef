@@ -1,0 +1,21 @@
+{
+  "name": "Game.Integration.Editor",
+  "rootNamespace": "StarNight.Integration.Editor",
+  "references": [
+    "Game.Integration.Runtime",
+    "Game.Stage.Runtime",
+    "Game.UI.Runtime",
+    "Game.Narrative.Runtime",
+    "Unity.TextMeshPro",
+    "YarnSpinner.Unity"
+  ],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

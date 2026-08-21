@@ -1,0 +1,24 @@
+{
+  "name": "MapAuthoring.Tests.EditMode",
+  "rootNamespace": "StarNight.MapAuthoring.Tests",
+  "references": [
+    "Game.Map.Runtime",
+    "Game.Stage.Runtime",
+    "MapAuthoring.Editor",
+    "UnityEditor.TestRunner",
+    "UnityEngine.TestRunner"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

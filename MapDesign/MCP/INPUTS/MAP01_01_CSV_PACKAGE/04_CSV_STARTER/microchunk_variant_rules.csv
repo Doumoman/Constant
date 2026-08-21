@@ -1,0 +1,3 @@
+﻿variant_rule_id,microchunk_id,variant_id,weight,required_world_tags,forbidden_world_tags,replace_slot_pool_pairs,active,notes
+VAR_H_STRAIGHT_RESOURCE,MC_GRAY_H_STRAIGHT_01,RESOURCE_LIGHT,60,,SITE|VILLAGE,RES_A=POOL_SLOT_COMMON_RESOURCE,1,
+VAR_H_STRAIGHT_EMPTY,MC_GRAY_H_STRAIGHT_01,EMPTY,40,,,RES_A=POOL_SLOT_EMPTY,1,

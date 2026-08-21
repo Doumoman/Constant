@@ -1,0 +1,22 @@
+{
+  "name": "StarNight.Tests.PlayMode",
+  "rootNamespace": "StarNight.Tests.PlayMode",
+  "references": [
+    "StarNight.Runtime",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "YarnSpinner.Unity"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

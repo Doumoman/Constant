@@ -1,0 +1,375 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d57d63c6ea756947b780825d400df03, type: 3}
+  m_Name: SUN_SunsetFlower
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementDefinition
+  ElementId: SUN_SunsetFlower
+  DisplayName: "\uD574\uB118\uC774 \uAF43"
+  Category: 4
+  AllowedRegions: 32
+  RuntimePrefab: {fileID: 4447406158454715371, guid: cdcdf2655b464974bab810b3b954c709, type: 3}
+  BakedVisualProfile: {fileID: 11400000, guid: 9f4a259db07869641af792469daf49a6, type: 2}
+  Footprint:
+    BoundsSize: {x: 2, y: 2}
+    PivotCell: {x: 0, y: 0}
+    OccupiedCells:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    SupportRequiredCells: []
+    ClearanceRequiredCells: []
+    HazardCells: []
+    TriggerCells:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+  VisualProfile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 2, y: 2}
+    VisualOffsetCells: {x: 0.5, y: 0.5}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.96, g: 0.52, b: 0.28, a: 1}
+    FlipX: 0
+    FlipY: 0
+  CollisionProfile:
+    Mode: 1
+    IsSolid: 0
+    IsOneWay: 0
+    IsTriggerOnly: 0
+    PhysicsMaterial: {fileID: 0}
+    SolidShapes: []
+    TriggerShapes:
+    - ShapeType: 0
+      OffsetCells: {x: 0.5, y: 0.5}
+      SizeCells: {x: 1.92, y: 1.92}
+      RadiusCells: 0.5
+      Points: []
+    CollisionMask:
+      serializedVersion: 2
+      m_Bits: 0
+  BehaviorProfile:
+    InitialState: 1
+    WarningSeconds: 0
+    ActiveSeconds: 0
+    CooldownSeconds: 0
+    ResetOnRoomReenter: 0
+    PersistBrokenState: 1
+    PauseWhenRoomInactive: 1
+    Path:
+      Nodes: []
+      ClosedLoop: 0
+      SpeedCellsPerSecond: 1
+      WaitSeconds: 0
+      Easing: 0
+      PingPong: 0
+      StartForward: 1
+      ResetOnRoomReenter: 0
+    ProjectilePattern:
+      ProjectilePrefab: {fileID: 0}
+      ProjectileCount: 1
+      IntervalSeconds: 0
+      SpeedCellsPerSecond: 1
+      Direction: {x: 1, y: 0}
+      AimAtPlayer: 0
+  PlacementProfile:
+    Surface: 0
+    MinimumPortalDistanceCells: 0
+    MinimumSafeCellDistanceCells: 0
+    AllowMainRoute: 1
+    AllowBranchRoute: 1
+    AllowSecretRoute: 1
+    AllowMirrorX: 0
+    AllowMirrorY: 0
+    MaxPerRoom: 0
+    ForbiddenNeighborTags: []
+    RequiredNeighborTags: []
+  BudgetProfile:
+    ThreatCost: 1
+    UtilityValue: 3
+    CognitiveCost: 2
+    MotionCost: 0
+  CommonProfile:
+    Kind: 0
+    Damage: 1
+    Knockback: {x: 4, y: 2}
+    WeakHitsRequired: 1
+    TriggerDwellSeconds: 0
+    GravityScale: 0
+    SightOrBeamRangeCells: 0
+    ProjectileSpeedCellsPerSecond: 0
+    OpenSpeedCellsPerSecond: 0
+    WeightThreshold: 1
+    SignalMode: 0
+    SignalChannel: 
+    PulseSeconds: 0
+    VolumeSizeCells: {x: 1, y: 1}
+    ForceCellsPerSecond: 0
+    CycleOnSeconds: 0
+    CycleOffSeconds: 0
+    LaunchHeightCells: 0
+    DamageCooldownSeconds: 0.15
+    ChainLengthCells: 3
+    SwingArcDegrees: 55
+    SwingPeriodSeconds: 2.4
+    TravelCells: 4
+    MoveSpeedCellsPerSecond: 2
+    HoldSeconds: 0.4
+    ReturnSpeedCellsPerSecond: 3
+    MaximumSpeedCellsPerSecond: 6
+    GuideDurationSeconds: 3
+    ContentsId: Empty
+  MaruProfile:
+    Kind: 0
+    DurabilityStages: 1
+    RewardMoney: 0
+    RewardId: 
+    PreviewRewardText: 
+    PreviewPenaltyText: 
+    ScheduledEntryDelaySeconds: 0
+    TimerRateMultiplier: 1
+    GuidanceSeconds: 0
+    ShortenNextBellSeconds: 0
+    MarkerCostType: 0
+    MarkerCostValue: 0
+    NoiseLevel: 0
+    PressureWeight: 1
+    MinimumExitRoomDistance: 0
+    MaximumExitRoomDistance: 0
+    MinimumAutomaticHazardDistanceCells: 0
+    ForbidExitRoom: 0
+    RecordGuideEffect: 0
+  MoonProfile:
+    Kind: 0
+    Damage: 1
+    Knockback: {x: 4, y: 2}
+    ChainLengthCells: 3
+    SwingArcDegrees: 50
+    SwingPeriodSeconds: 2.6
+    FallHeightCells: 5
+    ShadowWarningSeconds: 0.75
+    ResetAfterFall: 0
+    WidthCells: 2
+    CompressionCells: 0.4
+    BounceHeightCells: 3
+    Softness: 0.65
+    TiltSide: 1
+    FallDelaySeconds: 0.5
+    SegmentCount: 4
+    MinimumSegmentCount: 2
+    StepAngleDegrees: 90
+    RotationSpeedDegreesPerSecond: 180
+    InputSlots: 2
+    OutputId: moon_medicine
+    HealAmount: 1
+    Direction: {x: 0, y: 1}
+    ForceCellsPerSecond: 7
+    CycleOnSeconds: 1.2
+    CycleOffSeconds: 1
+    WaterDisableSeconds: 2
+  BridgeProfile:
+    Kind: 0
+    Damage: 1
+    Knockback: {x: 4, y: 2}
+    LengthCells: 4
+    MaxWeight: 2
+    SagCells: 0.3
+    TravelCells: 4
+    WeightRatio: 1
+    Direction: {x: 1, y: 0}
+    FlipOnSignal: 1
+    WetForceMultiplier: 0.5
+    UmbrellaAssistMultiplier: 1.25
+    PathSpeedCellsPerSecond: 3
+    WarningSeconds: 0.35
+    MinimumStrongCrosswindDistanceCells: 6
+    PlatformWidthCells: 2
+    StopCount: 2
+    WaitTimeSeconds: 0.75
+    HeavyDescentMultiplier: 2
+    VolumeSizeCells: {x: 2, y: 4}
+    ForceCellsPerSecond: 8
+    UmbrellaLiftMultiplier: 1.5
+    HitCount: 2
+    DwellBreakSeconds: 0.5
+    RequiredPieces: 3
+    SupportRewardId: magpie_next_room_support
+    CriticalObject: 0
+  PalaceProfile:
+    Kind: 0
+    Knockback: {x: 5, y: 2}
+    WidthCells: 1
+    HeightCells: 3
+    MoveSpeedCellsPerSecond: 2
+    PreventPermanentLock: 1
+    Direction: {x: 1, y: 0}
+    IntervalSeconds: 1.8
+    ProjectileSpeedCellsPerSecond: 5
+    UmbrellaPushMultiplier: 0.5
+    VolumeSizeCells: {x: 4, y: 2}
+    ForceCellsPerSecond: 8
+    Falloff: 0.25
+    HeavyBlockMultiplier: 0.35
+    ExitSafePocketCells: 2
+    SinkDepthCells: 1
+    WeightThreshold: 1
+    CycleSeconds: 0.8
+    LaunchHeightCells: 4
+    ReflectProjectiles: 1
+    NormalDirection: {x: -1, y: 0}
+    TransparentOnSignal: 1
+    TransparencyContextId: yeouiju
+    DrainRatePerSecond: 0.5
+    StartsMudBlocked: 1
+    KeepVoidRecoveryIndependent: 1
+    StartsActive: 1
+    UmbrellaLiftMultiplier: 1.4
+    CloudSupportMultiplier: 1.5
+    CanRefillWateringCan: 1
+  PostProfile:
+    Kind: 0
+    LengthCells: 4
+    Direction: {x: 1, y: 0}
+    SurfaceSpeedCellsPerSecond: 2.5
+    StopsOnHeavy: 1
+    KeepPortalExitSafe: 1
+    LaunchArc: 0.65
+    LaunchPower: 10
+    CollisionDamage: 1
+    RequiresParcelInsertion: 1
+    RejectPlayerEntry: 1
+    WarningDelaySeconds: 0.7
+    StampActiveSeconds: 0.15
+    StampDamage: 1
+    StampType: Return
+    EscapeSpaceBelowCells: 1
+    RotationStepDegrees: 90
+    RotationSequenceDegrees: 000000005a000000b40000000e010000
+    PushForceCellsPerSecond: 6
+    RequiresPair: 1
+    PairGuid: 
+    OneWay: 0
+    CompatibleParcelId: '*'
+    WidthCells: 4
+    SlowRate: 0.4
+    RevealsHiddenFootprints: 1
+    WaterDilutes: 1
+    UmbrellaBlocksDrops: 0
+    BoxCount: 4
+    StackPattern: 2x2
+    FlattenedHeightMultiplier: 0.4
+    RequiredStoryFlag: post.express.enabled
+    RequiredParcelId: OBJ_ParcelExpress
+    StartsActive: 0
+  SunProfile:
+    Kind: 7
+    ArcDegrees: 120
+    RotationSpeedDegreesPerSecond: 60
+    CycleOnSeconds: 2
+    CycleOffSeconds: 1
+    Damage: 1
+    CausesOverheat: 1
+    IgnoreSolidBlockers: 1
+    IgnoreUmbrellaBlock: 1
+    RotateOnSignal: 1
+    PreventFullOverheatOverlap: 1
+    ShadowSizeCells: {x: 2, y: 2}
+    ShadowRadiusCells: 1
+    ShadowLifetimeSeconds: 6
+    WaterSuppressesShadow: 1
+    KeepExitMarkersVisible: 1
+    PlatformWidthCells: 2
+    PlatformRotationStepDegrees: 90
+    LightSourceRef: RoomSun
+    BloomsInLight: 1
+    ClosesOnOverheat: 1
+    StartLengthCells: 1
+    MaxLengthCells: 6
+    GrowthDirection: {x: 0, y: 1}
+    StopAtUnbreakableBoundary: 1
+    FallIntervalSeconds: 2.5
+    CoolOnImpact: 1
+    CanFullyRefillWateringCan: 1
+    ThrownWaterMagnitude: 1
+    OverheatPlatformWidthCells: 2
+    SafeSeconds: 2
+    OverheatSeconds: 1
+    OverheatWarningSeconds: 0.25
+    WaterCoolSeconds: 3
+    PreventFullSunbeamOverlap: 1
+    InitialPhase: 0
+    EventId: sun.crow.rescue
+    AcceptedContextIds:
+    - letter
+    - sun_ember
+  PolarisProfile:
+    Kind: 0
+    PlatformWidthCells: 2
+    OrbitRadiusCells: {x: 3, y: 2}
+    OrbitPeriodSeconds: 4
+    DialOrbitMultiplier: 0.65
+    KeepOrbitInsideCamera: 1
+    BeamRangeCells: 8
+    SweepDegrees: 90
+    SweepPeriodSeconds: 3
+    Damage: 1
+    AppliesReturnMark: 1
+    MirrorCanReflect: 1
+    UmbrellaCanReflect: 0
+    SignalChangesDirection: 1
+    ReturnFieldSizeCells: {x: 4, y: 2}
+    ReturnDelaySeconds: 0.5
+    DestinationAnchorId: EntryAnchor
+    RequiresEntryAnchor: 1
+    MassTag: Heavy
+    Mass: 2
+    GravityDirection: {x: 0, y: -1}
+    CrushDamage: 1
+    PressureWeight: 2
+    HeavyCarryAllowed: 1
+    HookPullAllowed: 1
+    LowGravityScale: 0.45
+    NormalGravityScale: 1
+    StartsLowGravity: 0
+    MaxInstancesPerRoom: 1
+    NodeGuids:
+    - POLARIS_NODE_A
+    - POLARIS_NODE_B
+    BridgeCellCount: 6
+    StartsBridgeActive: 0
+    RhythmPattern: 00000000010000000000000002000000
+    MemoryId: memory.narae.bell
+    InteractionClearanceCells: 3
+    IgnoreAllTools: 0
+    VisualVariant: PolarisImmutable
+  ToolReactions:
+    Entries: []
+  MaruReaction:
+    IsTarget: 0
+    Reaction: 0
+    ResultState: 
+    DelaySeconds: 0
+  BakeMetadata:
+    SchemaVersion: 1
+    SourceGuid: cecd5227607f4ff4f94450199e2e8e27
+    SourceHash: cd9b09c1f5b8a6788d3fc9dd9b90506a8b73345355ffabbc20081b9cb444c6c7
+    RuntimePrefabGuid: cdcdf2655b464974bab810b3b954c709
+    LastBakedUnityVersion: 6000.3.8f1
+    LastBakedAtUtc: 2026-08-03T15:01:09.1481907Z

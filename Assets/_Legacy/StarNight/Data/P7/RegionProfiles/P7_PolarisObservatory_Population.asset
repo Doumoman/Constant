@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df28494e1fc38440916cb443c4c0038, type: 3}
+  m_Name: P7_PolarisObservatory_Population
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Population.P7.P7RegionPlacementProfileAsset
+  region: 6
+  enemyBudgets: {x: 11, y: 20, z: 10}
+  hazardBudgets: {x: 8, y: 13, z: 6}
+  enemyBudgetFloors: {x: 6, y: 12, z: 6}
+  hazardBudgetFloors: {x: 4, y: 7, z: 3}
+  mainPathGoldTarget: 4
+  enemyWeights:
+  - kind: 0
+    cost: 1
+    weight: 2
+  - kind: 2
+    cost: 2
+    weight: 4
+  - kind: 3
+    cost: 2
+    weight: 4
+  - kind: 5
+    cost: 2
+    weight: 4
+  - kind: 6
+    cost: 2
+    weight: 2
+  trapWeights:
+  - kind: 15
+    cost: 2
+    weight: 4
+  - kind: 16
+    cost: 2
+    weight: 4
+  - kind: 17
+    cost: 3
+    weight: 3
+  shopProducts: 00000000010000000200000003000000040000000500000006000000

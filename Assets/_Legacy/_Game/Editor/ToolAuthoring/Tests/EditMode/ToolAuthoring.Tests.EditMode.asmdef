@@ -1,0 +1,26 @@
+{
+  "name": "ToolAuthoring.Tests.EditMode",
+  "rootNamespace": "StarNight.ToolAuthoring.Tests",
+  "references": [
+    "Game.Interaction.Runtime",
+    "Game.Tools.Runtime",
+    "Game.WorldObjects.Runtime",
+    "Game.Map.Runtime",
+    "ToolAuthoring.Editor",
+    "UnityEditor.TestRunner",
+    "UnityEngine.TestRunner"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

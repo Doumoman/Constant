@@ -1,0 +1,17 @@
+{
+  "name": "Game.Interaction.Runtime",
+  "rootNamespace": "StarNight.Interaction",
+  "references": [
+    "Unity.InputSystem",
+    "Game.Map.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Game.Integration.Tests.EditMode",
+  "rootNamespace": "StarNight.Integration.Tests",
+  "references": [
+    "Game.Integration.Runtime",
+    "Game.Integration.Editor",
+    "Game.Stage.Runtime",
+    "Game.UI.Runtime",
+    "Game.Narrative.Runtime",
+    "Unity.TextMeshPro",
+    "YarnSpinner.Unity",
+    "UnityEditor.TestRunner",
+    "UnityEngine.TestRunner"
+  ],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

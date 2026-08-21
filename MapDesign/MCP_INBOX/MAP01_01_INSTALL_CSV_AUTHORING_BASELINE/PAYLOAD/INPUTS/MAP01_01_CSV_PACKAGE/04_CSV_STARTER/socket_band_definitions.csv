@@ -1,0 +1,7 @@
+﻿band_id,axis,min_local_coord,max_local_coord,recommended_center,minimum_clearance_tiles,description_ko
+BAND_H_LOW,HORIZONTAL_EDGE,1,2,1.5,2,좌우 외곽 낮은 통로
+BAND_H_MID,HORIZONTAL_EDGE,3,4,3.5,2,좌우 외곽 중간 통로
+BAND_H_HIGH,HORIZONTAL_EDGE,5,6,5.5,2,좌우 외곽 높은 통로
+BAND_V_LEFT,VERTICAL_EDGE,2,4,3.0,2,상하 외곽 왼쪽 통로
+BAND_V_CENTER,VERTICAL_EDGE,5,7,6.0,2,상하 외곽 중앙 통로
+BAND_V_RIGHT,VERTICAL_EDGE,8,10,9.0,2,상하 외곽 오른쪽 통로

@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a008dc586012e47b47dff8734e74bc, type: 3}
+  m_Name: P12_StarlessSeaChallengeCatalog
+  m_EditorClassIdentifier: StarNight.Runtime::StarNight.Campaign.P12.P12ChallengeCatalog
+  stages:
+  - stageId: 701
+    displayName: "\uB2EC\uBE5B \uD45C\uB958\uC7A5"
+    segment: 1
+    archetype: 0
+    sourceRegions: 0100000002000000
+    mechanics: 12
+    hazardCount: 2
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 9
+    roomCountMax: 11
+    mercyCorridor: 0
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uD754\uB4E4\uB9AC\uB294 \uB2EC\uBC18\uC8FD \uBC1C\uD310\uC5D0\uC11C
+      \uC2E4\uB2E4\uB9AC \uC2DC\uD55C \uBC1C\uD310\uC73C\uB85C \uBC15\uC790\uB97C
+      \uC774\uC5B4 \uAC74\uB10C\uB2E4."
+  - stageId: 702
+    displayName: "\uC7A0\uAE34 \uBC29\uC557\uAC04 \uBB3C\uAE38"
+    segment: 1
+    archetype: 0
+    sourceRegions: 0100000003000000
+    mechanics: 34
+    hazardCount: 2
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 9
+    roomCountMax: 11
+    mercyCorridor: 0
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uAE09\uB958\uB97C \uD0C0\uACE0 \uB099\uD558 \uC808\uAD6C\uC758
+      \uBC15\uC790\uB97C \uD53C\uD574 \uBB3C\uAE38\uC744 \uBE60\uC838\uB098\uAC04\uB2E4."
+  - stageId: 703
+    displayName: "\uBC14\uB78C \uAC08\uB9BC\uAE38"
+    segment: 1
+    archetype: 4
+    sourceRegions: 0200000004000000
+    mechanics: 129
+    hazardCount: 2
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 9
+    roomCountMax: 11
+    mercyCorridor: 1
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uD6A1\uD48D \uC18D\uC5D0\uC11C \uC18C\uD3EC \uBC1C\uC0AC\uAE30\uC758
+      \uADA4\uC801\uC744 \uC77D\uC5B4 \uAC08\uB9BC\uAE38\uC744 \uACE0\uB978\uB2E4."
+  - stageId: 704
+    displayName: "\uD574\uC0B4 \uAD00\uCE21 \uD56D\uB85C"
+    segment: 2
+    archetype: 2
+    sourceRegions: 050000000600000004000000
+    mechanics: 33856
+    hazardCount: 2
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 10
+    roomCountMax: 13
+    mercyCorridor: 0
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uD68C\uC804 \uD574\uC0B4\uC744 \uD53C\uD574 \uBCC4\uC790\uB9AC
+      \uC218\uC2E0\uAE30\uB97C \uCF1C\uACE0 \uCEE8\uBCA0\uC774\uC5B4\uB85C \uD56D\uB85C\uB97C
+      \uC624\uB978\uB2E4."
+  - stageId: 705
+    displayName: "\uAE09\uB958 \uBC18\uC1A1 \uC21C\uD658\uB85C"
+    segment: 2
+    archetype: 3
+    sourceRegions: 030000000400000001000000
+    mechanics: 262
+    hazardCount: 3
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 10
+    roomCountMax: 13
+    mercyCorridor: 0
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uBC18\uC1A1 \uB3C4\uC7A5\uC744 \uD53C\uD574 \uAE09\uB958\uC640
+      \uD754\uB4E4 \uBC1C\uD310\uC758 \uC21C\uD658\uB85C\uB97C \uD55C \uBC14\uD034
+      \uB3C8\uB2E4."
+  - stageId: 706
+    displayName: "\uC138 \uBC14\uB78C\uC758 \uD0D1"
+    segment: 2
+    archetype: 2
+    sourceRegions: 020000000500000006000000
+    mechanics: 10241
+    hazardCount: 3
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 10
+    roomCountMax: 13
+    mercyCorridor: 1
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uD6A1\uD48D\uC744 \uACAC\uB514\uBA70 \uC131\uC7A5 \uB369\uAD74\uACFC
+      \uADA4\uB3C4 \uBC1C\uD310\uC73C\uB85C \uD0D1\uC744 \uC624\uB978\uB2E4."
+  - stageId: 707
+    displayName: "\uAE34 \uC5B4\uC2A4\uB984 \uD68C\uB791"
+    segment: 3
+    archetype: 5
+    sourceRegions: 0100000006000000
+    mechanics: 196608
+    hazardCount: 3
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 12
+    roomCountMax: 14
+    mercyCorridor: 0
+    earlyMaru: 1
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uC77C\uCC0D \uAE68\uC5B4\uB09C \uB9C8\uB8E8\uB97C \uB4F1\uC9C0\uACE0
+      \uADC0\uD658\uACB0\uC815\uC744 \uBAA8\uC544 \uC5B4\uC2A4\uB984 \uD68C\uB791\uC744
+      \uB2EC\uB9B0\uB2E4."
+  - stageId: 708
+    displayName: "\uAC00\uB77C\uC549\uC740 \uC885\uB8E8"
+    segment: 3
+    archetype: 1
+    sourceRegions: 030000000400000005000000
+    mechanics: 4608
+    hazardCount: 3
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 12
+    roomCountMax: 14
+    mercyCorridor: 0
+    earlyMaru: 1
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uBC18\uC1A1 \uD544\uB4DC\uC640 \uACFC\uC5F4 \uBC1C\uD310\uC744
+      \uD53C\uD574 \uAC00\uB77C\uC549\uC740 \uC885\uB8E8 \uBC14\uB2E5\uAE4C\uC9C0
+      \uB0B4\uB824\uAC04\uB2E4."
+  - stageId: 709
+    displayName: "\uC0C8\uBCBD \uBB38\uD131"
+    segment: 3
+    archetype: 5
+    sourceRegions: 0200000006000000
+    mechanics: 16392
+    hazardCount: 3
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 12
+    roomCountMax: 14
+    mercyCorridor: 1
+    earlyMaru: 1
+    bossEcho: 0
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uC911\uB825 \uB2E4\uC774\uC5BC\uC744 \uB3CC\uB824 \uC2DC\uD55C
+      \uBC1C\uD310\uC744 \uBD99\uC7A1\uACE0 \uB9C8\uB8E8\uBCF4\uB2E4 \uBA3C\uC800
+      \uBB38\uD131\uC744 \uB118\uB294\uB2E4."
+  - stageId: 710
+    displayName: "\uB5A1\uBA54 \uC794\uD5A5"
+    segment: 4
+    archetype: 0
+    sourceRegions: 0100000002000000
+    mechanics: 36
+    hazardCount: 2
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 11
+    roomCountMax: 11
+    mercyCorridor: 0
+    earlyMaru: 0
+    bossEcho: 1
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uB5A1\uBA54 \uB099\uD558 \uB9AC\uB4EC\uC5D0 \uB9DE\uCDB0
+      \uD754\uB4E4 \uB2E4\uB9AC\uB97C \uAC74\uB108 \uC794\uD5A5\uC744 \uC9C0\uB098\uAC04\uB2E4."
+  - stageId: 711
+    displayName: "\uC218\uBB38 \uC794\uD5A5"
+    segment: 4
+    archetype: 3
+    sourceRegions: 0300000004000000
+    mechanics: 144
+    hazardCount: 2
+    ruleFamiliesPerRoomMax: 2
+    roomCountMin: 12
+    roomCountMax: 12
+    mercyCorridor: 0
+    earlyMaru: 0
+    bossEcho: 2
+    isFinalArrival: 0
+    firstPairingSafeDemonstration: 1
+    introducesNewMechanic: 0
+    coreActionSentence: "\uC218\uBB38\uC758 \uBB3C\uACB0\uACFC \uC18C\uD3EC \uBC1C\uC0AC\uAE30\uC758
+      \uD3EC\uD654\uB97C \uC21C\uD658\uB85C\uC5D0\uC11C \uD758\uB824\uBCF4\uB0B8\uB2E4."
+  - stageId: 712
+    displayName: "\uC0C8\uBCBD\uBCC4 \uC815\uBC15\uC9C0"
+    segment: 4
+    archetype: 0
+    sourceRegions: 06000000
+    mechanics: 32768
+    hazardCount: 0
+    ruleFamiliesPerRoomMax: 1
+    roomCountMin: 9
+    roomCountMax: 9
+    mercyCorridor: 1
+    earlyMaru: 0
+    bossEcho: 0
+    isFinalArrival: 1
+    firstPairingSafeDemonstration: 0
+    introducesNewMechanic: 0
+    coreActionSentence: "\uBCC4\uC790\uB9AC \uB2E4\uB9AC\uB97C \uBC1D\uD788\uBA70
+      \uC0C8\uBCBD\uBCC4 \uC815\uBC15\uC9C0\uC5D0 \uB9C8\uC9C0\uB9C9 \uC2E0\uD638\uB97C
+      \uBCF4\uB0B8\uB2E4."

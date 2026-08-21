@@ -1,0 +1,22 @@
+{
+  "name": "MapAuthoring.Editor",
+  "rootNamespace": "StarNight.MapAuthoring.Editor",
+  "references": [
+    "Game.Core.Runtime",
+    "Game.Map.Runtime",
+    "Game.Stage.Runtime",
+    "Game.Interaction.Runtime",
+    "Game.Tools.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

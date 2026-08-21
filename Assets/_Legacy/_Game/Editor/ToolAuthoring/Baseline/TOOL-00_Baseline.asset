@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8711afe9339d094b98a36710dcd4654, type: 3}
+  m_Name: TOOL-00_Baseline
+  m_EditorClassIdentifier: ToolAuthoring.Editor::StarNight.ToolAuthoring.Editor.ToolImplementationBaseline
+  Milestone: TOOL-00
+  CoreStandardVersion: v2.1
+  MapHarnessVersion: v1.0
+  ToolHarnessVersion: v1.0
+  InputActionAssetPath: Assets/_Game/Interaction/Data/Resources/Input/StarNightControls.inputactions
+  InputActionBackupPath: Assets/_Game/Editor/ToolAuthoring/Baseline/StarNightControls_TOOL-00_Backup.json
+  InputActionSha256: 3683F37A6B821CC13BFCD8C0A80D0B0B1181A6649D2D7C85DDB6EDCAE3119FCF
+  InputActionBackupSha256: 3683F37A6B821CC13BFCD8C0A80D0B0B1181A6649D2D7C85DDB6EDCAE3119FCF
+  RequiredLayers:
+  - Player
+  - PlayerSensor
+  - TerrainSolid
+  - TerrainOneWay
+  - UnbreakableBoundary
+  - PortalBoundary
+  - DynamicObject
+  - HeldObject
+  - ToolHitbox
+  - PlayerProjectile
+  - Enemy
+  - EnemyProjectile
+  - Hazard
+  - Interaction
+  - Rope
+  - HookLine
+  - WaterEffect
+  - VoidRecovery
+  - EditorOnly
+  RequiredUnityTags:
+  - CriticalCarry
+  - UmbrellaDeflectable
+  CapturedLayers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Water
+  - UI
+  - Wall
+  - Ground
+  - Ladder
+  - Pushable
+  - NPC
+  - Door
+  - LockedBlock
+  - FluidParticle
+  - FallingPlatform
+  - Sensor
+  - MovingPlatform
+  - Holdable
+  - Interaction
+  - TerrainSolid
+  - UnbreakableBoundary
+  - DynamicObject
+  - HeldObject
+  - PortalBoundary
+  - VoidRecovery
+  - TerrainOneWay
+  - Enemy
+  - Hazard
+  - Rope
+  - Player
+  CapturedUnityTags:
+  - CriticalCarry
+  - EditorOnly
+  - Finish
+  - GameController
+  - MainCamera
+  - Player
+  - Respawn
+  - UmbrellaDeflectable
+  - Untagged
+  - platform
+  PendingLayerAssignments:
+  - PlayerSensor
+  - ToolHitbox
+  - PlayerProjectile
+  - EnemyProjectile
+  - HookLine
+  - WaterEffect
+  - EditorOnly
+  DisabledLegacyToolCode:
+  - AssetPath: Assets/StarNight/Scripts/Runtime/Tools
+    Status: InactiveForNewHarness
+    IsolationRule: No assembly or source dependency from Assets/_Game
+  - AssetPath: Assets/StarNight/Scripts/Runtime/Explosions
+    Status: InactiveForNewHarness
+    IsolationRule: No assembly or source dependency from Assets/_Game
+  - AssetPath: Assets/StarNight/Scripts/Editor/P3StarwindToolGardenBuilder.cs
+    Status: InactiveForNewHarness
+    IsolationRule: No assembly or source dependency from Assets/_Game
+  AssemblyBoundaryStatus: IsolatedFromLegacyAssemblyCSharp
+  LayerMigrationStatus: FrozenContract_MigrationPendingExplicitApproval
+  GeneratedUtc: 2026-08-03T16:20:14.9060406Z

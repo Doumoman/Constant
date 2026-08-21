@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6bf08d8c13f6743bf2090fe08423fa, type: 3}
+  m_Name: RegionArt_Moon
+  m_EditorClassIdentifier: Game.Stage.Runtime::StarNight.Stage.Data.RegionArtProfile
+  regionId: moon
+  backgroundMaterial: {fileID: 2100000, guid: ce261021e33427245a50643499b6a3dc, type: 2}
+  terrainMaterial: {fileID: 2100000, guid: badd71532543f814ea58c9dc4fe5ba64, type: 2}
+  farBackgrounds:
+  - {fileID: 21300000, guid: 4b435b7f3b301bc46b240bfa04ada2e9, type: 3}
+  midBackgrounds:
+  - {fileID: 21300000, guid: 82513ab23bf15214892341ca41fc5b17, type: 3}
+  terrainEdges:
+  - {fileID: 4635384528031941002, guid: 15c1bba7d7fe1f1408464567541d6ac2, type: 3}
+  terrainFillers:
+  - {fileID: 21300000, guid: 8480fe75e60aef84bad1411eb36f8f37, type: 3}
+  roomProps:
+  - {fileID: 21300000, guid: 9849cb1b26e1100449b4802fdff4bcc5, type: 3}
+  foregroundProps:
+  - {fileID: 21300002, guid: e47c6579e7868a945b9bf1088627ae98, type: 3}
+  ambientTint: {r: 0.63, g: 0.74, b: 0.94, a: 1}
+  fogTint: {r: 0.14, g: 0.22, b: 0.4, a: 0.42}
+  pixelsPerUnit: 100
+  visualTiles:
+  - visualTileKey: Moon.Stone.Solid
+    sprites:
+    - {fileID: 21300000, guid: 8480fe75e60aef84bad1411eb36f8f37, type: 3}
+    materialOverride: {fileID: 2100000, guid: badd71532543f814ea58c9dc4fe5ba64, type: 2}
+    tint: {r: 1, g: 1, b: 1, a: 1}
+  - visualTileKey: Moon.Stone.Edge
+    sprites:
+    - {fileID: 4635384528031941002, guid: 15c1bba7d7fe1f1408464567541d6ac2, type: 3}
+    materialOverride: {fileID: 2100000, guid: badd71532543f814ea58c9dc4fe5ba64, type: 2}
+    tint: {r: 1, g: 1, b: 1, a: 1}

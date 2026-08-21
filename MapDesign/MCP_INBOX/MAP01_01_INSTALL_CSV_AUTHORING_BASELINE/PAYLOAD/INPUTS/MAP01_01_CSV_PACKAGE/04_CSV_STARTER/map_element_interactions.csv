@@ -1,0 +1,9 @@
+﻿source_element_or_tool_id,target_tag,interaction_result,magnitude,consumes_source,notes
+TOOL_PICKAXE,CRACKED,BREAK,1,0,곡괭이로 금 간 암석 파괴
+TOOL_SHOVEL,SOFT_SOIL,BREAK,1,0,삽으로 흙 제거
+BAT_STANDARD,CRACKED,BREAK,1,1,일반 폭탄
+BAT_MEGA,CRACKED,BREAK,2,1,메가 폭탄
+BAT_AIR_CANNON,SOFT_SOIL,BREAK,2,1,흙 최적화
+BAT_GRENADE,CRACKED,NONE,0,1,지형 파괴 금지
+ELEM_FALLING_PESTLE,CRACKED,BREAK,1,0,환경 해법
+ELEM_ROLLING_MOON_ROCK,CRACKED,BREAK,1,0,환경 해법

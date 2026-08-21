@@ -1,0 +1,11 @@
+﻿patch_rule_id,biome_id,patch_role,min_sector_count,max_sector_count,min_seed_distance,seed_count_min,seed_count_max,seed_weight,can_touch_world_edge,buffer_ring_sectors,allow_single_sector,max_world_share,distance_weight,altitude_weight,noise_weight,compactness_weight,branchiness_target,active,notes
+PATCH_CRATER_CORE,BIO_MOON_CRATER,CORE,5,18,4,1,1,100,1,1,0,0.35,1.0,0.25,0.45,0.75,0.45,1,
+PATCH_CRATER_SAT,BIO_MOON_CRATER,SATELLITE,2,16,3,0,3,70,1,0,0,0.35,1.0,0.25,0.6,0.65,0.55,1,
+PATCH_ROOT_CORE,BIO_CASSIA_ROOT,CORE,5,18,4,1,1,100,0,1,0,0.35,1.0,0.35,0.45,0.7,0.55,1,
+PATCH_ROOT_SAT,BIO_CASSIA_ROOT,SATELLITE,2,14,3,0,3,70,0,0,0,0.35,1.0,0.35,0.6,0.6,0.65,1,
+PATCH_MILL_CORE,BIO_ABANDONED_MILL,CORE,4,14,4,1,1,100,0,1,0,0.35,1.0,0.2,0.35,0.85,0.3,1,
+PATCH_MILL_SAT,BIO_ABANDONED_MILL,SATELLITE,2,10,3,0,2,45,0,0,0,0.35,1.0,0.2,0.5,0.8,0.35,1,
+PATCH_DOUGH_CORE,BIO_MOON_DOUGH,CORE,5,18,4,1,1,100,1,1,0,0.35,1.0,0.4,0.45,0.7,0.5,1,
+PATCH_DOUGH_SAT,BIO_MOON_DOUGH,SATELLITE,2,14,3,0,3,70,1,0,0,0.35,1.0,0.4,0.6,0.65,0.6,1,
+PATCH_ROOT_INTRUSION,BIO_CASSIA_ROOT,INTRUSION,1,5,2,0,2,20,0,0,1,0.1,1.0,0.3,0.8,0.2,0.9,1,
+PATCH_MILL_INTRUSION,BIO_ABANDONED_MILL,INTRUSION,1,4,2,0,2,15,0,0,1,0.1,1.0,0.1,0.8,0.25,0.85,1,

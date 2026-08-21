@@ -1,0 +1,168 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using StarNight.Map.WorldGeneration.Domain;
+
+namespace StarNight.Map.WorldGeneration.Generation
+{
+    public sealed class OptionalReturnPolicyResolutionError
+    {
+        public OptionalReturnPolicyResolutionError(
+            OptionalReturnPolicyResolutionErrorCode code,
+            OptionalRegionId regionId,
+            int sectorIndex,
+            int attachmentOrder,
+            string sourceField,
+            string message)
+        {
+            if (!Enum.IsDefined(typeof(OptionalReturnPolicyResolutionErrorCode), code))
+                throw new ArgumentOutOfRangeException(nameof(code));
+            if (sectorIndex < -1 || sectorIndex >= WorldGenConstants.SectorCount)
+                throw new ArgumentOutOfRangeException(nameof(sectorIndex));
+            if (attachmentOrder < -1 || attachmentOrder > 9999)
+                throw new ArgumentOutOfRangeException(nameof(attachmentOrder));
+            if (string.IsNullOrEmpty(sourceField) ||
+                !string.Equals(sourceField, sourceField.Trim(), StringComparison.Ordinal))
+                throw new ArgumentException("Source field must be canonical non-empty text.", nameof(sourceField));
+            if (string.IsNullOrEmpty(message) ||
+                !string.Equals(message, message.Trim(), StringComparison.Ordinal))
+                throw new ArgumentException("Error message must be canonical non-empty text.", nameof(message));
+
+            Code = code;
+            RegionId = regionId;
+            SectorIndex = sectorIndex;
+            AttachmentOrder = attachmentOrder;
+            SourceField = sourceField;
+            Message = message;
+        }
+
+        public OptionalReturnPolicyResolutionErrorCode Code { get; }
+        public OptionalRegionId RegionId { get; }
+        public int SectorIndex { get; }
+        public int AttachmentOrder { get; }
+        public string SourceField { get; }
+        public string Message { get; }
+
+        internal static int Compare(OptionalReturnPolicyResolutionError left, OptionalReturnPolicyResolutionError right)
+        {
+            var code = left.Code.CompareTo(right.Code);
+            if (code != 0) return code;
+            var region = left.RegionId.CompareTo(right.RegionId);
+            if (region != 0) return region;
+            var sector = left.SectorIndex.CompareTo(right.SectorIndex);
+            if (sector != 0) return sector;
+            var attachment = left.AttachmentOrder.CompareTo(right.AttachmentOrder);
+            if (attachment != 0) return attachment;
+            var field = string.Compare(left.SourceField, right.SourceField, StringComparison.Ordinal);
+            return field != 0 ? field : string.Compare(left.Message, right.Message, StringComparison.Ordinal);
+        }
+
+        internal bool SameIdentity(OptionalReturnPolicyResolutionError other)
+        {
+            return other != null && Code == other.Code && RegionId == other.RegionId &&
+                   SectorIndex == other.SectorIndex && AttachmentOrder == other.AttachmentOrder &&
+                   string.Equals(SourceField, other.SourceField, StringComparison.Ordinal) &&
+                   string.Equals(Message, other.Message, StringComparison.Ordinal);
+        }
+    }
+
+    public sealed class OptionalReturnPolicyResult
+    {
+        private readonly IReadOnlyList<OptionalReturnPolicyAssignment> assignments;
+        private readonly IReadOnlyList<OptionalReturnPolicyResolutionError> errors;
+
+        internal OptionalReturnPolicyResult(
+            OptionalReturnPolicyResolutionStatus status,
+            IEnumerable<OptionalReturnPolicyAssignment> sourceAssignments,
+            OptionalReturnPolicyDiagnostics diagnostics,
+            IEnumerable<OptionalReturnPolicyResolutionError> sourceErrors,
+            string sourceType0AssignmentDigest,
+            string sourceAccessAssignmentDigest,
+            string sourceRewardTierDigest,
+            string sourceGrowthDigest,
+            string canonicalDigest)
+        {
+            if (!Enum.IsDefined(typeof(OptionalReturnPolicyResolutionStatus), status))
+                throw new ArgumentOutOfRangeException(nameof(status));
+            if (sourceAssignments == null) throw new ArgumentNullException(nameof(sourceAssignments));
+            Diagnostics = diagnostics ?? throw new ArgumentNullException(nameof(diagnostics));
+            if (sourceErrors == null) throw new ArgumentNullException(nameof(sourceErrors));
+
+            var assignmentValues = new List<OptionalReturnPolicyAssignment>(sourceAssignments);
+            foreach (var assignment in assignmentValues)
+            {
+                if (assignment == null) throw new ArgumentException("Assignments cannot contain null.", nameof(sourceAssignments));
+            }
+            assignmentValues.Sort(CompareAssignments);
+
+            var errorValues = new List<OptionalReturnPolicyResolutionError>();
+            foreach (var error in sourceErrors)
+            {
+                if (error == null) throw new ArgumentException("Errors cannot contain null.", nameof(sourceErrors));
+                errorValues.Add(error);
+            }
+            errorValues.Sort(OptionalReturnPolicyResolutionError.Compare);
+            for (var index = errorValues.Count - 1; index > 0; index--)
+            {
+                if (errorValues[index].SameIdentity(errorValues[index - 1])) errorValues.RemoveAt(index);
+            }
+
+            var success = status == OptionalReturnPolicyResolutionStatus.Completed;
+            if (success)
+            {
+                if (errorValues.Count != 0 || assignmentValues.Count != diagnostics.AssignmentCount ||
+                    !IsLowerHexDigest(sourceType0AssignmentDigest) ||
+                    !IsLowerHexDigest(sourceAccessAssignmentDigest) ||
+                    !IsLowerHexDigest(sourceRewardTierDigest) ||
+                    !IsLowerHexDigest(sourceGrowthDigest) ||
+                    !IsLowerHexDigest(canonicalDigest))
+                    throw new ArgumentException("Completed results require complete assignments and source-chain digests.");
+            }
+            else if (assignmentValues.Count != 0 || !string.IsNullOrEmpty(canonicalDigest) || errorValues.Count == 0 ||
+                     diagnostics.ReturnDeviceReservationCount != 0 || diagnostics.ExtraSafeExitReservationCount != 0 ||
+                     diagnostics.RngDrawCount != 0 || diagnostics.SourceMutationCount != 0)
+            {
+                throw new ArgumentException("Failed results must be atomic, digest-free, and side-effect free.");
+            }
+
+            Status = status;
+            assignments = new ReadOnlyCollection<OptionalReturnPolicyAssignment>(assignmentValues);
+            errors = new ReadOnlyCollection<OptionalReturnPolicyResolutionError>(errorValues);
+            SourceType0AssignmentDigest = sourceType0AssignmentDigest ?? string.Empty;
+            SourceAccessAssignmentDigest = sourceAccessAssignmentDigest ?? string.Empty;
+            SourceRewardTierDigest = sourceRewardTierDigest ?? string.Empty;
+            SourceGrowthDigest = sourceGrowthDigest ?? string.Empty;
+            CanonicalDigest = canonicalDigest ?? string.Empty;
+            RngDrawCount = diagnostics.RngDrawCount;
+        }
+
+        public OptionalReturnPolicyResolutionStatus Status { get; }
+        public IReadOnlyList<OptionalReturnPolicyAssignment> Assignments => assignments;
+        public OptionalReturnPolicyDiagnostics Diagnostics { get; }
+        public IReadOnlyList<OptionalReturnPolicyResolutionError> Errors => errors;
+        public string SourceType0AssignmentDigest { get; }
+        public string SourceAccessAssignmentDigest { get; }
+        public string SourceRewardTierDigest { get; }
+        public string SourceGrowthDigest { get; }
+        public string CanonicalDigest { get; }
+        public int RngDrawCount { get; }
+        public bool IsSuccess => Status == OptionalReturnPolicyResolutionStatus.Completed;
+
+        private static int CompareAssignments(OptionalReturnPolicyAssignment left, OptionalReturnPolicyAssignment right)
+        {
+            var region = left.RegionId.CompareTo(right.RegionId);
+            return region != 0 ? region : left.RegionOrdinal.CompareTo(right.RegionOrdinal);
+        }
+
+        internal static bool IsLowerHexDigest(string value)
+        {
+            if (value == null || value.Length != 64) return false;
+            foreach (var character in value)
+            {
+                if ((character < '0' || character > '9') &&
+                    (character < 'a' || character > 'f')) return false;
+            }
+            return true;
+        }
+    }
+}

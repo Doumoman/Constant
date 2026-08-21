@@ -1,0 +1,43 @@
+{
+  "product": "StarNight",
+  "designAuthority": "별을_물어오는_밤_신규게임_시스템_GDD_v1.0.md",
+  "approvalStatus": "Pending",
+  "repositoryRoot": "C:/Users/user/Documents/GitHub/Optimal-Selection/Constant",
+  "implementationRoot": "Assets/StarNight",
+  "legacyMigration": false,
+  "legacyVisualReferenceOnly": true,
+  "unity": {
+    "version": "6000.3.8f1",
+    "fixedUpdateHz": 60,
+    "targetPlatform": "StandaloneWindows64"
+  },
+  "grid": {
+    "cellWorldUnits": [1, 1],
+    "referencePixelsPerCell": [48, 48],
+    "playerCellSize": [0.72, 0.9],
+    "standardDynamicObjectMaxCells": [1, 1]
+  },
+  "code": {
+    "rootNamespace": "StarNight",
+    "runtimeAssembly": "StarNight.Runtime",
+    "editorAssembly": "StarNight.Editor"
+  },
+  "input": {
+    "asset": "Assets/StarNight/Input/StarNightControls.inputactions",
+    "actionMap": "Gameplay",
+    "controlSchemes": [
+      "Keyboard&Mouse",
+      "Gamepad"
+    ]
+  },
+  "packagePins": {
+    "com.unity.inputsystem": "1.18.0",
+    "com.unity.render-pipelines.universal": "17.3.0",
+    "com.unity.2d.animation": "13.0.4",
+    "com.unity.2d.aseprite": "3.0.1",
+    "com.unity.2d.psdimporter": "12.0.1",
+    "com.unity.2d.spriteshape": "13.0.0",
+    "com.unity.2d.tilemap.extras": "6.0.1",
+    "com.unity.test-framework": "1.6.0"
+  }
+}

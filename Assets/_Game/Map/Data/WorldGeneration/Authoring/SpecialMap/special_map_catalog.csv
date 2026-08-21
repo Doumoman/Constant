@@ -1,0 +1,7 @@
+﻿special_map_id,display_name_ko,site_role,primary_biome_id,footprint_width_sectors,footprint_height_sectors,required_count,min_graph_distance_from_start,min_graph_distance_to_other_core_sites,allowed_entry_route_types,requires_tool,mandatory_reward_id,generation_mode,active,notes
+SITE_MOON_CORE_METEOR,월핵 운석 분화구,CORE_RESOURCE,BIO_MOON_CRATER,1,1,1,2,3,1|2|3,0,RES_MOON_CORE_ORE,FIXED_RECIPE_GRID,1,
+SITE_CASSIA_SAP_HEART,계수 중심 수액관,CORE_RESOURCE,BIO_CASSIA_ROOT,1,1,1,2,3,1|2|3,0,RES_CONDENSED_CASSIA_SAP,FIXED_RECIPE_GRID,1,
+SITE_DEEP_STAR_YEAST,심층 별누룩 둥지,CORE_RESOURCE,BIO_MOON_DOUGH,1,1,1,2,3,1|2|3,0,RES_DEEP_STAR_YEAST,FIXED_RECIPE_GRID,1,
+SITE_MOON_SEAL_FORGE,폐방앗간 월궁 인장 제작소,FORGE,BIO_ABANDONED_MILL,1,1,1,2,2,1|2|3,0,RES_MOON_SEAL,FIXED_RECIPE_GRID,1,
+SITE_MOON_BOSS_VAULT,월궁 보스 봉인지,BOSS,BIO_ABANDONED_MILL,2,1,1,4,2,1|2|3,0,,CUSTOM_BOSS,1,
+SITE_PRIMARY_VILLAGE,월궁 주요 마을,VILLAGE,,1,1,1,0,2,1|2|3,0,,VILLAGE_LAYOUT,1,

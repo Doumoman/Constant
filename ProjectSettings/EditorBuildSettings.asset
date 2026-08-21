@@ -6,41 +6,35 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_Prologue.unity
-    guid: 7b54df55d4666a74db1f7960e59713e3
+    path: Assets/_Legacy/_Game/Scenes/00_Boot.unity
+    guid: 61a2cc056e42cc94482f6cee49fcbf22
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_MoonMill.unity
-    guid: c29b68d506e20354aba8a55b8b110b00
+    path: Assets/_Legacy/_Game/Scenes/01_Title.unity
+    guid: 792fcbca101e329409ce744df032be36
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_MagpieBridge.unity
-    guid: 645dcb765f78bed41bc4b679ab782cc9
+    path: Assets/_Legacy/_Game/Scenes/02_RunShell.unity
+    guid: 183b446ec204c144a9900a21f157c6aa
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_CloudWhaleRanch.unity
-    guid: 96b85bc5701dff24a8e43c44457f3fcd
+    path: Assets/_Legacy/_Game/Scenes/10_Prologue_0_1.unity
+    guid: 5764bf02c2349de44aa5ae55f2d25160
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_StarPostOffice.unity
-    guid: 026911e9260a11d448646090b0ff6b50
+    path: Assets/_Legacy/StarNight/Scenes/Game/P5_MoonPalace_1-1_CraterWorkshop.unity
+    guid: e6d7e53445bf82e46922047ca53ed03f
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_SleepingSunGarden.unity
-    guid: bbae09a8c3185574f95fd696220b3f97
+    path: Assets/_Legacy/StarNight/Scenes/Game/P10_MoonPalace_FirstBranches.unity
+    guid: 2659600444c27484a9abff9ad65f5b8f
   - enabled: 1
-    path: Assets/Scenes/StarNight/StarNight_PolarisObservatory.unity
-    guid: aa5155461eb2d0140b70b0123ef2fa3b
+    path: Assets/_Legacy/StarNight/Scenes/Game/P11_FullJourney_CommonEndings.unity
+    guid: c39e1d6f6dfa98b44991461c60cd2ed2
   - enabled: 1
-    path: Assets/Scenes/Constant/Constant_Hub.unity
-    guid: 9f17eb5997f09614996dd340da24f461
+    path: Assets/_Legacy/StarNight/Scenes/Game/P12_StarlessSea_DawnVoyage.unity
+    guid: 3a3ac3fcc741b5848ae4061d32f24cf8
   - enabled: 1
-    path: Assets/Scenes/Constant/Constant_Lavernis.unity
-    guid: 4ea412c89c87f704fa94aaea331d3b70
+    path: Assets/_Legacy/_Game/Scenes/11_Moon_1_1.unity
+    guid: 2dfcd54aed0ec92409cf31a0206c20af
   - enabled: 1
-    path: Assets/Scenes/Constant/Constant_Sylmare.unity
-    guid: 65150d1191c3de04688a64394788f686
-  - enabled: 1
-    path: Assets/Scenes/Constant/Constant_Eidron.unity
-    guid: c2375ba53f8eadf468241bd9536aa26c
-  - enabled: 1
-    path: Assets/Legacy/Scenes/Main/Main.unity
-    guid: f1aacfca45028654b9ea8f46f2595877
+    path: Assets/_Legacy/_Game/Scenes/99_GridLab.unity
+    guid: dc8a0b03c60dbe245b35314fbecbca5c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 22a171633c818624ea64273545116c5d, type: 3}
   m_UseUCBPForAssetBundles: 0

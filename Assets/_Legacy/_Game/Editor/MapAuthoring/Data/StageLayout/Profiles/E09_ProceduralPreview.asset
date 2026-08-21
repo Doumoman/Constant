@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681e1a352b8c5748902cc6fbbd7a541, type: 3}
+  m_Name: E09_ProceduralPreview
+  m_EditorClassIdentifier: Game.Stage.Runtime::StarNight.Stage.Layout.StageMapProfile
+  StageId: MAP-E09-PREVIEW
+  MinRooms: 6
+  MaxRooms: 9
+  MainRouteLengthRange: {x: 4, y: 6}
+  BranchCountRange: {x: 1, y: 3}
+  LoopCountRange: {x: 0, y: 1}
+  RequiredRoles:
+  - Role: 0
+    MinCount: 1
+    MaxCount: 1
+  - Role: 5
+    MinCount: 1
+    MaxCount: 1
+  - Role: 2
+    MinCount: 1
+    MaxCount: 3
+  SizeWeights:
+    Micro: 4
+    Wide: 5
+    Tall: 4
+    Large: 3
+    LongHall: 2
+    DeepShaft: 2
+    Boss: 0
+  AllowedFamilies: 0000000001000000020000000300000004000000
+  Budget:
+    Threat: 12
+    Utility: 10
+    Event: 3
+    Shop: 1
+    MaxSlotsPerRoom: 3
+  GuaranteedEvents:
+  - EventId: ReturnStatue
+    TargetRole: 4
+    MinimumCount: 1

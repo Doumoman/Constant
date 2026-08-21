@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af9e518c2aba9046b631f23cdc6719c, type: 3}
+  m_Name: BRIDGE_ThreadBridge_Visual
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementVisualProfileAsset
+  ElementId: BRIDGE_ThreadBridge
+  SourceHash: 3bc776c8c3265d948a4a9c8e61611bf22fc742191d69daa65b8d5e02bea092e3
+  Profile:
+    RenderMode: 1
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 4, y: 1}
+    VisualOffsetCells: {x: 1.5, y: 0}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.86, g: 0.78, b: 0.92, a: 1}
+    FlipX: 0
+    FlipY: 0

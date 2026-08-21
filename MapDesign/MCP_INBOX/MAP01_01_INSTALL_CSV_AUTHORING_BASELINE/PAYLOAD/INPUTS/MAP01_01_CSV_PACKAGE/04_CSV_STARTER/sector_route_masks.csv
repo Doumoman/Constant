@@ -1,0 +1,16 @@
+﻿route_mask_id,route_type,open_l,open_r,open_u,open_d,mandatory_allowed,description_ko,active
+ROUTE_T0_NONE,0,0,0,0,0,0,완전 폐쇄,1
+ROUTE_T0_L,0,1,0,0,0,0,왼쪽 막다른 진입,1
+ROUTE_T0_R,0,0,1,0,0,0,오른쪽 막다른 진입,1
+ROUTE_T0_U,0,0,0,1,0,0,위쪽 선택 진입,1
+ROUTE_T0_D,0,0,0,0,1,0,아래쪽 선택 진입,1
+ROUTE_T0_LU,0,1,0,1,0,0,왼쪽과 위,1
+ROUTE_T0_LD,0,1,0,0,1,0,왼쪽과 아래,1
+ROUTE_T0_RU,0,0,1,1,0,0,오른쪽과 위,1
+ROUTE_T0_RD,0,0,1,0,1,0,오른쪽과 아래,1
+ROUTE_T0_UD,0,0,0,1,1,0,수직 선택 샤프트,1
+ROUTE_T0_LUD,0,1,0,1,1,0,오른쪽 폐쇄 선택 공간,1
+ROUTE_T0_RUD,0,0,1,1,1,0,왼쪽 폐쇄 선택 공간,1
+ROUTE_T1_LR,1,1,1,0,0,1,좌우 기본 관통,1
+ROUTE_T2_LRD,2,1,1,0,1,1,좌우와 하강,1
+ROUTE_T3_LRU,3,1,1,1,0,1,좌우와 상승,1

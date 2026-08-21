@@ -1,0 +1,17 @@
+{
+  "name": "Game.WorldObjects.Runtime",
+  "rootNamespace": "StarNight.WorldObjects",
+  "references": [
+    "Game.Interaction.Runtime",
+    "Game.Map.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

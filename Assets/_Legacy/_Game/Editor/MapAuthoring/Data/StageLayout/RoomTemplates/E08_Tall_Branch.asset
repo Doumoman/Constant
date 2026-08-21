@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbad55431937bc499cedc4563d14025, type: 3}
+  m_Name: E08_Tall_Branch
+  m_EditorClassIdentifier: Game.Stage.Runtime::StarNight.Stage.Layout.RoomTemplate
+  RoomId: E08_Tall_Branch
+  Region: 0
+  Role: 2
+  SizeCells: {x: 12, y: 16}
+  CameraMode: 0
+  RoomPrefab: {fileID: 0}
+  Sockets:
+  - SocketGuid: Left
+    Side: 0
+    LocalCell: {x: 0, y: 2}
+    OpeningSizeCells: {x: 1, y: 1}
+    Traversal: 0
+    MainRouteAllowed: 1
+    SecretOnly: 0
+    FloorHeightCell: 2
+  - SocketGuid: Right
+    Side: 1
+    LocalCell: {x: 12, y: 2}
+    OpeningSizeCells: {x: 1, y: 1}
+    Traversal: 0
+    MainRouteAllowed: 1
+    SecretOnly: 0
+    FloorHeightCell: 2
+  - SocketGuid: Up
+    Side: 2
+    LocalCell: {x: 6, y: 16}
+    OpeningSizeCells: {x: 1, y: 1}
+    Traversal: 2
+    MainRouteAllowed: 1
+    SecretOnly: 0
+    FloorHeightCell: 0
+  - SocketGuid: Down
+    Side: 3
+    LocalCell: {x: 6, y: 0}
+    OpeningSizeCells: {x: 1, y: 1}
+    Traversal: 2
+    MainRouteAllowed: 1
+    SecretOnly: 0
+    FloorHeightCell: 0
+  Budget:
+    MaxElements: 24
+    MaxDynamicBodies: 8
+    MaxHazards: 8
+    MaxSignals: 8
+  ContentTags:
+  - MAP-E08
+  - Branch
+  - 12x16
+  GeometryHash:
+    Value: E08-E08_Tall_Branch-12x16

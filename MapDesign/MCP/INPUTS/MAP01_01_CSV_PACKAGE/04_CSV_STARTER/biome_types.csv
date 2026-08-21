@@ -1,0 +1,5 @@
+﻿biome_id,display_name_ko,stage_id,required,min_patch_count,max_patch_count,min_core_patch_count,preferred_altitude_min_sector_y,preferred_altitude_max_sector_y,growth_weight,tile_theme_id,audio_profile_id,microchunk_pool_prefix,sector_recipe_pool_prefix,common_resource_pool_id,map_element_pool_id,required_special_map_ids,active,notes
+BIO_MOON_CRATER,월궁 분화구,STAGE_MOON_01,1,1,4,1,0,7,1.0,THEME_MOON_CRATER,AUDIO_MOON_CRATER,MCPOOL_CRATER,SECPOOL_CRATER,POOL_RES_CRATER,POOL_ELEM_CRATER,SITE_MOON_CORE_METEOR,1,같은 바이옴 반복 패치 허용
+BIO_CASSIA_ROOT,계수나무 뿌리숲,STAGE_MOON_01,1,1,4,1,2,12,1.0,THEME_CASSIA_ROOT,AUDIO_CASSIA_ROOT,MCPOOL_ROOT,SECPOOL_ROOT,POOL_RES_ROOT,POOL_ELEM_ROOT,SITE_CASSIA_SAP_HEART,1,같은 바이옴 반복 패치 허용
+BIO_ABANDONED_MILL,폐방앗간,STAGE_MOON_01,1,1,4,1,1,11,0.9,THEME_ABANDONED_MILL,AUDIO_ABANDONED_MILL,MCPOOL_MILL,SECPOOL_MILL,POOL_RES_MILL,POOL_ELEM_MILL,SITE_MOON_SEAL_FORGE,1,같은 바이옴 반복 패치 허용
+BIO_MOON_DOUGH,달반죽 지하,STAGE_MOON_01,1,1,4,1,0,7,1.0,THEME_MOON_DOUGH,AUDIO_MOON_DOUGH,MCPOOL_DOUGH,SECPOOL_DOUGH,POOL_RES_DOUGH,POOL_ELEM_DOUGH,SITE_DEEP_STAR_YEAST,1,같은 바이옴 반복 패치 허용

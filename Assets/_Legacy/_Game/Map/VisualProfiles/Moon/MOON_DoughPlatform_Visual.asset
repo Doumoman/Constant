@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af9e518c2aba9046b631f23cdc6719c, type: 3}
+  m_Name: MOON_DoughPlatform_Visual
+  m_EditorClassIdentifier: Game.Map.Runtime::StarNight.Map.MapElementVisualProfileAsset
+  ElementId: MOON_DoughPlatform
+  SourceHash: b1b1e83ecf5f5c6ce45e2cb8e38ac83b56b88c45697c55bf2142be50f58595f1
+  Profile:
+    RenderMode: 0
+    SingleSprite: {fileID: 0}
+    SegmentStart: {fileID: 0}
+    SegmentMiddle: {fileID: 0}
+    SegmentEnd: {fileID: 0}
+    AnimatorPrefab: {fileID: 0}
+    VisualSizeCells: {x: 2, y: 1}
+    VisualOffsetCells: {x: 0.5, y: 0}
+    SortingLayerName: Default
+    SortingOrder: 0
+    MaterialOverride: {fileID: 0}
+    Tint: {r: 0.86, g: 0.82, b: 0.62, a: 1}
+    FlipX: 0
+    FlipY: 0

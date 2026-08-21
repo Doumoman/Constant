@@ -1,0 +1,24 @@
+{
+  "name": "StarNight.Tests.EditMode",
+  "rootNamespace": "StarNight.Tests.EditMode",
+  "references": [
+    "StarNight.Runtime",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "YarnSpinner.Unity"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
