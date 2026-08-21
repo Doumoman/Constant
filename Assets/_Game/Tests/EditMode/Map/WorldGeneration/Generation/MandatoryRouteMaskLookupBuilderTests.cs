@@ -32,7 +32,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Generation
             "MandatoryRoutePass", "SectorRouteMaskAssigner",
             "MandatoryRouteOverlayRenderer", "MandatoryRouteOverlayReport",
             "Type0Overlay",
-            "MicroChunkDefinition", "MandatoryRouteBatchRunner",
+            "MicrochunkTileLayerRules", "MandatoryRouteBatchRunner",
             "MandatoryRouteBatchExitAudit", "OptionalReturnConnection", "OptionalClueAssigner"
         };
 

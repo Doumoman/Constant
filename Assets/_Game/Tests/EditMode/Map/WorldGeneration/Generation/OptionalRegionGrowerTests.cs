@@ -34,7 +34,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Generation
         public static IEnumerable<string> FutureRuntimeSymbols => new[]
         {
             "OptionalOverlayEdge", "OptionalReturnConnection", "OptionalClueAssigner",
-            "MicroChunkDefinition", "TileLayerRules", "OptionalRegionOverlayRenderer",
+            "MicrochunkTileLayerRules", "MicrochunkTransformer", "OptionalRegionOverlayRenderer",
             "OptionalRegionValidationOverlayWindow", "OptionalRegionOverlay", "GeneratedOptionalRegionCsvWriter",
             "OptionalRouteMaskLookup"
         };
