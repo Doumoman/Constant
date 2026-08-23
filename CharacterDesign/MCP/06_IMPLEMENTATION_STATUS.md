@@ -1,15 +1,15 @@
 # Character Implementation Status
 
 schema_version: 1
-harness_version: 1.2
+harness_version: 1.3
 current_phase: CHAR00
-current_task: CHAR00_01
-last_finalized_task: NONE
+current_task: NONE
+last_finalized_task: CHAR00_01
 next_task_candidate: CHAR00_02
 
 requires_result:
-  path: CharacterDesign/MCP/RESULTS/CHAR00_01_INVENTORY_CHARACTER_INPUT_PHYSICS_MAP_RESULT.md
-  exact_status: "STATUS: PASS"
+  path: NONE
+  exact_status: NONE
 
 transition_policy:
   finalize_opens_next: false
@@ -20,7 +20,7 @@ transition_policy:
   push_requires_user_instruction: true
 
 task_states:
-  CHAR00_01: CURRENT
+  CHAR00_01: COMPLETE
   CHAR00_02: LOCKED
   CHAR00_03: LOCKED
   CHAR01_01: LOCKED
