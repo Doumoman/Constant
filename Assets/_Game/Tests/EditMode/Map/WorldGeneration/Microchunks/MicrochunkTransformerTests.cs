@@ -81,7 +81,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Microchunks
         {
             "GeneratedSectorMicrochunksWriter",
             "PopulationSlotIndex",
-            "Microchunk96CellValidator",
+            "StableSpawnId",
             "MicrochunkReachabilityProbe",
             "MicrochunkAuthoringWindow",
             "MicrochunkCsvImporter",
