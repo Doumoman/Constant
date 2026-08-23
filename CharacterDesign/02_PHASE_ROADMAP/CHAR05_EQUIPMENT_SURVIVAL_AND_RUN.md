@@ -1,0 +1,29 @@
+# CHAR05 — 장비·생존·런 상태
+
+## 목표
+
+폭탄·로프·체력·위험 지형·사망·런 상태·HUD·프레젠테이션을 연결한다.
+
+## 진입 조건
+
+CHAR04 EXIT 승인 및 상호작용·충격 계약 완료
+
+## 종료 조건
+
+장비·피해·사망·런 상태가 중복 없이 동작하고 HUD·연출이 논리와 분리됨
+
+## 작업 목록
+
+| 작업 | 내용 | TASK | RESULT |
+|---|---|---|---|
+| CHAR05_01 | 폭탄·퓨즈·폭발 피해·MAP 지형 변경 요청 구현 | `CHAR05_01_IMPLEMENT_BOMB_AND_TERRAIN_MUTATION_REQUEST.md` | `CHAR05_01_IMPLEMENT_BOMB_AND_TERRAIN_MUTATION_REQUEST_RESULT.md` |
+| CHAR05_02 | 로프·등반·방 경계 제한과 보조 이동 구현 | `CHAR05_02_IMPLEMENT_ROPE_CLIMBING_AND_TRAVERSAL_SUPPORT.md` | `CHAR05_02_IMPLEMENT_ROPE_CLIMBING_AND_TRAVERSAL_SUPPORT_RESULT.md` |
+| CHAR05_03 | 체력·피해·위험·사망·런 실패·복귀 구현 | `CHAR05_03_IMPLEMENT_HEALTH_HAZARDS_DEATH_AND_RUN_FAILURE.md` | `CHAR05_03_IMPLEMENT_HEALTH_HAZARDS_DEATH_AND_RUN_FAILURE_RESULT.md` |
+| CHAR05_04 | 런 상태·인벤토리·HUD·애니메이션/사운드 이벤트 연결 | `CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE.md` | `CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE_RESULT.md` |
+| CHAR05_05 | 장비·생존·런 상태 종료 감사 | `CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT.md` | `CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT_RESULT.md` |
+
+## 단계 규칙
+
+- 위 순서를 변경하지 않는다.
+- 동시에 두 작업을 CURRENT로 만들지 않는다.
+- 마지막 EXIT AUDIT가 PASS여도 다음 단계는 별도 OPEN 패치 전까지 LOCKED다.
