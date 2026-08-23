@@ -144,8 +144,8 @@ namespace StarNight.Map.Tests.WorldGeneration
                     var runtime = typeof(OptionalRegionOverlayBuilder).Assembly;
                     foreach (var forbidden in new[]
                              {
-                                 "MicrochunkTransformer", "TileLayerRuleMatrix", "MicrochunkTransformer",
-                                 "MicrochunkSocketEdgeValidator", "MicrochunkObjectSlotValidator", "MicrochunkReachabilityProbe",
+                                  "MicrochunkSocketAndSlotEditor", "TileLayerRuleMatrix", "MicrochunkAuthoringWindow",
+                                 "MicrochunkCsvImporter", "PopulationSlotIndex", "MicrochunkAuthoringGrid",
                                  "GeneratedOptionalRegionCsvWriter", "SectorRecipeResolver",
                                  "BoundaryCandidateIndex", "GeneratedWorldBundleWriter"
                              })

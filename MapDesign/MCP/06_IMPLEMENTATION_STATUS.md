@@ -100,13 +100,13 @@ NONE
 | MAP06_10_MAP06_OVERLAY_AND_EXIT_TESTS | COMPLETE |
 | MAP07_01_IMPLEMENT_MICROCHUNK_DEFINITION | COMPLETE |
 | MAP07_02_IMPLEMENT_TILE_LAYER_RULES | COMPLETE |
-| MAP07_03_IMPLEMENT_MICROCHUNK_TRANSFORMS | LOCKED |
-| MAP07_04_IMPLEMENT_SOCKET_EDGE_VALIDATION | LOCKED |
-| MAP07_05_IMPLEMENT_OBJECT_SLOT_VALIDATION | LOCKED |
-| MAP07_06_IMPLEMENT_96_CELL_VALIDATOR | LOCKED |
-| MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE | LOCKED |
-| MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID | LOCKED |
-| MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR | LOCKED |
+| MAP07_03_IMPLEMENT_MICROCHUNK_TRANSFORMS | COMPLETE |
+| MAP07_04_IMPLEMENT_SOCKET_EDGE_VALIDATION | COMPLETE |
+| MAP07_05_IMPLEMENT_OBJECT_SLOT_VALIDATION | COMPLETE |
+| MAP07_06_IMPLEMENT_96_CELL_VALIDATOR | COMPLETE |
+| MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE | COMPLETE |
+| MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID | COMPLETE |
+| MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR | COMPLETE |
 | MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT | LOCKED |
 | MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT | LOCKED |
 | MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP07_02_IMPLEMENT_TILE_LAYER_RULES
+MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP07_02_IMPLEMENT_TILE_LAYER_RULES_RESULT.md
+REPORTS/MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR_RESULT.md
 STATUS: PASS
-SHA-256: 98240add84d955ffdc50c3e22e18eb3a0255d9a1d397e9d6c2039e2488dafc4e
+SHA-256: 7bc550e92359f4f24c642b24000be1e1a8198fdeb014ce1685555bf5f83a0340
 ```
 
 ## Confirmed Baseline
@@ -812,15 +812,52 @@ SHA-256: 98240add84d955ffdc50c3e22e18eb3a0255d9a1d397e9d6c2039e2488dafc4e
 - MAP07_01 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3334`, Runtime C#/meta `8/8`, test C#/meta `1/1`, Microchunks folder meta `2`, Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, duplicate GUID groups `0`
 - MAP07_01 forbidden scope: tile-layer rule matrix, transforms, socket-edge validator, object-slot semantic validator, standalone 96-cell validator, reachability probe, CSV importer/exporter, editor UI, generated-sector writer, Scene/Prefab/ProjectSettings/asmdef/asmref work `0`
 - MAP07_01 boundary advance: MAP07_01 symbols are allowed; before MAP07_02 patch, MAP07_02+ production symbols remained locked/forbidden
+- MAP07_02 tile-layer rules: `MicrochunkTileLayerOccupancy`, `MicrochunkTileLayerRuleViolation`, `MicrochunkTileLayerRuleResult`, `MicrochunkTileLayerRules` implemented deterministic eight-layer occupancy and compatibility rules; rule/API digest `ace56d38399aa6ccea6e0e0e7361f3802b7eb7418b1ef1d081f6a40b04e08160`
+- MAP07_02 rule semantics: exact `NONE` is unoccupied, DecorationBack/DecorationFront are non-colliding overlays, Marker is allowed only with GroundSolid/OneWay/Breakable/Hazard, and all other occupied non-decoration pairs default forbidden
+- MAP07_02 tests: MicrochunkTileLayerRules `150/150`, MicrochunkDefinition `146/146`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `5001/5001`, failed/skipped `0/0`
+- MAP07_02 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3334 -> 3339`, new Runtime C#/meta `4/4`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `5 <= 17`, matching existing test meta modified `0`
+- MAP07_02 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_02 boundary advance: MAP07_02 symbols are allowed; before MAP07_03 patch, MAP07_03+ production symbols remained locked/forbidden
+- MAP07_03 transforms: `MicrochunkTransformOptions`, `MicrochunkTransformUtility`, `MicrochunkTransformResult`, `MicrochunkTransformer` implemented exact `R0/MIRROR_X/MIRROR_Y/R180` 12x8 coordinate, socket-side, object-orientation, optional code/band/id remapping, and 90-degree rotation rejection; transform digest `7031695ec2c4bb333be69ba490c03aef003124d50953d577b4943c634336b031`
+- MAP07_03 model repair: `MicrochunkObjectOrientation` now supports `NONE/L/R/U/D`, `MicrochunkEnums.cs` changed from `aef9b83a97e839dc67b16cdf1cae94f60add83121a863eb30dd8790ace9919d7` to `476df39fa189d624ec0502d500c7f4b46291f5aeff2894aa0aaa13e935e6621b`, updated MAP07_01 model/API digest `5ed21ca7b86cfebf0095eba6d14bf4bb27be75ce39ffaf46f3c32a516d77613b`
+- MAP07_03 tests: MicrochunkTransformer `483/483`, MicrochunkTileLayerRules `150/150`, MicrochunkDefinition `146/146`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `5484/5484`, failed/skipped `0/0`
+- MAP07_03 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3339 -> 3344`, new Runtime C#/meta `4/4`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `6 <= 17`, matching existing test meta modified `0`
+- MAP07_03 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_03 boundary advance: MAP07_03 symbols are allowed; before MAP07_04 patch, MAP07_04+ production symbols remained locked/forbidden
+- MAP07_04 socket-edge validation: `MicrochunkSocketBandDefinition`, `MicrochunkEdgeSignatureDefinition`, `MicrochunkSocketEdgeValidationViolation`, `MicrochunkSocketEdgeValidationResult`, `MicrochunkSocketEdgeValidator` implemented deterministic socket side/band/signature/outer-clearance validation; socket-edge validator digest `fdfbcb7bf651eb963d899f7e9800e0a8f23826d43ec4ffed25e3c32ee7a0c048`
+- MAP07_04 tests: MicrochunkSocketEdgeValidator `332/332`, MicrochunkTransformer `483/483`, MicrochunkTileLayerRules `150/150`, MicrochunkDefinition `146/146`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `5816/5816`, failed/skipped `0/0`
+- MAP07_04 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3344 -> 3350`, new Runtime C#/meta `5/5`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `5 <= 17`, matching existing test meta modified `0`
+- MAP07_04 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_04 boundary advance: MAP07_04 symbols are allowed; before MAP07_05 patch, MAP07_05+ production symbols remained locked/forbidden
+- MAP07_05 object-slot validation: `MicrochunkObjectSlotPoolDefinition`, `MicrochunkObjectSlotValidationPolicy`, `MicrochunkObjectSlotValidationViolation`, `MicrochunkObjectSlotValidationResult`, `MicrochunkObjectSlotValidator` implemented deterministic object slot anchor/category/pool/marker/radius validation; object-slot validator digest `9a3b86991302add138c36acccd18789ad79195cd27cab7fb5fe2c5bb8a520e6a`
+- MAP07_05 tests: MicrochunkObjectSlotValidator `483/483`, MicrochunkSocketEdgeValidator `332/332`, MicrochunkTransformer `483/483`, MicrochunkTileLayerRules `150/150`, MicrochunkDefinition `146/146`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `6299/6299`, failed/skipped `0/0`
+- MAP07_05 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3350 -> 3356`, new Runtime C#/meta `5/5`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `6 <= 17`, matching existing test meta modified `0`
+- MAP07_05 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_05 boundary advance: MAP07_05 symbols are allowed; before MAP07_06 patch, MAP07_06+ production symbols remained locked/forbidden
+- MAP07_06 96-cell coverage validation: `Microchunk96CellRecord`, `Microchunk96CellValidationPolicy`, `Microchunk96CellValidationViolation`, `Microchunk96CellValidationResult`, `Microchunk96CellValidator` implemented deterministic complete/partial 12x8 cell coverage validation; 96-cell validator digest `54a09f7327c37405a826e4fbc3bea9443e1472ec3f92f15b9495edfba422710c`
+- MAP07_06 tests: Microchunk96CellValidator `406/406`, MicrochunkObjectSlotValidator `483/483`, MicrochunkSocketEdgeValidator `332/332`, MicrochunkTransformer `483/483`, MicrochunkTileLayerRules `150/150`, MicrochunkDefinition `146/146`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `6705/6705`, failed/skipped `0/0`
+- MAP07_06 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3356 -> 3362`, new Runtime C#/meta `5/5`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `5 <= 17`, matching existing test meta modified `0`
+- MAP07_06 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_06 boundary advance: MAP07_06 symbols are allowed; before MAP07_07 patch, MAP07_07+ production symbols remained locked/forbidden
+- MAP07_07 reachability probe: `MicrochunkTraversalNode`, `MicrochunkTraversalEdge`, `MicrochunkReachabilityPolicy`, `MicrochunkReachabilityViolation`, `MicrochunkReachabilityResult`, `MicrochunkReachabilityProbe` implemented deterministic local graph and mandatory no-tool socket-pair path witnesses; reachability digest `f488c8a65dacb8f7bdd2c107478074c131e3011110058375c06e165bfb1ddaf3`
+- MAP07_07 tests: MicrochunkReachabilityProbe `522/522`, Microchunk96CellValidator `406/406`, MicrochunkObjectSlotValidator `483/483`, MicrochunkSocketEdgeValidator `332/332`, MicrochunkTransformer `483/483`, MicrochunkTileLayerRules `150/150`, MicrochunkDefinition `146/146`, Existing MAP07 regression union `2000/2000`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `7227/7227`, failed/skipped `0/0`
+- MAP07_07 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3362 -> 3369`, new Runtime C#/meta `6/6`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `5 <= 17`, matching existing test meta modified `0`
+- MAP07_07 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_07 boundary advance: MAP07_07 symbols are allowed; before MAP07_08 patch, MAP07_08+ production symbols remained locked/forbidden
+- MAP07_08 authoring grid: `MicrochunkAuthoringGridCell`, `MicrochunkAuthoringGridLayer`, `MicrochunkAuthoringGridState`, `MicrochunkAuthoringGridPalette`, `MicrochunkAuthoringGridViewModel`, `MicrochunkAuthoringGridWindow` implemented Editor-only 12x8 fixed grid and 8-layer painting state; authoring grid digest `fe55586945da9aaa3b4bcebb3dd38ac82d2f5287e9f99bc31dc50fd30163abe9`
+- MAP07_08 tests: MicrochunkAuthoringGrid `320/320`, MicrochunkReachabilityProbe `522/522`, Existing MAP07 regression union `2000/2000`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `7547/7547`, failed/skipped `0/0`
+- MAP07_08 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3369 -> 3378`, new Editor production folder/meta `1/1`, new Editor production C#/meta `6/6`, new Editor test folder/meta `1/1`, new Editor test C#/meta `1/1`, new Runtime C#/meta `0/0`
+- MAP07_08 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
+- MAP07_08 boundary advance: MAP07_08 symbols are allowed; before MAP07_09 patch, MAP07_09+ production symbols remained locked/forbidden
 
 ## Current Rule
 
-현재는 MAP07_02_IMPLEMENT_TILE_LAYER_RULES 하나만 CURRENT다. MAP07_01은 STATUS `PASS`, SHA-256 `b11e740b808effe5a528a68497527edd0ab92fcc8c1a823dd6baa0d39363f474`로 검수됐고 immutable microchunk definition model이 완료됐다.
+현재는 MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR 하나만 CURRENT다. MAP07_08은 STATUS `PASS`, SHA-256 `3f0a2ec3c3f8668de33f180521a872a58a7cc7cb3ea11cb451dd5fcb640200d9`로 검수됐고 Editor-only 12x8 authoring grid layer가 완료됐다.
 
-이번 Task는 `MicrochunkTileCell`과 `MicrochunkDefinition` 위에 deterministic tile-layer compatibility/rule matrix를 추가하는 것까지만 수행한다. `NONE`은 빈 레이어로 취급하고, Decoration layers are non-colliding overlays, Marker는 명시 허용 조합에서만 overlay로 허용한다.
+이번 Task는 Editor-only socket/band/signature editing UI와 object slot anchor/pool editing UI까지만 수행한다. 기존 MAP07 runtime model/rules/validators/reachability output과 MAP07_08 authoring grid는 read-only input gate로 보존하고, projection은 in-memory `MicrochunkDefinition` 확인까지만 허용한다.
 
-Transform execution, socket edge compatibility, object slot semantic validation, standalone 96-cell validator pass, reachability probe, authoring grid/window, CSV import/export, preview/report는 MAP07_03~MAP07_13의 소유다. MAP07_02에서 구현하거나 선행 생성하지 않는다.
+CSV import/export, preview/report, starter round-trip, sector assembly, world-level traversal은 MAP07_10~MAP07_13 이후 소유다. MAP07_09에서 구현하거나 선행 생성하지 않는다.
 
-Mandatory route graph와 MAP06 optional-region source chain은 read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
+Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_08 production artifacts are read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
-MAP07_02가 PASS하면 MAP07_02만 COMPLETE, Current Task NONE으로 finalize한다. `MAP07_03_IMPLEMENT_MICROCHUNK_TRANSFORMS`는 LOCKED로 유지하고 별도 patch 없이는 시작하지 않는다.
+MAP07_09가 PASS하면 MAP07_09만 COMPLETE, Current Task NONE으로 finalize한다. `MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT`는 LOCKED로 유지하고 별도 patch 없이는 시작하지 않는다.
