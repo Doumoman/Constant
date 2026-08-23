@@ -68,7 +68,11 @@ namespace StarNight.Map.WorldGeneration.Microchunks
 
     public enum MicrochunkObjectOrientation
     {
-        None
+        None,
+        Left,
+        Right,
+        Up,
+        Down
     }
 
     public enum MicrochunkTileLayer

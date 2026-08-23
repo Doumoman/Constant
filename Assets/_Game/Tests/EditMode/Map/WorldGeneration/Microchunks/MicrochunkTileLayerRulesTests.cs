@@ -59,7 +59,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Microchunks
 
         public static IEnumerable<string> Map0703PlusProductionSymbols => new[]
         {
-            "MicrochunkTransformer",
+            "SectorRecipeResolver",
             "MicrochunkSocketEdgeValidator",
             "MicrochunkObjectSlotValidator",
             "Microchunk96CellValidator",
