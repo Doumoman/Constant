@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+TASKS/MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID.md
 ```
 
 ## Status
@@ -105,8 +105,8 @@ NONE
 | MAP07_05_IMPLEMENT_OBJECT_SLOT_VALIDATION | COMPLETE |
 | MAP07_06_IMPLEMENT_96_CELL_VALIDATOR | COMPLETE |
 | MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE | COMPLETE |
-| MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID | COMPLETE |
-| MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR | COMPLETE |
+| MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID | CURRENT |
+| MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR | LOCKED |
 | MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT | LOCKED |
 | MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT | LOCKED |
 | MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR
+MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR_RESULT.md
+REPORTS/MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE_RESULT.md
 STATUS: PASS
-SHA-256: 7bc550e92359f4f24c642b24000be1e1a8198fdeb014ce1685555bf5f83a0340
+SHA-256: afaf3f058c34457d26491b15c06858ba1c1c7355cf14d5902d65f66a43a1fa19
 ```
 
 ## Confirmed Baseline
@@ -844,20 +844,15 @@ SHA-256: 7bc550e92359f4f24c642b24000be1e1a8198fdeb014ce1685555bf5f83a0340
 - MAP07_07 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3362 -> 3369`, new Runtime C#/meta `6/6`, new test C#/meta `1/1`, new folder meta `0`, existing boundary test C# modified `5 <= 17`, matching existing test meta modified `0`
 - MAP07_07 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
 - MAP07_07 boundary advance: MAP07_07 symbols are allowed; before MAP07_08 patch, MAP07_08+ production symbols remained locked/forbidden
-- MAP07_08 authoring grid: `MicrochunkAuthoringGridCell`, `MicrochunkAuthoringGridLayer`, `MicrochunkAuthoringGridState`, `MicrochunkAuthoringGridPalette`, `MicrochunkAuthoringGridViewModel`, `MicrochunkAuthoringGridWindow` implemented Editor-only 12x8 fixed grid and 8-layer painting state; authoring grid digest `fe55586945da9aaa3b4bcebb3dd38ac82d2f5287e9f99bc31dc50fd30163abe9`
-- MAP07_08 tests: MicrochunkAuthoringGrid `320/320`, MicrochunkReachabilityProbe `522/522`, Existing MAP07 regression union `2000/2000`, MAP06 required total `2746/2746`, MAP05 required total `1959/1959`, all required executions `7547/7547`, failed/skipped `0/0`
-- MAP07_08 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3369 -> 3378`, new Editor production folder/meta `1/1`, new Editor production C#/meta `6/6`, new Editor test folder/meta `1/1`, new Editor test C#/meta `1/1`, new Runtime C#/meta `0/0`
-- MAP07_08 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
-- MAP07_08 boundary advance: MAP07_08 symbols are allowed; before MAP07_09 patch, MAP07_09+ production symbols remained locked/forbidden
 
 ## Current Rule
 
-현재는 MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR 하나만 CURRENT다. MAP07_08은 STATUS `PASS`, SHA-256 `3f0a2ec3c3f8668de33f180521a872a58a7cc7cb3ea11cb451dd5fcb640200d9`로 검수됐고 Editor-only 12x8 authoring grid layer가 완료됐다.
+현재는 MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID 하나만 CURRENT다. MAP07_07은 STATUS `PASS`, SHA-256 `afaf3f058c34457d26491b15c06858ba1c1c7355cf14d5902d65f66a43a1fa19`로 검수됐고 microchunk reachability probe layer가 완료됐다.
 
-이번 Task는 Editor-only socket/band/signature editing UI와 object slot anchor/pool editing UI까지만 수행한다. 기존 MAP07 runtime model/rules/validators/reachability output과 MAP07_08 authoring grid는 read-only input gate로 보존하고, projection은 in-memory `MicrochunkDefinition` 확인까지만 허용한다.
+이번 Task는 Editor-only 12x8 고정 grid, 8 layer painting state, palette, view model, and grid window까지만 수행한다. 기존 MAP07 runtime model/rules/validators/reachability output은 read-only input gate로 보존하고, runtime projection은 96개 `MicrochunkTileCell`/coverage record 확인까지만 허용한다.
 
-CSV import/export, preview/report, starter round-trip, sector assembly, world-level traversal은 MAP07_10~MAP07_13 이후 소유다. MAP07_09에서 구현하거나 선행 생성하지 않는다.
+Socket/slot editor UI, CSV import/export, preview/report, starter round-trip, sector assembly, world-level traversal은 MAP07_09~MAP07_13 이후 소유다. MAP07_08에서 구현하거나 선행 생성하지 않는다.
 
-Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_08 production artifacts are read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
+Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_07 production artifacts are read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
-MAP07_09가 PASS하면 MAP07_09만 COMPLETE, Current Task NONE으로 finalize한다. `MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT`는 LOCKED로 유지하고 별도 patch 없이는 시작하지 않는다.
+MAP07_08이 PASS하면 MAP07_08만 COMPLETE, Current Task NONE으로 finalize한다. `MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR`는 LOCKED로 유지하고 별도 patch 없이는 시작하지 않는다.

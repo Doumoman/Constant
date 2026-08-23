@@ -63,7 +63,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Microchunks
             "SectorAssembly",
             "GeneratedSectorMicrochunkWriter",
             "PopulationSlotIndex",
-            "MicrochunkReachabilityProbe",
+            "MicrochunkAuthoringGrid",
             "MicrochunkAuthoringWindow",
             "MicrochunkCsvImporter",
             "MicrochunkCsvExporter",

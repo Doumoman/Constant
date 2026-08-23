@@ -82,7 +82,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Microchunks
             "GeneratedSectorMicrochunksWriter",
             "PopulationSlotIndex",
             "StableSpawnId",
-            "MicrochunkReachabilityProbe",
+            "MicrochunkAuthoringGrid",
             "MicrochunkAuthoringWindow",
             "MicrochunkCsvImporter",
             "MicrochunkCsvExporter",

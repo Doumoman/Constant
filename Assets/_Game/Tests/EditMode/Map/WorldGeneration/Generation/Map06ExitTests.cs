@@ -145,7 +145,7 @@ namespace StarNight.Map.Tests.WorldGeneration
                     foreach (var forbidden in new[]
                              {
                                   "MicrochunkSocketAndSlotEditor", "TileLayerRuleMatrix", "MicrochunkAuthoringWindow",
-                                 "MicrochunkCsvImporter", "PopulationSlotIndex", "MicrochunkReachabilityProbe",
+                                 "MicrochunkCsvImporter", "PopulationSlotIndex", "MicrochunkAuthoringGrid",
                                  "GeneratedOptionalRegionCsvWriter", "SectorRecipeResolver",
                                  "BoundaryCandidateIndex", "GeneratedWorldBundleWriter"
                              })

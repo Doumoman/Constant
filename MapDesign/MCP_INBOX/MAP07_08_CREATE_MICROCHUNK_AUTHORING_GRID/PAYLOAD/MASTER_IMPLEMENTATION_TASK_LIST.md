@@ -7,8 +7,8 @@
 ## 0. 현재 위치와 정정 사항
 
 ```text
-완료: MAP00_01 ~ MAP00_10, MAP01_01 ~ MAP01_17, MAP02_01 ~ MAP02_08, MAP03_01 ~ MAP03_11, MAP04_01 ~ MAP04_11, MAP05_01 ~ MAP05_11, MAP06_01 ~ MAP06_10, MAP07_01 ~ MAP07_08
-실제 다음: MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR
+완료: MAP00_01 ~ MAP00_10, MAP01_01 ~ MAP01_17, MAP02_01 ~ MAP02_08, MAP03_01 ~ MAP03_11, MAP04_01 ~ MAP04_11, MAP05_01 ~ MAP05_11, MAP06_01 ~ MAP06_10, MAP07_01 ~ MAP07_07
+실제 다음: MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID
 MAP00 Phase: COMPLETE / EXIT APPROVED
 MAP00_10 Result: PASS 검수 완료
 MAP01 Phase: COMPLETE / EXIT APPROVED
@@ -57,8 +57,7 @@ MAP07_04 Result: PASS 검수 완료 (socket edge validation)
 MAP07_05 Result: PASS 검수 완료 (object slot validation)
 MAP07_06 Result: PASS 검수 완료 (96-cell coverage validation)
 MAP07_07 Result: PASS 검수 완료 (microchunk reachability probe)
-MAP07_08 Result: PASS 검수 완료 (microchunk authoring grid)
-MAP07_09 패치: PACKAGED v1.0 / RESULT 대기 (socket and slot editor)
+MAP07_08 패치: PACKAGED v1.0 / RESULT 대기 (microchunk authoring grid)
 Auto Start: NO
 ```
 
@@ -127,7 +126,7 @@ MAP04_11은 runtime scene adapter 분리와 progress test scene을 포함해 ove
 | MAP04 | 11 | 11 COMPLETE / EXIT APPROVED |
 | MAP05 | 11 | 11 COMPLETE / EXIT APPROVED |
 | MAP06 | 10 | 10 COMPLETE / EXIT APPROVED |
-| MAP07 | 13 | 8 COMPLETE / 1 CURRENT / 4 LOCKED — MAP07_09 |
+| MAP07 | 13 | 7 COMPLETE / 1 CURRENT / 5 LOCKED — MAP07_08 |
 | MAP08 | 14 | LOCKED |
 | MAP09 | 13 | LOCKED |
 | MAP10 | 12 | LOCKED |
@@ -136,7 +135,7 @@ MAP04_11은 runtime scene adapter 분리와 progress test scene을 포함해 ove
 | MAP13 | 16 | LOCKED |
 | MAP14 | 13 | LOCKED |
 | MAP15 | 18 | LOCKED |
-| **합계** | **205** | **86 COMPLETE / 1 CURRENT / 118 LOCKED** |
+| **합계** | **205** | **85 COMPLETE / 1 CURRENT / 119 LOCKED** |
 
 ---
 
@@ -278,7 +277,7 @@ MAP04_11은 runtime scene adapter 분리와 progress test scene을 포함해 ove
 - [x] `MAP07_05_IMPLEMENT_OBJECT_SLOT_VALIDATION` — anchor, category, pool, solid 내부 배치 금지와 안전 반경을 검사한다.
 - [x] `MAP07_06_IMPLEMENT_96_CELL_VALIDATOR` — 0..11×0..7의 누락·중복·범위 초과와 `NONE` 셀 생략을 검출한다.
 - [x] `MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE` — mandatory socket pair의 flood/jump/drop/climb 연결을 검사한다.
-- [x] `MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID` — 12×8 고정 grid와 8 layer painting UI를 만든다.
+- [ ] `MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID` — 12×8 고정 grid와 8 layer painting UI를 만든다.
 - [ ] `MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR` — socket band/signature와 object slot anchor/pool 편집 UI를 만든다.
 - [ ] `MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT` — 선택 ID의 catalog/cells/sockets/slots/variants를 editor 상태로 읽는다.
 - [ ] `MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT` — 정확히 96행, UTF-8 BOM, ID 행 교체, stable sort로 저장한다.
@@ -481,10 +480,10 @@ MAP00 좌표 기반
 ## 4. 현재 실행 대기열
 
 ```text
-NEXT  : MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR v1.0
-THEN  : MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT (separate patch only after MAP07_09 PASS/finalize)
-LOCKED: MAP07_10 이후 전부
-NO RUN: MAP07_08 및 이전 완료 Task 패키지
+NEXT  : MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID v1.0
+THEN  : MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR (separate patch only after MAP07_08 PASS/finalize)
+LOCKED: MAP07_09 이후 전부
+NO RUN: MAP07_07 및 이전 완료 Task 패키지
 ```
 
-`MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID` Result는 STATUS `PASS`, SHA-256 `3f0a2ec3c3f8668de33f180521a872a58a7cc7cb3ea11cb451dd5fcb640200d9`로 검수했다. Authoring grid digest `fe55586945da9aaa3b4bcebb3dd38ac82d2f5287e9f99bc31dc50fd30163abe9`, reachability digest `f488c8a65dacb8f7bdd2c107478074c131e3011110058375c06e165bfb1ddaf3`, 96-cell validator digest `54a09f7327c37405a826e4fbc3bea9443e1472ec3f92f15b9495edfba422710c`, object-slot digest `9a3b86991302add138c36acccd18789ad79195cd27cab7fb5fe2c5bb8a520e6a`, socket-edge digest `fdfbcb7bf651eb963d899f7e9800e0a8f23826d43ec4ffed25e3c32ee7a0c048`, transform digest `7031695ec2c4bb333be69ba490c03aef003124d50953d577b4943c634336b031`, tile-layer digest `ace56d38399aa6ccea6e0e0e7361f3802b7eb7418b1ef1d081f6a40b04e08160`, updated MAP07_01 model/API digest `5ed21ca7b86cfebf0095eba6d14bf4bb27be75ce39ffaf46f3c32a516d77613b`, acceptance `7547/7547`, compile/Console/warning `0/0/0`, Assets meta `3378`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/asmdef/ProjectSettings changes `0/0/0/0`이다. 다음 exact Task는 MAP07_09 하나다. MAP07_10은 MAP07_09 PASS/finalize 전까지 열지 않는다.
+`MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE` Result는 STATUS `PASS`, SHA-256 `afaf3f058c34457d26491b15c06858ba1c1c7355cf14d5902d65f66a43a1fa19`로 검수했다. Reachability probe digest `f488c8a65dacb8f7bdd2c107478074c131e3011110058375c06e165bfb1ddaf3`, 96-cell validator digest `54a09f7327c37405a826e4fbc3bea9443e1472ec3f92f15b9495edfba422710c`, object-slot digest `9a3b86991302add138c36acccd18789ad79195cd27cab7fb5fe2c5bb8a520e6a`, socket-edge digest `fdfbcb7bf651eb963d899f7e9800e0a8f23826d43ec4ffed25e3c32ee7a0c048`, transform digest `7031695ec2c4bb333be69ba490c03aef003124d50953d577b4943c634336b031`, tile-layer digest `ace56d38399aa6ccea6e0e0e7361f3802b7eb7418b1ef1d081f6a40b04e08160`, updated MAP07_01 model/API digest `5ed21ca7b86cfebf0095eba6d14bf4bb27be75ce39ffaf46f3c32a516d77613b`, acceptance `7227/7227`, compile/Console/warning `0/0/0`, Assets meta `3369`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/asmdef/ProjectSettings changes `0/0/0/0`이다. 다음 exact Task는 MAP07_08 하나다. MAP07_09은 MAP07_08 PASS/finalize 전까지 열지 않는다.
