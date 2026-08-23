@@ -225,7 +225,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Microchunks
         [TestCase("TileLayerRuleMatrix")]
         [TestCase("MicrochunkAuthoringWindow")]
         [TestCase("SectorRecipeResolver")]
-        [TestCase("MicrochunkObjectSlotValidator")]
+        [TestCase("MicrochunkSocketAndSlotEditor")]
         [TestCase("Microchunk96CellValidator")]
         [TestCase("MicrochunkReachabilityProbe")]
         [TestCase("MicrochunkCsvImporter")]

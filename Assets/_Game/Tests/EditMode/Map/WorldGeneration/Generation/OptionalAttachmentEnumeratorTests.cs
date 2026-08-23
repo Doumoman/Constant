@@ -60,7 +60,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Generation
             "OptionalOverlayEdge",
             "OptionalReturnConnection",
             "OptionalClueAssigner",
-            "MicrochunkObjectSlotValidator",
+            "Microchunk96CellValidator",
             "MicrochunkPreviewReport",
             "OptionalRegionOverlayRenderer",
             "OptionalRegionValidationOverlayWindow",

@@ -271,7 +271,7 @@ MAP04_11은 runtime scene adapter 분리와 progress test scene을 포함해 ove
 - [x] `MAP07_02_IMPLEMENT_TILE_LAYER_RULES` — Ground/OneWay/Breakable/Hazard/Liquid/Decoration/Marker 중복 허용표를 구현한다.
 - [x] `MAP07_03_IMPLEMENT_MICROCHUNK_TRANSFORMS` — R0/MirrorX/MirrorY/R180의 타일·socket·slot 변환을 구현하고 90도 회전을 금지한다.
 - [x] `MAP07_04_IMPLEMENT_SOCKET_EDGE_VALIDATION` — side, band, traversal kind, edge signature와 실제 열린 외곽 타일을 대조한다.
-- [x] `MAP07_05_IMPLEMENT_OBJECT_SLOT_VALIDATION` — anchor, category, pool, solid 내부 배치 금지와 안전 반경을 검사한다.
+- [ ] `MAP07_05_IMPLEMENT_OBJECT_SLOT_VALIDATION` — anchor, category, pool, solid 내부 배치 금지와 안전 반경을 검사한다.
 - [ ] `MAP07_06_IMPLEMENT_96_CELL_VALIDATOR` — 0..11×0..7의 누락·중복·범위 초과와 `NONE` 셀 생략을 검출한다.
 - [ ] `MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE` — mandatory socket pair의 flood/jump/drop/climb 연결을 검사한다.
 - [ ] `MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID` — 12×8 고정 grid와 8 layer painting UI를 만든다.
