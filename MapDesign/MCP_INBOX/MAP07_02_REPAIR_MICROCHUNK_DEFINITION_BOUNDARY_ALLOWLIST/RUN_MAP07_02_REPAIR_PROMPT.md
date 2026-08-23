@@ -1,0 +1,49 @@
+# RUN MAP07_02 REPAIR
+
+`MapDesign/MCP/00_MCP_ENTRYPOINT.md`부터 locked/work/CSV/Unity/change/patch/finalize rules, Master, Status, 현재 `TASKS/MAP07_02_IMPLEMENT_TILE_LAYER_RULES.md`, 그리고 BLOCKED Result를 순서대로 읽어라.
+
+Exact repair gates:
+
+```text
+Current Task: MAP07_02_IMPLEMENT_TILE_LAYER_RULES
+Current Status: 79 COMPLETE / 1 CURRENT / 125 LOCKED
+MAP07_02 Result STATUS: BLOCKED
+MAP07_02 Result SHA-256: 8691d0976dd9ab51794c39d076a58625196191ec0195497734883eff9868ef1c
+Original MAP07_02 Task SHA-256: 0b69d8f46654bd2af5e441d603210a1889351cff478b688a23b6b87c697ea9c7
+Revised MAP07_02 Task SHA-256: 18d7d4c330b7a3614f155914aea8247412f65eb9ba04335ad5ea1dfffd5231f4
+Prior MAP07_01 Result SHA-256: b11e740b808effe5a528a68497527edd0ab92fcc8c1a823dd6baa0d39363f474
+Prior MAP07_01 Task SHA-256: 912028220492f7e9dff40db93711dd590dcd73531131d133cd0270c4862d368c
+```
+
+Current Task가 MAP07_02가 아니거나 어느 SHA라도 다르면 `BLOCKED`하고 변경하지 마. MAP07_03 이후 Task body는 읽거나 시작하지 마.
+
+Repair apply는 Task 문서만 교체한다. Master/Status/Assets/CSV/C#/test/asmdef는 patch apply 단계에서 수정하지 마.
+
+이후 MAP07_02를 같은 Current Task로 재개한다. 기존 allowed new writes는 유지하고, 추가로 아래 existing test C#의 exact boundary-symbol replacement만 허용한다:
+
+```text
+Assets/_Game/Tests/EditMode/Map/WorldGeneration/Microchunks/MicrochunkDefinitionTests.cs
+```
+
+허용 수정:
+
+```text
+Map0702PlusProductionSymbolsAreAbsent에서 obsolete MicrochunkTileLayerRules absence case만 MAP07_03+ forbidden symbol로 교체
+MicrochunkDefinitionTests total remains 146/146 PASS
+```
+
+금지:
+
+```text
+MAP07_03 implementation
+MicrochunkTransformer implementation
+socket edge validator
+object slot semantic validator
+96-cell validator
+reachability probe
+CSV importer/exporter
+editor UI
+Scene/Prefab/ProjectSettings/asmdef changes
+```
+
+PASS이면 MAP07_02만 COMPLETE/Current Task NONE으로 finalize한다. `MAP07_03_IMPLEMENT_MICROCHUNK_TRANSFORMS`는 LOCKED로 유지한다.

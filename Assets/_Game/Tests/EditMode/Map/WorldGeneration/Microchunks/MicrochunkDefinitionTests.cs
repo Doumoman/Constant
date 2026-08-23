@@ -221,7 +221,7 @@ namespace StarNight.Map.Tests.WorldGeneration.Microchunks
             Assert.That(definition.ObjectSlots.Select(value => value.SlotId), Is.EqualTo(new[] { "SLOT_A", "SLOT_Z" }));
         }
 
-        [TestCase("MicrochunkTileLayerRules")]
+        [TestCase("MicrochunkPreviewReport")]
         [TestCase("TileLayerRuleMatrix")]
         [TestCase("MicrochunkTransformer")]
         [TestCase("MicrochunkSocketEdgeValidator")]
