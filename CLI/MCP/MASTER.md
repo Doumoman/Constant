@@ -8,7 +8,7 @@ TOTAL TASKS: 12
 
 ## LIVE00
 
-- [ ] `L00_01_SURVEY` — scene, prefab, input, bootstrap, HUD, MAP output, test/build surfaces inventory.
+- [x] `L00_01_SURVEY` — COMPLETE: scene, prefab, input, bootstrap, HUD, MAP output, test/build surfaces inventory (REPORTS/L00_01_RESULT.md, LIVE_SRC.md 생성).
 - [ ] `L00_02_LOCK` — live contracts, test scenes, allowlists, result format lock.
 
 ## LIVE01

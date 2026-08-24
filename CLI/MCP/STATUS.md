@@ -9,7 +9,7 @@ Current Task: NONE
 
 | Task | Status |
 |---|---|
-| L00_01_SURVEY | LOCKED |
+| L00_01_SURVEY | COMPLETE |
 | L00_02_LOCK | LOCKED |
 | L01_01_INPUT | LOCKED |
 | L01_02_PREFAB | LOCKED |
