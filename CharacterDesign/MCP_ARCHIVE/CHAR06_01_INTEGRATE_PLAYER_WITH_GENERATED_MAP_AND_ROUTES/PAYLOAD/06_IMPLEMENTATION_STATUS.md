@@ -12,7 +12,7 @@ Character Runtime at CHAR00_01: NONE
 ## Current Task
 
 ```text
-NONE
+TASKS/CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES.md
 ```
 
 ## Status
@@ -41,7 +41,7 @@ NONE
 | CHAR05_03_IMPLEMENT_HEALTH_HAZARDS_DEATH_AND_RUN_FAILURE | COMPLETE |
 | CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE | COMPLETE |
 | CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT | COMPLETE |
-| CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES | COMPLETE |
+| CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES | CURRENT |
 | CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS | LOCKED |
 | CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD | LOCKED |
 | CHAR06_04_AUDIT_REPORTS_ALLOWLIST_COMMITS_AND_FINAL_EXIT | LOCKED |
@@ -49,13 +49,13 @@ NONE
 ## Last Completed Task
 
 ```text
-CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES
+CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT
 ```
 
 ## Last Result
 
 ```text
-REPORTS/CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES_RESULT.md
+REPORTS/CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT_RESULT.md
 ```
 
 ## Baseline Evidence
@@ -82,7 +82,6 @@ REPORTS/CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES_RESULT.md
 - CHAR05_03 Result: PASS
 - CHAR05_04 Result: PASS
 - CHAR05_05 Result: PASS
-- CHAR06_01 Result: PASS
 - CHAR01 EXIT: APPROVED
 - CHAR02 EXIT: APPROVED
 - CHAR03 EXIT: APPROVED
@@ -91,10 +90,10 @@ REPORTS/CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES_RESULT.md
 - Source Registry: `REGISTRY_STATE: FILLED_BY_CHAR00_01`
 - Active character runtime assemblies: `Game.Character.Runtime`
 - Active character EditMode tests: `Game.Character.Tests.EditMode`
-- Current character EditMode tests after CHAR06_01: `170 PASS`
-- CHAR06_01 implemented generated map start/spawn request, declared route transition request via CHAR03 gate, route capability check, and deterministic integration batch (request/data only)
+- Current character EditMode tests after CHAR05_05: `158 PASS`
+- CHAR06_01 owns generated map start, route transition, and route capability integration requests
 - CHAR06_02 owns room/microchunk/item/random-run validation
-- Counts after CHAR06_01 finalize: `23 COMPLETE / 0 CURRENT / 3 LOCKED`
+- Counts after patch apply: `22 COMPLETE / 1 CURRENT / 3 LOCKED`
 
 ## Transition Policy
 
