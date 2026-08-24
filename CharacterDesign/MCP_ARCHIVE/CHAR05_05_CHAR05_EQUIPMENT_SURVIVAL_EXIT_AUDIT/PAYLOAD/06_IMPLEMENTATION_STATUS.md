@@ -12,7 +12,7 @@ Character Runtime at CHAR00_01: NONE
 ## Current Task
 
 ```text
-NONE
+TASKS/CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT.md
 ```
 
 ## Status
@@ -40,7 +40,7 @@ NONE
 | CHAR05_02_IMPLEMENT_ROPE_CLIMBING_AND_TRAVERSAL_SUPPORT | COMPLETE |
 | CHAR05_03_IMPLEMENT_HEALTH_HAZARDS_DEATH_AND_RUN_FAILURE | COMPLETE |
 | CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE | COMPLETE |
-| CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT | COMPLETE |
+| CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT | CURRENT |
 | CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES | LOCKED |
 | CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS | LOCKED |
 | CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD | LOCKED |
@@ -49,13 +49,13 @@ NONE
 ## Last Completed Task
 
 ```text
-CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT
+CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE
 ```
 
 ## Last Result
 
 ```text
-REPORTS/CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT_RESULT.md
+REPORTS/CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE_RESULT.md
 ```
 
 ## Baseline Evidence
@@ -81,12 +81,10 @@ REPORTS/CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT_RESULT.md
 - CHAR05_02 Result: PASS
 - CHAR05_03 Result: PASS
 - CHAR05_04 Result: PASS
-- CHAR05_05 Result: PASS
 - CHAR01 EXIT: APPROVED
 - CHAR02 EXIT: APPROVED
 - CHAR03 EXIT: APPROVED
 - CHAR04 EXIT: APPROVED
-- CHAR05 EXIT: APPROVED
 - CHAR05_01 implemented bomb placement/fuse/explosion, terrain mutation request, and explosion damage candidates
 - CHAR05_02 implemented rope placement, segment generation, climb traversal request, and rope bounds clamp
 - CHAR05_03 implemented health, hazards, death, and run failure requests
@@ -94,10 +92,10 @@ REPORTS/CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT_RESULT.md
 - Source Registry: `REGISTRY_STATE: FILLED_BY_CHAR00_01`
 - Active character runtime assemblies: `Game.Character.Runtime`
 - Active character EditMode tests: `Game.Character.Tests.EditMode`
-- Current character EditMode tests after CHAR05_05: `158 PASS`
-- CHAR05_05 approved CHAR05 equipment/survival/run-state exit (audit only, code changes 0)
+- Current character EditMode tests after CHAR05_04: `158 PASS`
+- CHAR05_05 owns CHAR05 equipment/survival exit audit only
 - CHAR06_01 owns generated map and route integration
-- Counts after CHAR05_05 finalize: `22 COMPLETE / 0 CURRENT / 4 LOCKED`
+- Counts after patch apply: `21 COMPLETE / 1 CURRENT / 4 LOCKED`
 
 ## Transition Policy
 
