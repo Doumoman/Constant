@@ -1,36 +1,37 @@
-# MCP 작업 규칙
+# MCP 작업 실행 규칙 v2.0
 
-## 단일 작업
+## 1. 한 세션 한 Current Task
 
-- 한 번에 정확히 하나의 작업만 CURRENT다.
-- CURRENT가 아닌 TASK를 구현하거나 미리 수정하지 않는다.
-- 한 작업에서 다음 작업의 코드를 함께 구현하지 않는다.
+TASK EXECUTION에서는 `06_IMPLEMENTATION_STATUS.md`의 Current Task 하나만 수행한다. Current Task가 없거나 둘 이상이면 BLOCKED다.
 
-## 읽기와 쓰기
+## 2. Task와 상태 변경 분리
 
-- TASK의 READ ALLOWLIST 밖 파일을 읽지 않는다.
-- TASK의 WRITE ALLOWLIST 밖 파일을 수정하지 않는다.
-- `{{TOKEN}}`이 남아 있는 ALLOWLIST는 실행 가능한 목록이 아니다. OPEN 패치에서 실제 경로로 치환해야 한다.
-- 검색 결과가 범위를 벗어나면 즉시 중단한다.
+```text
+TASK EXECUTION → REPORT 생성 → PASS 확인 → STATUS FINALIZE
+```
 
-## 결과 게이트
+Task 자체의 WRITE ALLOWLIST에는 상태 파일을 포함하지 않는다.
 
-- 구현 후 TASK가 지정한 RESULT 파일을 작성한다.
-- 성공 상태는 줄 하나의 정확한 `STATUS: PASS`다.
-- 컴파일 실패, 테스트 실패, 범위 불명확은 FAIL 또는 BLOCKED다.
-- PASS 결과가 있어도 동일 실행에서 다음 작업을 열지 않는다.
+## 3. READ/WRITE
 
-## 패치 분리
+- 현재 Task의 READ ALLOWLIST만 읽는다.
+- 현재 Task의 WRITE ALLOWLIST만 수정·생성한다.
+- 범위 밖 문제는 직접 고치지 않고 REPORT의 `OUT_OF_SCOPE_FINDINGS`에 기록한다.
+- 해결되지 않은 토큰이나 복수 후보 경로가 있으면 BLOCKED다.
 
-1. IMPLEMENT: 코드·테스트·RESULT 작성
-2. FINALIZE: 현재 작업을 COMPLETED로 표시하고 커밋 요구사항 검증
-3. OPEN: 다음 작업 TASK의 토큰을 실제 경로로 고정하고 CURRENT로 변경
+## 4. 테스트
 
-세 단계는 하나의 패치로 합치지 않는다.
+- 문서·감사 Task: 고정 gate와 무변경 증빙
+- 순수 로직: compile, focused EditMode, 불변식, 직전 회귀
+- Unity 의존 로직: compile, EditMode, 필요한 PlayMode/scene verification
+- 테스트 감소, Ignore/Explicit, 조건부 컴파일, 조기 return으로 실패를 숨기지 않는다.
 
-## 커밋
+## 5. REPORT
 
-- 하네스 설치 패치 적용 중에는 commit/push하지 않는다.
-- 구현 결과 PASS 후 FINALIZE 단계에서 변경 내용을 검토한다.
-- 작업별 커밋에는 구현 내용과 테스트 결과를 본문에 기록한다.
-- push는 사용자가 별도로 지시한 경우에만 수행한다.
+Task 상단 `status_control.result_file` 단 하나만 사용한다. 후보가 없거나 둘 이상이면 BLOCKED다.
+
+성공은 독립된 정확한 한 줄 `STATUS: PASS`다. FAIL/BLOCKED 표기가 함께 있으면 PASS가 아니다.
+
+## 6. 다음 Task
+
+PASS여도 같은 세션에서 다음 Task를 열거나 읽지 않는다. 다음 Task는 새 MCP_INBOX patch package로만 CURRENT가 된다.

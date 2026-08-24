@@ -1,3 +1,5 @@
 # INPUTS
 
-TASK가 필요로 하는 고정 외부 입력 패키지를 둔다. CURRENT TASK가 명시적으로 허용한 하위 폴더만 읽을 수 있다. 기존 프로젝트 전체 복사본이나 생성 결과 전체를 이 폴더에 중복 저장하지 않는다.
+프로젝트 조사 결과나 Task가 명시적으로 요구한 입력 기준만 둔다. INPUT은 authoritative source가 아니며 실제 프로젝트 사실과 충돌하면 Task를 BLOCKED한다.
+
+현재 기준선: `CHAR00_SOURCE_REGISTRY.md` (`REGISTRY_STATE: FILLED_BY_CHAR00_01`).
