@@ -1,4 +1,4 @@
-# 캐릭터 고정 구현 순서
+# 캐릭터 고정 구현 순서 v2.0
 
 | 단계 | 역할 | 진입 의존성 | 종료 게이트 |
 |---|---|---|---|
@@ -11,3 +11,18 @@
 | CHAR06 | 생성 맵·최종 검증 | CHAR05 EXIT APPROVED | 생성 맵 회귀·Unity 테스트·빌드·최종 EXIT AUDIT가 모두 PASS |
 
 단계를 건너뛰거나 병렬 CURRENT로 열 수 없다. MAP 작업과 캐릭터 작업은 병렬일 수 있지만 캐릭터 하네스 내부 작업은 직렬이다.
+
+## 코드·테스트 배치 후보(CHAR00_02 고정 기록)
+
+| 용도 | 경로 후보 |
+|---|---|
+| Runtime | `Assets/_Game/Character/Runtime/**` |
+| EditMode 테스트 | `Assets/_Game/Tests/EditMode/Character/**` |
+| PlayMode 테스트 | `Assets/_Game/Tests/PlayMode/Character/**` |
+| asmdef | CHAR00_02에서 생성·승인하지 않음. 도입은 해당 구현 Task의 명시 승인으로만 한다 |
+
+위 경로는 후보이며 실제 생성은 해당 구현 Task의 WRITE ALLOWLIST 승인으로만 수행한다.
+
+## CHAR03 전 외부 의존성
+
+- 캐릭터용 MAP world query / terrain mutation request / room boundary gate / room readiness API 계약 승인(현재 부재, CHAR00_01 확인).

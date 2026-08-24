@@ -1,16 +1,35 @@
 # CharacterDesign
 
-마펠렁키 캐릭터 로직의 기준, 단계별 로드맵, 테스트 계약 및 MCP 실행 하네스다.
+MAP과 병렬로 진행하는 캐릭터 로직 전용 하네스다. 작업 순서는 압축된 7단계·26개 Task로 유지한다.
 
-문서 우선순위는 다음과 같다.
+## 디렉터리
 
-1. `01_FIXED_SPEC/01_CHARACTER_GAMEPLAY_RULES.md`
-2. `MCP/01_CHARACTER_LOCKED_RULES.md`
-3. `MCP/06_IMPLEMENTATION_STATUS.md`
-4. 현재 TASK 문서
-5. 현재 TASK가 허용한 INPUT 문서
+```text
+CharacterDesign/
+├─ 01_FIXED_SPEC/
+├─ 02_PHASE_ROADMAP/
+├─ 03_DATA_SCHEMA/
+├─ 04_TEST_FIXTURES/
+├─ 05_GENERATED_OUTPUT_SCHEMA/
+├─ MCP/
+│  ├─ INPUTS/
+│  ├─ REPORTS/
+│  ├─ TASKS/
+│  └─ TEMPLATES/
+├─ MCP_INBOX/
+└─ MCP_ARCHIVE/
+```
 
-상충하는 경우 상위 문서를 따른다. 임의 해석으로 규칙을 추가하지 않는다.
+## 실행
 
-총 단계: 7  
-총 작업: 26
+MCP에는 항상 다음 파일을 시작점으로 지정한다.
+
+```text
+CharacterDesign/MCP/APPLY_PATCH_AND_RUN_CURRENT_TASK.md
+```
+
+한 번의 실행은 `PATCH APPLY → CURRENT TASK → REPORT → STATUS FINALIZE → STOP`까지만 수행한다. 다음 Task는 새 `MCP_INBOX` 패키지로만 열린다.
+
+## 결과 전달
+
+MCP 실행 후 `CharacterDesign/MCP/REPORTS/<TASK>_RESULT.md` 하나를 assistant에게 전달한다. PASS 판정 전에는 다음 INBOX를 적용하지 않는다.

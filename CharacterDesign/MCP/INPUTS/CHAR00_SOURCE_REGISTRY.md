@@ -131,7 +131,7 @@ CHAR00_01 조사 결과 기준 후보다. 최종 치환은 OPEN 패치 소관이
 | 토큰 | 실제 경로 후보 |
 |---|---|
 | `DISCOVERED_READ_PATHS` | `CharacterDesign/**`, `Assets/_Game/Map/Runtime/**`, `Assets/_Game/Tests/**`, `Assets/_Legacy/StarNight/Scripts/Runtime/**`, `Assets/_Legacy/_Game/{Player,Interaction}/**`, `Packages/manifest.json`, `MapDesign/MCP/06_IMPLEMENTATION_STATUS.md` |
-| `HARNESS_WRITE_PATHS` | `CharacterDesign/MCP/RESULTS/**`, `CharacterDesign/MCP/INPUTS/**`, `CharacterDesign/MCP/06_IMPLEMENTATION_STATUS.md`(FINALIZE/OPEN 패치 한정) |
+| `HARNESS_WRITE_PATHS` | `CharacterDesign/MCP/REPORTS/**`, `CharacterDesign/MCP/INPUTS/**`, `CharacterDesign/MCP/06_IMPLEMENTATION_STATUS.md`(STATUS FINALIZE/PATCH APPLY 한정) |
 | `CHARACTER_RUNTIME_READ_PATHS` | `Assets/_Legacy/StarNight/Scripts/Runtime/{Player,Objects,Explosions,Tools,World,Grid,Tiles}/**`(선례 read-only), `Assets/_Game/Map/Runtime/WorldGeneration/{Domain,Microchunks}/**`(공용 계약) |
 | `CHARACTER_TEST_READ_PATHS` | `Assets/_Game/Tests/EditMode/Map/**`(회귀 기준선), `Assets/_Legacy/StarNight/Scripts/Tests/**`, `Assets/_Legacy/_Game/Player/Tests/**`(선례 read-only) |
 | `TASK_SPECIFIC_INTEGRATION_READ_PATHS` | `Assets/_Game/Map/Runtime/WorldGeneration/**`, `Assets/_Game/Map/Data/WorldGeneration/Authoring/**`, `MapDesign/MCP/**` |
