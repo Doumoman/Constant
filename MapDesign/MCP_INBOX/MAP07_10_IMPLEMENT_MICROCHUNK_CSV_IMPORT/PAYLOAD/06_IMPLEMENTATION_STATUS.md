@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+TASKS/MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT.md
 ```
 
 ## Status
@@ -107,7 +107,7 @@ NONE
 | MAP07_07_IMPLEMENT_MICROCHUNK_REACHABILITY_PROBE | COMPLETE |
 | MAP07_08_CREATE_MICROCHUNK_AUTHORING_GRID | COMPLETE |
 | MAP07_09_CREATE_SOCKET_AND_SLOT_EDITOR | COMPLETE |
-| MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT | COMPLETE |
+| MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT | CURRENT |
 | MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT | LOCKED |
 | MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT | LOCKED |
 | MAP07_13_MAP07_STARTER_AND_EXIT_TESTS | LOCKED |
@@ -854,21 +854,15 @@ SHA-256: 7bc550e92359f4f24c642b24000be1e1a8198fdeb014ce1685555bf5f83a0340
 - MAP07_09 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3378 -> 3386`, new Editor production C#/meta `7/7`, new Editor test C#/meta `1/1`, new folder meta `0`, new Runtime C#/meta `0/0`
 - MAP07_09 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
 - MAP07_09 boundary advance: MAP07_09 symbols are allowed; before MAP07_10 patch, MAP07_10+ production symbols remained locked/forbidden
-- MAP07_10 CSV import: `MicrochunkCsvImportSource`, `MicrochunkCsvImportRequest`, `MicrochunkCsvImportIssue`, `MicrochunkCsvImportResult`, `MicrochunkCsvImporter`, `MicrochunkCsvImportWindow` implemented Editor-only selected-ID read-only Authoring CSV hydration; importer digest `14bf29aa6edab12ed11caffbd38770690a16ac0a13c82e1ec3fc2c25739b26c6`
-- MAP07_10 tests: MicrochunkCsvImporter `420/420`, socket/slot editor `380/380`, authoring grid `320/320`, reachability `522/522`, existing MAP07 union `2000/2000`, MAP06 `2746/2746`, MAP05 `1959/1959`, actual acceptance `8347/8347`, failed/skipped `0/0`
-- MAP07_10 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3386 -> 3393`, new Editor production C#/meta `6/6`, new Editor test C#/meta `1/1`, new folder meta `0`, new Runtime C#/meta `0/0`, existing boundary test C# modified `2 <= 17`, matching existing test meta modified `0`, duplicate GUID groups `0`
-- MAP07_10 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, Authoring tracked changes `0`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, MAP07_01~09 and MAP06 production source changes `0`, forbidden MAP07_11+ production hits `0`
-- MAP07_10 result: STATUS `PASS`, SHA-256 `9bf311d95b4a16518d6e8dea296fd7694c30d225a719c394c91c9addc94c5d7b`; MAP07_10 COMPLETE, Current Task NONE
-- MAP07_10 boundary advance: MAP07_10 importer symbols are allowed; MAP07_11+ production symbols remain locked/forbidden
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP07_10은 STATUS `PASS`, SHA-256 `9bf311d95b4a16518d6e8dea296fd7694c30d225a719c394c91c9addc94c5d7b`로 검수됐고 Editor-only selected microchunk Authoring CSV importer가 완료됐다.
+현재는 MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT 하나만 CURRENT다. MAP07_09는 STATUS `PASS`, SHA-256 `7bc550e92359f4f24c642b24000be1e1a8198fdeb014ce1685555bf5f83a0340`로 검수됐고 Editor-only socket/slot editor layer가 완료됐다.
 
-MAP07_10은 read-only Authoring CSV byte snapshots에서 catalog, tile cells, sockets, socket bands, object slots, variants, and reference dictionaries를 읽고, 선택 ID 하나의 detached 12x8 grid 및 socket/slot editor state와 기존 validator feedback을 구성한다. source CSV, generated CSV, Scene/Prefab, ProjectSettings/Packages는 변경하지 않는다.
+이번 Task는 selected microchunk ID의 Authoring CSV rows를 read-only로 읽어 MAP07_08 grid state와 MAP07_09 socket/slot editor state로 가져오는 Editor-only importer까지만 수행한다. 기존 MAP07 runtime model/rules/validators와 MAP07_08~09 editor states는 read-only input gate로 보존한다.
 
 CSV export, row replacement, preview/report, starter round-trip, sector assembly, world-level traversal은 MAP07_11~MAP07_13 이후 소유다. MAP07_10에서 구현하거나 선행 생성하지 않는다.
 
-Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_10 production artifacts are read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
+Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_09 production artifacts are read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
-`MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT`는 LOCKED다. 별도 patch 없이는 읽거나 시작하지 않는다.
+MAP07_10이 PASS하면 MAP07_10만 COMPLETE, Current Task NONE으로 finalize한다. `MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT`는 LOCKED로 유지하고 별도 patch 없이는 시작하지 않는다.
