@@ -9,7 +9,7 @@ TOTAL TASKS: 12
 ## LIVE00
 
 - [x] `L00_01_SURVEY` - COMPLETE: scene, prefab, input, bootstrap, HUD, MAP output, test/build surfaces inventory.
-- [x] `L00_02_LOCK` - COMPLETE: live contracts, test scenes, allowlists, result format lock (REPORTS/L00_02_RESULT.md, LIVE_LOCK.md 생성).
+- [>] `L00_02_LOCK` - CURRENT: live contracts, test scenes, allowlists, result format lock.
 
 ## LIVE01
 
