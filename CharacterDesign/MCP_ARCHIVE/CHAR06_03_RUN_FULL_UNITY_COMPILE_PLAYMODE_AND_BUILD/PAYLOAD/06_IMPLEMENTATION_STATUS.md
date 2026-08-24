@@ -12,7 +12,7 @@ Character Runtime at CHAR00_01: NONE
 ## Current Task
 
 ```text
-NONE
+TASKS/CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD.md
 ```
 
 ## Status
@@ -43,19 +43,19 @@ NONE
 | CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT | COMPLETE |
 | CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES | COMPLETE |
 | CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS | COMPLETE |
-| CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD | COMPLETE |
+| CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD | CURRENT |
 | CHAR06_04_AUDIT_REPORTS_ALLOWLIST_COMMITS_AND_FINAL_EXIT | LOCKED |
 
 ## Last Completed Task
 
 ```text
-CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD
+CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS
 ```
 
 ## Last Result
 
 ```text
-REPORTS/CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD_RESULT.md
+REPORTS/CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS_RESULT.md
 ```
 
 ## Baseline Evidence
@@ -84,7 +84,6 @@ REPORTS/CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD_RESULT.md
 - CHAR05_05 Result: PASS
 - CHAR06_01 Result: PASS
 - CHAR06_02 Result: PASS
-- CHAR06_03 Result: PASS
 - CHAR01 EXIT: APPROVED
 - CHAR02 EXIT: APPROVED
 - CHAR03 EXIT: APPROVED
@@ -93,10 +92,10 @@ REPORTS/CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD_RESULT.md
 - Source Registry: `REGISTRY_STATE: FILLED_BY_CHAR00_01`
 - Active character runtime assemblies: `Game.Character.Runtime`
 - Active character EditMode tests: `Game.Character.Tests.EditMode`
-- Current character EditMode tests after CHAR06_03: `177 PASS`
-- CHAR06_03 validated compile 0 errors, Character EditMode 177/177, MAP EditMode regression 13536/13536, PlayMode discovery 0 (no errors), and StandaloneWindows64 build success (validation only, source changes 0)
+- Current character EditMode tests after CHAR06_02: `177 PASS`
+- CHAR06_03 owns compile, EditMode, PlayMode, build, console, and scope validation.
 - CHAR06_04 owns final report, allowlist, commit evidence, and final EXIT audit.
-- Counts after CHAR06_03 finalize: `25 COMPLETE / 0 CURRENT / 1 LOCKED`
+- Counts after patch apply: `24 COMPLETE / 1 CURRENT / 1 LOCKED`
 
 ## Transition Policy
 
