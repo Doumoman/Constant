@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_04_FILTER_MANDATORY_BOUNDARIES
 ```
 
 ## Status
@@ -114,7 +114,7 @@ NONE
 | MAP08_01_DEFINE_MOONPALACE_BIOME_PAIRS | COMPLETE |
 | MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX | COMPLETE |
 | MAP08_03_IMPLEMENT_BOUNDARY_CHUNK_RESOLVER | COMPLETE |
-| MAP08_04_FILTER_MANDATORY_BOUNDARIES | COMPLETE |
+| MAP08_04_FILTER_MANDATORY_BOUNDARIES | CURRENT |
 | MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT | LOCKED |
 | MAP08_06_AUTHOR_CRATER_ROOT_BOUNDARIES | LOCKED |
 | MAP08_07_AUTHOR_CRATER_MILL_BOUNDARIES | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP08_04_FILTER_MANDATORY_BOUNDARIES
+MAP07_13_MAP07_STARTER_AND_EXIT_TESTS
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP08_04_FILTER_MANDATORY_BOUNDARIES_RESULT.md
+REPORTS/MAP07_13_MAP07_STARTER_AND_EXIT_TESTS_RESULT.md
 STATUS: PASS
-SHA-256: f189dc539efd54979d376d6bba5c809aadf93e7c63098d81ca0acd0656a7a4fd
+SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
 ```
 
 ## Confirmed Baseline
@@ -886,21 +886,17 @@ SHA-256: f189dc539efd54979d376d6bba5c809aadf93e7c63098d81ca0acd0656a7a4fd
 - MAP08_03 tests: MoonpalaceBoundaryChunkResolver `420/420`, MoonpalaceBoundaryTransformPolicy `260/260`, MoonpalaceBoundaryCandidateIndex `360/360`, MoonpalaceBoundaryCandidateKey `220/220`, MoonpalaceBiomePairCatalog `220/220`, MoonpalaceBiomePairContract `180/180`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, all required executions `11787/11787`, failed/skipped `0/0`
 - MAP08_03 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3429 -> 3439`, new Runtime production C#/meta `8/8`, new Runtime test C#/meta `2/2`, new Runtime folder meta `0`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_03 boundary advance: MAP08_03 symbols are allowed; before MAP08_04 patch, MAP08_04+ production symbols remained locked/forbidden
-- MAP08_04 mandatory boundary filter: strict tool requirement tokens `NONE/Pickaxe/Rope/Bomb/KeyItem`, mandatory acceptance requires `mandatory_route_allowed=true` and `tool_requirement=NONE`, rejection priority `MandatoryRouteNotAllowed > ToolRequired`, explicit invalid/all-filtered failures, accepted exact-key candidates forwarded to a temporary resolver index without selecting a winner
-- MAP08_04 tests: mandatory boundary filter `320/320`, tool requirement `200/200`, prior MAP08 required `1660/1660`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, all required executions `12307/12307`, failed/skipped `0/0`
-- MAP08_04 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3439 -> 3447`, new Runtime production C#/meta `6/6`, new Runtime test C#/meta `2/2`, new folder meta `0`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
-- MAP08_04 boundary advance: MAP08_04 symbols are allowed; MAP08_05+ production symbols remain locked/forbidden until a separate patch
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_04는 STATUS `PASS`, SHA-256 `f189dc539efd54979d376d6bba5c809aadf93e7c63098d81ca0acd0656a7a4fd`로 검수됐고 mandatory boundary filter가 완료됐다.
+현재 Current Task는 `MAP08_04_FILTER_MANDATORY_BOUNDARIES`다. MAP08_03은 STATUS `PASS`, SHA-256 `43a6d29466996164af4cc8e2d09dd6478a013f95c0b40ad15f132b3bead01445`로 검수됐고 boundary chunk resolver가 완료됐다.
 
-MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_04 COMPLETE / MAP08_05~MAP08_14 LOCKED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_03 COMPLETE / MAP08_04 CURRENT / MAP08_05~MAP08_14 LOCKED` 상태다.
 
-MAP08_04는 mandatory route boundary 요청에서 `tool_requirement=NONE`이고 `mandatory_route_allowed=true`인 후보만 deterministic하게 resolver 입력으로 남긴다. filter는 승자를 선택하지 않으며 accepted exact-key 후보로 만든 temporary index만 기존 resolver에 전달한다.
+MAP08_04의 소유 범위는 mandatory route boundary 요청에서 `tool_requirement=NONE`이고 `mandatory_route_allowed=true`인 후보만 resolver 입력으로 남기는 deterministic filter다.
 
 MAP08_05 warning implementation, MAP08_06~11 실제 boundary content authoring, generated CSV writer, sector assembly, tilemap baking은 아직 소유하지 않는다.
 
 Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_13 artifacts are complete baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
-`MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT`와 이후 전체는 LOCKED로 유지한다. 현재는 `Awaiting patch`이며 다음 patch 없이는 시작하지 않는다.
+`MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT`와 이후 전체는 LOCKED로 유지하고 별도 PASS Result와 다음 patch 없이는 시작하지 않는다.

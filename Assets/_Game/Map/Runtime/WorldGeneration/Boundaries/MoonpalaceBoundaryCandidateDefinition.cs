@@ -22,8 +22,38 @@ namespace StarNight.Map.WorldGeneration.Boundaries
             bool mandatoryRouteAllowed,
             string toolRequirement,
             MoonpalaceBoundaryWarningMarker warningMarkers)
+            : this(
+                candidateId,
+                pair,
+                profile,
+                orientation,
+                routeRole,
+                edgeSignature,
+                weight,
+                mandatoryRouteAllowed,
+                MoonpalaceBoundaryToolRequirement.Parse(toolRequirement),
+                warningMarkers)
+        {
+        }
+
+        public MoonpalaceBoundaryCandidateDefinition(
+            string candidateId,
+            MoonpalaceBiomePair pair,
+            MoonpalaceBoundaryProfileId profile,
+            MoonpalaceBoundaryOrientation orientation,
+            MoonpalaceBoundaryRouteRole routeRole,
+            MoonpalaceBoundaryEdgeSignature edgeSignature,
+            int weight,
+            bool mandatoryRouteAllowed,
+            MoonpalaceBoundaryToolRequirement toolRequirement,
+            MoonpalaceBoundaryWarningMarker warningMarkers)
         {
             if (weight < 0) throw new ArgumentOutOfRangeException(nameof(weight));
+            if (!toolRequirement.IsDefined)
+            {
+                throw new ArgumentException("Tool requirement is undefined.", nameof(toolRequirement));
+            }
+
             if ((warningMarkers & ~AllWarningMarkers) != 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(warningMarkers));
@@ -33,7 +63,7 @@ namespace StarNight.Map.WorldGeneration.Boundaries
             Key = new MoonpalaceBoundaryCandidateKey(pair, profile, orientation, routeRole, edgeSignature);
             Weight = weight;
             MandatoryRouteAllowed = mandatoryRouteAllowed;
-            ToolRequirement = RequireStableToken(toolRequirement, nameof(toolRequirement));
+            ToolRequirement = toolRequirement;
             WarningMarkers = warningMarkers;
         }
 
@@ -46,7 +76,7 @@ namespace StarNight.Map.WorldGeneration.Boundaries
         public MoonpalaceBoundaryEdgeSignature EdgeSignature => Key.EdgeSignature;
         public int Weight { get; }
         public bool MandatoryRouteAllowed { get; }
-        public string ToolRequirement { get; }
+        public MoonpalaceBoundaryToolRequirement ToolRequirement { get; }
         public MoonpalaceBoundaryWarningMarker WarningMarkers { get; }
 
         public string Signature => string.Join("|", new[]
@@ -55,7 +85,7 @@ namespace StarNight.Map.WorldGeneration.Boundaries
             Key.Signature,
             Weight.ToString(CultureInfo.InvariantCulture),
             MandatoryRouteAllowed ? "true" : "false",
-            ToolRequirement,
+            ToolRequirement.Token,
             ((int)WarningMarkers).ToString(CultureInfo.InvariantCulture),
         });
 
