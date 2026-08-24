@@ -9,6 +9,8 @@
 4. Current Task와 대응 Result 확인
 5. Result가 PASS라면 STATUS FINALIZE만 수행
 6. 구현 코드, Result, Assets, CSV는 수정하지 않음
-7. 다음 TASK 시작 금지
+7. STATUS FINALIZE가 PASS하면 `05_CHANGE_CONTROL_RULES.md`에 따라 해당 Task 변경을 commit
+8. 자동 push 금지
+9. 다음 TASK 시작 금지
 
-완료 후 STATUS FINALIZE 보고 형식으로 종료.
+완료 후 STATUS FINALIZE와 commit SHA를 함께 보고하고 종료.

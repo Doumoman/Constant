@@ -1,8 +1,8 @@
-﻿# 《별을 물어오는 밤》 MCP 진입 규칙 v1.2
+﻿# 《별을 물어오는 밤》 MCP 진입 규칙 v1.3
 
 # 1. 세션 모드
 
-MCP 세션은 아래 3개 Phase로 구분한다.
+MCP 세션은 아래 4개 Phase로 구분한다.
 
 ## PHASE A — PATCH APPLY
 
@@ -36,6 +36,21 @@ TASK 결과가 PASS일 때만 수행한다.
 
 다음 TASK는 자동 시작하지 않는다.
 
+## PHASE D — TASK COMMIT
+
+STATUS FINALIZE까지 PASS한 Task는 반드시 Git commit한다.
+
+커밋 범위:
+- Phase A에서 적용한 해당 Task patch
+- Phase B의 구현, matching meta, test, Result
+- Phase C의 status finalize
+
+기존에 존재하던 무관한 uncommitted change는 포함하지 않는다.
+
+커밋 메시지는 Task ID를 제목에 포함하고 구현 파일·동작·테스트·정적 gate를 본문에 상세히 기록한다.
+
+자동 push는 수행하지 않는다.
+
 # 2. 기본 실행 파이프라인
 
 사용자가:
@@ -52,6 +67,8 @@ PHASE A PATCH APPLY
 PHASE B CURRENT TASK
     ↓ PASS
 PHASE C STATUS FINALIZE
+    ↓ PASS
+PHASE D TASK COMMIT
     ↓ PASS
 STOP
 ```
@@ -74,7 +91,8 @@ STOP
 - CSV schema 임의 변경
 - Scene/Prefab 임의 변경
 - package 설치/삭제
-- Git commit/push
+- Phase D 밖의 임의 Git commit
+- Git push/branch/reset/rebase/force
 - 테스트 규칙 완화
 - 실패 결과를 임의 후처리로 숨기기
 
@@ -90,11 +108,12 @@ CHANGED:
 CREATED:
 TEST:
 UNITY:
+COMMIT:
 OUT_OF_SCOPE_FINDINGS:
 NEXT:
 ```
 
-STATUS FINALIZE까지 PASS하면:
+TASK COMMIT까지 PASS하면:
 
 ```text
 NEXT:

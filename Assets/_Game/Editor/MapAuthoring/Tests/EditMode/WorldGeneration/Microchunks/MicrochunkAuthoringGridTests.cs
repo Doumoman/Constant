@@ -231,10 +231,12 @@ namespace StarNight.Map.Tests.WorldGeneration
         private static void AssertFutureProductionSymbolsRemainAbsent()
         {
             var names = typeof(MicrochunkAuthoringGridState).Assembly.GetTypes().Select(type => type.Name).ToArray();
+            Assert.That(names, Does.Contain("MicrochunkPreviewBuilder"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewReport"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewWindow"));
             foreach (var forbidden in new[]
                      {
                          "MicrochunkSocketEditor", "MicrochunkSlotEditor",
-                         "MicrochunkCsvImporter", "MicrochunkCsvExporter", "MicrochunkPreviewReport",
                          "MicrochunkReachabilityHeatmap", "MicrochunkStarterCatalogRoundTrip",
                          "BoundaryChunkResolver", "SectorRecipeResolver", "GeneratedSectorMicrochunkWriter",
                          "PopulationSlotIndex", "StableSpawnId", "WorldTraversalValidator"

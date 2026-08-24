@@ -40,6 +40,18 @@ TASK Result가 PASS일 때:
    - Current Task -> NONE
 4. 검증
 
+## Phase D — Task Commit
+
+TASK 수행과 STATUS FINALIZE가 모두 PASS라면:
+
+1. `05_CHANGE_CONTROL_RULES.md`의 commit 범위 확인
+2. 기존 무관한 dirty 파일 제외
+3. patch, 구현·테스트·matching meta, Result, status finalize만 stage
+4. Task ID가 포함된 제목과 구현·테스트·gate 상세 본문으로 commit
+5. commit SHA와 제목 검증
+
+commit 실패 시 BLOCKED로 보고한다. 자동 push는 수행하지 않는다.
+
 ## 종료
 
 다음 TASK를 자동 시작하지 않는다.

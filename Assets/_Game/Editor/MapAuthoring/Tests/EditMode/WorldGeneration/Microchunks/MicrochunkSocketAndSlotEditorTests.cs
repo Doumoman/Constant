@@ -343,9 +343,11 @@ namespace StarNight.MapAuthoring.Tests.WorldGeneration.Microchunks
         private static void AssertFutureBoundaryAndValidationDeterminism(int variant)
         {
             var names = typeof(MicrochunkSocketAndSlotEditorWindow).Assembly.GetTypes().Select(type => type.Name).ToArray();
+            Assert.That(names, Does.Contain("MicrochunkPreviewBuilder"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewReport"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewWindow"));
             foreach (var forbidden in new[]
                      {
-                         "MicrochunkCsvImporter", "MicrochunkCsvExporter", "MicrochunkPreviewReport",
                          "MicrochunkReachabilityHeatmap", "MicrochunkStarterCatalogRoundTrip",
                          "BoundaryChunkResolver", "SectorRecipeResolver", "GeneratedSectorMicrochunkWriter",
                          "PopulationSlotIndex", "StableSpawnId", "WorldTraversalValidator"
