@@ -1,8 +1,25 @@
-﻿# 변경 통제·Git 규칙 v1.1
+﻿# 변경 통제·Git 규칙 v1.2
 
 # 1. Git
 
-자동 commit/push/branch/reset/rebase/force 금지.
+PASS Result와 STATUS FINALIZE가 완료된 Task는 종료 전에 반드시 commit한다.
+
+커밋은 다음만 포함한다.
+- 해당 Task를 연 patch payload와 `.APPLIED`
+- 해당 Task의 allowlist 구현·테스트·matching meta
+- 해당 Task Result
+- 해당 Task의 status finalize
+
+기존에 존재하던 무관한 uncommitted change는 stage하거나 commit하지 않는다.
+
+커밋 메시지 규칙:
+- 제목에 Task ID와 핵심 구현을 명시
+- 본문에 구현 내용, 주요 production script, test 실행 수, compile/Console/static gate를 상세히 기록
+- 커밋 후 commit SHA와 제목을 종료 보고에 기록
+
+자동 push/branch/reset/rebase/force는 금지한다. push는 사용자의 별도 명시 지시가 있을 때만 수행한다.
+
+FAIL/BLOCKED Task의 부분 작업은 사용자의 별도 지시 없이 자동 commit하지 않는다.
 
 # 2. 기존 변경 보호
 
