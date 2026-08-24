@@ -12,7 +12,7 @@ Character Runtime at CHAR00_01: NONE
 ## Current Task
 
 ```text
-NONE
+TASKS/CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS.md
 ```
 
 ## Status
@@ -42,20 +42,20 @@ NONE
 | CHAR05_04_IMPLEMENT_RUN_STATE_HUD_AND_PRESENTATION_BRIDGE | COMPLETE |
 | CHAR05_05_CHAR05_EQUIPMENT_SURVIVAL_EXIT_AUDIT | COMPLETE |
 | CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES | COMPLETE |
-| CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS | COMPLETE |
+| CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS | CURRENT |
 | CHAR06_03_RUN_FULL_UNITY_COMPILE_PLAYMODE_AND_BUILD | LOCKED |
 | CHAR06_04_AUDIT_REPORTS_ALLOWLIST_COMMITS_AND_FINAL_EXIT | LOCKED |
 
 ## Last Completed Task
 
 ```text
-CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS
+CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES
 ```
 
 ## Last Result
 
 ```text
-REPORTS/CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS_RESULT.md
+REPORTS/CHAR06_01_INTEGRATE_PLAYER_WITH_GENERATED_MAP_AND_ROUTES_RESULT.md
 ```
 
 ## Baseline Evidence
@@ -83,7 +83,6 @@ REPORTS/CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS_RESULT.md
 - CHAR05_04 Result: PASS
 - CHAR05_05 Result: PASS
 - CHAR06_01 Result: PASS
-- CHAR06_02 Result: PASS
 - CHAR01 EXIT: APPROVED
 - CHAR02 EXIT: APPROVED
 - CHAR03 EXIT: APPROVED
@@ -92,12 +91,11 @@ REPORTS/CHAR06_02_VALIDATE_ROOM_MICROCHUNK_ITEMS_AND_RANDOM_RUNS_RESULT.md
 - Source Registry: `REGISTRY_STATE: FILLED_BY_CHAR00_01`
 - Active character runtime assemblies: `Game.Character.Runtime`
 - Active character EditMode tests: `Game.Character.Tests.EditMode`
-- Current character EditMode tests after CHAR06_02: `177 PASS`
-- CHAR06_02 implemented generated run snapshot contract, room/microchunk/route/item validation, bomb/rope affordance checks, and deterministic 8-seed sweep (validation only, MAP untouched)
+- Current character EditMode tests after CHAR06_01: `170 PASS`
 - CHAR06_01 owns generated map start, route transition, capability request integration, and deterministic request batch.
 - CHAR06_02 owns generated room, microchunk, item, tool affordance, and random-run validation.
 - CHAR06_03 owns full compile, EditMode, PlayMode, and build validation.
-- Counts after CHAR06_02 finalize: `24 COMPLETE / 0 CURRENT / 2 LOCKED`
+- Counts after patch apply: `23 COMPLETE / 1 CURRENT / 2 LOCKED`
 
 ## Transition Policy
 
