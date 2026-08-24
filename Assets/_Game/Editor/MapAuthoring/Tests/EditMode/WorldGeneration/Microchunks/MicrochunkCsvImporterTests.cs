@@ -344,9 +344,11 @@ namespace StarNight.MapAuthoring.Tests.WorldGeneration.Microchunks
                 Is.Not.EqualTo(typeof(MicrochunkDefinition).Assembly));
             Assert.That(typeof(EditorWindow).IsAssignableFrom(typeof(MicrochunkCsvImportWindow)), Is.True);
             var names = typeof(MicrochunkCsvImporter).Assembly.GetTypes().Select(type => type.Name).ToArray();
+            Assert.That(names, Does.Contain("MicrochunkPreviewBuilder"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewReport"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewWindow"));
             foreach (var forbidden in new[]
                      {
-                         "MicrochunkPreviewReport",
                          "MicrochunkReachabilityHeatmap", "MicrochunkStarterCatalogRoundTrip",
                          "BoundaryChunkResolver", "SectorRecipeResolver", "GeneratedSectorMicrochunkWriter",
                          "PopulationSlotIndex", "StableSpawnId", "WorldTraversalValidator"

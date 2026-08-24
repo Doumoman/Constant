@@ -378,9 +378,12 @@ namespace StarNight.MapAuthoring.Tests.WorldGeneration.Microchunks
         private static void AssertFutureProductionSymbolsRemainAbsent(int variant)
         {
             var names = typeof(MicrochunkCsvExporter).Assembly.GetTypes().Select(value => value.Name).ToArray();
+            Assert.That(names, Does.Contain("MicrochunkPreviewBuilder"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewReport"));
+            Assert.That(names, Does.Contain("MicrochunkPreviewWindow"));
             foreach (var forbidden in new[]
                      {
-                         "MicrochunkPreviewReport", "MicrochunkReachabilityHeatmap",
+                         "MicrochunkReachabilityHeatmap",
                          "MicrochunkStarterCatalogRoundTrip", "BoundaryChunkResolver",
                          "SectorRecipeResolver", "GeneratedSectorMicrochunkWriter",
                          "PopulationSlotIndex", "StableSpawnId", "WorldTraversalValidator"
