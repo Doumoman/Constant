@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX
 ```
 
 ## Status
@@ -112,7 +112,7 @@ NONE
 | MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT | COMPLETE |
 | MAP07_13_MAP07_STARTER_AND_EXIT_TESTS | COMPLETE |
 | MAP08_01_DEFINE_MOONPALACE_BIOME_PAIRS | COMPLETE |
-| MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX | COMPLETE |
+| MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX | CURRENT |
 | MAP08_03_IMPLEMENT_BOUNDARY_CHUNK_RESOLVER | LOCKED |
 | MAP08_04_FILTER_MANDATORY_BOUNDARIES | LOCKED |
 | MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX
+MAP07_13_MAP07_STARTER_AND_EXIT_TESTS
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX_RESULT.md
+REPORTS/MAP07_13_MAP07_STARTER_AND_EXIT_TESTS_RESULT.md
 STATUS: PASS
-SHA-256: 2a160c7bc32cf7177208bbb0d06c0e449ef7dd3e7904bb23060484509d893c54
+SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
 ```
 
 ## Confirmed Baseline
@@ -878,18 +878,14 @@ SHA-256: 2a160c7bc32cf7177208bbb0d06c0e449ef7dd3e7904bb23060484509d893c54
 - MAP08_01 tests: MoonpalaceBiomePairCatalog `220/220`, MoonpalaceBiomePairContract `180/180`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, all required executions `10527/10527`, failed/skipped `0/0`
 - MAP08_01 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3409 -> 3419`, new Runtime production C#/meta `6/6`, new Runtime test C#/meta `2/2`, new folder meta `2`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_01 boundary advance: MAP08_01 symbols are allowed; before MAP08_02 patch, MAP08_02+ production symbols remained locked/forbidden
-- MAP08_02 candidate index contract: immutable full key `pair/profile/orientation/route role/edge signature`, canonical reversed-pair lookup, duplicate-key candidate lists, globally unique candidate IDs, deterministic key/candidate ordering, exact and four filtered lookup shapes, empty-index support, and copy-safe public collections
-- MAP08_02 tests: CandidateIndex `360/360`, CandidateKey `220/220`, MAP08_01 regression `400/400`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, all required executions `11107/11107`, failed/skipped `0/0`
-- MAP08_02 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3419 -> 3429`, new Runtime production C#/meta `8/8`, new Runtime test C#/meta `2/2`, new folder meta `0`, duplicate GUID groups `0`, Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`
-- MAP08_02 boundary advance: MAP08_02 symbols are allowed; MAP08_03+ production symbols remain locked/forbidden
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_02는 STATUS `PASS`, SHA-256 `2a160c7bc32cf7177208bbb0d06c0e449ef7dd3e7904bb23060484509d893c54`로 검수됐고 Runtime-only boundary candidate index가 완료됐다.
+현재 Current Task는 `MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX`다. MAP08_01은 STATUS `PASS`, SHA-256 `bc9298f3e51615b4d9724bcd2d7c8809b1ba8d3455aa30e8436f6a25ab6d5970`로 검수됐고 Moonpalace biome pair contract가 완료됐다.
 
-MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_02 COMPLETE / MAP08_03~MAP08_14 LOCKED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01 COMPLETE / MAP08_02 CURRENT / MAP08_03~MAP08_14 LOCKED` 상태다.
 
-MAP08_02의 완료 범위는 MAP08_01 pair contract와 기존 MAP07 microchunk/socket signature contract를 입력으로 받아 biome pair, boundary profile, orientation, route role, edge signature key로 후보를 deterministic하게 색인하는 immutable candidate index다.
+MAP08_02의 소유 범위는 MAP08_01 pair contract와 기존 MAP07 microchunk/socket signature contract를 입력으로 받아 biome pair, boundary profile, orientation, route role, edge signature key로 후보를 deterministic하게 색인하는 immutable candidate index다.
 
 MAP08_03 resolver, MAP08_04 mandatory-boundary filter, MAP08_05 warning implementation, MAP08_06~11 실제 boundary content authoring, generated CSV writer, sector assembly, tilemap baking은 아직 소유하지 않는다.
 
