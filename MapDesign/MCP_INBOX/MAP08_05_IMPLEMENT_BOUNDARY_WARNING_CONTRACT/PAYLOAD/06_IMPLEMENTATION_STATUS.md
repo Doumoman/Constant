@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT
 ```
 
 ## Status
@@ -115,7 +115,7 @@ NONE
 | MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX | COMPLETE |
 | MAP08_03_IMPLEMENT_BOUNDARY_CHUNK_RESOLVER | COMPLETE |
 | MAP08_04_FILTER_MANDATORY_BOUNDARIES | COMPLETE |
-| MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT | COMPLETE |
+| MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT | CURRENT |
 | MAP08_06_AUTHOR_CRATER_ROOT_BOUNDARIES | LOCKED |
 | MAP08_07_AUTHOR_CRATER_MILL_BOUNDARIES | LOCKED |
 | MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT
+MAP07_13_MAP07_STARTER_AND_EXIT_TESTS
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT_RESULT.md
+REPORTS/MAP07_13_MAP07_STARTER_AND_EXIT_TESTS_RESULT.md
 STATUS: PASS
-SHA-256: ff8e384a5d450d356017cb91ad52a25b1143931a823c48b67023a7b6be599ac0
+SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
 ```
 
 ## Confirmed Baseline
@@ -890,21 +890,17 @@ SHA-256: ff8e384a5d450d356017cb91ad52a25b1143931a823c48b67023a7b6be599ac0
 - MAP08_04 tests: MoonpalaceMandatoryBoundaryFilter `320/320`, MoonpalaceBoundaryToolRequirement `200/200`, MoonpalaceBoundaryChunkResolver `420/420`, MoonpalaceBoundaryTransformPolicy `260/260`, MoonpalaceBoundaryCandidateIndex `360/360`, MoonpalaceBoundaryCandidateKey `220/220`, MoonpalaceBiomePairCatalog `220/220`, MoonpalaceBiomePairContract `180/180`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, all required executions `12307/12307`, failed/skipped `0/0`
 - MAP08_04 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3439 -> 3447`, new Runtime production C#/meta `6/6`, new Runtime test C#/meta `2/2`, new Runtime folder meta `0`, existing boundary C# modified `1 <= 16`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_04 boundary advance: MAP08_04 symbols are allowed; before MAP08_05 patch, MAP08_05+ production symbols remained locked/forbidden
-- MAP08_05 boundary warning contract: strict marker categories `Tile/Background/Resource/Audio`, active pair/profile warning minimum `2`, required distinct category count `2`, exact 17 pair/profile and 31 valid orientation combinations, deterministic multi-issue ordering, immutable probe/result identity preservation
-- MAP08_05 tests: MoonpalaceBoundaryWarningContract `260/260`, MoonpalaceBoundaryWarningProbe `260/260`, prior MAP08 focused `2180/2180`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, all required executions `12827/12827`, failed/skipped `0/0`
-- MAP08_05 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3447 -> 3455`, new Runtime production C#/meta `6/6`, new Runtime test C#/meta `2/2`, new folder meta `0`, existing boundary C# modified `0`, Authoring CSV/meta `50/50`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`
-- MAP08_05 boundary advance: MAP08_05 symbols are allowed; MAP08_06+ production/content symbols remain locked/forbidden until a separate patch
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_05는 STATUS `PASS`, SHA-256 `ff8e384a5d450d356017cb91ad52a25b1143931a823c48b67023a7b6be599ac0`로 검수됐고 boundary warning contract가 완료됐다.
+현재 Current Task는 `MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT`다. MAP08_04는 STATUS `PASS`, SHA-256 `f189dc539efd54979d376d6bba5c809aadf93e7c63098d81ca0acd0656a7a4fd`로 검수됐고 mandatory boundary filter가 완료됐다.
 
-MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_05 COMPLETE / MAP08_06~MAP08_14 LOCKED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_04 COMPLETE / MAP08_05 CURRENT / MAP08_06~MAP08_14 LOCKED` 상태다.
 
-MAP08_05는 boundary profile `warning_microchunks_min=2`와 다음 biome marker category `Tile/Background/Resource/Audio` 중 distinct category 2개 이상을 Runtime-only contract와 deterministic probe로 고정했다. Probe는 resolver winner selection이나 MAP08_04 mandatory tool filter를 소유하지 않는다.
+MAP08_05의 소유 범위는 boundary profile `warning_microchunks_min`과 다음 biome marker category minimum을 Runtime-only contract와 validator로 고정하는 것이다. Marker category는 `Tile`, `Background`, `Resource`, `Audio`이며 accepted transition은 distinct category 2개 이상과 profile별 warning length를 만족해야 한다.
 
 MAP08_06~11 실제 boundary content authoring, generated CSV writer, sector assembly, tilemap baking은 아직 소유하지 않는다.
 
 Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_13 artifacts are complete baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
-`MAP08_06_AUTHOR_CRATER_ROOT_BOUNDARIES`와 이후 전체는 LOCKED로 유지한다. 현재는 `Awaiting patch`이며 다음 patch 없이는 시작하지 않는다.
+`MAP08_06_AUTHOR_CRATER_ROOT_BOUNDARIES`와 이후 전체는 LOCKED로 유지하고 별도 PASS Result와 다음 patch 없이는 시작하지 않는다.
