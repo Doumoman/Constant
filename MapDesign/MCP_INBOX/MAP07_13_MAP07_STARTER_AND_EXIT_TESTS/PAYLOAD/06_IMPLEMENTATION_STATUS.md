@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+TASKS/MAP07_13_MAP07_STARTER_AND_EXIT_TESTS.md
 ```
 
 ## Status
@@ -110,7 +110,7 @@ NONE
 | MAP07_10_IMPLEMENT_MICROCHUNK_CSV_IMPORT | COMPLETE |
 | MAP07_11_IMPLEMENT_MICROCHUNK_CSV_EXPORT | COMPLETE |
 | MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT | COMPLETE |
-| MAP07_13_MAP07_STARTER_AND_EXIT_TESTS | COMPLETE |
+| MAP07_13_MAP07_STARTER_AND_EXIT_TESTS | CURRENT |
 | MAP08_01_DEFINE_MOONPALACE_BIOME_PAIRS | LOCKED |
 | MAP08_02_IMPLEMENT_BOUNDARY_CANDIDATE_INDEX | LOCKED |
 | MAP08_03_IMPLEMENT_BOUNDARY_CHUNK_RESOLVER | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP07_13_MAP07_STARTER_AND_EXIT_TESTS
+MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP07_13_MAP07_STARTER_AND_EXIT_TESTS_RESULT.md
+REPORTS/MAP07_12_CREATE_MICROCHUNK_PREVIEW_AND_REPORT_RESULT.md
 STATUS: PASS
-SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
+SHA-256: 869e5e640495e1ec4f7e376133d2525c9e0efe669296e949c7fe7b7d37c92876
 ```
 
 ## Confirmed Baseline
@@ -869,20 +869,15 @@ SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
 - MAP07_12 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3400 -> 3407`, new Editor production C#/meta `6/6`, new Editor test C#/meta `1/1`, new folder meta `0`, new Runtime C#/meta `0/0`, existing boundary test C# modified `4 <= 18`, matching existing test meta modified `0`
 - MAP07_12 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, Authoring CSV tracked changes `0`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, duplicate GUID groups `0`
 - MAP07_12 boundary advance: MAP07_12 symbols are allowed; before MAP07_13 patch, MAP07_13 and MAP08+ production symbols remained locked/forbidden
-- MAP07_13 starter round-trip/exit: `620/620 / 180/180 PASS`; MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, actual acceptance `10127/10127`, failed/skipped `0/0`
-- MAP07_13 starter audit: every unique catalog row imported, catalog-declared transforms previewed at exact `96` cells each, mandatory no-tool reachability complete, socket/object diagnostics deterministic, exact selected-row temp export/re-import normalized state preserved
-- MAP07_13 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Assets meta `3407 -> 3409`, new Editor test C#/meta `2/2`, production C#/meta `0/0`, duplicate GUID groups `0`
-- MAP07_13 preservation: Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, Authoring/generated CSV changes `0/0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`
-- MAP07 PHASE EXIT: `APPROVED`; MAP08_01 remains `LOCKED / DO NOT START` and requires a separate patch
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP07_13은 STATUS `PASS`, SHA-256 `263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e`로 검수됐고 MAP07 starter catalog full round-trip and phase exit audit가 완료됐다.
+현재는 MAP07_13_MAP07_STARTER_AND_EXIT_TESTS 하나만 CURRENT다. MAP07_12는 STATUS `PASS`, SHA-256 `869e5e640495e1ec4f7e376133d2525c9e0efe669296e949c7fe7b7d37c92876`로 검수됐고 Editor-only selected microchunk preview/report layer가 완료됐다.
 
-MAP07 PHASE EXIT는 `APPROVED`다. MAP07 runtime/editor production artifacts와 Authoring source는 read-only baseline으로 유지한다.
+이번 Task는 MAP07 starter catalog full round-trip and phase exit tests만 수행한다. 신규 production code는 금지하며 기존 MAP07 runtime/editor production artifacts는 read-only baseline이다.
 
 MAP08 boundary pair/content, sector assembly, world-level traversal, generated CSV writer는 MAP08 이후 소유다. MAP07_13에서 구현하거나 선행 생성하지 않는다.
 
 Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_12 production artifacts are read-only baseline이다. Authoring CSV/meta `50/50`, Authoring manifest `4ffef6dbbea5151889d1c9114a500eba6cb54828ba47c9de508bad95dddc4ac3`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
-`MAP08_01_DEFINE_MOONPALACE_BIOME_PAIRS`는 LOCKED로 유지한다. 별도 patch가 적용되기 전에는 MAP08_01 이후 Task body를 읽거나 시작하지 않는다.
+MAP07_13이 PASS하면 MAP07_13만 COMPLETE, Current Task NONE으로 finalize하고 `MAP07 PHASE EXIT: APPROVED`를 기록할 수 있다. `MAP08_01_DEFINE_MOONPALACE_BIOME_PAIRS`는 LOCKED로 유지하고 별도 patch 없이는 시작하지 않는다.
