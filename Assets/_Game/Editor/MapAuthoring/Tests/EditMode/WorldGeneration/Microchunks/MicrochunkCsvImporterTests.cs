@@ -346,7 +346,7 @@ namespace StarNight.MapAuthoring.Tests.WorldGeneration.Microchunks
             var names = typeof(MicrochunkCsvImporter).Assembly.GetTypes().Select(type => type.Name).ToArray();
             foreach (var forbidden in new[]
                      {
-                         "MicrochunkCsvExporter", "MicrochunkCsvExportWindow", "MicrochunkPreviewReport",
+                         "MicrochunkPreviewReport",
                          "MicrochunkReachabilityHeatmap", "MicrochunkStarterCatalogRoundTrip",
                          "BoundaryChunkResolver", "SectorRecipeResolver", "GeneratedSectorMicrochunkWriter",
                          "PopulationSlotIndex", "StableSpawnId", "WorldTraversalValidator"
