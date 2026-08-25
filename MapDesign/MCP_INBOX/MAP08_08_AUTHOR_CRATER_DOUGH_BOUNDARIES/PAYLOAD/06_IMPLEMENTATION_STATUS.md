@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES
 ```
 
 ## Status
@@ -118,7 +118,7 @@ NONE
 | MAP08_05_IMPLEMENT_BOUNDARY_WARNING_CONTRACT | COMPLETE |
 | MAP08_06_AUTHOR_CRATER_ROOT_BOUNDARIES | COMPLETE |
 | MAP08_07_AUTHOR_CRATER_MILL_BOUNDARIES | COMPLETE |
-| MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES | COMPLETE |
+| MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES | CURRENT |
 | MAP08_09_AUTHOR_ROOT_MILL_BOUNDARIES | LOCKED |
 | MAP08_10_AUTHOR_ROOT_DOUGH_BOUNDARIES | LOCKED |
 | MAP08_11_AUTHOR_MILL_DOUGH_BOUNDARIES | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES
+MAP07_13_MAP07_STARTER_AND_EXIT_TESTS
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES_RESULT.md
+REPORTS/MAP07_13_MAP07_STARTER_AND_EXIT_TESTS_RESULT.md
 STATUS: PASS
-SHA-256: df4137defbb8e44cba12ef3b74cd8635044b886657525ec128e05dd5b1bd67c9
+SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
 ```
 
 ## Confirmed Baseline
@@ -902,19 +902,17 @@ SHA-256: df4137defbb8e44cba12ef3b74cd8635044b886657525ec128e05dd5b1bd67c9
 - MAP08_07 tests: MAP08_07 focused `720/720`, MAP08 required `4140/4140`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, required subset `14267/14267`, failed/skipped `0/0`
 - MAP08_07 Unity/static gates: compile/Console/relevant warnings `0/0/0`, global Assets meta `3687 -> 3693`, Map meta `570 -> 574`, Authoring CSV tracked changes exact `4`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_07 boundary advance: MAP08_07 symbols are allowed; before MAP08_08 patch, MAP08_08+ production symbols remained locked/forbidden
-- MAP08_08 Crater↔Dough authoring: exact `PAIR_CRATER_DOUGH` matrix 5 active candidates, 5 microchunks, 480 tile rows, 10 socket rows, invalid `BOUND_LAYER/HORIZONTAL` candidates `0`, Authoring manifest after `61d5462d00b7d4f435297523be15d0bef636dfc84a87b05004b209928bacce1b`
-- MAP08_08 tests: MAP08_08 focused `720/720`, MAP08 required `4860/4860`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, required subset `14987/14987`, failed/skipped `0/0`
-- MAP08_08 Unity/static gates: compile/Console/relevant warnings `0/0/0`, global Assets meta `3693 -> 3699`, Map meta `574 -> 578`, Authoring CSV tracked changes exact `4`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
-- MAP08_08 boundary finalize: MAP08_08 symbols are allowed; Current Task is `NONE`; MAP08_09+ remains locked pending a separate patch
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_08은 STATUS `PASS`, SHA-256 `df4137defbb8e44cba12ef3b74cd8635044b886657525ec128e05dd5b1bd67c9`로 검수됐고 Crater↔Dough boundary authoring이 완료됐다. Installed MAP08_08 Task SHA-256은 `92106729b49fa13c0fbb95f0338b3b619582a1696f10ac88604401469907d769`다.
+현재 Current Task는 `MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES`다. MAP08_07은 STATUS `PASS`, SHA-256 `59cc98beaa374a319c656c50f0c5aaf26a4f25a29f591eb017bf21d4a9eb995a`로 검수됐고 Crater↔Mill boundary authoring이 완료됐다. Installed/repaired MAP08_07 Task SHA-256은 `bf9085abb16be5c0bc736fa78b709fd32972f5903ba332622860d41d13aa4577`다.
 
-MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_08 COMPLETE / NONE CURRENT / MAP08_09~MAP08_14 LOCKED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_07 COMPLETE / MAP08_08 CURRENT / MAP08_09~MAP08_14 LOCKED` 상태다.
 
-`PAIR_CRATER_DOUGH`에는 `BOUND_CLIFF` H/V, `BOUND_LAYER` V only, `BOUND_SOFT_BLEND` H/V의 exact 5 active candidates가 설치됐다. Owned authoring은 5 microchunks, 480 tile rows, 10 sockets이고 invalid `BOUND_LAYER/HORIZONTAL` candidate는 0이다.
+MAP08_08의 소유 범위는 `PAIR_CRATER_DOUGH` MoonCrater↔MoonDough boundary 후보 matrix를 실제 Authoring CSV와 Runtime validator로 완성하는 것이다. 필수 matrix는 `BOUND_CLIFF` H/V, `BOUND_LAYER` V only, `BOUND_SOFT_BLEND` H/V의 5 active candidates다.
 
-Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_13 artifacts remain complete baseline이다. MAP08_08 기준 Authoring manifest `61d5462d00b7d4f435297523be15d0bef636dfc84a87b05004b209928bacce1b`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
+MAP08_09~11 나머지 pair boundary content authoring, generated CSV writer, sector assembly, tilemap baking은 아직 소유하지 않는다.
 
-`MAP08_09_AUTHOR_ROOT_MILL_BOUNDARIES`와 이후 전체는 LOCKED로 유지한다. 다음 Task를 자동으로 시작하지 않으며, 별도 patch 없이는 Current Task를 열지 않는다.
+Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_13 artifacts are complete baseline이다. MAP08_07 기준 Authoring manifest `d55393e0d60e907462fe6e406b3b8705c98ff82c08b839bd64b54b5cd53808a2`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
+
+`MAP08_09_AUTHOR_ROOT_MILL_BOUNDARIES`와 이후 전체는 LOCKED로 유지하고 별도 PASS Result와 다음 patch 없이는 시작하지 않는다.
