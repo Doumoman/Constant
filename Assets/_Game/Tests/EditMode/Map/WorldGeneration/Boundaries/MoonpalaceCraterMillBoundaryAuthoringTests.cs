@@ -126,7 +126,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                     break;
                 case 15:
                     Assert.That(evidence.AllOwnedCsvFilesHaveUtf8Bom, Is.True);
-                    Assert.That(evidence.NonOwnedBoundaryCandidateCount, Is.EqualTo(11));
+                    Assert.That(evidence.NonOwnedBoundaryCandidateCount, Is.EqualTo(17));
                     break;
                 case 16:
                     var matrixCandidate = MoonpalaceCraterMillBoundaryCandidateMatrix.Canonical
