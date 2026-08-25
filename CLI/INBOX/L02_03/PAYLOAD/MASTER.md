@@ -21,7 +21,7 @@ TOTAL TASKS: 12
 
 - [x] `L02_01_ROUTE_CAMERA` - COMPLETE: consume route/camera room requests.
 - [x] `L02_02_MAP_ADAPTER` - COMPLETE: generated MAP output to character snapshot adapter.
-- [x] `L02_03_ROOM_AUDIT` - COMPLETE: live MAP/room exit audit.
+- [>] `L02_03_ROOM_AUDIT` - CURRENT: live MAP/room exit audit.
 
 ## LIVE03
 
