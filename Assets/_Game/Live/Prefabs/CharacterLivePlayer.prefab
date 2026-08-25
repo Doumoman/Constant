@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3093258486743510316}
   - component: {fileID: 3766894342050759995}
   - component: {fileID: 9025433909657808027}
-  m_Layer: 0
+  - component: {fileID: 973363186863009006}
+  m_Layer: 2
   m_Name: CharacterLivePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,3 +128,21 @@ MonoBehaviour:
   body: {fileID: 3300470707225557539}
   bodyCollider: {fileID: 3093258486743510316}
   inputSource: {fileID: 3766894342050759995}
+--- !u!114 &973363186863009006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4275613667647445607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0193dfaaefa96314784fc7688f68a419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Character.Live::StarNight.Character.Live.Movement.CharacterLiveMovementDriver
+  rig: {fileID: 9025433909657808027}
+  settings:
+    solidLayers:
+      serializedVersion: 2
+      m_Bits: 1
+    alwaysRun: 1

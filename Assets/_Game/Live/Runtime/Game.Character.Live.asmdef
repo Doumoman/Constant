@@ -3,6 +3,7 @@
     "rootNamespace": "StarNight.Character.Live",
     "references": [
         "Game.Character.Runtime",
+        "Game.Map.Runtime",
         "Unity.InputSystem"
     ],
     "includePlatforms": [],

@@ -15,7 +15,7 @@ TOTAL TASKS: 12
 
 - [x] `L01_01_INPUT` - COMPLETE: keyboard input to locked CharacterActionId.
 - [x] `L01_02_PREFAB` - COMPLETE: player prefab/runtime composition.
-- [x] `L01_03_SPAWN` - COMPLETE: consume spawn request and start run (부트스트랩+세션+수동 소스+이동 드라이버, Play Mode 스모크 실측 — 달리기/점프/착지, REPORTS/L01_03_RESULT.md).
+- [>] `L01_03_SPAWN` - CURRENT: consume spawn request and start run.
 
 ## LIVE02
 

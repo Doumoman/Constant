@@ -196,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 127092453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -10}
+  m_LocalPosition: {x: 5.5, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -259,6 +259,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eb33d48e247aa843ab67e08886a50c7, type: 3}
+--- !u!114 &449101557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 973363186863009006, guid: 4eb33d48e247aa843ab67e08886a50c7, type: 3}
+  m_PrefabInstance: {fileID: 449101556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0193dfaaefa96314784fc7688f68a419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Character.Live::StarNight.Character.Live.Movement.CharacterLiveMovementDriver
+--- !u!114 &449101558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9025433909657808027, guid: 4eb33d48e247aa843ab67e08886a50c7, type: 3}
+  m_PrefabInstance: {fileID: 449101556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33097710a281062429eba65f256b9207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Character.Live::StarNight.Character.Live.Player.CharacterLivePlayerRig
 --- !u!1 &1304649349
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +353,70 @@ Transform:
   m_GameObject: {fileID: 1304649349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 5.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1838211862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838211865}
+  - component: {fileID: 1838211864}
+  - component: {fileID: 1838211863}
+  m_Layer: 0
+  m_Name: RunBootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1838211863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838211862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbd357abc2944544aea8c9bdf68033a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Character.Live::StarNight.Character.Live.Run.CharacterLiveRunBootstrap
+  startSource: {fileID: 1838211864}
+  playerRig: {fileID: 449101558}
+  movementDriver: {fileID: 449101557}
+--- !u!114 &1838211864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838211862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6049f5be910ae0d4e9b4cddf321b53ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Character.Live::StarNight.Character.Live.Run.CharacterLiveManualStartSource
+  mapRunId: 1
+  startCellX: 5
+  startCellY: 0
+--- !u!4 &1838211865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838211862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,3 +429,4 @@ SceneRoots:
   - {fileID: 127092455}
   - {fileID: 1304649351}
   - {fileID: 449101556}
+  - {fileID: 1838211865}
