@@ -14,7 +14,7 @@ TOTAL TASKS: 12
 ## LIVE01
 
 - [x] `L01_01_INPUT` - COMPLETE: keyboard input to locked CharacterActionId.
-- [x] `L01_02_PREFAB` - COMPLETE: player prefab/runtime composition (CharacterLivePlayer.prefab + CharacterLiveTest.unity + 리그/검증기, REPORTS/L01_02_RESULT.md).
+- [>] `L01_02_PREFAB` - CURRENT: player prefab/runtime composition.
 - [ ] `L01_03_SPAWN` - consume spawn request and start run.
 
 ## LIVE02

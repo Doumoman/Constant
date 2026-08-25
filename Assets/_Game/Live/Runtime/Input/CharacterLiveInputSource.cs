@@ -39,6 +39,12 @@ namespace StarNight.Character.Live.Input
             get { return playerMap != null; }
         }
 
+        /// <summary>액션 자산 지정 여부(에디트 모드 검증용 — 맵 해결은 Awake).</summary>
+        public bool HasActionsAsset
+        {
+            get { return actionsAsset != null; }
+        }
+
         /// <summary>고정 스텝 소비: 누적 에지 포함 스냅샷 반환(에지 소거).</summary>
         public CharacterInputSnapshot ConsumeFixedSnapshot(long physicsTick)
         {
