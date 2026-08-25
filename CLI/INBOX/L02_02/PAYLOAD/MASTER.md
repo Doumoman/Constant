@@ -20,7 +20,7 @@ TOTAL TASKS: 12
 ## LIVE02
 
 - [x] `L02_01_ROUTE_CAMERA` - COMPLETE: consume route/camera room requests.
-- [x] `L02_02_MAP_ADAPTER` - COMPLETE: generated MAP output to character snapshot adapter (Adapters/Map 9파일, 인메모리 스모크 6종 실측 — 투영/결정성/준비/루트/질의/진단, REPORTS/L02_02_RESULT.md).
+- [>] `L02_02_MAP_ADAPTER` - CURRENT: generated MAP output to character snapshot adapter.
 - [ ] `L02_03_ROOM_AUDIT` - live MAP/room exit audit.
 
 ## LIVE03
