@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_10_AUTHOR_ROOT_DOUGH_BOUNDARIES
 ```
 
 ## Status
@@ -120,7 +120,7 @@ NONE
 | MAP08_07_AUTHOR_CRATER_MILL_BOUNDARIES | COMPLETE |
 | MAP08_08_AUTHOR_CRATER_DOUGH_BOUNDARIES | COMPLETE |
 | MAP08_09_AUTHOR_ROOT_MILL_BOUNDARIES | COMPLETE |
-| MAP08_10_AUTHOR_ROOT_DOUGH_BOUNDARIES | COMPLETE |
+| MAP08_10_AUTHOR_ROOT_DOUGH_BOUNDARIES | CURRENT |
 | MAP08_11_AUTHOR_MILL_DOUGH_BOUNDARIES | LOCKED |
 | MAP08_12_IMPLEMENT_BOUNDARY_COVERAGE_VALIDATOR | LOCKED |
 | MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW | LOCKED |
@@ -902,21 +902,17 @@ SHA-256: 263a2bbf291e4df25dbe6bc101986e11ebf39bc0fc3d0074759fb7450b6df77e
 - MAP08_07 tests: MAP08_07 focused `720/720`, MAP08 required `4140/4140`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, required subset `14267/14267`, failed/skipped `0/0`
 - MAP08_07 Unity/static gates: compile/Console/relevant warnings `0/0/0`, global Assets meta `3687 -> 3693`, Map meta `570 -> 574`, Authoring CSV tracked changes exact `4`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_07 boundary advance: MAP08_07 symbols are allowed; before MAP08_08 patch, MAP08_08+ production symbols remained locked/forbidden
-- MAP08_10 Root↔Dough authoring: exact `PAIR_ROOT_DOUGH` matrix 5 active candidates, 5 microchunks, 480 tile rows, 10 socket rows, `BOUND_LAYER/HORIZONTAL=0`, Authoring manifest after `0842d140f399da076cf41218b360e784cee776c62266bd251f4debb18657a950`
-- MAP08_10 tests: focused `720/720`, MAP08 required `6300/6300`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, required subset `16427/16427`, failed/skipped `0/0`
-- MAP08_10 Unity/static gates: compile/Console/relevant warnings `0/0/0`, actual global Assets meta `3782 -> 3788` after accepted non-Map baseline drift, Map meta `582 -> 586`, Authoring CSV tracked changes exact `4`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
-- MAP08_10 boundary advance: MAP08_10 symbols are allowed; MAP08_11+ production remains locked/forbidden
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_10은 STATUS `PASS`, SHA-256 `058b5ed32dbca7ca06adf12595ac693f5218dec5f8ed0bfe14d5c12c03563f5a`로 검수됐고 Root↔Dough boundary authoring이 완료됐다. Installed MAP08_10 Task SHA-256은 `f8050e209aa342602616afadc7cf0c3258731c8034ab9aff94f2bd94918d04f8`다.
+현재 Current Task는 `MAP08_10_AUTHOR_ROOT_DOUGH_BOUNDARIES`다. MAP08_09은 STATUS `PASS`, SHA-256 `c923b445d9dc7b1d057ec368cb154a5745f2e473e67a736fcf8ee20f66a9ef87`로 검수됐고 Root↔Mill boundary authoring이 완료됐다. Installed MAP08_09 Task SHA-256은 `c559168ad86e866124cc87843926d66b98f59ad1243a33755fce7f78621fd01f`다.
 
-MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_10 COMPLETE / MAP08_11~MAP08_14 LOCKED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_09 COMPLETE / MAP08_10 CURRENT / MAP08_11~MAP08_14 LOCKED` 상태다.
 
-MAP08_10의 `PAIR_ROOT_DOUGH` CassiaRoot↔MoonDough boundary 후보 matrix는 `BOUND_TUNNEL` H/V, `BOUND_LAYER` V only, `BOUND_SOFT_BLEND` H/V의 5 active candidates로 완료됐다.
+MAP08_10의 소유 범위는 `PAIR_ROOT_DOUGH` CassiaRoot↔MoonDough boundary 후보 matrix를 실제 Authoring CSV와 Runtime validator로 완성하는 것이다. 필수 matrix는 `BOUND_TUNNEL` H/V, `BOUND_LAYER` V only, `BOUND_SOFT_BLEND` H/V의 5 active candidates다.
 
-MAP08_11 Mill↔Dough boundary content authoring, generated CSV writer, sector assembly, tilemap baking은 아직 시작하지 않는다.
+MAP08_11 나머지 pair boundary content authoring, generated CSV writer, sector assembly, tilemap baking은 아직 소유하지 않는다.
 
-Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_13 artifacts are complete baseline이다. MAP08_10 기준 Authoring manifest `0842d140f399da076cf41218b360e784cee776c62266bd251f4debb18657a950`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
+Mandatory route graph, MAP06 optional-region source chain, and MAP07_01~MAP07_13 artifacts are complete baseline이다. MAP08_09 기준 Authoring manifest `b67b1235806a1acb4d5163917aa97ac93863e3cfba29c7842f656afc0d57096a`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다.
 
 `MAP08_11_AUTHOR_MILL_DOUGH_BOUNDARIES`와 이후 전체는 LOCKED로 유지하고 별도 PASS Result와 다음 patch 없이는 시작하지 않는다.

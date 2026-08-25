@@ -10,10 +10,10 @@ using UnityEngine;
 
 namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
 {
-    [Category("MAP08_09")]
-    public sealed class MoonpalaceRootMillBoundaryAuthoringTests
+    [Category("MAP08_10")]
+    public sealed class MoonpalaceRootDoughBoundaryAuthoringTests
     {
-        private RootMillAuthoringEvidence evidence;
+        private RootDoughAuthoringEvidence evidence;
 
         public static IEnumerable<TestCaseData> ContractCases
         {
@@ -22,7 +22,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                 for (var caseId = 0; caseId < 360; caseId++)
                 {
                     yield return new TestCaseData(caseId)
-                        .SetName("RootMillBoundaryAuthoringContract_" + caseId.ToString("D3"));
+                        .SetName("RootDoughBoundaryAuthoringContract_" + caseId.ToString("D3"));
                 }
             }
         }
@@ -30,55 +30,56 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
         [OneTimeSetUp]
         public void LoadAuthoringEvidence()
         {
-            evidence = RootMillAuthoringHarness.GetOrCreate();
+            evidence = RootDoughAuthoringHarness.GetOrCreate();
         }
 
         [TestCaseSource(nameof(ContractCases))]
-        public void RootMillBoundaryAuthoringContract(int caseId)
+        public void RootDoughBoundaryAuthoringContract(int caseId)
         {
-            var candidateIndex = caseId % MoonpalaceRootMillBoundaryAuthoringContract.CandidateCount;
+            var candidateIndex = caseId % MoonpalaceRootDoughBoundaryAuthoringContract.CandidateCount;
             var candidate = evidence.Data.Candidates[candidateIndex];
-            var microchunkId = MoonpalaceRootMillBoundaryAuthoringContract.MicrochunkIds[candidateIndex];
+            var microchunkId = MoonpalaceRootDoughBoundaryAuthoringContract.MicrochunkIds[candidateIndex];
             var tiles = evidence.Data.Tiles.Where(row => row.MicrochunkId == microchunkId).ToList();
             var sockets = evidence.Data.Sockets.Where(row => row.MicrochunkId == microchunkId).ToList();
 
             switch (caseId % 18)
             {
                 case 0:
-                    Assert.That(evidence.Data.Candidates.Count, Is.EqualTo(6));
+                    Assert.That(evidence.Data.Candidates.Count, Is.EqualTo(5));
                     Assert.That(evidence.Data.Candidates.Select(row => row.CandidateId), Is.Unique);
                     break;
                 case 1:
                     Assert.That(evidence.Data.Candidates.Select(row => row.CandidateId),
-                        Is.EqualTo(MoonpalaceRootMillBoundaryAuthoringContract.CandidateIds));
+                        Is.EqualTo(MoonpalaceRootDoughBoundaryAuthoringContract.CandidateIds));
                     break;
                 case 2:
                     Assert.That(evidence.Data.Microchunks.Select(row => row.MicrochunkId),
-                        Is.EquivalentTo(MoonpalaceRootMillBoundaryAuthoringContract.MicrochunkIds));
+                        Is.EquivalentTo(MoonpalaceRootDoughBoundaryAuthoringContract.MicrochunkIds));
                     break;
                 case 3:
                     Assert.That(evidence.Report.ProfileOrientationMatrixComplete, Is.True);
-                    Assert.That(evidence.MatrixPairs.Count, Is.EqualTo(6));
+                    Assert.That(evidence.MatrixPairs.Count, Is.EqualTo(5));
+                    Assert.That(evidence.MatrixPairs, Does.Not.Contain("BOUND_LAYER|HORIZONTAL"));
                     break;
                 case 4:
                     Assert.That(candidate.BiomeAId, Is.EqualTo("BIO_CASSIA_ROOT"));
-                    Assert.That(candidate.BiomeBId, Is.EqualTo("BIO_ABANDONED_MILL"));
+                    Assert.That(candidate.BiomeBId, Is.EqualTo("BIO_MOON_DOUGH"));
                     Assert.That(candidate.Weight, Is.GreaterThan(0));
                     Assert.That(candidate.Active && candidate.Reversible, Is.True);
                     break;
                 case 5:
-                    Assert.That(evidence.PairRule["boundary_pair_rule_id"], Is.EqualTo("PAIR_ROOT_MILL"));
-                    Assert.That(evidence.PairRule["default_boundary_profile_id"], Is.EqualTo("BOUND_RUIN"));
+                    Assert.That(evidence.PairRule["boundary_pair_rule_id"], Is.EqualTo("PAIR_ROOT_DOUGH"));
+                    Assert.That(evidence.PairRule["default_boundary_profile_id"], Is.EqualTo("BOUND_TUNNEL"));
                     Assert.That(evidence.PairRule["allowed_boundary_profile_ids"],
-                        Is.EqualTo("BOUND_RUIN|BOUND_TUNNEL|BOUND_SOFT_BLEND"));
+                        Is.EqualTo("BOUND_TUNNEL|BOUND_LAYER|BOUND_SOFT_BLEND"));
                     break;
                 case 6:
-                    Assert.That(evidence.PairRule["boundary_profile_weights"], Is.EqualTo("45|35|20"));
+                    Assert.That(evidence.PairRule["boundary_profile_weights"], Is.EqualTo("45|30|25"));
                     Assert.That(evidence.Profiles.Values.All(row => row["mandatory_route_allowed"] == "1"), Is.True);
                     Assert.That(evidence.Profiles.Values.All(row => row["tool_requirement"] == "NONE"), Is.True);
                     break;
                 case 7:
-                    Assert.That(evidence.Data.Tiles.Count, Is.EqualTo(576));
+                    Assert.That(evidence.Data.Tiles.Count, Is.EqualTo(480));
                     Assert.That(tiles.Count, Is.EqualTo(96));
                     break;
                 case 8:
@@ -90,20 +91,20 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                     break;
                 case 9:
                     Assert.That(tiles.Any(row => row.GroundCode == "G_CASSIA_WOOD"), Is.True);
-                    Assert.That(tiles.Any(row => row.GroundCode == "G_MILL_METAL"), Is.True);
+                    Assert.That(tiles.Any(row => row.GroundCode == "G_DOUGH_SOLID"), Is.True);
                     break;
                 case 10:
                     Assert.That(tiles.Any(row => row.DecorBackCode == "DB_ROOT"), Is.True);
-                    Assert.That(tiles.Any(row => row.DecorBackCode == "DB_MILL"), Is.True);
+                    Assert.That(tiles.Any(row => row.DecorBackCode == "DB_DOUGH"), Is.True);
                     Assert.That(evidence.Report.WarningMarkerCategoriesByMicrochunk[microchunkId],
-                        Is.GreaterThanOrEqualTo(2));
+                        Is.EqualTo(2));
                     break;
                 case 11:
                     Assert.That(tiles.Any(row => row.MarkerCode == "M_ROUTE_MAIN"), Is.True);
                     Assert.That(tiles.Any(row => row.MarkerCode == "M_SOCKET"), Is.True);
                     break;
                 case 12:
-                    Assert.That(evidence.Data.Sockets.Count, Is.EqualTo(12));
+                    Assert.That(evidence.Data.Sockets.Count, Is.EqualTo(10));
                     Assert.That(sockets.Count, Is.EqualTo(2));
                     Assert.That(sockets.All(row => row.MandatoryAllowed), Is.True);
                     break;
@@ -126,10 +127,10 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                     break;
                 case 15:
                     Assert.That(evidence.AllOwnedCsvFilesHaveUtf8Bom, Is.True);
-                    Assert.That(evidence.NonOwnedBoundaryCandidateCount, Is.EqualTo(20));
+                    Assert.That(evidence.NonOwnedBoundaryCandidateCount, Is.EqualTo(21));
                     break;
                 case 16:
-                    var matrixCandidate = MoonpalaceRootMillBoundaryCandidateMatrix.Canonical
+                    var matrixCandidate = MoonpalaceRootDoughBoundaryCandidateMatrix.Canonical
                         .Candidates.Single(value => value.CandidateId == candidate.CandidateId);
                     Assert.That(matrixCandidate.Profile.CanonicalId, Is.EqualTo(candidate.ProfileId));
                     Assert.That(matrixCandidate.Orientation, Is.EqualTo(candidate.Orientation));
@@ -146,17 +147,18 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                     Assert.That(evidence.Data.CraterRootRowsModified, Is.Zero);
                     Assert.That(evidence.Data.CraterMillRowsModified, Is.Zero);
                     Assert.That(evidence.Data.CraterDoughRowsModified, Is.Zero);
+                    Assert.That(evidence.Data.RootMillRowsModified, Is.Zero);
                     break;
             }
         }
     }
 
-    internal static class RootMillAuthoringHarness
+    internal static class RootDoughAuthoringHarness
     {
         private static readonly object Sync = new object();
-        private static RootMillAuthoringEvidence cached;
+        private static RootDoughAuthoringEvidence cached;
 
-        public static RootMillAuthoringEvidence GetOrCreate()
+        public static RootDoughAuthoringEvidence GetOrCreate()
         {
             lock (Sync)
             {
@@ -165,7 +167,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
             }
         }
 
-        private static RootMillAuthoringEvidence Build()
+        private static RootDoughAuthoringEvidence Build()
         {
             var boundaryRows = ReadCsv("_Game/Map/Data/WorldGeneration/Authoring/Boundary/boundary_chunk_catalog.csv");
             var catalogRows = ReadCsv("_Game/Map/Data/WorldGeneration/Authoring/MicroChunk/microchunk_catalog.csv");
@@ -174,18 +176,18 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
             var pairRules = ReadCsv("_Game/Map/Data/WorldGeneration/Authoring/Boundary/biome_boundary_pair_rules.csv");
             var profiles = ReadCsv("_Game/Map/Data/WorldGeneration/Authoring/Boundary/biome_boundary_profiles.csv");
 
-            var pairRule = pairRules.Single(row => row["boundary_pair_rule_id"] == "PAIR_ROOT_MILL");
+            var pairRule = pairRules.Single(row => row["boundary_pair_rule_id"] == "PAIR_ROOT_DOUGH");
             var profileMap = profiles
-                .Where(row => MoonpalaceRootMillBoundaryAuthoringContract.ProfileIds.Contains(
+                .Where(row => MoonpalaceRootDoughBoundaryAuthoringContract.ProfileIds.Contains(
                     row["boundary_profile_id"], StringComparer.Ordinal))
                 .ToDictionary(row => row["boundary_profile_id"], StringComparer.Ordinal);
 
             var candidates = boundaryRows
-                .Where(row => MoonpalaceRootMillBoundaryAuthoringContract.IsOwnedCandidate(row["boundary_chunk_id"]))
+                .Where(row => MoonpalaceRootDoughBoundaryAuthoringContract.IsOwnedCandidate(row["boundary_chunk_id"]))
                 .Select(row =>
                 {
                     var profile = profileMap[row["boundary_profile_id"]];
-                    return new MoonpalaceRootMillBoundaryCandidateRow(
+                    return new MoonpalaceRootDoughBoundaryCandidateRow(
                         row["boundary_chunk_id"],
                         row["microchunk_id"],
                         row["biome_a_id"],
@@ -204,8 +206,8 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                 .ToList();
 
             var microchunks = catalogRows
-                .Where(row => MoonpalaceRootMillBoundaryAuthoringContract.IsOwnedMicrochunk(row["microchunk_id"]))
-                .Select(row => new MoonpalaceRootMillMicrochunkRow(
+                .Where(row => MoonpalaceRootDoughBoundaryAuthoringContract.IsOwnedMicrochunk(row["microchunk_id"]))
+                .Select(row => new MoonpalaceRootDoughMicrochunkRow(
                     row["microchunk_id"],
                     ParseInt(row["width_tiles"]),
                     ParseInt(row["height_tiles"]),
@@ -217,8 +219,8 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                 .ToList();
 
             var tiles = tileRows
-                .Where(row => MoonpalaceRootMillBoundaryAuthoringContract.IsOwnedMicrochunk(row["microchunk_id"]))
-                .Select(row => new MoonpalaceRootMillTileRow(
+                .Where(row => MoonpalaceRootDoughBoundaryAuthoringContract.IsOwnedMicrochunk(row["microchunk_id"]))
+                .Select(row => new MoonpalaceRootDoughTileRow(
                     row["microchunk_id"],
                     ParseInt(row["local_x"]),
                     ParseInt(row["local_y"]),
@@ -228,8 +230,8 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                 .ToList();
 
             var sockets = socketRows
-                .Where(row => MoonpalaceRootMillBoundaryAuthoringContract.IsOwnedMicrochunk(row["microchunk_id"]))
-                .Select(row => new MoonpalaceRootMillSocketRow(
+                .Where(row => MoonpalaceRootDoughBoundaryAuthoringContract.IsOwnedMicrochunk(row["microchunk_id"]))
+                .Select(row => new MoonpalaceRootDoughSocketRow(
                     row["microchunk_id"],
                     row["socket_id"],
                     row["side"],
@@ -241,12 +243,12 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                     ParseInt(row["minimum_safe_tiles"])))
                 .ToList();
 
-            var data = new MoonpalaceRootMillBoundaryAuthoringData(
+            var data = new MoonpalaceRootDoughBoundaryAuthoringData(
                 candidates,
                 microchunks,
                 tiles,
                 sockets);
-            var report = new MoonpalaceRootMillBoundaryValidator().Validate(data);
+            var report = new MoonpalaceRootDoughBoundaryValidator().Validate(data);
             var matrixPairs = new HashSet<string>(candidates.Select(row =>
                 row.ProfileId + "|" + (row.Orientation == MoonpalaceBoundaryOrientation.Horizontal
                     ? "HORIZONTAL"
@@ -258,14 +260,14 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
                 "_Game/Map/Data/WorldGeneration/Authoring/MicroChunk/microchunk_tile_cells.csv",
                 "_Game/Map/Data/WorldGeneration/Authoring/MicroChunk/microchunk_sockets.csv",
             };
-            return new RootMillAuthoringEvidence(
+            return new RootDoughAuthoringEvidence(
                 data,
                 report,
                 pairRule,
                 profileMap,
                 matrixPairs,
                 files.All(HasUtf8Bom),
-                boundaryRows.Count(row => !MoonpalaceRootMillBoundaryAuthoringContract.IsOwnedCandidate(
+                boundaryRows.Count(row => !MoonpalaceRootDoughBoundaryAuthoringContract.IsOwnedCandidate(
                     row["boundary_chunk_id"])));
         }
 
@@ -318,11 +320,11 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
         }
     }
 
-    internal sealed class RootMillAuthoringEvidence
+    internal sealed class RootDoughAuthoringEvidence
     {
-        public RootMillAuthoringEvidence(
-            MoonpalaceRootMillBoundaryAuthoringData data,
-            MoonpalaceRootMillBoundaryContentReport report,
+        public RootDoughAuthoringEvidence(
+            MoonpalaceRootDoughBoundaryAuthoringData data,
+            MoonpalaceRootDoughBoundaryContentReport report,
             IReadOnlyDictionary<string, string> pairRule,
             IDictionary<string, Dictionary<string, string>> profiles,
             ISet<string> matrixPairs,
@@ -339,8 +341,8 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Boundaries
             NonOwnedBoundaryCandidateCount = nonOwnedBoundaryCandidateCount;
         }
 
-        public MoonpalaceRootMillBoundaryAuthoringData Data { get; }
-        public MoonpalaceRootMillBoundaryContentReport Report { get; }
+        public MoonpalaceRootDoughBoundaryAuthoringData Data { get; }
+        public MoonpalaceRootDoughBoundaryContentReport Report { get; }
         public IReadOnlyDictionary<string, string> PairRule { get; }
         public IReadOnlyDictionary<string, Dictionary<string, string>> Profiles { get; }
         public IReadOnlyList<string> MatrixPairs { get; }
