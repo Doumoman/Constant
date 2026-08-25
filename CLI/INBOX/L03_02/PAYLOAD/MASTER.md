@@ -26,7 +26,7 @@ TOTAL TASKS: 12
 ## LIVE03
 
 - [x] `L03_01_TOOLS` - COMPLETE: carry/drop/throw/bomb/rope consumers.
-- [x] `L03_02_HUD` - COMPLETE: HUD, presentation, run feedback binding.
+- [>] `L03_02_HUD` - CURRENT: HUD, presentation, run feedback binding.
 
 ## LIVE04
 

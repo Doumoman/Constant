@@ -1,0 +1,19 @@
+{
+    "name": "Game.Character.Live.Hud",
+    "rootNamespace": "",
+    "references": [
+        "Game.Character.Live",
+        "Game.Character.Runtime",
+        "Game.Map.Runtime",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
