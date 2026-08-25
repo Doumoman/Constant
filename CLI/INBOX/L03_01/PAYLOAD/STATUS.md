@@ -4,7 +4,7 @@
 Harness: Character Live Integration short-path v1.0
 Source: CharacterDesign final exit approved
 Tasks: 12
-Current Task: NONE
+Current Task: CLI/MCP/TASKS/L03_01.md
 ```
 
 | Task | Status |
@@ -17,7 +17,7 @@ Current Task: NONE
 | L02_01_ROUTE_CAMERA | COMPLETE |
 | L02_02_MAP_ADAPTER | COMPLETE |
 | L02_03_ROOM_AUDIT | COMPLETE |
-| L03_01_TOOLS | COMPLETE |
+| L03_01_TOOLS | CURRENT |
 | L03_02_HUD | LOCKED |
 | L04_01_PLAYMODE | LOCKED |
 | L04_02_FINAL | LOCKED |

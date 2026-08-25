@@ -25,7 +25,7 @@ TOTAL TASKS: 12
 
 ## LIVE03
 
-- [x] `L03_01_TOOLS` - COMPLETE: carry/drop/throw/bomb/rope consumers.
+- [>] `L03_01_TOOLS` - CURRENT: carry/drop/throw/bomb/rope consumers.
 - [ ] `L03_02_HUD` - LOCKED: HUD, presentation, run feedback binding.
 
 ## LIVE04
