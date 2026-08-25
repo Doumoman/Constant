@@ -19,7 +19,7 @@ TOTAL TASKS: 12
 
 ## LIVE02
 
-- [x] `L02_01_ROUTE_CAMERA` - COMPLETE: consume route/camera room requests (방/카메라 계층 6파일 + 수동 2방 씬, Play Mode 스모크 4종 실측 — 전환/KEEP/차단/역방향, REPORTS/L02_01_RESULT.md).
+- [>] `L02_01_ROUTE_CAMERA` - CURRENT: consume route/camera room requests.
 - [ ] `L02_02_MAP_ADAPTER` - generated MAP output to character snapshot adapter.
 - [ ] `L02_03_ROOM_AUDIT` - live MAP/room exit audit.
 
