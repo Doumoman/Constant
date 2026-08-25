@@ -1,0 +1,18 @@
+{
+    "name": "Game.Character.Live",
+    "rootNamespace": "StarNight.Character.Live",
+    "references": [
+        "Game.Character.Runtime",
+        "Game.Map.Runtime",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

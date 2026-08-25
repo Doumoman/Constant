@@ -1,0 +1,25 @@
+{
+  "name": "Game.Character.Live.PlayMode.Tests",
+  "rootNamespace": "StarNight.Character.Tests.PlayMode",
+  "references": [
+    "Game.Character.Runtime",
+    "Game.Map.Runtime",
+    "Game.Character.Live",
+    "Game.Character.Live.Hud",
+    "Unity.InputSystem",
+    "Unity.InputSystem.TestFramework",
+    "UnityEngine.UI"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

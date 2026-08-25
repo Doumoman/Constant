@@ -26,9 +26,9 @@ TOTAL TASKS: 12
 ## LIVE03
 
 - [x] `L03_01_TOOLS` - COMPLETE: carry/drop/throw/bomb/rope consumers.
-- [x] `L03_02_HUD` - COMPLETE: HUD, presentation, run feedback binding.
+- [>] `L03_02_HUD` - CURRENT: HUD, presentation, run feedback binding.
 
 ## LIVE04
 
-- [x] `L04_01_PLAYMODE` - COMPLETE: keyboard PlayMode and generated run smoke.
-- [x] `L04_02_FINAL` - COMPLETE: live integration build and final exit audit. (LIVE_INTEGRATION_FINAL_EXIT_DECISION: APPROVED)
+- [ ] `L04_01_PLAYMODE` - LOCKED: keyboard PlayMode and generated run smoke.
+- [ ] `L04_02_FINAL` - LOCKED: live integration build and final exit audit.

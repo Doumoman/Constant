@@ -30,5 +30,5 @@ TOTAL TASKS: 12
 
 ## LIVE04
 
-- [x] `L04_01_PLAYMODE` - COMPLETE: keyboard PlayMode and generated run smoke.
-- [x] `L04_02_FINAL` - COMPLETE: live integration build and final exit audit. (LIVE_INTEGRATION_FINAL_EXIT_DECISION: APPROVED)
+- [>] `L04_01_PLAYMODE` - CURRENT: keyboard PlayMode and generated run smoke.
+- [ ] `L04_02_FINAL` - LOCKED: live integration build and final exit audit.

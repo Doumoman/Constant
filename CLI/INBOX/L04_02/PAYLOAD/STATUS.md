@@ -4,7 +4,7 @@
 Harness: Character Live Integration short-path v1.0
 Source: CharacterDesign final exit approved
 Tasks: 12
-Current Task: NONE (ALL 12 TASKS COMPLETE — LIVE_INTEGRATION_FINAL_EXIT_DECISION: APPROVED)
+Current Task: CLI/MCP/TASKS/L04_02.md
 ```
 
 | Task | Status |
@@ -20,4 +20,4 @@ Current Task: NONE (ALL 12 TASKS COMPLETE — LIVE_INTEGRATION_FINAL_EXIT_DECISI
 | L03_01_TOOLS | COMPLETE |
 | L03_02_HUD | COMPLETE |
 | L04_01_PLAYMODE | COMPLETE |
-| L04_02_FINAL | COMPLETE |
+| L04_02_FINAL | CURRENT |

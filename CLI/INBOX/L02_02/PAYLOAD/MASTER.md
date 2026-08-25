@@ -20,15 +20,15 @@ TOTAL TASKS: 12
 ## LIVE02
 
 - [x] `L02_01_ROUTE_CAMERA` - COMPLETE: consume route/camera room requests.
-- [x] `L02_02_MAP_ADAPTER` - COMPLETE: generated MAP output to character snapshot adapter.
-- [x] `L02_03_ROOM_AUDIT` - COMPLETE: live MAP/room exit audit.
+- [>] `L02_02_MAP_ADAPTER` - CURRENT: generated MAP output to character snapshot adapter.
+- [ ] `L02_03_ROOM_AUDIT` - live MAP/room exit audit.
 
 ## LIVE03
 
-- [x] `L03_01_TOOLS` - COMPLETE: carry/drop/throw/bomb/rope consumers.
-- [x] `L03_02_HUD` - COMPLETE: HUD, presentation, run feedback binding.
+- [ ] `L03_01_TOOLS` - carry/drop/throw/bomb/rope consumers.
+- [ ] `L03_02_HUD` - HUD, presentation, run feedback binding.
 
 ## LIVE04
 
-- [x] `L04_01_PLAYMODE` - COMPLETE: keyboard PlayMode and generated run smoke.
-- [x] `L04_02_FINAL` - COMPLETE: live integration build and final exit audit. (LIVE_INTEGRATION_FINAL_EXIT_DECISION: APPROVED)
+- [ ] `L04_01_PLAYMODE` - keyboard PlayMode and generated run smoke.
+- [ ] `L04_02_FINAL` - live integration build and final exit audit.
