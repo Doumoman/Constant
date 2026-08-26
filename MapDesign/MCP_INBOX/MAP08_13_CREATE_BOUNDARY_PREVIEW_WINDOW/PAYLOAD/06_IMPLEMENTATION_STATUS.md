@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW
 ```
 
 ## Status
@@ -123,7 +123,7 @@ NONE
 | MAP08_10_AUTHOR_ROOT_DOUGH_BOUNDARIES | COMPLETE |
 | MAP08_11_AUTHOR_MILL_DOUGH_BOUNDARIES | COMPLETE |
 | MAP08_12_IMPLEMENT_BOUNDARY_COVERAGE_VALIDATOR | COMPLETE |
-| MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW | COMPLETE |
+| MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW | CURRENT |
 | MAP08_14_MAP08_EXIT_TESTS | LOCKED |
 | MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER | LOCKED |
 | MAP09_02_FIX_EXTERNAL_SOCKET_CELLS | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW
+MAP08_12_IMPLEMENT_BOUNDARY_COVERAGE_VALIDATOR
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW_RESULT.md
+REPORTS/MAP08_12_IMPLEMENT_BOUNDARY_COVERAGE_VALIDATOR_RESULT.md
 STATUS: PASS
-SHA-256: cb72264380c94a35ab6abe42f672c06e994f30deadc5a867546a31279b9bf7cd
+SHA-256: 26801f7bc31d354b9639278ec133970e7840f3c7dacb9f0f2a4b6a0e0288896b
 ```
 
 ## Confirmed Baseline
@@ -902,23 +902,17 @@ SHA-256: cb72264380c94a35ab6abe42f672c06e994f30deadc5a867546a31279b9bf7cd
 - MAP08_07 tests: MAP08_07 focused `720/720`, MAP08 required `4140/4140`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, required subset `14267/14267`, failed/skipped `0/0`
 - MAP08_07 Unity/static gates: compile/Console/relevant warnings `0/0/0`, global Assets meta `3687 -> 3693`, Map meta `570 -> 574`, Authoring CSV tracked changes exact `4`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_07 boundary advance: MAP08_07 symbols are allowed; before MAP08_08 patch, MAP08_08+ production symbols remained locked/forbidden
-- MAP08_13 boundary preview: Editor-only selection/overlay/cell/issue/report/view-model/window contracts project the approved MAP08_12 validator report, exact six pair rows, disabled reasons, transition direction, Runtime mirror policy, and deterministic 12x8 candidate cells; menu `Tools/Map/Moonpalace Boundary Preview` opens the visible `Boundary Preview` window
-- MAP08_13 coverage source: Accepted `true`, pairs `6`, candidates/microchunks/tile/socket `31/31/2976/62`, issues `0`, aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`
-- MAP08_13 tests: ViewModel `420/420`, Window `220/220`, focused `640/640`, MAP08 union `8380/8380`, MAP07 `5422/5422`, MAP06 `2746/2746`, MAP05 `1959/1959`, required subset `18507/18507`, failed/skipped `0/0`
-- MAP08_13 Unity/static gates: compile/Console/relevant warnings `0/0/0`, Editor production/test C# `7/2`, matching meta `7/2`, folder meta `2`, global Assets meta `3802 -> 3813`, Map meta `596 -> 596`, duplicate GUID `0`
-- MAP08_13 preservation: Authoring CSV/meta `50/50`, tracked CSV changes `0`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`, forbidden MAP08_14+/MAP09+ symbol hits `0/0`
-- MAP08_13 boundary advance: MAP08_13 symbols are allowed; MAP08_14 and all later tasks remain locked pending a separate patch
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_13은 STATUS `PASS`, SHA-256 `cb72264380c94a35ab6abe42f672c06e994f30deadc5a867546a31279b9bf7cd`로 검수됐고 Editor-only Moonpalace boundary preview window가 완료됐다.
+현재 Current Task는 `MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW`다. MAP08_12는 STATUS `PASS`, SHA-256 `26801f7bc31d354b9639278ec133970e7840f3c7dacb9f0f2a4b6a0e0288896b`로 검수됐고 boundary coverage validator가 완료됐다.
 
-MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_13 COMPLETE / MAP08_14 LOCKED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_12 COMPLETE / MAP08_13 CURRENT / MAP08_14 LOCKED` 상태다.
 
-MAP08_13 preview는 MAP08_12 validator 경로의 exact six pair, disabled/invalid 후보, transition 방향, marker/evidence, Runtime mirror policy, 12x8 cells를 읽기 전용으로 표시한다. 메뉴 경로는 `Tools/Map/Moonpalace Boundary Preview`다.
+MAP08_13의 소유 범위는 boundary preview window를 Editor-only로 구현하는 것이다. 표시 대상은 transition 방향, pair 후보 수, disabled/invalid 후보, marker/evidence, MAP08_12 coverage report다.
 
 MAP08_14 exit tests, generated CSV writer, sector assembly, tilemap baking, Scene/Prefab output은 아직 소유하지 않는다.
 
-Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08_12 coverage validator, and MAP08_13 preview window are complete baseline이다. Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`, Scene/Prefab/ProjectSettings/Packages/asmdef/asmref changes `0`을 유지한다. MAP08_13 required subset은 `18507/18507 PASS`다.
+Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, and MAP08_12 coverage validator are complete baseline이다. MAP08_12 기준 Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`을 유지한다. MAP08_10은 별도 작업 Result PASS SHA `058b5ed32dbca7ca06adf12595ac693f5218dec5f8ed0bfe14d5c12c03563f5a`로 source-chain에 반영됐다.
 
-`MAP08_14_MAP08_EXIT_TESTS`와 이후 전체는 LOCKED로 유지한다. 별도 patch 없이 다음 Task를 자동 시작하지 않는다.
+`MAP08_14_MAP08_EXIT_TESTS`와 이후 전체는 LOCKED로 유지하고 별도 PASS Result와 다음 patch 없이는 시작하지 않는다.
