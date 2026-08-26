@@ -6,6 +6,7 @@ using StarNight.Map.WorldGeneration.Boundaries;
 
 namespace StarNight.Map.Tests.WorldGeneration.Boundaries
 {
+    [Category("MAP08_04")]
     public sealed class MoonpalaceBoundaryToolRequirementTests
     {
         private static readonly string[] AcceptedTokens =

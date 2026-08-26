@@ -8,6 +8,7 @@ using StarNight.Map.WorldGeneration.Boundaries;
 
 namespace StarNight.Map.Tests.WorldGeneration.Boundaries
 {
+    [Category("MAP08_01")]
     public sealed class MoonpalaceBiomePairContractTests
     {
         private static readonly string[] InvalidBiomeIds =

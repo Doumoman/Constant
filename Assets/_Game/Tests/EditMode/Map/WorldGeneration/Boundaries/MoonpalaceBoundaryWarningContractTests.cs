@@ -7,6 +7,7 @@ using StarNight.Map.WorldGeneration.Boundaries;
 
 namespace StarNight.Map.Tests.WorldGeneration.Boundaries
 {
+    [Category("MAP08_05")]
     public sealed class MoonpalaceBoundaryWarningContractTests
     {
         private static readonly PairProfileRule[] PairProfileRules =

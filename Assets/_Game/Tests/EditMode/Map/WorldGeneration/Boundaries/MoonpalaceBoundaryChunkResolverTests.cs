@@ -8,6 +8,7 @@ using StarNight.Map.WorldGeneration.Microchunks;
 
 namespace StarNight.Map.Tests.WorldGeneration.Boundaries
 {
+    [Category("MAP08_03")]
     public sealed class MoonpalaceBoundaryChunkResolverTests
     {
         public static IEnumerable ResolverCases

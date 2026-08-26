@@ -7,6 +7,7 @@ using StarNight.Map.WorldGeneration.Boundaries;
 
 namespace StarNight.Map.Tests.WorldGeneration.Boundaries
 {
+    [Category("MAP08_02")]
     public sealed class MoonpalaceBoundaryCandidateKeyTests
     {
         public static IEnumerable KeyCases

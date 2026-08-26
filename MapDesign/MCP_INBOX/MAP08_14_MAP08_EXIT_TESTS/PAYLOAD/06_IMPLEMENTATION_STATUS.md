@@ -13,7 +13,7 @@ Master Task Backlog: v1.0 / 205 tasks
 ## Current Task
 
 ```text
-NONE
+MAP08_14_MAP08_EXIT_TESTS
 ```
 
 ## Status
@@ -124,7 +124,7 @@ NONE
 | MAP08_11_AUTHOR_MILL_DOUGH_BOUNDARIES | COMPLETE |
 | MAP08_12_IMPLEMENT_BOUNDARY_COVERAGE_VALIDATOR | COMPLETE |
 | MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW | COMPLETE |
-| MAP08_14_MAP08_EXIT_TESTS | COMPLETE |
+| MAP08_14_MAP08_EXIT_TESTS | CURRENT |
 | MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER | LOCKED |
 | MAP09_02_FIX_EXTERNAL_SOCKET_CELLS | LOCKED |
 | MAP09_03_FIX_BOUNDARY_MICROCHUNK_CELLS | LOCKED |
@@ -229,15 +229,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP08_14_MAP08_EXIT_TESTS
+MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP08_14_MAP08_EXIT_TESTS_RESULT.md
+REPORTS/MAP08_13_CREATE_BOUNDARY_PREVIEW_WINDOW_RESULT.md
 STATUS: PASS
-SHA-256: 5d0b2f0d478ef8479b93e1b9163445f6e736022b533dee77f81690b8670cf2d1
+SHA-256: cb72264380c94a35ab6abe42f672c06e994f30deadc5a867546a31279b9bf7cd
 ```
 
 ## Confirmed Baseline
@@ -902,21 +902,17 @@ SHA-256: 5d0b2f0d478ef8479b93e1b9163445f6e736022b533dee77f81690b8670cf2d1
 - MAP08_07 tests: MAP08_07 focused `720/720`, MAP08 required `4140/4140`, MAP07 required `5422/5422`, MAP06 required `2746/2746`, MAP05 required `1959/1959`, required subset `14267/14267`, failed/skipped `0/0`
 - MAP08_07 Unity/static gates: compile/Console/relevant warnings `0/0/0`, global Assets meta `3687 -> 3693`, Map meta `570 -> 574`, Authoring CSV tracked changes exact `4`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`
 - MAP08_07 boundary advance: MAP08_07 symbols are allowed; before MAP08_08 patch, MAP08_08+ production symbols remained locked/forbidden
-- MAP08_14 phase exit tests: coverage/compatibility/determinism `300/300 + 300/300 + 240/240 = 840/840`, MAP08 required union `9220/9220`, MAP07/MAP06/MAP05 regression `5422/5422 + 2746/2746 + 1959/1959`, required subset `19347/19347`, failed/skipped `0/0`
-- MAP08_14 exit evidence: exact six pairs, candidates/microchunks/tile rows/socket rows `31/31/2976/62`, direction projections `62/62`, mandatory no-tool and H/V edge compatibility PASS, warning evidence minimum `2` categories/count per projection
-- MAP08_14 preservation/static gates: MAP08_12 aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, MAP08_13 preview projection preserved, Authoring CSV/meta `50/50`, Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, generated CSV `0`, compile/Console/relevant warnings `0/0/0`, duplicate GUID groups `0`
-- MAP08 phase exit: `APPROVED`; MAP09_01 remains `LOCKED / DO NOT START`
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다. MAP08_14는 STATUS `PASS`, SHA-256 `5d0b2f0d478ef8479b93e1b9163445f6e736022b533dee77f81690b8670cf2d1`로 검수됐고 MAP08 phase exit가 승인됐다.
+현재 Current Task는 `MAP08_14_MAP08_EXIT_TESTS`다. MAP08_13은 STATUS `PASS`, SHA-256 `cb72264380c94a35ab6abe42f672c06e994f30deadc5a867546a31279b9bf7cd`로 검수됐고 boundary preview window가 완료됐다.
 
-MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다.
+MAP07 phase는 `COMPLETE / EXIT APPROVED`다. MAP08 phase는 `MAP08_01~MAP08_13 COMPLETE / MAP08_14 CURRENT` 상태다.
 
-MAP08_14는 6 pair 전체 후보, A↔B 방향 반전, H/V edge compatibility, warning marker length/category, MAP08_12 coverage digest, MAP08_13 preview projection 보존을 검증하고 완료됐다.
+MAP08_14의 소유 범위는 MAP08 phase exit tests와 phase approval report를 구현하는 것이다. 검증 대상은 6 pair 전체 후보, A↔B 방향 반전, H/V edge compatibility, warning marker length/category, MAP08_12 coverage digest, MAP08_13 preview projection 보존이다.
 
 Generated CSV writer, sector assembly, tilemap baking, Scene/Prefab output, MAP09 sector recipe resolver는 아직 소유하지 않는다.
 
 Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08_12 coverage validator, and MAP08_13 preview window are complete baseline이다. MAP08_13 기준 Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`, Scene/Prefab/ProjectSettings/asmdef changes `0`, global Assets meta `3813`, Map meta `596`을 유지한다.
 
-`MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 이후 전체는 LOCKED로 유지하고 다음 patch 없이는 시작하지 않는다.
+`MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 이후 전체는 LOCKED로 유지하고 별도 MAP08 exit PASS Result와 다음 patch 없이는 시작하지 않는다.
