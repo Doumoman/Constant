@@ -130,7 +130,7 @@ NONE
 | MAP09_00_CREATE_V2_MODULE_STRUCTURE | COMPLETE |
 | MAP09_00R_INSTALL_SINGLE_MD_INBOX_PROTOCOL | COMPLETE |
 | MAP09_01_FREEZE_BASELINE_AND_REGISTER_V2_PASSES | COMPLETE |
-| MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS | LOCKED |
+| MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS | COMPLETE |
 | MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS | LOCKED |
 | MAP09_04_IMPLEMENT_CLUSTER_SPINE_ENVELOPE_CONTRACTS | LOCKED |
 | MAP09_05_IMPLEMENT_ACTIVITY_AND_EVENT_CONTRACTS | LOCKED |
@@ -924,17 +924,23 @@ SHA-256: 0fbd1448b6bac27ff51774aac8d5198cc19f34d7ff97ad11be9b31ace5e43d8a
 - MAP09_01 V2 pass catalog: stable order `10..100`, immutable artifact dependency/failure/RNG metadata, catalog digest `90a2614f9a95c29f1546f350190010524672d4b4aa2d1ad1dfe7dbd431be50d5`
 - MAP09_01 tests: focused `26/26`, MAP08/MAP07/MAP06/MAP05 required `9220/9220 + 5422/5422 + 2746/2746 + 1959/1959 = 19347/19347`, failed/skipped/inconclusive `0/0/0`
 - MAP09_01 static gates: compile/Console/relevant warnings `0/0/0`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID groups `0`, forbidden production symbol hits `0`
+- MAP09_02 layer catalog: exact order `RouteType → SpecialRegion → TerrainCluster → MicroPattern → ActivityStructure → EventOverlay → MicroChunk`, 9 exclusive responsibility owners, pacing assignment authority `0`, catalog digest `d0888c865cbdcc0884dc8abab9fac92900addd662a12a1ec30dc930f9cf4c94e`
+- MAP09_02 contracts: 15 strict PacingRole tokens and 7 strict AccessClass tokens, existing integer RouteType/OptionalRegion mapping reuse, mandatory no-tool and special-entry authority separation, Activity/Event remove-safe access, MicroChunk provenance-only preservation
+- MAP09_02 tests: focused `38/38`, MAP09_01 `26/26`, MAP08/MAP07/MAP06/MAP05 required `9220/9220 + 5422/5422 + 2746/2746 + 1959/1959 = 19347/19347`, failed/skipped/inconclusive `0/0/0`
+- MAP09_02 static gates: compile/Console/relevant warnings `0/0/0`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID groups `0`, duplicate RouteType/forbidden production symbol hits `0/0`
 
 ## Current Rule
 
 현재 Current Task는 `NONE`이다.
 
-상태 총계는 `215 rows = 108 COMPLETE / 0 CURRENT / 107 LOCKED`다. MAP09_01은 MAP08 approved baseline과 `Cluster-first → Pattern-second → Chunk-slice-last` V2 pass 계약을 고정하고 완료됐다.
+상태 총계는 `215 rows = 109 COMPLETE / 0 CURRENT / 106 LOCKED`다. MAP09_02는 7개 layer의 순서와 9개 exclusive responsibility owner, 독립된 PacingRole/AccessClass 축을 고정하고 완료됐다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
 MAP09_01 catalog는 Pacing부터 MicroChunkSlice까지 10개 pass의 stable numeric order, artifact chain, failure owner/policy, retry scope/escalation, deterministic RNG ownership을 선언한다. 기존 `WorldGenerationRoot`에는 연결하지 않았고 Sector solver, graph compiler, runtime generation은 구현하지 않았다.
 
+MAP09_02 catalog는 RouteType과 SpecialRegion만 각각 general/special access authority를 가지며 어느 layer도 pacing assignment authority를 갖지 않는다. Activity/Event 제거는 access를 보존하고 MicroChunk는 resolved access provenance만 저장한다.
+
 Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08 boundary baseline은 보존됐다. Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, boundary aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`을 유지한다.
 
-`MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
+`MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
