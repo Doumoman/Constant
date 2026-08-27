@@ -131,7 +131,7 @@ NONE
 | MAP09_00R_INSTALL_SINGLE_MD_INBOX_PROTOCOL | COMPLETE |
 | MAP09_01_FREEZE_BASELINE_AND_REGISTER_V2_PASSES | COMPLETE |
 | MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS | COMPLETE |
-| MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS | LOCKED |
+| MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS | COMPLETE |
 | MAP09_04_IMPLEMENT_CLUSTER_SPINE_ENVELOPE_CONTRACTS | LOCKED |
 | MAP09_05_IMPLEMENT_ACTIVITY_AND_EVENT_CONTRACTS | LOCKED |
 | MAP09_06_IMPLEMENT_SPECIAL_CANVAS_AND_SLICE_CONTRACTS | LOCKED |
@@ -928,12 +928,16 @@ SHA-256: 0fbd1448b6bac27ff51774aac8d5198cc19f34d7ff97ad11be9b31ace5e43d8a
 - MAP09_02 contracts: 15 strict PacingRole tokens and 7 strict AccessClass tokens, existing integer RouteType/OptionalRegion mapping reuse, mandatory no-tool and special-entry authority separation, Activity/Event remove-safe access, MicroChunk provenance-only preservation
 - MAP09_02 tests: focused `38/38`, MAP09_01 `26/26`, MAP08/MAP07/MAP06/MAP05 required `9220/9220 + 5422/5422 + 2746/2746 + 1959/1959 = 19347/19347`, failed/skipped/inconclusive `0/0/0`
 - MAP09_02 static gates: compile/Console/relevant warnings `0/0/0`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID groups `0`, duplicate RouteType/forbidden production symbol hits `0/0`
+- MAP09_03 MicroPattern contracts: immutable exact `4×4 = 16` explicit local-operation cells, six layers, eight operations, integer weight, typed biome compatibility, four transforms, two protected policies, accumulated validation, deterministic SHA-256 digest
+- MAP09_03 normalization: caller collections are defensive read-only copies; cell/layer/biome/transform order is canonical; omitted layer and explicit `NoChange` produce the same digest; invalid input publishes no definition or digest
+- MAP09_03 tests: focused `62/62`, MAP09_02 `38/38`, MAP09_01 `26/26`, MAP08/MAP07/MAP06/MAP05 required `9220/9220 + 5422/5422 + 2746/2746 + 1959/1959 = 19347/19347`, failed/skipped/inconclusive `0/0/0`
+- MAP09_03 static gates: compile/Console/relevant warnings `0/0/0`, Runtime/Test C# + meta `3/3 + 1/1`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID/forbidden production symbol hits `0/0`
 
 ## Current Rule
 
 현재 Current Task는 `NONE`이다.
 
-상태 총계는 `215 rows = 109 COMPLETE / 0 CURRENT / 106 LOCKED`다. MAP09_02는 7개 layer의 순서와 9개 exclusive responsibility owner, 독립된 PacingRole/AccessClass 축을 고정하고 완료됐다.
+상태 총계는 `215 rows = 110 COMPLETE / 0 CURRENT / 105 LOCKED`다. MAP09_03은 4×4 MicroPattern의 immutable operation-cell 계약, validator, canonical digest를 고정하고 완료됐다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
@@ -941,6 +945,8 @@ MAP09_01 catalog는 Pacing부터 MicroChunkSlice까지 10개 pass의 stable nume
 
 MAP09_02 catalog는 RouteType과 SpecialRegion만 각각 general/special access authority를 가지며 어느 layer도 pacing assignment authority를 갖지 않는다. Activity/Event 제거는 access를 보존하고 MicroChunk는 resolved access provenance만 저장한다.
 
+MAP09_03은 기존 `LocalTileCoord`와 MAP08 `MoonpalaceBiomeId`를 재사용한다. 12×8 MicroChunk, actual transform application, protected mask, selector/RNG, cleanup, renderer, CSV authoring과 `WorldGenerationRoot` 연결은 구현하지 않았다.
+
 Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08 boundary baseline은 보존됐다. Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, boundary aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`을 유지한다.
 
-`MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
+`MAP09_04_IMPLEMENT_CLUSTER_SPINE_ENVELOPE_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
