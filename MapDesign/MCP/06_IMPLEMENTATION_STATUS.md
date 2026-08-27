@@ -129,7 +129,7 @@ NONE
 | MAP08_14_MAP08_EXIT_TESTS | COMPLETE |
 | MAP09_00_CREATE_V2_MODULE_STRUCTURE | COMPLETE |
 | MAP09_00R_INSTALL_SINGLE_MD_INBOX_PROTOCOL | COMPLETE |
-| MAP09_01_FREEZE_BASELINE_AND_REGISTER_V2_PASSES | LOCKED |
+| MAP09_01_FREEZE_BASELINE_AND_REGISTER_V2_PASSES | COMPLETE |
 | MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS | LOCKED |
 | MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS | LOCKED |
 | MAP09_04_IMPLEMENT_CLUSTER_SPINE_ENVELOPE_CONTRACTS | LOCKED |
@@ -920,22 +920,21 @@ SHA-256: 0fbd1448b6bac27ff51774aac8d5198cc19f34d7ff97ad11be9b31ace5e43d8a
 - MAP08 phase exit: `APPROVED`; V2 구조 전환 전 기존 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`는 폐기되며 실행 금지
 - MAP09_00 structure transition: exact 24 target directories/metas, MAP00 36 directories, Microchunks/Boundaries preservation, duplicate GUID 0, architecture `10/10`, compile/Console/relevant warnings `0/0/0`, Authoring manifest unchanged, Generated CSV 0
 - MAP09_00 installed v1.0 payload: Master `2f1fa53df4eb3687507c68d51167f681872622ed818e4835773a9c121e8ef4a7`, Task `d3b4d6ffdb149823c1e2686ccded43897127aa0b8ea9bc74a3da0491f457ab63`; single_task_v1 protocol was not included
-- Protocol remediation: `MAP09_00R_INSTALL_SINGLE_MD_INBOX_PROTOCOL`만 `CURRENT`; `MAP09_01_FREEZE_BASELINE_AND_REGISTER_V2_PASSES` 이후는 `LOCKED / DO NOT START`
+- MAP09_00R protocol remediation: `single_task_v1` 설치와 PASS finalize 완료
+- MAP09_01 V2 pass catalog: stable order `10..100`, immutable artifact dependency/failure/RNG metadata, catalog digest `90a2614f9a95c29f1546f350190010524672d4b4aa2d1ad1dfe7dbd431be50d5`
+- MAP09_01 tests: focused `26/26`, MAP08/MAP07/MAP06/MAP05 required `9220/9220 + 5422/5422 + 2746/2746 + 1959/1959 = 19347/19347`, failed/skipped/inconclusive `0/0/0`
+- MAP09_01 static gates: compile/Console/relevant warnings `0/0/0`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID groups `0`, forbidden production symbol hits `0`
 
 ## Current Rule
 
-현재 Current Task는 `MAP09_00R_INSTALL_SINGLE_MD_INBOX_PROTOCOL`이다. MAP09_00은 STATUS `PASS`, SHA-256 `4c825c9ac77257bf293b9be86282e0562e3272ec38f1a4f8f9a4ff860983d478`로 검수됐고 V2 module structure가 승인됐다.
+현재 Current Task는 `NONE`이다.
 
-상태 총계는 `215 rows = 106 COMPLETE / 1 CURRENT / 108 LOCKED`다. MAP09_00R은 누락된 `single_task_v1` inbox 규칙만 설치하는 protocol-only 보정 Task이며 MAP09 기능 구현에는 포함하지 않는다.
+상태 총계는 `215 rows = 108 COMPLETE / 0 CURRENT / 107 LOCKED`다. MAP09_01은 MAP08 approved baseline과 `Cluster-first → Pattern-second → Chunk-slice-last` V2 pass 계약을 고정하고 완료됐다.
 
-MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다.
+MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
-MAP08_14는 6 pair 전체 후보, A↔B 방향 반전, H/V edge compatibility, warning marker length/category, MAP08_12 coverage digest, MAP08_13 preview projection 보존을 검증하고 완료됐다.
+MAP09_01 catalog는 Pacing부터 MicroChunkSlice까지 10개 pass의 stable numeric order, artifact chain, failure owner/policy, retry scope/escalation, deterministic RNG ownership을 선언한다. 기존 `WorldGenerationRoot`에는 연결하지 않았고 Sector solver, graph compiler, runtime generation은 구현하지 않았다.
 
-MAP09_00은 지정된 24개 V2 디렉터리/folder meta를 완료했다. MAP09_00R은 MCP entrypoint/apply/change-control 문서 4개와 single Task patch template 1개만 소유한다. Assets, C#, CSV, asmdef/asmref, Scene/Prefab, ProjectSettings/Packages 변경은 소유하지 않는다.
+Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08 boundary baseline은 보존됐다. Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, boundary aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`을 유지한다.
 
-MAP09_00R PASS/finalize 후 legacy patch folder 방식을 종료한다. 이후에는 `MapDesign/MCP_INBOX/<TASK_ID>.md` 하나가 Task body와 apply metadata를 함께 소유하며, Patch Apply가 설치·Status open·Archive를 수행한다. 다음 Task 자동 시작은 계속 금지한다.
-
-Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08_12 coverage validator, and MAP08_13 preview window are complete baseline이다. MAP09_00 종료 기준 Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`, global Assets meta `3840`, Map meta `611`을 보존한다.
-
-`MAP09_01_FREEZE_BASELINE_AND_REGISTER_V2_PASSES`와 이후 전체는 LOCKED로 유지하고 다음 patch 없이는 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
+`MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
