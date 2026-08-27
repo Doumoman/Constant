@@ -133,7 +133,7 @@ NONE
 | MAP09_02_DEFINE_LAYER_PACING_AND_ACCESS_CONTRACTS | COMPLETE |
 | MAP09_03_IMPLEMENT_MICROPATTERN_CONTRACTS | COMPLETE |
 | MAP09_04_IMPLEMENT_CLUSTER_SPINE_ENVELOPE_CONTRACTS | COMPLETE |
-| MAP09_05_IMPLEMENT_ACTIVITY_AND_EVENT_CONTRACTS | LOCKED |
+| MAP09_05_IMPLEMENT_ACTIVITY_AND_EVENT_CONTRACTS | COMPLETE |
 | MAP09_06_IMPLEMENT_SPECIAL_CANVAS_AND_SLICE_CONTRACTS | LOCKED |
 | MAP09_07_EXTEND_CSV_REGISTRY_AND_CREATE_COMPATIBILITY_FIXTURES | LOCKED |
 | MAP09_08_MAP09_CONTRACT_EXIT_AUDIT | LOCKED |
@@ -936,12 +936,16 @@ SHA-256: 0fbd1448b6bac27ff51774aac8d5198cc19f34d7ff97ad11be9b31ace5e43d8a
 - MAP09_04 validation/digest: exact six movement envelope matrix, node/edge/reference/clearance/landing/recovery checks, accumulated stable errors, defensive canonical collections, and semantic SHA-256 digest `e8c3228e6f9df360637023d68e9c243cb70df4122342a3251740054bbcc8f9f1`
 - MAP09_04 tests: focused `71/71`, MAP09_03 `62/62`, MAP09_02 `38/38`, MAP09_01 `26/26`, MAP08/MAP07/MAP06/MAP05 required `9220/9220 + 5422/5422 + 2746/2746 + 1959/1959 = 19347/19347`, failed/skipped/inconclusive `0/0/0`
 - MAP09_04 static gates: compile/Console/relevant warnings `0/0/0`, Runtime/Test C# + meta `3/3 + 1/1`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID/forbidden production symbol hits `0/0`
+- MAP09_05 Activity contracts: immutable shell/slot/cue compatibility, Trigger-reachable MechanismGraph, ordered/recoverable ProgressionGraph, removal-safe RouteType/AccessClass/traversal identity, protected-write rejection, and semantic digest `7a5357320d8e2634ab9416ae7c90fb80a83c1c7f799a8df7689ba37b8a0903bc`
+- MAP09_05 Event contracts: marker-only Npc/Reward/State/Cosmetic/Empty variants, exact operation/payload compatibility, explicit Empty, shell/activity removal identity, no graph or tile ownership, and semantic digest `722a490f054e5bfc5a75ac81e03eee4978cd7f51d34e01fa1e01818c9d4ce904`
+- MAP09_05 tests: focused `67/67`, compile/Console/relevant warnings `0/0/0`; final-code MAP09_04/03/02/01 `71/71 + 62/62 + 38/38 + 26/26`, MAP08 `9220/9220`; remaining regression replay stopped and superseded by the user's current no-regression-unless-problem instruction
+- MAP09_05 static gates: Runtime/Test C# + meta `6/6 + 2/2`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID/forbidden production symbol hits `0/0`, existing MAP00~09_04 and other V2 root modifications `0/0`
 
 ## Current Rule
 
 현재 Current Task는 `NONE`이다.
 
-상태 총계는 `215 rows = 111 COMPLETE / 0 CURRENT / 104 LOCKED`다. MAP09_04는 TerrainCluster footprint·role·port와 Traversal-only SpineVariant·protected envelope의 immutable 계약, validator, canonical digest를 고정하고 완료됐다.
+상태 총계는 `215 rows = 112 COMPLETE / 0 CURRENT / 103 LOCKED`다. MAP09_05는 ActivityStructure의 shell/slot/cue·Mechanism/Progression·removal-safe 계약과 EventOverlay의 marker-only/explicit Empty 계약, validator, canonical digest를 고정하고 완료됐다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
@@ -951,8 +955,10 @@ MAP09_02 catalog는 RouteType과 SpecialRegion만 각각 general/special access 
 
 MAP09_03은 기존 `LocalTileCoord`와 MAP08 `MoonpalaceBiomeId`를 재사용한다. 12×8 MicroChunk, actual transform application, protected mask, selector/RNG, cleanup, renderer, CSV authoring과 `WorldGenerationRoot` 연결은 구현하지 않았다.
 
-MAP09_04는 기존 `LocalTileCoord`, 12×8 MicroChunk 상수, 정수 RouteType `0..4` 권위를 재사용한다. tile 생성, graph compiler, pathfinding, physics simulation, renderer, CSV, RNG, MechanismGraph, ProgressionGraph는 구현하지 않았다.
+MAP09_04는 기존 `LocalTileCoord`, 12×8 MicroChunk 상수, 정수 RouteType `0..4` 권위를 재사용한다. tile 생성, graph compiler, pathfinding, physics simulation, renderer, CSV, RNG는 구현하지 않았다.
+
+MAP09_05는 static collision shell·TraversalGraph·Entry/Exit·Envelope 권위를 TerrainCluster에 유지하고 MechanismGraph와 ProgressionGraph만 ActivityStructure에 둔다. EventOverlay는 marker assignment만 소유한다. 실제 prefab/state machine, physics/projectile, tile mutation, placement/frequency/cap/cooldown, CSV와 RNG는 구현하지 않았다.
 
 Mandatory route graph, MAP06 optional-region source chain, MAP07_01~MAP07_13 artifacts, MAP08 boundary baseline은 보존됐다. Authoring manifest `f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb`, boundary aggregate digest `f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68`, generated CSV `0`을 유지한다.
 
-`MAP09_05_IMPLEMENT_ACTIVITY_AND_EVENT_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
+`MAP09_06_IMPLEMENT_SPECIAL_CANVAS_AND_SLICE_CONTRACTS`와 이후 전체는 `LOCKED / DO NOT START`다. 다음 Task는 별도 `single_task_v1` patch apply와 사용자 검수 없이 자동 시작하지 않는다. 폐기된 `MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER`와 과거 MAP09~15 Task는 실행하지 않는다.
