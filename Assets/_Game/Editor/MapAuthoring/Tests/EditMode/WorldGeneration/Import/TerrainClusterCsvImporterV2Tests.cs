@@ -59,6 +59,47 @@ namespace StarNight.MapAuthoring.Tests.EditMode.WorldGeneration.Import
                 { "terrain_cluster_high_route_failures_v2.csv", 16 },
             };
 
+        private static readonly IReadOnlyDictionary<string, ClusterChunkCoord[]> ExpectedRecoveryFootprints =
+            new Dictionary<string, ClusterChunkCoord[]>(StringComparer.Ordinal)
+            {
+                {
+                    "TC_CRATER_ROCK_SHELF_RECOVERY",
+                    new[]
+                    {
+                        new ClusterChunkCoord(0, 0), new ClusterChunkCoord(1, 0),
+                        new ClusterChunkCoord(2, 0), new ClusterChunkCoord(2, 1),
+                        new ClusterChunkCoord(3, 1),
+                    }
+                },
+                {
+                    "TC_ROOT_FORKED_CANOPY_RECOVERY",
+                    new[]
+                    {
+                        new ClusterChunkCoord(0, 1), new ClusterChunkCoord(1, 0),
+                        new ClusterChunkCoord(1, 1), new ClusterChunkCoord(1, 2),
+                        new ClusterChunkCoord(2, 1),
+                    }
+                },
+                {
+                    "TC_MILL_ORTHOGONAL_SHAFT_RECOVERY",
+                    new[]
+                    {
+                        new ClusterChunkCoord(0, 2), new ClusterChunkCoord(1, 0),
+                        new ClusterChunkCoord(1, 1), new ClusterChunkCoord(1, 2),
+                        new ClusterChunkCoord(2, 0),
+                    }
+                },
+                {
+                    "TC_DOUGH_STICKY_RISE_RECOVERY",
+                    new[]
+                    {
+                        new ClusterChunkCoord(0, 0), new ClusterChunkCoord(0, 1),
+                        new ClusterChunkCoord(1, 1), new ClusterChunkCoord(1, 2),
+                        new ClusterChunkCoord(2, 2),
+                    }
+                },
+            };
+
         private static readonly Lazy<ContentFixture> Fixture =
             new Lazy<ContentFixture>(BuildFixture);
 
@@ -125,6 +166,12 @@ namespace StarNight.MapAuthoring.Tests.EditMode.WorldGeneration.Import
                 Assert.That(entry.Contract.Footprint.ActiveChunks.Min(value => value.X), Is.Zero, entry.Id.Value);
                 Assert.That(entry.Contract.Footprint.ActiveChunks.Min(value => value.Y), Is.Zero, entry.Id.Value);
                 Assert.That(entry.Contract.Footprint.ActiveChunks.Distinct().Count(), Is.EqualTo(spec.Chunks));
+                var chunkWidth = entry.Contract.Footprint.ActiveChunks.Max(value => value.X) + 1;
+                var chunkHeight = entry.Contract.Footprint.ActiveChunks.Max(value => value.Y) + 1;
+                Assert.That(chunkWidth, Is.LessThanOrEqualTo(4), entry.Id.Value);
+                Assert.That(chunkHeight, Is.LessThanOrEqualTo(4), entry.Id.Value);
+                Assert.That(chunkWidth * 12, Is.LessThanOrEqualTo(48), entry.Id.Value);
+                Assert.That(chunkHeight * 8, Is.LessThanOrEqualTo(32), entry.Id.Value);
                 Assert.That(entry.Contract.Traversal.Variants, Has.Count.EqualTo(2), entry.Id.Value);
                 Assert.That(entry.Contract.Traversal.Variants.Count(value => value.IsBaseline), Is.EqualTo(1));
                 Assert.That(entry.Contract.Traversal.Variants.Single(value => value.IsBaseline).Id,
@@ -157,6 +204,49 @@ namespace StarNight.MapAuthoring.Tests.EditMode.WorldGeneration.Import
             Assert.That(result.Catalog.Entries.GroupBy(value => value.Contract.Footprint.ActiveChunks.Count)
                 .ToDictionary(value => value.Key, value => value.Count()),
                 Is.EquivalentTo(new Dictionary<int, int> { { 2, 4 }, { 3, 4 }, { 4, 4 }, { 5, 4 } }));
+        }
+
+        [Test]
+        public void RecoveryFootprintsFitSectorAndOversizedFiveChunkBoundsRejectAtomically()
+        {
+            var result = Import();
+            foreach (var expected in ExpectedRecoveryFootprints)
+            {
+                var entry = result.Catalog.Entries.Single(value =>
+                    string.Equals(value.Id.Value, expected.Key, StringComparison.Ordinal));
+                Assert.That(entry.Contract.Footprint.ActiveChunks.OrderBy(value => value),
+                    Is.EqualTo(expected.Value.OrderBy(value => value)), expected.Key);
+            }
+
+            var invalidFootprints = new[]
+            {
+                new
+                {
+                    Observed = "5x1",
+                    Chunks = Enumerable.Range(0, 5)
+                        .Select(value => new ClusterChunkCoord(value, 0)).ToArray(),
+                },
+                new
+                {
+                    Observed = "1x5",
+                    Chunks = Enumerable.Range(0, 5)
+                        .Select(value => new ClusterChunkCoord(0, value)).ToArray(),
+                },
+            };
+            foreach (var invalid in invalidFootprints)
+            {
+                var physical = ReadAllBytes();
+                var cellsPath = PathFor("terrain_cluster_cells_v2.csv");
+                physical[cellsPath] = ReplaceClusterCells(
+                    physical[cellsPath], "TC_CRATER_ROCK_SHELF_RECOVERY", invalid.Chunks);
+                var failure = new TerrainClusterCsvImporterV2().ParseBytes(physical);
+                AssertAtomicFailure(failure);
+                Assert.That(failure.Errors.Any(value =>
+                        value.Code == TerrainClusterCsvImportErrorCode.AuthoringValidation &&
+                        value.Detail.Contains("TC_CRATER_ROCK_SHELF_RECOVERY footprint bounds observed " +
+                                              invalid.Observed + " chunks; allowed 4x4.")),
+                    Is.True, Errors(failure));
+            }
         }
 
         [Test]
@@ -447,6 +537,23 @@ namespace StarNight.MapAuthoring.Tests.EditMode.WorldGeneration.Import
             lines.Insert(2, lines[1]);
             return new UTF8Encoding(true).GetPreamble()
                 .Concat(new UTF8Encoding(false).GetBytes(string.Join("\n", lines) + "\n")).ToArray();
+        }
+
+        private static byte[] ReplaceClusterCells(
+            byte[] source,
+            string clusterId,
+            IReadOnlyList<ClusterChunkCoord> chunks)
+        {
+            var text = Encoding.UTF8.GetString(source).TrimStart('\uFEFF');
+            var lines = text.Split(new[] { '\n' }, StringSplitOptions.None);
+            var indexes = lines.Select((line, index) => new { line, index })
+                .Where(value => value.line.StartsWith(clusterId + ",", StringComparison.Ordinal))
+                .Select(value => value.index).ToArray();
+            Assert.That(indexes, Has.Length.EqualTo(chunks.Count));
+            for (var index = 0; index < indexes.Length; index++)
+                lines[indexes[index]] = clusterId + "," + chunks[index].X + "," + chunks[index].Y + ",,,,,";
+            return new UTF8Encoding(true).GetPreamble()
+                .Concat(new UTF8Encoding(false).GetBytes(string.Join("\n", lines))).ToArray();
         }
 
         private static void AssertAtomicFailure(TerrainClusterCsvImportResult result)

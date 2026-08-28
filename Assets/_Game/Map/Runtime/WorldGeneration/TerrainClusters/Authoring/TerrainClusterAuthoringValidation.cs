@@ -14,6 +14,10 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters.Authoring
 {
     public static class TerrainClusterAuthoringValidation
     {
+        // One 48x32 Sector contains a 4x4 frame of 12x8 MicroChunks.
+        private const int SectorChunkWidth = 4;
+        private const int SectorChunkHeight = 4;
+
         private static readonly Regex StableId = new Regex(
             "^[A-Za-z][A-Za-z0-9_]*$", RegexOptions.CultureInvariant);
 
@@ -280,6 +284,17 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters.Authoring
             {
                 Add(errors, TerrainClusterAuthoringErrorCode.InvalidFootprint,
                     catalogRow, "footprint", "Footprint must be normalized, connected, unique, 2..5 chunks, with empty legacy summaries.");
+                return null;
+            }
+
+            var chunkWidth = chunks.Max(value => value.X) - chunks.Min(value => value.X) + 1;
+            var chunkHeight = chunks.Max(value => value.Y) - chunks.Min(value => value.Y) + 1;
+            if (chunkWidth > SectorChunkWidth || chunkHeight > SectorChunkHeight)
+            {
+                Add(errors, TerrainClusterAuthoringErrorCode.InvalidFootprint,
+                    catalogRow, "footprint", clusterId + " footprint bounds observed " +
+                    chunkWidth + "x" + chunkHeight + " chunks; allowed " +
+                    SectorChunkWidth + "x" + SectorChunkHeight + ".");
                 return null;
             }
 
