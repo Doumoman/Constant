@@ -14,6 +14,8 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
     {
         private readonly ReadOnlyCollection<TerrainClusterPatternZoneCell> authoredZones;
         private readonly ReadOnlyCollection<TerrainClusterPatternPlacementIntent> placements;
+        private readonly bool hasExplicitAuthoredZones;
+        private readonly bool hasExplicitPlacements;
 
         public TerrainClusterPatternRenderRequest(
             TerrainClusterLocalCanvas localCanvas,
@@ -35,6 +37,8 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             ExpectedRouteWitnessDigest = expectedRouteWitnessDigest ?? string.Empty;
             PatternCatalog = patternCatalog;
             ExpectedPatternCatalogDigest = expectedPatternCatalogDigest ?? string.Empty;
+            hasExplicitAuthoredZones = authoredZones != null;
+            hasExplicitPlacements = placements != null;
             this.authoredZones = new ReadOnlyCollection<TerrainClusterPatternZoneCell>(
                 (authoredZones ?? Array.Empty<TerrainClusterPatternZoneCell>()).ToArray());
             this.placements = new ReadOnlyCollection<TerrainClusterPatternPlacementIntent>(
@@ -51,6 +55,8 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         public string ExpectedPatternCatalogDigest { get; }
         public IReadOnlyList<TerrainClusterPatternZoneCell> AuthoredZones => authoredZones;
         public IReadOnlyList<TerrainClusterPatternPlacementIntent> Placements => placements;
+        internal bool HasExplicitAuthoredZones => hasExplicitAuthoredZones;
+        internal bool HasExplicitPlacements => hasExplicitPlacements;
     }
 
     public enum TerrainClusterPatternGeometryProvenanceKind
@@ -136,6 +142,7 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             TerrainClusterPatternWorkingCanvas finalCanvas,
             int map10TargetCoordinateCount,
             int untouchedFullCanvasCoordinateCount,
+            int rendererInvocationCount,
             int protectedWriteCount,
             int protectedValueChangeCount,
             string canonicalDigest)
@@ -151,6 +158,7 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             FinalWorkingCanvas = finalCanvas;
             Map10TargetCoordinateCount = map10TargetCoordinateCount;
             UntouchedFullCanvasCoordinateCount = untouchedFullCanvasCoordinateCount;
+            RendererInvocationCount = rendererInvocationCount;
             ProtectedWriteCount = protectedWriteCount;
             ProtectedValueChangeCount = protectedValueChangeCount;
             CanonicalDigest = canonicalDigest ?? string.Empty;
@@ -167,9 +175,17 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         public int GeometryCarveSubstrateCoordinateCount => InitialWorkingCanvas.GeometryCarveSubstrateCoordinateCount;
         public int Map10TargetCoordinateCount { get; }
         public int UntouchedFullCanvasCoordinateCount { get; }
-        public int RendererDeltaCoordinateCount => RenderDelta.Cells.Count;
+        public int RendererInvocationCount { get; }
+        public int RendererDeltaCoordinateCount => RenderDelta == null ? 0 : RenderDelta.Cells.Count;
+        public int ChangedCoordinateCount => RenderDelta == null
+            ? 0
+            : RenderDelta.Cells.Count(value => !value.ValuesEqual);
         public int ProtectedWriteCount { get; }
         public int ProtectedValueChangeCount { get; }
+        public bool IsPatternFree => RendererInvocationCount == 0 &&
+                                     placements.Count == 0 &&
+                                     applicationPlans.Count == 0 &&
+                                     RenderDelta == null;
         public string CanonicalDigest { get; }
     }
 
@@ -311,6 +327,16 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             var canonicalPlacements = request.Placements
                 .Where(value => value != null)
                 .OrderBy(value => value.PlacementId, StringComparer.Ordinal).ToArray();
+            var isPatternFree = request.HasExplicitAuthoredZones &&
+                                request.HasExplicitPlacements &&
+                                request.AuthoredZones.Count == 0 &&
+                                request.Placements.Count == 0;
+            if (isPatternFree)
+            {
+                return PublishPatternFree(
+                    request, zoneBuild.Map, initialCanvas, activeCoordinates.Count, errors);
+            }
+
             ValidatePlacementIds(request.Placements, errors);
             var plans = new List<MicroPatternApplicationPlan>();
             var renderRequests = new List<MicroPatternRenderRequest>();
@@ -378,13 +404,34 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
 
             var planDigest = ComputePlanDigest(plans);
             var reportDigest = ComputeReportDigest(request, zoneBuild.Map, canonicalPlacements, plans,
-                planDigest, renderResult.Delta, initialCanvas, finalCanvas, targetCoordinates.Length,
+                planDigest, renderResult.Delta, initialCanvas, finalCanvas, 1, targetCoordinates.Length,
                 initialCanvas.CoordinateCount - targetCoordinates.Length, protectedWrites, protectedChanges);
             var report = new TerrainClusterPatternRenderReport(
                 zoneBuild.Map, canonicalPlacements, plans, planDigest, renderResult.Delta,
                 initialCanvas, finalCanvas, targetCoordinates.Length,
                 initialCanvas.CoordinateCount - targetCoordinates.Length,
-                protectedWrites, protectedChanges, reportDigest);
+                1, protectedWrites, protectedChanges, reportDigest);
+            return new TerrainClusterPatternRenderResult(report, errors);
+        }
+
+        private static TerrainClusterPatternRenderResult PublishPatternFree(
+            TerrainClusterPatternRenderRequest request,
+            PatternZoneMap zoneMap,
+            TerrainClusterPatternWorkingCanvas initialCanvas,
+            int activeCoordinateCount,
+            ICollection<TerrainClusterPatternRenderError> errors)
+        {
+            var placements = Array.Empty<TerrainClusterPatternPlacementIntent>();
+            var plans = Array.Empty<MicroPatternApplicationPlan>();
+            var planDigest = ComputePlanDigest(plans);
+            var finalCanvas = initialCanvas;
+            var reportDigest = ComputeReportDigest(
+                request, zoneMap, placements, plans, planDigest, null,
+                initialCanvas, finalCanvas, 0, 0, activeCoordinateCount, 0, 0);
+            var report = new TerrainClusterPatternRenderReport(
+                zoneMap, placements, plans, planDigest, null,
+                initialCanvas, finalCanvas, 0, activeCoordinateCount,
+                0, 0, 0, reportDigest);
             return new TerrainClusterPatternRenderResult(report, errors);
         }
 
@@ -670,6 +717,7 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             MicroPatternRenderDelta delta,
             TerrainClusterPatternWorkingCanvas initial,
             TerrainClusterPatternWorkingCanvas final,
+            int rendererInvocationCount,
             int targetCount,
             int untouchedCount,
             int protectedWrites,
@@ -686,11 +734,15 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 Append(material, "PLACEMENT", placement.ApplicationIdentity, placement.ExpectedDefinitionDigest);
             foreach (var plan in plans.OrderBy(value => value.StableDigest, StringComparer.Ordinal)) Append(material, "PLAN", plan.StableDigest);
             Append(material, "PLAN_DIGEST", planDigest);
-            Append(material, "MAP10_RENDER", delta.StableDigest);
+            Append(material, "RENDER_MODE", rendererInvocationCount == 0
+                ? "NO_PATTERN_RENDER"
+                : "MAP10_ORDERED_RENDER");
+            Append(material, "RENDER_INVOCATIONS", Number(rendererInvocationCount));
+            if (delta != null) Append(material, "MAP10_RENDER", delta.StableDigest);
             Append(material, "INITIAL", initial.CanonicalDigest);
             Append(material, "FINAL", final.CanonicalDigest);
             Append(material, "COUNTS", Number(initial.CoordinateCount), Number(targetCount), Number(untouchedCount),
-                Number(delta.Cells.Count), Number(protectedWrites), Number(protectedChanges));
+                Number(delta == null ? 0 : delta.Cells.Count), Number(protectedWrites), Number(protectedChanges));
             return Sha256(material.ToString());
         }
 

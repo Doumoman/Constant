@@ -14,6 +14,155 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters.Tests
     public sealed class TerrainClusterPatternRendererTests
     {
         [Test]
+        public void Render_ExplicitEmptyZonesAndPlacementsPublishesPatternFreeStaticShellCanvas()
+        {
+            var fixture = BuildFixture();
+            var catalog = BuildCatalog(PatternSpec.Single(
+                "MP_UNUSED", new LocalTileCoord(0, 0), "MARKER", "MARKER", "MARKER_UNUSED"));
+
+            var result = Render(fixture, catalog,
+                Array.Empty<TerrainClusterPatternZoneCell>(),
+                Array.Empty<TerrainClusterPatternPlacementIntent>());
+
+            AssertSuccess(result);
+            var report = result.Report;
+            var activeCount = fixture.Canvas.TileCells.Count(value =>
+                value.State == ClusterChunkMaskState.Active);
+            var protectedCount = fixture.Traversal.ProtectedTiles
+                .Select(value => value.CompiledCoordinate).Distinct().Count();
+            Assert.That(report.IsPatternFree, Is.True);
+            Assert.That(report.Placements, Is.Empty);
+            Assert.That(report.ApplicationPlans, Is.Empty);
+            Assert.That(report.ApplicationPlanDigest, Does.Match("^[0-9a-f]{64}$"));
+            Assert.That(report.Map10TargetCoordinateCount, Is.Zero);
+            Assert.That(report.GeometryCarveSubstrateCoordinateCount, Is.Zero);
+            Assert.That(report.RendererInvocationCount, Is.Zero);
+            Assert.That(report.RendererDeltaCoordinateCount, Is.Zero);
+            Assert.That(report.ChangedCoordinateCount, Is.Zero);
+            Assert.That(report.ProtectedWriteCount, Is.Zero);
+            Assert.That(report.ProtectedValueChangeCount, Is.Zero);
+            Assert.That(report.RenderDelta, Is.Null);
+            Assert.That(report.FullWorkingCanvasCoordinateCount, Is.EqualTo(activeCount));
+            Assert.That(report.UntouchedFullCanvasCoordinateCount, Is.EqualTo(activeCount));
+            Assert.That(report.InitialWorkingCanvas, Is.SameAs(report.FinalWorkingCanvas));
+            Assert.That(report.InitialWorkingCanvas.CanonicalDigest,
+                Is.EqualTo(report.FinalWorkingCanvas.CanonicalDigest));
+            Assert.That(report.ZoneMap.AbsoluteProtectedCoordinateCount, Is.EqualTo(protectedCount));
+            Assert.That(report.ZoneMap.Cells, Is.Not.Empty);
+            Assert.That(report.ZoneMap.Cells.All(value =>
+                value.HasKind(TerrainClusterPatternZoneKind.AbsoluteProtected)), Is.True);
+
+            var shellByCoordinate = fixture.Witness.StaticShell.Cells.ToDictionary(
+                value => value.CompiledCoordinate);
+            foreach (var cell in report.InitialWorkingCanvas.Cells)
+            {
+                Assert.That(shellByCoordinate.TryGetValue(cell.Coordinate, out var shell), Is.True);
+                Assert.That(cell.StaticShellCell, Is.SameAs(shell));
+                Assert.That(cell.Solid,
+                    Is.EqualTo(shell.Occupancy == TerrainClusterShellOccupancy.Solid));
+                Assert.That(cell.IsGeometryCarveSubstrate, Is.False);
+                Assert.That(report.FinalWorkingCanvas.TryGetCell(cell.Coordinate, out var final), Is.True);
+                Assert.That(final.State.ValuesEqual(cell.State), Is.True);
+                Assert.That(final.State.Provenance, Is.EqualTo(cell.State.Provenance));
+            }
+        }
+
+        [Test]
+        public void Render_PatternFreeReversedEmptyInputsAndCultureKeepCanonicalDigest()
+        {
+            var fixture = BuildFixture();
+            var catalog = BuildCatalog(PatternSpec.Single(
+                "MP_UNUSED_ORDER", new LocalTileCoord(0, 0), "MARKER", "MARKER", "MARKER_UNUSED"));
+            var originalCulture = CultureInfo.CurrentCulture;
+            try
+            {
+                var first = Render(fixture, catalog,
+                    Array.Empty<TerrainClusterPatternZoneCell>(),
+                    Array.Empty<TerrainClusterPatternPlacementIntent>());
+                CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("tr-TR");
+                var second = Render(fixture, catalog,
+                    Enumerable.Empty<TerrainClusterPatternZoneCell>().Reverse(),
+                    Enumerable.Empty<TerrainClusterPatternPlacementIntent>().Reverse());
+
+                AssertSuccess(first);
+                AssertSuccess(second);
+                Assert.That(second.Report.IsPatternFree, Is.True);
+                Assert.That(second.CanonicalDigest, Is.EqualTo(first.CanonicalDigest));
+                Assert.That(second.ZoneMap.CanonicalDigest, Is.EqualTo(first.ZoneMap.CanonicalDigest));
+                Assert.That(second.InitialWorkingCanvas.CanonicalDigest,
+                    Is.EqualTo(first.InitialWorkingCanvas.CanonicalDigest));
+                Assert.That(second.FinalWorkingCanvas.CanonicalDigest,
+                    Is.EqualTo(first.FinalWorkingCanvas.CanonicalDigest));
+            }
+            finally { CultureInfo.CurrentCulture = originalCulture; }
+        }
+
+        [Test]
+        public void Render_PatternFreeDigestMismatchStillRejectsAtomically()
+        {
+            var fixture = BuildFixture();
+            var catalog = BuildCatalog(PatternSpec.Single(
+                "MP_UNUSED_MISMATCH", new LocalTileCoord(0, 0), "MARKER", "MARKER", "MARKER_UNUSED"));
+            var request = new TerrainClusterPatternRenderRequest(
+                fixture.Canvas, "wrong-local-canvas-digest",
+                fixture.Traversal, fixture.Traversal.CanonicalDigest,
+                fixture.Witness, fixture.Witness.CanonicalDigest,
+                catalog, catalog.StableDigest,
+                Array.Empty<TerrainClusterPatternZoneCell>(),
+                Array.Empty<TerrainClusterPatternPlacementIntent>());
+
+            AssertFailure(TerrainClusterPatternRenderer.Render(request),
+                TerrainClusterPatternRenderErrorCode.ArtifactDigestMismatch);
+        }
+
+        [Test]
+        public void Render_NonprotectedZoneAndEmptyPlacementsRetainsMissingInputFailure()
+        {
+            var fixture = BuildFixture();
+            var catalog = BuildCatalog(PatternSpec.Single(
+                "MP_UNUSED_ZONE", new LocalTileCoord(0, 0), "MARKER", "MARKER", "MARKER_UNUSED"));
+            var coordinate = FindUnprotectedAir(fixture,
+                fixture.Canvas.TileCells.Where(value => value.State == ClusterChunkMaskState.Active)
+                    .Select(value => value.Coordinate), 1)[0];
+
+            var result = Render(fixture, catalog,
+                new[] { Zone(coordinate, TerrainClusterPatternZoneKind.GeometryAdd) },
+                Array.Empty<TerrainClusterPatternPlacementIntent>());
+
+            AssertFailure(result, TerrainClusterPatternRenderErrorCode.MissingInput);
+            Assert.That(result.Errors.Any(value =>
+                value.Path == "placements" &&
+                value.Detail == "At least one caller-selected placement is required."), Is.True);
+        }
+
+        [Test]
+        public void Render_NullCollectionsDoNotQualifyAsPatternFree()
+        {
+            var fixture = BuildFixture();
+            var catalog = BuildCatalog(PatternSpec.Single(
+                "MP_UNUSED_NULL", new LocalTileCoord(0, 0), "MARKER", "MARKER", "MARKER_UNUSED"));
+            var request = CreateRequest(fixture, catalog, null, null);
+
+            AssertFailure(TerrainClusterPatternRenderer.Render(request),
+                TerrainClusterPatternRenderErrorCode.MissingInput);
+        }
+
+        [Test]
+        public void Render_NormalPlacementStillInvokesMap10OrderedRendererOnce()
+        {
+            var setup = BuildSuccessSetup(BuildFixture());
+
+            var result = TerrainClusterPatternRenderer.Render(setup.Request);
+
+            AssertSuccess(result);
+            Assert.That(result.Report.IsPatternFree, Is.False);
+            Assert.That(result.Report.RendererInvocationCount, Is.EqualTo(1));
+            Assert.That(result.ApplicationPlans, Is.Not.Empty);
+            Assert.That(result.RenderDelta, Is.Not.Null);
+            Assert.That(result.Report.Map10TargetCoordinateCount, Is.GreaterThan(0));
+        }
+
+        [Test]
         public void Render_CarveSubstrateSeedsSolidAndCarvePublishesAir()
         {
             var fixture = BuildFixture();

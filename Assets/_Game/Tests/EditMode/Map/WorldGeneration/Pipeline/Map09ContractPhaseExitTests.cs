@@ -46,7 +46,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
         private const string GeneratedSliceDigest =
             "2066f58b09e3ac8ef0118c54e243008f54bcefe1e3bb032fa67dbe5d25156368";
         private const string SchemaDigest =
-            "272ec4f449a17179158720c94e92f6982cb5a32427ce6f6ea8ffc5eb92050621";
+            "78a0df2056db7b12241c127ba85c573e26859503856cd8c8ea1a12648c8f4b57";
 
         private static Map09ContractPhaseExitFixture Fixture => Map09ContractPhaseExitFixture.Live;
 
@@ -72,10 +72,12 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
             Assert.That(Fixture.CanvasContract.ValidationStamp.StableDigest, Is.EqualTo(ValidationStampDigest));
             Assert.That(Fixture.GeneratedSlices.IsValid, Is.True, Join(Fixture.GeneratedSlices.Errors));
             Assert.That(Fixture.GeneratedSlices.CanonicalDigest, Is.EqualTo(GeneratedSliceDigest));
-            Assert.That(Fixture.Registry.Tables, Has.Count.EqualTo(15));
-            Assert.That(Fixture.Registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(83));
+            Assert.That(Fixture.Registry.Tables, Has.Count.EqualTo(24));
+            Assert.That(Fixture.Registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(143));
+            Assert.That(Fixture.Registry.Tables.Count(value =>
+                value.Owner == V2AuthoringOwner.TerrainCluster), Is.EqualTo(13));
             Assert.That(Fixture.Registry.Tables.SelectMany(value => value.Columns)
-                .Count(value => value.ForeignKey != null), Is.EqualTo(13));
+                .Count(value => value.ForeignKey != null), Is.EqualTo(44));
             Assert.That(Fixture.Registry.CanonicalDigest, Is.EqualTo(SchemaDigest));
         }
 
@@ -236,8 +238,10 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
         public void SchemaRegistryPreservesPrimaryForeignKeyIndexesAndGeneratedSeparation()
         {
             var registry = Fixture.Registry;
-            Assert.That(registry.Tables, Has.Count.EqualTo(15));
-            Assert.That(registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(83));
+            Assert.That(registry.Tables, Has.Count.EqualTo(24));
+            Assert.That(registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(143));
+            Assert.That(registry.Tables.Count(value =>
+                value.Owner == V2AuthoringOwner.TerrainCluster), Is.EqualTo(13));
             Assert.That(registry.Tables.All(table =>
                 registry.ForeignKeyIndex.GetPrimaryKeyColumns(table.FileName).Count > 0), Is.True);
             Assert.That(registry.Tables.All(table =>
@@ -247,7 +251,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
                         registry.ForeignKeyIndex.GetPrimaryKeyColumns(table.FileName).Count))), Is.True);
             var foreignKeys = registry.Tables.SelectMany(value => value.Columns)
                 .Where(value => value.ForeignKey != null).Select(value => value.ForeignKey).ToArray();
-            Assert.That(foreignKeys, Has.Length.EqualTo(13));
+            Assert.That(foreignKeys, Has.Length.EqualTo(44));
             Assert.That(foreignKeys.Count(value =>
                 value.TargetDomain == V2AuthoringSchemaDomain.LegacyAuthoring), Is.EqualTo(2));
             Assert.That(foreignKeys.Count(value =>
@@ -331,14 +335,53 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
             var authoringRoot = FullPath("Assets/_Game/Map/Data/WorldGeneration/Authoring");
             var csvFiles = Directory.GetFiles(authoringRoot, "*.csv", SearchOption.AllDirectories);
             var metaFiles = Directory.GetFiles(authoringRoot, "*.csv.meta", SearchOption.AllDirectories);
-            Assert.That(csvFiles, Has.Length.EqualTo(50));
-            Assert.That(metaFiles, Has.Length.EqualTo(50));
-            Assert.That(ComputeAuthoringManifest(authoringRoot, csvFiles),
+            var registered = Fixture.Registry.Tables.ToDictionary(
+                table => table.RelativeAuthoringPath.Replace('\\', '/'),
+                table => table,
+                StringComparer.Ordinal);
+            var physical = csvFiles.Select(path => new
+                {
+                    Path = path,
+                    Relative = path.Substring(authoringRoot.Length + 1).Replace('\\', '/'),
+                })
+                .ToArray();
+            Assert.That(physical.GroupBy(value => value.Relative, StringComparer.Ordinal)
+                .All(group => group.Count() == 1), Is.True);
+
+            var registeredPhysical = physical.Where(value => registered.ContainsKey(value.Relative)).ToArray();
+            var legacyPhysical = physical.Where(value => !registered.ContainsKey(value.Relative)).ToArray();
+            var legacyMeta = metaFiles.Count(path =>
+            {
+                var relative = path.Substring(authoringRoot.Length + 1).Replace('\\', '/');
+                return !registered.ContainsKey(relative.Substring(0, relative.Length - ".meta".Length));
+            });
+            Assert.That(legacyPhysical, Has.Length.EqualTo(50));
+            Assert.That(legacyMeta, Is.EqualTo(50));
+            Assert.That(ComputeAuthoringManifest(authoringRoot, legacyPhysical.Select(value => value.Path)),
                 Is.EqualTo(Map09ApprovedBaseline.AuthoringManifest));
+
+            foreach (var file in registeredPhysical)
+            {
+                var descriptor = registered[file.Relative];
+                var matchingMeta = metaFiles.Count(path => string.Equals(
+                    path.Substring(authoringRoot.Length + 1).Replace('\\', '/'),
+                    file.Relative + ".meta", StringComparison.Ordinal));
+                Assert.That(matchingMeta, Is.EqualTo(1), file.Relative);
+                var bytes = File.ReadAllBytes(file.Path);
+                Assert.That(bytes.Length, Is.GreaterThanOrEqualTo(4), file.Relative);
+                Assert.That(bytes.Take(3), Is.EqualTo(new byte[] { 0xef, 0xbb, 0xbf }), file.Relative);
+                var text = Encoding.UTF8.GetString(bytes, 3, bytes.Length - 3);
+                Assert.That(text, Does.Not.Contain("\r"), file.Relative);
+                Assert.That(text, Does.EndWith("\n"), file.Relative);
+                var header = text.Substring(0, text.IndexOf('\n'));
+                Assert.That(header, Is.EqualTo(string.Join(",", descriptor.Columns
+                    .OrderBy(column => column.ColumnOrder).Select(column => column.ColumnName))), file.Relative);
+                Assert.That(file.Relative.IndexOf("Generated", StringComparison.OrdinalIgnoreCase),
+                    Is.LessThan(0), file.Relative);
+            }
+
             Assert.That(Directory.GetFiles(FullPath("Assets/_Game/Map/Data/WorldGeneration/Generated"),
                 "*.csv", SearchOption.AllDirectories), Is.Empty);
-            Assert.That(Fixture.Registry.Tables.All(table => !File.Exists(Path.Combine(authoringRoot,
-                table.RelativeAuthoringPath.Replace('/', Path.DirectorySeparatorChar)))), Is.True);
         }
 
         private static string ComputeAuthoringManifest(string root, IEnumerable<string> paths)
