@@ -21,7 +21,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
     public sealed class V2AuthoringSchemaRegistryTests
     {
         private const string AuthoringManifest =
-            "4415ae4af5196d6793f5d0152c0688e5bf35dc4ad23442791e45d3cfd81d0851";
+            "ff4761537986a4c9433775359d9b62ad806914ef30462a320c97b355126a5b6c";
         private const string BoundaryDigest =
             "f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68";
 
@@ -39,14 +39,19 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
         }
 
         [Test]
-        public void RegistryPublishesExactTwentyFourTablesAcrossFiveApprovedOwnerRoots()
+        public void RegistryPublishesExactTwentyNineTablesAcrossFiveApprovedOwnerRoots()
         {
             var expected = new[]
             {
                 "Activity/activity_catalog_v2.csv",
+                "Activity/activity_compatibility_v2.csv",
                 "Activity/activity_cues_v2.csv",
                 "Activity/activity_graph_edges_v2.csv",
+                "Activity/activity_graph_nodes_v2.csv",
+                "Activity/activity_safety_cells_v2.csv",
+                "Activity/activity_slots_v2.csv",
                 "EventOverlay/event_overlay_catalog_v2.csv",
+                "EventOverlay/event_overlay_compatibility_v2.csv",
                 "EventOverlay/event_overlay_markers_v2.csv",
                 "MicroPattern/micro_pattern_catalog_v2.csv",
                 "MicroPattern/micro_pattern_cells_v2.csv",
@@ -69,8 +74,12 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
                 "TerrainCluster/terrain_cluster_variants_v2.csv",
             };
             Assert.That(registry.Tables.Select(value => value.RelativeAuthoringPath), Is.EqualTo(expected));
-            Assert.That(registry.Tables, Has.Count.EqualTo(24));
-            Assert.That(registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(143));
+            Assert.That(registry.Tables, Has.Count.EqualTo(29));
+            Assert.That(registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(189));
+            Assert.That(registry.Tables.Count(value => value.Owner == V2AuthoringOwner.Activity),
+                Is.EqualTo(7));
+            Assert.That(registry.Tables.Count(value => value.Owner == V2AuthoringOwner.EventOverlay),
+                Is.EqualTo(3));
             Assert.That(registry.Tables.Count(value => value.Owner == V2AuthoringOwner.TerrainCluster),
                 Is.EqualTo(13));
             Assert.That(registry.Tables.Select(value => value.Owner).Distinct().Count(), Is.EqualTo(5));
@@ -98,11 +107,16 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
                 { "terrain_cluster_high_route_edges_v2.csv", Fields("cluster_id spine_variant_id high_route_id edge_order edge_id") },
                 { "terrain_cluster_high_route_benefits_v2.csv", Fields("cluster_id spine_variant_id high_route_id benefit_id") },
                 { "terrain_cluster_high_route_failures_v2.csv", Fields("cluster_id spine_variant_id high_route_id failure_node_id preferred_recovery_target_node_id") },
-                { "activity_catalog_v2.csv", Fields("activity_id static_shell_id reward_policy recovery_policy removal_safe") },
-                { "activity_cues_v2.csv", Fields("activity_id cue_id cue_kind marker_id") },
+                { "activity_catalog_v2.csv", Fields("activity_id static_shell_id reward_policy recovery_policy removal_safe terrain_cluster_id spine_variant_id entry_traversal_node_id exit_traversal_node_id preserve_static_traversal preserve_access_class permanent_solid_mutation_allowed mandatory_exit_destruction_allowed min_active_chunks max_active_chunks clearance_width clearance_height placement_weight strength_class") },
+                { "activity_compatibility_v2.csv", Fields("activity_id compatibility_kind value_token") },
+                { "activity_cues_v2.csv", Fields("activity_id cue_id cue_kind marker_id slot_id detectable_before_activation") },
                 { "activity_graph_edges_v2.csv", Fields("activity_id edge_id graph_kind edge_kind from_node_id to_node_id edge_order") },
-                { "event_overlay_catalog_v2.csv", Fields("overlay_id selection_weight variant_kind is_empty") },
-                { "event_overlay_markers_v2.csv", Fields("overlay_id marker_id marker_kind local_x local_y") },
+                { "activity_graph_nodes_v2.csv", Fields("activity_id graph_kind node_id node_kind slot_id is_start is_terminal") },
+                { "activity_safety_cells_v2.csv", Fields("activity_id safety_cell_kind local_x local_y") },
+                { "activity_slots_v2.csv", Fields("activity_id slot_id slot_kind local_x local_y") },
+                { "event_overlay_catalog_v2.csv", Fields("overlay_id selection_weight variant_kind is_empty terrain_cluster_id activity_id minimum_progression_gap") },
+                { "event_overlay_compatibility_v2.csv", Fields("overlay_id compatibility_kind value_token") },
+                { "event_overlay_markers_v2.csv", Fields("overlay_id marker_id marker_kind local_x local_y operation payload_id target_source_kind target_owner_id target_slot_kind") },
                 { "special_region_catalog_v2.csv", Fields("region_id region_kind reservation_id footprint_width footprint_height") },
                 { "special_region_cells_v2.csv", Fields("region_id local_x local_y cell_kind slot_id") },
                 { "special_region_ports_v2.csv", Fields("region_id port_id port_kind side access_class") },
@@ -135,15 +149,24 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
             Assert.That(Column("terrain_cluster_spine_edges_v2.csv", "graph_kind").AllowedValues,
                 Is.EqualTo(new[] { "TRAVERSAL" }));
             Assert.That(registry.Tables.SelectMany(value => value.Columns)
-                .Count(value => value.ForeignKey != null), Is.EqualTo(44));
+                .Count(value => value.ForeignKey != null), Is.EqualTo(59));
             Assert.That(Column("micro_pattern_catalog_v2.csv", "protected_policy").AllowedValues,
                 Is.EqualTo(new[] { "FORCE_NO_CHANGE", "REJECT_CANDIDATE" }));
             Assert.That(Column("micro_pattern_cells_v2.csv", "operation").AllowedValues,
                 Does.Contain("NO_CHANGE").And.Contain("SET_MARKER"));
             Assert.That(Column("activity_graph_edges_v2.csv", "graph_kind").AllowedValues,
                 Is.EqualTo(new[] { "MECHANISM", "PROGRESSION" }));
+            Assert.That(Column("activity_slots_v2.csv", "slot_kind").AllowedValues,
+                Is.EqualTo(new[] { "Cue", "Trigger", "Device", "Hazard", "Projectile", "Reward", "Recovery", "Reset", "Npc" }));
+            Assert.That(Column("activity_graph_nodes_v2.csv", "slot_id").IsRequired, Is.False);
+            Assert.That(Column("activity_compatibility_v2.csv", "compatibility_kind").AllowedValues,
+                Is.EqualTo(new[] { "BIOME", "PACING", "ACCESS" }));
+            Assert.That(Column("event_overlay_catalog_v2.csv", "terrain_cluster_id").IsRequired, Is.False);
+            Assert.That(Column("event_overlay_catalog_v2.csv", "activity_id").IsRequired, Is.False);
             Assert.That(Column("event_overlay_catalog_v2.csv", "variant_kind").AllowedValues,
                 Does.Contain("EMPTY"));
+            Assert.That(Column("event_overlay_compatibility_v2.csv", "compatibility_kind").AllowedValues,
+                Is.EqualTo(new[] { "BIOME", "PACING", "ACCESS", "ACTIVITY", "SPECIAL_SLOT" }));
         }
 
         [Test]
@@ -176,6 +199,36 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
                 Is.EqualTo(1));
             Assert.That(legacyCatalog.GetFile("boundary_chunk_catalog.csv").GetColumn("boundary_chunk_id").PrimaryKeyOrder,
                 Is.EqualTo(1));
+
+            var activityEvent = registry.Tables
+                .Where(table => table.Owner == V2AuthoringOwner.Activity ||
+                                table.Owner == V2AuthoringOwner.EventOverlay)
+                .SelectMany(table => table.Columns.Where(column => column.ForeignKey != null)
+                    .Select(column => table.FileName + "." + column.ColumnName + "->" +
+                                      column.ForeignKey.TargetFileName + "." +
+                                      column.ForeignKey.TargetColumnName))
+                .ToArray();
+            Assert.That(activityEvent, Is.EqualTo(new[]
+            {
+                "activity_catalog_v2.csv.terrain_cluster_id->terrain_cluster_catalog_v2.csv.cluster_id",
+                "activity_catalog_v2.csv.spine_variant_id->terrain_cluster_variants_v2.csv.spine_variant_id",
+                "activity_catalog_v2.csv.entry_traversal_node_id->terrain_cluster_nodes_v2.csv.node_id",
+                "activity_catalog_v2.csv.exit_traversal_node_id->terrain_cluster_nodes_v2.csv.node_id",
+                "activity_compatibility_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "activity_cues_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "activity_cues_v2.csv.slot_id->activity_slots_v2.csv.slot_id",
+                "activity_graph_edges_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "activity_graph_edges_v2.csv.from_node_id->activity_graph_nodes_v2.csv.node_id",
+                "activity_graph_edges_v2.csv.to_node_id->activity_graph_nodes_v2.csv.node_id",
+                "activity_graph_nodes_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "activity_graph_nodes_v2.csv.slot_id->activity_slots_v2.csv.slot_id",
+                "activity_safety_cells_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "activity_slots_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "event_overlay_catalog_v2.csv.terrain_cluster_id->terrain_cluster_catalog_v2.csv.cluster_id",
+                "event_overlay_catalog_v2.csv.activity_id->activity_catalog_v2.csv.activity_id",
+                "event_overlay_compatibility_v2.csv.overlay_id->event_overlay_catalog_v2.csv.overlay_id",
+                "event_overlay_markers_v2.csv.overlay_id->event_overlay_catalog_v2.csv.overlay_id",
+            }));
         }
 
         [Test]
@@ -188,8 +241,8 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
             Assert.That(index.TryGetColumn("activity_cues_v2.csv", "cue_id", out var column), Is.True);
             Assert.That(column.PrimaryKeyOrder, Is.EqualTo(2));
             Assert.That(index.TryGetColumn("activity_cues_v2.csv", "Cue_Id", out _), Is.False);
-            Assert.That(index.GetOutgoingForeignKeys("activity_graph_edges_v2.csv"), Has.Count.EqualTo(1));
-            Assert.That(index.GetIncomingForeignKeys("activity_catalog_v2.csv"), Has.Count.EqualTo(2));
+            Assert.That(index.GetOutgoingForeignKeys("activity_graph_edges_v2.csv"), Has.Count.EqualTo(3));
+            Assert.That(index.GetIncomingForeignKeys("activity_catalog_v2.csv"), Has.Count.EqualTo(7));
             Assert.That(index.GetIncomingForeignKeys("missing.csv"), Is.Empty);
         }
 
@@ -213,9 +266,23 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
         {
             Assert.That(registry.CanonicalDigest, Does.Match("^[0-9a-f]{64}$"));
             Assert.That(registry.CanonicalDigest,
-                Is.EqualTo("78a0df2056db7b12241c127ba85c573e26859503856cd8c8ea1a12648c8f4b57"));
+                Is.EqualTo("29ab147fe92487499a0cc5a1ca6dab0ba84d4c742320bc3ca2180c9ecbf2813c"));
             Assert.That(V2AuthoringSchemaCanonicalDigest.Compute(registry.Tables.Reverse()),
                 Is.EqualTo(registry.CanonicalDigest));
+            var originalCulture = CultureInfo.CurrentCulture;
+            var originalUiCulture = CultureInfo.CurrentUICulture;
+            try
+            {
+                CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("tr-TR");
+                CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("tr-TR");
+                Assert.That(V2AuthoringSchemaCanonicalDigest.Compute(registry.Tables.Reverse()),
+                    Is.EqualTo(registry.CanonicalDigest));
+            }
+            finally
+            {
+                CultureInfo.CurrentCulture = originalCulture;
+                CultureInfo.CurrentUICulture = originalUiCulture;
+            }
             var renamed = registry.Tables.Select(table => new V2AuthoringTableDescriptor(
                 table.TableId,
                 table.Owner,
@@ -236,11 +303,14 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
                     value => value.Owner == V2AuthoringOwner.MicroPattern)),
                 Is.EqualTo("5d5423e226626de563c2dcb47b2c1aa7516ceae202f91082e1ebb70dba5b357c"));
             Assert.That(V2AuthoringSchemaCanonicalDigest.Compute(registry.Tables.Where(
+                    value => value.Owner == V2AuthoringOwner.TerrainCluster)),
+                Is.EqualTo("e906cfa8ffb0e6b8bb3af8eeb879148deff169fe05ce0c660fa31e710ac73399"));
+            Assert.That(V2AuthoringSchemaCanonicalDigest.Compute(registry.Tables.Where(
                     value => value.Owner == V2AuthoringOwner.Activity)),
-                Is.EqualTo("ee17b14fcf89136b2fa16d97ba78ffb2d636572715fb8af51e5d30d3e3c3d0a2"));
+                Is.EqualTo("f584ee9dafe4b238a1c18c2fbb4e1467675bb6f62dd64d9ca24b7571fbd6b6f8"));
             Assert.That(V2AuthoringSchemaCanonicalDigest.Compute(registry.Tables.Where(
                     value => value.Owner == V2AuthoringOwner.EventOverlay)),
-                Is.EqualTo("a5630b53fd943704194bf9b81ab5d1fbe3eff279af8c001caa3c7fc180610df5"));
+                Is.EqualTo("7cfa78e5945d5c62233bd598249544864af446d72c773e14aafa84becb195e76"));
             Assert.That(V2AuthoringSchemaCanonicalDigest.Compute(registry.Tables.Where(
                     value => value.Owner == V2AuthoringOwner.SpecialRegion)),
                 Is.EqualTo("a0c5d9f97f0dc6e5281ef3d39fb69844d569656fd405af8c07c642b96eeb3b4e"));
@@ -349,8 +419,8 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
             var authoringRoot = FullPath("Assets/_Game/Map/Data/WorldGeneration/Authoring");
             var csvFiles = Directory.GetFiles(authoringRoot, "*.csv", SearchOption.AllDirectories);
             var metaFiles = Directory.GetFiles(authoringRoot, "*.csv.meta", SearchOption.AllDirectories);
-            Assert.That(csvFiles, Has.Length.EqualTo(52));
-            Assert.That(metaFiles, Has.Length.EqualTo(52));
+            Assert.That(csvFiles, Has.Length.EqualTo(65));
+            Assert.That(metaFiles, Has.Length.EqualTo(65));
             Assert.That(ComputeAuthoringManifest(authoringRoot, csvFiles), Is.EqualTo(AuthoringManifest));
             Assert.That(registry.Tables.Count(value => value.RelativeAuthoringPath.IndexOf(
                 "Generated", StringComparison.OrdinalIgnoreCase) >= 0), Is.Zero);
@@ -366,9 +436,22 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Data
             {
                 "MicroPattern/micro_pattern_catalog_v2.csv",
                 "MicroPattern/micro_pattern_cells_v2.csv",
+                "TerrainCluster/terrain_cluster_catalog_v2.csv",
+                "TerrainCluster/terrain_cluster_cells_v2.csv",
+                "TerrainCluster/terrain_cluster_envelope_cells_v2.csv",
+                "TerrainCluster/terrain_cluster_high_route_benefits_v2.csv",
+                "TerrainCluster/terrain_cluster_high_route_edges_v2.csv",
+                "TerrainCluster/terrain_cluster_high_route_failures_v2.csv",
+                "TerrainCluster/terrain_cluster_high_routes_v2.csv",
+                "TerrainCluster/terrain_cluster_nodes_v2.csv",
+                "TerrainCluster/terrain_cluster_ports_v2.csv",
+                "TerrainCluster/terrain_cluster_role_anchors_v2.csv",
+                "TerrainCluster/terrain_cluster_role_variant_links_v2.csv",
+                "TerrainCluster/terrain_cluster_spine_edges_v2.csv",
+                "TerrainCluster/terrain_cluster_variants_v2.csv",
             }));
             Assert.That(registry.Tables.Where(value => value.Owner == V2AuthoringOwner.TerrainCluster)
-                .All(table => !File.Exists(Path.Combine(authoringRoot,
+                .All(table => File.Exists(Path.Combine(authoringRoot,
                     table.RelativeAuthoringPath.Replace('/', Path.DirectorySeparatorChar)))), Is.True);
             Assert.That(Directory.GetFiles(
                 FullPath("Assets/_Game/Map/Data/WorldGeneration/Generated"),

@@ -46,7 +46,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
         private const string GeneratedSliceDigest =
             "2066f58b09e3ac8ef0118c54e243008f54bcefe1e3bb032fa67dbe5d25156368";
         private const string SchemaDigest =
-            "78a0df2056db7b12241c127ba85c573e26859503856cd8c8ea1a12648c8f4b57";
+            "29ab147fe92487499a0cc5a1ca6dab0ba84d4c742320bc3ca2180c9ecbf2813c";
 
         private static Map09ContractPhaseExitFixture Fixture => Map09ContractPhaseExitFixture.Live;
 
@@ -72,12 +72,12 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
             Assert.That(Fixture.CanvasContract.ValidationStamp.StableDigest, Is.EqualTo(ValidationStampDigest));
             Assert.That(Fixture.GeneratedSlices.IsValid, Is.True, Join(Fixture.GeneratedSlices.Errors));
             Assert.That(Fixture.GeneratedSlices.CanonicalDigest, Is.EqualTo(GeneratedSliceDigest));
-            Assert.That(Fixture.Registry.Tables, Has.Count.EqualTo(24));
-            Assert.That(Fixture.Registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(143));
+            Assert.That(Fixture.Registry.Tables, Has.Count.EqualTo(29));
+            Assert.That(Fixture.Registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(189));
             Assert.That(Fixture.Registry.Tables.Count(value =>
                 value.Owner == V2AuthoringOwner.TerrainCluster), Is.EqualTo(13));
             Assert.That(Fixture.Registry.Tables.SelectMany(value => value.Columns)
-                .Count(value => value.ForeignKey != null), Is.EqualTo(44));
+                .Count(value => value.ForeignKey != null), Is.EqualTo(59));
             Assert.That(Fixture.Registry.CanonicalDigest, Is.EqualTo(SchemaDigest));
         }
 
@@ -238,10 +238,25 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
         public void SchemaRegistryPreservesPrimaryForeignKeyIndexesAndGeneratedSeparation()
         {
             var registry = Fixture.Registry;
-            Assert.That(registry.Tables, Has.Count.EqualTo(24));
-            Assert.That(registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(143));
+            Assert.That(registry.Tables, Has.Count.EqualTo(29));
+            Assert.That(registry.Tables.Sum(value => value.Columns.Count), Is.EqualTo(189));
             Assert.That(registry.Tables.Count(value =>
                 value.Owner == V2AuthoringOwner.TerrainCluster), Is.EqualTo(13));
+            Assert.That(registry.Tables.Where(value =>
+                    value.Owner == V2AuthoringOwner.Activity || value.Owner == V2AuthoringOwner.EventOverlay)
+                .Select(value => value.RelativeAuthoringPath), Is.EqualTo(new[]
+            {
+                "Activity/activity_catalog_v2.csv",
+                "Activity/activity_compatibility_v2.csv",
+                "Activity/activity_cues_v2.csv",
+                "Activity/activity_graph_edges_v2.csv",
+                "Activity/activity_graph_nodes_v2.csv",
+                "Activity/activity_safety_cells_v2.csv",
+                "Activity/activity_slots_v2.csv",
+                "EventOverlay/event_overlay_catalog_v2.csv",
+                "EventOverlay/event_overlay_compatibility_v2.csv",
+                "EventOverlay/event_overlay_markers_v2.csv",
+            }));
             Assert.That(registry.Tables.All(table =>
                 registry.ForeignKeyIndex.GetPrimaryKeyColumns(table.FileName).Count > 0), Is.True);
             Assert.That(registry.Tables.All(table =>
@@ -251,7 +266,7 @@ namespace StarNight.Map.Tests.EditMode.WorldGeneration.Pipeline
                         registry.ForeignKeyIndex.GetPrimaryKeyColumns(table.FileName).Count))), Is.True);
             var foreignKeys = registry.Tables.SelectMany(value => value.Columns)
                 .Where(value => value.ForeignKey != null).Select(value => value.ForeignKey).ToArray();
-            Assert.That(foreignKeys, Has.Length.EqualTo(44));
+            Assert.That(foreignKeys, Has.Length.EqualTo(59));
             Assert.That(foreignKeys.Count(value =>
                 value.TargetDomain == V2AuthoringSchemaDomain.LegacyAuthoring), Is.EqualTo(2));
             Assert.That(foreignKeys.Count(value =>
