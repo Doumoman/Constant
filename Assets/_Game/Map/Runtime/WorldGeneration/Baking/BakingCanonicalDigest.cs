@@ -9,6 +9,38 @@ namespace StarNight.Map.WorldGeneration.Baking
 {
     public static class BakingCanonicalDigest
     {
+        public static Encoding Utf8NoBomEncoding => new UTF8Encoding(false);
+
+        public static string NormalizeLineEndingsToLf(string text)
+        {
+            if (text == null) throw new ArgumentNullException(nameof(text));
+            return text.Replace("\r\n", "\n").Replace('\r', '\n');
+        }
+
+        public static string HashCanonicalText(string canonicalText)
+        {
+            if (canonicalText == null) throw new ArgumentNullException(nameof(canonicalText));
+            var normalized = NormalizeLineEndingsToLf(canonicalText);
+            using (var sha = SHA256.Create())
+            {
+                return string.Concat(sha.ComputeHash(Utf8NoBomEncoding.GetBytes(normalized))
+                    .Select(value => value.ToString("x2", CultureInfo.InvariantCulture)));
+            }
+        }
+
+        public static string HashCanonicalLines(IEnumerable<string> canonicalLines)
+        {
+            if (canonicalLines == null) throw new ArgumentNullException(nameof(canonicalLines));
+            var lines = canonicalLines.ToArray();
+            if (lines.Any(value => value == null))
+                throw new ArgumentException("Canonical lines cannot contain null values.", nameof(canonicalLines));
+            return HashCanonicalText(string.Join("\n", lines));
+        }
+
+        public static bool IsLowerHexSha256(string value) => value != null && value.Length == 64 &&
+            value.All(character => (character >= '0' && character <= '9') ||
+                                   (character >= 'a' && character <= 'f'));
+
         public static string ComputeCanvas(SectorCanvasContract canvas)
         {
             if (canvas == null) throw new ArgumentNullException(nameof(canvas));
@@ -89,14 +121,7 @@ namespace StarNight.Map.WorldGeneration.Baking
             });
         }
 
-        internal static string Sha256(string material)
-        {
-            using (var sha = SHA256.Create())
-            {
-                return string.Concat(sha.ComputeHash(new UTF8Encoding(false).GetBytes(material ?? string.Empty))
-                    .Select(value => value.ToString("x2", CultureInfo.InvariantCulture)));
-            }
-        }
+        internal static string Sha256(string material) => HashCanonicalText(material ?? string.Empty);
 
         internal static string Number(int value) => value.ToString(CultureInfo.InvariantCulture);
         private static void Append(StringBuilder material, string name, string value)

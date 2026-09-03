@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using StarNight.Map.WorldGeneration.Baking;
 using StarNight.Map.WorldGeneration.Pipeline;
 
 namespace StarNight.Map.WorldGeneration.SectorPlanning
@@ -488,13 +489,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             OutputDigest = outputDigest ?? string.Empty;
         }
 
-        public const int WorldWidthTiles = 624;
-        public const int WorldHeightTiles = 416;
-        public const int SectorWidthTiles = 48;
-        public const int SectorHeightTiles = 32;
-        public const int SectorColumns = 13;
-        public const int SectorRows = 13;
-        public const int WorldSectorCount = 169;
+        public const int WorldWidthTiles = GeneratedTerrainGeometrySnapshot.CanonicalWorldWidth;
+        public const int WorldHeightTiles = GeneratedTerrainGeometrySnapshot.CanonicalWorldHeight;
+        public const int SectorWidthTiles = GeneratedTerrainGeometrySnapshot.CanonicalSectorWidth;
+        public const int SectorHeightTiles = GeneratedTerrainGeometrySnapshot.CanonicalSectorHeight;
+        public const int SectorColumns = GeneratedTerrainGeometrySnapshot.CanonicalWorldSectorColumns;
+        public const int SectorRows = GeneratedTerrainGeometrySnapshot.CanonicalWorldSectorRows;
+        public const int WorldSectorCount = GeneratedTerrainGeometrySnapshot.CanonicalWorldSectorCount;
         public const int InternalEdgeCount = 312;
         public const int EdgeEndpointCount = 624;
         public const int RequiredLayerCount = 12;

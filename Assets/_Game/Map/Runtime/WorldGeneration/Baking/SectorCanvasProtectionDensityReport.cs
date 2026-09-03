@@ -601,19 +601,11 @@ namespace StarNight.Map.WorldGeneration.Baking
             return HashCanonicalText(string.Join("\n", lines));
         }
 
-        public static string HashCanonicalText(string text)
-        {
-            var canonical = (text ?? string.Empty).Replace("\r\n", "\n").Replace('\r', '\n');
-            using (var sha = SHA256.Create())
-            {
-                return string.Concat(sha.ComputeHash(new UTF8Encoding(false).GetBytes(canonical))
-                    .Select(value => value.ToString("x2", CultureInfo.InvariantCulture)));
-            }
-        }
+        public static string HashCanonicalText(string text) =>
+            BakingCanonicalDigest.HashCanonicalText(text ?? string.Empty);
 
-        public static bool IsLowerHexSha256(string value) => value != null && value.Length == 64 &&
-            value.All(character => (character >= '0' && character <= '9') ||
-                                   (character >= 'a' && character <= 'f'));
+        public static bool IsLowerHexSha256(string value) =>
+            BakingCanonicalDigest.IsLowerHexSha256(value);
 
         private static string Number(int value) => value.ToString(CultureInfo.InvariantCulture);
     }

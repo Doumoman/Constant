@@ -166,7 +166,19 @@ namespace StarNight.Map.WorldGeneration.Baking
                 "TASK|" + GeneratedTerrainExportPacket.TaskId,
                 "SOURCE|" + (sourceSliceDigest ?? string.Empty) + "|" +
                     (sourceSlotDigest ?? string.Empty),
-                "GEOMETRY|48|32|1536|4|4|16|12|8|96|4",
+                string.Join("|", new[]
+                {
+                    "GEOMETRY", Number(GeneratedTerrainGeometrySnapshot.CanonicalSectorWidth),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalSectorHeight),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalSectorCellCount),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalChunkGridWidth),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalChunkGridHeight),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalChunkCount),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkWidth),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkHeight),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkCellCount),
+                    Number(GeneratedTerrainGeometrySnapshot.CanonicalMicroPatternWidth),
+                }),
             };
             lines.AddRange((dataFiles ?? Array.Empty<GeneratedTerrainExportFile>())
                 .OrderBy(value => FileOrder(value.FileName)).Select(value => string.Join("|", new[]

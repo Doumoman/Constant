@@ -390,22 +390,14 @@ namespace StarNight.Map.WorldGeneration.Baking
 
     public static class GeneratedTerrainExportDigest
     {
-        public static string Canonicalize(string value) => (value ?? string.Empty)
-            .Replace("\r\n", "\n").Replace('\r', '\n');
+        public static string Canonicalize(string value) =>
+            BakingCanonicalDigest.NormalizeLineEndingsToLf(value ?? string.Empty);
 
-        public static string Hash(string value)
-        {
-            using (var sha = SHA256.Create())
-            {
-                return string.Concat(sha.ComputeHash(new UTF8Encoding(false)
-                    .GetBytes(Canonicalize(value))).Select(valueByte =>
-                        valueByte.ToString("x2", CultureInfo.InvariantCulture)));
-            }
-        }
+        public static string Hash(string value) =>
+            BakingCanonicalDigest.HashCanonicalText(value ?? string.Empty);
 
-        public static bool IsLowerHexSha256(string value) => value != null && value.Length == 64 &&
-            value.All(character => (character >= '0' && character <= '9') ||
-                                   (character >= 'a' && character <= 'f'));
+        public static bool IsLowerHexSha256(string value) =>
+            BakingCanonicalDigest.IsLowerHexSha256(value);
 
         internal static string Number(int value) => value.ToString(CultureInfo.InvariantCulture);
 

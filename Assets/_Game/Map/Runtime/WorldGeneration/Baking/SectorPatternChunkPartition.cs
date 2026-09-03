@@ -617,22 +617,22 @@ namespace StarNight.Map.WorldGeneration.Baking
             OutputDigest = PatternChunkPartitionDigest.ComputeOutput(this);
         }
 
-        public const int SectorWidth = SectorFinalCanvasLayerPlan.SectorWidth;
-        public const int SectorHeight = SectorFinalCanvasLayerPlan.SectorHeight;
-        public const int SectorCellCount = SectorWidth * SectorHeight;
-        public const int MicroPatternWidth = 4;
-        public const int MicroPatternHeight = 4;
-        public const int SectorPatternGridWidth = SectorWidth / MicroPatternWidth;
-        public const int SectorPatternGridHeight = SectorHeight / MicroPatternHeight;
-        public const int SectorPatternCellCount = SectorPatternGridWidth * SectorPatternGridHeight;
-        public const int MicroChunkWidth = 12;
-        public const int MicroChunkHeight = 8;
-        public const int ChunkGridWidth = SectorWidth / MicroChunkWidth;
-        public const int ChunkGridHeight = SectorHeight / MicroChunkHeight;
-        public const int ChunkCount = ChunkGridWidth * ChunkGridHeight;
-        public const int ChunkCellCount = MicroChunkWidth * MicroChunkHeight;
-        public const int ChunkPatternGridWidth = MicroChunkWidth / MicroPatternWidth;
-        public const int ChunkPatternGridHeight = MicroChunkHeight / MicroPatternHeight;
+        public const int SectorWidth = GeneratedTerrainGeometrySnapshot.CanonicalSectorWidth;
+        public const int SectorHeight = GeneratedTerrainGeometrySnapshot.CanonicalSectorHeight;
+        public const int SectorCellCount = GeneratedTerrainGeometrySnapshot.CanonicalSectorCellCount;
+        public const int MicroPatternWidth = GeneratedTerrainGeometrySnapshot.CanonicalMicroPatternWidth;
+        public const int MicroPatternHeight = GeneratedTerrainGeometrySnapshot.CanonicalMicroPatternHeight;
+        public const int SectorPatternGridWidth = GeneratedTerrainGeometrySnapshot.CanonicalSectorPatternGridWidth;
+        public const int SectorPatternGridHeight = GeneratedTerrainGeometrySnapshot.CanonicalSectorPatternGridHeight;
+        public const int SectorPatternCellCount = GeneratedTerrainGeometrySnapshot.CanonicalSectorPatternCellCount;
+        public const int MicroChunkWidth = GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkWidth;
+        public const int MicroChunkHeight = GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkHeight;
+        public const int ChunkGridWidth = GeneratedTerrainGeometrySnapshot.CanonicalChunkGridWidth;
+        public const int ChunkGridHeight = GeneratedTerrainGeometrySnapshot.CanonicalChunkGridHeight;
+        public const int ChunkCount = GeneratedTerrainGeometrySnapshot.CanonicalChunkCount;
+        public const int ChunkCellCount = GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkCellCount;
+        public const int ChunkPatternGridWidth = GeneratedTerrainGeometrySnapshot.CanonicalPatternsPerChunkX;
+        public const int ChunkPatternGridHeight = GeneratedTerrainGeometrySnapshot.CanonicalPatternsPerChunkY;
         public const int ChunkPatternCellCount = ChunkPatternGridWidth * ChunkPatternGridHeight;
         public const bool ChunkRotationAllowed = false;
         public const string PolicyVersion = "MAP16_04_PATTERN_CHUNK_PARTITION_POLICY_V1";
@@ -798,19 +798,11 @@ namespace StarNight.Map.WorldGeneration.Baking
             return HashCanonicalText(string.Join("\n", lines));
         }
 
-        public static string HashCanonicalText(string text)
-        {
-            var canonical = (text ?? string.Empty).Replace("\r\n", "\n").Replace('\r', '\n');
-            using (var sha = SHA256.Create())
-            {
-                return string.Concat(sha.ComputeHash(new UTF8Encoding(false).GetBytes(canonical))
-                    .Select(value => value.ToString("x2", CultureInfo.InvariantCulture)));
-            }
-        }
+        public static string HashCanonicalText(string text) =>
+            BakingCanonicalDigest.HashCanonicalText(text ?? string.Empty);
 
-        public static bool IsLowerHexSha256(string value) => value != null && value.Length == 64 &&
-            value.All(character => (character >= '0' && character <= '9') ||
-                                   (character >= 'a' && character <= 'f'));
+        public static bool IsLowerHexSha256(string value) =>
+            BakingCanonicalDigest.IsLowerHexSha256(value);
 
         private static string Digest(SectorFinalCanvasLayerPlan value, bool input) =>
             value == null ? string.Empty : (input ? value.InputDigest : value.OutputDigest);

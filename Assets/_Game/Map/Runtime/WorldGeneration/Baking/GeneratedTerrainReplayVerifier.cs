@@ -199,7 +199,19 @@ namespace StarNight.Map.WorldGeneration.Baking
         private static bool ManifestConstantsAreValid(string[] row)
         {
             if (row == null || row.Length != 25) return false;
-            var expected = new[] { "48", "32", "1536", "4", "4", "16", "12", "8", "96", "4" };
+            var expected = new[]
+            {
+                GeneratedTerrainGeometrySnapshot.CanonicalSectorWidth.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalSectorHeight.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalSectorCellCount.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalChunkGridWidth.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalChunkGridHeight.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalChunkCount.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkWidth.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkHeight.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalMicroChunkCellCount.ToString(CultureInfo.InvariantCulture),
+                GeneratedTerrainGeometrySnapshot.CanonicalMicroPatternWidth.ToString(CultureInfo.InvariantCulture),
+            };
             return row[0] == GeneratedTerrainExportPacket.FormatVersion &&
                 row[1] == GeneratedTerrainExportPacket.TaskId &&
                 GeneratedTerrainExportDigest.IsLowerHexSha256(row[2]) &&

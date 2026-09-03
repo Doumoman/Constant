@@ -139,7 +139,7 @@ MAP00~08은 다시 구현하지 않는다. 신규 작업은 승인된 좌표·CS
 | MAP13 | SpecialRegion·Village·랜드마크 | 9 | LOCKED |
 | MAP14 | Cluster-first Sector Planner | 10 | LOCKED |
 | MAP15 | 169-sector World Assembly | 7 | LOCKED |
-| MAP16 | Canvas 확정·12×8 Slice | 8 | LOCKED |
+| MAP16 | Canvas 확정·12×8 Slice | 9 | LOCKED |
 | MAP17 | Tilemap Bake·Streaming·Save | 8 | LOCKED |
 | MAP18 | Population·Runtime State | 7 | LOCKED |
 | MAP19 | 이동 검증·대량 Seed QA | 9 | LOCKED |
@@ -306,6 +306,7 @@ MAP00~08은 다시 구현하지 않는다. 신규 작업은 승인된 좌표·CS
 - [ ] `MAP16_06_PROJECT_MARKERS_SLOTS_AND_PROVENANCE` — Cluster/Activity/Special/Event marker를 local slot ID로 변환하고 cell source를 추적한다.
 - [ ] `MAP16_07_EXPORT_REPLAY_AND_DEBUG_GENERATED_TERRAIN` — plan/slice/cell/socket/slot CSV를 저장하고 Authoring 역수입 없이 hash replay와 Canvas/Slice overlay를 제공한다.
 - [ ] `MAP16_08_MAP16_SLICE_AND_OUTPUT_EXIT_TESTS` — 169×1536 coverage, slice 96셀, socket 대칭, CSV round-trip, replay를 승인한다.
+- [ ] `MAP16_09_CONSOLIDATE_GENERATED_TERRAIN_CONTRACT_PRIMITIVES` — MAP17 전 geometry snapshot과 canonical digest primitive를 공통 authority로 정리하고 기존 digest/CSV 호환성을 고정한다.
 
 ---
 

@@ -9,7 +9,7 @@ MCP Starter Rules: v1.2
 MAP08 Boundary Entry Rules: v1.0
 V2 Structure: COMPLETE / 24 directories
 Single MD Inbox Protocol Remediation: v1.0
-Master Task Backlog: v2.4 Compact / 215 tasks
+Master Task Backlog: v2.5 Compact / 216 tasks
 ```
 
 ## Current Task
@@ -195,6 +195,7 @@ NONE
 | MAP16_06_PROJECT_MARKERS_SLOTS_AND_PROVENANCE | COMPLETE |
 | MAP16_07_EXPORT_REPLAY_AND_DEBUG_GENERATED_TERRAIN | COMPLETE |
 | MAP16_08_MAP16_SLICE_AND_OUTPUT_EXIT_TESTS | COMPLETE |
+| MAP16_09_CONSOLIDATE_GENERATED_TERRAIN_CONTRACT_PRIMITIVES | COMPLETE |
 | MAP17_01_RESOLVE_ASSETS_AND_PLACE_GENERATED_CELLS | LOCKED |
 | MAP17_02_BUILD_TILEMAP_LAYERS_BAKE_AND_SEAM_VALIDATION | LOCKED |
 | MAP17_03_IMPLEMENT_COLLIDER_CACHE_AND_RUNTIME_HANDLES | LOCKED |
@@ -241,15 +242,15 @@ NONE
 ## Last Completed Task
 
 ```text
-MAP16_08_MAP16_SLICE_AND_OUTPUT_EXIT_TESTS
+MAP16_09_CONSOLIDATE_GENERATED_TERRAIN_CONTRACT_PRIMITIVES
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP16_08_MAP16_SLICE_AND_OUTPUT_EXIT_TESTS_RESULT.md
+REPORTS/MAP16_09_CONSOLIDATE_GENERATED_TERRAIN_CONTRACT_PRIMITIVES_RESULT.md
 STATUS: PASS
-SHA-256: 838dd5354477efbdaf349800d5fcdba22041fb055ed16c9b868c1283629c0bb6
+SHA-256: 0714dfef77f3659dba9188cb294ecdaad4a25933e69629884bf4acb97b5afb1d
 ```
 
 ## Confirmed Baseline
@@ -945,7 +946,7 @@ SHA-256: 838dd5354477efbdaf349800d5fcdba22041fb055ed16c9b868c1283629c0bb6
 
 현재 Current Task는 `NONE`이다.
 
-상태 총계는 `215 rows = 112 COMPLETE / 0 CURRENT / 103 LOCKED`다. MAP09_05는 ActivityStructure의 shell/slot/cue·Mechanism/Progression·removal-safe 계약과 EventOverlay의 marker-only/explicit Empty 계약, validator, canonical digest를 고정하고 완료됐다.
+상태 총계는 `216 rows = 113 COMPLETE / 0 CURRENT / 103 LOCKED`다. MAP16_09는 generated terrain geometry authority와 canonical digest primitive를 기존 digest/CSV byte contract 변경 없이 공통화해 완료했다. MAP17_01은 `LOCKED / DO NOT START`를 유지한다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
