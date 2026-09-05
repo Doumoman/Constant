@@ -51,6 +51,9 @@ namespace StarNight.Map.Editor.WorldGeneration.Validation
         public static GeneratedValidationRunnerParseResult ParseCurrentArguments() =>
             GeneratedValidationRunnerArgumentParser.Parse(Environment.GetCommandLineArgs());
 
+        public static GeneratedScaleAuditSummary RunMap19_09ScaleAudit() =>
+            GeneratedScaleAuditEditorRunner.RunProjectAudit();
+
         public static GeneratedHeadlessValidationRunResult RunFocusedDryRun(
             GeneratedValidationRunnerArguments arguments,
             GeneratedValidationChainSnapshot chain,
