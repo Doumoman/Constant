@@ -1,0 +1,35 @@
+{
+    "schema_version": "map20_01.generated_terrain_run.v1",
+    "task_id": "MAP20_01_CREATE_GENERATOR_WINDOW_AND_SCOPED_ROLLBACK",
+    "run_id": "sample-pattern-731",
+    "scope": "Pattern",
+    "seed": "731",
+    "generator_version": "map20-tooling-v1",
+    "data_version": "map-v2-authoring",
+    "input_digest": "ba52ee97a703ca0727a3173ad319b90d18c9a5235c9b7071b08afc927f3317f9",
+    "pre_run_output_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "post_run_output_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pass_state": "PASS",
+    "failure_owner": "",
+    "failure_reason": "",
+    "rollback_available": true,
+    "rollback_snapshot_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc",
+    "rollback_applied": true,
+    "changed_path_count": 1,
+    "created_path_count": 1,
+    "deleted_path_count": 0,
+    "changed_paths": [
+        "patterns/sample-pattern/plan_artifact.json"
+    ],
+    "created_paths": [
+        "patterns/sample-pattern/plan_artifact.json"
+    ],
+    "deleted_paths": [],
+    "replay_reference": "map20://replay?run_id=sample-pattern-731&seed=731&scope=Pattern&generator_version=map20-tooling-v1&data_version=map-v2-authoring&input_digest=ba52ee97a703ca0727a3173ad319b90d18c9a5235c9b7071b08afc927f3317f9",
+    "failure_bundle_reference": "",
+    "MAP19_exit_digest": "0f5bac81722f727dd02772c76323c9fa69ce91ad3d1a3722cef2aa47381ccec2",
+    "MAP20_01_handoff_digest": "2e69b77f8720d30e6c1d9fcdd7bdeb883ea36540033422e4908367ce60377c3ce",
+    "created_utc": "2026-09-05T16:40:55.0544338Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "a88e67f4256e0153d3997288321362d2475979e97d361510e35e31d1c8f9f4cd"
+}

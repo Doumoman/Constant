@@ -1,0 +1,17 @@
+{
+    "schema_version": "map20_01.rollback_result.v1",
+    "run_id": "sample-pattern-731",
+    "scope": "Pattern",
+    "pass_state": "PASS",
+    "reason": "manual rollback requested by user",
+    "restored_path_count": 0,
+    "removed_path_count": 1,
+    "selected_boundaries": [
+        "patterns/sample-pattern"
+    ],
+    "snapshot_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc",
+    "post_rollback_output_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "created_utc": "2026-09-05T16:40:55.0696822Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "2407e57c30bcfa844c0907cf655479797241ae42831bfce49bc7d29254ea4dac"
+}
