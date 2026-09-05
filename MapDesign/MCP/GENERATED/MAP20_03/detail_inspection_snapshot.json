@@ -1,0 +1,87 @@
+{
+    "schema_version": "map20_03.detail_inspection_snapshot.v1",
+    "task_id": "MAP20_03_CREATE_PATTERN_CLUSTER_SPECIAL_AND_SLICE_INSPECTORS",
+    "source_MAP20_02_world_overlay_digest": "3af203a27fcd2d06b2facb5b62c2456992cb46ac9cc6e2c7f34de399d97ddf1d",
+    "source_MAP20_02_sector_canvas_digest": "4c719d1bc0185ae967ef63831a049cecaef67df3b62ee745a23fc11003f2f75b",
+    "MAP20_03_handoff_digest": "684a3bf92737aa5073210304b0e3e9d8a8c3857cde45716496df771fe56a835a",
+    "selected_sector_coordinate": {
+        "x": 6,
+        "y": 6
+    },
+    "selected_cell_coordinate": {
+        "x": 24,
+        "y": 16
+    },
+    "detail_tab_tokens": [
+        "Pattern",
+        "Cluster",
+        "Special",
+        "Slice"
+    ],
+    "tab_summaries": [
+        {
+            "tab_token": "Pattern",
+            "short_label": "PAT",
+            "selected_record_count": 1,
+            "missing_data_count": 1,
+            "canonical_digest_contribution": "a5d5119a98579945cfad1caba8ea0c8899a1635f87063aeaa72cb2dea9860191"
+        },
+        {
+            "tab_token": "Cluster",
+            "short_label": "CLU",
+            "selected_record_count": 1,
+            "missing_data_count": 1,
+            "canonical_digest_contribution": "2a7b0ac6c02d86367b0c8b6c5455391fd1e5fc2a91882206dc92bfe8f71c5cde"
+        },
+        {
+            "tab_token": "Special",
+            "short_label": "SPC",
+            "selected_record_count": 1,
+            "missing_data_count": 1,
+            "canonical_digest_contribution": "7d80d6a34cfa23c2a748e44451927b3c49cb3ecf5a953ff1edde14d9dce07681"
+        },
+        {
+            "tab_token": "Slice",
+            "short_label": "SLC",
+            "selected_record_count": 16,
+            "missing_data_count": 16,
+            "canonical_digest_contribution": "390627e5ee8e8dc1baa5516343a4d2c99a446540bf5dc85bb7aa78341eb2bdf2"
+        }
+    ],
+    "missing_data_records": [
+        {
+            "tab_token": "Slice",
+            "record_id": "slice:all",
+            "field_name": "owner_provenance_digest",
+            "reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+        },
+        {
+            "tab_token": "Cluster",
+            "record_id": "cluster:selected",
+            "field_name": "owner_provenance_digest",
+            "reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+        },
+        {
+            "tab_token": "Pattern",
+            "record_id": "pattern:selected",
+            "field_name": "source_digest",
+            "reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+        },
+        {
+            "tab_token": "Special",
+            "record_id": "special:selected",
+            "field_name": "site_binding_digest",
+            "reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+        }
+    ],
+    "validation_records": [
+        {
+            "owner": "MAP20_03",
+            "state": "ReadOnly",
+            "marker": "No validation execution is owned by this inspector."
+        }
+    ],
+    "canonical_digest": "30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+    "created_utc": "2026-09-05T18:31:45.6202850Z",
+    "created_utc_excluded_from_canonical_digest": true
+}
