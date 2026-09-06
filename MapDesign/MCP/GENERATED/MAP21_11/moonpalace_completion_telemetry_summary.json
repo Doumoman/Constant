@@ -1,0 +1,35 @@
+{
+    "schema_version": "map21_11.completion_telemetry_summary.v1",
+    "completion_time": {
+        "metric": "estimated_completion_time_seconds",
+        "minimum": 938,
+        "median": 1208.0,
+        "maximum": 1392
+    },
+    "total_route_distance": {
+        "metric": "total_route_distance_tiles",
+        "minimum": 862,
+        "median": 1043.0,
+        "maximum": 1238
+    },
+    "revisit_count": {
+        "metric": "revisit_count",
+        "minimum": 0,
+        "median": 3.5,
+        "maximum": 8
+    },
+    "seam_crossing_count": {
+        "metric": "seam_crossing_count",
+        "minimum": 8,
+        "median": 15.0,
+        "maximum": 20
+    },
+    "death_count_total": 0,
+    "softlock_count_total": 0,
+    "unrecoverable_failure_count": 0,
+    "bad_seam_count_total": 0,
+    "optional_content_blocker_count": 0,
+    "content_hash_mismatch_count": 0,
+    "replay_mismatch_count": 0,
+    "canonical_digest": "0b39ae7825a0ef5952ffa5a21869b3655c4271e5057075c76f44ba64f0044f32"
+}

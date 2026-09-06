@@ -1,0 +1,29 @@
+target_id,metric,minimum,maximum,required_value,scope,source
+CHECKPOINT_START,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_MOONCOREREQUIREDREWARDREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_CASSIASAPREQUIREDREWARDREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_STARNURUKREQUIREDREWARDREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_FORGEREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_FORGEMOONSEALMARKERREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_BOSSGATEREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_BOSSGATEACCEPTEDREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_BOSSDEFEATEDREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+CHECKPOINT_RETURNCOMPLETIONMARKERREACHABLE,mandatory_checkpoint,NONE,NONE,reachable,per seed,MAP21_07_09
+DENSITY_QUIET,quiet_ratio,0.50,0.60,inside_window,per seed,MAP21_10
+DENSITY_CLUSTER,cluster_ratio,0.25,0.35,inside_window,per seed,MAP21_10
+DENSITY_ACTIVITY,activity_ratio,0.06,0.12,inside_window,per seed,MAP21_10
+DENSITY_OVERLAY,overlay_ratio,0.03,0.08,inside_window,per seed,MAP21_10
+REPEAT_PATTERN_EXACT_ID,minimum_separation,3,NONE,no_violation,per biome sector window,MAP21_10
+REPEAT_PATTERN_MIRROR_FAMILY,minimum_separation,2,NONE,no_violation,per biome sector window,MAP21_10
+REPEAT_CLUSTER_EXACT_ID,minimum_separation,6,NONE,no_violation,per biome sector window,MAP21_10
+REPEAT_CLUSTER_STRUCTURAL_SIGNATURE,minimum_separation,4,NONE,no_violation,per biome sector window,MAP21_10
+REPEAT_CLUSTER_SILHOUETTE_SIGNATURE,minimum_separation,3,NONE,no_violation,per biome sector window,MAP21_10
+REPEAT_ACTIVITY_EXACT_ID,minimum_separation,8,NONE,no_violation,per world window,MAP21_10
+REPEAT_EVENT_NON_EMPTY_ID,minimum_separation,6,NONE,no_violation,per world window,MAP21_10
+REPEAT_BOUNDARY_CANDIDATE_ID,minimum_separation,4,NONE,no_violation,per pair and direction window,MAP21_10
+ZERO_DEATH_COUNT,death_count,0,0,0,aggregate,MAP21_11
+ZERO_SOFTLOCK_COUNT,softlock_count,0,0,0,aggregate,MAP21_11
+ZERO_BAD_SEAM_COUNT,bad_seam_count,0,0,0,aggregate,MAP21_11
+ZERO_OPTIONAL_CONTENT_BLOCKER_COUNT,optional_content_blocker_count,0,0,0,aggregate,MAP21_11
+ZERO_CONTENT_HASH_MISMATCH_COUNT,content_hash_mismatch_count,0,0,0,aggregate,MAP21_11
+ZERO_REPLAY_MISMATCH_COUNT,replay_mismatch_count,0,0,0,aggregate,MAP21_11
