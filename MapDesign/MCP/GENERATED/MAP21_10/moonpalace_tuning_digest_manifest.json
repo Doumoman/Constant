@@ -1,0 +1,127 @@
+{
+    "schema_version": "map21_10.tuning_digest_manifest.v1",
+    "task_id": "MAP21_10_TUNE_REPETITION_DENSITY_AND_PACING",
+    "strict_MAP21_09_result_sha256": "d89be7ffda394341c96eb59196d01c1ec10802c62b82a4bbbc73223e682bf44c",
+    "strict_MAP21_09_task_sha256": "597bae41ef9bc8a1d1080a340186f3d10b0306b9d90aac184bc6657877e44b22",
+    "strict_MAP21_10_handoff_digest": "ce5e4ebc5e13ad55671a8046ad7641218efbedf9c6b1dff8df9f4cd20110de04",
+    "observed_source_result_digests": [
+        {
+            "name": "MAP21_01_LOCK_MOONPALACE_PROFILES_AND_TILE_SHELL",
+            "digest": "37de80ca52aa90a2ccc121f0b10ac2b75f54a8758381cf592a1413ac9e7d2eaf"
+        },
+        {
+            "name": "MAP21_02_PRODUCTIONIZE_24_MICROPATTERNS",
+            "digest": "8963713cd62f4f25311e876df74551e6e1304c50885652f51a32b46019ca2017"
+        },
+        {
+            "name": "MAP21_03_EXPAND_CRATER_AND_ROOT_CLUSTER_POOLS",
+            "digest": "279bf1c735a81a8c49da62a1e2d84567ef0691987f19a13634ef750579c64d08"
+        },
+        {
+            "name": "MAP21_04_EXPAND_MILL_AND_DOUGH_CLUSTER_POOLS",
+            "digest": "7cc7c7fc470277b8266eb076e741b1e887353509daf71a0bf135e919d3ef2710"
+        },
+        {
+            "name": "MAP21_05_PRODUCTIONIZE_ACTIVITIES_AND_EVENT_OVERLAYS",
+            "digest": "0fc8a5da0d08f2eccdd5e183a2b8653cfc75a703e09441388a1682fa9fceef96"
+        },
+        {
+            "name": "MAP21_06_EXPAND_ALL_SIX_BOUNDARY_POOLS",
+            "digest": "fba1770c479fb039d922dc8952ed70ec659416c69b93ce8fcf362b2f7c1e1db1"
+        },
+        {
+            "name": "MAP21_07_COMPLETE_THREE_CORE_RESOURCE_REGIONS",
+            "digest": "68170bda01e3f2df4fbf14e9e841b04be58b3b61b1b18de9af3e5e2a3a486c8b"
+        },
+        {
+            "name": "MAP21_08_COMPLETE_MOONPALACE_VILLAGE",
+            "digest": "7e5e7cfe0bb4e82ed7da405d11a1a05fe06e475208268a9e432840ca43b9d7d8"
+        },
+        {
+            "name": "MAP21_09_COMPLETE_FORGE_BOSS_AND_OPTIONAL_REGIONS",
+            "digest": "d89be7ffda394341c96eb59196d01c1ec10802c62b82a4bbbc73223e682bf44c"
+        }
+    ],
+    "semantic_source_digests": [
+        {
+            "name": "MAP21_01_LOCK_MOONPALACE_PROFILES_AND_TILE_SHELL",
+            "digest": "631000d63f0f2de9c829e662dbb9ab05f3ad4ad5ada542307058515569b3a735"
+        },
+        {
+            "name": "MAP21_02_PRODUCTIONIZE_24_MICROPATTERNS",
+            "digest": "cc91a4555da30aaaca6d0bb7a1821d397f59300d4cfeec94587c70db59e1415f"
+        },
+        {
+            "name": "MAP21_03_EXPAND_CRATER_AND_ROOT_CLUSTER_POOLS",
+            "digest": "041b104ebc5755a7ad4b1b67f4726dc88ad77ec103b1b86d70c1453b25826831"
+        },
+        {
+            "name": "MAP21_04_EXPAND_MILL_AND_DOUGH_CLUSTER_POOLS",
+            "digest": "d30baf04fcd6eceeabd7b6f467b24ce11ce7c5f44833887bf7b0457e6fbdda72"
+        },
+        {
+            "name": "MAP21_05_PRODUCTIONIZE_ACTIVITIES_AND_EVENT_OVERLAYS",
+            "digest": "645f95b8c58757179223b8e5b219b60b5a732cb898a69f99594178c76f166a1e"
+        },
+        {
+            "name": "MAP21_06_EXPAND_ALL_SIX_BOUNDARY_POOLS",
+            "digest": "955ad4acb3e2294b3dc7c018c21472bf4ef34bbfc4075685324901179bd652ab"
+        },
+        {
+            "name": "MAP21_07_COMPLETE_THREE_CORE_RESOURCE_REGIONS",
+            "digest": "0e03c7cb4780b078822297e9877d345480413a2b3b8d9ed0c3d1d455645a4a93"
+        },
+        {
+            "name": "MAP21_08_COMPLETE_MOONPALACE_VILLAGE",
+            "digest": "9308092afbee03a8c08d5a5fbc2b4eb4a02fc747e5bbc6bd9afe7ce5ec018a73"
+        },
+        {
+            "name": "MAP21_09_COMPLETE_FORGE_BOSS_AND_OPTIONAL_REGIONS",
+            "digest": "cca0bf5765f2f80c699c658e81d72d73bf5ce5d6b8bd5276db328cb7e1888469"
+        }
+    ],
+    "csv_digests": [
+        {
+            "name": "moonpalace_biome_tuning_targets.csv",
+            "digest": "d9975b90e4836361e1d71d4be426441f4f2dfde1052bf34a3b85fc49e9de5a60"
+        },
+        {
+            "name": "moonpalace_density_windows.csv",
+            "digest": "a29d7344f09f7e3daaa7a0f219717371d0b14ff1c5ffdc19796feab18b5f2352"
+        },
+        {
+            "name": "moonpalace_pacing_role_targets.csv",
+            "digest": "79731ad54d4aa1baa456feb90f73e5f45c9e3d396f6dd51a4db7f547053d1dbb"
+        },
+        {
+            "name": "moonpalace_repetition_distance_rules.csv",
+            "digest": "29989a88df3a045e9a72a2c963ef787db748641c039168ce4727943dcaa4f077"
+        },
+        {
+            "name": "moonpalace_source_inventory_snapshot.csv",
+            "digest": "0a8962715b14b4ca573ac7992f1cf9ad38cb0299830d454367c7f5d754a0ac23"
+        },
+        {
+            "name": "moonpalace_tuning_handoff.csv",
+            "digest": "8e3ff254b56ec415b8358ca379534b70e0a3ead9b2d9433b8b3840149aebd938"
+        }
+    ],
+    "json_digests": [
+        {
+            "name": "moonpalace_density_pacing_manifest.json",
+            "digest": "e081ce6aabaf33b8525ef324b5ea4ba55c06b7e951078975b16162f0bb784f18"
+        },
+        {
+            "name": "moonpalace_repetition_policy_manifest.json",
+            "digest": "ea89ad3c4e35343473a506cc56f6ceb027a472b632617eb58356174df120fcc8"
+        },
+        {
+            "name": "moonpalace_tuning_profile_manifest.json",
+            "digest": "df06b5d10bff0b047a76f818649340274094d8ce635b48caa4b1d41d5930db60"
+        }
+    ],
+    "MAP21_11_handoff_digest": "cc85dc9b3cee0d47da517f6eb77546e345c341db2bd5409510804305d01c1646",
+    "created_utc": "2026-09-06T17:45:27.7096053Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "b3e57217b52222d0665c437649749c8803c45c09a6ac09402a591f210fdedc8d"
+}

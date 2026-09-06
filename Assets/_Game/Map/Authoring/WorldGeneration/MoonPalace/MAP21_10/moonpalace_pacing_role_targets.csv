@@ -1,0 +1,8 @@
+target_kind,target_id,quiet_target,cluster_target,activity_target,overlay_target,pacing_note,changes_solver_behavior,canonical_digest
+PacingRole,BoundarySeam,0.54,0.31,0.08,0.05,transition without activity inflation,false,a237df5835a0196f16b942feacb4b3c78245bc56d530b4900f91d6e4f764adeb
+PacingRole,BranchRoute,0.53,0.32,0.11,0.07,optional discovery pressure,false,983b00975340669087504e8ce935bc30c606faeb70e2cd9902837061f222b176
+PacingRole,MainRoute,0.52,0.34,0.10,0.06,active primary traversal,false,94debb15cf7be3794b76829053d85607eb363207908cc37bb825ec75ebbc8b5e
+PacingRole,QuietBuffer,0.60,0.25,0.06,0.03,maximum quiet budget,false,6e4dd82f1b79a3d697c5e73a3527c7b9bd104afd5ffed363a3ef60e3132a0bdb
+PacingRole,RecoveryRoute,0.58,0.27,0.07,0.04,recovery-biased traversal,false,d7fda7ec7f53f72714901f5c67d07a4aada1c5be2d904ba3cb62154779e4a6b2
+PacingRole,SpecialApproach,0.55,0.30,0.09,0.05,neutral landmark approach,false,0c39accd628b17ab627682abb70c25a0bca7d12a6c7e30bc1002b86871d2dde8
+PacingRole,StartBuffer,0.60,0.25,0.06,0.03,quiet onboarding buffer,false,cf6cbcae63855174c992bad9fd127892b30c1e5c5dbcc3174a49f6908e6ef6a4

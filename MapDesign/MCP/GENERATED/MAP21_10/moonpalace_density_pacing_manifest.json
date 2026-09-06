@@ -1,0 +1,178 @@
+{
+    "schema_version": "map21_10.density_pacing_manifest.v1",
+    "density_windows": [
+        {
+            "window_id": "DENSITY_ACTIVITY_RATIO",
+            "scope": "world/window",
+            "minimum": 0.06,
+            "target": 0.09,
+            "maximum": 0.12,
+            "meaning": "strong Activity opportunity frequency",
+            "excluded_population": "boundary cells",
+            "canonical_digest": "3e03a8adf2975e33ebc60263eff0555a0f8f29f8bd63f9c74f0bcb01ce64844b"
+        },
+        {
+            "window_id": "DENSITY_CLUSTER_RATIO",
+            "scope": "sector/window",
+            "minimum": 0.25,
+            "target": 0.3,
+            "maximum": 0.35,
+            "meaning": "active terrain cluster budget",
+            "excluded_population": "SpecialRegion reserved cells",
+            "canonical_digest": "35b6f7157f179803740bd179ddc3e8152aa01f2ebb01ac27203953d1b7a7b9fb"
+        },
+        {
+            "window_id": "DENSITY_OVERLAY_RATIO",
+            "scope": "world/window",
+            "minimum": 0.03,
+            "target": 0.05,
+            "maximum": 0.08,
+            "meaning": "non-empty EventOverlay frequency",
+            "excluded_population": "empty overlay variants",
+            "canonical_digest": "8be837f4337df0f68a461aee20b04e17d9a94a4bbe7255149239c410712a0787"
+        },
+        {
+            "window_id": "DENSITY_QUIET_RATIO",
+            "scope": "sector/window",
+            "minimum": 0.5,
+            "target": 0.55,
+            "maximum": 0.6,
+            "meaning": "calm or low-pressure space budget",
+            "excluded_population": "SpecialRegion reserved cells",
+            "canonical_digest": "0f202a3c9e9c2f3722cd3ef419549914bbf15d48eeb679d2feb3f1cffdb1eb6c"
+        }
+    ],
+    "biome_targets": [
+        {
+            "target_kind": "Biome",
+            "target_id": "AbandonedMill",
+            "quiet_target": 0.52,
+            "cluster_target": 0.33,
+            "activity_target": 0.11,
+            "overlay_target": 0.07,
+            "pacing_note": "mechanical activity pressure",
+            "changes_solver_behavior": false,
+            "canonical_digest": "37965fe71ef42ecddf0b2af9f0199a4e7927b60ed46433335f4720e9f2cf9cc5"
+        },
+        {
+            "target_kind": "Biome",
+            "target_id": "CassiaRoot",
+            "quiet_target": 0.56,
+            "cluster_target": 0.3,
+            "activity_target": 0.08,
+            "overlay_target": 0.05,
+            "pacing_note": "calmer recovery space",
+            "changes_solver_behavior": false,
+            "canonical_digest": "ef4026535cdbffc990c264178a3a20847bc136018c840f29fedf174b53bac745"
+        },
+        {
+            "target_kind": "Biome",
+            "target_id": "MoonCrater",
+            "quiet_target": 0.51,
+            "cluster_target": 0.34,
+            "activity_target": 0.1,
+            "overlay_target": 0.06,
+            "pacing_note": "more active impact terrain",
+            "changes_solver_behavior": false,
+            "canonical_digest": "1b46223dc71ede6877d1bbd9d6504e7a8e1d37c5e76ed0b4fa91bba3afa9b41d"
+        },
+        {
+            "target_kind": "Biome",
+            "target_id": "MoonDough",
+            "quiet_target": 0.58,
+            "cluster_target": 0.27,
+            "activity_target": 0.07,
+            "overlay_target": 0.04,
+            "pacing_note": "soft quiet-heavy traversal",
+            "changes_solver_behavior": false,
+            "canonical_digest": "a126b364c7ff19835f6f58a8afa6f4471ab96a005377630b11374d3ace360d1f"
+        }
+    ],
+    "pacing_role_targets": [
+        {
+            "target_kind": "PacingRole",
+            "target_id": "BoundarySeam",
+            "quiet_target": 0.54,
+            "cluster_target": 0.31,
+            "activity_target": 0.08,
+            "overlay_target": 0.05,
+            "pacing_note": "transition without activity inflation",
+            "changes_solver_behavior": false,
+            "canonical_digest": "a237df5835a0196f16b942feacb4b3c78245bc56d530b4900f91d6e4f764adeb"
+        },
+        {
+            "target_kind": "PacingRole",
+            "target_id": "BranchRoute",
+            "quiet_target": 0.53,
+            "cluster_target": 0.32,
+            "activity_target": 0.11,
+            "overlay_target": 0.07,
+            "pacing_note": "optional discovery pressure",
+            "changes_solver_behavior": false,
+            "canonical_digest": "983b00975340669087504e8ce935bc30c606faeb70e2cd9902837061f222b176"
+        },
+        {
+            "target_kind": "PacingRole",
+            "target_id": "MainRoute",
+            "quiet_target": 0.52,
+            "cluster_target": 0.34,
+            "activity_target": 0.1,
+            "overlay_target": 0.06,
+            "pacing_note": "active primary traversal",
+            "changes_solver_behavior": false,
+            "canonical_digest": "94debb15cf7be3794b76829053d85607eb363207908cc37bb825ec75ebbc8b5e"
+        },
+        {
+            "target_kind": "PacingRole",
+            "target_id": "QuietBuffer",
+            "quiet_target": 0.6,
+            "cluster_target": 0.25,
+            "activity_target": 0.06,
+            "overlay_target": 0.03,
+            "pacing_note": "maximum quiet budget",
+            "changes_solver_behavior": false,
+            "canonical_digest": "6e4dd82f1b79a3d697c5e73a3527c7b9bd104afd5ffed363a3ef60e3132a0bdb"
+        },
+        {
+            "target_kind": "PacingRole",
+            "target_id": "RecoveryRoute",
+            "quiet_target": 0.58,
+            "cluster_target": 0.27,
+            "activity_target": 0.07,
+            "overlay_target": 0.04,
+            "pacing_note": "recovery-biased traversal",
+            "changes_solver_behavior": false,
+            "canonical_digest": "d7fda7ec7f53f72714901f5c67d07a4aada1c5be2d904ba3cb62154779e4a6b2"
+        },
+        {
+            "target_kind": "PacingRole",
+            "target_id": "SpecialApproach",
+            "quiet_target": 0.55,
+            "cluster_target": 0.3,
+            "activity_target": 0.09,
+            "overlay_target": 0.05,
+            "pacing_note": "neutral landmark approach",
+            "changes_solver_behavior": false,
+            "canonical_digest": "0c39accd628b17ab627682abb70c25a0bca7d12a6c7e30bc1002b86871d2dde8"
+        },
+        {
+            "target_kind": "PacingRole",
+            "target_id": "StartBuffer",
+            "quiet_target": 0.6,
+            "cluster_target": 0.25,
+            "activity_target": 0.06,
+            "overlay_target": 0.03,
+            "pacing_note": "quiet onboarding buffer",
+            "changes_solver_behavior": false,
+            "canonical_digest": "cf6cbcae63855174c992bad9fd127892b30c1e5c5dbcc3174a49f6908e6ef6a4"
+        }
+    ],
+    "special_region_reserved_cells_excluded_from_quiet_cluster": true,
+    "boundary_cells_excluded_from_activity": true,
+    "solver_behavior_change_count": 0,
+    "generated_coordinate_count": 0,
+    "window_set_digest": "0bb0179cbcc3e738f24e179ccfced73856d3db05288c2eb3512141c242941603",
+    "biome_set_digest": "372d15f66086934ae822df3ac5f5be9239cb27344b570134b7b4c3e4aeb1ca4c",
+    "pacing_role_set_digest": "86bcb8330aa74bc7e3d05fc039f3cfb67193571507c37a221d6c61682bde21f8",
+    "canonical_digest": "42db32ebda34847f034bf941b5fe9c25ee563e9c3fc6e56804cd66d38534e4ea"
+}

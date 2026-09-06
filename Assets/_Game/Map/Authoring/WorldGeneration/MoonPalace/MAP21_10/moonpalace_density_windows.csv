@@ -1,0 +1,5 @@
+window_id,scope,minimum,target,maximum,meaning,excluded_population,canonical_digest
+DENSITY_ACTIVITY_RATIO,world/window,0.06,0.09,0.12,strong Activity opportunity frequency,boundary cells,3e03a8adf2975e33ebc60263eff0555a0f8f29f8bd63f9c74f0bcb01ce64844b
+DENSITY_CLUSTER_RATIO,sector/window,0.25,0.30,0.35,active terrain cluster budget,SpecialRegion reserved cells,35b6f7157f179803740bd179ddc3e8152aa01f2ebb01ac27203953d1b7a7b9fb
+DENSITY_OVERLAY_RATIO,world/window,0.03,0.05,0.08,non-empty EventOverlay frequency,empty overlay variants,8be837f4337df0f68a461aee20b04e17d9a94a4bbe7255149239c410712a0787
+DENSITY_QUIET_RATIO,sector/window,0.50,0.55,0.60,calm or low-pressure space budget,SpecialRegion reserved cells,0f202a3c9e9c2f3722cd3ef419549914bbf15d48eeb679d2feb3f1cffdb1eb6c

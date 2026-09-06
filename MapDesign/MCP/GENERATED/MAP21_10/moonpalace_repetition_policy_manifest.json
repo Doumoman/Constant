@@ -1,0 +1,100 @@
+{
+    "schema_version": "map21_10.repetition_policy_manifest.v1",
+    "repetition_rules": [
+        {
+            "rule_id": "REPEAT_ACTIVITY_EXACT_ID",
+            "subject": "same Activity ID",
+            "minimum_separation": 8,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per world window",
+            "identity_field": "activity_id",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "763f86647c36c4b26b53d5f45c23d02690a96dcedacce93a91f6e453f10e8613"
+        },
+        {
+            "rule_id": "REPEAT_BOUNDARY_CANDIDATE_ID",
+            "subject": "same boundary candidate ID within same pair/direction",
+            "minimum_separation": 4,
+            "distance_unit": "boundary placements",
+            "enforcement_scope": "per pair and direction window",
+            "identity_field": "boundary_pair_direction_candidate_id",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "8e3a8a981db3f40cf82d59b11ebd8f4077dc1dd5d5f444fc8b1c522bbcb7ba1b"
+        },
+        {
+            "rule_id": "REPEAT_CLUSTER_EXACT_ID",
+            "subject": "same TerrainCluster ID",
+            "minimum_separation": 6,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per biome sector window",
+            "identity_field": "terrain_cluster_id",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "ca45cab20df4fbf8fb14365f0d3413a925854f837c863d1185ec8ef770633b58"
+        },
+        {
+            "rule_id": "REPEAT_CLUSTER_SILHOUETTE_SIGNATURE",
+            "subject": "same cluster silhouette signature",
+            "minimum_separation": 3,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per biome sector window",
+            "identity_field": "cluster_silhouette_signature",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "66f6b39dae32ad1e23169ee0bb6e51d3be24b8164fe9dd7cfa69b2a9fbf64b43"
+        },
+        {
+            "rule_id": "REPEAT_CLUSTER_STRUCTURAL_SIGNATURE",
+            "subject": "same cluster structural signature",
+            "minimum_separation": 4,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per biome sector window",
+            "identity_field": "cluster_structural_signature",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "a0f1ac8a6bf91cc86e747a44a7f6799d6fdd3cf9dfd56c1940f709271005dbfa"
+        },
+        {
+            "rule_id": "REPEAT_EVENT_NON_EMPTY_ID",
+            "subject": "same non-empty EventOverlay ID",
+            "minimum_separation": 6,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per world window",
+            "identity_field": "non_empty_event_overlay_id",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "08acaa779a89501d004fee9e4d323cf53a01ad098811f2cfd39176f12c08f7e0"
+        },
+        {
+            "rule_id": "REPEAT_PATTERN_EXACT_ID",
+            "subject": "same MicroPattern ID",
+            "minimum_separation": 3,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per biome sector window",
+            "identity_field": "micro_pattern_id",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": false,
+            "canonical_digest": "3c7640b52feea264ad12dac8178e6cc0fad11c9c1813a7b317d3a24767fce950"
+        },
+        {
+            "rule_id": "REPEAT_PATTERN_MIRROR_FAMILY",
+            "subject": "mirrored silhouette family",
+            "minimum_separation": 2,
+            "distance_unit": "sector placements",
+            "enforcement_scope": "per biome sector window",
+            "identity_field": "mirror_family_id",
+            "material_color_audio_counts_as_structural": false,
+            "mirror_variant_counts_in_family": true,
+            "canonical_digest": "486ec323f53f17e945be121802f346272c2d8af9f560ddd034be6cd09a7804a6"
+        }
+    ],
+    "structural_identity_field": "cluster_structural_signature",
+    "silhouette_identity_field": "cluster_silhouette_signature",
+    "material_color_audio_counts_as_structural": false,
+    "mirror_variants_count_in_family": true,
+    "landmark_uniqueness_rewrite_count": 0,
+    "repetition_policy_digest": "d679eec550550aa4f3430691a2a424059694e19475fbd38c2cd159ac2d321cf3",
+    "canonical_digest": "f11ae7da116d5a2c36cb2ffa362633bd7ea83bb14d1df555fa3f3a4d2ae335c3"
+}
