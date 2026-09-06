@@ -1,0 +1,53 @@
+{
+    "schema_version": "map21_05.activity_event_digest_manifest.v1",
+    "task_id": "MAP21_05_PRODUCTIONIZE_ACTIVITIES_AND_EVENT_OVERLAYS",
+    "source_MAP12_aggregate_digest": "46330eb01dd302bf80dab6eacf88dea59f107cbecc9225b2243a395c1d0dbc8b",
+    "source_MAP12_activity_catalog_digest": "3ef83fae74d935a2469ab587414d0498cb423609b171d1c7633423e297318c3a",
+    "source_MAP12_event_catalog_digest": "2d2878f62605927a7b70a405a06079b3ebad7767e3bd7db9b6b2431177ea95a0",
+    "source_MAP21_04_all_biome_cluster_digest": "d30baf04fcd6eceeabd7b6f467b24ce11ce7c5f44833887bf7b0457e6fbdda72",
+    "source_MAP21_04_digest_manifest_digest": "0a4ffb22812a37dbebc0b3e3f61d01888986c99a78088b6cd86ed61db2969aab",
+    "csv_digests": [
+        {
+            "name": "moonpalace_activity_cluster_bindings.csv",
+            "digest": "683439da2e2581003ecb4a6f51919585b5884282431230d848ba0838a85558bf"
+        },
+        {
+            "name": "moonpalace_activity_event_compatibility.csv",
+            "digest": "27c1a1b2f5941780dd08252928ed299343fdb0061cfd3b4115974b737cc167b3"
+        },
+        {
+            "name": "moonpalace_activity_profiles.csv",
+            "digest": "a360826de2002a999aff20297689fbd52ba17bc63a5501eeea5007a461110639"
+        },
+        {
+            "name": "moonpalace_activity_slots.csv",
+            "digest": "27bd0795c80f6965dd85781569fd1362fbd95ce03736b6708d958984a047c03f"
+        },
+        {
+            "name": "moonpalace_event_overlay_markers.csv",
+            "digest": "564b67b977fd840d629e2d36b561ffb3b4a2f772ecf8a9b6f0c6cb7851ed3faa"
+        },
+        {
+            "name": "moonpalace_event_overlay_profiles.csv",
+            "digest": "ef7707c85a8f9b8eac8e909d596a4728f8fe0ad9b7f336531ddfa97830fdbfba"
+        }
+    ],
+    "json_digests": [
+        {
+            "name": "moonpalace_activity_event_manifest.json",
+            "digest": "9c0614b4006eb9d53575840f88ce806be8b2e5bc68106e9820334b9b0906b5ea"
+        },
+        {
+            "name": "moonpalace_activity_removal_safety_manifest.json",
+            "digest": "de02488767202ad7d834fd24a9512b40cc1349ade86cd28d4acb276fca59d734"
+        },
+        {
+            "name": "moonpalace_event_overlay_manifest.json",
+            "digest": "91734b671b5802f6e28fa636387409f2976d3f390f2b187224f24a5ce9177e5b"
+        }
+    ],
+    "MAP21_06_handoff_digest": "854cf1a08510898a1570676ce4ea30f1c0b3b3883c7694be49092f1fae88733b",
+    "created_utc": "2026-09-06T11:48:26.9549101Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "645f95b8c58757179223b8e5b219b60b5a732cb898a69f99594178c76f166a1e"
+}
