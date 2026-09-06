@@ -1,0 +1,54 @@
+{
+    "schema_version": "map21_07.core_resource_digest_manifest.v1",
+    "task_id": "MAP21_07_COMPLETE_THREE_CORE_RESOURCE_REGIONS",
+    "source_map13_audit_digest": "a7ab6fd571425c4c8e64d7eecad5dd246a3d9a8a08044801800948fc2fa03e4e",
+    "source_map18_export_digest": "358ac8cfe78eec502db049f8940ed0c71458179b89bb451680e837b0797b77b5",
+    "source_map18_debug_digest": "59efb7fd30df9ec62014cadd04a111b222e7dd13e298789dbab88a661bea22ed",
+    "source_map21_04_digest": "d30baf04fcd6eceeabd7b6f467b24ce11ce7c5f44833887bf7b0457e6fbdda72",
+    "source_map21_05_digest": "645f95b8c58757179223b8e5b219b60b5a732cb898a69f99594178c76f166a1e",
+    "source_map21_06_digest": "955ad4acb3e2294b3dc7c018c21472bf4ef34bbfc4075685324901179bd652ab",
+    "csv_digests": [
+        {
+            "name": "moonpalace_core_resource_chunks.csv",
+            "sha256": "b322bf4ab7c84e195b83a5b4f42baf44193131ff60fd4c359facb6da133d5fac"
+        },
+        {
+            "name": "moonpalace_core_resource_edges.csv",
+            "sha256": "e02eb5d797eb3c93fe3115d6293377458f4c4cb3631361ee1da49e16c28eaba0"
+        },
+        {
+            "name": "moonpalace_core_resource_nodes.csv",
+            "sha256": "96d8ca38651b76c3fbb40ad314bd2afc681dc24482b323bf7a02eb665441e2f8"
+        },
+        {
+            "name": "moonpalace_core_resource_persistence.csv",
+            "sha256": "f93929ce10fc068b78b6b957f42ae325f8f612709d461cffaf7252c3678261d5"
+        },
+        {
+            "name": "moonpalace_core_resource_profiles.csv",
+            "sha256": "95742a429c4a8e1ad1342033ce0102db8c302bcb0dd8ea656a1580612776c192"
+        },
+        {
+            "name": "moonpalace_core_resource_rewards.csv",
+            "sha256": "e2d3b78ed91e38372c838044bda23a69b3b7d1c8c9818d920ac134bbbe3dcee6"
+        }
+    ],
+    "json_digests": [
+        {
+            "name": "moonpalace_core_resource_manifest.json",
+            "sha256": "7c8b74fbd6ad9904060a881805fff481d9bb6778d6419ac003081c364896bf91"
+        },
+        {
+            "name": "moonpalace_core_resource_persistence_manifest.json",
+            "sha256": "78ada6989dfe7edd8b4241e43c34720c977002aec9075beb5e7f6c61ef18845d"
+        },
+        {
+            "name": "moonpalace_core_resource_route_manifest.json",
+            "sha256": "fd1d9d36366e94eda7d2d6144976754444162092e3f34e5d934c6806f435e26a"
+        }
+    ],
+    "MAP21_08_handoff_digest": "7cd8adb0e27cffad1a4187400c6e72cd47e24291663aa5fe69457096efb535e0",
+    "created_utc_excluded_from_canonical_digest": true,
+    "created_utc": "2026-09-06T14:09:25.2008521Z",
+    "canonical_digest": "0e03c7cb4780b078822297e9877d345480413a2b3b8d9ed0c3d1d455645a4a93"
+}

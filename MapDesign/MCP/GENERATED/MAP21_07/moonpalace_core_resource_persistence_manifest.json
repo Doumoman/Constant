@@ -1,0 +1,18 @@
+{
+    "schema_version": "map21_07.core_resource_production.v1",
+    "checkpoint_count": 21,
+    "legacy_short_keys_accepted": 0,
+    "duplicate_reward_risk_count": 0,
+    "permanent_loss_count": 0,
+    "checkpoint_states": [
+        "InitialAvailable",
+        "InterruptedAvailable",
+        "FailedAvailable",
+        "RegeneratedAvailable",
+        "Claimed",
+        "RevisitedClaimed",
+        "RecoveryJoinAvailable"
+    ],
+    "persistence_set_digest": "1597d15c8d398274545afb9ae1881e11772ec3d6047f98ec9af529ba41d0c31a",
+    "canonical_digest": "13c5622c1944d3d5462a6d43beffa8542013ec8beeb56898e1079068d90b36db"
+}
