@@ -1,0 +1,68 @@
+{
+    "schema_version": "map20_05.failure_browser_index.v1",
+    "task_id": "MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT",
+    "source_kind_tokens": [
+        "ActualFailureBundle",
+        "FocusedFixture",
+        "MissingData"
+    ],
+    "failure_records": [
+        {
+            "failure_record_id": "FOCUSED_FIXTURE_MAP20_05",
+            "source_kind": "FocusedFixture",
+            "source_path": "InMemory/FocusedFixture",
+            "source_digest": "2807d84d93443c26801a8e24a37a7b192855b06b191ffb77720a48ccd973108a",
+            "owner_task": "MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT",
+            "failure_category": "FocusedFixture",
+            "severity": "Warning",
+            "seed": 200405,
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "validation_error_id": "MAP20_04_TILE_SOURCE",
+            "navigation_selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "replay_request_id": "REQ-433252cea6ed4593a0e97166",
+            "actual_failure_available": false,
+            "fixture_kind": "MAP20_05_FocusedFixture",
+            "missing_reason": "",
+            "canonical_digest": "f0c558c4626bc64439599785147f7646be4101a285337c00e5ad9b0dd68bd849"
+        },
+        {
+            "failure_record_id": "MISSING_MAP19_FAILURE_BUNDLE",
+            "source_kind": "MissingData",
+            "source_path": "MapDesign/MCP/GENERATED/MAP19_08/failure_bundle.json",
+            "source_digest": "NONE",
+            "owner_task": "MAP19_08",
+            "failure_category": "MissingData",
+            "severity": "Info",
+            "seed": 200405,
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "validation_error_id": "MAP20_04_TILE_SOURCE",
+            "navigation_selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "replay_request_id": "REQ-433252cea6ed4593a0e97166",
+            "actual_failure_available": false,
+            "fixture_kind": "",
+            "missing_reason": "No actual MAP19 failure bundle is present; no failure was invented.",
+            "canonical_digest": "0f29b28e29b7a5f79100ef3aacf3379a860cfdcc54d3a715985c048cdb208785"
+        }
+    ],
+    "actual_failure_records": 0,
+    "focused_fixture_failure_records": 1,
+    "missing_failure_records": 1,
+    "repair_rerun_replay_action_count": 0,
+    "canonical_digest": "a008a2914108899f360f0b795634177d9f0390ead8a33f947e5d25267e1da2bf",
+    "created_utc": "2026-09-06T04:50:50.9824381Z",
+    "created_utc_excluded_from_canonical_digest": true
+}

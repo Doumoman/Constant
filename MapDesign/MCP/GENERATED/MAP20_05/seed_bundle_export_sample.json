@@ -1,0 +1,207 @@
+{
+    "schema_version": "map20_05.seed_bundle_export_sample.v1",
+    "task_id": "MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT",
+    "source_MAP20_04_result_digest": "f9bac092ce7e1177e9eea6ca61a46ea671330790b55355206c06027ac1e77235",
+    "source_MAP20_04_task_digest": "f398401662bcb9134db8269fa6dbc4d42752ae90b1a442b16a6b8e6610cf9106",
+    "source_MAP20_05_handoff_digest": "729920113fefff78e3e5584d34c3ce682f3017a545e3e3bf8ae0bbdcc8b20f55",
+    "seed": 200405,
+    "world_id": "WORLD_MAP20_05_SAMPLE",
+    "sector_coordinate": {
+        "x": 6,
+        "y": 6
+    },
+    "generator_version": "MAP20_READ_ONLY_SAMPLE_V1",
+    "pass_digest_summary": "b572f1166abdd2566533c6b6022465da76c20a72e0c2c13d6fe3c9120738ad47",
+    "csv_navigation_index_digest": "6af989c49229b7403d3817efbff2ee9a95e2bf73aeef811d4ffab900a4959f38",
+    "validation_jump_sample_digest": "eedf60c3d2128fe51e529bf10276f00c7bb5c3c1c3dd25d590cac90518b9d8f7",
+    "failure_browser_digest": "a008a2914108899f360f0b795634177d9f0390ead8a33f947e5d25267e1da2bf",
+    "replay_request_digest": "df8140b2586f702550ade088e393a41e179452202ab6101d5306b56d859a533d",
+    "runtime_hud_digest": "46cae11f423d4f0a2efa8441155160e18c7eb6ebd137ccba0146c2491a3e8f88",
+    "map07_fixed_generated_split_digest": "e14576981e744ad309275c5ff200b1d5da4591fc145bdf2bf0480ec757c9c5d0",
+    "map08_boundary_link_digest": "64bec764f00590b49c554ea6136c05ba43596db90340ab6db5d081fe92dcd95c",
+    "fixed_generated_origin_tokens": [
+        "FixedMap07",
+        "GeneratedMap16Slice",
+        "GeneratedMap17Runtime",
+        "GeneratedMap18Population",
+        "MissingData"
+    ],
+    "fixed_generated_origin_records": [
+        {
+            "record_id": "MAP07_FIXED",
+            "content_origin": "FixedMap07",
+            "owner_task": "MAP07",
+            "source_identity": "MAP07/FIXED_CONTENT",
+            "source_digest": "b4b316502acca99d944ddeb8e1c25c56ba8c0e258e8bfbc29175aedf40f2071f",
+            "read_only_reference": "MAP07/fixed-content",
+            "missing_reason": "",
+            "canonical_digest": "c65c73cf9986a6d08f0d872d4e35989be6bf44135198916aa4e2613320f8fc8e"
+        },
+        {
+            "record_id": "MAP16_SLICE",
+            "content_origin": "GeneratedMap16Slice",
+            "owner_task": "MAP16",
+            "source_identity": "MAP16/GENERATED_SLICE",
+            "source_digest": "f8e1bba86c625fa9fbf9b76023439a7d33ec10e9f58095eb3277507e38744733",
+            "read_only_reference": "MAP16/generated-slice",
+            "missing_reason": "",
+            "canonical_digest": "eca40eaf4d91c082a5d6c3be09ea208432ea9b2e29e19b2c4fc4aed973455141"
+        },
+        {
+            "record_id": "MAP17_RUNTIME",
+            "content_origin": "GeneratedMap17Runtime",
+            "owner_task": "MAP17",
+            "source_identity": "MAP17/GENERATED_RUNTIME",
+            "source_digest": "fda8061a238301a73ef693d997abe3d28edeb16fee3ad2b0ffbb92928ecdff34",
+            "read_only_reference": "MAP17/generated-runtime",
+            "missing_reason": "",
+            "canonical_digest": "d9c9a0f911f9e10535d1747448d5e0092190e6bcdaf3d333549e8d188fa6d588"
+        },
+        {
+            "record_id": "MAP18_POPULATION",
+            "content_origin": "GeneratedMap18Population",
+            "owner_task": "MAP18",
+            "source_identity": "MAP18/GENERATED_POPULATION",
+            "source_digest": "39601565f1a70b2e1be01dd096c8e1dbb0a6fa4601a1b2a89a23fc23b4d2a551",
+            "read_only_reference": "MAP18/generated-population",
+            "missing_reason": "",
+            "canonical_digest": "d2caf9a1a54be1fcad65518f16df573feb7e7f4c1b7f489f019f5c9bf371a296"
+        },
+        {
+            "record_id": "MISSING_OPTIONAL_CONTENT",
+            "content_origin": "MissingData",
+            "owner_task": "MAP20_05",
+            "source_identity": "MISSING",
+            "source_digest": "NONE",
+            "read_only_reference": "MissingData/optional-content",
+            "missing_reason": "No optional generated content was supplied to the read-only sample.",
+            "canonical_digest": "4999aeee191e9025fd26cee83d6b3be4dc36b6193b2c6284dd4ba15e2a970bcf"
+        }
+    ],
+    "map08_approved_pair_capacity": 6,
+    "map08_boundary_links": [
+        {
+            "boundary_link_id": "BOUNDARY-LINK-da4732bd5ebf168d0165",
+            "pair_id": "PAIR_CRATER_DOUGH",
+            "source_biome": "BIO_MOON_CRATER",
+            "target_biome": "BIO_MOON_DOUGH",
+            "candidate_id": "BCH_CRATER_DOUGH_H_CLIFF_01",
+            "projection_id": "MAP08/PAIR_CRATER_DOUGH/MC_BOUND_CRATER_DOUGH_H_CLIFF_01",
+            "socket_id": "MC_BOUND_CRATER_DOUGH_H_CLIFF_01/SOCK_L",
+            "sector_coordinate": {
+                "x": 8,
+                "y": 5
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "source_digest": "ebae05b2b1b82df1a683497f1dc3d3b99b8d0c7109769cdfc29422d942828daf",
+            "link_state": "ReadOnlyReference",
+            "canonical_digest": "089f481621ee9c1b103ae82ede494750e5abf816058f935c037daee3d2512dce"
+        },
+        {
+            "boundary_link_id": "BOUNDARY-LINK-1aa4571a774d18542af6",
+            "pair_id": "PAIR_CRATER_MILL",
+            "source_biome": "BIO_MOON_CRATER",
+            "target_biome": "BIO_ABANDONED_MILL",
+            "candidate_id": "BCH_CRATER_MILL_H_RUIN_01",
+            "projection_id": "MAP08/PAIR_CRATER_MILL/MC_BOUND_CRATER_MILL_H_01",
+            "socket_id": "MC_BOUND_CRATER_MILL_H_01/SOCK_L",
+            "sector_coordinate": {
+                "x": 7,
+                "y": 5
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "source_digest": "3623834f16b7ccbc29657af582387c8d87e5e8ef6237c4564d38bcfdcc11e585",
+            "link_state": "ReadOnlyReference",
+            "canonical_digest": "1c24ad98325f52b7942aef7a3141cdc8bccd74ea801f468c0a124da37ec82d3c"
+        },
+        {
+            "boundary_link_id": "BOUNDARY-LINK-66905f81d16e4bd8e8be",
+            "pair_id": "PAIR_CRATER_ROOT",
+            "source_biome": "BIO_MOON_CRATER",
+            "target_biome": "BIO_CASSIA_ROOT",
+            "candidate_id": "BCH_CRATER_ROOT_H_SOFT_01",
+            "projection_id": "MAP08/PAIR_CRATER_ROOT/MC_BOUND_CRATER_ROOT_H_01",
+            "socket_id": "MC_BOUND_CRATER_ROOT_H_01/SOCK_L",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 5
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "source_digest": "8c15dc05f2ab9a07ac2c4e851f1be260812410a5f0fa8204b1fc6792ee1f8edb",
+            "link_state": "ReadOnlyReference",
+            "canonical_digest": "1838bc42f2b4fa26cd91550e9b0b877aef669879597caceb6c155b3a79d7ccf1"
+        },
+        {
+            "boundary_link_id": "BOUNDARY-LINK-19b13214230b4fcf57ba",
+            "pair_id": "PAIR_MILL_DOUGH",
+            "source_biome": "BIO_ABANDONED_MILL",
+            "target_biome": "BIO_MOON_DOUGH",
+            "candidate_id": "BCH_MILL_DOUGH_H_TUNNEL_01",
+            "projection_id": "MAP08/PAIR_MILL_DOUGH/MC_BOUND_MILL_DOUGH_H_TUNNEL_01",
+            "socket_id": "MC_BOUND_MILL_DOUGH_H_TUNNEL_01/SOCK_L",
+            "sector_coordinate": {
+                "x": 8,
+                "y": 6
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "source_digest": "018cd583970186325dc801254fac51eea2776e1eca256a9f431649a6271d5812",
+            "link_state": "ReadOnlyReference",
+            "canonical_digest": "ecb7dce67faf12e149568e0566db730b259bbcd0e35724a249fdf84d6efcb4cb"
+        },
+        {
+            "boundary_link_id": "BOUNDARY-LINK-79040c2ba95565457aad",
+            "pair_id": "PAIR_ROOT_DOUGH",
+            "source_biome": "BIO_CASSIA_ROOT",
+            "target_biome": "BIO_MOON_DOUGH",
+            "candidate_id": "BCH_ROOT_DOUGH_H_TUNNEL_01",
+            "projection_id": "MAP08/PAIR_ROOT_DOUGH/MC_BOUND_ROOT_DOUGH_H_TUNNEL_01",
+            "socket_id": "MC_BOUND_ROOT_DOUGH_H_TUNNEL_01/SOCK_L",
+            "sector_coordinate": {
+                "x": 7,
+                "y": 6
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "source_digest": "40dc48fc3884180a8cbd8b8f649e1b86c68ca261031c6ebbce4865317a35a8b7",
+            "link_state": "ReadOnlyReference",
+            "canonical_digest": "134c77d818795ccf0ae7bc24af882b9cfe75dcd9fd3a5837173fb75d11b90476"
+        },
+        {
+            "boundary_link_id": "BOUNDARY-LINK-e28fe529a5257361ced4",
+            "pair_id": "PAIR_ROOT_MILL",
+            "source_biome": "BIO_CASSIA_ROOT",
+            "target_biome": "BIO_ABANDONED_MILL",
+            "candidate_id": "BCH_ROOT_MILL_H_RUIN_01",
+            "projection_id": "MAP08/PAIR_ROOT_MILL/MC_BOUND_ROOT_MILL_H_RUIN_01",
+            "socket_id": "MC_BOUND_ROOT_MILL_H_RUIN_01/SOCK_L",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "source_digest": "142be777fe37ac0e1de909ee9c64fc4fef5b5d0e79d20db3e68d297c3239c262",
+            "link_state": "ReadOnlyReference",
+            "canonical_digest": "634ff356bc46966f08c40d98d317dc35cb2dea6644bd7ac13aa8b9bb74539517"
+        }
+    ],
+    "created_utc": "2026-09-06T04:50:51.0310395Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "36410b172ff7c2945b491c5d86ef50d5a9eb7245c78bde539efec6a2e82d9278"
+}

@@ -1,0 +1,24 @@
+{
+    "schema_version": "map20_05.runtime_hud_state.v1",
+    "task_id": "MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT",
+    "hud_state_id": "HUD-733d48c64fc379092c804ba8",
+    "seed": 200405,
+    "world_id": "WORLD_MAP20_05_SAMPLE",
+    "sector_coordinate": {
+        "x": 6,
+        "y": 6
+    },
+    "cell_coordinate": {
+        "x": 24,
+        "y": 16
+    },
+    "active_pass": "MAP20_05_READ_ONLY",
+    "active_tool_mode": "RequestOnly",
+    "selected_validation_error_id": "MAP20_04_TILE_SOURCE",
+    "selected_failure_record_id": "FOCUSED_FIXTURE_MAP20_05",
+    "selected_source_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_cells_v2.csv",
+    "selected_selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+    "status_line": "RequestOnly / no runtime mutation",
+    "runtime_mutation_count": 0,
+    "canonical_digest": "46cae11f423d4f0a2efa8441155160e18c7eb6ebd137ccba0146c2491a3e8f88"
+}

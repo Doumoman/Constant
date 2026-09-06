@@ -1,0 +1,26 @@
+{
+    "schema_version": "map20_05.replay_authoring_request.v1",
+    "task_id": "MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT",
+    "source_MAP20_04_handoff_digest": "729920113fefff78e3e5584d34c3ce682f3017a545e3e3bf8ae0bbdcc8b20f55",
+    "request_id": "REQ-433252cea6ed4593a0e97166",
+    "seed": 200405,
+    "world_id": "WORLD_MAP20_05_SAMPLE",
+    "sector_coordinate": {
+        "x": 6,
+        "y": 6
+    },
+    "cell_coordinate": {
+        "x": 24,
+        "y": 16
+    },
+    "validation_error_id": "MAP20_04_TILE_SOURCE",
+    "jump_target_kind": "Tile",
+    "selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+    "failure_bundle_id": "NONE",
+    "authoring_context_digest": "010873533055ad92d22e171dfd45fea40f14f40a824fd0a737e5781d1e7f58f5",
+    "requested_action": "AuthorReplayRequest",
+    "execution_state": "RequestOnly",
+    "created_utc": "2026-09-06T04:50:50.9824381Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "df8140b2586f702550ade088e393a41e179452202ab6101d5306b56d859a533d"
+}
