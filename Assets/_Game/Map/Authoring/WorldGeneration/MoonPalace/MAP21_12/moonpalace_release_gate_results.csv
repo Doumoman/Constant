@@ -1,0 +1,9 @@
+gate_id,area,evidence,status,blocker_count,fail_count,allowed_warning_count
+GATE_01_RUNTIME_BAKE_STREAM_SAVE,Runtime bake/stream/save readiness,MAP17_08 PASS; audit digest; 14 PASS/2 allowed WARN/0 BLOCK/0 FAIL,PASS,0,0,2
+GATE_02_POPULATION_SPECIAL_STATE,Population/special state readiness,MAP18_07 PASS; approved audit digest; mandatory blockers 0,PASS,0,0,1
+GATE_03_VALIDATION_SCALE,Validation scale readiness,MAP19_09 PASS; 100000/100000; failure bundles 0; exit digest,PASS,0,0,1
+GATE_04_FAILURE_SCHEMA,Failure bundle schema readiness,MAP19_08 PASS; MAP19_FAILURE_BUNDLE_V1 semantic digest available,PASS,0,0,0
+GATE_05_TOOLING_DEBUG,Tooling/debug readiness,MAP20_06 PASS; phase exit digest; execution not repeated,PASS,0,0,0
+GATE_06_PRODUCTION_CONTENT,Production content readiness,MAP21_01..09 PASS; MAP21_10 tuning digest bound,PASS,0,0,0
+GATE_07_QA_COMPLETION,QA completion readiness,MAP21_11 PASS; 30/30 completion; zero telemetry violations,PASS,0,0,1
+GATE_08_RELEASE_BOUNDARY,Release boundary readiness,MAP21_12 read-only audit; generator/seed/playtest/build/legacy/full executions 0,PASS,0,0,0

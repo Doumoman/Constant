@@ -1,0 +1,12 @@
+warning_id,source_task_id,kind,summary,owner,allowed,blocks_release
+DEFER_01_MAP17_LIVE_TRAVERSAL,MAP17_08_MAP17_RUNTIME_EXIT_AUDIT,DEFERRED,Actual live player traversal proof remains outside this static release audit.,LATER_PLAYMODE_LIVE_INTEGRATION_TASK,true,false
+DEFER_02_MAP17_DISK_SAVE,MAP17_08_MAP17_RUNTIME_EXIT_AUDIT,DEFERRED,Actual disk save slot and platform storage remain outside this static release audit.,LATER_SAVE_SYSTEM_INTEGRATION_TASK,true,false
+DEFER_03_MAP17_OPTIMIZATION,MAP17_08_MAP17_RUNTIME_EXIT_AUDIT,DEFERRED,Observed layer bake spike optimization is explicitly deferred and did not block phase exit.,LATER_APPROVED_OPTIMIZATION_TASK,true,false
+DEFER_04_MAP17_FIXTURE_CLEANUP,MAP17_08_MAP17_RUNTIME_EXIT_AUDIT,DEFERRED,Shared fixture consolidation is cleanup-only and did not block phase exit.,LATER_APPROVED_CLEANUP_TASK,true,false
+DEFER_05_MAP18_SHARED_FIXTURE,MAP18_07_MAP18_POPULATION_EXIT_TESTS,DEFERRED,Private fixture duplication may be consolidated only by a separate cleanup task.,LATER_APPROVED_CLEANUP_TASK,true,false
+DEFER_06_MAP21_OPTIONAL_LANDMARK_RUNTIME,MAP21_09_COMPLETE_FORGE_BOSS_AND_OPTIONAL_REGIONS,DEFERRED,Merchant and Maru remain optional deferred-local content and are not completion blockers.,LATER_OPTIONAL_RUNTIME_TASK,true,false
+WARN_01_MAP17_LAYER_BAKE_SPIKE,MAP17_08_MAP17_RUNTIME_EXIT_AUDIT,WARN,Layer bake max 3358.202900 ms had no strict millisecond gate and no digest mismatch.,LATER_APPROVED_OPTIMIZATION_TASK,true,false
+WARN_02_MAP17_DUPLICATION_BUDGET,MAP17_08_MAP17_RUNTIME_EXIT_AUDIT,WARN,One duplicate fixture adapter and named budget constants were accepted as non-blocking risk.,LATER_APPROVED_CLEANUP_TASK,true,false
+WARN_03_MAP18_INPUT_MANAGER,MAP18_07_MAP18_POPULATION_EXIT_TESTS,WARN,Pre-existing legacy Input Manager deprecation warning was unrelated and non-blocking.,PROJECT_INFRASTRUCTURE,true,false
+WARN_04_MAP19_EMPTY_ASMDEF,MAP19_09_MAP19_SCALE_AND_EXIT_AUDIT,WARN,Pre-existing empty legacy asmdef warning was unchanged and out of scope.,PROJECT_INFRASTRUCTURE,true,false
+WARN_05_MAP21_11_CLEANUP_VERIFIER,MAP21_11_LOCK_QA_SEEDS_AND_RUN_COMPLETION_PLAYTESTS,WARN,Cleanup verifier reported intentional permanent MAP21_11 output files; focused tests passed.,UNITY_TEST_INFRASTRUCTURE,true,false
