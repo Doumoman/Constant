@@ -1,0 +1,24 @@
+{
+    "schema_version": "map21_09.landmark_production.v1",
+    "merchant_variant_count": 4,
+    "merchant_variants": [
+        "Alien",
+        "Rabbit",
+        "Spacefarer",
+        "Machine"
+    ],
+    "maru_choice_count": 3,
+    "maru_choices": [
+        "Ignored",
+        "ShortHint",
+        "StrongHint"
+    ],
+    "persistent_choice": true,
+    "prevents_reroll": true,
+    "optional_placement_claim_count": 0,
+    "progression_blocker_count": 0,
+    "required_reward_dependency_count": 0,
+    "shop_transaction_count": 0,
+    "maru_runtime_search_count": 0,
+    "canonical_digest": "784d58c8092334ea08a9ce488ff77cb1c5d49e194e4d05211f88c90dc3fb8233"
+}

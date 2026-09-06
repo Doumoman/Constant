@@ -1,0 +1,21 @@
+{
+    "schema_version": "map21_09.landmark_production.v1",
+    "gate_state_order": [
+        "GateLocked",
+        "GateAccepted",
+        "EncounterActive",
+        "Defeated"
+    ],
+    "state_count": 4,
+    "transition_count": 4,
+    "moon_seal_requirement_marker_count": 1,
+    "moon_seal_consumed_count": 0,
+    "failure_recovery_count": 2,
+    "central_recovery_target": "SL_NODE_BOSS_CENTRAL_RECOVERY",
+    "preserves_seal_acceptance": true,
+    "introduces_new_movement_rule": false,
+    "boss_ai_executions": 0,
+    "combat_executions": 0,
+    "physics_executions": 0,
+    "canonical_digest": "b5000d55a45508d09a0240e8db1fdf8d053d78ba037afc68d8633a441b5e12a0"
+}

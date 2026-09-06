@@ -1,0 +1,102 @@
+{
+    "schema_version": "map21_09.landmark_digest_manifest.v1",
+    "task_id": "MAP21_09_COMPLETE_FORGE_BOSS_AND_OPTIONAL_REGIONS",
+    "strict_map21_08_result_sha256": "7e5e7cfe0bb4e82ed7da405d11a1a05fe06e475208268a9e432840ca43b9d7d8",
+    "strict_map21_08_installed_task_sha256": "e3b149d0ddfac0138688e7284aad0afb8a8118abcb056f52f2dd91bf6e863e7b",
+    "strict_map21_09_handoff_digest": "36e124fe4f63258eeca5b5097d45a71e80587efaa1fbb50fb6eeee7e36ef224b",
+    "observed_source_result_sha256": [
+        {
+            "name": "MAP13_07_RESULT",
+            "sha256": "6098f22f0eab0f05342ef228edfdfea8039e37d86c957c3c6706d71d476f0ee9"
+        },
+        {
+            "name": "MAP13_08_RESULT",
+            "sha256": "fbf5c3181791cae9b25e92ed76d8e46828330a9b147ec82a246f7ea056664534"
+        },
+        {
+            "name": "MAP13_09_RESULT",
+            "sha256": "637fec406f42bf845be5ae9313a036b3ec49f66467539a3552c1f94ad68bd5e2"
+        },
+        {
+            "name": "MAP18_06_RESULT",
+            "sha256": "ad2b88be043cb7e18289909a7ad44d76c9143a65e5228c11c24f1a60b86831fd"
+        },
+        {
+            "name": "MAP21_07_RESULT",
+            "sha256": "68170bda01e3f2df4fbf14e9e841b04be58b3b61b1b18de9af3e5e2a3a486c8b"
+        },
+        {
+            "name": "MAP21_08_RESULT",
+            "sha256": "7e5e7cfe0bb4e82ed7da405d11a1a05fe06e475208268a9e432840ca43b9d7d8"
+        }
+    ],
+    "source_map13_audit_digest": "a7ab6fd571425c4c8e64d7eecad5dd246a3d9a8a08044801800948fc2fa03e4e",
+    "source_map18_export_digest": "358ac8cfe78eec502db049f8940ed0c71458179b89bb451680e837b0797b77b5",
+    "source_map18_debug_digest": "59efb7fd30df9ec62014cadd04a111b222e7dd13e298789dbab88a661bea22ed",
+    "source_map21_07_digest": "0e03c7cb4780b078822297e9877d345480413a2b3b8d9ed0c3d1d455645a4a93",
+    "source_map21_08_digest": "9308092afbee03a8c08d5a5fbc2b4eb4a02fc747e5bbc6bd9afe7ce5ec018a73",
+    "csv_digests": [
+        {
+            "name": "moonpalace_boss_gate_encounter.csv",
+            "sha256": "6a6093d9739b42a227b0ce64ae355ea5deab0a90ca88968b626e861488af4c28"
+        },
+        {
+            "name": "moonpalace_forge_resource_ledger.csv",
+            "sha256": "4fdcc77c52acd3034b479019c8adb3f875f464c5f5d11974dbaedac59adffd58"
+        },
+        {
+            "name": "moonpalace_landmark_chunks.csv",
+            "sha256": "198bcf28ad7cb0ca6854bc59af1cccd1b267db39953ce44261b5222773d7d86e"
+        },
+        {
+            "name": "moonpalace_landmark_edges.csv",
+            "sha256": "68a2fcb47257c38a0d548b0a70a94517c6783891ccf9fe24b1a872ce0c0843d2"
+        },
+        {
+            "name": "moonpalace_landmark_markers.csv",
+            "sha256": "817c3261111328cdee1793d4775d3967e2a782b332ee4c5a18b37220f7c37724"
+        },
+        {
+            "name": "moonpalace_landmark_nodes.csv",
+            "sha256": "76e13e9bdd8eb812251e68e8233058f142f1c3d7264f79b0969312686592600d"
+        },
+        {
+            "name": "moonpalace_landmark_profiles.csv",
+            "sha256": "3cfea16813121e73ed8ae13c0fa4aa8427f5f48e6911a466cb3652a5e047e3d0"
+        },
+        {
+            "name": "moonpalace_landmark_routes.csv",
+            "sha256": "961be7fdee107ce08b53030cd368eda6c7f2be1ca2d603b20f45fb79870083a9"
+        },
+        {
+            "name": "moonpalace_landmark_state_persistence.csv",
+            "sha256": "149b12cf6cb6cf6e06a0bf078c40b3b21a978a4a1390044a49bc4befc1e91029"
+        },
+        {
+            "name": "moonpalace_optional_landmarks.csv",
+            "sha256": "b1d5706773782df7482c4f3e30ee544aa88f5760c4948acd4c6361b2d8951609"
+        }
+    ],
+    "json_digests": [
+        {
+            "name": "moonpalace_boss_manifest.json",
+            "sha256": "22785485ad1f8586741bc107b2f508c687b19f19c6eb5d5d40b55fbd81814040"
+        },
+        {
+            "name": "moonpalace_forge_manifest.json",
+            "sha256": "a603ee64d6e5834b1af3451c10c1a911e44a5ce79e16be9e5b6d1f02ae157bc0"
+        },
+        {
+            "name": "moonpalace_landmark_manifest.json",
+            "sha256": "069c0f58c49bf318b458479c9212dffd8a94f1595fa854ad082e87e0cb7eedaf"
+        },
+        {
+            "name": "moonpalace_optional_landmarks_manifest.json",
+            "sha256": "2c2231f9ace1ad2e68ca23a816f6f1a0d93963923f3646453ab7705fc5f37af9"
+        }
+    ],
+    "MAP21_10_handoff_digest": "ce5e4ebc5e13ad55671a8046ad7641218efbedf9c6b1dff8df9f4cd20110de04",
+    "created_utc_excluded_from_canonical_digest": true,
+    "created_utc": "2026-09-06T16:47:46.5998804Z",
+    "canonical_digest": "cca0bf5765f2f80c699c658e81d72d73bf5ce5d6b8bd5276db328cb7e1888469"
+}
