@@ -1,0 +1,5 @@
+biome_id,density_min,density_max,quiet_ratio_min,quiet_ratio_max,cluster_ratio_min,cluster_ratio_max,activity_ratio_min,activity_ratio_max,overlay_ratio_min,overlay_ratio_max,verticality_band,difficulty_band,primary_material_token,ambient_audio_token,background_token
+MoonCrater,0.38,0.58,0.12,0.24,0.18,0.32,0.08,0.18,0.10,0.22,High,MidHigh,MAT_MOONSTONE,AMB_CRATER_WIND,BG_MOON_CRATER
+CassiaRoot,0.48,0.68,0.10,0.20,0.25,0.42,0.12,0.22,0.16,0.28,High,Mid,MAT_CASSIA_ROOT,AMB_CASSIA_CANOPY,BG_CASSIA_ROOT
+AbandonedMill,0.34,0.52,0.16,0.30,0.18,0.34,0.16,0.28,0.14,0.26,Medium,MidHigh,MAT_MILLSTONE,AMB_MILL_GEAR,BG_ABANDONED_MILL
+MoonDough,0.30,0.48,0.22,0.38,0.10,0.24,0.10,0.20,0.18,0.34,LowMedium,LowMid,MAT_MOON_DOUGH,AMB_DOUGH_SOFT,BG_MOON_DOUGH

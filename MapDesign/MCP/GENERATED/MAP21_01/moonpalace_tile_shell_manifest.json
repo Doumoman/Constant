@@ -1,0 +1,230 @@
+{
+    "schema_version": "map21_01.moonpalace_tile_shell.v1",
+    "task_id": "MAP21_01_LOCK_MOONPALACE_PROFILES_AND_TILE_SHELL",
+    "source_MAP20_phase_exit_digest": "552f7f2d8884811977e001c1159be52c218346f21dcc9f96f7df06d169eb7301",
+    "tile_records": [
+        {
+            "tile_code": "MP_BACKGROUND_CORE",
+            "tile_role": "Background",
+            "layer_token": "LAYER_BACKGROUND",
+            "collision_kind": "Background",
+            "material_token": "MAT_BACKGROUND_NONE",
+            "footstep_audio_token": "SFX_STEP_NONE",
+            "impact_audio_token": "SFX_IMPACT_NONE",
+            "background_token": "BG_MOONPALACE_DEFAULT",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Background not imported in MAP21_01",
+            "render_priority": 10,
+            "canonical_digest": "1a7b986707b06a0d9a58b2c9ed4ed826743bdb631cee2f8d8fbebce17bfd370a"
+        },
+        {
+            "tile_code": "MP_BOUNDARY_BLEND",
+            "tile_role": "BoundaryBlend",
+            "layer_token": "LAYER_BOUNDARY",
+            "collision_kind": "PassThrough",
+            "material_token": "MAT_BOUNDARY_BLEND",
+            "footstep_audio_token": "SFX_STEP_NONE",
+            "impact_audio_token": "SFX_IMPACT_NONE",
+            "background_token": "BG_BOUNDARY_BLEND",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Boundary art not imported in MAP21_01",
+            "render_priority": 50,
+            "canonical_digest": "4a7e2a837020893b3094a65d5241683046b952608c7e55814298cc2d808363cb"
+        },
+        {
+            "tile_code": "MP_CEILING_CORE",
+            "tile_role": "Ceiling",
+            "layer_token": "LAYER_TERRAIN",
+            "collision_kind": "Solid",
+            "material_token": "MAT_MOONSTONE",
+            "footstep_audio_token": "SFX_STEP_MOONSTONE",
+            "impact_audio_token": "SFX_IMPACT_MOONSTONE",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 120,
+            "canonical_digest": "1b395d693103d4fe6031e3e6b13aa4032b0ff23de4eab6903862800fd5e4de29"
+        },
+        {
+            "tile_code": "MP_DEBUG_MISSING",
+            "tile_role": "DebugMissing",
+            "layer_token": "LAYER_DEBUG",
+            "collision_kind": "MissingData",
+            "material_token": "MAT_MISSING",
+            "footstep_audio_token": "SFX_STEP_MISSING",
+            "impact_audio_token": "SFX_IMPACT_MISSING",
+            "background_token": "BG_MISSING",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Intentional missing-data sentinel",
+            "render_priority": 999,
+            "canonical_digest": "07c21ef025a30df7ae385186c902508b313185e088833845899da5a10f4ae495"
+        },
+        {
+            "tile_code": "MP_DECOR_CORE",
+            "tile_role": "Decor",
+            "layer_token": "LAYER_DECOR",
+            "collision_kind": "Decor",
+            "material_token": "MAT_DECOR_NONE",
+            "footstep_audio_token": "SFX_STEP_NONE",
+            "impact_audio_token": "SFX_IMPACT_NONE",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 300,
+            "canonical_digest": "3561784327e706d99608528037ae8977c4a20a0f4c42fdc79472d0c7f0e7621d"
+        },
+        {
+            "tile_code": "MP_GROUND_CORE",
+            "tile_role": "Ground",
+            "layer_token": "LAYER_TERRAIN",
+            "collision_kind": "Solid",
+            "material_token": "MAT_MOONSTONE",
+            "footstep_audio_token": "SFX_STEP_MOONSTONE",
+            "impact_audio_token": "SFX_IMPACT_MOONSTONE",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 100,
+            "canonical_digest": "c28d2901160fbd2ab210f7ce56429a9418a835a5ec32bf68dfaffc433416c329"
+        },
+        {
+            "tile_code": "MP_HAZARD_CORE",
+            "tile_role": "Hazard",
+            "layer_token": "LAYER_HAZARD",
+            "collision_kind": "Hazard",
+            "material_token": "MAT_MOON_HAZARD",
+            "footstep_audio_token": "SFX_STEP_HAZARD",
+            "impact_audio_token": "SFX_IMPACT_HAZARD",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 200,
+            "canonical_digest": "11c98b1e2e07856fb7e70889a6423f7e519f0b53b44345b4fc9f6d7d1e3128c9"
+        },
+        {
+            "tile_code": "MP_ONEWAY_CORE",
+            "tile_role": "OneWayPlatform",
+            "layer_token": "LAYER_ONEWAY",
+            "collision_kind": "OneWay",
+            "material_token": "MAT_MOONWOOD",
+            "footstep_audio_token": "SFX_STEP_MOONWOOD",
+            "impact_audio_token": "SFX_IMPACT_MOONWOOD",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 130,
+            "canonical_digest": "0c10ae5dec99a91ca2a3a253b6f8d30759ba64d5eb0d7dcfe2e00d82d9e7d6c1"
+        },
+        {
+            "tile_code": "MP_STEP_CORE",
+            "tile_role": "SlopeOrStep",
+            "layer_token": "LAYER_TERRAIN",
+            "collision_kind": "PassThrough",
+            "material_token": "MAT_MOONSTONE",
+            "footstep_audio_token": "SFX_STEP_MOONSTONE",
+            "impact_audio_token": "SFX_IMPACT_MOONSTONE",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 140,
+            "canonical_digest": "cdf6e0c3560408be14c9861a680b2663aba6876b45c29d569fb9d17f2dbf5c6a"
+        },
+        {
+            "tile_code": "MP_WALL_CORE",
+            "tile_role": "Wall",
+            "layer_token": "LAYER_TERRAIN",
+            "collision_kind": "Solid",
+            "material_token": "MAT_MOONSTONE",
+            "footstep_audio_token": "SFX_STEP_MOONSTONE",
+            "impact_audio_token": "SFX_IMPACT_MOONSTONE",
+            "background_token": "BG_NONE",
+            "biome_allowlist": [
+                "AbandonedMill",
+                "CassiaRoot",
+                "MoonCrater",
+                "MoonDough"
+            ],
+            "asset_reference_kind": "MissingData",
+            "asset_reference": "",
+            "fallback_tile_code": "MP_DEBUG_MISSING",
+            "missing_reason": "Sprite not imported in MAP21_01",
+            "render_priority": 110,
+            "canonical_digest": "720bee5471e5cdcde3d6daff7e00d81a045ed8fd45cccfb22b0ba1727f1d10c8"
+        }
+    ],
+    "created_utc": "2026-09-06T07:03:46.3018935Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "04eefb76556b4874c4a60838149d523e084e0d315fc2d833a9458c9fc6ad2514"
+}
