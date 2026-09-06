@@ -1,0 +1,657 @@
+{
+    "schema_version": "map20_06.tooling_exit_audit.v1",
+    "task_id": "MAP20_06_MAP20_TOOLING_EXIT_TESTS",
+    "source_MAP20_05_result_digest": "b2d74b83ce7f700ed9c726403576d5087ecb82d80be9bcef29f9c9ad0481f6bf",
+    "source_MAP20_05_task_digest": "a8688dd6756ab7a750a6334ffbe60dafc5f50a5a7e0632b8e12a647dc445c459",
+    "source_MAP20_06_handoff_digest": "34d7e10a208547780d86c7aa985c4945d76956e8e9869a266d12a1cda27b13fb",
+    "map20_result_chain": [
+        {
+            "owner_task": "MAP20_01_CREATE_GENERATOR_WINDOW_AND_SCOPED_ROLLBACK",
+            "relative_path": "MapDesign/MCP/REPORTS/MAP20_01_CREATE_GENERATOR_WINDOW_AND_SCOPED_ROLLBACK_RESULT.md",
+            "canonical_digest": "360e759b56d561075d67de37590e9ff6ebe5e8593cdde750d2d5d2546a1606c0",
+            "physical_file_digest": "360e759b56d561075d67de37590e9ff6ebe5e8593cdde750d2d5d2546a1606c0",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_04_IMPLEMENT_CSV_NAVIGATION_AND_VALIDATION_JUMP",
+            "relative_path": "MapDesign/MCP/REPORTS/MAP20_04_IMPLEMENT_CSV_NAVIGATION_AND_VALIDATION_JUMP_RESULT.md",
+            "canonical_digest": "f9bac092ce7e1177e9eea6ca61a46ea671330790b55355206c06027ac1e77235",
+            "physical_file_digest": "f9bac092ce7e1177e9eea6ca61a46ea671330790b55355206c06027ac1e77235",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_02_CREATE_WORLD_OVERLAYS_AND_SECTOR_CANVAS_INSPECTOR",
+            "relative_path": "MapDesign/MCP/REPORTS/MAP20_02_CREATE_WORLD_OVERLAYS_AND_SECTOR_CANVAS_INSPECTOR_RESULT.md",
+            "canonical_digest": "a98df52c4c48ca1d138d90bef1999dacb11107e1f4266292458d80937cfbf2ff",
+            "physical_file_digest": "a98df52c4c48ca1d138d90bef1999dacb11107e1f4266292458d80937cfbf2ff",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_03_CREATE_PATTERN_CLUSTER_SPECIAL_AND_SLICE_INSPECTORS",
+            "relative_path": "MapDesign/MCP/REPORTS/MAP20_03_CREATE_PATTERN_CLUSTER_SPECIAL_AND_SLICE_INSPECTORS_RESULT.md",
+            "canonical_digest": "519fede231c4d4837e076ac87aa61b3c1067d288bc382e91e9ccbc6ac5c691bd",
+            "physical_file_digest": "519fede231c4d4837e076ac87aa61b3c1067d288bc382e91e9ccbc6ac5c691bd",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT",
+            "relative_path": "MapDesign/MCP/REPORTS/MAP20_05_IMPLEMENT_REPLAY_AUTHORING_INTEGRATION_HUD_AND_EXPORT_RESULT.md",
+            "canonical_digest": "b2d74b83ce7f700ed9c726403576d5087ecb82d80be9bcef29f9c9ad0481f6bf",
+            "physical_file_digest": "b2d74b83ce7f700ed9c726403576d5087ecb82d80be9bcef29f9c9ad0481f6bf",
+            "read_only": true
+        }
+    ],
+    "map20_generated_artifact_chain": [
+        {
+            "owner_task": "MAP20_01",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_01/runs/sample-pattern-731/run_artifact.json",
+            "canonical_digest": "a88e67f4256e0153d3997288321362d2475979e97d361510e35e31d1c8f9f4cd",
+            "physical_file_digest": "75afb45d576327fbdc93dbbbc4e15bd2f3e1987b557b615e9285df4c44150db5",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_01",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_01/runs/sample-pattern-731/rollback_result.json",
+            "canonical_digest": "2407e57c30bcfa844c0907cf655479797241ae42831bfce49bc7d29254ea4dac",
+            "physical_file_digest": "5dbb2c3c4718582ebee86af96f1e62a7be19056f4fc33e66e8634110d5e5485b",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_01",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_01/runs/sample-pattern-731/rollback_snapshot_manifest.json",
+            "canonical_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc",
+            "physical_file_digest": "90ae4becc93be275b28abdd9f0baece457fbac310c8b700d6cf6562d73f1f720",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_02",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_02/world_overlay_snapshot.json",
+            "canonical_digest": "3af203a27fcd2d06b2facb5b62c2456992cb46ac9cc6e2c7f34de399d97ddf1d",
+            "physical_file_digest": "f2ef0605f63d0581948f9d3789b9684a0d7bf59926be3e8510f9954fc31d2fe6",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_02",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_02/overlay_digest_manifest.json",
+            "canonical_digest": "b34a70328cb32230345b3d8da688fd6d7395f0cec5498936216cbea22b58a959",
+            "physical_file_digest": "bd5d0377b4a23177615e2d6a58d0eafde3cc2eb82256774060c8a9f5c9133a36",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_02",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_02/sector_canvas_inspection_sample.json",
+            "canonical_digest": "4c719d1bc0185ae967ef63831a049cecaef67df3b62ee745a23fc11003f2f75b",
+            "physical_file_digest": "4ebae5a8a4f60250f543903cf7e9bddf853f4a7b7793bd1785a42155c8f45157",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_03",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_03/detail_digest_manifest.json",
+            "canonical_digest": "a6e96cc10e2c052d34c345cc3f4b440e7c6b3a26026f645787b0692c0eeaedd6",
+            "physical_file_digest": "918ecf43f6de7ae3ac3c15721679164042900f91d349b2b13d6698ec0415d589",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_03",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_03/detail_inspection_snapshot.json",
+            "canonical_digest": "30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "physical_file_digest": "65ed8d2e5e51bc9f9267ab96edc8d2f3f23d152112d4bbe46384be67244f3a64",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_03",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_03/pattern_cluster_special_slice_sample.json",
+            "canonical_digest": "dd3a94a2fece3e6e893343caf31493945c7c2641f6f7cbf48345032d9a2a956f",
+            "physical_file_digest": "769facb2ec38c2c7105e3512a1d371069c5bb6f21f71d8e30cc0cc4a12e6b28f",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_04",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_04/csv_navigation_index.json",
+            "canonical_digest": "6af989c49229b7403d3817efbff2ee9a95e2bf73aeef811d4ffab900a4959f38",
+            "physical_file_digest": "d173b2cc5467c505e8b258dc79a282a58238ad68cd997ff2da8e17ac64c62a18",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_04",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_04/validation_jump_sample.json",
+            "canonical_digest": "eedf60c3d2128fe51e529bf10276f00c7bb5c3c1c3dd25d590cac90518b9d8f7",
+            "physical_file_digest": "5c7cc39dc508727a7ba0f12615f4ec0bbe206cc52d7c2145f9500bafb485003b",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_04",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_04/source_navigation_digest_manifest.json",
+            "canonical_digest": "d1b8a48f4b0841bd05e3856650d880f87f981996ab2578581069e04cfa30049d",
+            "physical_file_digest": "87dffa1d718cdbb390d6b1c9de355faa422a2b69096c0002f2674cc6feeceb9e",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_05",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_05/failure_browser_index.json",
+            "canonical_digest": "a008a2914108899f360f0b795634177d9f0390ead8a33f947e5d25267e1da2bf",
+            "physical_file_digest": "ecb4a4660c1b935b468d517ff79dd489842c96e6851de9bd0554fcb1e68665d4",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_05",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_05/runtime_hud_state_sample.json",
+            "canonical_digest": "46cae11f423d4f0a2efa8441155160e18c7eb6ebd137ccba0146c2491a3e8f88",
+            "physical_file_digest": "7d183f2f3b84d8d5a42dd95fabf4b3f4f2fefea01c47283e7dedfefddebfbced",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_05",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_05/seed_bundle_export_sample.json",
+            "canonical_digest": "36410b172ff7c2945b491c5d86ef50d5a9eb7245c78bde539efec6a2e82d9278",
+            "physical_file_digest": "3ec9fb3f764779e812d2670f0cb49f5fbc2440aec01c2eeeb841afcbb6a30e2d",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_05",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_05/replay_authoring_request_sample.json",
+            "canonical_digest": "df8140b2586f702550ade088e393a41e179452202ab6101d5306b56d859a533d",
+            "physical_file_digest": "c51e35f5f63961a0bc172870b3a4c6af53fd14c1b0786a6a8612dbd4bc7dc392",
+            "read_only": true
+        },
+        {
+            "owner_task": "MAP20_05",
+            "relative_path": "MapDesign/MCP/GENERATED/MAP20_05/replay_authoring_digest_manifest.json",
+            "canonical_digest": "a45d0b93e854718b46686bb7a172cd99736887d734388ade482062db369feee5",
+            "physical_file_digest": "772b6bf6fb112a5a5cf7619c5a468be9ac6cc96e998b78e1a005a00c7d4408ef",
+            "read_only": true
+        }
+    ],
+    "coordinate_audit_records": [
+        {
+            "trace_id": "MAP20_03_DetailContext",
+            "owner_task": "MAP20_03",
+            "seed_context": "source_canvas=4c719d1bc0185ae967ef63831a049cecaef67df3b62ee745a23fc11003f2f75b",
+            "world_coordinate": "(312,208)",
+            "sector_coordinate": "(6,6)",
+            "cell_coordinate": "(24,16)",
+            "local_coordinate": "(24,16)",
+            "source_location": "MissingData",
+            "selection_path": "GeneratedDetailInspector/Pattern/pattern:selected",
+            "missing_data_isolated": true,
+            "missing_reason": "Upstream read-only snapshot has no CSV source field; MAP20_04 owns the exact source location.",
+            "evidence_digest": "30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8"
+        },
+        {
+            "trace_id": "MAP20_01_SeedPassContext",
+            "owner_task": "MAP20_01",
+            "seed_context": "seed=731;pass=PASS;scope=Pattern",
+            "world_coordinate": "MissingData",
+            "sector_coordinate": "MissingData",
+            "cell_coordinate": "MissingData",
+            "local_coordinate": "MissingData",
+            "source_location": "MissingData",
+            "selection_path": "map20://replay?run_id=sample-pattern-731&seed=731&scope=Pattern&generator_version=map20-tooling-v1&data_version=map-v2-authoring&input_digest=ba52ee97a703ca0727a3173ad319b90d18c9a5235c9b7071b08afc927f3317f9",
+            "missing_data_isolated": true,
+            "missing_reason": "MAP20_01 pattern-scope output publishes seed/pass provenance but no sector coordinate; downstream MAP20_02 selected context is separately explicit.",
+            "evidence_digest": "a88e67f4256e0153d3997288321362d2475979e97d361510e35e31d1c8f9f4cd"
+        },
+        {
+            "trace_id": "MAP20_02_SectorCellWorld",
+            "owner_task": "MAP20_02",
+            "seed_context": "source_run=a88e67f4256e0153d3997288321362d2475979e97d361510e35e31d1c8f9f4cd",
+            "world_coordinate": "(312,208)",
+            "sector_coordinate": "(6,6)",
+            "cell_coordinate": "(24,16)",
+            "local_coordinate": "(24,16)",
+            "source_location": "MissingData",
+            "selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "missing_data_isolated": true,
+            "missing_reason": "Upstream read-only snapshot has no CSV source field; MAP20_04 owns the exact source location.",
+            "evidence_digest": "4c719d1bc0185ae967ef63831a049cecaef67df3b62ee745a23fc11003f2f75b"
+        },
+        {
+            "trace_id": "MAP20_04_CsvSourceLocation",
+            "owner_task": "MAP20_04",
+            "seed_context": "validation=MAP20_04_TILE_SOURCE",
+            "world_coordinate": "(312,208)",
+            "sector_coordinate": "(6,6)",
+            "cell_coordinate": "(24,16)",
+            "local_coordinate": "(24,16)",
+            "source_location": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_cells_v2.csv:2:4",
+            "selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "missing_data_isolated": false,
+            "missing_reason": "",
+            "evidence_digest": "eedf60c3d2128fe51e529bf10276f00c7bb5c3c1c3dd25d590cac90518b9d8f7"
+        },
+        {
+            "trace_id": "MAP20_05_ReplayHudSeedBundle",
+            "owner_task": "MAP20_05",
+            "seed_context": "seed=200405;world=WORLD_MAP20_05_SAMPLE",
+            "world_coordinate": "(312,208)",
+            "sector_coordinate": "(6,6)",
+            "cell_coordinate": "(24,16)",
+            "local_coordinate": "(24,16)",
+            "source_location": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_cells_v2.csv",
+            "selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "missing_data_isolated": false,
+            "missing_reason": "",
+            "evidence_digest": "df8140b2586f702550ade088e393a41e179452202ab6101d5306b56d859a533d"
+        }
+    ],
+    "rollback_scope_records": [
+        {
+            "scope_token": "World",
+            "boundary_token": "worlds/audit-read-only",
+            "bounded_target_count": 1,
+            "maximum_target_count": 1,
+            "explicit_world_confirmation": true,
+            "whole_project_expansion_allowed": false,
+            "audit_state": "ReadOnlyRequest",
+            "rollback_execution_count": 0,
+            "evidence_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc"
+        },
+        {
+            "scope_token": "Sector",
+            "boundary_token": "sectors/x06_y06",
+            "bounded_target_count": 1,
+            "maximum_target_count": 1,
+            "explicit_world_confirmation": false,
+            "whole_project_expansion_allowed": false,
+            "audit_state": "ReadOnlyRequest",
+            "rollback_execution_count": 0,
+            "evidence_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc"
+        },
+        {
+            "scope_token": "OneRing",
+            "boundary_token": "sectors/x05_y05|sectors/x05_y06|sectors/x05_y07|sectors/x06_y05|sectors/x06_y06|sectors/x06_y07|sectors/x07_y05|sectors/x07_y06|sectors/x07_y07",
+            "bounded_target_count": 9,
+            "maximum_target_count": 9,
+            "explicit_world_confirmation": false,
+            "whole_project_expansion_allowed": false,
+            "audit_state": "ReadOnlyRequest",
+            "rollback_execution_count": 0,
+            "evidence_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc"
+        },
+        {
+            "scope_token": "Pattern",
+            "boundary_token": "patterns/audit-pattern",
+            "bounded_target_count": 1,
+            "maximum_target_count": 1,
+            "explicit_world_confirmation": false,
+            "whole_project_expansion_allowed": false,
+            "audit_state": "ReadOnlyRequest",
+            "rollback_execution_count": 0,
+            "evidence_digest": "726c923fa70c4b9b6a89984fa8487fe75745938f9612d6d190712a5fa25328dc"
+        }
+    ],
+    "source_navigation_records": [
+        {
+            "validation_error_id": "MAP20_04_SLOT_SOURCE",
+            "owner_task": "MAP20_04",
+            "jump_target_kind": "Slot",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/Activity/activity_slots_v2.csv",
+            "row_number_1_based": 2,
+            "column_number_1_based": 3,
+            "column_name": "slot_kind",
+            "field_name": "slot_kind",
+            "record_id": "ACT_CRATER_BOULDER_CHAIN/SLOT_CRATER_BOULDER_CHAIN_CUE",
+            "selection_path": "GeneratedDetailInspector/Cluster/SLOT_CRATER_BOULDER_CHAIN_CUE",
+            "source_available": true,
+            "missing_reason": "",
+            "evidence_digest": "17e3d91dd57de34d7bf9a26a920f5f3764ab53502066d72e514c7271d2d01e1a"
+        },
+        {
+            "validation_error_id": "MAP20_04_TILE_SOURCE",
+            "owner_task": "MAP20_04",
+            "jump_target_kind": "Tile",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_cells_v2.csv",
+            "row_number_1_based": 2,
+            "column_number_1_based": 4,
+            "column_name": "operation",
+            "field_name": "operation",
+            "record_id": "MP_CRATER_BOWL/0/0",
+            "selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "source_available": true,
+            "missing_reason": "",
+            "evidence_digest": "51c832a460e586e9e0d7a79dc548e0212ccb3203655038bd6889c94ab3bbfe40"
+        },
+        {
+            "validation_error_id": "MAP20_04_SOCKET_SOURCE",
+            "owner_task": "MAP20_04",
+            "jump_target_kind": "Socket",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroChunk/microchunk_sockets.csv",
+            "row_number_1_based": 2,
+            "column_number_1_based": 9,
+            "column_name": "edge_signature_id",
+            "field_name": "edge_signature_id",
+            "record_id": "MC_GRAY_H_STRAIGHT_01/SOCK_L",
+            "selection_path": "GeneratedDetailInspector/Slice/SOCK_L",
+            "source_available": true,
+            "missing_reason": "",
+            "evidence_digest": "031e314da3a331f7db2a129225bfd37697977d098ac9374a631930b21dfdcfc3"
+        },
+        {
+            "validation_error_id": "MAP20_04_CLUSTER_SOURCE",
+            "owner_task": "MAP20_04",
+            "jump_target_kind": "Cluster",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/TerrainCluster/terrain_cluster_catalog_v2.csv",
+            "row_number_1_based": 2,
+            "column_number_1_based": 2,
+            "column_name": "pacing_role",
+            "field_name": "pacing_role",
+            "record_id": "TC_CRATER_BOWL_ASCENT",
+            "selection_path": "GeneratedDetailInspector/Cluster/TC_CRATER_BOWL_ASCENT",
+            "source_available": true,
+            "missing_reason": "",
+            "evidence_digest": "b5f17e0d1dc9dceb31e97ad130f9570b8d7f1371fcfe6b4bda8b82dc17cfe59e"
+        },
+        {
+            "validation_error_id": "MAP20_04_PATTERN_SOURCE",
+            "owner_task": "MAP20_04",
+            "jump_target_kind": "Pattern",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_catalog_v2.csv",
+            "row_number_1_based": 2,
+            "column_number_1_based": 2,
+            "column_name": "selection_weight",
+            "field_name": "selection_weight",
+            "record_id": "MP_CRATER_BOWL",
+            "selection_path": "GeneratedDetailInspector/Pattern/MP_CRATER_BOWL",
+            "source_available": true,
+            "missing_reason": "",
+            "evidence_digest": "2d4130df2619021f352a0598ffe9ba1ecf4c7e6b24c2337baf55cb6c28940ec5"
+        },
+        {
+            "validation_error_id": "MAP20_04_PATTERN_MISSING_DATA",
+            "owner_task": "MAP20_04",
+            "jump_target_kind": "Pattern",
+            "csv_file_path": "",
+            "row_number_1_based": 0,
+            "column_number_1_based": 0,
+            "column_name": "",
+            "field_name": "",
+            "record_id": "pattern:selected",
+            "selection_path": "GeneratedDetailInspector/Pattern/pattern:selected",
+            "source_available": false,
+            "missing_reason": "MAP20_02 samples contain inspection markers but no detailed source records.",
+            "evidence_digest": "239bb3aa1b5beee4f2d7de7b83a7b5f1f822842019f8a31b331fcb77e05ad8dd"
+        }
+    ],
+    "replay_hash_records": [
+        {
+            "record_id": "RuntimeHud",
+            "owner_task": "MAP20_05",
+            "execution_state": "DisplayOnly",
+            "canonical_digest": "46cae11f423d4f0a2efa8441155160e18c7eb6ebd137ccba0146c2491a3e8f88",
+            "repeat_stable": true,
+            "culture_stable": true,
+            "input_order_stable": true,
+            "replay_execution_count": 0
+        },
+        {
+            "record_id": "SeedBundle",
+            "owner_task": "MAP20_05",
+            "execution_state": "ReadOnlyExportSample",
+            "canonical_digest": "36410b172ff7c2945b491c5d86ef50d5a9eb7245c78bde539efec6a2e82d9278",
+            "repeat_stable": true,
+            "culture_stable": true,
+            "input_order_stable": true,
+            "replay_execution_count": 0
+        },
+        {
+            "record_id": "ReplayRequest",
+            "owner_task": "MAP20_05",
+            "execution_state": "RequestOnly",
+            "canonical_digest": "df8140b2586f702550ade088e393a41e179452202ab6101d5306b56d859a533d",
+            "repeat_stable": true,
+            "culture_stable": true,
+            "input_order_stable": true,
+            "replay_execution_count": 0
+        },
+        {
+            "record_id": "DigestManifest",
+            "owner_task": "MAP20_05",
+            "execution_state": "DigestOnly",
+            "canonical_digest": "a45d0b93e854718b46686bb7a172cd99736887d734388ade482062db369feee5",
+            "repeat_stable": true,
+            "culture_stable": true,
+            "input_order_stable": true,
+            "replay_execution_count": 0
+        }
+    ],
+    "hud_state_records": [
+        {
+            "hud_state_id": "HUD-733d48c64fc379092c804ba8",
+            "selected_validation_error_id": "MAP20_04_TILE_SOURCE",
+            "selected_failure_record_id": "FOCUSED_FIXTURE_MAP20_05",
+            "selected_selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "state_kind": "DisplayOnly",
+            "auto_spawn_path_count": 0,
+            "runtime_mutation_count": 0,
+            "scene_prefab_wiring_count": 0,
+            "canonical_digest": "46cae11f423d4f0a2efa8441155160e18c7eb6ebd137ccba0146c2491a3e8f88"
+        }
+    ],
+    "access_path_records": [
+        {
+            "access_path_id": "WorldOverlayToSectorCell",
+            "entry_surface": "Tools/MapDesign/Generated World Overlay Inspector",
+            "target_surface": "Selected sector/cell details",
+            "user_action_count": 3,
+            "actions": [
+                "Open overlay inspector",
+                "Select sector",
+                "Select cell"
+            ],
+            "owner_task": "MAP20_02",
+            "evidence_digest": "01a2280200fce1bee7a44a6e7cdc15187cc982e9ffe8250efed606c8bb3d7f14",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "ReplayRequestToSeedBundle",
+            "entry_surface": "Already-open replay request preview",
+            "target_surface": "Seed bundle path",
+            "user_action_count": 1,
+            "actions": [
+                "Copy seed bundle path"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "fbb25a674318afa8c9ae983d28cc42d4ff5e63450e766b62bde6a5d9d6a3e616",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "SeedBundleToDigestManifest",
+            "entry_surface": "Already-open MAP20_05 output folder",
+            "target_surface": "Replay authoring digest manifest",
+            "user_action_count": 2,
+            "actions": [
+                "Select digest manifest",
+                "Compare seed bundle digest with manifest"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "2b4fcf2557a25802481c33fbcd15dc71db4b3fdbdf2be3424b13178145af8689",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "ValidationErrorToCsvSource",
+            "entry_surface": "Tools/MapDesign/CSV Navigation and Validation Jump",
+            "target_surface": "Exact CSV file/row/column panel",
+            "user_action_count": 2,
+            "actions": [
+                "Open navigation window",
+                "Select validation error"
+            ],
+            "owner_task": "MAP20_04",
+            "evidence_digest": "90256d06032c2342e0f71f2a986f290bc741c983122222493c215095c25618af",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "FailureBrowserToReplayRequest",
+            "entry_surface": "Tools/MapDesign/Replay Authoring Integration HUD and Export",
+            "target_surface": "RequestOnly replay preview",
+            "user_action_count": 2,
+            "actions": [
+                "Open replay authoring window",
+                "Select failure record"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "e67c81aa00e48a1e3301f417c3aec8b75e66dad908b28f7091e93a9ba0db15c8",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "GeneratorWindowToPassArtifact",
+            "entry_surface": "Tools/MapDesign/Generated Terrain Generator",
+            "target_surface": "Last pass artifact",
+            "user_action_count": 2,
+            "actions": [
+                "Open generator window",
+                "Inspect status/artifact panel"
+            ],
+            "owner_task": "MAP20_01",
+            "evidence_digest": "6b146a04e5e7a1e65b11f84f37db1ee2d1b8fb9ab5c06e94af8907042b47493b",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "SectorCanvasToDetailInspector",
+            "entry_surface": "Already-open sector canvas",
+            "target_surface": "Generated Detail Inspector selected context",
+            "user_action_count": 1,
+            "actions": [
+                "Open Generated Detail Inspector"
+            ],
+            "owner_task": "MAP20_03",
+            "evidence_digest": "e94a5731e8a2937055552a7295c649e144c6f45d0e33c27a97b950ef4fa9357d",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "ValidationErrorToInspectorTarget",
+            "entry_surface": "Tools/MapDesign/CSV Navigation and Validation Jump",
+            "target_surface": "Tile/Pattern/Cluster/Socket/Slot inspector target",
+            "user_action_count": 3,
+            "actions": [
+                "Open navigation window",
+                "Select validation error",
+                "Jump to inspector selection"
+            ],
+            "owner_task": "MAP20_04",
+            "evidence_digest": "a668651c6561e009585a4ae87eb15ede9386d0e9a692f9e484bb01a504ec5f67",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "GeneratorWindowToRollbackScopePreview",
+            "entry_surface": "Tools/MapDesign/Generated Terrain Generator",
+            "target_surface": "Bounded rollback scope preview",
+            "user_action_count": 2,
+            "actions": [
+                "Open generator window",
+                "Select explicit scope"
+            ],
+            "owner_task": "MAP20_01",
+            "evidence_digest": "fc979bbea206f700b9ad566996305800f6381f966e453a920fb64afb00df1095",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "HudPreviewToSelectedFailureOrValidation",
+            "entry_surface": "Already-open runtime HUD preview",
+            "target_surface": "Selected failure and validation identifiers",
+            "user_action_count": 1,
+            "actions": [
+                "Inspect HUD selection line"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "2c3cd2ad892a7702b44b3714b744bcac17e09ad6c42282f6db538cfe46f8d440",
+            "passes_three_click_limit": true
+        }
+    ],
+    "exit_invariant_records": [
+        {
+            "invariant_id": "HudDisplayOnly",
+            "status": "PASS",
+            "evidence_source": "hud_state_records",
+            "evidence_digest": "960d511cd808436e157c7df5b429577c707106e93b4db77567c37f53a879a353",
+            "owner_task": "MAP20_05"
+        },
+        {
+            "invariant_id": "BoundedRollbackScope",
+            "status": "PASS",
+            "evidence_source": "rollback_scope_records",
+            "evidence_digest": "8b15979ce56080a32d36c342f0d0039a261e208d0e2c56640344af9ac99c3862",
+            "owner_task": "MAP20_01"
+        },
+        {
+            "invariant_id": "CoordinateTraceability",
+            "status": "PASS",
+            "evidence_source": "coordinate_audit_records",
+            "evidence_digest": "1bec6812989d19f7310c162470a622d842cfb2ffce84ce252592a20062654629",
+            "owner_task": "MAP20_01~05"
+        },
+        {
+            "invariant_id": "NoAuthoringCsvMutation",
+            "status": "PASS",
+            "evidence_source": "trusted Result chain plus zero writer counter",
+            "evidence_digest": "9119a1ededc1332655c024de936753e4cbbe03fc09c6cb546a91f8bbc22d1841",
+            "owner_task": "MAP20_04~06"
+        },
+        {
+            "invariant_id": "NoRuntimeOrSceneMutation",
+            "status": "PASS",
+            "evidence_source": "hud_state_records/zero counters",
+            "evidence_digest": "960d511cd808436e157c7df5b429577c707106e93b4db77567c37f53a879a353",
+            "owner_task": "MAP20_05~06"
+        },
+        {
+            "invariant_id": "ThreeClickAccessCoverage",
+            "status": "PASS",
+            "evidence_source": "access_path_records",
+            "evidence_digest": "0dba363b55b1377f03db0563c8c12449063cdb8b1ac94a1a54f9049b412c9a50",
+            "owner_task": "MAP20_01~05"
+        },
+        {
+            "invariant_id": "SeedBundleHashDeterminism",
+            "status": "PASS",
+            "evidence_source": "replay_hash_records/SeedBundle",
+            "evidence_digest": "df464fb46f784df620646942f63c9c18c9b571e11798b4903ff7c969a1b0d01a",
+            "owner_task": "MAP20_05"
+        },
+        {
+            "invariant_id": "InspectorJumpTargetCoverage",
+            "status": "PASS",
+            "evidence_source": "source_navigation_records",
+            "evidence_digest": "584aafb7f527eff08342eca17cd7f159d73e683fb85d5464b4407a4a0244d358",
+            "owner_task": "MAP20_04"
+        },
+        {
+            "invariant_id": "NoLegacyRegressionSelection",
+            "status": "PASS",
+            "evidence_source": "trusted focused Result chain plus zero selector counters",
+            "evidence_digest": "9119a1ededc1332655c024de936753e4cbbe03fc09c6cb546a91f8bbc22d1841",
+            "owner_task": "MAP20_06"
+        },
+        {
+            "invariant_id": "NoPriorArtifactRegeneration",
+            "status": "PASS",
+            "evidence_source": "physical artifact digest chain",
+            "evidence_digest": "a483b2269f9ab9892ebdf1e093c2a83bb213b0282d6de7c42d2b409296df8022",
+            "owner_task": "MAP20_06"
+        },
+        {
+            "invariant_id": "ReplayRequestHashDeterminism",
+            "status": "PASS",
+            "evidence_source": "replay_hash_records/ReplayRequest",
+            "evidence_digest": "df464fb46f784df620646942f63c9c18c9b571e11798b4903ff7c969a1b0d01a",
+            "owner_task": "MAP20_05"
+        },
+        {
+            "invariant_id": "SourceNavigationExactLocation",
+            "status": "PASS",
+            "evidence_source": "source_navigation_records",
+            "evidence_digest": "584aafb7f527eff08342eca17cd7f159d73e683fb85d5464b4407a4a0244d358",
+            "owner_task": "MAP20_04"
+        }
+    ],
+    "unsafe_action_button_count": 0,
+    "generator_execution_count": 0,
+    "validation_runner_execution_count": 0,
+    "replay_execution_count": 0,
+    "rollback_execution_count": 0,
+    "csv_authoring_write_count": 0,
+    "runtime_object_spawn_count": 0,
+    "created_utc": "2026-09-06T06:08:07.2010984Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "f24b0a957db354668ff0225936fbfb2605a0d3ae3c6902c3c9fc2b7a9ee1b4ce"
+}

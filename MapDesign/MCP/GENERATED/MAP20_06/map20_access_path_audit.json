@@ -1,0 +1,140 @@
+{
+    "schema_version": "map20_06.access_path_audit.v1",
+    "task_id": "MAP20_06_MAP20_TOOLING_EXIT_TESTS",
+    "source_MAP20_06_handoff_digest": "34d7e10a208547780d86c7aa985c4945d76956e8e9869a266d12a1cda27b13fb",
+    "access_path_records": [
+        {
+            "access_path_id": "FailureBrowserToReplayRequest",
+            "entry_surface": "Tools/MapDesign/Replay Authoring Integration HUD and Export",
+            "target_surface": "RequestOnly replay preview",
+            "user_action_count": 2,
+            "actions": [
+                "Open replay authoring window",
+                "Select failure record"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "e67c81aa00e48a1e3301f417c3aec8b75e66dad908b28f7091e93a9ba0db15c8",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "GeneratorWindowToPassArtifact",
+            "entry_surface": "Tools/MapDesign/Generated Terrain Generator",
+            "target_surface": "Last pass artifact",
+            "user_action_count": 2,
+            "actions": [
+                "Open generator window",
+                "Inspect status/artifact panel"
+            ],
+            "owner_task": "MAP20_01",
+            "evidence_digest": "6b146a04e5e7a1e65b11f84f37db1ee2d1b8fb9ab5c06e94af8907042b47493b",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "GeneratorWindowToRollbackScopePreview",
+            "entry_surface": "Tools/MapDesign/Generated Terrain Generator",
+            "target_surface": "Bounded rollback scope preview",
+            "user_action_count": 2,
+            "actions": [
+                "Open generator window",
+                "Select explicit scope"
+            ],
+            "owner_task": "MAP20_01",
+            "evidence_digest": "fc979bbea206f700b9ad566996305800f6381f966e453a920fb64afb00df1095",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "HudPreviewToSelectedFailureOrValidation",
+            "entry_surface": "Already-open runtime HUD preview",
+            "target_surface": "Selected failure and validation identifiers",
+            "user_action_count": 1,
+            "actions": [
+                "Inspect HUD selection line"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "2c3cd2ad892a7702b44b3714b744bcac17e09ad6c42282f6db538cfe46f8d440",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "ReplayRequestToSeedBundle",
+            "entry_surface": "Already-open replay request preview",
+            "target_surface": "Seed bundle path",
+            "user_action_count": 1,
+            "actions": [
+                "Copy seed bundle path"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "fbb25a674318afa8c9ae983d28cc42d4ff5e63450e766b62bde6a5d9d6a3e616",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "SectorCanvasToDetailInspector",
+            "entry_surface": "Already-open sector canvas",
+            "target_surface": "Generated Detail Inspector selected context",
+            "user_action_count": 1,
+            "actions": [
+                "Open Generated Detail Inspector"
+            ],
+            "owner_task": "MAP20_03",
+            "evidence_digest": "e94a5731e8a2937055552a7295c649e144c6f45d0e33c27a97b950ef4fa9357d",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "SeedBundleToDigestManifest",
+            "entry_surface": "Already-open MAP20_05 output folder",
+            "target_surface": "Replay authoring digest manifest",
+            "user_action_count": 2,
+            "actions": [
+                "Select digest manifest",
+                "Compare seed bundle digest with manifest"
+            ],
+            "owner_task": "MAP20_05",
+            "evidence_digest": "2b4fcf2557a25802481c33fbcd15dc71db4b3fdbdf2be3424b13178145af8689",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "ValidationErrorToCsvSource",
+            "entry_surface": "Tools/MapDesign/CSV Navigation and Validation Jump",
+            "target_surface": "Exact CSV file/row/column panel",
+            "user_action_count": 2,
+            "actions": [
+                "Open navigation window",
+                "Select validation error"
+            ],
+            "owner_task": "MAP20_04",
+            "evidence_digest": "90256d06032c2342e0f71f2a986f290bc741c983122222493c215095c25618af",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "ValidationErrorToInspectorTarget",
+            "entry_surface": "Tools/MapDesign/CSV Navigation and Validation Jump",
+            "target_surface": "Tile/Pattern/Cluster/Socket/Slot inspector target",
+            "user_action_count": 3,
+            "actions": [
+                "Open navigation window",
+                "Select validation error",
+                "Jump to inspector selection"
+            ],
+            "owner_task": "MAP20_04",
+            "evidence_digest": "a668651c6561e009585a4ae87eb15ede9386d0e9a692f9e484bb01a504ec5f67",
+            "passes_three_click_limit": true
+        },
+        {
+            "access_path_id": "WorldOverlayToSectorCell",
+            "entry_surface": "Tools/MapDesign/Generated World Overlay Inspector",
+            "target_surface": "Selected sector/cell details",
+            "user_action_count": 3,
+            "actions": [
+                "Open overlay inspector",
+                "Select sector",
+                "Select cell"
+            ],
+            "owner_task": "MAP20_02",
+            "evidence_digest": "01a2280200fce1bee7a44a6e7cdc15187cc982e9ffe8250efed606c8bb3d7f14",
+            "passes_three_click_limit": true
+        }
+    ],
+    "maximum_user_action_count": 3,
+    "created_utc": "2026-09-06T06:08:07.2010984Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "6bc8c158d6c8813a915304e5844363dcb026729b3b19d8e549dc6304b03911c4"
+}
