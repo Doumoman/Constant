@@ -1,0 +1,252 @@
+{
+    "schema_version": "map21_04.mill_dough_cluster_pool.v1",
+    "task_id": "MAP21_04_EXPAND_MILL_AND_DOUGH_CLUSTER_POOLS",
+    "signatures": [
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "biome_id": "MoonDough",
+            "pool_kind": "Buffer",
+            "repeat_group": "DoughBuffer",
+            "structural_signature": "7e3912199680d2592fdc693f177afb0de295108da72db49e98f86f4712955a3a",
+            "silhouette_signature": "f7fc02c23247ea2a2bb7aad607fd28cfceac641ab2459b4aa0bea9d8d7c5e5a4",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "9a4fa97fc034628e8ea5f3f13eeaa8df5f26c8b7fe3147e47736ae904dcbfa43"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "biome_id": "MoonDough",
+            "pool_kind": "Buffer",
+            "repeat_group": "DoughBuffer",
+            "structural_signature": "48828b3029a640f44f39b504e5e7a5b5079e4dae79b57ba005977f590ce305d5",
+            "silhouette_signature": "449555ffb8481b048f85ffa3b8c4284e39d51d1a0f36b2d7fbf980b5339e0c76",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "9d91a5d09fb6077107171fb9919b7411d5a75d524c82825dd6a583a437d4ea08"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "biome_id": "MoonDough",
+            "pool_kind": "Buffer",
+            "repeat_group": "DoughBuffer",
+            "structural_signature": "7b395c7eec5fa9b90e4b0b40a9f57fbf69cc289f6cf7fc949d9a8eb42bbb3cb9",
+            "silhouette_signature": "cc007c22139f86cd59e21222c03ee43f78fdf33bd31c6ad0386e9f89ed8fce3a",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "73cc377712710820e7756e9b53c85272eecf68f4a58898be2b783da190dcf061"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "repeat_group": "DoughTerrain",
+            "structural_signature": "def2a6a11d74c8876fafd655f1eed977d7e2d0f4a019533d5f841bdb2e963560",
+            "silhouette_signature": "b493ef8e05f2effd1dccbc47e2254e0b0e774a011125ff05ac59f93dd1c53504",
+            "source_starter_cluster_id": "TC_DOUGH_BOUNCE_CUP",
+            "canonical_digest": "e4388bfdde5029e0ce4306e28cab4aa5875d2480d4789bf6f0c17071deb32581"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "repeat_group": "DoughTerrain",
+            "structural_signature": "6ecb1c3fc0982da56e9527e0c4ebb7bc94aa1cc722ae794164fae0507fae5633",
+            "silhouette_signature": "afb6a4dc43a966f3045c8bdc6367cae62b9329638d1474b59f94a2925e1f21b9",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "b634c7c8f2f8763cb7b66e69503a3b4523815c0e9f09344cdcac1528af1353c9"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "repeat_group": "DoughTerrain",
+            "structural_signature": "e9206cba109940dbaddec6ebf3e0045ad9a41f56d65b7ec89f3fb2c1748f5287",
+            "silhouette_signature": "51cd09d817e69286a400829fe05cfab6ce176a55b0d7c9d49be2cbbc75590da6",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "b4eca3e79bdf392b5d138d9527ba4398f78ba77c9f9901f78e9e00a01d3ef92d"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "repeat_group": "DoughTerrain",
+            "structural_signature": "f35c7282ef6c16e8967317fcd66fe926132398f95ce61a4afcff36cac07e1c7b",
+            "silhouette_signature": "bf7b8b6a4788bbcca596319e77b813d60668af2b0224f928d13c1f12e1e8f8c2",
+            "source_starter_cluster_id": "TC_DOUGH_SOFT_POCKET",
+            "canonical_digest": "3749d6f4211a0ceda3d0d81d94a8fc461cc7deb525fef437fa7ced8dc4c61cfb"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "repeat_group": "DoughTerrain",
+            "structural_signature": "d999d291b39f1c29b4b19fa4e0936c4c2edfce0da74d4d39aa73cb467228e947",
+            "silhouette_signature": "955af7a82b332300b816a6c1235e1ed0d8a394d6c21fc93122533a129d9679e5",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "ca763091766933797b999836f6217d72cef81809c22eac45cd0a6a354ab109f8"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "repeat_group": "DoughTerrain",
+            "structural_signature": "ff5b7a5b29b01dbe9aee545a4ca4e886f426690c7b7070143aab0de194a46fc4",
+            "silhouette_signature": "e3b6be1c2d7cdb435e2c06524618e3a0cd1037a6706b5753827dd52b8c639f66",
+            "source_starter_cluster_id": "TC_DOUGH_STICKY_RISE_RECOVERY",
+            "canonical_digest": "03912c9fc7a68d0993b9caabb36eda3ef02a88540e57437591ee13620f4b5077"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "biome_id": "MoonDough",
+            "pool_kind": "Quiet",
+            "repeat_group": "DoughQuiet",
+            "structural_signature": "4880d08be636044e453bdcef99e73b4d816b7131265384c18bb20d74c42fcb09",
+            "silhouette_signature": "a55e02cd4f162563f1dfd89513d4c110a349ab486979d86f589734d12b6abcc3",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "8a76dd0db3fd596b53c2325c24be7d17685f641cf57682742c30f2528053c75a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "biome_id": "MoonDough",
+            "pool_kind": "Quiet",
+            "repeat_group": "DoughQuiet",
+            "structural_signature": "0c6b26af84a736590794513b01bea81ac05e4b3434fa64bb0b807175a571b727",
+            "silhouette_signature": "c3dad68250c6f69db448e7fe1545f94e28f2e8723223fab9c61941ed443e83f2",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "7d21439e854d736dbab98b3c3435f573960d1b2e5099ed9e75371b4e8eaadba7"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "biome_id": "MoonDough",
+            "pool_kind": "Quiet",
+            "repeat_group": "DoughQuiet",
+            "structural_signature": "55413d61af764de39ef9d8810a1330e9023421e7d5469d6f54677cc8dfe94029",
+            "silhouette_signature": "6c329c4c2bc793e56be62d8e2bbcbe4e80c4dc8cc6ba2ba965ac4f84569b108a",
+            "source_starter_cluster_id": "TC_DOUGH_QUIET_SHELF",
+            "canonical_digest": "7a57c1450a2e1a75053732be20673c3281fb14156bd001b2fa39d07ea32d4eaf"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Buffer",
+            "repeat_group": "MillBuffer",
+            "structural_signature": "07e4958e88cd34710eff56ffc80fef29175460fc101699dd2feca05b4e29db18",
+            "silhouette_signature": "e6a3b55b12a854b514440230cb0ea3625f83b21060def9980852b14fadda4380",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "ad2da53ce75e80d70e83ccb0e726dd33947f4d96202b0fc99b9c1dd5db359def"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Buffer",
+            "repeat_group": "MillBuffer",
+            "structural_signature": "ccd63f7f77758c8853155fa6ce57fd090b49ea262c9d6e1d46f7b6d2577440c7",
+            "silhouette_signature": "0207baa2da9360992c5f9a04774d40f6acbad2b389d563d3b4bb894c92e54b59",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "793c2337a40ccea79966991ae63f6022c6a2029c1e3a3761bd34bbf2beb617d0"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Buffer",
+            "repeat_group": "MillBuffer",
+            "structural_signature": "9bb69a73d0b01b0eb7e51e09901302f91f3d9fc97f1a66ea5b38a92b1c3015cb",
+            "silhouette_signature": "e8b3c0dd8a0f69a8642a1e03885c0461c5b86d27d68788a899224c133cf968d9",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "2cfc44defc14ea42e803e0a03f50c7e4cc615d080fce896b723210902956a389"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "repeat_group": "MillTerrain",
+            "structural_signature": "432ded431a4e583ad9b1aa0114ba330c22202b694b333185e5016b00d287c226",
+            "silhouette_signature": "fc15684f5d4cf5c8318b1d8765673b8032e8cacbe93a5a934d8bf720cc191b15",
+            "source_starter_cluster_id": "TC_MILL_BEAM_OVERHANG",
+            "canonical_digest": "1c9e4893bd90aa31d1be42bce87bbd3c526adfa3bf8e3e5aec2b20173af710e0"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "repeat_group": "MillTerrain",
+            "structural_signature": "d64fc5193c43454b04970ba6e3717543e1fff6710dee3ba3e05508fef7d1dbc3",
+            "silhouette_signature": "27f43932b0ed7416f26f77b5692bacad829ddf37e7b9f54373223116d45e6f83",
+            "source_starter_cluster_id": "TC_MILL_BROKEN_PILLAR",
+            "canonical_digest": "a14c4c8cc43d4c1c662366b779d3d2acf1da219d54ea741c8e2433ad5211f787"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "repeat_group": "MillTerrain",
+            "structural_signature": "7953bb2284832bf0e571954ea522f1fabab0329cddde2092d3ff466baf3392ad",
+            "silhouette_signature": "a0045a97e475dec7e82129115839ea30b562f07c01ab023d394a8be99581860e",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "35b60452f1d6c6c7e4bd73ae7c2ac060f4ee3dba3e9e8265261168b7c9b874b8"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "repeat_group": "MillTerrain",
+            "structural_signature": "cc12c48a1ee25389a892c32ac5a0ea797b9110dc1f9f340a5e2b405a844a1296",
+            "silhouette_signature": "5c099c86288b28d201650bbc07ff3f6b577f85b05961eae58ab7a95221563e5f",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "d61905f28d45eecf3eb0a8cbf8dcf5f144e5a0be9750fb6dd16262303b87eb3c"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "repeat_group": "MillTerrain",
+            "structural_signature": "4cdb27c0caff89d1dbce74d09a5b78ef3487224ef0bbcc9836fce85db89b7885",
+            "silhouette_signature": "963c3f50be75ea60c89a6e272965924e0db77f4a72fe0ccbfb4d4067222cc9e5",
+            "source_starter_cluster_id": "TC_MILL_ORTHOGONAL_SHAFT_RECOVERY",
+            "canonical_digest": "074053d5b4414f8a643bd80a75f967ba3e186d737759ef6af616c11feac627e1"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "repeat_group": "MillTerrain",
+            "structural_signature": "90d711752e8c600a111f0513a5d3db2a970456610536efab5129c6b310cca5e9",
+            "silhouette_signature": "caf9a3a03331f863ae33ffc3423bbe0a38efa5073a75be1131ddbfeead0cf21b",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "044493941abd157c3bdcfdbe3fe4198dff26535ba050172f6eef65be373ee8cd"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Quiet",
+            "repeat_group": "MillQuiet",
+            "structural_signature": "f2e3d2b5d7f90bcd2a6c1af29f8a86345a84fe53f22e609be837b88ac797fc15",
+            "silhouette_signature": "27261055bbe15202432b57ccf6c633f44afb9e50345ce9ac42bb14e1b197dc86",
+            "source_starter_cluster_id": "TC_MILL_QUIET_BEAM",
+            "canonical_digest": "e5b67a0045e567d3c91fc222f61a48eb46c16b904cb5e35402465239605a7411"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Quiet",
+            "repeat_group": "MillQuiet",
+            "structural_signature": "8aea9942a6da19ac1cb9fc422830feb0f51b895d39f310f559ee17030b9875ae",
+            "silhouette_signature": "04c384f4f6bdc09d85aa1ef40a726b3c8053766ef1894c59f0e4604b93d501b8",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "04418d64b3fbbda54a8a0d6823f8abc7a46dec7d94da00d4b06d89ea66fe1de6"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Quiet",
+            "repeat_group": "MillQuiet",
+            "structural_signature": "b485d36accf48373627b09e68a6fdf5f51d34b8dfb228ed4ad1acc279f49e6c9",
+            "silhouette_signature": "5be2bfc8326476fc9d403d9b5ff07d9f5db3759ecdd8590085b57d9da7c72900",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "b96f491a51df2698f4dfa731ae4a8cb81375e1409ea9587c0243d2e62ba288c0"
+        }
+    ],
+    "cluster_signature_digest": "a07d2a8af11782ff24886e73ba463d87454b1046b1f11d2e3c21c8dc09ecb9b6",
+    "structural_signature_duplicates": 0,
+    "silhouette_signature_duplicates_within_biome_pool": 0,
+    "created_utc": "2026-09-06T09:23:02.8515583Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "7bd9e22a67ae3b10659e237f2daea72479fe1366db1020fe3a46b289bf0a80ec"
+}

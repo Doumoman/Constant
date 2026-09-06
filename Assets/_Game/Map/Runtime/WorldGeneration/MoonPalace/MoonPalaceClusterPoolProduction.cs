@@ -231,8 +231,10 @@ namespace StarNight.Map.WorldGeneration.MoonPalace
             ClusterId = MoonPalaceClusterFootprintRecord.RequireClusterId(clusterId);
             BiomeId = MoonpalaceBiomeId.Parse(biomeId).CanonicalId;
             if (BiomeId != MoonpalaceBiomeId.MoonCrater.CanonicalId &&
-                BiomeId != MoonpalaceBiomeId.CassiaRoot.CanonicalId)
-                throw new ArgumentException("MAP21_03 owns only MoonCrater and CassiaRoot.",
+                BiomeId != MoonpalaceBiomeId.CassiaRoot.CanonicalId &&
+                BiomeId != MoonpalaceBiomeId.AbandonedMill.CanonicalId &&
+                BiomeId != MoonpalaceBiomeId.MoonDough.CanonicalId)
+                throw new ArgumentException("MoonPalace cluster pools own only the four locked biomes.",
                     nameof(biomeId));
             if (!Enum.IsDefined(typeof(MoonPalaceClusterPoolKind), poolKind))
                 throw new ArgumentOutOfRangeException(nameof(poolKind));
@@ -339,17 +341,49 @@ namespace StarNight.Map.WorldGeneration.MoonPalace
             IEnumerable<MoonPalaceClusterPatternSlotRecord> sourcePatternSlots,
             IEnumerable<string> hazardPatternIds,
             IEnumerable<string> bufferForbiddenMarkerPatternIds, string createdUtc)
+            : this(sourceCatalog, sourceFootprints, sourceSpineVariants, sourcePatternSlots,
+                hazardPatternIds, bufferForbiddenMarkerPatternIds, createdUtc,
+                requiredClusterIds, new[] { "MoonCrater", "CassiaRoot" },
+                allowedRepeatGroups, allowedSourceClusterIds, 8, "MAP21_03")
         {
+        }
+
+        internal MoonPalaceClusterPoolProduction(
+            IEnumerable<MoonPalaceClusterCatalogRecord> sourceCatalog,
+            IEnumerable<MoonPalaceClusterFootprintRecord> sourceFootprints,
+            IEnumerable<MoonPalaceClusterSpineVariantRecord> sourceSpineVariants,
+            IEnumerable<MoonPalaceClusterPatternSlotRecord> sourcePatternSlots,
+            IEnumerable<string> hazardPatternIds,
+            IEnumerable<string> bufferForbiddenMarkerPatternIds, string createdUtc,
+            IEnumerable<string> sourceRequiredClusterIds,
+            IEnumerable<string> sourceRequiredBiomes,
+            IEnumerable<string> sourceAllowedRepeatGroups,
+            IEnumerable<string> sourceAllowedClusterIds, int requiredSourceMappingCount,
+            string inventoryOwner)
+        {
+            var requiredIds = new ReadOnlyCollection<string>((sourceRequiredClusterIds ??
+                    throw new ArgumentNullException(nameof(sourceRequiredClusterIds)))
+                .OrderBy(value => value, StringComparer.Ordinal).ToArray());
+            var requiredBiomes = (sourceRequiredBiomes ?? throw new ArgumentNullException(
+                    nameof(sourceRequiredBiomes))).OrderBy(value => value,
+                    StringComparer.Ordinal).ToArray();
+            var repeatGroups = new HashSet<string>(sourceAllowedRepeatGroups ??
+                throw new ArgumentNullException(nameof(sourceAllowedRepeatGroups)),
+                StringComparer.Ordinal);
+            var sourceClusterIds = new HashSet<string>(sourceAllowedClusterIds ??
+                throw new ArgumentNullException(nameof(sourceAllowedClusterIds)),
+                StringComparer.Ordinal);
             var orderedCatalog = Required(sourceCatalog, nameof(sourceCatalog))
                 .OrderBy(value => value.ClusterId, StringComparer.Ordinal).ToArray();
             if (!orderedCatalog.Select(value => value.ClusterId).SequenceEqual(
-                    requiredClusterIds, StringComparer.Ordinal))
-                throw new ArgumentException("Exact MAP21_03 cluster inventory is required.",
+                    requiredIds, StringComparer.Ordinal))
+                throw new ArgumentException("Exact " + inventoryOwner +
+                    " cluster inventory is required.",
                     nameof(sourceCatalog));
             if (orderedCatalog.GroupBy(value => value.ClusterId, StringComparer.Ordinal)
                 .Any(group => group.Count() != 1))
                 throw new ArgumentException("Cluster ids must be unique.", nameof(sourceCatalog));
-            foreach (var biome in new[] { "MoonCrater", "CassiaRoot" })
+            foreach (var biome in requiredBiomes)
             {
                 var biomeRecords = orderedCatalog.Where(value => value.BiomeId == biome).ToArray();
                 if (biomeRecords.Length != 12 ||
@@ -362,12 +396,15 @@ namespace StarNight.Map.WorldGeneration.MoonPalace
                     throw new ArgumentException("Each biome requires Terrain 6 / Quiet 3 / Buffer 3.",
                         nameof(sourceCatalog));
             }
-            if (orderedCatalog.Any(value => !allowedRepeatGroups.Contains(value.RepeatGroup)))
+            if (orderedCatalog.Any(value => !repeatGroups.Contains(value.RepeatGroup)))
                 throw new ArgumentException("Unknown repetition group.", nameof(sourceCatalog));
             if (orderedCatalog.Any(value => value.SourceStarterClusterId != "MissingData" &&
-                    !allowedSourceClusterIds.Contains(value.SourceStarterClusterId)) ||
-                orderedCatalog.Count(value => value.SourceStarterClusterId != "MissingData") < 8)
-                throw new ArgumentException("Eight compatible MAP11 source mappings are required.",
+                    !sourceClusterIds.Contains(value.SourceStarterClusterId)) ||
+                orderedCatalog.Count(value => value.SourceStarterClusterId != "MissingData") <
+                    requiredSourceMappingCount)
+                throw new ArgumentException(requiredSourceMappingCount.ToString(
+                    CultureInfo.InvariantCulture) +
+                    " compatible MAP11 source mappings are required.",
                     nameof(sourceCatalog));
 
             var orderedFootprints = Required(sourceFootprints, nameof(sourceFootprints))
@@ -379,7 +416,7 @@ namespace StarNight.Map.WorldGeneration.MoonPalace
             var orderedSlots = Required(sourcePatternSlots, nameof(sourcePatternSlots))
                 .OrderBy(value => value.ClusterId, StringComparer.Ordinal)
                 .ThenBy(value => value.SlotId, StringComparer.Ordinal).ToArray();
-            var knownClusters = new HashSet<string>(requiredClusterIds, StringComparer.Ordinal);
+            var knownClusters = new HashSet<string>(requiredIds, StringComparer.Ordinal);
             if (orderedFootprints.Any(value => !knownClusters.Contains(value.ClusterId)) ||
                 orderedSpines.Any(value => !knownClusters.Contains(value.ClusterId)) ||
                 orderedSlots.Any(value => !knownClusters.Contains(value.ClusterId)))

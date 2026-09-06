@@ -1,0 +1,3345 @@
+{
+    "schema_version": "map21_04.mill_dough_cluster_pool.v1",
+    "task_id": "MAP21_04_EXPAND_MILL_AND_DOUGH_CLUSTER_POOLS",
+    "source_MAP21_04_handoff_digest": "d0f96239ae6a8dc44ff11e36ff387618565c834f69bd5a18dc307994b71fef3c",
+    "cluster_catalog": [
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Buffer",
+            "pacing_role": "SAFE",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "b9a0f7bdadfc8c159574b60a9d9251ef185f214c46fdb055153a2b2d077aa268",
+            "spine_variant_digest": "ed5b61d3b0f2b8c867fc2e338be4158903d2fb29b68f7a1bc6961b664163f939",
+            "pattern_slot_digest": "5e6ac938af387966129740aa61dbab8dea58b108d13e2dcd50834e597c2ed45c",
+            "structural_signature": "7e3912199680d2592fdc693f177afb0de295108da72db49e98f86f4712955a3a",
+            "silhouette_signature": "f7fc02c23247ea2a2bb7aad607fd28cfceac641ab2459b4aa0bea9d8d7c5e5a4",
+            "repeat_group": "DoughBuffer",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "4ba3a97734d5f764a925df49769857fb7d217cd9b6b776479f882fc72f7e5ec8"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Buffer",
+            "pacing_role": "SAFE",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 3,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "abc600c5b4ca44973068a40981cc897ff42ec09477fd507c38a99b94ffd4d915",
+            "spine_variant_digest": "cf20722adeeb4ebbdbe8d5775b635aa277075d4dc00bc5bf3407953ea7cb0e49",
+            "pattern_slot_digest": "a405d4cb3ff4e8ea1ea86f186ea7ffd59c57a24a5b6b810a73fe5e80f0c3f239",
+            "structural_signature": "48828b3029a640f44f39b504e5e7a5b5079e4dae79b57ba005977f590ce305d5",
+            "silhouette_signature": "449555ffb8481b048f85ffa3b8c4284e39d51d1a0f36b2d7fbf980b5339e0c76",
+            "repeat_group": "DoughBuffer",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "a07f86e44fc44f5324b0d97c9cd84108b2513f5cbf822930d3ea8c86699473ff"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Buffer",
+            "pacing_role": "RECOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 3,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "b6b6b842967e02b54bb137e84a499b25971f0ba853ae0824f641efeb8aff6f4e",
+            "spine_variant_digest": "6e1384b635efceda872aebfe3120f9c4c0a7d21bd5ea32a53a2ff324eeaf74fa",
+            "pattern_slot_digest": "13aa7c873564ea3c22fb7b5b48633fd6bd7ba8259bfc71aeb28bfefa649ceabc",
+            "structural_signature": "7b395c7eec5fa9b90e4b0b40a9f57fbf69cc289f6cf7fc949d9a8eb42bbb3cb9",
+            "silhouette_signature": "cc007c22139f86cd59e21222c03ee43f78fdf33bd31c6ad0386e9f89ed8fce3a",
+            "repeat_group": "DoughBuffer",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "3e143fee249a7b5434da646364d6e5c89da77cc20b74b382607bba5ea9c2c21b"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "pacing_role": "TRAVERSAL",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 3,
+            "source_starter_cluster_id": "TC_DOUGH_BOUNCE_CUP",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "81f37c45d2bb9a7fc0e748e59b7c98ea355afeb987dd4eb8d96bd1cff01aead2",
+            "spine_variant_digest": "65291536e09eee6d8a813d7d15d9aaad712a59ec90f836d978452d10a793b4f3",
+            "pattern_slot_digest": "4ff7f5c88956a702886f76930fa22d3319aa0b5ad611e6e2bf3c042c506b5fc2",
+            "structural_signature": "def2a6a11d74c8876fafd655f1eed977d7e2d0f4a019533d5f841bdb2e963560",
+            "silhouette_signature": "b493ef8e05f2effd1dccbc47e2254e0b0e774a011125ff05ac59f93dd1c53504",
+            "repeat_group": "DoughTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "c26fbba10fa33c01c34856aa5f4a66cb7fbf559c9c63a5fa1674fdfe683a8b7b"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "pacing_role": "RISK",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 5,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "d9516dec907b270c8b9f5f9788c73f1cd29c2bc6b8fc6ae5ecc8ec8dfcba4a89",
+            "spine_variant_digest": "575369daecc261a3d76a3824ea18ad4ebd5456092ae30967571a405c71031c04",
+            "pattern_slot_digest": "7c751cbec62003975f1459abb6a7f083718cfc1e3fd57123858df72a7a81258d",
+            "structural_signature": "6ecb1c3fc0982da56e9527e0c4ebb7bc94aa1cc722ae794164fae0507fae5633",
+            "silhouette_signature": "afb6a4dc43a966f3045c8bdc6367cae62b9329638d1474b59f94a2925e1f21b9",
+            "repeat_group": "DoughTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "84b7843e6d31bc85f2ef26c5aa8b59be1596ea4988b7a0d96e6454ceea55e677"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "pacing_role": "RECOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 4,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "fbbb770f9a0d3bb73608fffef32d528205a1872cd07564c054c89afa55f94927",
+            "spine_variant_digest": "1df4fb3d8bff1f7c5dbf25cfa199f92d03714eb123f957bc85ba99ca153b0bef",
+            "pattern_slot_digest": "4fa700af8842b65a7394bb56520f774af90152029be1363e6703b6f2565b4d4d",
+            "structural_signature": "e9206cba109940dbaddec6ebf3e0045ad9a41f56d65b7ec89f3fb2c1748f5287",
+            "silhouette_signature": "51cd09d817e69286a400829fe05cfab6ce176a55b0d7c9d49be2cbbc75590da6",
+            "repeat_group": "DoughTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "5ede6bb2a850984d09a8b5ec31f6531c9c4efee4b11faa5e4c3d5fd4b38e63c3"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "pacing_role": "DISCOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 4,
+            "source_starter_cluster_id": "TC_DOUGH_SOFT_POCKET",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "199ef7234b929023154a7a14aa0d82ecbae623110c9cbc44dbfdc65fdf9471b3",
+            "spine_variant_digest": "5f5bc7899e13730288c3cd3ac66b4a367a18ef32b4fec97b5a4b9d1a69a33f7d",
+            "pattern_slot_digest": "e8af3c450ef2cf2a4604cf7a8021c95649390185e0432c9fb8c5a53748a50591",
+            "structural_signature": "f35c7282ef6c16e8967317fcd66fe926132398f95ce61a4afcff36cac07e1c7b",
+            "silhouette_signature": "bf7b8b6a4788bbcca596319e77b813d60668af2b0224f928d13c1f12e1e8f8c2",
+            "repeat_group": "DoughTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "7ec4b72b8e019fffaa1e199af693c9185df004a5f9126dbe6b6389d2707239f2"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "pacing_role": "DISCOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 5,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "4ac7050f1818ac4b4f2b16e40047e00be67e27d9ffa7569e7d8f88230127f9b4",
+            "spine_variant_digest": "c38f5f3526d0bfa546375341b5a934e1c85a40b25f3d91fc61cbf540a1320d82",
+            "pattern_slot_digest": "afe3a8bf9e40bb32a878cca0a938c188bc92836e9b7323361a5225bf8036c508",
+            "structural_signature": "d999d291b39f1c29b4b19fa4e0936c4c2edfce0da74d4d39aa73cb467228e947",
+            "silhouette_signature": "955af7a82b332300b816a6c1235e1ed0d8a394d6c21fc93122533a129d9679e5",
+            "repeat_group": "DoughTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "d98d2f53e81b3d66053b4bcd47bec59d6d2cdc1c8f2957e39abea83fd7450be9"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Terrain",
+            "pacing_role": "TRAVERSAL",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 4,
+            "source_starter_cluster_id": "TC_DOUGH_STICKY_RISE_RECOVERY",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "a2ab32c5db7af6cf8d544da9ba3653d62b43431426e5234f5c6ab2505b682d76",
+            "spine_variant_digest": "19d718acee6387318493b7b53e3235dfd746caaf917865ef0a443552b6398529",
+            "pattern_slot_digest": "6b8306ee20a0c50a72fbd0a9afbda04dd1c7d056d54d405053a2480f96e01820",
+            "structural_signature": "ff5b7a5b29b01dbe9aee545a4ca4e886f426690c7b7070143aab0de194a46fc4",
+            "silhouette_signature": "e3b6be1c2d7cdb435e2c06524618e3a0cd1037a6706b5753827dd52b8c639f66",
+            "repeat_group": "DoughTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "9188a7ab4a47dd4c9d153bc80e0e70faaeeca6b9cf86fccf542c638bcd2fc9af"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Quiet",
+            "pacing_role": "QUIET",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "65fa03b6beb18ca026f4666ac9458764d894de07dd8d2a3aaa98c2df61448d73",
+            "spine_variant_digest": "559905e614dff510c42bb13ad94851c5b4c4d98153b5878ca582e4ab90f776f6",
+            "pattern_slot_digest": "bfb8e395e9d8cb80e68bbecb11ab0b0f9f84b11be5afedec3dca86757010fd2c",
+            "structural_signature": "4880d08be636044e453bdcef99e73b4d816b7131265384c18bb20d74c42fcb09",
+            "silhouette_signature": "a55e02cd4f162563f1dfd89513d4c110a349ab486979d86f589734d12b6abcc3",
+            "repeat_group": "DoughQuiet",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "d09562db3f3688983f85bd3e196414eeafd119da31e72d9ca7e20e3653d0689a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Quiet",
+            "pacing_role": "QUIET",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "8cbb35a45d8c36fb40e8aca9c6e32c91521177c2221d2213b3e454a26c9d9573",
+            "spine_variant_digest": "73993cd2ea4c2d59ad0877544459d508773d606dda26790c09a45e4247a50328",
+            "pattern_slot_digest": "1d329ec1ac1913e5166d6e5b4b0fb10b26a101b102101a0ad3382d63858699b1",
+            "structural_signature": "0c6b26af84a736590794513b01bea81ac05e4b3434fa64bb0b807175a571b727",
+            "silhouette_signature": "c3dad68250c6f69db448e7fe1545f94e28f2e8723223fab9c61941ed443e83f2",
+            "repeat_group": "DoughQuiet",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "c132d9becd42f0d4437e54f8524281577c02db3059752d6c42a7df24778180b5"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "MoonDough",
+            "pool_kind": "Quiet",
+            "pacing_role": "QUIET",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "TC_DOUGH_QUIET_SHELF",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "06b47413b94f1be16a48b72b52a32ed4eb7a57119b02ef5990797fc13fb994d4",
+            "spine_variant_digest": "8769e8eec3c13f43dc2597f1652dde693bc205a4730f0440ae4dde9487ab9a6d",
+            "pattern_slot_digest": "d8f9564cb8d6a5f8fe6ba53bf3f77e6b7c65cc771d05ed12345276360ac5706f",
+            "structural_signature": "55413d61af764de39ef9d8810a1330e9023421e7d5469d6f54677cc8dfe94029",
+            "silhouette_signature": "6c329c4c2bc793e56be62d8e2bbcbe4e80c4dc8cc6ba2ba965ac4f84569b108a",
+            "repeat_group": "DoughQuiet",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "f1bde41f6a619bec331106b9c2cd66326b2510e86aebbb8c774f7a42416cdc80"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Buffer",
+            "pacing_role": "SAFE",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "15234d37a6bdb99204c0d4b4da30eaeeb0305078ec94bbb4f9ff47b691d23059",
+            "spine_variant_digest": "4103e7747473ffda9d9f1729c6c70d1345e6032895348728147590a0233d6437",
+            "pattern_slot_digest": "94e256ff7c89e1a1b55bc5630f1622917a06f20fb1a9cb9a6c2f945d76482efa",
+            "structural_signature": "07e4958e88cd34710eff56ffc80fef29175460fc101699dd2feca05b4e29db18",
+            "silhouette_signature": "e6a3b55b12a854b514440230cb0ea3625f83b21060def9980852b14fadda4380",
+            "repeat_group": "MillBuffer",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "8c7bddc1b0c9a07353251167342f1445919bb79df4114ebcd731738330246de3"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Buffer",
+            "pacing_role": "SAFE",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 3,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "5421b26b9b4b1e614214162ce68d373bd4017d2c6003ac4a8e9e7c1ed2296a23",
+            "spine_variant_digest": "b35afabf47185bb41098966bac62cf1404d6ba80337619f23cc283421fae42b0",
+            "pattern_slot_digest": "ce32852c5ed74c31452a27ab250b06933b9b26989bb70b4904732c50dec41269",
+            "structural_signature": "ccd63f7f77758c8853155fa6ce57fd090b49ea262c9d6e1d46f7b6d2577440c7",
+            "silhouette_signature": "0207baa2da9360992c5f9a04774d40f6acbad2b389d563d3b4bb894c92e54b59",
+            "repeat_group": "MillBuffer",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "44be735ddcb8086d8d13fc300dbce08389ee6508bc3f416b3c36c7fb5fbcd807"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Buffer",
+            "pacing_role": "RECOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 3,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "a649c757325ef4bf01e2d6e3b7f9de178c9fa871f57e8d33d8f6b75f2d5978e0",
+            "spine_variant_digest": "b47e53885806d64b7ac94e72a4758aa005f195687d7c9abea06f60795e69ce6f",
+            "pattern_slot_digest": "9b354580e09b0526d5ed4a2a59410887c33353c46b4901ac3aa7dab7494037f3",
+            "structural_signature": "9bb69a73d0b01b0eb7e51e09901302f91f3d9fc97f1a66ea5b38a92b1c3015cb",
+            "silhouette_signature": "e8b3c0dd8a0f69a8642a1e03885c0461c5b86d27d68788a899224c133cf968d9",
+            "repeat_group": "MillBuffer",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "ba3bdd38babbb14c2e1988783be41c0031427761132723519e989ebfe9729ac2"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "pacing_role": "TRAVERSAL",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 3,
+            "source_starter_cluster_id": "TC_MILL_BEAM_OVERHANG",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "da7f16223be97705dfd24e3f2c63fa5de935d0bb1be26b23aa59abd9ae05c9e0",
+            "spine_variant_digest": "08a2b567ad906b2d29ccbbef553722bba1e0a461a1d11ff933e0af47773f9ce8",
+            "pattern_slot_digest": "fde99213b97cc852c70041b8f51e4a505cd1d6a855eb83471081588f1c2efee7",
+            "structural_signature": "432ded431a4e583ad9b1aa0114ba330c22202b694b333185e5016b00d287c226",
+            "silhouette_signature": "fc15684f5d4cf5c8318b1d8765673b8032e8cacbe93a5a934d8bf720cc191b15",
+            "repeat_group": "MillTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "7252bdc3372546db261900336adef58442338ab21ba1866649f941cc8f37787a"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "pacing_role": "DISCOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 4,
+            "source_starter_cluster_id": "TC_MILL_BROKEN_PILLAR",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "05668c9c02bb3ebddde14168e076388078ee5a1c2500089537333fea0f9efe4b",
+            "spine_variant_digest": "933edbeca6c2e4bac130a9e5217066bd539768cf9fe261c236ef3652629a0c05",
+            "pattern_slot_digest": "8a17702f618aa7c195b686510bcaa1b5c8d662660e37cff4308bee70bbc901bd",
+            "structural_signature": "d64fc5193c43454b04970ba6e3717543e1fff6710dee3ba3e05508fef7d1dbc3",
+            "silhouette_signature": "27f43932b0ed7416f26f77b5692bacad829ddf37e7b9f54373223116d45e6f83",
+            "repeat_group": "MillTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "3990cb47b2b0f9e450859e067e29854e52a6b21cc610022a98a124fd7579add7"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "pacing_role": "RECOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 5,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "a28bf538486dab653dfad94ad86ddcaf90756349097f391062c47cd317303dc2",
+            "spine_variant_digest": "52248f8fbe0c31ed842dd62322943daf1728db8ba0c52ee87b75a6c19705b457",
+            "pattern_slot_digest": "7a1cf00f49f5dfd75d04c549a0bf09b7171b1977f111e631b186c16a90b74bd0",
+            "structural_signature": "7953bb2284832bf0e571954ea522f1fabab0329cddde2092d3ff466baf3392ad",
+            "silhouette_signature": "a0045a97e475dec7e82129115839ea30b562f07c01ab023d394a8be99581860e",
+            "repeat_group": "MillTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "71f5884adcf73d23daa893036e6852d7ddab14718947f47787b50802e7d05d09"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "pacing_role": "RISK",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 5,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "26fc3ca4df16f6f602c33e88320615f019441bf246a6ea6cc3c359141525799d",
+            "spine_variant_digest": "8fc0b62a7abe7f22174bd934756acc232b8267edd6263596a813e76b477722a9",
+            "pattern_slot_digest": "bd89062fc51f81689508457ae192fbdfbbad24864e54c85400a9d8d90a0b64b5",
+            "structural_signature": "cc12c48a1ee25389a892c32ac5a0ea797b9110dc1f9f340a5e2b405a844a1296",
+            "silhouette_signature": "5c099c86288b28d201650bbc07ff3f6b577f85b05961eae58ab7a95221563e5f",
+            "repeat_group": "MillTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "c7fe99b657cb37567c74f3b1f63a90cd47fd1fc6c7caa959e26b952ff99bef79"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "pacing_role": "TRAVERSAL",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 4,
+            "source_starter_cluster_id": "TC_MILL_ORTHOGONAL_SHAFT_RECOVERY",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "2f4e818a1a0a2cfb693a877a5487b2bbb1eb490b08fa6d8b94260b01c54a9201",
+            "spine_variant_digest": "2a7c3d42b29afad69b93f309ec0e056d39bdcc326e3e4917272de32e86a055fc",
+            "pattern_slot_digest": "5a424d7f0dc38f9e054d9e51551bb33dd0f05c297b7bd030cae9bf640656e812",
+            "structural_signature": "4cdb27c0caff89d1dbce74d09a5b78ef3487224ef0bbcc9836fce85db89b7885",
+            "silhouette_signature": "963c3f50be75ea60c89a6e272965924e0db77f4a72fe0ccbfb4d4067222cc9e5",
+            "repeat_group": "MillTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "46e387825074d55f628a979e66bcf4c0f2e1722c29fba1c03b6f3ebbb6ca86d0"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Terrain",
+            "pacing_role": "DISCOVERY",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 4,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "92de5f656e0bb4f858b1e39a2cce7c7c4ae1bfa20a322b371b2ad5d1042b9550",
+            "spine_variant_digest": "08da4858da620f98dc8b32574fae1f4dc54710e5eb74598e43f871ea07349c6e",
+            "pattern_slot_digest": "fbe3b6624e94523f4d836cf7b4a4736219b5490739d7508694ea9de619b2637f",
+            "structural_signature": "90d711752e8c600a111f0513a5d3db2a970456610536efab5129c6b310cca5e9",
+            "silhouette_signature": "caf9a3a03331f863ae33ffc3423bbe0a38efa5073a75be1131ddbfeead0cf21b",
+            "repeat_group": "MillTerrain",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "6f8171223f5f60aec46f2629a19e21af460c30337448dc7bc378f831a60182a3"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Quiet",
+            "pacing_role": "QUIET",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "TC_MILL_QUIET_BEAM",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "1a9b49b1083c4f961e9386ef8e41e017b2ef767680aa8b3659404ffd6cf7e0e7",
+            "spine_variant_digest": "96a0f37539c36e17e4bb9486191b803c26e4205a1e9a3514ea2fb850e86df78c",
+            "pattern_slot_digest": "1ab3effb0e3fffd90ffc5e0fef43d77d25b2cdc0115d2b14eb7f57e19ddebbdb",
+            "structural_signature": "f2e3d2b5d7f90bcd2a6c1af29f8a86345a84fe53f22e609be837b88ac797fc15",
+            "silhouette_signature": "27261055bbe15202432b57ccf6c633f44afb9e50345ce9ac42bb14e1b197dc86",
+            "repeat_group": "MillQuiet",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "6fffe042592a057638ccfc81d42d7a7c30b9122d659b6323b23ed1bba10c194f"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Quiet",
+            "pacing_role": "QUIET",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "44a707fb6141574d6677dbe1ee8bddfcc301a03ffc96dc3385d363220b352a51",
+            "spine_variant_digest": "c31bf70ca9302a885ff1a17b2af43088cfdbc69fc901411d482e3c14afb723df",
+            "pattern_slot_digest": "1580545bc9535d3ad83b46107e4e781245c9b5981b578b92bca9ce00714cad87",
+            "structural_signature": "8aea9942a6da19ac1cb9fc422830feb0f51b895d39f310f559ee17030b9875ae",
+            "silhouette_signature": "04c384f4f6bdc09d85aa1ef40a726b3c8053766ef1894c59f0e4604b93d501b8",
+            "repeat_group": "MillQuiet",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "dbe08ccaf437c2b636bb3f375a4a562bf226f7aa64c8a9db05de2b042c015493"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "schema_version": "map21_03.moonpalace_cluster_pool.v1",
+            "biome_id": "AbandonedMill",
+            "pool_kind": "Quiet",
+            "pacing_role": "QUIET",
+            "access_class": "MANDATORY_NO_TOOL",
+            "active_chunk_count": 2,
+            "source_starter_cluster_id": "MissingData",
+            "source_pattern_pool_digest": "64765ac5aeccf149ebf635c54519a58ecc2629f98e6cacd285ee1bfacb77c560",
+            "footprint_digest": "ae95c51fe9112455c0094b855a88916a912ef79dacf6d55abbc17252ef07c9a0",
+            "spine_variant_digest": "e3b46314c991d8dd81cf99d27cbd5f9575c2d2920e4092dcc79fde5057398012",
+            "pattern_slot_digest": "8899c610b1b389a17240be1754139bad18324bcd14915b7982d70aa2f49d66e8",
+            "structural_signature": "b485d36accf48373627b09e68a6fdf5f51d34b8dfb228ed4ad1acc279f49e6c9",
+            "silhouette_signature": "5be2bfc8326476fc9d403d9b5ff07d9f5db3759ecdd8590085b57d9da7c72900",
+            "repeat_group": "MillQuiet",
+            "created_utc_excluded_from_canonical_digest": true,
+            "canonical_digest": "af8e1235fa5953bc7d83cd83a34b7edd7635539c4071ed9c9b9debd2f23e6057"
+        }
+    ],
+    "footprint_records": [
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "95eebf51a94a0b5d93f695be1bc24623c6a37313a672b536e8ca07bc083b94cb"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "0a4e4638bdce18ec32ceb0ffd1d34e4ec38916c575d58b99b4bd9e96a1967c62"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "d1759234e97b312d01c15f9a3e958228464adc47478abbf5d5ecc93ec8a4d0c2"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "979419701c9d3d93dea6f1621b4437fdc1bb02547c4ad8c5913513f2ea92e79f"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "65611e024b5b193be700aa1ebb96c6604e6653c7eb52e95bc81c471b348c205a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "7b9fc7f5cf959056c64dbba594501978f4091c4b6c6f27b8b64f020e41deaa0a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "705bb84d830dcae639fb9b55e73b10927ee42eed5805df13e10b6b54dd584742"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "29e7b0ca458d1d20aae83991a1c8752bfaf1161a2b8129a8b15cee3b6e9401b4"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "6a9d837c775e8f126ff34c2186455f2e177fa1bcdb1f52fd0abfe6e9ac0b1bf3"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "c0ed3568099341bf3cfc40a144a515dabed7006aac86970eb64870feb0885ad8"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "4fe63bf25fc27c827658e2fe1370beee2f4a8388f7a2093a0b005bbe20bf1387"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "ed8b0a54054b8875eef022cd5af9ca0361ebd7dd4731fd8e77fddc86fc3a5894"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "BuildUp",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "74ed2918dc3222a7fafb164ac2859a2eea504b7455123035564c0871ef9f48a9"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "chunk_x": 0,
+            "chunk_y": 2,
+            "chunk_role": "Core",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "75417e0617033a63adc443ebef00709885d20b359e6dfc8491b4d374a6400a61"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "chunk_role": "Recovery",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "ed32cbf6572b4c91e06aca8a07279f7d4a8e3c7bca0c2537cb71514bffba9879"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "chunk_x": 2,
+            "chunk_y": 2,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "946ed7cf8f1e569ba5f8967b80d4fcc10471b08eb011a01134dc9fe878e514a5"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "ec997fa82d4a59ca800da78fa7b661c4376f57839ed2c9e3cc6f443a1c2656bc"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "BuildUp",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "03e24cc8706fd83d36aa1a3e1e7e455772415e468091979f70aed5422e7bf96e"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "ee7a7773832b6ef4d6a5cd7fdcfdd7854fc413203080a9ec9d05af939a361223"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "6765357b0cedcc8600496edce19bac51463364cfa1e0be0bcf6231d925fb6977"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "48b47205b9e09da8bd6cddc05f87edc03bcdc902ed974b59d804512feed5629c"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "BuildUp",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "f032108e5e934af012479c658b50ce074f993ee41c0a33b5c3353fdfbcdba947"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "f2036834a0b8a87c867bd32892bca2432edbc3af5b2f2ad4de1a8ad6bed888ca"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "06905099ff0795cb92d83ea4e2bf763c7f874e2f60fff26ab34e0699ffa6fdab"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Recovery",
+            "entry_side": "U",
+            "exit_side": "D",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "d9e5d43ea24de2a6d70502c29a8dc3953e12c82a653a67d7f82277abd65265d1"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Entry",
+            "entry_side": "U",
+            "exit_side": "D",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "98595e99633433b924878d4d70324f988ed68d331c622a9d33b0169108050df0"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "BuildUp",
+            "entry_side": "U",
+            "exit_side": "D",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "b199a81ca24c481574e5eaf3229d05305a4b810bf7aba764dc8bafcf46b55cae"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "U",
+            "exit_side": "D",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "0e1640e70b7ee29bc9a2b89400cc91a7e08e7646db8895a225bdfdaaaed1fcef"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "chunk_role": "Exit",
+            "entry_side": "U",
+            "exit_side": "D",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "5bd44c6efcb22ea84f28ba6e9dea3e6df8f29a4072a4c2eb6abab1196f84efb6"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "408518fc33966195afe323319a854901a692dec9c58aff359b6527916308c263"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "BuildUp",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "98d7f97c93715fb282045fc2769de144be57d4e203b889e532466ae1b887e771"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "2964a7951140e74210f55d65e7a15244faaf77b710378f481cff06d5bcb6d31d"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "86bb9ab6d76b0620d98e5a19608b4f80c9d26a836eba96d3360053cbb95bb309"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "ec4b30df75205a84726e94126f3e9c31d47ef9572b979f5f6aa52f684071bb3c"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "250441bac5208f2209ffda8bf31acac93800fe19678ce1b5173d516e8736d332"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "R",
+            "exit_side": "L",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "83557cb4969aaf040a2e602e9d7fd8e21207b796120aba1d1dfe75fc8a12aa38"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "R",
+            "exit_side": "L",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "c9f83aced65cbf7eb918a29ee9609da69cf35b87fa00cfdf81e18d9ca9ca2afd"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "486ddd6de018ecadbbd72e24ef0067fcda89accdcc6c1870b66ec78788abbea6"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "01d5e9676ecf6cd6480599e931d4465241933de4686a27aabc561c95a5ed8d98"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "9b0c231f7af6f5c364df4e5c2868d1ff3f8a4f169990cf8d50538a5293828abb"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "af50c937c405d974d42eecefc194965f65b83e3996e297fdde963a53fb22bf9f"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "608265085b36492bf03c5417d56645851efedebf3943226456cc25f8cd46f4e5"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "51c7f649af93cdc05c0033043c491b6bc03323a700a2d7ba0fc493c256deabb8"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "chunk_x": 0,
+            "chunk_y": 2,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "1bf258f433443094e57658741f60384c03f803b748c638528ad03b27335bee53"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "8163e6de6cbb311d15cc8b293901077775cf38a2597789aa38390b449befd72b"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "d398f3c85decdb5dda1cdd2f15f956a809edbca04bf0b72668cfedbb9d136c77"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "d98d26759a1dc1d45e6cd6b65b955c40657dc50a3b5f0a1243cd0162b677861e"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "2cee0ab586342279462af842d0433b1bfa4b3384191e573f946b08966c1e9a91"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "420925da0002047a78857b06af9788528761f112e7caa4ac4209a21bdb6fd5ca"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "5febcf8348a281c75c6a10538eb5cd5b5da2d2318f32fde83f64f81ffe65f564"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "f04b2413716b95c870fb0a7e05e88a39d017fde4895bb223f2617f3ac36ef35d"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "BuildUp",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "d45c747126703efde522af6bbf9f2c469fb779cb7cea31e6548c7cc18db7d839"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "27183f7ef358f52f42c1acf561f14a8a2852c6f461b420e9cbbe0be2533ea280"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "87ad095132f4f62206a546c8757105b1d038154dcc60fcf391702683d78d3da4"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Recovery",
+            "entry_side": "U",
+            "exit_side": "L",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "fc6087496f53bf910315e7a59e02fdfdf1b8e236a57b1ab065362e01e0367c69"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Entry",
+            "entry_side": "U",
+            "exit_side": "L",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "a199fd4cd9f556b8e1360e8d68a7fd3ff3398acded6b88398ce0fd4c25a8f109"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "BuildUp",
+            "entry_side": "U",
+            "exit_side": "L",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "53f08a653083bd67fbee8ddd0ddc7bf0c736aa1d985ec8efdfdf1eb7dd1edb90"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "U",
+            "exit_side": "L",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "e19ae57dcaa7c13531cbdc046115f880f7603f627005387864a3766bd18aee50"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "chunk_role": "Exit",
+            "entry_side": "U",
+            "exit_side": "L",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "7a29a1685173a886db0079b4257d35d2f0d55e0f89f5ad22742fc9947d6c1023"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "0eca45cd1220fa6f87fbbea5a883edfa480f605d36d3ec27d35229380b3cecf9"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "chunk_role": "Recovery",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "d690b265856d7b4e524be25e1a51959e337250fd9ec408d0aabaea2ad12d7495"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "chunk_x": 3,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "589e559ceb5fee58fc4f35d2402818988e1d65feda084e9c4b884a8a61a546e9"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "af96016544a6018a092da95541f50254a14c77f47f410e35fd24ef965544f970"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "BuildUp",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "df06fd0646ec4013d5391329823eaf8c3d0427daab8d2b080a88b087b2e37031"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "4088df56dae49e63709ca4795d9ccfea3c13d7773bd47940e8ca0692caf494a0"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "BuildUp",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "b487e19f986f7201c71469f74f76782c3bd63dedfc70c9505c73ae4d5a975514"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "530ed2f52611d47e7882ebc0101ee23a0697816260818e41bad869239e878eb1"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "5dcb2c1087ea04a3c81457119952df7b270eac82ad947fddc29422c1935a725b"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "f4bb94a30134552dd065a185b32dc3f20be9f54fd722ce127cd3cf0aec86c29f"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "BuildUp",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "608a6456bc675bc4c52146a980c15daf5b22c231da349443e783b7e71303a5af"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "chunk_role": "Core",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": false,
+            "canonical_digest": "1fd78a1f1d63e8fd1776f42689b41c229281168256e087a8e4253df479c0879b"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "872ccea8724253473134c46d878ec4b9f18c7055113fc1d771e4795fe71f6439"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "b74666a5505de1962d0cc3d00210b1082b3694bb14ab54618389f485684a47d2"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "L",
+            "exit_side": "R",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "160ef70fd6af1e64c92f53f2abf5689f7d55f4eb42b0ec3e7f779a9917ff08d1"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "R",
+            "exit_side": "L",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "e5d763e8d5248e4e4b7cab9d82a206cd98688db3a86279edc8d00be954a87ea6"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "chunk_role": "Exit",
+            "entry_side": "R",
+            "exit_side": "L",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "6f5162f48cb12725922a8200857b1b2b0842813e5f3aed2ab10ab87361d2951b"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "chunk_role": "Entry",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": true,
+            "is_exit_chunk": false,
+            "canonical_digest": "7d9ed6bbfde8fa651333d602ebdffd69c9ec176f18e2d9bfe9c00d653bc057a8"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "chunk_role": "Exit",
+            "entry_side": "D",
+            "exit_side": "U",
+            "is_entry_chunk": false,
+            "is_exit_chunk": true,
+            "canonical_digest": "470f020758f40e91673c4e4be898c600a7117e9321162a2fa68569652e7234c2"
+        }
+    ],
+    "spine_variant_records": [
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "spine_variant_id": "TC_DOUGH_BUFFER_ENTRY_CUP_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughBufferEntryCup.Alternate",
+            "movement_tokens": [
+                "Walk",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "16d29ce49f1ab8951106d23b635035723072350ba315ab9c4559b6de1b128d26"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "spine_variant_id": "TC_DOUGH_BUFFER_ENTRY_CUP_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughBufferEntryCup.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "dc34393b195cda472fde86a6cda9ffe1363cc2c8429d03f5b1130ad4c5af7a11"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "spine_variant_id": "TC_DOUGH_BUFFER_EXIT_SHELF_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughBufferExitShelf.Alternate",
+            "movement_tokens": [
+                "Walk",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "782ba15f7d7013a87aadda1874311110bf0694dd01352801509b488066d245d2"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "spine_variant_id": "TC_DOUGH_BUFFER_EXIT_SHELF_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughBufferExitShelf.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "10bdad92d2392705f0d3b35533948ca8ed5267080b7e553163228ef3b5e122b0"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "spine_variant_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "R",
+            "route_intent": "DoughBufferRecoveryBowl.Alternate",
+            "movement_tokens": [
+                "Walk",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "e24f1c4489f83e5b29d68cf62d842acf85e1169a786588e31bd371426ab507b3"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "spine_variant_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "R",
+            "route_intent": "DoughBufferRecoveryBowl.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "e083ebc4821f1f031084c9908153b14054baa543dc6784f7662c9cb0e42f0d31"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "spine_variant_id": "TC_DOUGH_PROD_BOUNCE_CUP_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughBounceCup.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "411a39b25515bc3374c13d5862444a14968363f1a399c7c104a8a43c3f6381f7"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "spine_variant_id": "TC_DOUGH_PROD_BOUNCE_CUP_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughBounceCup.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "a0c3154e0aa50e7ee1bb5a078194ccd881fe4dfbb1e6ffadfea245768ee91c08"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "spine_variant_id": "TC_DOUGH_PROD_FERMENT_RISE_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "R",
+            "route_intent": "DoughFermentRise.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "b78c72ec710871cb42a10f62537b3c07b362c0128cf7cce9be9cbe704cc35f07"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "spine_variant_id": "TC_DOUGH_PROD_FERMENT_RISE_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "R",
+            "route_intent": "DoughFermentRise.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "5c44d34a76d72a80145b28874f92b38062bc67507f1cee5b437f396811a8ab29"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "spine_variant_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "U",
+            "route_intent": "DoughRecoveryPadChain.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "f7d64e072dfb75c40e546c1ed83634d794daf6b4b2133db09ec1f4384c8f14c9"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "spine_variant_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "U",
+            "route_intent": "DoughRecoveryPadChain.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "bcbd03b644ae13f5b0f392a013e698eaa3f491f76bbd142d9d53d038b94a5eee"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "spine_variant_id": "TC_DOUGH_PROD_SOFT_POCKET_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughSoftPocket.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "f94e71e3165899b12f72e9d51626ec3462d03d5975e174045f1c74448d43f86b"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "spine_variant_id": "TC_DOUGH_PROD_SOFT_POCKET_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughSoftPocket.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "61e2aac6e4f49894baeaee8b0feed17a0639203da40efa5a7ba0d7476353ccc3"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "spine_variant_id": "TC_DOUGH_PROD_SQUISH_CROSS_ALT",
+            "is_baseline": false,
+            "entry_side": "U",
+            "exit_side": "D",
+            "route_intent": "DoughSquishCross.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "54336b91fb3c28afc5162defb9ae1df493da5eb2c3c377a04ce0940dba4e6582"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "spine_variant_id": "TC_DOUGH_PROD_SQUISH_CROSS_BASE",
+            "is_baseline": true,
+            "entry_side": "U",
+            "exit_side": "D",
+            "route_intent": "DoughSquishCross.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "0ed54a75a81cb82160eae6c441ab2668884e2955ba3568861e8a1aa8fe4b3de6"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "spine_variant_id": "TC_DOUGH_PROD_STICKY_SHELF_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "R",
+            "route_intent": "DoughStickyShelf.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "65094f0cad7485eda97a4b4d4768e57f6a3a8adc8c25de6c15bd98297758f9d5"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "spine_variant_id": "TC_DOUGH_PROD_STICKY_SHELF_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "R",
+            "route_intent": "DoughStickyShelf.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "e9a0b28d6bf5a7cb275b563cd80cba00a1df5839c0a88202c25c2caa1a479113"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "spine_variant_id": "TC_DOUGH_QUIET_FERMENT_POCKET_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "DoughQuietFermentPocket.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "73fc1bc01d9efcf186fc43c1102cb611579799f26cff93c43347129c4d028ae2"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "spine_variant_id": "TC_DOUGH_QUIET_FERMENT_POCKET_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "DoughQuietFermentPocket.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "QuietStable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "6ead17e65c4d819a202a9195a70574795a96c4df6ed67023c355cbcc01f8f23d"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "spine_variant_id": "TC_DOUGH_QUIET_RECOVERY_PAD_ALT",
+            "is_baseline": false,
+            "entry_side": "R",
+            "exit_side": "L",
+            "route_intent": "DoughQuietRecoveryPad.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "4e2146ee0bf23a35c828ddcd558172f22a574e84993697f565b9aac0cd2de5a1"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "spine_variant_id": "TC_DOUGH_QUIET_RECOVERY_PAD_BASE",
+            "is_baseline": true,
+            "entry_side": "R",
+            "exit_side": "L",
+            "route_intent": "DoughQuietRecoveryPad.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "QuietStable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "3ab92399215708cb569873e5ae7d82b865fb74dcd0ad712787174d55f2639937"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "spine_variant_id": "TC_DOUGH_QUIET_SOFT_SHELF_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughQuietSoftShelf.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Walk"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "6024453cc76bfa858f506ca2b37da2b226de66cc25b8a0f7cf9e06a6054ca3f5"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "spine_variant_id": "TC_DOUGH_QUIET_SOFT_SHELF_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "DoughQuietSoftShelf.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "QuietStable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "e4de1d203e907db992504dc2fdf30f9a071bd4be1d668d0666bac5d8152248ed"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "spine_variant_id": "TC_MILL_BUFFER_ENTRY_BEAM_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillBufferEntryBeam.Alternate",
+            "movement_tokens": [
+                "Walk",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "58f56b6ff8413a38ff965f9ad0ff241f4de76e40ea855e581b7db93d727db9da"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "spine_variant_id": "TC_MILL_BUFFER_ENTRY_BEAM_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillBufferEntryBeam.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "0a321f4b57a50f3a5279a1642d85d376f9910cfa061c5ed06c6bbcd4b319aea0"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "spine_variant_id": "TC_MILL_BUFFER_EXIT_SHAFT_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "MillBufferExitShaft.Alternate",
+            "movement_tokens": [
+                "Walk",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "2728a35856622f414a4b4018120dc950ae8c8020027e12ba27cb11a2bf5ccda7"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "spine_variant_id": "TC_MILL_BUFFER_EXIT_SHAFT_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "MillBufferExitShaft.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "d5654f063dfcc519bb04a2612c9075807b8c2bf54642e7d0b57619dc14d5fa12"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "spine_variant_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "U",
+            "route_intent": "MillBufferRecoveryPlatform.Alternate",
+            "movement_tokens": [
+                "Walk",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "30e54e8db7fc4c0a457c715b02e6fb0cbc0efa59246cfea1f1a5e30b19b4cd57"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "spine_variant_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "U",
+            "route_intent": "MillBufferRecoveryPlatform.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "51a7bf081ce7f44ea01da956b9e8f6585b3d4e77b60dd2ba5d5c16765c2d6398"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "spine_variant_id": "TC_MILL_PROD_BEAM_OVERHANG_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillBeamOverhang.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "9b8089eb6209d3175379649975ee606365133f69e73c23fa3110ff0d65d9b19b"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "spine_variant_id": "TC_MILL_PROD_BEAM_OVERHANG_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillBeamOverhang.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "8ef973b766d0912dae58ccececb6adde99554b914384c2f148c82e8cb21b793f"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "spine_variant_id": "TC_MILL_PROD_BROKEN_PILLAR_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "MillBrokenPillar.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "1e5a1fc85d2e64482ffc0816bfe5e0c7542d594c6c73cd097cde8d66a389fd33"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "spine_variant_id": "TC_MILL_PROD_BROKEN_PILLAR_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "MillBrokenPillar.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "30f1f5b8eec9ce3cc1b8d832b3a970cfd2c31724a57d0d758c83002749fe8f11"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "spine_variant_id": "TC_MILL_PROD_FALL_RECOVERY_ALT",
+            "is_baseline": false,
+            "entry_side": "U",
+            "exit_side": "L",
+            "route_intent": "MillFallRecovery.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "430fbab7d6ac28dcdf0770fafe0e1cf278c3aa434742ef3f3b310e02e33b31f7"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "spine_variant_id": "TC_MILL_PROD_FALL_RECOVERY_BASE",
+            "is_baseline": true,
+            "entry_side": "U",
+            "exit_side": "L",
+            "route_intent": "MillFallRecovery.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "1a6bf99bc0fa8f25924de1bf43ac55d513b242e7b0e763a161c07350207659b8"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "spine_variant_id": "TC_MILL_PROD_GEAR_GALLERY_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillGearGallery.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "1eb0b3e2cc7a540c8e1f874255da7334bbf09fb04b722d92ee44d07c3e6f29b4"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "spine_variant_id": "TC_MILL_PROD_GEAR_GALLERY_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillGearGallery.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "8ae5c2aaf78337108fce182bad63ff09889db23034e98786fb4fd2d28262c102"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "spine_variant_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillOrthogonalShaft.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "ede759966776c36fbe2b88653de2dda29c122ce75599c6b319520a1d8e8fe874"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "spine_variant_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillOrthogonalShaft.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "b4ed17e00299dfa6bd85a57aa54bfbc43f0af83d5e0f15bf7eaa9be8d5f9c079"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "spine_variant_id": "TC_MILL_PROD_RUST_LEDGE_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "U",
+            "route_intent": "MillRustLedge.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "f7adfb6f9a2c75d4aebd36154efd332e274eb237d27fb8af1e7a7f8b1c4176a9"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "spine_variant_id": "TC_MILL_PROD_RUST_LEDGE_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "U",
+            "route_intent": "MillRustLedge.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "3734efa8d121a53c1299bc2572a93281f15130a36d9e09e8d37e6c38fe654284"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "spine_variant_id": "TC_MILL_QUIET_BEAM_WALK_ALT",
+            "is_baseline": false,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillQuietBeamWalk.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "b7088f067eee4009ec0d2132352b10ea69b6f758c172adbe3068b82bc1516f8b"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "spine_variant_id": "TC_MILL_QUIET_BEAM_WALK_BASE",
+            "is_baseline": true,
+            "entry_side": "L",
+            "exit_side": "R",
+            "route_intent": "MillQuietBeamWalk.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "QuietStable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "73acb47eab9c4632dd907b9487a810201daa64e897cbd051c1a9c7d76814a6a0"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "spine_variant_id": "TC_MILL_QUIET_GEAR_SHADOW_ALT",
+            "is_baseline": false,
+            "entry_side": "R",
+            "exit_side": "L",
+            "route_intent": "MillQuietGearShadow.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "ffc982d0f40aee0a527a65256dddfcb01c24319aa9af253e47e21156624a3853"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "spine_variant_id": "TC_MILL_QUIET_GEAR_SHADOW_BASE",
+            "is_baseline": true,
+            "entry_side": "R",
+            "exit_side": "L",
+            "route_intent": "MillQuietGearShadow.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "QuietStable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "6e8afa52551818129a62cbd6fd226d30302ab88321aec628c16d00b269a23ace"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "spine_variant_id": "TC_MILL_QUIET_RUST_BALCONY_ALT",
+            "is_baseline": false,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "MillQuietRustBalcony.Alternate",
+            "movement_tokens": [
+                "Jump",
+                "Drop"
+            ],
+            "high_route_state": "AuthoredAlternative",
+            "recovery_state": "StaticRecoveryAvailable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "5430b41a0b18afa988ceb22a0604eba93aaca9fa4cf4b72b7e37be00c9d9042c"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "spine_variant_id": "TC_MILL_QUIET_RUST_BALCONY_BASE",
+            "is_baseline": true,
+            "entry_side": "D",
+            "exit_side": "U",
+            "route_intent": "MillQuietRustBalcony.Baseline",
+            "movement_tokens": [
+                "Walk",
+                "Jump"
+            ],
+            "high_route_state": "BaselineProtected",
+            "recovery_state": "QuietStable",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "canonical_digest": "0a2ed1eb7c4ed21f67d58d417b74b2d4e7226a382c70f85bb155e89d7cf1b359"
+        }
+    ],
+    "pattern_slot_records": [
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "slot_id": "TC_DOUGH_BUFFER_ENTRY_CUP_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "da10fc7ab1a9fa4dd2fd7d091563de5a4761dd7224942128b141e864084ba212"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_ENTRY_CUP",
+            "slot_id": "TC_DOUGH_BUFFER_ENTRY_CUP_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "1c59a7474c1510dd17fb1b20958afa44628f7309de8f3a3f6478388c30c516a2"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "slot_id": "TC_DOUGH_BUFFER_EXIT_SHELF_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "538e85bb0bf8649e3d99d3b74e126a49be2541eb44d684ed3997da9c9c0e1fd1"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "slot_id": "TC_DOUGH_BUFFER_EXIT_SHELF_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "647382ee2eb7a31bc3d07cf96aa4ffb9943197f7db4abce1e53ccd81baa902e0"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_EXIT_SHELF",
+            "slot_id": "TC_DOUGH_BUFFER_EXIT_SHELF_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "fd050618d5d18ded399eed4d2f6b29255f8f62a32959c512bf68f38a45ea7eaf"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "slot_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "a51d5de5aac57caaa0fbfa5d725d2140254d5b249b2a9e40be4e2b6a086ee87a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "slot_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "431051327945a7343fd52a53e2f8081a3ce24b69a4e0473b95407f0b1bfef849"
+        },
+        {
+            "cluster_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL",
+            "slot_id": "TC_DOUGH_BUFFER_RECOVERY_BOWL_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "1c1ccf1fb6d7de0d1799232e6eaf42941174b4c5d79429fcd31970772cb4cdb7"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "slot_id": "TC_DOUGH_PROD_BOUNCE_CUP_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "85daf43c2343ffb065c976f75e065fd1933c998197fd08167745a5851e8b2952"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "slot_id": "TC_DOUGH_PROD_BOUNCE_CUP_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "e2dc14443077935224560caab5b78e402b80e312bb60c9979b88fc8374dc42cd"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_BOUNCE_CUP",
+            "slot_id": "TC_DOUGH_PROD_BOUNCE_CUP_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "0e5d3b58227c918698311cbe1b4f7b19384182733f713cfb55083d6a575fd6d8"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "slot_id": "TC_DOUGH_PROD_FERMENT_RISE_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "fd7715c059bde6e822cf930293eb9ceba42a84579e38aeedf83830ec40ec9345"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "slot_id": "TC_DOUGH_PROD_FERMENT_RISE_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "e8db249fadfde8711ecedfdbddd4d0e502038fbd69708f56eb45187ecf005869"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "slot_id": "TC_DOUGH_PROD_FERMENT_RISE_SLOT_02",
+            "chunk_x": 0,
+            "chunk_y": 2,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "ba50606afc81170e99659e49659678870e32c43815cfbb4cb6a9ba2da33c2d38"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "slot_id": "TC_DOUGH_PROD_FERMENT_RISE_SLOT_03",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "2b53e85b75b0da80e98819b68c886c22e29e1eeca9eedbbd5f00390a4731521a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_FERMENT_RISE",
+            "slot_id": "TC_DOUGH_PROD_FERMENT_RISE_SLOT_04",
+            "chunk_x": 2,
+            "chunk_y": 2,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "c8ef06b1e5fde294da927441dba3315d882154f19d50fd223b443527683a15a7"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "slot_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "1129744f229db16c67454fe029a7e7fcbc9934ccaf642d0f244384c7d8b0a840"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "slot_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "e56556a2dfe2afdc7881bf9aeaead43a9daf385c004d9ea99a3f81b4ff531e6e"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "slot_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "04cca1d1590c4e02c652e4c4ab62bff4e8afe47224b4eefbfa769634ea7c1aff"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN",
+            "slot_id": "TC_DOUGH_PROD_RECOVERY_PAD_CHAIN_SLOT_03",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "512db78b72ae97c55fb363932e071d81c9fbfacd1f46f2e23314836b8bffcfd1"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "slot_id": "TC_DOUGH_PROD_SOFT_POCKET_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "fd3e940e5a62972e8b2db01457b1dded034bcec54b3f5954206df74626cea645"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "slot_id": "TC_DOUGH_PROD_SOFT_POCKET_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "fe0bc1b19dc9ee08e56da15407e1072f1be5780c0826e75c22eaca13bf484d9c"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "slot_id": "TC_DOUGH_PROD_SOFT_POCKET_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "950d487601c8e37b11f3dc0406b28a121b09f4b07cd1a9756d9e169f866ac67a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SOFT_POCKET",
+            "slot_id": "TC_DOUGH_PROD_SOFT_POCKET_SLOT_03",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "3ed07d8da88712a217c010d1f7175eb9dbed0b8326d06215037dca7d7049404a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "slot_id": "TC_DOUGH_PROD_SQUISH_CROSS_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "26d0550d0bf95dc4d727c02870b716d7b920d28efe2b9795b655d35d3d66131a"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "slot_id": "TC_DOUGH_PROD_SQUISH_CROSS_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "0723d6f5f32521020d0074f7ab788a38145a0a41ef445753619df72f73e6ed1e"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "slot_id": "TC_DOUGH_PROD_SQUISH_CROSS_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "5c15bdf909587fc3dc86aed734017bc285932d45a64f327f4733e59f2c9dd3e4"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "slot_id": "TC_DOUGH_PROD_SQUISH_CROSS_SLOT_03",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "1758aec2e16ded37ad054b721715f7227140687abb62b2c606abf498946590f3"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_SQUISH_CROSS",
+            "slot_id": "TC_DOUGH_PROD_SQUISH_CROSS_SLOT_04",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "48ec5cc75af36d42ef8e4bc71d83896f3873bd220bfe681b79f4bb99f4e7b221"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "slot_id": "TC_DOUGH_PROD_STICKY_SHELF_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_FERMENT_PATCH",
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "c10ff268a025f9d38223148fe01c6ee54406839ed5b6e5700c550e4db6f4d6ce"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "slot_id": "TC_DOUGH_PROD_STICKY_SHELF_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_RECOVERY_PAD",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "05ed00bfe7566bac3cc5a530c1f532b0b8e2e19a8736bcb594aa62d58f152b8f"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "slot_id": "TC_DOUGH_PROD_STICKY_SHELF_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "4c5b703a4a107813cee6aabe764221cee9f7c1dbf0f433e57a6d0eba7b4ebdb7"
+        },
+        {
+            "cluster_id": "TC_DOUGH_PROD_STICKY_SHELF",
+            "slot_id": "TC_DOUGH_PROD_STICKY_SHELF_SLOT_03",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "dda8355b7f5eec272220c0c54dd969f49e2de78cb2cafe612f42c77d2154e7f8"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "slot_id": "TC_DOUGH_QUIET_FERMENT_POCKET_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "a34fd22a62a5be2cf14d259f8632fbaf52cb446efd3b4f808556a2c6049839a3"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_FERMENT_POCKET",
+            "slot_id": "TC_DOUGH_QUIET_FERMENT_POCKET_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "211deb174ed3b3cfa75a8bec79a58a704268cbdf7eac1c50afabe278ad748fab"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "slot_id": "TC_DOUGH_QUIET_RECOVERY_PAD_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_BOUNCE_STRIP"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "531baff6b7b1fd58357c559fecccb3b1b86cf9953d6cf4f772d35838264f32b6"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_RECOVERY_PAD",
+            "slot_id": "TC_DOUGH_QUIET_RECOVERY_PAD_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_STRIP",
+                "MP_DOUGH_RECOVERY_PAD"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "13d07aaf8e6e34620a784553f35f2347f8f9a9b7a335e2610b9b853664b8887f"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "slot_id": "TC_DOUGH_QUIET_SOFT_SHELF_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_SOFT_POCKET",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "56ebe59c2ea2cebf680f7380203f18eacdd14bc23394ffb82d9b6e3db1d0f97c"
+        },
+        {
+            "cluster_id": "TC_DOUGH_QUIET_SOFT_SHELF",
+            "slot_id": "TC_DOUGH_QUIET_SOFT_SHELF_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_DOUGH_BOUNCE_CUP",
+                "MP_DOUGH_STICKY_SHELF"
+            ],
+            "biome_id": "MoonDough",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "c3d2251fee54ff30f7ffe826bf2055e706f1a5922a1ee81924825e4b12377518"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "slot_id": "TC_MILL_BUFFER_ENTRY_BEAM_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "bef7d537fcca4a203427d4cc4153b30a22f3c2500d6d115a1dd9ba0dabe9a85e"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_ENTRY_BEAM",
+            "slot_id": "TC_MILL_BUFFER_ENTRY_BEAM_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "3f24ff3e93da07db4023bae16044cb16416ba2b4b1b1ea5fd987e0deb7a9edca"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "slot_id": "TC_MILL_BUFFER_EXIT_SHAFT_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "7a10dc90889090e46676d72843d91a07f469b58b4b72b4ca07c93829ecce8f4b"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "slot_id": "TC_MILL_BUFFER_EXIT_SHAFT_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "d56b538eeeb1fc9dedf2cb50d90bb122a32677f04640fcaa7a6634fbe76f7b67"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_EXIT_SHAFT",
+            "slot_id": "TC_MILL_BUFFER_EXIT_SHAFT_SLOT_02",
+            "chunk_x": 0,
+            "chunk_y": 2,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "9a5af9137acdde05c3f6bad9d20128f606cee4642c2f2ecbb82b59372e077e8e"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "slot_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "930448f879fea27ded91a3eec312936eaded61299ab238ef4bca36489dc01d50"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "slot_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "a4851a9bdf43c7d2f714c4c6ee5dba8c8472cc05993f5e08f0ad082f6c3c701f"
+        },
+        {
+            "cluster_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM",
+            "slot_id": "TC_MILL_BUFFER_RECOVERY_PLATFORM_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "RecoveryCue",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 10,
+            "canonical_digest": "2869965c56f8fa2ab8d585c0c5f39446b330486e3488ecea10121ca02f408416"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "slot_id": "TC_MILL_PROD_BEAM_OVERHANG_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "7acc52abc5b6a7743aaa2f75c39be0c645b9744ed9506a9309a83c7c85ffb884"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "slot_id": "TC_MILL_PROD_BEAM_OVERHANG_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "ecbcf4b784d8a51b57655957baf9234ac12a2df0d1bfd27275b91e76a953c297"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BEAM_OVERHANG",
+            "slot_id": "TC_MILL_PROD_BEAM_OVERHANG_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "6ca680f4a0634c735f2a862188fa02dcb7df9980bbb758567442be231b071a32"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "slot_id": "TC_MILL_PROD_BROKEN_PILLAR_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "78ba7a4f68747cb2698c27a23a0a4c449c7b15d084a7be0a6d45ff13c1ca7762"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "slot_id": "TC_MILL_PROD_BROKEN_PILLAR_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "13fdfd897340283e63d9318a3da4ec3e254fd888feda171fef2b78ebf017071a"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "slot_id": "TC_MILL_PROD_BROKEN_PILLAR_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "ea91a36f4a12e2a8810325a5c05d51b7e8fea311dccea9c85c0ba7f824c0636e"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_BROKEN_PILLAR",
+            "slot_id": "TC_MILL_PROD_BROKEN_PILLAR_SLOT_03",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "9e529ab785e36354e898ba6688ae939cfc2d206b5767caf86caa2fa8eb7a5fb1"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "slot_id": "TC_MILL_PROD_FALL_RECOVERY_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "0ad09722c2e439ec3004f4fd29e5d3220ed123dc22c8e19b22ba70d216e2c5c0"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "slot_id": "TC_MILL_PROD_FALL_RECOVERY_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "d9987ef1b00cae111a7097ccc651e1314d5ec1c0de752334036fed0dbba45484"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "slot_id": "TC_MILL_PROD_FALL_RECOVERY_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "549716fbc6bdde21a622eda255adcc309e457d2266c46254819ee2de955151bb"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "slot_id": "TC_MILL_PROD_FALL_RECOVERY_SLOT_03",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "f50d69e6c18a6311784645d25ee0e7411049348e1bf687378dd5ab40a9f1d548"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_FALL_RECOVERY",
+            "slot_id": "TC_MILL_PROD_FALL_RECOVERY_SLOT_04",
+            "chunk_x": 1,
+            "chunk_y": 2,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "cf7389f7f4452400e00780c32dd199277020225baab50679cbaadccb6c44c3b5"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "slot_id": "TC_MILL_PROD_GEAR_GALLERY_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "542de2d5c4d5e4b8a6960b95d061e7a051f930bdf12294b85c0eb192261a2dc6"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "slot_id": "TC_MILL_PROD_GEAR_GALLERY_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "da22a81f1f38464a500e3e210b99416e1c6d3d73152dca09c1f14fac63f5fa2c"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "slot_id": "TC_MILL_PROD_GEAR_GALLERY_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "5b82f55734b32ec1e9765b59ad1b0e69a98fb334e9dd8c9751e72a15f68247c0"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "slot_id": "TC_MILL_PROD_GEAR_GALLERY_SLOT_03",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "2904017e0e93a6f3fa56bbfb10ad6129e577f000337a910047dd9ce7b9bc482c"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_GEAR_GALLERY",
+            "slot_id": "TC_MILL_PROD_GEAR_GALLERY_SLOT_04",
+            "chunk_x": 3,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "f8f5a0e4a8efa3bdd324e7b923e876545bd3b59f3fcae920f10f6dea60be1aa3"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "slot_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "76ee49133a82a77fc70964ab1ded1a82b56ed9647c320c11b8b4d02713f0107f"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "slot_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "9a875688cd0b7d9ecfce636087ffc5037d767e4161367ec81d6999d359e38b1e"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "slot_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT_SLOT_02",
+            "chunk_x": 1,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "2409743a45a098d32c75a4cb85256f5f2cc1dfd2d174296659083c4244b4ee6e"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT",
+            "slot_id": "TC_MILL_PROD_ORTHOGONAL_SHAFT_SLOT_03",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "0a5bab148fc464ff0587472a23940b38abf4160dbfcbe7ca949b7f50cd02f487"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "slot_id": "TC_MILL_PROD_RUST_LEDGE_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_ORTHOGONAL_CARVE",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "1dc2ea3916fa1ba2a6c2971ac96e0e6edab0b4d2e10b6fc54c3313aba29733fc"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "slot_id": "TC_MILL_PROD_RUST_LEDGE_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_RUST_PATCH"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "2678dbc19df9ef9fc3f9570475dd1051d27f4c29f1790114d140a2e282cab9db"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "slot_id": "TC_MILL_PROD_RUST_LEDGE_SLOT_02",
+            "chunk_x": 2,
+            "chunk_y": 0,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "7426b75127223790f78a4e3686753a9fd91e7aeb683c260336c15aa1c1a3d983"
+        },
+        {
+            "cluster_id": "TC_MILL_PROD_RUST_LEDGE",
+            "slot_id": "TC_MILL_PROD_RUST_LEDGE_SLOT_03",
+            "chunk_x": 2,
+            "chunk_y": 1,
+            "slot_kind": "OptionalSilhouette",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 35,
+            "canonical_digest": "217b14b5da21f5a41213e2b37c22533bcd39cf428bfdb3fe820f03d826b4213f"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "slot_id": "TC_MILL_QUIET_BEAM_WALK_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_OVERHANG",
+                "MP_MILL_BROKEN_PILLAR"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "1a9698a940ecb861479fb0365521baa24c1894ca3355d7c9160e0c39d6462131"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_BEAM_WALK",
+            "slot_id": "TC_MILL_QUIET_BEAM_WALK_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "611b68d3e2dee1f2d7825c81f6901fbcc4402cec16dd907eeb4b8a6923209def"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "slot_id": "TC_MILL_QUIET_GEAR_SHADOW_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "91f6626b32beff79970b1e9acd6851cbf5a90333f0c0affdce2abb48cd1748b6"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_GEAR_SHADOW",
+            "slot_id": "TC_MILL_QUIET_GEAR_SHADOW_SLOT_01",
+            "chunk_x": 1,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BEAM_GRIP",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "e1252ed9207ff065d94dc8214d07a73b6392e7e6ef5270bd1a5a7ef208a093c7"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "slot_id": "TC_MILL_QUIET_RUST_BALCONY_SLOT_00",
+            "chunk_x": 0,
+            "chunk_y": 0,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_BROKEN_PILLAR",
+                "MP_MILL_GEAR_SOCKET"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "b276ae8a230f1542ad0d950bd015f1be527b8f013b8512b73085f040303bee6b"
+        },
+        {
+            "cluster_id": "TC_MILL_QUIET_RUST_BALCONY",
+            "slot_id": "TC_MILL_QUIET_RUST_BALCONY_SLOT_01",
+            "chunk_x": 0,
+            "chunk_y": 1,
+            "slot_kind": "BaselineRequired",
+            "allowed_pattern_ids": [
+                "MP_MILL_GEAR_SOCKET",
+                "MP_MILL_ORTHOGONAL_CARVE"
+            ],
+            "biome_id": "AbandonedMill",
+            "protected_mask_policy": "PreserveSpineAndEntryExit",
+            "risk_budget": 0,
+            "canonical_digest": "98c080ec17e1823693a0751b09c4019e811ca0232ce7b60c1392f14a24134081"
+        }
+    ],
+    "cluster_catalog_digest": "8856f7b77adff7c27d8849fd92d93e3fa8efcdc976e007413ebf426d0bbb3f4e",
+    "cluster_footprint_digest": "d0729cfd9fd5db7c8e477763e099ca9f0532ab1fc285991cf5c4f783b8d15190",
+    "cluster_spine_variant_digest": "c6310104b623c6654ee2ea40a66a766d9cdbbe3ff17ef2cf300715d12d943761",
+    "cluster_pattern_slot_digest": "434f6b79ba7ef72b674b23e5c3f2015cadcff0b13e48e935444d59803c100b0d",
+    "activity_slot_count": 0,
+    "event_overlay_count": 0,
+    "special_region_binding_count": 0,
+    "population_slot_count": 0,
+    "reward_anchor_count": 0,
+    "runtime_binding_count": 0,
+    "tilemap_write_count": 0,
+    "created_utc": "2026-09-06T09:23:02.8515583Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "85b3cec6245f6ddec0468ac239e46d9740f0f48cc9498b7ef9311f554052ba74"
+}
