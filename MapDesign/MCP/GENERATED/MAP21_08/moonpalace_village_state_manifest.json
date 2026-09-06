@@ -1,0 +1,132 @@
+{
+    "schema_version": "map21_08.village.v1",
+    "state_variant_count": 15,
+    "individual_hostile_target_count": 3,
+    "all_hostile_variant_count": 3,
+    "evacuation_variant_count": 3,
+    "road_door_access_mutation_count": 0,
+    "variants": [
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X1_OVERVIEW",
+            "variant_kind": "Normal",
+            "npc_states": "Normal|Normal|Normal",
+            "inventory_states": "Standard|Standard",
+            "door_state": "Standard",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X1_OVERVIEW",
+            "variant_kind": "Friendly",
+            "npc_states": "Friendly|Friendly|Friendly",
+            "inventory_states": "FriendlyAccess|FriendlyAccess",
+            "door_state": "Welcome",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X1_OVERVIEW",
+            "variant_kind": "IndividualHostile",
+            "npc_states": "Hostile|Normal|Normal",
+            "inventory_states": "Standard|Standard",
+            "door_state": "Standard",
+            "individual_target_or_none": "1X1_OVERVIEW_NPC_KITCHEN"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X1_OVERVIEW",
+            "variant_kind": "AllHostile",
+            "npc_states": "Hostile|Hostile|Hostile",
+            "inventory_states": "Unavailable|Unavailable",
+            "door_state": "Alert",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X1_OVERVIEW",
+            "variant_kind": "Evacuation",
+            "npc_states": "Evacuated|Evacuated|Evacuated",
+            "inventory_states": "Evacuated|Evacuated",
+            "door_state": "Evacuated",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X2_ASCENT",
+            "variant_kind": "Normal",
+            "npc_states": "Normal|Normal|Normal",
+            "inventory_states": "Standard|Standard",
+            "door_state": "Standard",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X2_ASCENT",
+            "variant_kind": "Friendly",
+            "npc_states": "Friendly|Friendly|Friendly",
+            "inventory_states": "FriendlyAccess|FriendlyAccess",
+            "door_state": "Welcome",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X2_ASCENT",
+            "variant_kind": "IndividualHostile",
+            "npc_states": "Hostile|Normal|Normal",
+            "inventory_states": "Standard|Standard",
+            "door_state": "Standard",
+            "individual_target_or_none": "1X2_ASCENT_NPC_KITCHEN"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X2_ASCENT",
+            "variant_kind": "AllHostile",
+            "npc_states": "Hostile|Hostile|Hostile",
+            "inventory_states": "Unavailable|Unavailable",
+            "door_state": "Alert",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X2_ASCENT",
+            "variant_kind": "Evacuation",
+            "npc_states": "Evacuated|Evacuated|Evacuated",
+            "inventory_states": "Evacuated|Evacuated",
+            "door_state": "Evacuated",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_2X1_MARKET",
+            "variant_kind": "Normal",
+            "npc_states": "Normal|Normal|Normal",
+            "inventory_states": "Standard|Standard",
+            "door_state": "Standard",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_2X1_MARKET",
+            "variant_kind": "Friendly",
+            "npc_states": "Friendly|Friendly|Friendly",
+            "inventory_states": "FriendlyAccess|FriendlyAccess",
+            "door_state": "Welcome",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_2X1_MARKET",
+            "variant_kind": "IndividualHostile",
+            "npc_states": "Hostile|Normal|Normal",
+            "inventory_states": "Standard|Standard",
+            "door_state": "Standard",
+            "individual_target_or_none": "2X1_MARKET_NPC_KITCHEN"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_2X1_MARKET",
+            "variant_kind": "AllHostile",
+            "npc_states": "Hostile|Hostile|Hostile",
+            "inventory_states": "Unavailable|Unavailable",
+            "door_state": "Alert",
+            "individual_target_or_none": "NONE"
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_2X1_MARKET",
+            "variant_kind": "Evacuation",
+            "npc_states": "Evacuated|Evacuated|Evacuated",
+            "inventory_states": "Evacuated|Evacuated",
+            "door_state": "Evacuated",
+            "individual_target_or_none": "NONE"
+        }
+    ],
+    "state_set_digest": "850469d19688e1b10f0805df3991e7a9cb6e92ba0e1f9c90872f137863ab5f46",
+    "canonical_digest": "ac3668f1b7ae8a85e59d51b5af23ae08d5fe145320db7cd9936a43bfcacfe856"
+}

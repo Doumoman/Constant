@@ -1,0 +1,44 @@
+{
+    "schema_version": "map21_08.village.v1",
+    "publication_kind": "StaticProductionDataNotRuntimeState",
+    "layout_count": 3,
+    "facility_count": 16,
+    "fixed_kitchen_count": 3,
+    "fixed_repair_count": 3,
+    "optional_facility_count": 10,
+    "npc_marker_count": 9,
+    "inventory_marker_count": 6,
+    "shopkeeper_marker_count": 3,
+    "progression_blocker_count": 0,
+    "required_reward_dependency_count": 0,
+    "layouts": [
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X1_OVERVIEW",
+            "shape": "1x1",
+            "bounds": "48x32",
+            "road_cell_count": 48,
+            "facility_count": 5,
+            "door_marker_count": 5,
+            "state_variant_count": 5
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_1X2_ASCENT",
+            "shape": "1x2",
+            "bounds": "48x64",
+            "road_cell_count": 64,
+            "facility_count": 5,
+            "door_marker_count": 5,
+            "state_variant_count": 5
+        },
+        {
+            "village_layout_id": "VLG_MOONPALACE_2X1_MARKET",
+            "shape": "2x1",
+            "bounds": "96x32",
+            "road_cell_count": 96,
+            "facility_count": 6,
+            "door_marker_count": 6,
+            "state_variant_count": 5
+        }
+    ],
+    "canonical_digest": "6c8536920433bfdc9aa1376d57bc89428a70fed9510328950710ae60bd24140e"
+}
