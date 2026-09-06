@@ -27,6 +27,7 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
         [NonSerialized] private Vector2 pageScroll;
         [NonSerialized] private Vector2 canvasScroll;
         [NonSerialized] private int viewStateMutationCount;
+        [NonSerialized] private string navigationSelectionPath = string.Empty;
 
         public static int OpenInvocationCount => openInvocationCount;
         public static int ExternalActionInvocationCount => externalActionInvocationCount;
@@ -40,6 +41,7 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
         public string WorldSnapshotDigest => worldSnapshot?.CanonicalDigest ?? string.Empty;
         public string SectorInspectionDigest => sectorInspection?.CanonicalDigest ?? string.Empty;
         public string RunArtifactPath => runArtifactPath;
+        public string NavigationSelectionPath => navigationSelectionPath;
 
         [MenuItem(MenuPath)]
         public static GeneratedWorldOverlayInspectorWindow Open()
@@ -127,6 +129,22 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
             Repaint();
         }
 
+        public void ReceiveNavigationSelection(int sectorX, int sectorY, int localX, int localY,
+            string selectionPath)
+        {
+            if (string.IsNullOrWhiteSpace(selectionPath))
+                throw new ArgumentException("Navigation selection path is required.",
+                    nameof(selectionPath));
+            SelectSector(sectorX, sectorY);
+            SelectCell(localX, localY);
+            if (!string.Equals(navigationSelectionPath, selectionPath, StringComparison.Ordinal))
+            {
+                navigationSelectionPath = selectionPath;
+                viewStateMutationCount++;
+            }
+            Repaint();
+        }
+
         public void ReloadReadOnlyData()
         {
             EnsureLayerState();
@@ -192,6 +210,8 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
             EditorGUILayout.SelectableLabel("Source digest  " +
                 worldSnapshot.SourceRunArtifactDigest, EditorStyles.textField,
                 GUILayout.Height(EditorGUIUtility.singleLineHeight));
+            if (!string.IsNullOrWhiteSpace(navigationSelectionPath))
+                EditorGUILayout.LabelField("Navigation selection", navigationSelectionPath);
 
             DrawWorldLayerToggles();
             DrawWorldGrid();

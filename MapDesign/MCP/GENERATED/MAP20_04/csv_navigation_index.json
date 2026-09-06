@@ -1,0 +1,378 @@
+{
+    "schema_version": "map20_04.csv_navigation_index.v1",
+    "task_id": "MAP20_04_IMPLEMENT_CSV_NAVIGATION_AND_VALIDATION_JUMP",
+    "source_MAP20_03_detail_snapshot_digest": "30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+    "source_MAP20_03_combined_detail_digest": "dd3a94a2fece3e6e893343caf31493945c7c2641f6f7cbf48345032d9a2a956f",
+    "MAP20_04_handoff_digest": "863018695423be601328975e69356f2ece76ec4db57b024db9406d7131a43285",
+    "source_records": [
+        {
+            "source_kind": "MissingData",
+            "csv_file_path": "",
+            "csv_file_digest": "NONE",
+            "row_number_1_based": 0,
+            "column_number_1_based": 0,
+            "column_name": "",
+            "field_name": "",
+            "record_id": "pattern:selected",
+            "record_kind": "Pattern",
+            "line_digest": "NONE",
+            "source_available": false,
+            "missing_reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+        },
+        {
+            "source_kind": "AuthoringCsv",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/Activity/activity_slots_v2.csv",
+            "csv_file_digest": "bd9b7347cfe627801bf66dca650dd9009dc2545dc0cd478aebb5abadda881c1b",
+            "row_number_1_based": 2,
+            "column_number_1_based": 3,
+            "column_name": "slot_kind",
+            "field_name": "slot_kind",
+            "record_id": "ACT_CRATER_BOULDER_CHAIN/SLOT_CRATER_BOULDER_CHAIN_CUE",
+            "record_kind": "Slot",
+            "line_digest": "5c4451f235cc71385f3c75f722cedb3b919099298382ed736e1425fa0f6ea72d",
+            "source_available": true,
+            "missing_reason": ""
+        },
+        {
+            "source_kind": "AuthoringCsv",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroChunk/microchunk_sockets.csv",
+            "csv_file_digest": "26ba53ed667249c7a8350997a985bf15dffdfd288c94d0b87b3670f5210360b5",
+            "row_number_1_based": 2,
+            "column_number_1_based": 9,
+            "column_name": "edge_signature_id",
+            "field_name": "edge_signature_id",
+            "record_id": "MC_GRAY_H_STRAIGHT_01/SOCK_L",
+            "record_kind": "Socket",
+            "line_digest": "cd282899b36b630121adb8c9388f0b5f57585a663a8a0de5e54c0320b487b1b3",
+            "source_available": true,
+            "missing_reason": ""
+        },
+        {
+            "source_kind": "AuthoringCsv",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_cells_v2.csv",
+            "csv_file_digest": "e702ae5d02d7ec9d2cda129c1361699e37d942c280c8f9bd1f3200f155084381",
+            "row_number_1_based": 2,
+            "column_number_1_based": 4,
+            "column_name": "operation",
+            "field_name": "operation",
+            "record_id": "MP_CRATER_BOWL/0/0",
+            "record_kind": "Tile",
+            "line_digest": "877d537f2d91ac5322727a4019567127051ece9a658dae49ece29f97c9e1aaca",
+            "source_available": true,
+            "missing_reason": ""
+        },
+        {
+            "source_kind": "AuthoringCsv",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_catalog_v2.csv",
+            "csv_file_digest": "f9d9e9cc60c4e4d7561c5aa6502228c18fc9566e3e0febab206ea3264b408267",
+            "row_number_1_based": 2,
+            "column_number_1_based": 2,
+            "column_name": "selection_weight",
+            "field_name": "selection_weight",
+            "record_id": "MP_CRATER_BOWL",
+            "record_kind": "Pattern",
+            "line_digest": "2587cd76787b95e556f0a81c6feb7edee443c458f9b7e34ebaf32af9c17162d7",
+            "source_available": true,
+            "missing_reason": ""
+        },
+        {
+            "source_kind": "AuthoringCsv",
+            "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/TerrainCluster/terrain_cluster_catalog_v2.csv",
+            "csv_file_digest": "85ae3a9bdfafc9bba1f1f2267f5ef1a2ae1154346661635c7d0f1662c8602393",
+            "row_number_1_based": 2,
+            "column_number_1_based": 2,
+            "column_name": "pacing_role",
+            "field_name": "pacing_role",
+            "record_id": "TC_CRATER_BOWL_ASCENT",
+            "record_kind": "Cluster",
+            "line_digest": "90a8c139cb3d637cc3faea6e719e73fbc49a3416776d52119b54b2f370125103",
+            "source_available": true,
+            "missing_reason": ""
+        }
+    ],
+    "jump_target_records": [
+        {
+            "validation_error_id": "MAP20_04_CLUSTER_SOURCE",
+            "severity": "Error",
+            "owner": "TerrainCluster",
+            "message": "Navigate to the exact read-only CSV source and inspector selection.",
+            "source_location": {
+                "source_kind": "AuthoringCsv",
+                "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/TerrainCluster/terrain_cluster_catalog_v2.csv",
+                "csv_file_digest": "85ae3a9bdfafc9bba1f1f2267f5ef1a2ae1154346661635c7d0f1662c8602393",
+                "row_number_1_based": 2,
+                "column_number_1_based": 2,
+                "column_name": "pacing_role",
+                "field_name": "pacing_role",
+                "record_id": "TC_CRATER_BOWL_ASCENT",
+                "record_kind": "Cluster",
+                "line_digest": "90a8c139cb3d637cc3faea6e719e73fbc49a3416776d52119b54b2f370125103",
+                "source_available": true,
+                "missing_reason": ""
+            },
+            "jump_target_kind": "Cluster",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "local_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "world_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "pattern_id": "",
+            "cluster_id": "TC_CRATER_BOWL_ASCENT",
+            "socket_id": "",
+            "slot_id": "",
+            "inspector_tab_token": "Cluster",
+            "inspector_record_id": "TC_CRATER_BOWL_ASCENT",
+            "selection_path": "GeneratedDetailInspector/Cluster/TC_CRATER_BOWL_ASCENT",
+            "replay_reference": "MAP20_03/30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "source_available": true,
+            "missing_reason": "",
+            "canonical_digest": "b5f17e0d1dc9dceb31e97ad130f9570b8d7f1371fcfe6b4bda8b82dc17cfe59e"
+        },
+        {
+            "validation_error_id": "MAP20_04_PATTERN_MISSING_DATA",
+            "severity": "Info",
+            "owner": "MAP20_03",
+            "message": "The intended Pattern source remains explicit MissingData.",
+            "source_location": {
+                "source_kind": "MissingData",
+                "csv_file_path": "",
+                "csv_file_digest": "NONE",
+                "row_number_1_based": 0,
+                "column_number_1_based": 0,
+                "column_name": "",
+                "field_name": "",
+                "record_id": "pattern:selected",
+                "record_kind": "Pattern",
+                "line_digest": "NONE",
+                "source_available": false,
+                "missing_reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+            },
+            "jump_target_kind": "Pattern",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "local_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "world_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "pattern_id": "",
+            "cluster_id": "",
+            "socket_id": "",
+            "slot_id": "",
+            "inspector_tab_token": "Pattern",
+            "inspector_record_id": "pattern:selected",
+            "selection_path": "GeneratedDetailInspector/Pattern/pattern:selected",
+            "replay_reference": "MAP20_03/30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "source_available": false,
+            "missing_reason": "MAP20_02 samples contain inspection markers but no detailed source records.",
+            "canonical_digest": "239bb3aa1b5beee4f2d7de7b83a7b5f1f822842019f8a31b331fcb77e05ad8dd"
+        },
+        {
+            "validation_error_id": "MAP20_04_PATTERN_SOURCE",
+            "severity": "Error",
+            "owner": "MicroPattern",
+            "message": "Navigate to the exact read-only CSV source and inspector selection.",
+            "source_location": {
+                "source_kind": "AuthoringCsv",
+                "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_catalog_v2.csv",
+                "csv_file_digest": "f9d9e9cc60c4e4d7561c5aa6502228c18fc9566e3e0febab206ea3264b408267",
+                "row_number_1_based": 2,
+                "column_number_1_based": 2,
+                "column_name": "selection_weight",
+                "field_name": "selection_weight",
+                "record_id": "MP_CRATER_BOWL",
+                "record_kind": "Pattern",
+                "line_digest": "2587cd76787b95e556f0a81c6feb7edee443c458f9b7e34ebaf32af9c17162d7",
+                "source_available": true,
+                "missing_reason": ""
+            },
+            "jump_target_kind": "Pattern",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "local_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "world_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "pattern_id": "MP_CRATER_BOWL",
+            "cluster_id": "",
+            "socket_id": "",
+            "slot_id": "",
+            "inspector_tab_token": "Pattern",
+            "inspector_record_id": "MP_CRATER_BOWL",
+            "selection_path": "GeneratedDetailInspector/Pattern/MP_CRATER_BOWL",
+            "replay_reference": "MAP20_03/30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "source_available": true,
+            "missing_reason": "",
+            "canonical_digest": "2d4130df2619021f352a0598ffe9ba1ecf4c7e6b24c2337baf55cb6c28940ec5"
+        },
+        {
+            "validation_error_id": "MAP20_04_SLOT_SOURCE",
+            "severity": "Error",
+            "owner": "ActivityStructure",
+            "message": "Navigate to the exact read-only CSV source and inspector selection.",
+            "source_location": {
+                "source_kind": "AuthoringCsv",
+                "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/Activity/activity_slots_v2.csv",
+                "csv_file_digest": "bd9b7347cfe627801bf66dca650dd9009dc2545dc0cd478aebb5abadda881c1b",
+                "row_number_1_based": 2,
+                "column_number_1_based": 3,
+                "column_name": "slot_kind",
+                "field_name": "slot_kind",
+                "record_id": "ACT_CRATER_BOULDER_CHAIN/SLOT_CRATER_BOULDER_CHAIN_CUE",
+                "record_kind": "Slot",
+                "line_digest": "5c4451f235cc71385f3c75f722cedb3b919099298382ed736e1425fa0f6ea72d",
+                "source_available": true,
+                "missing_reason": ""
+            },
+            "jump_target_kind": "Slot",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "local_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "world_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "pattern_id": "",
+            "cluster_id": "",
+            "socket_id": "",
+            "slot_id": "SLOT_CRATER_BOULDER_CHAIN_CUE",
+            "inspector_tab_token": "Cluster",
+            "inspector_record_id": "SLOT_CRATER_BOULDER_CHAIN_CUE",
+            "selection_path": "GeneratedDetailInspector/Cluster/SLOT_CRATER_BOULDER_CHAIN_CUE",
+            "replay_reference": "MAP20_03/30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "source_available": true,
+            "missing_reason": "",
+            "canonical_digest": "17e3d91dd57de34d7bf9a26a920f5f3764ab53502066d72e514c7271d2d01e1a"
+        },
+        {
+            "validation_error_id": "MAP20_04_SOCKET_SOURCE",
+            "severity": "Error",
+            "owner": "MicroChunk",
+            "message": "Navigate to the exact read-only CSV source and inspector selection.",
+            "source_location": {
+                "source_kind": "AuthoringCsv",
+                "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroChunk/microchunk_sockets.csv",
+                "csv_file_digest": "26ba53ed667249c7a8350997a985bf15dffdfd288c94d0b87b3670f5210360b5",
+                "row_number_1_based": 2,
+                "column_number_1_based": 9,
+                "column_name": "edge_signature_id",
+                "field_name": "edge_signature_id",
+                "record_id": "MC_GRAY_H_STRAIGHT_01/SOCK_L",
+                "record_kind": "Socket",
+                "line_digest": "cd282899b36b630121adb8c9388f0b5f57585a663a8a0de5e54c0320b487b1b3",
+                "source_available": true,
+                "missing_reason": ""
+            },
+            "jump_target_kind": "Socket",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "local_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "world_cell_coordinate": {
+                "x": 0,
+                "y": 0
+            },
+            "pattern_id": "",
+            "cluster_id": "",
+            "socket_id": "SOCK_L",
+            "slot_id": "",
+            "inspector_tab_token": "Slice",
+            "inspector_record_id": "SOCK_L",
+            "selection_path": "GeneratedDetailInspector/Slice/SOCK_L",
+            "replay_reference": "MAP20_03/30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "source_available": true,
+            "missing_reason": "",
+            "canonical_digest": "031e314da3a331f7db2a129225bfd37697977d098ac9374a631930b21dfdcfc3"
+        },
+        {
+            "validation_error_id": "MAP20_04_TILE_SOURCE",
+            "severity": "Error",
+            "owner": "MicroPattern",
+            "message": "Navigate to the exact read-only CSV source and inspector selection.",
+            "source_location": {
+                "source_kind": "AuthoringCsv",
+                "csv_file_path": "Assets/_Game/Map/Data/WorldGeneration/Authoring/MicroPattern/micro_pattern_cells_v2.csv",
+                "csv_file_digest": "e702ae5d02d7ec9d2cda129c1361699e37d942c280c8f9bd1f3200f155084381",
+                "row_number_1_based": 2,
+                "column_number_1_based": 4,
+                "column_name": "operation",
+                "field_name": "operation",
+                "record_id": "MP_CRATER_BOWL/0/0",
+                "record_kind": "Tile",
+                "line_digest": "877d537f2d91ac5322727a4019567127051ece9a658dae49ece29f97c9e1aaca",
+                "source_available": true,
+                "missing_reason": ""
+            },
+            "jump_target_kind": "Tile",
+            "sector_coordinate": {
+                "x": 6,
+                "y": 6
+            },
+            "local_cell_coordinate": {
+                "x": 24,
+                "y": 16
+            },
+            "world_cell_coordinate": {
+                "x": 312,
+                "y": 208
+            },
+            "pattern_id": "",
+            "cluster_id": "",
+            "socket_id": "",
+            "slot_id": "",
+            "inspector_tab_token": "WorldOverlay",
+            "inspector_record_id": "cell:24,16",
+            "selection_path": "GeneratedWorldOverlayInspector/Sector(6,6)/Cell(24,16)",
+            "replay_reference": "MAP20_03/30222f392a62b2892cb47a605df4aa48d5d69178da852ed887a18471a0dd8ee8",
+            "source_available": true,
+            "missing_reason": "",
+            "canonical_digest": "51c832a460e586e9e0d7a79dc548e0212ccb3203655038bd6889c94ab3bbfe40"
+        }
+    ],
+    "missing_data_records": [
+        {
+            "source_kind": "MissingData",
+            "csv_file_path": "",
+            "csv_file_digest": "NONE",
+            "row_number_1_based": 0,
+            "column_number_1_based": 0,
+            "column_name": "",
+            "field_name": "",
+            "record_id": "pattern:selected",
+            "record_kind": "Pattern",
+            "line_digest": "NONE",
+            "source_available": false,
+            "missing_reason": "MAP20_02 samples contain inspection markers but no detailed source records."
+        }
+    ],
+    "canonical_digest": "6af989c49229b7403d3817efbff2ee9a95e2bf73aeef811d4ffab900a4959f38",
+    "created_utc": "2026-09-06T03:37:03.5795766Z",
+    "created_utc_excluded_from_canonical_digest": true
+}

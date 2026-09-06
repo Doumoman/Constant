@@ -20,6 +20,9 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
         [NonSerialized] private Vector2 pageScroll;
         [NonSerialized] private Vector2 recordScroll;
         [NonSerialized] private int viewStateMutationCount;
+        [NonSerialized] private string navigationSelectionPath = string.Empty;
+        [NonSerialized] private string navigationRecordId = string.Empty;
+        [NonSerialized] private bool navigationSelectionResolved;
 
         public static int OpenInvocationCount => openInvocationCount;
         public static int ExternalActionInvocationCount => externalActionInvocationCount;
@@ -30,6 +33,9 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
         public int SelectedRecordIndex => selectedRecordIndex;
         public string SnapshotDigest => Snapshot?.CanonicalDigest ?? string.Empty;
         public string CombinedDetailDigest => Details?.CanonicalDigest ?? string.Empty;
+        public string NavigationSelectionPath => navigationSelectionPath;
+        public string NavigationRecordId => navigationRecordId;
+        public bool NavigationSelectionResolved => navigationSelectionResolved;
 
         [MenuItem(MenuPath)]
         public static GeneratedDetailInspectorWindow Open()
@@ -87,6 +93,35 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
             return RecordCount(index);
         }
 
+        public void ReceiveNavigationSelection(string tabToken, string recordId,
+            string selectionPath)
+        {
+            EnsureReadOnlySample();
+            var tabIndex = GeneratedDetailTabCatalog.IndexOf(tabToken);
+            if (tabIndex < 0)
+                throw new ArgumentException("Unknown detail tab token.", nameof(tabToken));
+            if (string.IsNullOrWhiteSpace(recordId))
+                throw new ArgumentException("Navigation record id is required.", nameof(recordId));
+            if (string.IsNullOrWhiteSpace(selectionPath))
+                throw new ArgumentException("Navigation selection path is required.",
+                    nameof(selectionPath));
+
+            var recordIndex = FindRecordIndex(tabIndex, recordId);
+            var resolved = recordIndex >= 0;
+            var nextRecordIndex = resolved ? recordIndex : 0;
+            if (selectedTabIndex == tabIndex && selectedRecordIndex == nextRecordIndex &&
+                string.Equals(navigationRecordId, recordId, StringComparison.Ordinal) &&
+                string.Equals(navigationSelectionPath, selectionPath, StringComparison.Ordinal) &&
+                navigationSelectionResolved == resolved) return;
+            selectedTabIndex = tabIndex;
+            selectedRecordIndex = nextRecordIndex;
+            navigationRecordId = recordId;
+            navigationSelectionPath = selectionPath;
+            navigationSelectionResolved = resolved;
+            viewStateMutationCount++;
+            Repaint();
+        }
+
         private void OnEnable()
         {
             titleContent = new GUIContent(WindowTitle);
@@ -111,6 +146,13 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
                 Snapshot.SelectedSectorX + "," + Snapshot.SelectedSectorY);
             EditorGUILayout.LabelField("Selected cell",
                 Snapshot.SelectedCellX + "," + Snapshot.SelectedCellY);
+            if (!string.IsNullOrWhiteSpace(navigationSelectionPath))
+            {
+                EditorGUILayout.LabelField("Navigation selection",
+                    navigationSelectionPath);
+                EditorGUILayout.LabelField("Navigation record state",
+                    navigationSelectionResolved ? "Selected" : "MissingData");
+            }
 
             EditorGUILayout.Space();
             var labels = new string[GeneratedDetailTabCatalog.Tabs.Count];
@@ -261,6 +303,36 @@ namespace StarNight.MapAuthoring.WorldGeneration.Tooling
                 default:
                     throw new ArgumentOutOfRangeException(nameof(tabIndex));
             }
+        }
+
+        private int FindRecordIndex(int tabIndex, string recordId)
+        {
+            switch (tabIndex)
+            {
+                case 0:
+                    for (var index = 0; index < Details.PatternRecords.Count; index++)
+                        if (string.Equals(Details.PatternRecords[index].PatternId, recordId,
+                            StringComparison.Ordinal)) return index;
+                    break;
+                case 1:
+                    for (var index = 0; index < Details.ClusterRecords.Count; index++)
+                        if (string.Equals(Details.ClusterRecords[index].ClusterId, recordId,
+                            StringComparison.Ordinal)) return index;
+                    break;
+                case 2:
+                    for (var index = 0; index < Details.SpecialRecords.Count; index++)
+                        if (string.Equals(Details.SpecialRecords[index].SpecialRegionId, recordId,
+                            StringComparison.Ordinal)) return index;
+                    break;
+                case 3:
+                    for (var index = 0; index < Details.SliceRecords.Count; index++)
+                        if (string.Equals("slice:" + Details.SliceRecords[index].SliceIndex,
+                            recordId, StringComparison.Ordinal)) return index;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(tabIndex));
+            }
+            return -1;
         }
     }
 }
