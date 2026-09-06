@@ -1,0 +1,252 @@
+{
+    "schema_version": "map21_03.moonpalace_cluster_pool_production.v1",
+    "task_id": "MAP21_03_EXPAND_CRATER_AND_ROOT_CLUSTER_POOLS",
+    "signatures": [
+        {
+            "cluster_id": "TC_CRATER_BUFFER_ENTRY_RAMP",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Buffer",
+            "repeat_group": "CraterBuffer",
+            "structural_signature": "d4b7c0b01ce85a7dbf876d6f8a58a5ea46db9ec391e83f75c8f8bbc80f2a3873",
+            "silhouette_signature": "7585c573c6929c252d7b6530bb40082ba858bc550c75a6826d083d643ba13741",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "ba63a4caad263eedec433190b8a2f8ebca4ac398d5d717c1d14343d3e7fe0681"
+        },
+        {
+            "cluster_id": "TC_CRATER_BUFFER_EXIT_LEDGE",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Buffer",
+            "repeat_group": "CraterBuffer",
+            "structural_signature": "8db7a8e7e771be5ae7a3112a2774e2f00f33ba22f82df4373da0bbe75103c692",
+            "silhouette_signature": "be40d53bfbb0aaf3fd8a0774dd88b18cd52fb8c38e0e8c85d5297ddd9f2a8d5a",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "bdf60c4b233fb75d6ef2d373e5183b09d3523a766c2486f52460b618378118b6"
+        },
+        {
+            "cluster_id": "TC_CRATER_BUFFER_RECOVERY_DIP",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Buffer",
+            "repeat_group": "CraterBuffer",
+            "structural_signature": "6622bf934e783d9bc5a03357712f25767012ba30ddc613922974bae3c26fa206",
+            "silhouette_signature": "7ae9f625c47c36a7a1189fedf1873c92ed08d93ee9b01d5f756c8a1d05de6589",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "103e719724d8f755a82b0685d72a33ec91952bebbd4e3ad2cc49c21a36b35adf"
+        },
+        {
+            "cluster_id": "TC_CRATER_PROD_BOWL_CROSS",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Terrain",
+            "repeat_group": "CraterTerrain",
+            "structural_signature": "0c80b96fe43fae572e44e195488a22b63d1168f6d8bfdc73a932cf4eef6d5e4b",
+            "silhouette_signature": "7606d2331e96575e4d735341d6613aaddb5eb8ff8b63e5ba12bd36044a9de633",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "9eb56d6e6f9dfea935fe35e2f8a8264fc8ea090caa24b248f346b28381f25d50"
+        },
+        {
+            "cluster_id": "TC_CRATER_PROD_BROKEN_SLOPE",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Terrain",
+            "repeat_group": "CraterTerrain",
+            "structural_signature": "bec525650a5eb0f7e8efc8e536b4402d1f579618e160e5614dc3d0059cd3257d",
+            "silhouette_signature": "4e2bc888cd2259fb44a1062f983572137603149dfd1fcc7bb30db19d022f8348",
+            "source_starter_cluster_id": "TC_CRATER_BROKEN_SLOPE",
+            "canonical_digest": "6257a2bdee3bc8b8b52bea0c7cb05337ac6d8a5be3747c98def50abdebde3f90"
+        },
+        {
+            "cluster_id": "TC_CRATER_PROD_FALL_RECOVERY",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Terrain",
+            "repeat_group": "CraterTerrain",
+            "structural_signature": "f3e29900629b200bdef644f353a9bc976049a3ee1df7d930237853299f496820",
+            "silhouette_signature": "72fed45c43bb4a3fcaca39b375672699d6bdfb8228139fee226852d55674f15f",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "edf3cdcf3da8867743209c430a0addaaff8a2a5bfd7b6b0819b21e901b0f4900"
+        },
+        {
+            "cluster_id": "TC_CRATER_PROD_HIGH_LEDGE",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Terrain",
+            "repeat_group": "CraterTerrain",
+            "structural_signature": "0cb8691eba96416ade213b6b8c78a6d92336a1e2226ddd4efb6c278be20de6c4",
+            "silhouette_signature": "0bc075d0a134659fc05276ff5ed3973cf14366ad9efd62abb1d8c2ecbfb8bba4",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "f8b4c20c3c509f5a74bc50b16830ac51196ced90d464015d6924d9b737e60661"
+        },
+        {
+            "cluster_id": "TC_CRATER_PROD_RIM_ASCENT",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Terrain",
+            "repeat_group": "CraterTerrain",
+            "structural_signature": "f75b9c7f8ea84a07d45d7cef66e6ab0b3dcda5c2f15e2e71eef659ea606182e0",
+            "silhouette_signature": "6f24b323509f08a4fcd9021d23409b2c10607a024e50f404f9eb545265e3babe",
+            "source_starter_cluster_id": "TC_CRATER_BOWL_ASCENT",
+            "canonical_digest": "daa35287f9847350efd6c7c155800ca0258d92e2708aa3788e8b234754a42b19"
+        },
+        {
+            "cluster_id": "TC_CRATER_PROD_ROCK_SHELF_CHAIN",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Terrain",
+            "repeat_group": "CraterTerrain",
+            "structural_signature": "db68812256259df0959b33b3176613e1a82d9e54e98fa2f42b987bb745a353e6",
+            "silhouette_signature": "a7a565e8de8197a7d32166effbbf28249110bcc28776985f382ba0f0c741a2b5",
+            "source_starter_cluster_id": "TC_CRATER_ROCK_SHELF_RECOVERY",
+            "canonical_digest": "c97d83d3428be286e14a1533ea7e9ea59d980fbfc6d962a2994d729ad5fdf281"
+        },
+        {
+            "cluster_id": "TC_CRATER_QUIET_DUST_RIM",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Quiet",
+            "repeat_group": "CraterQuiet",
+            "structural_signature": "41524e7c3aed0269cac64869334b074c6b5fd63c1a77e2ab997051896e7fe804",
+            "silhouette_signature": "0600b0952e88932b59953a22ab2a0ec9c239ac4dcd954b1e7d0fa92626ce8089",
+            "source_starter_cluster_id": "TC_CRATER_QUIET_RIM",
+            "canonical_digest": "96cd67912d3b8d0f03338c46b86146f67da12a8d770e1302fee424405a7a3cc5"
+        },
+        {
+            "cluster_id": "TC_CRATER_QUIET_SHADOW_SHELF",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Quiet",
+            "repeat_group": "CraterQuiet",
+            "structural_signature": "ec53f3827910c056d9b2c67886931a7853b78d025b3c316f3f85b6df7ab2e959",
+            "silhouette_signature": "36a51f78ce5872475f7c9f8d2cbcf8e6e583809c45214c1660c7b3b7a405e759",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "3df796eebad5b0b0b4909e4f7845de824b6174dca23458778509986f09b65fd8"
+        },
+        {
+            "cluster_id": "TC_CRATER_QUIET_SHALLOW_BOWL",
+            "biome_id": "MoonCrater",
+            "pool_kind": "Quiet",
+            "repeat_group": "CraterQuiet",
+            "structural_signature": "31881caed0f02d69eb732e1a13aeec01b23da7733fb05a57edb041eb7980ab4d",
+            "silhouette_signature": "454bcfe626148210072be7ba53754430eb40257aa6aa733f8f545863b7ace460",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "70eee9b0e121f151c245d5b8c90daf44971626726ebdbb293b65a266837567d7"
+        },
+        {
+            "cluster_id": "TC_ROOT_BUFFER_ENTRY_ARCH",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Buffer",
+            "repeat_group": "RootBuffer",
+            "structural_signature": "3a37cca1f2319e4d760e375bccdfa96aeebaa4721c56b84c39558455288da1fa",
+            "silhouette_signature": "5d62962f9ce492a449e42f2c478f3ff455083b7f176b50e237310ade3ba736ff",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "ecb2ee2b5131a0dec62af3d1bd76f140093f160e725654292007a0b918d1caf8"
+        },
+        {
+            "cluster_id": "TC_ROOT_BUFFER_EXIT_TUNNEL",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Buffer",
+            "repeat_group": "RootBuffer",
+            "structural_signature": "d7c7b344ae87e483d5fe7ff771839f6874291eee958d7daecca74034492aab69",
+            "silhouette_signature": "bcbf3a3a2a2d4fdf8938fedbe97712a51d178ffb51ab7b8a09bbacb80a3ec684",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "bf75337ad5559e25b10d47c562d81d0adf93aebc429c4e0d520366ce52346e3f"
+        },
+        {
+            "cluster_id": "TC_ROOT_BUFFER_RECOVERY_CANOPY",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Buffer",
+            "repeat_group": "RootBuffer",
+            "structural_signature": "b83e1d173ace2c3a8207b28967b9ef07c2217803c91dbea5053cda37973a3f5e",
+            "silhouette_signature": "d9857e060721ecaa91565b7c9aeb3fc8c0b16c27afb27b381c8a8216af54d90c",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "2c86ca0a971a5be8f7a06994e561aae35c7a1fbb855609e42f391ed62286ec02"
+        },
+        {
+            "cluster_id": "TC_ROOT_PROD_ARCH_FLOW",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Terrain",
+            "repeat_group": "RootTerrain",
+            "structural_signature": "f67a62a047c4ae5aac604691bfceb5e7e5efaed8dc9102f592e9cf22906ba1ff",
+            "silhouette_signature": "6d12704a8cb6ca99faefedec55a3f0e268e13bc530eb80da2778b321af40f0c6",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "e0467013bfae5644113edea900c97b58c5342057ce295249bcdb8d66af1f92e6"
+        },
+        {
+            "cluster_id": "TC_ROOT_PROD_CANOPY_SWITCHBACK",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Terrain",
+            "repeat_group": "RootTerrain",
+            "structural_signature": "34364265cbbed1ef210d94a62a7732cd7bf9ab2f90889bc0f62d9a1ba83bfc84",
+            "silhouette_signature": "257b20c382030658f09fa7f3a07281b32a52f4b599f4dc980c2bcb248621233b",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "fa9657ac24b4febe79cd1ff32e94d8e4f223b83533d8c407c1579a5d5b17acfc"
+        },
+        {
+            "cluster_id": "TC_ROOT_PROD_FORK_RECOVERY",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Terrain",
+            "repeat_group": "RootTerrain",
+            "structural_signature": "fd67f1f5145cc8f84ed2ef9e1d121a766ec232ad99c9805e99b834b521a54f20",
+            "silhouette_signature": "e9575283f2a6278d922b74569d53013aeceb661cb23646be7c53ab3397498895",
+            "source_starter_cluster_id": "TC_ROOT_FORKED_CANOPY_RECOVERY",
+            "canonical_digest": "6796fe140eaddd86664b6943055a910446492515fc263835077dc6957de3d7a7"
+        },
+        {
+            "cluster_id": "TC_ROOT_PROD_HOLLOW_POCKET",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Terrain",
+            "repeat_group": "RootTerrain",
+            "structural_signature": "a03418cbefebadf24b4b7d35df15086ff024b0ddfc3d80a96834d515cb4b010b",
+            "silhouette_signature": "3978e26fdbb84b6b5d5b10306a24e5c602ed46649779136cf738c00d8eea04d2",
+            "source_starter_cluster_id": "TC_ROOT_HOLLOW_POCKET",
+            "canonical_digest": "cd8dd26a80cad91322f7b052637760bdc8400246922faa1df475873a1657af99"
+        },
+        {
+            "cluster_id": "TC_ROOT_PROD_SAP_LEDGE",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Terrain",
+            "repeat_group": "RootTerrain",
+            "structural_signature": "46ce8e91ce5d9c7e81681daeb00fb3e1cecbe797b0016bb309fca6d92300d374",
+            "silhouette_signature": "59c3a24c8cf3fecc59f01cbcbad0076c04215a111f81627c20f0da36b11248c9",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "ef267c86d648fdea6306dac86ae32615fd5bac2a77127546f803ee3ed8bae1bd"
+        },
+        {
+            "cluster_id": "TC_ROOT_PROD_VERTICAL_TUNNEL",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Terrain",
+            "repeat_group": "RootTerrain",
+            "structural_signature": "ff50c31e1014c6cea63ae5236bfd1460ce9c75b8978579fc1a91298141fd4343",
+            "silhouette_signature": "962aa7123cc227ccabb8448fcc525b035763799121c4d05431d0bef986af9915",
+            "source_starter_cluster_id": "TC_ROOT_VERTICAL_TUNNEL",
+            "canonical_digest": "3ca98b5a664f6b7afbe2b91a3d4f47554859db0432f5289aea06b7148a9baa79"
+        },
+        {
+            "cluster_id": "TC_ROOT_QUIET_ARCH_SHADE",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Quiet",
+            "repeat_group": "RootQuiet",
+            "structural_signature": "2768e5dd8e9111dae0f36077241ff3c52adbbb70c07df22336fe6a0154d5eb8f",
+            "silhouette_signature": "fcd8f00378b64c8d43fa79c1d8a068f81fd5b9c3014f4d896e12c3470a3fe919",
+            "source_starter_cluster_id": "TC_ROOT_QUIET_ARCH",
+            "canonical_digest": "525fb718c7bdd79132746b096a97f37401406ddae5f59de0d1ea5488ca0a10a5"
+        },
+        {
+            "cluster_id": "TC_ROOT_QUIET_ROOT_BRIDGE",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Quiet",
+            "repeat_group": "RootQuiet",
+            "structural_signature": "8a939723962ed6811cf924e1ddf02bf25730682e8ac87da1601ea6bda1b23b30",
+            "silhouette_signature": "06683c2df909a8650a81463f4a2a0674f9a1b70da2d3e7625005e35ade4e7428",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "a5bf901100559e481081876f9d27fde1310fe5567432d64a17caed0e1cbfb92b"
+        },
+        {
+            "cluster_id": "TC_ROOT_QUIET_VINE_PASSAGE",
+            "biome_id": "CassiaRoot",
+            "pool_kind": "Quiet",
+            "repeat_group": "RootQuiet",
+            "structural_signature": "437a124aab4eaba3a1f8c85b69d01f7d739758300398d2ebc8da0b81877a5735",
+            "silhouette_signature": "d0abbc744dc493548b5fd8df93a46ee3ed5da02a6013a137b6e3f3e1bae6bdbc",
+            "source_starter_cluster_id": "MissingData",
+            "canonical_digest": "45a3a6ac372d5c6292a38dcbb5f03c7aa19574f932bbf040bfda4c25bc5728e8"
+        }
+    ],
+    "cluster_signature_digest": "df017920326a4c82ec22358c51f70f04b0faf34c589d5b983bb0427410eb4a8f",
+    "structural_signature_duplicates": 0,
+    "silhouette_signature_duplicates_within_biome_pool": 0,
+    "created_utc": "2026-09-06T08:42:54.1617130Z",
+    "created_utc_excluded_from_canonical_digest": true,
+    "canonical_digest": "564db3cb0ccff42b24389bf707f68a7dda3e1936a58203fbefea0c5402e48a84"
+}
