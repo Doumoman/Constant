@@ -1,0 +1,48 @@
+{
+    "schema_version": "map21_06.boundary_digest_manifest.v1",
+    "task_id": "MAP21_06_EXPAND_ALL_SIX_BOUNDARY_POOLS",
+    "source_map08_aggregate_digest": "f7ff1c49f5bc33a4ad57799269bc3915806fe0cb60f347ed76eb16ea26f7fc68",
+    "source_map08_authoring_manifest_digest": "f63021913802f9ddb1c9b66c7c271b43cd216ba6d4f43e7337e23bd78fd34acb",
+    "source_map21_04_cluster_manifest_digest": "d30baf04fcd6eceeabd7b6f467b24ce11ce7c5f44833887bf7b0457e6fbdda72",
+    "source_map21_05_activity_event_manifest_digest": "645f95b8c58757179223b8e5b219b60b5a732cb898a69f99594178c76f166a1e",
+    "csv_digests": [
+        {
+            "name": "moonpalace_boundary_candidates.csv",
+            "sha256": "2107094694b829c40faaf298eb42747b1c3b75d8ffa9ed0fad53f53d79dba85d"
+        },
+        {
+            "name": "moonpalace_boundary_route_profiles.csv",
+            "sha256": "2f82cdb62b70c337e54a5e721c3f9a6ce855fda37da27ab212e43c294527843f"
+        },
+        {
+            "name": "moonpalace_boundary_sockets.csv",
+            "sha256": "20fbed1ef80f84c820f6773afd26606f2a268b9e48e80c7aad62e410354394bf"
+        },
+        {
+            "name": "moonpalace_boundary_tiles.csv",
+            "sha256": "5972d629e1ffc20aa03a6ccc725619013fe206c9301c3af731ca727053ea3698"
+        },
+        {
+            "name": "moonpalace_boundary_warning_evidence.csv",
+            "sha256": "00a139660372372701af9c5b7f8d06e047ceee534c821c6c2d47ceda33a783e5"
+        }
+    ],
+    "json_digests": [
+        {
+            "name": "moonpalace_boundary_pool_manifest.json",
+            "sha256": "4f75c7e8845ce3c7c6c3a7f6a2da062045126c1c88ff2f24ffd213d94ce6510e"
+        },
+        {
+            "name": "moonpalace_boundary_projection_manifest.json",
+            "sha256": "5f873fbcb23fcfe391d20a7266c66a45601568ecee66d9a1bc46669bb3ff5cc7"
+        },
+        {
+            "name": "moonpalace_boundary_warning_manifest.json",
+            "sha256": "6c00f0598e5f9020cd36405a8abb061e74cd7fb6b5b31b68e187cd73e77f5edd"
+        }
+    ],
+    "MAP21_07_handoff_digest": "c7c47d7dfe5928fe7e5f10f382ce2ccc3b9d20f218c1512c3e1ae60bb74e101b",
+    "created_utc_excluded_from_canonical_digest": true,
+    "created_utc": "2026-09-06T13:11:02.4352215Z",
+    "canonical_digest": "955ad4acb3e2294b3dc7c018c21472bf4ef34bbfc4075685324901179bd652ab"
+}
