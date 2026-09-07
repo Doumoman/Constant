@@ -1,0 +1,13 @@
+{
+  "connector_triggers": [
+    {"connector_id":"C01","from_room_id":"R01_START","to_room_id":"R02_TRANSIT","from_gate_tile":"43:45","to_gate_tile":"44:45","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C02","from_room_id":"R02_TRANSIT","to_room_id":"R03_VERTICAL_ASCENT","from_gate_tile":"83:33","to_gate_tile":"84:33","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C03","from_room_id":"R03_VERTICAL_ASCENT","to_room_id":"R04_SPLIT_GALLERY","from_gate_tile":"123:77","to_gate_tile":"124:77","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C04","from_room_id":"R04_SPLIT_GALLERY","to_room_id":"R05_TRANSIT","from_gate_tile":"163:77","to_gate_tile":"164:77","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C05","from_room_id":"R05_TRANSIT","to_room_id":"R06_SPLIT_GALLERY","from_gate_tile":"203:77","to_gate_tile":"204:77","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C06","from_room_id":"R06_SPLIT_GALLERY","to_room_id":"R07_VERTICAL_DESCENT","from_gate_tile":"243:65","to_gate_tile":"244:65","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C07","from_room_id":"R07_VERTICAL_DESCENT","to_room_id":"R08_EXIT","from_gate_tile":"283:45","to_gate_tile":"284:45","direction":"East","kind":"main","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C08","from_room_id":"R03_VERTICAL_ASCENT","to_room_id":"B01_LOWER_BRANCH","from_gate_tile":"101:32","to_gate_tile":"101:31","direction":"South","kind":"branch","required_socket_bit":1,"is_reciprocal":true,"is_open":true},
+    {"connector_id":"C09","from_room_id":"R06_SPLIT_GALLERY","to_room_id":"B02_LOWER_BRANCH","from_gate_tile":"221:64","to_gate_tile":"221:63","direction":"South","kind":"branch","required_socket_bit":1,"is_reciprocal":true,"is_open":true}
+  ]
+}

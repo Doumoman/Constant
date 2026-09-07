@@ -1,0 +1,16 @@
+{
+  "preview_id": "MP_RUN_PREVIEW_01",
+  "source_course_id": "MP_CAMERA_RUN_01",
+  "source_task": "RUN03_CONNECT_RUN_VARIANTS_TO_CAMERA_ROOM_TRANSITIONS",
+  "seed_id": "MP_QA_01",
+  "seed_value": 1924737067,
+  "pattern_size": "4x4",
+  "pattern_grid": "80x24",
+  "tile_grid": "320x96",
+  "expected_room_count": 10,
+  "expected_connector_count": 9,
+  "movement_mode": "TileStepOpenCell",
+  "camera_mode": "RoomBoundsSnapOrShortLerp",
+  "auto_route_ghost": true,
+  "canonical_digest": "192bac1084c2c95dba73709cf562eddd51c1ca5577cd4315d1cd049de379310a"
+}

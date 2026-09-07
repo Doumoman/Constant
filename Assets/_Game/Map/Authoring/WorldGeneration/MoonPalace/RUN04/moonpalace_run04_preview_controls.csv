@@ -1,0 +1,7 @@
+input,behavior
+W / UpArrow,attempt cardinal north open-tile step
+A / LeftArrow,attempt cardinal west open-tile step
+S / DownArrow,attempt cardinal south open-tile step
+D / RightArrow,attempt cardinal east open-tile step
+R,reset marker to RUN03 start tile
+G,toggle BFS route ghost
