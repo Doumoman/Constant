@@ -1,0 +1,8 @@
+{
+  "variants": [
+    {"variant_id":"MP_RUN_02_A_BRANCHING_LOWLAND","tile_level_bfs_start_to_exit":true,"branch_entries_reachable":"8/8","split_rejoin_waypoints_reachable":"0/0","route_socket_mismatch_count":0,"route_failure_count":0,"fallback_carve_count":0,"silent_repair_count":0,"validation_digest":"7e0e2b2c7fb4abc709bb1a5a5c301e32c15b16a9aa56ca9e3cb30ced607eb0b6"},
+    {"variant_id":"MP_RUN_02_B_VERTICAL_LOOP","tile_level_bfs_start_to_exit":true,"branch_entries_reachable":"9/9","split_rejoin_waypoints_reachable":"16/16","route_socket_mismatch_count":0,"route_failure_count":0,"fallback_carve_count":0,"silent_repair_count":0,"validation_digest":"d1da1298583b6524551bc5e7f09b525a7bd091c5abf83a2ee84d760052ab8e4a"},
+    {"variant_id":"MP_RUN_02_C_MULTI_ROOM_SPLIT","tile_level_bfs_start_to_exit":true,"branch_entries_reachable":"12/12","split_rejoin_waypoints_reachable":"40/40","route_socket_mismatch_count":0,"route_failure_count":0,"fallback_carve_count":0,"silent_repair_count":0,"validation_digest":"ce222de09a130f25470ce978d6ea5311d4d2821f3cbaeeadc97c4611d1810f15"}
+  ],
+  "aggregate_validation_digest": "4be42dee9001d21cdd99f1344ee8cdf9ae26551c1faf66d3a3916698bca274a7"
+}

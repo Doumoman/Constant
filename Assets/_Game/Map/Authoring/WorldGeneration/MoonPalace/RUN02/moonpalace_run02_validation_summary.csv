@@ -1,0 +1,5 @@
+variant_id,tile_width,tile_height,pattern_grid_width,pattern_grid_height,placements,start_open,exit_open,start_to_exit_reachable,branch_entries,reachable_branch_entries,split_rejoin_waypoints,reachable_split_rejoin_waypoints,route_socket_mismatches,out_of_bounds_placements,duplicate_placements,unreachable_route_branch_islands,route_failures,fallback_carves,silent_repairs,passed,validation_digest
+MP_RUN_02_A_BRANCHING_LOWLAND,192,56,48,14,672,TRUE,TRUE,TRUE,8,8,0,0,0,0,0,0,0,0,0,TRUE,7e0e2b2c7fb4abc709bb1a5a5c301e32c15b16a9aa56ca9e3cb30ced607eb0b6
+MP_RUN_02_B_VERTICAL_LOOP,168,72,42,18,756,TRUE,TRUE,TRUE,9,9,16,16,0,0,0,0,0,0,0,TRUE,d1da1298583b6524551bc5e7f09b525a7bd091c5abf83a2ee84d760052ab8e4a
+MP_RUN_02_C_MULTI_ROOM_SPLIT,240,64,60,16,960,TRUE,TRUE,TRUE,12,12,40,40,0,0,0,0,0,0,0,TRUE,ce222de09a130f25470ce978d6ea5311d4d2821f3cbaeeadc97c4611d1810f15
+AGGREGATE,,,,,2388,,,,,,,,,0,,,,,0,0,TRUE,4be42dee9001d21cdd99f1344ee8cdf9ae26551c1faf66d3a3916698bca274a7

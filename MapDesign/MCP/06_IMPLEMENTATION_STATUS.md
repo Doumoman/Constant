@@ -15,6 +15,7 @@ V2 MoonPalace vertical slice: COMPLETE
 VIS01 MoonPalace graybox example scene: COMPLETE
 VIS02 MoonPalace graybox generator window actual run: COMPLETE
 RUN01 MoonPalace direct MicroPattern reachable run Scene: COMPLETE
+RUN02 MoonPalace direct MicroPattern multi-variant comparison Scene: COMPLETE
 ```
 
 ## Current Task
