@@ -1,0 +1,17 @@
+metric,value,verdict
+raw_mask_count,65536,PASS
+accepted_candidate_count,500,PASS
+unique_coordinates,1536,PASS
+pattern_placements,96,PASS
+microchunks,16,PASS
+patterns_per_microchunk,6,PASS
+cells_per_microchunk,96,PASS
+logical_layer_records,10752,PASS
+route_failure_count,0,PASS
+recovery_failure_count,0,PASS
+seam_failure_count,0,PASS
+unreachable_microchunk_count,0,PASS
+fallback_carve_count,0,PASS
+silent_auto_repair_count,0,PASS
+catalog_source_mutation_count,0,PASS
+full_world_generation_runs,0,PASS

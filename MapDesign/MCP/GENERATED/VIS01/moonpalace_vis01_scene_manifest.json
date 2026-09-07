@@ -1,0 +1,17 @@
+{
+  "scene_path":"Assets/_Game/Map/Scenes/MoonPalace/VIS01/MoonPalaceGrayboxExample_VIS01.unity",
+  "scene_root_object":"MoonPalace_Graybox_VIS01",
+  "debug_tile_assets":["Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_Solid.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_Open.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_RequiredRoute.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_RecoveryRoute.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_Marker.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_Protected.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_ChunkBoundary.asset","Assets/_Game/Map/Scenes/MoonPalace/VIS01/VIS01_PatternBoundary.asset"],
+  "generated_unity_scene_count":1,
+  "grid_object":"Grid",
+  "tilemap_layers":["Terrain_Solid_Open","Route_Recovery_Overlay","Marker_Protection_Boundaries"],
+  "camera":"VIS01_Camera:orthographic",
+  "legend":"Legend",
+  "metadata":"Metadata",
+  "seed_id":"MP_QA_01",
+  "seed_value":1924737067,
+  "sector":[6,6],
+  "logical_map_digest":"23be9f5b4311007708617eb2e45ab04f251c9a8f50e0416ebfe971d161c64a26",
+  "scene_manifest_digest":"2ff5a0eaf11107e8589966dd738e53695375a452942b0467accfe68a1da2618a",
+  "included_in_build_settings":false
+}

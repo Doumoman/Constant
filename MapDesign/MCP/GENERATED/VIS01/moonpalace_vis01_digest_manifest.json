@@ -1,0 +1,22 @@
+{
+  "catalog_digest": "e8bb64baef91083a912c8110660ab062f5c9e69c37d16b3bada430541c07e357",
+  "candidate_digest": "a32e48b168d5b5a6ae2cd4a1aa51ebf75ae58e96c73c6090ce6606ba407f3096",
+  "logical_map_digest": "23be9f5b4311007708617eb2e45ab04f251c9a8f50e0416ebfe971d161c64a26",
+  "scene_manifest_digest": "2ff5a0eaf11107e8589966dd738e53695375a452942b0467accfe68a1da2618a",
+  "artifacts": [
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_cells.csv","sha256":"bb1309bc45f98c8bee664a381f6d7fa1c132b4855dc82d97857748702d25830c"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_layers.csv","sha256":"98f99a5ab812c2f297bf8b05569cdb479bf37d16fe4b1a43c29c2738a1c01a12"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_microchunks.csv","sha256":"c90abf62291d564ed30b6302953cf64db1247350e84ac89161fe9bc98e651a53"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_pattern_candidates_500.csv","sha256":"1202ee37b2b086c6c59f7a7431953f91ddfff64af4b3651cd8a2ef797e5dd941"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_pattern_placements.csv","sha256":"0b4dbc7604011359d48df63ab4dd37e3a834f41695585c6d40957c028911e49f"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_selection_manifest.csv","sha256":"b2dba99f2d768b51652fe94a919c5c3ba4fb332a5e6a3a77a799e2452d5babc3"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/VIS01/moonpalace_vis01_validation_summary.csv","sha256":"1535d9b959fa9bc0a58bad76a841ef1ac039d2fd9116cd48a259c0d103602cdc"},
+    {"relative_path":"MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_catalog_snapshot.json","sha256":"3424f3df782ef9704db151440c8a458b009790700bcd634ea55f288481d6947e"},
+    {"relative_path":"MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_generation_result.json","sha256":"b8ceeb4acee8bd9e4813a5bc74cd2bae6ad0d85554f2fcafc64cee99558c1d76"},
+    {"relative_path":"MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_manifest.json","sha256":"c5ead8092d2ed3b400cb038de0116631dbd8aebbb0e4d3312c05f97182e4a418"},
+    {"relative_path":"MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_pattern_candidates_500.json","sha256":"f32b93eb0ed8a80892fa70aa0ddf15bc5af6fe890b80978e5ad82b069257014d"},
+    {"relative_path":"MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_scene_manifest.json","sha256":"cc898be7eb924c0862355605b5379d6c1246ed10d8aa816da60c1f492c17b36a"}
+  ],
+  "self_reference_policy": "digest_manifest_self_excluded",
+  "canonical_digest": "362407513e7eaf458ed44fb7be55f4a59a8c60fce5501c2b750c25af85e29f7f"
+}

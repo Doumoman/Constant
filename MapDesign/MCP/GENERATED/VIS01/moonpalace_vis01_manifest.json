@@ -1,0 +1,19 @@
+{
+  "artifact_name":"MoonPalace Graybox Example Scene v1",
+  "seed_id":"MP_QA_01",
+  "seed_value":1924737067,
+  "scope":"one_sector",
+  "sector":[6,6],
+  "logical_size":[48,32],
+  "micro_pattern_size":[4,4],
+  "raw_mask_count":65536,
+  "micro_pattern_candidates":500,
+  "microchunks":[4,4],
+  "microchunk_size":[12,8],
+  "patterns_per_microchunk":[3,2],
+  "logical_layers":7,
+  "catalog_digest":"e8bb64baef91083a912c8110660ab062f5c9e69c37d16b3bada430541c07e357",
+  "candidate_digest":"a32e48b168d5b5a6ae2cd4a1aa51ebf75ae58e96c73c6090ce6606ba407f3096",
+  "logical_map_digest":"23be9f5b4311007708617eb2e45ab04f251c9a8f50e0416ebfe971d161c64a26",
+  "created_utc_policy":"excluded_from_canonical_digest"
+}

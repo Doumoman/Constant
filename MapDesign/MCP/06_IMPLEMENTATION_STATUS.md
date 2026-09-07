@@ -12,6 +12,7 @@ Single MD Inbox Protocol Remediation: v1.0
 Master Task Backlog: v2.5 Compact / 216 tasks
 MAP21: COMPLETE
 V2 MoonPalace vertical slice: COMPLETE
+VIS01 MoonPalace graybox example scene: COMPLETE
 ```
 
 ## Current Task
@@ -240,19 +241,20 @@ NONE
 | MAP21_10_TUNE_REPETITION_DENSITY_AND_PACING | COMPLETE |
 | MAP21_11_LOCK_QA_SEEDS_AND_RUN_COMPLETION_PLAYTESTS | COMPLETE |
 | MAP21_12_VERTICAL_SLICE_RELEASE_AUDIT | COMPLETE |
+| VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1 | COMPLETE |
 
 ## Last Completed Task
 
 ```text
-MAP21_12_VERTICAL_SLICE_RELEASE_AUDIT
+VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1
 ```
 
 ## Last Result
 
 ```text
-REPORTS/MAP21_12_VERTICAL_SLICE_RELEASE_AUDIT_RESULT.md
+REPORTS/VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1_RESULT.md
 STATUS: PASS
-SHA-256: d9fd63a80894a7f72f743a36f797228b103ff4438486d3e5d6314608c0cc0a14
+SHA-256: 7b06ee95ce0973d996c5af72445f6d3840ace57ec6b4ee581cd4fe0fca6a5036
 ```
 
 ## Confirmed Baseline
@@ -948,7 +950,7 @@ SHA-256: d9fd63a80894a7f72f743a36f797228b103ff4438486d3e5d6314608c0cc0a14
 
 현재 Current Task는 `NONE`이다.
 
-상태 총계는 `216 rows = 113 COMPLETE / 0 CURRENT / 103 LOCKED`다. MAP16_09는 generated terrain geometry authority와 canonical digest primitive를 기존 digest/CSV byte contract 변경 없이 공통화해 완료했다. MAP17_01은 `LOCKED / DO NOT START`를 유지한다.
+상태 총계는 `217 rows = 114 COMPLETE / 0 CURRENT / 103 LOCKED`다. VIS01은 500개 generated structural MicroPattern candidate로 reachable 12x8 MicroChunk 16개를 조합한 격리 48x32 Unity graybox Scene을 완료했다. MAP16_09는 generated terrain geometry authority와 canonical digest primitive를 기존 digest/CSV byte contract 변경 없이 공통화해 완료했다. MAP17_01은 `LOCKED / DO NOT START`를 유지한다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
