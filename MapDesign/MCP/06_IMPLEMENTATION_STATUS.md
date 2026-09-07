@@ -13,6 +13,7 @@ Master Task Backlog: v2.5 Compact / 216 tasks
 MAP21: COMPLETE
 V2 MoonPalace vertical slice: COMPLETE
 VIS01 MoonPalace graybox example scene: COMPLETE
+VIS02 MoonPalace graybox generator window actual run: COMPLETE
 ```
 
 ## Current Task
@@ -242,19 +243,20 @@ NONE
 | MAP21_11_LOCK_QA_SEEDS_AND_RUN_COMPLETION_PLAYTESTS | COMPLETE |
 | MAP21_12_VERTICAL_SLICE_RELEASE_AUDIT | COMPLETE |
 | VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1 | COMPLETE |
+| VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE | COMPLETE |
 
 ## Last Completed Task
 
 ```text
-VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1
+VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE
 ```
 
 ## Last Result
 
 ```text
-REPORTS/VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1_RESULT.md
+REPORTS/VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE_RESULT.md
 STATUS: PASS
-SHA-256: 7b06ee95ce0973d996c5af72445f6d3840ace57ec6b4ee581cd4fe0fca6a5036
+SHA-256: 1e21587d8d60caf65aa00aa244cf94f8ff4793762ecfb2118b8765138eadf1e4
 ```
 
 ## Confirmed Baseline
@@ -950,7 +952,7 @@ SHA-256: 7b06ee95ce0973d996c5af72445f6d3840ace57ec6b4ee581cd4fe0fca6a5036
 
 현재 Current Task는 `NONE`이다.
 
-상태 총계는 `217 rows = 114 COMPLETE / 0 CURRENT / 103 LOCKED`다. VIS01은 500개 generated structural MicroPattern candidate로 reachable 12x8 MicroChunk 16개를 조합한 격리 48x32 Unity graybox Scene을 완료했다. MAP16_09는 generated terrain geometry authority와 canonical digest primitive를 기존 digest/CSV byte contract 변경 없이 공통화해 완료했다. MAP17_01은 `LOCKED / DO NOT START`를 유지한다.
+상태 총계는 `218 rows = 115 COMPLETE / 0 CURRENT / 103 LOCKED`다. VIS01은 500개 generated structural MicroPattern candidate로 reachable 12x8 MicroChunk 16개를 조합한 격리 48x32 Unity graybox Scene을 완료했다. VIS02는 Unity Editor Dry-run/Run 진입점과 VIS01 Scene 재생성을 완료했다. MAP16_09는 generated terrain geometry authority와 canonical digest primitive를 기존 digest/CSV byte contract 변경 없이 공통화해 완료했다. MAP17_01은 `LOCKED / DO NOT START`를 유지한다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 
