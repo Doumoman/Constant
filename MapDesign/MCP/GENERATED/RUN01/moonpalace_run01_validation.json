@@ -1,0 +1,18 @@
+{
+  "start_tile": "0:25",
+  "exit_tile": "159:25",
+  "start_open": true,
+  "exit_open": true,
+  "tile_level_bfs_start_to_exit": true,
+  "reachable_required_waypoints": "58/58",
+  "reachable_branch_entries": "6/6",
+  "route_socket_mismatch_count": 0,
+  "out_of_bounds_placement_count": 0,
+  "duplicate_placement_count": 0,
+  "unreachable_open_island_count": 56,
+  "route_failure_count": 0,
+  "fallback_carve_count": 0,
+  "silent_repair_count": 0,
+  "passed": true,
+  "validation_digest": "2df5e883aa71bd6dea6567ec669f91fa55605a5af869580b10f401e007541c39"
+}

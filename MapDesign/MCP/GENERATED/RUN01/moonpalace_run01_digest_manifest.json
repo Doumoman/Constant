@@ -1,0 +1,21 @@
+{
+  "config_digest": "7c1acece175a1fa6b7593f4d9cfaad89018dc6b89fb2d2c4dd84f3c73c26d89f",
+  "graph_digest": "c8673b630e4c3bc968f2e1f86b25b42c30fdf8b2c9a3ef3f4e1da6800ffd2260",
+  "composition_digest": "738304080e5c25d24ac87bf240a4a7b1b7bbfbaec71aa8e16e5b907a754d4aae",
+  "map_digest": "7f55ff87e3b41dc5d75498c6798c791f15112dc528d8e65b4b4061bc443b9d9f",
+  "validation_digest": "2df5e883aa71bd6dea6567ec669f91fa55605a5af869580b10f401e007541c39",
+  "scene_manifest_digest": "01b4ced17d6904faf0cc85d421f303681a3e447cfcf5c7569fe408f2352abf7f",
+  "digest_manifest_digest": "07bf16fac14b6badcc7c689d80b83b9d9acb3dd88014c77a5528311152d51162",
+  "artifacts": [
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/RUN01/moonpalace_run01_pattern_slots.csv","sha256":"4f17330efb1b05abc95425e2928dc44cda7d5724e675f33a028135d6c44fd530"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/RUN01/moonpalace_run01_route_edges.csv","sha256":"bd00b981120f86239e155896f7297c74a1a0bf39fc5f39bf5f6fe75f664c106d"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/RUN01/moonpalace_run01_selection_manifest.csv","sha256":"f968a49e159123c873741e21b953bf19178aade9a58d007951934296ae28eae6"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/RUN01/moonpalace_run01_tile_cells.csv","sha256":"67c44d48c9dfd1f21f26a69d6c2929f97f4da8896d80cd81d69b341ead879e46"},
+    {"relative_path":"Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/RUN01/moonpalace_run01_validation_summary.csv","sha256":"ed0f99dc8f87b31c5fa6cadba9c964686f7c6c3f67bbf9845126c41163d096fd"},
+    {"relative_path":"MapDesign/MCP/GENERATED/RUN01/moonpalace_run01_composition.json","sha256":"cbdde8d550b7674c59b86ddcf2c00c4c4bad0dcc245b218bb8392a8bfcca2a5b"},
+    {"relative_path":"MapDesign/MCP/GENERATED/RUN01/moonpalace_run01_config.json","sha256":"7826e2589d8ed7a27520cc23549e6b43461c5975172f20294c49157528aac252"},
+    {"relative_path":"MapDesign/MCP/GENERATED/RUN01/moonpalace_run01_graph.json","sha256":"ef754ecdac4f832d8f7be241ef788a3288ddafe8007e21a92b1f8c1fe30b5df4"},
+    {"relative_path":"MapDesign/MCP/GENERATED/RUN01/moonpalace_run01_scene_manifest.json","sha256":"f18276b9341fbc71613f76d27c912ac3d3bd0328483543b249ce734b1675df8e"},
+    {"relative_path":"MapDesign/MCP/GENERATED/RUN01/moonpalace_run01_validation.json","sha256":"463363bbf34d5afdb66609666ec76b379b04930eb6eb47738d2976103d51215d"}
+  ]
+}
