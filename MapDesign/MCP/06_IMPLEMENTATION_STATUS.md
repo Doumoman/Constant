@@ -955,6 +955,8 @@ SHA-256: 51669eda4a7d76815f20d0fa31c0d1df14d6c1fac579fa0ce1b11eec57e54951
 - MAP09_05 tests: focused `67/67`, compile/Console/relevant warnings `0/0/0`; final-code MAP09_04/03/02/01 `71/71 + 62/62 + 38/38 + 26/26`, MAP08 `9220/9220`; remaining regression replay stopped and superseded by the user's current no-regression-unless-problem instruction
 - MAP09_05 static gates: Runtime/Test C# + meta `6/6 + 2/2`, Authoring CSV/meta `50/50`, Authoring manifest unchanged, Generated CSV `0`, duplicate GUID/forbidden production symbol hits `0/0`, existing MAP00~09_04 and other V2 root modifications `0/0`
 
+- RUN05 seed regenerate and variant-selection tool: COMPLETE — isolated RUN05 Scene, direct 500-candidate 4x4 seed/recipe generation, fixed four-course gallery, and focused EditMode `18/18 PASS`; no Build Settings or prior Scene/Prefab mutation.
+
 ## Current Rule
 
 현재 Current Task는 `NONE`이다.

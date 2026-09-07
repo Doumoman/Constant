@@ -1,0 +1,13 @@
+room_id,role,route_order,pattern_min_x,pattern_min_y,pattern_max_x,pattern_max_y,tile_min_x,tile_min_y,tile_width,tile_height
+B01_NORTH,Branch,0,24,0,32,7,96,0,36,32
+B02_SOUTH,Branch,0,47,16,54,23,188,64,32,32
+B03_NORTH,Branch,0,70,0,76,7,280,0,28,32
+R01_START,Start,1,0,8,10,15,0,32,44,32
+R02_WIDE,Transit,2,11,8,21,15,44,32,44,32
+R03_WIDE,Transit,3,22,8,32,15,88,32,44,32
+R04_WIDE,Transit,4,33,8,43,15,132,32,44,32
+R05_WIDE,Transit,5,44,8,54,15,176,32,44,32
+R06_WIDE,Transit,6,55,8,65,15,220,32,44,32
+R07_WIDE,Transit,7,66,8,76,15,264,32,44,32
+R08_WIDE,Transit,8,77,8,87,15,308,32,44,32
+R09_EXIT,Exit,9,88,8,95,15,352,32,32,32

@@ -1,0 +1,7 @@
+{
+  "recipes": [
+    {"recipe_id":"COMPACT_SPLIT_RUN","pattern_grid":"64x20","tile_grid":"256x80","main_room_target":7,"branch_target":2,"split_rejoin_target":1,"digest":"152f94645c756b74ab7e41d57a53cfb5818a6d02f83670db1cf4ec42f22d8c57"},
+    {"recipe_id":"TALL_LOOP_RUN","pattern_grid":"72x28","tile_grid":"288x112","main_room_target":8,"branch_target":2,"split_rejoin_target":2,"digest":"bbedead317e2bb649585f062684dfec0061ed9029e2e0f17f34365bf3f6274d8"},
+    {"recipe_id":"WIDE_BRANCH_RUN","pattern_grid":"96x24","tile_grid":"384x96","main_room_target":9,"branch_target":3,"split_rejoin_target":2,"digest":"b3a53a41c03cc9ce62b1887f30916b02a4278b3b4eb3050b47991b528d8cf6e0"}
+  ]
+}

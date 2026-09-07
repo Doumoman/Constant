@@ -1,0 +1,4 @@
+recipe_id,pattern_grid,tile_grid,main_room_target,branch_target,split_rejoin_target,shape,digest
+COMPACT_SPLIT_RUN,64x20,256x80,7,2,1,compact route with clear split/rejoin,152f94645c756b74ab7e41d57a53cfb5818a6d02f83670db1cf4ec42f22d8c57
+TALL_LOOP_RUN,72x28,288x112,8,2,2,vertical climb/drop and loop-like return,bbedead317e2bb649585f062684dfec0061ed9029e2e0f17f34365bf3f6274d8
+WIDE_BRANCH_RUN,96x24,384x96,9,3,2,wide horizontal run with side branches,b3a53a41c03cc9ce62b1887f30916b02a4278b3b4eb3050b47991b528d8cf6e0

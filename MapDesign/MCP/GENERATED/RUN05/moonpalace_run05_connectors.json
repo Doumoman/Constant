@@ -1,0 +1,15 @@
+{
+  "connectors": [
+    {"connector_id":"C01","from_room_id":"R01_START","to_room_id":"R02_WIDE","from_gate_tile":"43:45","to_gate_tile":"44:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C02","from_room_id":"R02_WIDE","to_room_id":"R03_WIDE","from_gate_tile":"87:45","to_gate_tile":"88:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C03","from_room_id":"R03_WIDE","to_room_id":"R04_WIDE","from_gate_tile":"131:45","to_gate_tile":"132:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C04","from_room_id":"R04_WIDE","to_room_id":"R05_WIDE","from_gate_tile":"175:45","to_gate_tile":"176:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C05","from_room_id":"R05_WIDE","to_room_id":"R06_WIDE","from_gate_tile":"219:45","to_gate_tile":"220:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C06","from_room_id":"R06_WIDE","to_room_id":"R07_WIDE","from_gate_tile":"263:45","to_gate_tile":"264:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C07","from_room_id":"R07_WIDE","to_room_id":"R08_WIDE","from_gate_tile":"307:45","to_gate_tile":"308:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C08","from_room_id":"R08_WIDE","to_room_id":"R09_EXIT","from_gate_tile":"351:45","to_gate_tile":"352:45","kind":"main","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C10","from_room_id":"R03_WIDE","to_room_id":"B01_NORTH","from_gate_tile":"105:32","to_gate_tile":"105:31","kind":"branch","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C11","from_room_id":"R05_WIDE","to_room_id":"B02_SOUTH","from_gate_tile":"197:63","to_gate_tile":"197:64","kind":"branch","is_reciprocal":true,"is_open":true},
+    {"connector_id":"C12","from_room_id":"R07_WIDE","to_room_id":"B03_NORTH","from_gate_tile":"285:32","to_gate_tile":"285:31","kind":"branch","is_reciprocal":true,"is_open":true}
+  ]
+}
