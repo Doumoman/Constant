@@ -16,6 +16,7 @@ VIS01 MoonPalace graybox example scene: COMPLETE
 VIS02 MoonPalace graybox generator window actual run: COMPLETE
 RUN01 MoonPalace direct MicroPattern reachable run Scene: COMPLETE
 RUN02 MoonPalace direct MicroPattern multi-variant comparison Scene: COMPLETE
+RUN03 MoonPalace camera-room connector MicroPattern run Scene: COMPLETE
 ```
 
 ## Current Task
@@ -247,6 +248,7 @@ NONE
 | VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1 | COMPLETE |
 | VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE | COMPLETE |
 | RUN01_BUILD_MICROPATTERN_REACHABLE_RUN_SCENE | COMPLETE |
+| RUN03_CONNECT_RUN_VARIANTS_TO_CAMERA_ROOM_TRANSITIONS | COMPLETE |
 
 ## Last Completed Task
 

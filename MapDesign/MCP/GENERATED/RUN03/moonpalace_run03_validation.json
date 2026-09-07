@@ -1,0 +1,15 @@
+{
+  "validation_digest": "e4eef1e0bf4e7c4a89cc56c9b39d2ee9b02b7792eeaef88995ef1c5ad3e0cbda",
+  "start_to_exit_pass": true,
+  "all_room_bounds_inside": true,
+  "all_connector_gates_reciprocal": true,
+  "all_connector_gates_open": true,
+  "all_main_route_rooms_reachable_in_order": true,
+  "all_branch_entries_reachable": true,
+  "all_split_rejoin_paths_reachable": true,
+  "unreachable_required_room_count": 0,
+  "route_socket_mismatch_count": 0,
+  "connector_blocked_count": 0,
+  "fallback_carve_count": 0,
+  "silent_repair_count": 0
+}

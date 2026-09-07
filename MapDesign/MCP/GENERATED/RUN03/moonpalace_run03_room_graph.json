@@ -1,0 +1,17 @@
+{
+  "room_graph_digest": "28c7c5baba6d7f5e871b7dc7a7c2a1e7160e942eeeaedcc010a5f4f265e3df00",
+  "main_route_rooms": "R01_START;R02_TRANSIT;R03_VERTICAL_ASCENT;R04_SPLIT_GALLERY;R05_TRANSIT;R06_SPLIT_GALLERY;R07_VERTICAL_DESCENT;R08_EXIT",
+  "vertical_transition_span_pattern_rows": 11,
+  "rooms": [
+    {"room_id":"B01_LOWER_BRANCH","role":"Branch","pattern_bounds":"21:0-30:7","tile_bounds":"84:0:40x32"},
+    {"room_id":"B02_LOWER_BRANCH","role":"Branch","pattern_bounds":"51:8-60:15","tile_bounds":"204:32:40x32"},
+    {"room_id":"R01_START","role":"Start","pattern_bounds":"0:8-10:15","tile_bounds":"0:32:44x32"},
+    {"room_id":"R02_TRANSIT","role":"Transit","pattern_bounds":"11:8-20:15","tile_bounds":"44:32:40x32"},
+    {"room_id":"R03_VERTICAL_ASCENT","role":"Vertical","pattern_bounds":"21:8-30:19","tile_bounds":"84:32:40x48"},
+    {"room_id":"R04_SPLIT_GALLERY","role":"Split","pattern_bounds":"31:16-40:23","tile_bounds":"124:64:40x32"},
+    {"room_id":"R05_TRANSIT","role":"Transit","pattern_bounds":"41:16-50:23","tile_bounds":"164:64:40x32"},
+    {"room_id":"R06_SPLIT_GALLERY","role":"Split","pattern_bounds":"51:16-60:23","tile_bounds":"204:64:40x32"},
+    {"room_id":"R07_VERTICAL_DESCENT","role":"Vertical","pattern_bounds":"61:8-70:17","tile_bounds":"244:32:40x40"},
+    {"room_id":"R08_EXIT","role":"Exit","pattern_bounds":"71:8-79:15","tile_bounds":"284:32:36x32"}
+  ]
+}

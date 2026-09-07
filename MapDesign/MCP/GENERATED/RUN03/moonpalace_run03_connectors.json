@@ -1,0 +1,15 @@
+{
+  "connector_digest": "ca04681306ed5fc73069764e8c444b9f8f3631c7ad5c99f539da62139e2daf5c",
+  "uses_sector_seam_logic": false,
+  "connectors": [
+    {"connector_id":"C01","from_room_id":"R01_START","to_room_id":"R02_TRANSIT","direction":"East","from_pattern_slot":"10:11","to_pattern_slot":"11:11","from_tile_gate_rect":"43:45:1x1","to_tile_gate_rect":"44:45:1x1","transition_kind":"Horizontal"},
+    {"connector_id":"C02","from_room_id":"R02_TRANSIT","to_room_id":"R03_VERTICAL_ASCENT","direction":"East","from_pattern_slot":"20:8","to_pattern_slot":"21:8","from_tile_gate_rect":"83:33:1x1","to_tile_gate_rect":"84:33:1x1","transition_kind":"VerticalUp"},
+    {"connector_id":"C03","from_room_id":"R03_VERTICAL_ASCENT","to_room_id":"R04_SPLIT_GALLERY","direction":"East","from_pattern_slot":"30:19","to_pattern_slot":"31:19","from_tile_gate_rect":"123:77:1x1","to_tile_gate_rect":"124:77:1x1","transition_kind":"VerticalUp"},
+    {"connector_id":"C04","from_room_id":"R04_SPLIT_GALLERY","to_room_id":"R05_TRANSIT","direction":"East","from_pattern_slot":"40:19","to_pattern_slot":"41:19","from_tile_gate_rect":"163:77:1x1","to_tile_gate_rect":"164:77:1x1","transition_kind":"Horizontal"},
+    {"connector_id":"C05","from_room_id":"R05_TRANSIT","to_room_id":"R06_SPLIT_GALLERY","direction":"East","from_pattern_slot":"50:19","to_pattern_slot":"51:19","from_tile_gate_rect":"203:77:1x1","to_tile_gate_rect":"204:77:1x1","transition_kind":"Horizontal"},
+    {"connector_id":"C06","from_room_id":"R06_SPLIT_GALLERY","to_room_id":"R07_VERTICAL_DESCENT","direction":"East","from_pattern_slot":"60:16","to_pattern_slot":"61:16","from_tile_gate_rect":"243:65:1x1","to_tile_gate_rect":"244:65:1x1","transition_kind":"VerticalDown"},
+    {"connector_id":"C07","from_room_id":"R07_VERTICAL_DESCENT","to_room_id":"R08_EXIT","direction":"East","from_pattern_slot":"70:11","to_pattern_slot":"71:11","from_tile_gate_rect":"283:45:1x1","to_tile_gate_rect":"284:45:1x1","transition_kind":"Horizontal"},
+    {"connector_id":"C08","from_room_id":"R03_VERTICAL_ASCENT","to_room_id":"B01_LOWER_BRANCH","direction":"South","from_pattern_slot":"25:8","to_pattern_slot":"25:7","from_tile_gate_rect":"101:32:1x1","to_tile_gate_rect":"101:31:1x1","transition_kind":"Branch"},
+    {"connector_id":"C09","from_room_id":"R06_SPLIT_GALLERY","to_room_id":"B02_LOWER_BRANCH","direction":"South","from_pattern_slot":"55:16","to_pattern_slot":"55:15","from_tile_gate_rect":"221:64:1x1","to_tile_gate_rect":"221:63:1x1","transition_kind":"Branch"}
+  ]
+}
