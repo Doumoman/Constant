@@ -957,6 +957,8 @@ SHA-256: 51669eda4a7d76815f20d0fa31c0d1df14d6c1fac579fa0ce1b11eec57e54951
 
 - RUN05 seed regenerate and variant-selection tool: COMPLETE — isolated RUN05 Scene, direct 500-candidate 4x4 seed/recipe generation, fixed four-course gallery, and focused EditMode `18/18 PASS`; no Build Settings or prior Scene/Prefab mutation.
 
+- RUN06 generated-run curation: COMPLETE — bounded 3-recipe × 12-seed batch `36`, accepted/rejected `24/12`, retained route-shape rejection evidence, isolated curation gallery, and focused EditMode `20/20 PASS`; no RUN05 generator rewrite, Build Settings, or prior Scene/Prefab mutation.
+
 ## Current Rule
 
 현재 Current Task는 `NONE`이다.

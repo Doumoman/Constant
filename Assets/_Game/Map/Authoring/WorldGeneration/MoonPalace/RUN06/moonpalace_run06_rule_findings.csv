@@ -1,0 +1,361 @@
+recipe_id,seed,status,rule_id,severity,measured_value,threshold,affected_ids,reason
+COMPACT_SPLIT_RUN,1924737067,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737067,Accepted,ROOM_TOO_EMPTY,Info,0.584473,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737067,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737067,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737067,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737067,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737067,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737067,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737067,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737067,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737068,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737068,Accepted,ROOM_TOO_EMPTY,Info,0.580029,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737068,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737068,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737068,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737068,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737068,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737068,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737068,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737068,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737069,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737069,Accepted,ROOM_TOO_EMPTY,Info,0.588135,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737069,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737069,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737069,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737069,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737069,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737069,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737069,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737069,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737070,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737070,Accepted,ROOM_TOO_EMPTY,Info,0.583203,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737070,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737070,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737070,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737070,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737070,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737070,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737070,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737070,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737071,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737071,Accepted,ROOM_TOO_EMPTY,Info,0.58501,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737071,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737071,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737071,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737071,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737071,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737071,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737071,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737071,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737072,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737072,Accepted,ROOM_TOO_EMPTY,Info,0.586621,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737072,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737072,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737072,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737072,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737072,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737072,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737072,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737072,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737073,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737073,Accepted,ROOM_TOO_EMPTY,Info,0.588867,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737073,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737073,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737073,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737073,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737073,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737073,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737073,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737073,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737074,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737074,Accepted,ROOM_TOO_EMPTY,Info,0.589746,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737074,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737074,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737074,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737074,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737074,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737074,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737074,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737074,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737075,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737075,Accepted,ROOM_TOO_EMPTY,Info,0.584521,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737075,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737075,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737075,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737075,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737075,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737075,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737075,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737075,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737076,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737076,Accepted,ROOM_TOO_EMPTY,Info,0.583447,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737076,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737076,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737076,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737076,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737076,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737076,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737076,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737076,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737077,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737077,Accepted,ROOM_TOO_EMPTY,Info,0.587109,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737077,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737077,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737077,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737077,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737077,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737077,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737077,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737077,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+COMPACT_SPLIT_RUN,1924737078,Accepted,ROUTE_TOO_STRAIGHT,Info,7,7,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-route row repetition stays within the recipe profile.
+COMPACT_SPLIT_RUN,1924737078,Accepted,ROOM_TOO_EMPTY,Info,0.59082,0.8,B01_NORTH;B02_SOUTH;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Open-tile ratio remains below the hollow-room threshold.
+COMPACT_SPLIT_RUN,1924737078,Accepted,ROOM_TOO_NOISY,Info,0,1500,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+COMPACT_SPLIT_RUN,1924737078,Accepted,BRANCH_TOO_SHORT,Info,7,4,B01_NORTH,Every branch has the minimum readable direct-route length.
+COMPACT_SPLIT_RUN,1924737078,Accepted,BRANCH_TOO_DEEP,Info,0.135593,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+COMPACT_SPLIT_RUN,1924737078,Accepted,CONNECTOR_CROWDING,Info,34,4,,Connector gate spacing remains readable.
+COMPACT_SPLIT_RUN,1924737078,Accepted,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,Main-room vertical span meets the recipe profile.
+COMPACT_SPLIT_RUN,1924737078,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1,Split/rejoin detour separation remains legible.
+COMPACT_SPLIT_RUN,1924737078,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;R01_START;R02_COMPACT;R03_COMPACT;R04_COMPACT;R05_COMPACT;R06_COMPACT;R07_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+COMPACT_SPLIT_RUN,1924737078,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737067,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737067,Accepted,ROOM_TOO_EMPTY,Info,0.588232,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737067,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737067,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737067,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737067,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737067,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737067,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737067,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737067,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737068,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737068,Accepted,ROOM_TOO_EMPTY,Info,0.586217,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737068,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737068,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737068,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737068,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737068,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737068,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737068,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737068,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737069,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737069,Accepted,ROOM_TOO_EMPTY,Info,0.586527,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737069,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737069,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737069,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737069,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737069,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737069,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737069,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737069,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737070,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737070,Accepted,ROOM_TOO_EMPTY,Info,0.587302,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737070,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737070,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737070,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737070,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737070,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737070,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737070,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737070,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737071,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737071,Accepted,ROOM_TOO_EMPTY,Info,0.583178,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737071,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737071,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737071,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737071,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737071,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737071,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737071,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737071,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737072,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737072,Accepted,ROOM_TOO_EMPTY,Info,0.586806,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737072,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737072,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737072,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737072,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737072,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737072,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737072,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737072,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737073,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737073,Accepted,ROOM_TOO_EMPTY,Info,0.58941,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737073,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737073,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737073,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737073,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737073,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737073,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737073,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737073,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737074,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737074,Accepted,ROOM_TOO_EMPTY,Info,0.587333,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737074,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737074,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737074,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737074,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737074,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737074,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737074,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737074,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737075,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737075,Accepted,ROOM_TOO_EMPTY,Info,0.583116,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737075,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737075,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737075,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737075,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737075,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737075,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737075,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737075,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737076,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737076,Accepted,ROOM_TOO_EMPTY,Info,0.583674,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737076,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737076,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737076,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737076,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737076,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737076,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737076,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737076,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737077,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737077,Accepted,ROOM_TOO_EMPTY,Info,0.588139,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737077,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737077,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737077,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737077,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737077,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737077,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737077,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737077,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+TALL_LOOP_RUN,1924737078,Accepted,ROUTE_TOO_STRAIGHT,Info,3,4,R01_START;R02_TRANSIT;R08_EXIT,Main-route row repetition stays within the recipe profile.
+TALL_LOOP_RUN,1924737078,Accepted,ROOM_TOO_EMPTY,Info,0.588356,0.8,B01_LOWER;B02_MID;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Open-tile ratio remains below the hollow-room threshold.
+TALL_LOOP_RUN,1924737078,Accepted,ROOM_TOO_NOISY,Info,0,2200,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+TALL_LOOP_RUN,1924737078,Accepted,BRANCH_TOO_SHORT,Info,9,4,B02_MID,Every branch has the minimum readable direct-route length.
+TALL_LOOP_RUN,1924737078,Accepted,BRANCH_TOO_DEEP,Info,0.114943,0.28,B01_LOWER,Branch depth stays subordinate to the main route.
+TALL_LOOP_RUN,1924737078,Accepted,CONNECTOR_CROWDING,Info,19,4,C06;C09,Connector gate spacing remains readable.
+TALL_LOOP_RUN,1924737078,Accepted,VERTICAL_VARIATION_LOW,Info,11,10,R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,Main-room vertical span meets the recipe profile.
+TALL_LOOP_RUN,1924737078,Accepted,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+TALL_LOOP_RUN,1924737078,Accepted,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C09;R01_START;R02_TRANSIT;R03_ASCENT;R04_UPPER;R05_UPPER;R06_UPPER;R07_DESCENT;R08_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+TALL_LOOP_RUN,1924737078,Accepted,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737067,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737067,Rejected,ROOM_TOO_EMPTY,Info,0.586643,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737067,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737067,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737067,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737067,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737067,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737067,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737067,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737067,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737068,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737068,Rejected,ROOM_TOO_EMPTY,Info,0.587212,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737068,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737068,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737068,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737068,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737068,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737068,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737068,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737068,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737069,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737069,Rejected,ROOM_TOO_EMPTY,Info,0.588135,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737069,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737069,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737069,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737069,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737069,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737069,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737069,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737069,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737070,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737070,Rejected,ROOM_TOO_EMPTY,Info,0.586643,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737070,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737070,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737070,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737070,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737070,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737070,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737070,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737070,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737071,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737071,Rejected,ROOM_TOO_EMPTY,Info,0.584337,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737071,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737071,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737071,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737071,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737071,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737071,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737071,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737071,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737072,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737072,Rejected,ROOM_TOO_EMPTY,Info,0.584717,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737072,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737072,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737072,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737072,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737072,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737072,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737072,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737072,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737073,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737073,Rejected,ROOM_TOO_EMPTY,Info,0.587646,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737073,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737073,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737073,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737073,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737073,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737073,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737073,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737073,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737074,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737074,Rejected,ROOM_TOO_EMPTY,Info,0.586697,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737074,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737074,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737074,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737074,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737074,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737074,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737074,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737074,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737075,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737075,Rejected,ROOM_TOO_EMPTY,Info,0.585775,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737075,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737075,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737075,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737075,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737075,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737075,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737075,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737075,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737076,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737076,Rejected,ROOM_TOO_EMPTY,Info,0.583306,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737076,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737076,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737076,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737076,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737076,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737076,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737076,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737076,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737077,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737077,Rejected,ROOM_TOO_EMPTY,Info,0.585395,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737077,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737077,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737077,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737077,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737077,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737077,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737077,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737077,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."
+WIDE_BRANCH_RUN,1924737078,Rejected,ROUTE_TOO_STRAIGHT,Reject,9,6,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main route keeps 9 consecutive room frames on one row; the profile allows 6.
+WIDE_BRANCH_RUN,1924737078,Rejected,ROOM_TOO_EMPTY,Info,0.587511,0.8,B01_NORTH;B02_SOUTH;B03_NORTH;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Open-tile ratio remains below the hollow-room threshold.
+WIDE_BRANCH_RUN,1924737078,Rejected,ROOM_TOO_NOISY,Info,0,2600,OUTSIDE_QUIET,Isolated open fragments remain within the visual-noise threshold.
+WIDE_BRANCH_RUN,1924737078,Rejected,BRANCH_TOO_SHORT,Info,8,4,B01_NORTH;B03_NORTH,Every branch has the minimum readable direct-route length.
+WIDE_BRANCH_RUN,1924737078,Rejected,BRANCH_TOO_DEEP,Info,0.098901,0.24,B02_SOUTH,Branch depth stays subordinate to the main route.
+WIDE_BRANCH_RUN,1924737078,Rejected,CONNECTOR_CROWDING,Info,30,4,,Connector gate spacing remains readable.
+WIDE_BRANCH_RUN,1924737078,Rejected,VERTICAL_VARIATION_LOW,Info,0,0,R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,Main-room vertical span meets the recipe profile.
+WIDE_BRANCH_RUN,1924737078,Rejected,BACKTRACK_SHAPE_BAD,Info,4,4,S1;S2,Split/rejoin detour separation remains legible.
+WIDE_BRANCH_RUN,1924737078,Rejected,OPEN_ISLAND_REQUIRED,Info,0,0,C01;C02;C03;C04;C05;C06;C07;C08;C10;C11;C12;R01_START;R02_WIDE;R03_WIDE;R04_WIDE;R05_WIDE;R06_WIDE;R07_WIDE;R08_WIDE;R09_EXIT,"Every required route, connector, and room-center tile is reachable from start."
+WIDE_BRANCH_RUN,1924737078,Rejected,REPAIR_POLICY_VIOLATION,Info,0,0,,"No fallback carve, silent repair, or rotation was recorded."

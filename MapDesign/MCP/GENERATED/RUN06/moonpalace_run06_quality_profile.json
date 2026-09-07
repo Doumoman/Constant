@@ -1,0 +1,7 @@
+{
+  "profiles": [
+    {"recipe_id":"COMPACT_SPLIT_RUN","max_same_row_main_rooms":7,"max_open_ratio":0.8,"max_noise_fragments":1500,"min_branch_length":4,"max_branch_depth_ratio":0.24,"min_connector_spacing":4,"min_vertical_span":0,"min_split_separation":4,"digest":"b6db600c2eae8b63dbf241b46f3ab1d259d6c09400f1ea72ad721349d9122e6c"},
+    {"recipe_id":"TALL_LOOP_RUN","max_same_row_main_rooms":4,"max_open_ratio":0.8,"max_noise_fragments":2200,"min_branch_length":4,"max_branch_depth_ratio":0.28,"min_connector_spacing":4,"min_vertical_span":10,"min_split_separation":4,"digest":"f5b84d46547692528b0f23dc3fbcb4c4ba151632130fe4e3b4125b3fb082f091"},
+    {"recipe_id":"WIDE_BRANCH_RUN","max_same_row_main_rooms":6,"max_open_ratio":0.8,"max_noise_fragments":2600,"min_branch_length":4,"max_branch_depth_ratio":0.24,"min_connector_spacing":4,"min_vertical_span":0,"min_split_separation":4,"digest":"bdaa25a5f9a92798b4597cc8eab8c39676770abf148af4fd3f45c51fe0d2d3cc"}
+  ]
+}
