@@ -1,0 +1,37 @@
+{
+  "task": "RMAP01_REBASE",
+  "registration_kind": "one_time_v4_2_contract_registration",
+  "baseline": {
+    "branch": "main",
+    "head": "f4da626c5cc509954a41e67b24e5d7113d01a50b",
+    "current_task_before": "NONE",
+    "status_rows_before": { "complete": 221, "current": 0, "locked": 0 },
+    "rmap_ids_before": 0,
+    "inbox_candidates": ["MapDesign/MCP_INBOX/RMAP01_REBASE.md"],
+    "source_pdf_found": false
+  },
+  "run06": {
+    "task_path": "MapDesign/MCP/TASKS/RUN06_TUNE_GENERATED_RUN_SHAPES_AND_REMOVE_BAD_VARIANTS.md",
+    "task_sha256": "42f3a6b575c52c8463951f144da31f4b8dfdb52fdf093d1e894dac47810c467b",
+    "result_path": "MapDesign/MCP/REPORTS/RUN06_TUNE_GENERATED_RUN_SHAPES_AND_REMOVE_BAD_VARIANTS_RESULT.md",
+    "result_sha256": "4a1dfe19d47b624f06e1a6e98ca448da916a3e6d3d098f5ade68eb3b1a1ad6f7",
+    "result_status": "PASS",
+    "committed_version": "f4da626c5cc509954a41e67b24e5d7113d01a50b",
+    "result_self_reported_commit": "a409c7343c74d4220dc76e7476982296e8ef7cb4",
+    "worktree_diff": "none",
+    "eol_note": "text=auto only; no content or EOL-only diff observed"
+  },
+  "rmap01_input": {
+    "source_path": "MapDesign/MCP_INBOX/RMAP01_REBASE.md",
+    "sha256": "65cb0479876770d1aefabf1d48315744eba49e797433a9cf354018218cd24b8e"
+  },
+  "registration": {
+    "master_path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+    "status_path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+    "registered_ids": 19,
+    "status_after_open": { "complete": 221, "current": 1, "locked": 18 },
+    "status_after_finalize": { "complete": 222, "current": 0, "locked": 18 },
+    "rmap01_final_status": "COMPLETE",
+    "rmap02_final_status": "LOCKED"
+  }
+}

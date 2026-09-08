@@ -1,0 +1,13 @@
+from_path,to_path,symbol,relation,evidence,uncertainty_or_reason
+Assets/_Game/Live/Runtime/Player/CharacterLivePlayerRig.cs,Assets/_Game/Live/Runtime/Input/CharacterLiveInputSource.cs,InputSource and ConsumeFixedSnapshot,reference,serialized field and public delegation,none
+Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs,Assets/_Game/Live/Runtime/Player/CharacterLivePlayerRig.cs,rig and Rigidbody2D MovePosition,reference,serialized rig and Awake fallback,none
+Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs,Assets/_Game/Character/Runtime/Movement/UnityPhysics2DCharacterCollisionWorld.cs,UnityPhysics2DCharacterCollisionWorld,construction,Awake creates collision world,none
+Assets/_Game/Live/Runtime/Run/CharacterLiveRunBootstrap.cs,Assets/_Game/Live/Runtime/Player/CharacterLivePlayerRig.cs,playerRig,reference,serialized field,manual-start ownership
+Assets/_Game/Live/Runtime/Run/CharacterLiveRunBootstrap.cs,Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs,movementDriver,reference,serialized field,manual-start ownership
+Assets/_Game/Live/Runtime/Rooms/CharacterLiveRoomTransitionDriver.cs,Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraRoomDriver.cs,cameraDriver,reference,serialized field,room snap not continuous follow
+Assets/_Game/Tests/PlayMode/Character/CharacterLiveScenePlayModeTests.cs,Assets/_Game/Scenes/Live/CharacterLiveTest.unity,ScenePath,scene reference,LoadSceneInPlayMode,no RMAP02 scene exists
+Assets/_Game/Tests/PlayMode/Character/CharacterLiveGeneratedRunPlayModeTests.cs,Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraRoomDriver.cs,MoveToRoom,call,test camera movement,no physical Player Tilemap scene
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedTilemapLayerBaker.cs,Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedCellPlacementPlan.cs,GeneratedCellPlacementPlan,reference,Bake request validation,logical bake only
+Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/Visualization/MoonPalaceGrayboxExampleSceneBuilder.cs,UnityEngine.Tilemaps.Tilemap,SetTile,call,editor loop writes debug tiles,not runtime collider integration
+Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/RunGeneration/MoonPalaceRunPreviewSceneBuilder.cs,Assets/_Game/Map/Scenes/MoonPalace/RUN04/MoonPalacePlayableRunPreview_RUN04.unity,CreateScene,scene reference,editor publisher,PreviewPlayer is a marker
+Assets/_Game/Live/Runtime/Game.Character.Live.asmdef,Assets/_Game/Map/Runtime/Game.Map.Runtime.asmdef,Game.Map.Runtime,assembly reference,asmdef reference list,dependency direction is Live to Map

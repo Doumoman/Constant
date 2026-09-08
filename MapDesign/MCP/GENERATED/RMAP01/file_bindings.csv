@@ -1,0 +1,30 @@
+task_id,role,actual_or_proposed_path,status,change_reason,predecessor_or_successor
+RMAP02_PLAYER,Player prefab baseline,Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab,EXISTING,reuse bound Rigidbody2D CapsuleCollider2D input and movement components,uses existing live assembly
+RMAP02_PLAYER,input snapshot provider,Assets/_Game/Live/Runtime/Input/CharacterLiveInputSource.cs,EXISTING,reuse Player map Move and Jump snapshots,used by CharacterLivePlayerRig
+RMAP02_PLAYER,physical movement driver,Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs,EXISTING,adapt solid layer configuration without replacing movement core,uses CharacterLivePlayerRig
+RMAP02_PLAYER,physics layer configuration,Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs,EXISTING,bind generated collision layer through existing SolidLayers,used by movement driver
+RMAP02_PLAYER,logical bake input,Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedTilemapLayerBaker.cs,EXISTING,consume validated bake plan rather than inventing terrain,produces logical commands only
+RMAP02_PLAYER,logical placement input,Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedCellPlacementPlan.cs,EXISTING,preserve cell and provenance authority,precedes logical bake
+RMAP02_PLAYER,Unity Tilemap and collider applier,Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedUnityTilemapApplier.cs,PROPOSED,missing runtime Tilemap.SetTiles TilemapCollider2D and CompositeCollider2D bridge,consumes GeneratedTilemapBakePlan
+RMAP02_PLAYER,continuous camera follow,Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraFollowDriver.cs,PROPOSED,existing camera driver only snaps by room,coexists with CharacterLiveCameraRoomDriver
+RMAP02_PLAYER,isolated physical run scene,Assets/_Game/Map/Scenes/MoonPalace/RMAP02/MoonPalacePlayerTilemapRun_RMAP02.unity,PROPOSED,required real Player Tilemap Collider and camera scene,does not modify RUN04 or CharacterLiveTest
+RMAP02_PLAYER,scene builder,Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/RMAP02/MoonPalacePlayerTilemapRunSceneBuilder.cs,PROPOSED,follow existing editor scene publication convention,creates only RMAP02 scene
+RMAP02_PLAYER,focused logical bake test,Assets/_Game/Tests/EditMode/Map/RMAP02/GeneratedUnityTilemapApplierTests.cs,PROPOSED,uses existing Game.Map.Tests.EditMode assembly,tests explicit bake to Tilemap contract
+RMAP02_PLAYER,focused physical scene test,Assets/_Game/Tests/PlayMode/Character/RMAP02/GeneratedTilemapPlayerRunPlayModeTests.cs,PROPOSED,uses existing Game.Character.Live.PlayMode.Tests assembly,proves player reaches exit
+RMAP03_GRAB,ledge traversal driver,Assets/_Game/Live/Runtime/Traversal/CharacterLiveGrabDriver.cs,PROPOSED,add ledge-grab state after baseline movement,RMAP02_PLAYER
+RMAP04_CLIMB,climb traversal driver,Assets/_Game/Live/Runtime/Traversal/CharacterLiveClimbDriver.cs,PROPOSED,add ladder pole and one-way platform behavior,RMAP03_GRAB
+RMAP05_FALL,fall consequence driver,Assets/_Game/Live/Runtime/Survival/CharacterLiveFallConsequenceDriver.cs,PROPOSED,add damage stun death and reset behavior,RMAP04_CLIMB
+RMAP06_LOOK,look input driver,Assets/_Game/Live/Runtime/Input/CharacterLiveLookDriver.cs,PROPOSED,add Tab observation and input precedence,RMAP05_FALL
+RMAP07_PATTERNS,pattern catalog,Assets/_Game/Map/Runtime/WorldGeneration/MicroPatterns/RmapPatternCatalog.cs,PROPOSED,register 4x4 starter pattern responsibilities,RMAP06_LOOK
+RMAP08_PORTS,port catalog,Assets/_Game/Map/Runtime/WorldGeneration/MicroPatterns/RmapPortCatalog.cs,PROPOSED,encode Type 0~4 port coordinates and links,RMAP07_PATTERNS
+RMAP09_COMPOSER,small composition service,Assets/_Game/Map/Runtime/WorldGeneration/MoonPalace/RunGeneration/RmapComposer.cs,PROPOSED,assemble 12x8 protected composition with bounded reselection,RMAP08_PORTS
+RMAP10_SMALL_RUN,seeded run harness,Assets/_Game/Map/Runtime/WorldGeneration/MoonPalace/RunGeneration/RmapSmallRunHarness.cs,PROPOSED,connect variable small maps to actual player exit,RMAP09_COMPOSER
+RMAP11_POOL500,pattern pool selector,Assets/_Game/Map/Runtime/WorldGeneration/MicroPatterns/RmapPatternPool500.cs,PROPOSED,select distinct role-qualified 500 pool,RMAP10_SMALL_RUN
+RMAP12_WORLD_DATA,world state model,Assets/_Game/Map/Runtime/WorldGeneration/RuntimeState/RmapWorldData.cs,PROPOSED,separate seeded base terrain from modified state,RMAP11_POOL500
+RMAP13_WORLD_GRAPH,world graph planner,Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs,PROPOSED,encode resource forge seal boss and exit order,RMAP12_WORLD_DATA
+RMAP14_BIOMES,biome profile catalog,Assets/_Game/Map/Runtime/WorldGeneration/MoonPalace/RmapBiomeProfileCatalog.cs,PROPOSED,bind four biomes density and boundaries,RMAP13_WORLD_GRAPH
+RMAP15_SPECIALS,special reservation planner,Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/RmapSpecialReservationPlanner.cs,PROPOSED,reserve eight fixed special regions and access,RMAP14_BIOMES
+RMAP16_CLUSTERS,cluster assembly planner,Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs,PROPOSED,assemble major terrain secrets and active density,RMAP15_SPECIALS
+RMAP17_WORLD_BAKE,world Tilemap executor,Assets/_Game/Map/Runtime/WorldGeneration/Baking/RmapWorldBakeExecutor.cs,PROPOSED,extend small real bake into 624x416 world bake,RMAP16_CLUSTERS
+RMAP18_WORLD_STATE,world lifecycle executor,Assets/_Game/Map/Runtime/WorldGeneration/RuntimeState/RmapWorldLifecycleExecutor.cs,PROPOSED,apply regeneration modification and chunk lifecycle,RMAP17_WORLD_BAKE
+RMAP19_WORLD_PLAY,world play validation harness,Assets/_Game/Map/Runtime/WorldGeneration/Validation/RmapWorldPlayValidationHarness.cs,PROPOSED,validate six-resource representative play and handoff,RMAP18_WORLD_STATE

@@ -1,0 +1,30 @@
+path,type,assembly,execution_kind,unity_kind,responsibility,inspection_depth
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedCellPlacementPlan.cs,CSharp,Game.Map.Runtime,Runtime,Pure,validated sector-local cell and layer placement plan,public API and dependencies
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedTilemapLayerBaker.cs,CSharp,Game.Map.Runtime,Runtime,Pure,logical seven-layer bake plan and seam validation,full
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedColliderCache.cs,CSharp,Game.Map.Runtime,Runtime,Pure,deterministic collider rebuild/cache planning,public API
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedSectorStreamingWindow.cs,CSharp,Game.Map.Runtime,Runtime,Pure,preload active and transition window planning,public API
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedSectorModificationStorage.cs,CSharp,Game.Map.Runtime,Runtime,Pure,sector modification persistence model,filename and symbol
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedSectorRegenerationApply.cs,CSharp,Game.Map.Runtime,Runtime,Pure,regeneration plus stored mutation application,filename and symbol
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedTraversalProfile.cs,CSharp,Game.Map.Runtime,Runtime,Pure,versioned traversal capability profile,public API
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedTraversalRuleRegistry.cs,CSharp,Game.Map.Runtime,Runtime,Pure,traversal validation rule registry,filename and symbol
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedTileMovementGraphBuilder.cs,CSharp,Game.Map.Runtime,Runtime,Pure,tile movement graph construction,public API
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs,CSharp,Game.Map.Runtime,Runtime,Pure,completion-state search and proof,public API
+Assets/_Game/Map/Runtime/WorldGeneration/MicroPatterns,Mixed,Game.Map.Runtime,Runtime,Pure,existing MicroPattern contracts and rendering,folder survey
+Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters,Mixed,Game.Map.Runtime,Runtime,Pure,existing cluster contracts and compilers,folder survey
+Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning,Mixed,Game.Map.Runtime,Runtime,Pure,existing sector and world assembly planners,folder survey
+Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/Visualization/MoonPalaceGrayboxExampleSceneBuilder.cs,CSharp,MapAuthoring.Editor,Editor,Editor,debug Tilemap visualization with SetTile calls,full relevant loop
+Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/RunGeneration/MoonPalaceRunPreviewSceneBuilder.cs,CSharp,MapAuthoring.Editor,Editor,Editor,preview marker and Tilemap scene publication,full relevant scene section
+Assets/_Game/Map/Scenes/MoonPalace/RUN04/MoonPalacePlayableRunPreview_RUN04.unity,Scene,None,EditorAsset,Scene,preview-only route-marker scene,root names inspected
+Assets/_Game/Map/Scenes/MoonPalace/RUN06/MoonPalaceCuratedRunGallery_RUN06.unity,Scene,None,EditorAsset,Scene,accepted and rejected curation gallery,historical evidence
+Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab,Prefab,Game.Character.Live,Runtime,Prefab,bound Rigidbody2D CapsuleCollider2D input and movement player rig,serialized references
+Assets/_Game/Live/Runtime/Input/CharacterLiveInputSource.cs,CSharp,Game.Character.Live,Runtime,MonoBehaviour,Input System Player-map snapshot provider,full
+Assets/_Game/Live/Runtime/Player/CharacterLivePlayerRig.cs,CSharp,Game.Character.Live,Runtime,MonoBehaviour,player Rigidbody Collider and input binding surface,full
+Assets/_Game/Live/Runtime/Player/CharacterLivePlayerRigValidator.cs,CSharp,Game.Character.Live,Runtime,Pure,read-only rig validation,full
+Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs,CSharp,Game.Character.Live,Runtime,MonoBehaviour,fixed-step basic movement jump and sweep application,full
+Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs,CSharp,Game.Character.Live,Runtime,Serializable,solid layer mask and always-run wiring,full
+Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraRoomDriver.cs,CSharp,Game.Character.Live,Runtime,MonoBehaviour,room-center camera snap driver,full
+Assets/_Game/Live/Runtime/Run/CharacterLiveRunBootstrap.cs,CSharp,Game.Character.Live,Runtime,MonoBehaviour,manual start player spawn and movement start,public surface
+Assets/_Game/Character/Runtime/Movement/UnityPhysics2DCharacterCollisionWorld.cs,CSharp,Game.Character.Runtime,Runtime,Pure,Unity Physics2D collision query adapter,dependency scan
+Assets/_Game/Scenes/Live/CharacterLiveTest.unity,Scene,None,EditorAsset,Scene,existing live stack smoke scene,test reference
+Assets/_Game/Tests/EditMode/Map/Game.Map.Tests.EditMode.asmdef,Asmdef,Game.Map.Tests.EditMode,Test,Assembly,existing map EditMode test assembly,full
+Assets/_Game/Tests/PlayMode/Character/Game.Character.Live.PlayMode.Tests.asmdef,Asmdef,Game.Character.Live.PlayMode.Tests,Test,Assembly,existing Player plus Map PlayMode test assembly,full

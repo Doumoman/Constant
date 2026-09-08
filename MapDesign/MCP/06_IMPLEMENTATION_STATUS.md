@@ -18,6 +18,7 @@ RUN01 MoonPalace direct MicroPattern reachable run Scene: COMPLETE
 RUN02 MoonPalace direct MicroPattern multi-variant comparison Scene: COMPLETE
 RUN03 MoonPalace camera-room connector MicroPattern run Scene: COMPLETE
 RUN04 MoonPalace live preview player traversal harness: COMPLETE
+RMAP v4.2 first registration: RMAP01 COMPLETE; RMAP02~19 LOCKED
 ```
 
 ## Current Task
@@ -251,6 +252,25 @@ NONE
 | RUN01_BUILD_MICROPATTERN_REACHABLE_RUN_SCENE | COMPLETE |
 | RUN03_CONNECT_RUN_VARIANTS_TO_CAMERA_ROOM_TRANSITIONS | COMPLETE |
 | RUN04_BUILD_LIVE_PREVIEW_PLAYER_TRAVERSAL_HARNESS | COMPLETE |
+| RMAP01_REBASE | COMPLETE |
+| RMAP02_PLAYER | LOCKED |
+| RMAP03_GRAB | LOCKED |
+| RMAP04_CLIMB | LOCKED |
+| RMAP05_FALL | LOCKED |
+| RMAP06_LOOK | LOCKED |
+| RMAP07_PATTERNS | LOCKED |
+| RMAP08_PORTS | LOCKED |
+| RMAP09_COMPOSER | LOCKED |
+| RMAP10_SMALL_RUN | LOCKED |
+| RMAP11_POOL500 | LOCKED |
+| RMAP12_WORLD_DATA | LOCKED |
+| RMAP13_WORLD_GRAPH | LOCKED |
+| RMAP14_BIOMES | LOCKED |
+| RMAP15_SPECIALS | LOCKED |
+| RMAP16_CLUSTERS | LOCKED |
+| RMAP17_WORLD_BAKE | LOCKED |
+| RMAP18_WORLD_STATE | LOCKED |
+| RMAP19_WORLD_PLAY | LOCKED |
 
 ## Last Completed Task
 
@@ -961,9 +981,12 @@ SHA-256: 51669eda4a7d76815f20d0fa31c0d1df14d6c1fac579fa0ce1b11eec57e54951
 
 ## Current Rule
 
-현재 Current Task는 `NONE`이다.
+현재 Current Task는 `NONE`이다. RMAP01~19 최초 등록 문서 계약은 RMAP01을
+완료로 닫았고, RMAP02~19는 모두 `LOCKED`다.
 
-상태 총계는 `218 rows = 115 COMPLETE / 0 CURRENT / 103 LOCKED`다. VIS01은 500개 generated structural MicroPattern candidate로 reachable 12x8 MicroChunk 16개를 조합한 격리 48x32 Unity graybox Scene을 완료했다. VIS02는 Unity Editor Dry-run/Run 진입점과 VIS01 Scene 재생성을 완료했다. MAP16_09는 generated terrain geometry authority와 canonical digest primitive를 기존 digest/CSV byte contract 변경 없이 공통화해 완료했다. MAP17_01은 `LOCKED / DO NOT START`를 유지한다.
+상태 총계는 `240 rows = 222 COMPLETE / 0 CURRENT / 18 LOCKED`다. 기존
+MAP/VIS/RUN 완료 기록은 보존한다. RMAP01은 등록·조사만 수행했으며, RMAP02
+Player 구현이나 Unity 회귀 실행을 자동으로 시작하지 않는다.
 
 MAP07 phase와 MAP08 phase는 모두 `COMPLETE / EXIT APPROVED` 상태다. MAP09_00 module structure와 MAP09_00R `single_task_v1` protocol도 PASS 상태로 보존한다.
 

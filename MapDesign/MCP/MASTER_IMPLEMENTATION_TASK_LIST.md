@@ -446,3 +446,40 @@ NO RUN: 기존 MAP09_01_IMPLEMENT_SECTOR_RECIPE_RESOLVER 및 폐기된 과거 MA
 ```
 
 `MAP09_00R`이 마지막 legacy ZIP이다. `MAP09_01`은 새 solver 구현이 아니라 MAP08 승인 결과와 V2 pass 경계를 설치하는 첫 `single_task_v1` Task다.
+
+---
+
+## RMAP v4.2 — Rebased Player-to-World Execution Plan
+
+The RMAP v4.2 queue is registered by the one-time `RMAP01_REBASE` contract
+change. It is a new execution plan, not a rewrite of the completed MAP/VIS/RUN
+history above. Its baseline, sequence, and normal future issuing rules are
+respectively [RMAP/00_BASELINE_V4_2.md](RMAP/00_BASELINE_V4_2.md),
+[RMAP/01_SEQUENCE_V4_2.md](RMAP/01_SEQUENCE_V4_2.md), and
+[RMAP/02_PROTOCOL_V4_2.md](RMAP/02_PROTOCOL_V4_2.md).
+
+| Order | Task | Scope | Initial state |
+| ---: | --- | --- | --- |
+| 01 | RMAP01_REBASE | registration, implementation inventory, reuse and bindings | CURRENT for first registration only |
+| 02 | RMAP02_PLAYER | real Tilemap/Collider, baseline Player and continuous camera scene | LOCKED |
+| 03 | RMAP03_GRAB | ledge grab and safe moving solids | LOCKED |
+| 04 | RMAP04_CLIMB | ladder/pole, exit jump and one-way platforms | LOCKED |
+| 05 | RMAP05_FALL | fall consequences and traversal reset | LOCKED |
+| 06 | RMAP06_LOOK | look/input priority and integrated movement scene | LOCKED |
+| 07 | RMAP07_PATTERNS | starter 4×4 pattern roles, tags and transforms | LOCKED |
+| 08 | RMAP08_PORTS | Type 0~4 ports and interior connectivity | LOCKED |
+| 09 | RMAP09_COMPOSER | protected 12×8 composition | LOCKED |
+| 10 | RMAP10_SMALL_RUN | seeded small run to physical Player exit | LOCKED |
+| 11 | RMAP11_POOL500 | distinct role-qualified 500-pattern pool | LOCKED |
+| 12 | RMAP12_WORLD_DATA | seed/version/RNG/ID and mutation-state separation | LOCKED |
+| 13 | RMAP13_WORLD_GRAPH | resource-to-exit world graph | LOCKED |
+| 14 | RMAP14_BIOMES | four biome profiles and boundaries | LOCKED |
+| 15 | RMAP15_SPECIALS | eight special reservations and access | LOCKED |
+| 16 | RMAP16_CLUSTERS | major terrain, secrets and density assembly | LOCKED |
+| 17 | RMAP17_WORLD_BAKE | 624×416 Tilemap/Collider world bake | LOCKED |
+| 18 | RMAP18_WORLD_STATE | modification, regeneration and chunk lifecycle | LOCKED |
+| 19 | RMAP19_WORLD_PLAY | representative play validation and handoff | LOCKED |
+
+The prior 29-task `RMAP00_*`~`RMAP04_*` labels are retained only as the
+requirement crosswalk in `RMAP/01_SEQUENCE_V4_2.md`; they are not executable
+v4.2 rows. After RMAP01, every row uses the unchanged SHA and lock procedure.

@@ -1,0 +1,22 @@
+path,decision,rationale,followup_task
+Assets/_Game/Live/Runtime/Player/CharacterLivePlayerRig.cs,KEEP,bound Rigidbody2D CapsuleCollider2D and input surface already matches RMAP02 integration,RMAP02_PLAYER
+Assets/_Game/Live/Runtime/Input/CharacterLiveInputSource.cs,KEEP,existing Player map snapshot provider already exposes basic move and jump input,RMAP02_PLAYER
+Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs,ADAPT,existing fixed-step movement jump and physics sweep should be wired to generated Tilemap collision without replacing pure movement,RMAP02_PLAYER
+Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs,ADAPT,solid layer mask must name the RMAP02 generated Tilemap collider layer,RMAP02_PLAYER
+Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraRoomDriver.cs,ADAPT,room snaps are reusable transition behavior but do not provide continuous player follow,RMAP02_PLAYER
+Assets/_Game/Live/Runtime/Run/CharacterLiveRunBootstrap.cs,ADAPT,manual start bootstrap is a possible composition seam but needs generated start input,RMAP02_PLAYER
+Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab,KEEP,existing serialized Player rig is the isolated scene starting point,RMAP02_PLAYER
+Assets/_Game/Character/Runtime/Movement/UnityPhysics2DCharacterCollisionWorld.cs,KEEP,approved Physics2D query adapter is already consumed by live movement,RMAP02_PLAYER
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedCellPlacementPlan.cs,KEEP,validated placement and provenance remain the logical source,RMAP02_PLAYER
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedTilemapLayerBaker.cs,ADAPT,logical commands must gain an explicit Unity Tilemap application seam,RMAP02_PLAYER
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedColliderCache.cs,KEEP,deterministic cache planning belongs to later real bake lifecycle,RMAP17_WORLD_BAKE
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedSectorStreamingWindow.cs,KEEP,streaming window is later full-world lifecycle not small player scene,RMAP18_WORLD_STATE
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedTraversalProfile.cs,ADAPT,profile must later be reconciled with actual player parameters,RMAP19_WORLD_PLAY
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedTileMovementGraphBuilder.cs,KEEP,graph builder is validation authority and is not a Player motor,RMAP19_WORLD_PLAY
+Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs,KEEP,completion proof is not a runtime movement implementation,RMAP19_WORLD_PLAY
+Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/Visualization/MoonPalaceGrayboxExampleSceneBuilder.cs,DEBUG_ONLY,SetTile visualization is useful evidence but not runtime Tilemap Collider authority,RMAP02_PLAYER
+Assets/_Game/Editor/MapAuthoring/WorldGeneration/MoonPalace/RunGeneration/MoonPalaceRunPreviewSceneBuilder.cs,DEBUG_ONLY,preview marker and debug tiles do not constitute physical Player integration,RMAP02_PLAYER
+Assets/_Game/Map/Scenes/MoonPalace/RUN04/MoonPalacePlayableRunPreview_RUN04.unity,DEBUG_ONLY,explicit preview-only scene must remain isolated,RMAP02_PLAYER
+Assets/_Game/Scenes/Live/CharacterLiveTest.unity,DEBUG_ONLY,existing live smoke scene proves rig boot but is not a generated-map scene,RMAP02_PLAYER
+Assets/_Game/Map/Runtime/WorldGeneration/Baking/GeneratedUnityTilemapApplier.cs,PROPOSED,required real Tilemap SetTiles and collider application seam does not exist yet,RMAP02_PLAYER
+Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraFollowDriver.cs,PROPOSED,continuous camera follow does not exist; room snap driver alone is insufficient,RMAP02_PLAYER
