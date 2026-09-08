@@ -1,0 +1,23 @@
+{
+  "schema": "RMAP14_BIOME_MANIFEST_V1",
+  "seed": 1304,
+  "content_version": "CONTENT_V1",
+  "generator_version": "GENERATOR_V1",
+  "pool_version": "RMAP11_POOL500_V2_FIX25",
+  "pool_digest": "1b7cb0dd3c7f6c6678c31d43b69495c212eb32b765a10c56e9e6ffd3f0c0e593",
+  "world_definition_digest": "51eb1ebbb4760836260f3be27a8f1e7319cc424aec4cd196eb34004c6a882355",
+  "world_graph_digest": "37d192ef32117dce3094fecfa17412687fcf9d854230d8195e9f87cd816e27f6",
+  "plan_digest": "8b0fe1c4bdea5afdd0160681dacc19a4b59b77c13804f29bb4f4be95dce68a86",
+  "profile_rng_stream": "RNG_BIOME_PATCH",
+  "profile_rng_scope": "RMAP14_PROFILE_SELECTION",
+  "profile_rng_initial_state": "f3ee6eaf67a121da",
+  "world_tile_bounds": "624x416",
+  "microchunk_grid": "52x52",
+  "microchunk_size_tiles": "12x8",
+  "ownership_count": 2704,
+  "patch_count": 16,
+  "boundary_count": 312,
+  "measured_density": "PENDING_GEOMETRY",
+  "physical_bake": "NOT_RMAP14",
+  "special_footprints": "NOT_PLACED_RMAP15"
+}

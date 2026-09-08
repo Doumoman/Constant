@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="180" result="Passed" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 19:16:23Z" end-time="2026-09-08 19:16:24Z" duration="1.1556294">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26678" result="Passed" start-time="2026-09-08 19:16:23Z" end-time="2026-09-08 19:16:24Z" duration="1.155629" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24720" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22658" result="Passed" start-time="2026-09-08 19:16:23Z" end-time="2026-09-08 19:16:24Z" duration="0.923847" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="22276" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24721" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22658" result="Passed" start-time="2026-09-08 19:16:23Z" end-time="2026-09-08 19:16:24Z" duration="0.684769" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24729" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22442" result="Passed" start-time="2026-09-08 19:16:23Z" end-time="2026-09-08 19:16:24Z" duration="0.518488" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24733" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22383" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.353729" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24734" name="WorldGeneration" fullname="StarNight.Map.Tests.WorldGeneration" runstate="Runnable" testcasecount="14634" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.228844" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24741" name="Boundaries" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries" runstate="Runnable" testcasecount="2700" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.072850" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="14210" name="MoonpalaceBiomePairContractTests" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" testcasecount="180" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.058136" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="MAP08_01" />
+                  </properties>
+                  <test-suite type="ParameterizedMethod" id="14391" name="PairOrientationWarningContract" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" testcasecount="180" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.052072" total="180" passed="180" failed="0" inconclusive="0" skipped="0" asserts="0">
+                    <properties />
+                    <test-case id="14211" name="PairOrientationWarningContract_000" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_000" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1691636699" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.016761" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14212" name="PairOrientationWarningContract_001" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_001" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1765312728" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000229" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14213" name="PairOrientationWarningContract_002" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_002" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1409863543" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.001450" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14214" name="PairOrientationWarningContract_003" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_003" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1369465018" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000224" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14215" name="PairOrientationWarningContract_004" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_004" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1493815697" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000084" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14216" name="PairOrientationWarningContract_005" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_005" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2014838432" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000150" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14217" name="PairOrientationWarningContract_006" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_006" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="227422826" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000262" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14218" name="PairOrientationWarningContract_007" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_007" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1271408297" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000392" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14219" name="PairOrientationWarningContract_008" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_008" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2050663103" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000512" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14220" name="PairOrientationWarningContract_009" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_009" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1136033489" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000192" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14221" name="PairOrientationWarningContract_010" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_010" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1052981564" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000175" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14222" name="PairOrientationWarningContract_011" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_011" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="134332287" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.002051" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14223" name="PairOrientationWarningContract_012" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_012" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2089929312" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000079" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14224" name="PairOrientationWarningContract_013" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_013" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="181356658" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000060" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14225" name="PairOrientationWarningContract_014" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_014" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1395902041" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000065" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14226" name="PairOrientationWarningContract_015" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_015" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1700634417" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000061" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14227" name="PairOrientationWarningContract_016" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_016" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="696551334" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000060" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14228" name="PairOrientationWarningContract_017" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_017" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="962881705" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14229" name="PairOrientationWarningContract_018" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_018" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="391214040" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000072" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14230" name="PairOrientationWarningContract_019" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_019" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="815472112" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000070" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14231" name="PairOrientationWarningContract_020" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_020" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="280198681" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000124" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14232" name="PairOrientationWarningContract_021" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_021" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1341500374" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000071" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14233" name="PairOrientationWarningContract_022" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_022" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1119920627" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000065" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14234" name="PairOrientationWarningContract_023" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_023" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="703645384" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.001606" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14235" name="PairOrientationWarningContract_024" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_024" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1632387511" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000052" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14236" name="PairOrientationWarningContract_025" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_025" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1179586446" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14237" name="PairOrientationWarningContract_026" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_026" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="271185403" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14238" name="PairOrientationWarningContract_027" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_027" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="878371077" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14239" name="PairOrientationWarningContract_028" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_028" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1494311246" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000039" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14240" name="PairOrientationWarningContract_029" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_029" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1172496865" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000029" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14241" name="PairOrientationWarningContract_030" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_030" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1092178993" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000051" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14242" name="PairOrientationWarningContract_031" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_031" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="248459531" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14243" name="PairOrientationWarningContract_032" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_032" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1953517582" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000089" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14244" name="PairOrientationWarningContract_033" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_033" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="740961867" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000049" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14245" name="PairOrientationWarningContract_034" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_034" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1743250250" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14246" name="PairOrientationWarningContract_035" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_035" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1160929007" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14247" name="PairOrientationWarningContract_036" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_036" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="638771505" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14248" name="PairOrientationWarningContract_037" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_037" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="851199580" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14249" name="PairOrientationWarningContract_038" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_038" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="553001524" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14250" name="PairOrientationWarningContract_039" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_039" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="102460539" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000060" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14251" name="PairOrientationWarningContract_040" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_040" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="403357163" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14252" name="PairOrientationWarningContract_041" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_041" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1182561620" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000032" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14253" name="PairOrientationWarningContract_042" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_042" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="608806679" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14254" name="PairOrientationWarningContract_043" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_043" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1021641658" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14255" name="PairOrientationWarningContract_044" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_044" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1840095507" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000128" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14256" name="PairOrientationWarningContract_045" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_045" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="576347419" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000051" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14257" name="PairOrientationWarningContract_046" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_046" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1038396160" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14258" name="PairOrientationWarningContract_047" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_047" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2055320133" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000039" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14259" name="PairOrientationWarningContract_048" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_048" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="229464595" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14260" name="PairOrientationWarningContract_049" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_049" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1182618743" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14261" name="PairOrientationWarningContract_050" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_050" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="968713759" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14262" name="PairOrientationWarningContract_051" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_051" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2120203570" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14263" name="PairOrientationWarningContract_052" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_052" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2063887384" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14264" name="PairOrientationWarningContract_053" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_053" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="128561547" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000030" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14265" name="PairOrientationWarningContract_054" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_054" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1351995282" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14266" name="PairOrientationWarningContract_055" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_055" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="350136325" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000070" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14267" name="PairOrientationWarningContract_056" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_056" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="645392101" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000102" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14268" name="PairOrientationWarningContract_057" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_057" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="706218159" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000051" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14269" name="PairOrientationWarningContract_058" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_058" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1884561154" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14270" name="PairOrientationWarningContract_059" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_059" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="314229251" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000039" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14271" name="PairOrientationWarningContract_060" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_060" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1743653029" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14272" name="PairOrientationWarningContract_061" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_061" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1496535396" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000035" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14273" name="PairOrientationWarningContract_062" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_062" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1924580698" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14274" name="PairOrientationWarningContract_063" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_063" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="878166238" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14275" name="PairOrientationWarningContract_064" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_064" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="43854496" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14276" name="PairOrientationWarningContract_065" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_065" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="804522033" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000031" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14277" name="PairOrientationWarningContract_066" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_066" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="328298352" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14278" name="PairOrientationWarningContract_067" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_067" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1348967445" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14279" name="PairOrientationWarningContract_068" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_068" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="585590055" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14280" name="PairOrientationWarningContract_069" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_069" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="234973034" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14281" name="PairOrientationWarningContract_070" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_070" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1061862912" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14282" name="PairOrientationWarningContract_071" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_071" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1992835401" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14283" name="PairOrientationWarningContract_072" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_072" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="409880181" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14284" name="PairOrientationWarningContract_073" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_073" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="288753501" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14285" name="PairOrientationWarningContract_074" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_074" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="412114949" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14286" name="PairOrientationWarningContract_075" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_075" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1245120708" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14287" name="PairOrientationWarningContract_076" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_076" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="732693695" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000039" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14288" name="PairOrientationWarningContract_077" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_077" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="98278969" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000032" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14289" name="PairOrientationWarningContract_078" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_078" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1011033524" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14290" name="PairOrientationWarningContract_079" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_079" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1056040092" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14291" name="PairOrientationWarningContract_080" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_080" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="141190286" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14292" name="PairOrientationWarningContract_081" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_081" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="363348917" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14293" name="PairOrientationWarningContract_082" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_082" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="648906482" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14294" name="PairOrientationWarningContract_083" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_083" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="311692503" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14295" name="PairOrientationWarningContract_084" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_084" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="203783106" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14296" name="PairOrientationWarningContract_085" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_085" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1119459070" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14297" name="PairOrientationWarningContract_086" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_086" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="332055794" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14298" name="PairOrientationWarningContract_087" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_087" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1824956035" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000039" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14299" name="PairOrientationWarningContract_088" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_088" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1536450232" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000039" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14300" name="PairOrientationWarningContract_089" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_089" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1393113925" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000031" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14301" name="PairOrientationWarningContract_090" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_090" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="515536906" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14302" name="PairOrientationWarningContract_091" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_091" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2080036993" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14303" name="PairOrientationWarningContract_092" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_092" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1114122073" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14304" name="PairOrientationWarningContract_093" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_093" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="238772273" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14305" name="PairOrientationWarningContract_094" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_094" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="506291157" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000066" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14306" name="PairOrientationWarningContract_095" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_095" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1054305414" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000052" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14307" name="PairOrientationWarningContract_096" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_096" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1405464569" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14308" name="PairOrientationWarningContract_097" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_097" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1878124088" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14309" name="PairOrientationWarningContract_098" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_098" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="977787162" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14310" name="PairOrientationWarningContract_099" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_099" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1035573474" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14311" name="PairOrientationWarningContract_100" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_100" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="248049067" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14312" name="PairOrientationWarningContract_101" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_101" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1836912362" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000033" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14313" name="PairOrientationWarningContract_102" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_102" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1469730078" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14314" name="PairOrientationWarningContract_103" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_103" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2141975208" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000049" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14315" name="PairOrientationWarningContract_104" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_104" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="120755831" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14316" name="PairOrientationWarningContract_105" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_105" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1123362005" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14317" name="PairOrientationWarningContract_106" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_106" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1710323389" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14318" name="PairOrientationWarningContract_107" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_107" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1775133883" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14319" name="PairOrientationWarningContract_108" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_108" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1863930245" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14320" name="PairOrientationWarningContract_109" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_109" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="106874574" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000037" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14321" name="PairOrientationWarningContract_110" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_110" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1764926277" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14322" name="PairOrientationWarningContract_111" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_111" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="547113132" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14323" name="PairOrientationWarningContract_112" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_112" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1842668282" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14324" name="PairOrientationWarningContract_113" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_113" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="828521062" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000033" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14325" name="PairOrientationWarningContract_114" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_114" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="173038965" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14326" name="PairOrientationWarningContract_115" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_115" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1380304112" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14327" name="PairOrientationWarningContract_116" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_116" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="847628914" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14328" name="PairOrientationWarningContract_117" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_117" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1612888195" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14329" name="PairOrientationWarningContract_118" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_118" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="674383132" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14330" name="PairOrientationWarningContract_119" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_119" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1071879073" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14331" name="PairOrientationWarningContract_120" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_120" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="472466239" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14332" name="PairOrientationWarningContract_121" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_121" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="650825964" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000038" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14333" name="PairOrientationWarningContract_122" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_122" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1960000860" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14334" name="PairOrientationWarningContract_123" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_123" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1339959777" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14335" name="PairOrientationWarningContract_124" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_124" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1866919775" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14336" name="PairOrientationWarningContract_125" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_125" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1129309566" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000034" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14337" name="PairOrientationWarningContract_126" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_126" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="878713328" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14338" name="PairOrientationWarningContract_127" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_127" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="171107908" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14339" name="PairOrientationWarningContract_128" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_128" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1929945991" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14340" name="PairOrientationWarningContract_129" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_129" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1505293182" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14341" name="PairOrientationWarningContract_130" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_130" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1987139786" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000057" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14342" name="PairOrientationWarningContract_131" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_131" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1002053254" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000060" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14343" name="PairOrientationWarningContract_132" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_132" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1267975454" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000070" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14344" name="PairOrientationWarningContract_133" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_133" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2122943697" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000060" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14345" name="PairOrientationWarningContract_134" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_134" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="807991025" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000049" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14346" name="PairOrientationWarningContract_135" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_135" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="451761571" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14347" name="PairOrientationWarningContract_136" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_136" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1041102486" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000061" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14348" name="PairOrientationWarningContract_137" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_137" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="654414921" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14349" name="PairOrientationWarningContract_138" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_138" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="190936672" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14350" name="PairOrientationWarningContract_139" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_139" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1227904748" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000049" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14351" name="PairOrientationWarningContract_140" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_140" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1556619328" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14352" name="PairOrientationWarningContract_141" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_141" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="704405558" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14353" name="PairOrientationWarningContract_142" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_142" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2108509437" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14354" name="PairOrientationWarningContract_143" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_143" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1429575658" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14355" name="PairOrientationWarningContract_144" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_144" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1775671295" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14356" name="PairOrientationWarningContract_145" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_145" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2115907421" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14357" name="PairOrientationWarningContract_146" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_146" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="237368711" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14358" name="PairOrientationWarningContract_147" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_147" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="285601011" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14359" name="PairOrientationWarningContract_148" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_148" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="65733308" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14360" name="PairOrientationWarningContract_149" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_149" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1273470692" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000035" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14361" name="PairOrientationWarningContract_150" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_150" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="206676500" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14362" name="PairOrientationWarningContract_151" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_151" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1940060021" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14363" name="PairOrientationWarningContract_152" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_152" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1203740956" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000043" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14364" name="PairOrientationWarningContract_153" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_153" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2053391736" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000049" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14365" name="PairOrientationWarningContract_154" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_154" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="563107235" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14366" name="PairOrientationWarningContract_155" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_155" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1744706750" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14367" name="PairOrientationWarningContract_156" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_156" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="2024395149" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14368" name="PairOrientationWarningContract_157" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_157" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="129770301" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000042" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14369" name="PairOrientationWarningContract_158" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_158" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="275055433" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14370" name="PairOrientationWarningContract_159" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_159" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1138929912" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14371" name="PairOrientationWarningContract_160" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_160" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="244648677" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14372" name="PairOrientationWarningContract_161" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_161" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1539215481" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000034" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14373" name="PairOrientationWarningContract_162" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_162" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1992671539" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14374" name="PairOrientationWarningContract_163" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_163" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="358637063" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14375" name="PairOrientationWarningContract_164" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_164" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="267218435" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14376" name="PairOrientationWarningContract_165" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_165" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="762873023" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14377" name="PairOrientationWarningContract_166" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_166" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1426621325" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14378" name="PairOrientationWarningContract_167" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_167" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1867208232" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000041" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14379" name="PairOrientationWarningContract_168" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_168" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="20530037" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14380" name="PairOrientationWarningContract_169" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_169" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1868761041" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000040" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14381" name="PairOrientationWarningContract_170" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_170" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="339201626" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14382" name="PairOrientationWarningContract_171" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_171" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="193213993" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14383" name="PairOrientationWarningContract_172" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_172" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1421951523" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000045" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14384" name="PairOrientationWarningContract_173" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_173" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1593962031" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000036" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14385" name="PairOrientationWarningContract_174" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_174" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1662743392" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000046" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14386" name="PairOrientationWarningContract_175" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_175" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1915544328" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000049" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14387" name="PairOrientationWarningContract_176" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_176" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="689800174" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14388" name="PairOrientationWarningContract_177" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_177" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="530425202" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14389" name="PairOrientationWarningContract_178" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_178" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1711772129" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000067" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="14390" name="PairOrientationWarningContract_179" fullname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests.PairOrientationWarningContract_179" methodname="PairOrientationWarningContract" classname="StarNight.Map.Tests.WorldGeneration.Boundaries.MoonpalaceBiomePairContractTests" runstate="Runnable" seed="1898496001" result="Passed" start-time="2026-09-08 19:16:24Z" end-time="2026-09-08 19:16:24Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                      <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                    </test-case>
+                  </test-suite>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
