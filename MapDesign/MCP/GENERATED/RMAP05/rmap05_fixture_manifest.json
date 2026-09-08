@@ -1,0 +1,10 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP05/MoonPalaceFallDamage_RMAP05.unity",
+  "player_collider": "0.4x0.8 foot-pivot",
+  "spawn": "x=3, y=32 (31-tile fall to terrain top y=1)",
+  "ladder": "trigger center x=7, y=14, size=0.7x10",
+  "pole": "trigger center x=14, y=14, size=0.7x10",
+  "one_way": "PlatformEffector2D BoxCollider center x=23, y=10, size=5x0.25",
+  "health": "max=5",
+  "fall_table": "<6=0, 6-<10=stun, 10/15/20/25=1/2/3/4, >=30=death"
+}

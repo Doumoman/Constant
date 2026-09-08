@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Passed" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.3840804">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26634" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.384080" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1244" name="Game.Character.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Character.Tests.EditMode.dll" runstate="Runnable" testcasecount="190" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.039523" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="16728" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1245" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="190" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.036872" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1246" name="Character" fullname="StarNight.Character" runstate="Runnable" testcasecount="190" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.034050" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1247" name="Tests" fullname="StarNight.Character.Tests" runstate="Runnable" testcasecount="190" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.031402" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1252" name="EditMode" fullname="StarNight.Character.Tests.EditMode" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.028031" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1253" name="Rmap05" fullname="StarNight.Character.Tests.EditMode.Rmap05" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.027102" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1093" name="CharacterLiveFallDamageStateTests" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.025978" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP05" />
+                  </properties>
+                  <test-case id="1105" name="ExistingHealthAndPlayerStateContractsProvideFiveHealthStunAndDeath" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.ExistingHealthAndPlayerStateContractsProvideFiveHealthStunAndDeath" methodname="ExistingHealthAndPlayerStateContractsProvideFiveHealthStunAndDeath" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="537119085" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.010246" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-suite type="ParameterizedMethod" id="1104" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.005008" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                    <properties />
+                    <test-case id="1094" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(5.999f,0,False,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(5.999f,0,False,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="1878350734" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.001680" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1095" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(6.0f,0,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(6.0f,0,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="247599697" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000081" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1096" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(9.999f,0,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(9.999f,0,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="1963948840" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000051" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1097" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(10.0f,1,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(10.0f,1,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="516040700" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1098" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(14.999f,1,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(14.999f,1,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="786928255" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000047" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1099" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(15.0f,2,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(15.0f,2,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="1941787613" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000055" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1100" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(20.0f,3,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(20.0f,3,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="1477175489" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1101" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(25.0f,4,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(25.0f,4,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="792982877" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000048" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1102" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(29.999f,4,True,False)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(29.999f,4,True,False)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="140290498" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000044" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1103" name="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(30.0f,0,False,True)" fullname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests.P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings(30.0f,0,False,True)" methodname="P17_FallTableUsesContinuousBoundariesOwnedByMovementSettings" classname="StarNight.Character.Tests.EditMode.Rmap05.CharacterLiveFallDamageStateTests" runstate="Runnable" seed="1409678561" result="Passed" start-time="2026-09-08 09:15:42Z" end-time="2026-09-08 09:15:42Z" duration="0.000054" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                      <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                    </test-case>
+                  </test-suite>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

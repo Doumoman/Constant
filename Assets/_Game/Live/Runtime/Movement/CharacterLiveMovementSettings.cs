@@ -41,6 +41,10 @@ namespace StarNight.Character.Live.Movement
         [SerializeField] private float climbDownSpeed = 5f;
         [SerializeField] private float climbReentryDelay = 0.12f;
         [SerializeField] private float oneWayDropThroughDuration = 0.18f;
+        [SerializeField] private int fallMaxHealth = 5;
+        [SerializeField] private float fallStunDuration = 0.5f;
+        [SerializeField] private float fallStunThreshold = 6f;
+        [SerializeField] private float fallFatalThreshold = 30f;
 
         public LayerMask SolidLayers
         {
@@ -68,6 +72,10 @@ namespace StarNight.Character.Live.Movement
         public float ClimbDownSpeed { get { return climbDownSpeed; } }
         public float ClimbReentryDelay { get { return climbReentryDelay; } }
         public float OneWayDropThroughDuration { get { return oneWayDropThroughDuration; } }
+        public int FallMaxHealth { get { return fallMaxHealth; } }
+        public float FallStunDuration { get { return fallStunDuration; } }
+        public float FallStunThreshold { get { return fallStunThreshold; } }
+        public float FallFatalThreshold { get { return fallFatalThreshold; } }
 
         public bool ResolveAlwaysRun(bool walkHeld)
         {
@@ -95,6 +103,52 @@ namespace StarNight.Character.Live.Movement
         {
             return new CharacterJumpSettings(
                 jumpVelocity, coyoteTime, jumpBufferTime, releaseCutMultiplier);
+        }
+
+        /// <summary>
+        /// RMAP05 착지 결과의 단일 소유자. 거리는 반올림하지 않고 연속 구간으로
+        /// 비교한다. 체력 적용은 live fall state가 기존 Survival 계약으로 위임한다.
+        /// </summary>
+        public CharacterLiveFallLandingResult EvaluateFallLanding(float fallDistance)
+        {
+            float distance = Mathf.Max(0f, fallDistance);
+            if (distance >= fallFatalThreshold)
+            {
+                return new CharacterLiveFallLandingResult(0, false, true);
+            }
+
+            if (distance >= 25f)
+            {
+                return new CharacterLiveFallLandingResult(4, true, false);
+            }
+
+            if (distance >= 20f)
+            {
+                return new CharacterLiveFallLandingResult(3, true, false);
+            }
+
+            if (distance >= 15f)
+            {
+                return new CharacterLiveFallLandingResult(2, true, false);
+            }
+
+            if (distance >= 10f)
+            {
+                return new CharacterLiveFallLandingResult(1, true, false);
+            }
+
+            return distance >= fallStunThreshold
+                ? new CharacterLiveFallLandingResult(0, true, false)
+                : new CharacterLiveFallLandingResult(0, false, false);
+        }
+
+        /// <summary>RMAP05 fixture가 RMAP02 이동 수치와 분리해 설정하는 낙하 표.</summary>
+        public void ConfigureRmap05Fall()
+        {
+            fallMaxHealth = 5;
+            fallStunDuration = 0.5f;
+            fallStunThreshold = 6f;
+            fallFatalThreshold = 30f;
         }
 
         /// <summary>RMAP02 fixture의 Default 레이어와 P01~P03 기준값을 명시한다.</summary>
@@ -126,6 +180,22 @@ namespace StarNight.Character.Live.Movement
             climbDownSpeed = 5f;
             climbReentryDelay = 0.12f;
             oneWayDropThroughDuration = 0.18f;
+            ConfigureRmap05Fall();
         }
+    }
+
+    /// <summary>낙하 거리 표 평가 결과. Health/physics side effect는 포함하지 않는다.</summary>
+    public readonly struct CharacterLiveFallLandingResult
+    {
+        public CharacterLiveFallLandingResult(int damage, bool appliesStun, bool isFatal)
+        {
+            Damage = damage;
+            AppliesStun = appliesStun;
+            IsFatal = isFatal;
+        }
+
+        public int Damage { get; }
+        public bool AppliesStun { get; }
+        public bool IsFatal { get; }
     }
 }

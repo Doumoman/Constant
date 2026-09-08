@@ -34,6 +34,7 @@ namespace StarNight.Character.Live.Movement
         private CharacterJumpController jumpController;
         private CharacterLandingDetector landingDetector;
         private CharacterJumpState jumpState;
+        private CharacterLiveFallDamageState fallDamageState;
 
         private Vector2 velocity;
         private CharacterFacingDirection facing = CharacterFacingDirection.Right;
@@ -53,6 +54,8 @@ namespace StarNight.Character.Live.Movement
         private long physicsTick;
         private double physicsTime;
         private float lastFixedDeltaTime;
+        private bool isFallTracking;
+        private float fallPeakFeetY;
 
         public bool IsDriving
         {
@@ -82,6 +85,17 @@ namespace StarNight.Character.Live.Movement
         public CharacterLiveMovementSettings Settings
         {
             get { return settings; }
+        }
+
+        /// <summary>RMAP05가 실제 Player에 붙이는 낙하 결과 상태.</summary>
+        public CharacterLiveFallDamageState FallDamageState
+        {
+            get { return fallDamageState; }
+        }
+
+        public float CurrentTrackedFallDistance
+        {
+            get { return isFallTracking ? Mathf.Max(0f, fallPeakFeetY - GetCurrentFeetY()) : 0f; }
         }
 
         /// <summary>RMAP03의 현재 모서리 Grab 상태(등반/벽차기 상태는 포함하지 않음).</summary>
@@ -115,6 +129,11 @@ namespace StarNight.Character.Live.Movement
             settings.ConfigureRmap02(solidLayerMask);
         }
 
+        public void ConfigureRmap05Fall()
+        {
+            settings.ConfigureRmap05Fall();
+        }
+
         /// <summary>스폰 소비 직후 호출 — 운동 상태 초기화 + 구동 시작.</summary>
         public void ResetMotion()
         {
@@ -140,6 +159,13 @@ namespace StarNight.Character.Live.Movement
             physicsTime = 0d;
             lastFixedDeltaTime = 0f;
             jumpState = new CharacterJumpState();
+            EnsureFallDamageState();
+            if (fallDamageState != null)
+            {
+                fallDamageState.ResetForSpawn(gameObject.GetInstanceID(), settings);
+            }
+
+            BeginFallTracking(GetCurrentFeetY());
             isDriving = true;
         }
 
@@ -149,6 +175,8 @@ namespace StarNight.Character.Live.Movement
             {
                 rig = GetComponent<CharacterLivePlayerRig>();
             }
+
+            EnsureFallDamageState();
 
             SynchronizeColliderGeometry();
 
@@ -175,13 +203,25 @@ namespace StarNight.Character.Live.Movement
                 return;
             }
 
+            EnsureFallDamageState();
+
             float dt = Time.fixedDeltaTime;
             lastFixedDeltaTime = dt;
             physicsTick++;
             physicsTime += dt;
             ClearExpiredOneWayIgnore();
+            if (fallDamageState != null)
+            {
+                fallDamageState.Tick((float)physicsTime);
+            }
 
             CharacterInputSnapshot input = rig.ConsumeFixedSnapshot(physicsTick);
+            if (fallDamageState != null && !fallDamageState.CanAcceptInput)
+            {
+                input = new CharacterInputSnapshot(0f, false, false, false,
+                    default, default, default, default);
+                velocity.x = 0f;
+            }
             // Rigidbody2D owns the Player's feet pivot in RMAP02.  The
             // collision queries instead use the capsule centre, matching the
             // real CapsuleCollider2D's local offset and dimensions.
@@ -228,6 +268,15 @@ namespace StarNight.Character.Live.Movement
             bool grounded = probeResult.IsGrounded;
 
             // (2) 착지 정리 + 접지 기록 (코스 시뮬레이터와 동일 순서).
+            if (grounded && !wasGrounded)
+            {
+                HandleFallLanding(center, in probeResult);
+            }
+            else if (!grounded && wasGrounded)
+            {
+                BeginFallTracking(GetFeetY(center));
+            }
+
             landingDetector.Step(
                 jumpState, wasGrounded, grounded, physicsTime, ref velocity);
             if (grounded)
@@ -261,6 +310,7 @@ namespace StarNight.Character.Live.Movement
                 jumpState, grounded, physicsTime, ref velocity))
             {
                 grounded = false;
+                BeginFallTracking(GetFeetY(center));
             }
 
             velocity = jumpController.ApplyJumpRelease(
@@ -312,6 +362,15 @@ namespace StarNight.Character.Live.Movement
             }
 
             rig.Body.MovePosition(center - capsuleOffset);
+
+            if (grounded)
+            {
+                SetFallBaseline(GetFeetY(center));
+            }
+            else
+            {
+                ObserveFallPeak(GetFeetY(center));
+            }
 
             IsGroundedNow = grounded;
             wasGrounded = grounded;
@@ -374,6 +433,8 @@ namespace StarNight.Character.Live.Movement
             climbedSurface = surface;
             isClimbing = true;
             velocity = Vector2.zero;
+            ResetFallTrackingForTraversal(CharacterLiveFallResetKind.Climb,
+                GetFeetY(center));
             HasSafeClimbContact = true;
             LastSafeClimbAnchor = new Vector2(surface.AxisWorldX, center.y - capsuleOffset.y);
             return true;
@@ -424,6 +485,7 @@ namespace StarNight.Character.Live.Movement
             center.x = climbedSurface.AxisWorldX;
             rig.Body.MovePosition(center - capsuleOffset);
             velocity = Vector2.zero;
+            SetFallBaseline(GetFeetY(center));
             IsGroundedNow = false;
             wasGrounded = false;
             LastSafeClimbAnchor = new Vector2(climbedSurface.AxisWorldX,
@@ -467,6 +529,7 @@ namespace StarNight.Character.Live.Movement
             isClimbing = false;
             climbedSurface = null;
             climbReentryAllowedAt = physicsTime + settings.ClimbReentryDelay;
+            BeginFallTracking(GetCurrentFeetY());
         }
 
         private bool TryBeginOneWayDropThrough(Vector2 center)
@@ -490,6 +553,7 @@ namespace StarNight.Character.Live.Movement
                 velocity.y = Mathf.Min(velocity.y, -0.1f);
                 IsGroundedNow = false;
                 wasGrounded = false;
+                BeginFallTracking(GetFeetY(center));
                 return true;
             }
 
@@ -589,6 +653,7 @@ namespace StarNight.Character.Live.Movement
             grabAnchorLocal = surface.transform.InverseTransformPoint(corner);
             grabSide = side;
             isGrabbing = true;
+            ResetFallTrackingForTraversal(CharacterLiveFallResetKind.Grab, desiredFeet.y);
             HasSafeGrabContact = true;
             LastSafeGrabAnchor = corner;
             return true;
@@ -601,6 +666,7 @@ namespace StarNight.Character.Live.Movement
                 -grabSide * settings.GrabSideOffset, -settings.GrabHangOffset);
             rig.Body.MovePosition(feet);
             velocity = Vector2.zero;
+            SetFallBaseline(feet.y);
             IsGroundedNow = false;
             wasGrounded = false;
             LastSafeGrabAnchor = anchor;
@@ -616,6 +682,93 @@ namespace StarNight.Character.Live.Movement
             if (drop)
             {
                 velocity.y = Mathf.Min(velocity.y, -0.1f);
+            }
+
+            BeginFallTracking(GetCurrentFeetY());
+        }
+
+        private void EnsureFallDamageState()
+        {
+            if (fallDamageState == null)
+            {
+                fallDamageState = GetComponent<CharacterLiveFallDamageState>();
+            }
+        }
+
+        private float GetCurrentFeetY()
+        {
+            return rig != null && rig.Body != null ? rig.Body.position.y : 0f;
+        }
+
+        private float GetFeetY(Vector2 center)
+        {
+            return center.y - capsule.HalfHeight;
+        }
+
+        private void BeginFallTracking(float feetY)
+        {
+            isFallTracking = true;
+            fallPeakFeetY = feetY;
+        }
+
+        private void SetFallBaseline(float feetY)
+        {
+            isFallTracking = false;
+            fallPeakFeetY = feetY;
+        }
+
+        private void ObserveFallPeak(float feetY)
+        {
+            if (!isFallTracking)
+            {
+                BeginFallTracking(feetY);
+                return;
+            }
+
+            fallPeakFeetY = Mathf.Max(fallPeakFeetY, feetY);
+        }
+
+        private void ResetFallTrackingForTraversal(
+            CharacterLiveFallResetKind kind,
+            float feetY)
+        {
+            float observedDistance = isFallTracking
+                ? Mathf.Max(0f, fallPeakFeetY - feetY)
+                : 0f;
+            if (fallDamageState != null)
+            {
+                fallDamageState.RecordTraversalReset(kind, observedDistance);
+            }
+
+            SetFallBaseline(feetY);
+        }
+
+        private void HandleFallLanding(Vector2 center, in CharacterGroundProbeResult probeResult)
+        {
+            float landingFeetY = GetFeetY(center);
+            if (probeResult.HasHit && probeResult.Distance > Skin)
+            {
+                landingFeetY -= probeResult.Distance - Skin;
+            }
+
+            float fallDistance = isFallTracking
+                ? Mathf.Max(0f, fallPeakFeetY - landingFeetY)
+                : 0f;
+            bool landedOnOneWay = probeResult.HasHit &&
+                CharacterLiveOneWayPlatform.TryFind(probeResult.SupportId, out _);
+            if (fallDamageState != null)
+            {
+                // Required order: distance -> damage/stun/death -> reset.
+                fallDamageState.ApplyLanding(fallDistance, landedOnOneWay,
+                    (float)physicsTime, settings);
+            }
+
+            SetFallBaseline(landingFeetY);
+            if (fallDamageState != null)
+            {
+                fallDamageState.RecordTraversalReset(
+                    CharacterLiveFallResetKind.Landing, fallDistance);
+                fallDamageState.CompleteLandingReset();
             }
         }
 
