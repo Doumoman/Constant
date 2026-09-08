@@ -1,0 +1,7 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP06/MoonPalaceMovementLab_RMAP06.unity",
+  "player_collider": "0.4x0.8 foot-pivot",
+  "look": "Tab + 8-direction, hold=1.00s, offset=3 tiles, enter=0.24s, return=0.18s",
+  "camera": "continuous 12x8, bounds x=0..64 y=0..20",
+  "fixtures": "flat/run, 1-tile step, 1-tile tunnel, safe+moving grab, ladder, pole, one-way, 8-tile fall deck"
+}

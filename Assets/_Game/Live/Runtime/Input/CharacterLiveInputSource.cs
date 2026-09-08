@@ -25,6 +25,7 @@ namespace StarNight.Character.Live.Input
         private InputAction walkAction;
         private InputAction upAction;
         private InputAction downAction;
+        private InputAction lookAction;
         private InputAction jumpAction;
         private InputAction actionAction;
         private InputAction bombAction;
@@ -54,6 +55,12 @@ namespace StarNight.Character.Live.Input
         public bool IsWalkHeld
         {
             get { return walkAction != null && walkAction.IsPressed(); }
+        }
+
+        /// <summary>RMAP06 Tab action의 현재 Input System held 상태.</summary>
+        public bool IsLookHeld
+        {
+            get { return lookAction != null && lookAction.IsPressed(); }
         }
 
         /// <summary>고정 스텝 소비: 누적 에지 포함 스냅샷 반환(에지 소거).</summary>
@@ -102,6 +109,7 @@ namespace StarNight.Character.Live.Input
                 upAction.IsPressed(),
                 downAction.IsPressed(),
                 walkAction.IsPressed(),
+                lookAction.IsPressed(),
                 ReadButton(jumpAction),
                 ReadButton(actionAction),
                 ReadButton(bombAction),
@@ -139,6 +147,7 @@ namespace StarNight.Character.Live.Input
             walkAction = playerMap.FindAction("Walk", true);
             upAction = playerMap.FindAction("Up", true);
             downAction = playerMap.FindAction("Down", true);
+            lookAction = playerMap.FindAction("Look", true);
             jumpAction = playerMap.FindAction("Jump", true);
             actionAction = playerMap.FindAction("Action", true);
             bombAction = playerMap.FindAction("Bomb", true);

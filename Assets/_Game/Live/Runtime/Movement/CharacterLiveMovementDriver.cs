@@ -1,4 +1,5 @@
 using StarNight.Character.Input;
+using StarNight.Character.Live.Cameras;
 using StarNight.Character.Live.Player;
 using StarNight.Character.Movement;
 using StarNight.Character.State;
@@ -35,6 +36,7 @@ namespace StarNight.Character.Live.Movement
         private CharacterLandingDetector landingDetector;
         private CharacterJumpState jumpState;
         private CharacterLiveFallDamageState fallDamageState;
+        private CharacterLiveLookModeState lookModeState;
 
         private Vector2 velocity;
         private CharacterFacingDirection facing = CharacterFacingDirection.Right;
@@ -92,6 +94,18 @@ namespace StarNight.Character.Live.Movement
         {
             get { return fallDamageState; }
         }
+
+        /// <summary>RMAP06 Player-local Tab observation state.</summary>
+        public CharacterLiveLookModeState LookModeState
+        {
+            get { return lookModeState; }
+        }
+
+        /// <summary>
+        /// The most recent actual Player-state decision supplied to the look
+        /// state. It is not a test marker and does not bypass movement state.
+        /// </summary>
+        public bool IsLookEligible { get; private set; }
 
         public float CurrentTrackedFallDistance
         {
@@ -160,9 +174,15 @@ namespace StarNight.Character.Live.Movement
             lastFixedDeltaTime = 0f;
             jumpState = new CharacterJumpState();
             EnsureFallDamageState();
+            EnsureLookModeState();
             if (fallDamageState != null)
             {
                 fallDamageState.ResetForSpawn(gameObject.GetInstanceID(), settings);
+            }
+
+            if (lookModeState != null)
+            {
+                lookModeState.Cancel();
             }
 
             BeginFallTracking(GetCurrentFeetY());
@@ -177,6 +197,7 @@ namespace StarNight.Character.Live.Movement
             }
 
             EnsureFallDamageState();
+            EnsureLookModeState();
 
             SynchronizeColliderGeometry();
 
@@ -204,6 +225,7 @@ namespace StarNight.Character.Live.Movement
             }
 
             EnsureFallDamageState();
+            EnsureLookModeState();
 
             float dt = Time.fixedDeltaTime;
             lastFixedDeltaTime = dt;
@@ -216,7 +238,14 @@ namespace StarNight.Character.Live.Movement
             }
 
             CharacterInputSnapshot input = rig.ConsumeFixedSnapshot(physicsTick);
-            if (fallDamageState != null && !fallDamageState.CanAcceptInput)
+            bool canAcceptInput = fallDamageState == null || fallDamageState.CanAcceptInput;
+            IsLookEligible = EvaluateLookEligibility(canAcceptInput);
+            if (lookModeState != null)
+            {
+                lookModeState.Step(in input, IsLookEligible, dt);
+            }
+
+            if (!canAcceptInput || (lookModeState != null && lookModeState.IsInputLocked))
             {
                 input = new CharacterInputSnapshot(0f, false, false, false,
                     default, default, default, default);
@@ -693,6 +722,34 @@ namespace StarNight.Character.Live.Movement
             {
                 fallDamageState = GetComponent<CharacterLiveFallDamageState>();
             }
+        }
+
+        private void EnsureLookModeState()
+        {
+            if (lookModeState == null)
+            {
+                lookModeState = GetComponent<CharacterLiveLookModeState>();
+            }
+
+            if (lookModeState == null)
+            {
+                lookModeState = gameObject.AddComponent<CharacterLiveLookModeState>();
+            }
+        }
+
+        private bool EvaluateLookEligibility(bool canAcceptInput)
+        {
+            if (!canAcceptInput || IsDroppingThroughOneWay)
+            {
+                return false;
+            }
+
+            bool stationary = velocity.sqrMagnitude <= 0.0001f;
+            bool stationaryGround = IsGroundedNow && stationary;
+            bool stationaryGrab = isGrabbing && stationary && grabbedSurface != null &&
+                !grabbedSurface.IsMovingSafeSolid;
+            bool stationaryClimb = isClimbing && stationary;
+            return stationaryGround || stationaryGrab || stationaryClimb;
         }
 
         private float GetCurrentFeetY()

@@ -16,6 +16,9 @@ namespace StarNight.Character.Live.Cameras
         [SerializeField] private float viewportWidth = 12f;
         [SerializeField] private float viewportHeight = 8f;
         [SerializeField] private float followSeconds = 0.08f;
+        [SerializeField] private CharacterLiveLookModeState lookModeState;
+
+        private Vector2 currentLookOffset;
 
         public Vector2 VisibleWorldSize
         {
@@ -23,6 +26,9 @@ namespace StarNight.Character.Live.Cameras
         }
 
         public Rect WorldBounds { get { return worldBounds; } }
+
+        /// <summary>Current runtime-only offset after the 0.24/0.18s transition.</summary>
+        public Vector2 CurrentLookOffset { get { return currentLookOffset; } }
 
         public void Configure(
             Camera camera,
@@ -38,6 +44,7 @@ namespace StarNight.Character.Live.Cameras
             viewportWidth = widthInTiles;
             viewportHeight = heightInTiles;
             followSeconds = Mathf.Max(0f, seconds);
+            ResolveLookModeState();
             UpdateViewport();
             SnapToTarget();
         }
@@ -50,6 +57,7 @@ namespace StarNight.Character.Live.Cameras
             }
 
             targetCamera.transform.position = ClampPosition(followTarget.position);
+            currentLookOffset = Vector2.zero;
         }
 
         private void Awake()
@@ -59,6 +67,7 @@ namespace StarNight.Character.Live.Cameras
                 targetCamera = GetComponent<Camera>();
             }
 
+            ResolveLookModeState();
             UpdateViewport();
             SnapToTarget();
         }
@@ -71,12 +80,33 @@ namespace StarNight.Character.Live.Cameras
             }
 
             UpdateViewport();
-            Vector3 desired = ClampPosition(followTarget.position);
+            ResolveLookModeState();
+            Vector2 targetLookOffset = lookModeState != null && lookModeState.IsLooking
+                ? lookModeState.TargetOffset
+                : Vector2.zero;
+            float lookSeconds = lookModeState != null && lookModeState.IsLooking
+                ? CharacterLiveLookModeState.EnterSeconds
+                : CharacterLiveLookModeState.ReturnSeconds;
+            float lookSpeed = CharacterLiveLookModeState.OffsetTiles /
+                Mathf.Max(0.0001f, lookSeconds);
+            currentLookOffset = Vector2.MoveTowards(currentLookOffset, targetLookOffset,
+                lookSpeed * Time.unscaledDeltaTime);
+
+            Vector3 desired = ClampPosition(followTarget.position +
+                new Vector3(currentLookOffset.x, currentLookOffset.y, 0f));
             float factor = followSeconds <= 0f ? 1f : Mathf.Clamp01(
                 Time.unscaledDeltaTime / followSeconds);
             targetCamera.transform.position = Vector3.Lerp(
                 targetCamera.transform.position, desired, factor);
             targetCamera.transform.position = ClampPosition(targetCamera.transform.position);
+        }
+
+        private void ResolveLookModeState()
+        {
+            if (lookModeState == null && followTarget != null)
+            {
+                lookModeState = followTarget.GetComponent<CharacterLiveLookModeState>();
+            }
         }
 
         private void UpdateViewport()

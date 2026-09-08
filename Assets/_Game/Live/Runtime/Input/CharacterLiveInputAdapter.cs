@@ -21,6 +21,7 @@ namespace StarNight.Character.Live.Input
         private bool upHeld;
         private bool downHeld;
         private bool walkHeld;
+        private bool lookHeld;
 
         /// <summary>렌더 프레임 관측값 일괄 누적(Update에서 호출).</summary>
         public void AccumulateFrame(
@@ -32,7 +33,7 @@ namespace StarNight.Character.Live.Input
             in CharacterLiveButtonFrame ropeFrame)
         {
             AccumulateFrame(horizontalAxis, false, isDownHeld, false,
-                in jumpFrame, in actionFrame, in bombFrame, in ropeFrame);
+                false, in jumpFrame, in actionFrame, in bombFrame, in ropeFrame);
         }
 
         /// <summary>RMAP04 climb/drop input을 포함한 fixed-step 누적 경로.</summary>
@@ -46,10 +47,27 @@ namespace StarNight.Character.Live.Input
             in CharacterLiveButtonFrame bombFrame,
             in CharacterLiveButtonFrame ropeFrame)
         {
+            AccumulateFrame(horizontalAxis, isUpHeld, isDownHeld, isWalkHeld,
+                false, in jumpFrame, in actionFrame, in bombFrame, in ropeFrame);
+        }
+
+        /// <summary>RMAP06 Tab observation modifier를 같은 fixed-step 경로로 누적한다.</summary>
+        public void AccumulateFrame(
+            float horizontalAxis,
+            bool isUpHeld,
+            bool isDownHeld,
+            bool isWalkHeld,
+            bool isLookHeld,
+            in CharacterLiveButtonFrame jumpFrame,
+            in CharacterLiveButtonFrame actionFrame,
+            in CharacterLiveButtonFrame bombFrame,
+            in CharacterLiveButtonFrame ropeFrame)
+        {
             horizontal = Mathf.Clamp(horizontalAxis, -1f, 1f);
             upHeld = isUpHeld;
             downHeld = isDownHeld;
             walkHeld = isWalkHeld;
+            lookHeld = isLookHeld;
             jump.AccumulateFrame(in jumpFrame);
             action.AccumulateFrame(in actionFrame);
             bomb.AccumulateFrame(in bombFrame);
@@ -67,6 +85,7 @@ namespace StarNight.Character.Live.Input
                 upHeld,
                 downHeld,
                 walkHeld,
+                lookHeld,
                 jump.ConsumeSnapshot(physicsTick),
                 action.ConsumeSnapshot(physicsTick),
                 bomb.ConsumeSnapshot(physicsTick),
@@ -80,6 +99,7 @@ namespace StarNight.Character.Live.Input
             upHeld = false;
             downHeld = false;
             walkHeld = false;
+            lookHeld = false;
             jump.Reset();
             action.Reset();
             bomb.Reset();

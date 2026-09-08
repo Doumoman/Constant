@@ -32,11 +32,33 @@ namespace StarNight.Character.Input
             CharacterButtonSnapshot action,
             CharacterButtonSnapshot bomb,
             CharacterButtonSnapshot rope)
+            : this(horizontal, upHeld, downHeld, walkHeld, false,
+                jump, action, bomb, rope)
+        {
+        }
+
+        /// <summary>
+        /// RMAP06 observation modifier. It is deliberately a held value in
+        /// the existing fixed-step snapshot rather than a new gameplay
+        /// action: the live movement driver decides when it may consume the
+        /// accompanying Move/Up/Down direction.
+        /// </summary>
+        public CharacterInputSnapshot(
+            float horizontal,
+            bool upHeld,
+            bool downHeld,
+            bool walkHeld,
+            bool lookHeld,
+            CharacterButtonSnapshot jump,
+            CharacterButtonSnapshot action,
+            CharacterButtonSnapshot bomb,
+            CharacterButtonSnapshot rope)
         {
             Horizontal = Clamp(horizontal, -1f, 1f);
             UpHeld = upHeld;
             DownHeld = downHeld;
             WalkHeld = walkHeld;
+            LookHeld = lookHeld;
             Jump = jump;
             Action = action;
             Bomb = bomb;
@@ -54,6 +76,9 @@ namespace StarNight.Character.Input
 
         /// <summary>Shift 보행/느린 climb modifier 유지 여부.</summary>
         public bool WalkHeld { get; }
+
+        /// <summary>Tab 관찰 modifier 유지 여부. 방향은 기존 수평/상하 축을 소비한다.</summary>
+        public bool LookHeld { get; }
 
         public CharacterButtonSnapshot Jump { get; }
         public CharacterButtonSnapshot Action { get; }

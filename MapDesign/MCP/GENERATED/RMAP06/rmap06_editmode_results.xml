@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Passed" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 10:36:54Z" end-time="2026-09-08 10:36:55Z" duration="0.3177104">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26644" result="Passed" start-time="2026-09-08 10:36:54Z" end-time="2026-09-08 10:36:55Z" duration="0.317710" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1256" name="Game.Character.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Character.Tests.EditMode.dll" runstate="Runnable" testcasecount="200" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.034136" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="3412" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1257" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="200" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.031676" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1258" name="Character" fullname="StarNight.Character" runstate="Runnable" testcasecount="200" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.029576" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1259" name="Tests" fullname="StarNight.Character.Tests" runstate="Runnable" testcasecount="200" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.027536" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1264" name="EditMode" fullname="StarNight.Character.Tests.EditMode" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.024376" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1265" name="Rmap06" fullname="StarNight.Character.Tests.EditMode.Rmap06" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.023601" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1093" name="CharacterLiveLookModeStateTests" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.022729" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP06" />
+                  </properties>
+                  <test-suite type="ParameterizedMethod" id="1102" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.015215" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                    <properties />
+                    <test-case id="1094" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(1.0f,False,False,3.0f,0.0f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(1.0f,False,False,3.0f,0.0f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="165325679" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.008607" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1095" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(-1.0f,False,False,-3.0f,0.0f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(-1.0f,False,False,-3.0f,0.0f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="897109428" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000186" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1096" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(0.0f,True,False,0.0f,3.0f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(0.0f,True,False,0.0f,3.0f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="489668189" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000080" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1097" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(0.0f,False,True,0.0f,-3.0f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(0.0f,False,True,0.0f,-3.0f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="101797658" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000074" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1098" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(1.0f,True,False,2.12132f,2.12132f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(1.0f,True,False,2.12132f,2.12132f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="1303722665" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000153" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1099" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(-1.0f,True,False,-2.12132f,2.12132f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(-1.0f,True,False,-2.12132f,2.12132f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="1090072628" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000080" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1100" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(1.0f,False,True,2.12132f,-2.12132f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(1.0f,False,True,2.12132f,-2.12132f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="1635905539" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000074" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="1101" name="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(-1.0f,False,True,-2.12132f,-2.12132f)" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles(-1.0f,False,True,-2.12132f,-2.12132f)" methodname="C03_EightDirectionsWaitOneSecondAndNormalizeToThreeTiles" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="1970067220" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000076" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                  </test-suite>
+                  <test-case id="1104" name="C03_TimingConstantsAreTheSpecifiedEnterAndReturnDurations" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C03_TimingConstantsAreTheSpecifiedEnterAndReturnDurations" methodname="C03_TimingConstantsAreTheSpecifiedEnterAndReturnDurations" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="1731572652" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.000097" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1103" name="C04C05_IneligibleStateAndDirectionChangeCancelWithoutRetainingInputLock" fullname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests.C04C05_IneligibleStateAndDirectionChangeCancelWithoutRetainingInputLock" methodname="C04C05_IneligibleStateAndDirectionChangeCancelWithoutRetainingInputLock" classname="StarNight.Character.Tests.EditMode.Rmap06.CharacterLiveLookModeStateTests" runstate="Runnable" seed="498526023" result="Passed" start-time="2026-09-08 10:36:55Z" end-time="2026-09-08 10:36:55Z" duration="0.001394" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
