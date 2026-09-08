@@ -1,0 +1,17 @@
+ChunkId,PortId,Side,OpenCells,TraversalKind,FlowDirection,Required,EntranceGroupId
+T0_SINGLE_ENTRANCE,P_T0_SINGLE_L,Left,1;2,Walk,Both,false,ENTRANCE_T0_SINGLE
+T1_A,P_T1A_L,Left,1;2,Walk,In,true,ENTRANCE_T1A_L
+T1_A,P_T1A_R,Right,1;2,Walk,Out,true,ENTRANCE_T1A_R
+T1_B,P_T1B_L,Left,1;2,Walk,In,true,ENTRANCE_T1B_L
+T1_B,P_T1B_R,Right,1;2,Walk,Out,false,ENTRANCE_T1B_R
+T1_BLOCKED_SOURCE,P_T1BLOCK_L,Left,1;2,Walk,In,true,ENTRANCE_T1BLOCK_L
+T1_BLOCKED_SOURCE,P_T1BLOCK_R,Right,1;2,Walk,Out,true,ENTRANCE_T1BLOCK_R
+T2_DROP,P_T2_D,Down,6;7;8;9,Drop,Out,true,EXIT_T2_D
+T2_DROP,P_T2_L,Left,1;2,Walk,In,true,ENTRANCE_T2_L
+T3_CLIMB,P_T3_L,Left,1;2,Walk,In,true,ENTRANCE_T3_L
+T3_CLIMB,P_T3_U,Up,5;6,Climb,Out,true,EXIT_T3_U
+T4_SPLIT,P_T4_D,Down,4;5,Drop,Both,false,VERTICAL_T4_D
+T4_SPLIT,P_T4_L_HIGH,Left,5;6,Hang,In,false,ENTRANCE_T4_HIGH
+T4_SPLIT,P_T4_L_LOW,Left,1;2,Walk,In,false,ENTRANCE_T4_LOW
+T4_SPLIT,P_T4_R,Right,1;2,Walk,Out,false,EXIT_T4_R
+T4_SPLIT,P_T4_U,Up,4;5,Climb,Both,false,VERTICAL_T4_U

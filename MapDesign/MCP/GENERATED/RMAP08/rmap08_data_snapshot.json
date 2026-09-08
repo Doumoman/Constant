@@ -1,0 +1,10 @@
+{
+  "data_version": "RMAP08_PORTS_V1",
+  "chunk_size": "12x8",
+  "source_pattern_rule": "RMAP07_VOID_CLEAR at lower-left offset 4,2; port data remains explicit RMAP08 data",
+  "traversal_profile_digest": "12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68",
+  "chunks": 10,
+  "edge_ports": 16,
+  "adjacency_records": 3,
+  "interior_links": 3
+}

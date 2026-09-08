@@ -1,0 +1,4 @@
+ConnectionId,ChunkId,FromPortId,ToPortId,TraversalKind,Required,ProfileDigest,EvidenceState,Condition,Evidence
+INT_T2_LEFT_TO_DOWN,T2_DROP,P_T2_L,P_T2_D,Drop,true,12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68,FixturePassExpected,"side entry to downward exit","actual Player drops through the physical 2-cell floor opening"
+INT_T3_LEFT_TO_UP,T3_CLIMB,P_T3_L,P_T3_U,Climb,true,12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68,FixturePassExpected,"vertical intent on the RMAP04 climb surface","actual Player leaves through the upper chunk boundary"
+INT_T4_LOW_TO_RIGHT,T4_SPLIT,P_T4_L_LOW,P_T4_R,Walk,false,12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68,GeometricCandidate,"lower independent entrance only","no automatic link is created for the separate high entrance"

@@ -1,0 +1,4 @@
+ConnectionId,FromChunkId,FromPortId,ToChunkId,ToPortId,SharedEdgeCells,EvidenceState,Evidence
+ADJ_BLOCKED_INACTIVE,T1_BLOCKED_SOURCE,P_T1BLOCK_R,INACTIVE_SOLID_WALL,NONE,,FixtureBlockedExpected,"inactive solid has no edge port; a Player collision against its TilemapCollider2D is expected"
+ADJ_T1_A_TO_B,T1_A,P_T1A_R,T1_B,P_T1B_L,1;2,FixturePassExpected,"opposite R/L ports share every declared y coordinate"
+ADJ_T4_CONTEXT_UNKNOWN,T4_SPLIT,P_T4_L_HIGH,T1_B,P_T1B_R,,ProfileContextUnknown,"HANG-to-WALK remains profile/context dependent and is not declared as a pass"

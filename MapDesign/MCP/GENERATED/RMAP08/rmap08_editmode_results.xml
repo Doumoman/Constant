@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Passed" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 12:14:40Z" end-time="2026-09-08 12:14:42Z" duration="1.3820785">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26656" result="Passed" start-time="2026-09-08 12:14:40Z" end-time="2026-09-08 12:14:42Z" duration="1.382079" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24692" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22636" result="Passed" start-time="2026-09-08 12:14:40Z" end-time="2026-09-08 12:14:42Z" duration="1.202894" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="32840" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24693" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22636" result="Passed" start-time="2026-09-08 12:14:40Z" end-time="2026-09-08 12:14:42Z" duration="1.063088" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24701" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22420" result="Passed" start-time="2026-09-08 12:14:41Z" end-time="2026-09-08 12:14:42Z" duration="0.832026" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24705" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22361" result="Passed" start-time="2026-09-08 12:14:41Z" end-time="2026-09-08 12:14:42Z" duration="0.665690" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24714" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7679" result="Passed" start-time="2026-09-08 12:14:41Z" end-time="2026-09-08 12:14:42Z" duration="0.466414" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24730" name="Rmap08" fullname="StarNight.Map.Tests.EditMode.Rmap08" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-09-08 12:14:41Z" end-time="2026-09-08 12:14:42Z" duration="0.386346" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24622" name="RmapPortCatalogTests" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-09-08 12:14:41Z" end-time="2026-09-08 12:14:42Z" duration="0.384910" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP08" />
+                  </properties>
+                  <test-case id="24623" name="A05_SpaceState_IsIndependentFromType0AndReservation" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.A05_SpaceState_IsIndependentFromType0AndReservation" methodname="A05_SpaceState_IsIndependentFromType0AndReservation" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="1787385950" result="Passed" start-time="2026-09-08 12:14:41Z" end-time="2026-09-08 12:14:42Z" duration="0.358643" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24624" name="A16_Type1To4_AcceptOnlyDeclaredSideSetsAndType4RequiresBothVerticalSides" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.A16_Type1To4_AcceptOnlyDeclaredSideSetsAndType4RequiresBothVerticalSides" methodname="A16_Type1To4_AcceptOnlyDeclaredSideSetsAndType4RequiresBothVerticalSides" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="1770129001" result="Passed" start-time="2026-09-08 12:14:42Z" end-time="2026-09-08 12:14:42Z" duration="0.001548" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24625" name="A17_Type0_KeepsZeroBreakableAndSingleEntranceCasesSeparateFromInactiveSolid" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.A17_Type0_KeepsZeroBreakableAndSingleEntranceCasesSeparateFromInactiveSolid" methodname="A17_Type0_KeepsZeroBreakableAndSingleEntranceCasesSeparateFromInactiveSolid" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="369040919" result="Passed" start-time="2026-09-08 12:14:42Z" end-time="2026-09-08 12:14:42Z" duration="0.000552" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24626" name="A18_EdgePorts_RetainAllCoordinatesDirectionsAndRmap07OffsetProvenance" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.A18_EdgePorts_RetainAllCoordinatesDirectionsAndRmap07OffsetProvenance" methodname="A18_EdgePorts_RetainAllCoordinatesDirectionsAndRmap07OffsetProvenance" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="1969878679" result="Passed" start-time="2026-09-08 12:14:42Z" end-time="2026-09-08 12:14:42Z" duration="0.003699" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24627" name="A19_AdjacencyAndInteriorLinks_AreExplicitDirectionalRecordsWithCandidateBlockedAndUnknownStates" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.A19_AdjacencyAndInteriorLinks_AreExplicitDirectionalRecordsWithCandidateBlockedAndUnknownStates" methodname="A19_AdjacencyAndInteriorLinks_AreExplicitDirectionalRecordsWithCandidateBlockedAndUnknownStates" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="1042341429" result="Passed" start-time="2026-09-08 12:14:42Z" end-time="2026-09-08 12:14:42Z" duration="0.000689" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24628" name="A20_Type2AndType3_UseExplicitOneWayInteriorFlowAndSharedTraversalProfile" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.A20_Type2AndType3_UseExplicitOneWayInteriorFlowAndSharedTraversalProfile" methodname="A20_Type2AndType3_UseExplicitOneWayInteriorFlowAndSharedTraversalProfile" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="426310989" result="Passed" start-time="2026-09-08 12:14:42Z" end-time="2026-09-08 12:14:42Z" duration="0.001051" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24629" name="CsvExports_AreStableAndPreserveAllRequiredPortFields" fullname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests.CsvExports_AreStableAndPreserveAllRequiredPortFields" methodname="CsvExports_AreStableAndPreserveAllRequiredPortFields" classname="StarNight.Map.Tests.EditMode.Rmap08.RmapPortCatalogTests" runstate="Runnable" seed="418298866" result="Passed" start-time="2026-09-08 12:14:42Z" end-time="2026-09-08 12:14:42Z" duration="0.002396" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

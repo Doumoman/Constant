@@ -1,0 +1,12 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP08/MoonPalacePortLab_RMAP08.unity",
+  "chunk_size_tiles": "12x8",
+  "source_rule": "RMAP07_VOID_CLEAR at lower-left offset 4,2; port data remains explicit RMAP08 data",
+  "profile_digest": "12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68",
+  "open_boundary": "T1_A.R -> T1_B.L at y=1;2",
+  "blocked_boundary": "T1_BLOCKED_SOURCE.R -> INACTIVE_SOLID_WALL (no target port)",
+  "type2_drop": "T2_DROP L->D physical floor opening x=6;7;8;9 and landing y=-3",
+  "type3_climb": "T3_CLIMB L->U uses CharacterLiveClimbSurface in the Tilemap chunk",
+  "player": "RMAP08_Player; 0.4x0.8 foot-pivot; RMAP02 collision setup",
+  "derived_authoring_csv": "Assets/_Game/Map/Authoring/WorldGeneration/MoonPalace/RMAP08; builder-owned, never hand-edited"
+}
