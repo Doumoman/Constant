@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 17:46:46Z" end-time="2026-09-08 17:46:48Z" duration="1.5562935">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26668" result="Passed" start-time="2026-09-08 17:46:46Z" end-time="2026-09-08 17:46:48Z" duration="1.556294" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24708" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22648" result="Passed" start-time="2026-09-08 17:46:46Z" end-time="2026-09-08 17:46:48Z" duration="1.405693" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="34500" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24709" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22648" result="Passed" start-time="2026-09-08 17:46:46Z" end-time="2026-09-08 17:46:48Z" duration="1.280396" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24717" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22432" result="Passed" start-time="2026-09-08 17:46:47Z" end-time="2026-09-08 17:46:48Z" duration="1.156381" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24721" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22373" result="Passed" start-time="2026-09-08 17:46:47Z" end-time="2026-09-08 17:46:48Z" duration="1.001722" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24730" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7691" result="Passed" start-time="2026-09-08 17:46:47Z" end-time="2026-09-08 17:46:48Z" duration="0.887339" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24746" name="Rmap12" fullname="StarNight.Map.Tests.EditMode.Rmap12" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 17:46:47Z" end-time="2026-09-08 17:46:48Z" duration="0.850022" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24622" name="RmapWorldDataContractTests" fullname="StarNight.Map.Tests.EditMode.Rmap12.RmapWorldDataContractTests" classname="StarNight.Map.Tests.EditMode.Rmap12.RmapWorldDataContractTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 17:46:47Z" end-time="2026-09-08 17:46:48Z" duration="0.848613" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP12" />
+                  </properties>
+                  <test-case id="24623" name="W08_W09_SameRequestIsDeterministicAndSevenStreamsAreIsolated" fullname="StarNight.Map.Tests.EditMode.Rmap12.RmapWorldDataContractTests.W08_W09_SameRequestIsDeterministicAndSevenStreamsAreIsolated" methodname="W08_W09_SameRequestIsDeterministicAndSevenStreamsAreIsolated" classname="StarNight.Map.Tests.EditMode.Rmap12.RmapWorldDataContractTests" runstate="Runnable" seed="1529429337" result="Passed" start-time="2026-09-08 17:46:47Z" end-time="2026-09-08 17:46:48Z" duration="0.833667" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24624" name="W10_W11_MutationRoundTripDoesNotChangeDefinitionAndAllKindsHaveStableIds" fullname="StarNight.Map.Tests.EditMode.Rmap12.RmapWorldDataContractTests.W10_W11_MutationRoundTripDoesNotChangeDefinitionAndAllKindsHaveStableIds" methodname="W10_W11_MutationRoundTripDoesNotChangeDefinitionAndAllKindsHaveStableIds" classname="StarNight.Map.Tests.EditMode.Rmap12.RmapWorldDataContractTests" runstate="Runnable" seed="1032319914" result="Passed" start-time="2026-09-08 17:46:48Z" end-time="2026-09-08 17:46:48Z" duration="0.004475" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
