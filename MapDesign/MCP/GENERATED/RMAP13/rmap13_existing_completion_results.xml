@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Passed" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 18:27:53Z" end-time="2026-09-08 18:27:56Z" duration="2.586489">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26674" result="Passed" start-time="2026-09-08 18:27:53Z" end-time="2026-09-08 18:27:56Z" duration="2.586489" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24715" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22654" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="2.368674" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="12364" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24716" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22654" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="2.197848" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24724" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22438" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="2.024247" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24728" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22379" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="1.768512" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24737" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7697" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="1.614627" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24738" name="WorldGeneration" fullname="StarNight.Map.Tests.EditMode.WorldGeneration" runstate="Runnable" testcasecount="7666" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="1.538668" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestSuite" id="24739" name="Validation" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation" runstate="Runnable" testcasecount="88" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="1.495622" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-suite type="TestFixture" id="16719" name="GeneratedCompletionSearchTests" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:56Z" duration="1.493309" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+                    <properties>
+                      <property name="Category" value="MAP19_03" />
+                    </properties>
+                    <test-case id="16722" name="CompletionSearchConsumesMandatoryPopulationAndSpecialGatesWithoutRuntimeObjects" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchConsumesMandatoryPopulationAndSpecialGatesWithoutRuntimeObjects" methodname="CompletionSearchConsumesMandatoryPopulationAndSpecialGatesWithoutRuntimeObjects" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="1868472534" result="Passed" start-time="2026-09-08 18:27:54Z" end-time="2026-09-08 18:27:55Z" duration="0.841747" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16727" name="CompletionSearchDigestIsStableAcrossRepeatReverseCultureAndGoalOrder" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchDigestIsStableAcrossRepeatReverseCultureAndGoalOrder" methodname="CompletionSearchDigestIsStableAcrossRepeatReverseCultureAndGoalOrder" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="828201435" result="Passed" start-time="2026-09-08 18:27:55Z" end-time="2026-09-08 18:27:56Z" duration="0.223610" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16724" name="CompletionSearchDoesNotUsePhysicsTilemapPlayerControllerOrSeedBatch" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchDoesNotUsePhysicsTilemapPlayerControllerOrSeedBatch" methodname="CompletionSearchDoesNotUsePhysicsTilemapPlayerControllerOrSeedBatch" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="1650891590" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.044085" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16726" name="CompletionSearchFailuresAreAtomicAndReportOwnerReasonExpectedActual" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchFailuresAreAtomicAndReportOwnerReasonExpectedActual" methodname="CompletionSearchFailuresAreAtomicAndReportOwnerReasonExpectedActual" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="444744671" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.115557" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16725" name="CompletionSearchPreservesMap19_02GraphDigestsAndRuleRegistryInputs" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchPreservesMap19_02GraphDigestsAndRuleRegistryInputs" methodname="CompletionSearchPreservesMap19_02GraphDigestsAndRuleRegistryInputs" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="1040230335" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.038873" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16728" name="CompletionSearchPublishesMap19_04HandoffSurface" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchPublishesMap19_04HandoffSurface" methodname="CompletionSearchPublishesMap19_04HandoffSurface" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="1777618159" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.037530" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16723" name="CompletionSearchRejectsMissingStartExitTargetsAndDanglingGoalBindings" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchRejectsMissingStartExitTargetsAndDanglingGoalBindings" methodname="CompletionSearchRejectsMissingStartExitTargetsAndDanglingGoalBindings" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="2058426325" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.049694" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16721" name="CompletionSearchTracksPositionResourceForgeSealBossAndSpecialState" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.CompletionSearchTracksPositionResourceForgeSealBossAndSpecialState" methodname="CompletionSearchTracksPositionResourceForgeSealBossAndSpecialState" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="1852041326" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.040735" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16729" name="Map19HandoffKeepsMap19_04Locked" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.Map19HandoffKeepsMap19_04Locked" methodname="Map19HandoffKeepsMap19_04Locked" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="1042568847" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.041979" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                    </test-case>
+                    <test-case id="16720" name="NakedBfsFindsToolZeroReachableRequiredNodesOnTileGraph" fullname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests.NakedBfsFindsToolZeroReachableRequiredNodesOnTileGraph" methodname="NakedBfsFindsToolZeroReachableRequiredNodesOnTileGraph" classname="StarNight.Map.Tests.EditMode.WorldGeneration.Validation.GeneratedCompletionSearchTests" runstate="Runnable" seed="291126692" result="Passed" start-time="2026-09-08 18:27:56Z" end-time="2026-09-08 18:27:56Z" duration="0.046373" asserts="0">
+                      <properties>
+                        <property name="retryIteration" value="0" />
+                        <property name="repeatIteration" value="0" />
+                      </properties>
+                      <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                    </test-case>
+                  </test-suite>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
