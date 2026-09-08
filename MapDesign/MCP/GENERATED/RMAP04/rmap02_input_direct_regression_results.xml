@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Passed" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.1316634">
+  <test-suite type="TestSuite" id="1062" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="33" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.131663" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1035" name="Game.Character.Live.PlayMode.Tests.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Character.Live.PlayMode.Tests.dll" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.125954" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="4080" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1036" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.124864" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1037" name="Character" fullname="StarNight.Character" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.123875" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1038" name="Tests" fullname="StarNight.Character.Tests" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.123019" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1039" name="PlayMode" fullname="StarNight.Character.Tests.PlayMode" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.122098" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1004" name="CharacterLiveInputPlayModeTests" fullname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests" classname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.119663" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1007" name="Keyboard_Buttons_MapToLockedActionIds" fullname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests.Keyboard_Buttons_MapToLockedActionIds" methodname="Keyboard_Buttons_MapToLockedActionIds" classname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests" runstate="Runnable" seed="1309028901" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.086478" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1006" name="Keyboard_MoveAxis_FlowsThroughAdapter" fullname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests.Keyboard_MoveAxis_FlowsThroughAdapter" methodname="Keyboard_MoveAxis_FlowsThroughAdapter" classname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests" runstate="Runnable" seed="673155356" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.014316" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1005" name="MoveAndDown_AreAxisStyleActions" fullname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests.MoveAndDown_AreAxisStyleActions" methodname="MoveAndDown_AreAxisStyleActions" classname="StarNight.Character.Tests.PlayMode.CharacterLiveInputPlayModeTests" runstate="Runnable" seed="1027632475" result="Passed" start-time="2026-09-08 08:47:53Z" end-time="2026-09-08 08:47:53Z" duration="0.004964" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

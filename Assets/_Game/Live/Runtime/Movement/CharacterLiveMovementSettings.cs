@@ -36,6 +36,11 @@ namespace StarNight.Character.Live.Movement
         [SerializeField] private float grabHangOffset = 0.62f;
         [SerializeField] private float grabReentryDelay = 0.12f;
         [SerializeField] private float grabMaxUpwardVelocity = 0.01f;
+        [SerializeField] private float climbSpeed = 4f;
+        [SerializeField] private float climbSlowSpeed = 2f;
+        [SerializeField] private float climbDownSpeed = 5f;
+        [SerializeField] private float climbReentryDelay = 0.12f;
+        [SerializeField] private float oneWayDropThroughDuration = 0.18f;
 
         public LayerMask SolidLayers
         {
@@ -58,6 +63,11 @@ namespace StarNight.Character.Live.Movement
         public float GrabHangOffset { get { return grabHangOffset; } }
         public float GrabReentryDelay { get { return grabReentryDelay; } }
         public float GrabMaxUpwardVelocity { get { return grabMaxUpwardVelocity; } }
+        public float ClimbSpeed { get { return climbSpeed; } }
+        public float ClimbSlowSpeed { get { return climbSlowSpeed; } }
+        public float ClimbDownSpeed { get { return climbDownSpeed; } }
+        public float ClimbReentryDelay { get { return climbReentryDelay; } }
+        public float OneWayDropThroughDuration { get { return oneWayDropThroughDuration; } }
 
         public bool ResolveAlwaysRun(bool walkHeld)
         {
@@ -111,6 +121,11 @@ namespace StarNight.Character.Live.Movement
             grabHangOffset = 0.62f;
             grabReentryDelay = 0.12f;
             grabMaxUpwardVelocity = 0.01f;
+            climbSpeed = 4f;
+            climbSlowSpeed = 2f;
+            climbDownSpeed = 5f;
+            climbReentryDelay = 0.12f;
+            oneWayDropThroughDuration = 0.18f;
         }
     }
 }

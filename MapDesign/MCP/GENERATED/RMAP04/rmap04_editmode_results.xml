@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.3312179">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26623" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.331218" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1231" name="Game.Character.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Character.Tests.EditMode.dll" runstate="Runnable" testcasecount="179" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.031797" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="19324" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1232" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="179" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.029273" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1233" name="Character" fullname="StarNight.Character" runstate="Runnable" testcasecount="179" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.026969" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1234" name="Tests" fullname="StarNight.Character.Tests" runstate="Runnable" testcasecount="179" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.024776" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1239" name="EditMode" fullname="StarNight.Character.Tests.EditMode" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.021253" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1240" name="Rmap04" fullname="StarNight.Character.Tests.EditMode.Rmap04" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.020534" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1093" name="CharacterLiveClimbSurfaceTests" fullname="StarNight.Character.Tests.EditMode.Rmap04.CharacterLiveClimbSurfaceTests" classname="StarNight.Character.Tests.EditMode.Rmap04.CharacterLiveClimbSurfaceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.019431" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP04" />
+                  </properties>
+                  <test-case id="1094" name="LadderPoleAndOneWayMarkers_KeepTheirSeparateResponsibilities" fullname="StarNight.Character.Tests.EditMode.Rmap04.CharacterLiveClimbSurfaceTests.LadderPoleAndOneWayMarkers_KeepTheirSeparateResponsibilities" methodname="LadderPoleAndOneWayMarkers_KeepTheirSeparateResponsibilities" classname="StarNight.Character.Tests.EditMode.Rmap04.CharacterLiveClimbSurfaceTests" runstate="Runnable" seed="2023269615" result="Passed" start-time="2026-09-08 08:46:14Z" end-time="2026-09-08 08:46:14Z" duration="0.009074" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -23,6 +23,7 @@ namespace StarNight.Character.Live.Input
         private InputActionMap playerMap;
         private InputAction moveAction;
         private InputAction walkAction;
+        private InputAction upAction;
         private InputAction downAction;
         private InputAction jumpAction;
         private InputAction actionAction;
@@ -98,7 +99,9 @@ namespace StarNight.Character.Live.Input
 
             adapter.AccumulateFrame(
                 moveAction.ReadValue<float>(),
+                upAction.IsPressed(),
                 downAction.IsPressed(),
+                walkAction.IsPressed(),
                 ReadButton(jumpAction),
                 ReadButton(actionAction),
                 ReadButton(bombAction),
@@ -134,6 +137,7 @@ namespace StarNight.Character.Live.Input
 
             moveAction = playerMap.FindAction("Move", true);
             walkAction = playerMap.FindAction("Walk", true);
+            upAction = playerMap.FindAction("Up", true);
             downAction = playerMap.FindAction("Down", true);
             jumpAction = playerMap.FindAction("Jump", true);
             actionAction = playerMap.FindAction("Action", true);

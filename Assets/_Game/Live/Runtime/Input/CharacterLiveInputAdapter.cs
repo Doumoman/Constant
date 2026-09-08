@@ -18,7 +18,9 @@ namespace StarNight.Character.Live.Input
         private readonly CharacterLiveInputState rope = new CharacterLiveInputState();
 
         private float horizontal;
+        private bool upHeld;
         private bool downHeld;
+        private bool walkHeld;
 
         /// <summary>렌더 프레임 관측값 일괄 누적(Update에서 호출).</summary>
         public void AccumulateFrame(
@@ -29,8 +31,25 @@ namespace StarNight.Character.Live.Input
             in CharacterLiveButtonFrame bombFrame,
             in CharacterLiveButtonFrame ropeFrame)
         {
+            AccumulateFrame(horizontalAxis, false, isDownHeld, false,
+                in jumpFrame, in actionFrame, in bombFrame, in ropeFrame);
+        }
+
+        /// <summary>RMAP04 climb/drop input을 포함한 fixed-step 누적 경로.</summary>
+        public void AccumulateFrame(
+            float horizontalAxis,
+            bool isUpHeld,
+            bool isDownHeld,
+            bool isWalkHeld,
+            in CharacterLiveButtonFrame jumpFrame,
+            in CharacterLiveButtonFrame actionFrame,
+            in CharacterLiveButtonFrame bombFrame,
+            in CharacterLiveButtonFrame ropeFrame)
+        {
             horizontal = Mathf.Clamp(horizontalAxis, -1f, 1f);
+            upHeld = isUpHeld;
             downHeld = isDownHeld;
+            walkHeld = isWalkHeld;
             jump.AccumulateFrame(in jumpFrame);
             action.AccumulateFrame(in actionFrame);
             bomb.AccumulateFrame(in bombFrame);
@@ -45,7 +64,9 @@ namespace StarNight.Character.Live.Input
         {
             return new CharacterInputSnapshot(
                 horizontal,
+                upHeld,
                 downHeld,
+                walkHeld,
                 jump.ConsumeSnapshot(physicsTick),
                 action.ConsumeSnapshot(physicsTick),
                 bomb.ConsumeSnapshot(physicsTick),
@@ -56,7 +77,9 @@ namespace StarNight.Character.Live.Input
         public void Reset()
         {
             horizontal = 0f;
+            upHeld = false;
             downHeld = false;
+            walkHeld = false;
             jump.Reset();
             action.Reset();
             bomb.Reset();

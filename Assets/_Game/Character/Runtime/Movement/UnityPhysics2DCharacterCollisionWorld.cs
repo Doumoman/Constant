@@ -21,7 +21,7 @@ namespace StarNight.Character.Movement
             Vector2 direction,
             float distance)
         {
-            RaycastHit2D hit = Physics2D.CapsuleCast(
+            RaycastHit2D[] hits = Physics2D.CapsuleCastAll(
                 origin,
                 capsule.Size,
                 CapsuleDirection2D.Vertical,
@@ -29,18 +29,24 @@ namespace StarNight.Character.Movement
                 direction,
                 distance,
                 solidLayers);
-
-            if (hit.collider == null)
+            foreach (RaycastHit2D hit in hits)
             {
-                return CharacterCollisionHit.None;
+                // Triggers describe traversal/exit volumes; they never own a
+                // physical support, wall, or ceiling response.
+                if (hit.collider == null || hit.collider.isTrigger)
+                {
+                    continue;
+                }
+
+                return new CharacterCollisionHit(
+                    true,
+                    hit.point,
+                    hit.normal,
+                    hit.distance,
+                    hit.collider.GetInstanceID());
             }
 
-            return new CharacterCollisionHit(
-                true,
-                hit.point,
-                hit.normal,
-                hit.distance,
-                hit.collider.GetInstanceID());
+            return CharacterCollisionHit.None;
         }
     }
 }

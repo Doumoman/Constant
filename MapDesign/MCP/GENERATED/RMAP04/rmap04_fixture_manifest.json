@@ -1,0 +1,7 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP04/MoonPalaceClimbOneWay_RMAP04.unity",
+  "player_collider": "0.4x0.8 foot-pivot",
+  "ladder": "trigger center x=7, y=3.5, size=0.7x5",
+  "pole": "trigger center x=14, y=3.5, size=0.7x5",
+  "one_way": "PlatformEffector2D BoxCollider center x=23, y=4, size=5x0.25"
+}

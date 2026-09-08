@@ -14,9 +14,29 @@ namespace StarNight.Character.Input
             CharacterButtonSnapshot action,
             CharacterButtonSnapshot bomb,
             CharacterButtonSnapshot rope)
+            : this(horizontal, false, downHeld, false, jump, action, bomb, rope)
+        {
+        }
+
+        /// <summary>
+        /// RMAP04 live traversal extension.  Up/Down and Shift remain values
+        /// in the same fixed-step snapshot; they do not allocate a new
+        /// CharacterActionId or change the locked action priority.
+        /// </summary>
+        public CharacterInputSnapshot(
+            float horizontal,
+            bool upHeld,
+            bool downHeld,
+            bool walkHeld,
+            CharacterButtonSnapshot jump,
+            CharacterButtonSnapshot action,
+            CharacterButtonSnapshot bomb,
+            CharacterButtonSnapshot rope)
         {
             Horizontal = Clamp(horizontal, -1f, 1f);
+            UpHeld = upHeld;
             DownHeld = downHeld;
+            WalkHeld = walkHeld;
             Jump = jump;
             Action = action;
             Bomb = bomb;
@@ -28,6 +48,12 @@ namespace StarNight.Character.Input
 
         /// <summary>하강 축 유지 여부. SafeDrop 조합 계산에 사용한다.</summary>
         public bool DownHeld { get; }
+
+        /// <summary>상승 축 유지 여부. RMAP04 climb-axis 진입/이동에 사용한다.</summary>
+        public bool UpHeld { get; }
+
+        /// <summary>Shift 보행/느린 climb modifier 유지 여부.</summary>
+        public bool WalkHeld { get; }
 
         public CharacterButtonSnapshot Jump { get; }
         public CharacterButtonSnapshot Action { get; }

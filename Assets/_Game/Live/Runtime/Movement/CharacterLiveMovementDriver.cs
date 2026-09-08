@@ -43,10 +43,16 @@ namespace StarNight.Character.Live.Movement
         private Vector2 grabAnchorLocal;
         private int grabSide;
         private double grabReentryAllowedAt;
+        private bool isClimbing;
+        private CharacterLiveClimbSurface climbedSurface;
+        private double climbReentryAllowedAt;
+        private Collider2D ignoredOneWayCollider;
+        private double oneWayIgnoreEndsAt;
         private bool wasGrounded;
         private bool isDriving;
         private long physicsTick;
         private double physicsTime;
+        private float lastFixedDeltaTime;
 
         public bool IsDriving
         {
@@ -70,6 +76,9 @@ namespace StarNight.Character.Live.Movement
             get { return physicsTick; }
         }
 
+        /// <summary>마지막 실제 motor fixed step의 dt (RMAP04 측정 증거용).</summary>
+        public float LastFixedDeltaTime { get { return lastFixedDeltaTime; } }
+
         public CharacterLiveMovementSettings Settings
         {
             get { return settings; }
@@ -86,6 +95,20 @@ namespace StarNight.Character.Live.Movement
 
         public Vector2 LastSafeGrabAnchor { get; private set; }
 
+        /// <summary>RMAP04의 현재 ladder/pole climb 상태.</summary>
+        public bool IsClimbing { get { return isClimbing; } }
+
+        /// <summary>RMAP05가 소비할 수 있는 마지막 안전 climb 성립 정보.</summary>
+        public bool HasSafeClimbContact { get; private set; }
+
+        public Vector2 LastSafeClimbAnchor { get; private set; }
+
+        /// <summary>선택된 one-way 발판 하나만 잠시 무시하고 있는지.</summary>
+        public bool IsDroppingThroughOneWay
+        {
+            get { return ignoredOneWayCollider != null && physicsTime < oneWayIgnoreEndsAt; }
+        }
+
         /// <summary>RMAP02 scene builder가 기존 Player prefab을 국소 fixture로 조립할 때 사용한다.</summary>
         public void ConfigureRmap02(int solidLayerMask)
         {
@@ -95,6 +118,7 @@ namespace StarNight.Character.Live.Movement
         /// <summary>스폰 소비 직후 호출 — 운동 상태 초기화 + 구동 시작.</summary>
         public void ResetMotion()
         {
+            ClearOneWayIgnore();
             velocity = Vector2.zero;
             facing = CharacterFacingDirection.Right;
             isGrabbing = false;
@@ -103,12 +127,18 @@ namespace StarNight.Character.Live.Movement
             grabAnchorLocal = Vector2.zero;
             grabSide = 0;
             grabReentryAllowedAt = 0d;
+            isClimbing = false;
+            climbedSurface = null;
+            climbReentryAllowedAt = 0d;
             HasSafeGrabContact = false;
             LastSafeGrabAnchor = Vector2.zero;
+            HasSafeClimbContact = false;
+            LastSafeClimbAnchor = Vector2.zero;
             wasGrounded = false;
             IsGroundedNow = false;
             physicsTick = 0;
             physicsTime = 0d;
+            lastFixedDeltaTime = 0f;
             jumpState = new CharacterJumpState();
             isDriving = true;
         }
@@ -146,14 +176,31 @@ namespace StarNight.Character.Live.Movement
             }
 
             float dt = Time.fixedDeltaTime;
+            lastFixedDeltaTime = dt;
             physicsTick++;
             physicsTime += dt;
+            ClearExpiredOneWayIgnore();
 
             CharacterInputSnapshot input = rig.ConsumeFixedSnapshot(physicsTick);
             // Rigidbody2D owns the Player's feet pivot in RMAP02.  The
             // collision queries instead use the capsule centre, matching the
             // real CapsuleCollider2D's local offset and dimensions.
             Vector2 center = rig.Body.position + capsuleOffset;
+
+            if (isClimbing)
+            {
+                if (UpdateClimb(input, center, dt))
+                {
+                    return;
+                }
+
+                center = rig.Body.position + capsuleOffset;
+            }
+            else if (HasClimbIntent(input) && TryBeginClimb(center))
+            {
+                DriveClimb(input, center, dt);
+                return;
+            }
 
             if (isGrabbing)
             {
@@ -172,6 +219,12 @@ namespace StarNight.Character.Live.Movement
 
             // (1) 지면 판정 — 순수 프로브(실물리 질의 주입).
             CharacterGroundProbeResult probeResult = probe.Probe(center, velocity.y);
+            if (probeResult.HasHit && CharacterLiveOneWayPlatform.TryFind(
+                    probeResult.SupportId, out CharacterLiveOneWayPlatform oneWaySupport) &&
+                !ShouldBlockOneWay(oneWaySupport, center))
+            {
+                probeResult = CharacterGroundProbeResult.NotGrounded;
+            }
             bool grounded = probeResult.IsGrounded;
 
             // (2) 착지 정리 + 접지 기록 (코스 시뮬레이터와 동일 순서).
@@ -197,12 +250,14 @@ namespace StarNight.Character.Live.Movement
 
             // (3) 점프: press 기록 → 시작 시도(버퍼/코요테는 순수 계약 소관)
             //     → 가변 release cut.
-            if (input.Jump.PressedThisFrame)
+            bool beganDropThrough = input.DownHeld && input.Jump.PressedThisFrame &&
+                TryBeginOneWayDropThrough(center);
+            if (input.Jump.PressedThisFrame && !beganDropThrough)
             {
                 jumpState.NoteJumpPressed(physicsTime);
             }
 
-            if (jumpController.TryStartJump(
+            if (!beganDropThrough && jumpController.TryStartJump(
                 jumpState, grounded, physicsTime, ref velocity))
             {
                 grounded = false;
@@ -220,12 +275,19 @@ namespace StarNight.Character.Live.Movement
                     : CharacterLocomotionState.Airborne);
             motorState = groundMotor.Step(
                 in motorState, input.Horizontal,
-                settings.ResolveAlwaysRun(rig.InputSource != null && rig.InputSource.IsWalkHeld), dt);
+                settings.ResolveAlwaysRun(input.WalkHeld), dt);
             velocity = motorState.Velocity;
             facing = motorState.Facing;
 
             velocity = airControlMotor.Step(
                 velocity, grounded, input.Horizontal, dt);
+            if (input.WalkHeld)
+            {
+                // Shift keeps the existing walk profile while airborne as
+                // well, so a slow climb exit cannot accelerate into the
+                // default-run distance on the immediately following ticks.
+                velocity.x = Mathf.Clamp(velocity.x, -settings.WalkSpeed, settings.WalkSpeed);
+            }
             velocity = gravityMotor.Step(velocity, grounded, dt);
 
             // (5) 스윕 clamp 이동 — 축별 캡슐 캐스트 후 MovePosition(결정적).
@@ -288,6 +350,181 @@ namespace StarNight.Character.Live.Movement
 
             HoldGrabAtAnchor();
             return true;
+        }
+
+        private static bool HasClimbIntent(in CharacterInputSnapshot input)
+        {
+            return input.UpHeld || input.DownHeld;
+        }
+
+        private bool TryBeginClimb(Vector2 center)
+        {
+            if (physicsTime < climbReentryAllowedAt || !TryFindClimbSurface(out CharacterLiveClimbSurface surface))
+            {
+                return false;
+            }
+
+            if (isGrabbing)
+            {
+                // A climb axis deliberately wins only when the player supplied
+                // Up/Down.  Without one, the RMAP03 Grab path remains unchanged.
+                EndGrab(drop: false);
+            }
+
+            climbedSurface = surface;
+            isClimbing = true;
+            velocity = Vector2.zero;
+            HasSafeClimbContact = true;
+            LastSafeClimbAnchor = new Vector2(surface.AxisWorldX, center.y - capsuleOffset.y);
+            return true;
+        }
+
+        private bool UpdateClimb(in CharacterInputSnapshot input, Vector2 center, float dt)
+        {
+            if (climbedSurface == null || !climbedSurface.IsUsable ||
+                !TryFindClimbSurface(out CharacterLiveClimbSurface overlapping) || overlapping != climbedSurface)
+            {
+                EndClimb();
+                return false;
+            }
+
+            if (input.Jump.PressedThisFrame && Mathf.Abs(input.Horizontal) > 0.01f)
+            {
+                // The exit reuses the RMAP02 jump value and run/walk profiles.
+                // Later fixed steps stay on the ordinary air-control motor.
+                float exitSpeed = input.WalkHeld ? settings.WalkSpeed : settings.RunSpeed;
+                EndClimb();
+                velocity = new Vector2(Mathf.Sign(input.Horizontal) * exitSpeed, settings.JumpVelocity);
+                facing = input.Horizontal > 0f
+                    ? CharacterFacingDirection.Right
+                    : CharacterFacingDirection.Left;
+                return false;
+            }
+
+            DriveClimb(input, center, dt);
+            return true;
+        }
+
+        private void DriveClimb(in CharacterInputSnapshot input, Vector2 center, float dt)
+        {
+            float verticalSpeed = input.UpHeld
+                ? (input.WalkHeld ? settings.ClimbSlowSpeed : settings.ClimbSpeed)
+                : input.DownHeld ? -settings.ClimbDownSpeed : 0f;
+            float distance = Mathf.Abs(verticalSpeed * dt);
+            float moveY = SweepAxis(center, new Vector2(0f, Mathf.Sign(verticalSpeed)), distance,
+                requireHorizontalNormal: false, out bool blockedY);
+            center.y += moveY * Mathf.Sign(verticalSpeed);
+            if (blockedY)
+            {
+                verticalSpeed = 0f;
+            }
+
+            // The axis owns a vertical route only.  Centering is intentionally
+            // narrow and no solid cap is added, so a pole top cannot become a floor.
+            center.x = climbedSurface.AxisWorldX;
+            rig.Body.MovePosition(center - capsuleOffset);
+            velocity = Vector2.zero;
+            IsGroundedNow = false;
+            wasGrounded = false;
+            LastSafeClimbAnchor = new Vector2(climbedSurface.AxisWorldX,
+                center.y - capsuleOffset.y);
+        }
+
+        private bool TryFindClimbSurface(out CharacterLiveClimbSurface surface)
+        {
+            surface = null;
+            if (rig == null || rig.BodyCollider == null)
+            {
+                return false;
+            }
+
+            Collider2D[] overlaps = Physics2D.OverlapCapsuleAll(
+                rig.Body.position + capsuleOffset,
+                capsule.Size,
+                CapsuleDirection2D.Vertical,
+                0f);
+            foreach (Collider2D overlap in overlaps)
+            {
+                if (overlap == null || overlap == rig.BodyCollider || !overlap.isTrigger)
+                {
+                    continue;
+                }
+
+                CharacterLiveClimbSurface candidate =
+                    overlap.GetComponentInParent<CharacterLiveClimbSurface>();
+                if (candidate != null && candidate.IsUsable)
+                {
+                    surface = candidate;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void EndClimb()
+        {
+            isClimbing = false;
+            climbedSurface = null;
+            climbReentryAllowedAt = physicsTime + settings.ClimbReentryDelay;
+        }
+
+        private bool TryBeginOneWayDropThrough(Vector2 center)
+        {
+            RaycastHit2D[] hits = Physics2D.CapsuleCastAll(
+                center, capsule.Size, CapsuleDirection2D.Vertical, 0f, Vector2.down,
+                settings.GrabProbeDistance, settings.SolidLayers);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider == null || hit.collider == rig.BodyCollider ||
+                    !CharacterLiveOneWayPlatform.TryFind(hit.collider.GetInstanceID(),
+                        out CharacterLiveOneWayPlatform oneWay) || !ShouldBlockOneWay(oneWay, center))
+                {
+                    continue;
+                }
+
+                ClearOneWayIgnore();
+                ignoredOneWayCollider = hit.collider;
+                oneWayIgnoreEndsAt = physicsTime + settings.OneWayDropThroughDuration;
+                Physics2D.IgnoreCollision(rig.BodyCollider, ignoredOneWayCollider, true);
+                velocity.y = Mathf.Min(velocity.y, -0.1f);
+                IsGroundedNow = false;
+                wasGrounded = false;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ShouldBlockOneWay(CharacterLiveOneWayPlatform oneWay, Vector2 center)
+        {
+            if (oneWay == null || oneWay.PlatformCollider == null || !oneWay.PlatformCollider.enabled ||
+                (ignoredOneWayCollider == oneWay.PlatformCollider && physicsTime < oneWayIgnoreEndsAt))
+            {
+                return false;
+            }
+
+            float playerFeet = center.y - capsule.HalfHeight;
+            return playerFeet >= oneWay.TopWorldY - Skin * 2f;
+        }
+
+        private void ClearExpiredOneWayIgnore()
+        {
+            if (ignoredOneWayCollider != null && physicsTime >= oneWayIgnoreEndsAt)
+            {
+                ClearOneWayIgnore();
+            }
+        }
+
+        private void ClearOneWayIgnore()
+        {
+            if (ignoredOneWayCollider != null && rig != null && rig.BodyCollider != null)
+            {
+                Physics2D.IgnoreCollision(rig.BodyCollider, ignoredOneWayCollider, false);
+            }
+
+            ignoredOneWayCollider = null;
+            oneWayIgnoreEndsAt = 0d;
         }
 
         private bool TryBeginGrab(in CharacterInputSnapshot input, Vector2 center)
@@ -401,22 +638,57 @@ namespace StarNight.Character.Live.Movement
                 return 0f;
             }
 
-            CharacterCollisionHit hit = collisionWorld.CapsuleCast(
-                center, capsule, direction, distance + Skin);
-
-            if (!hit.HasHit || hit.Distance >= distance + Skin)
+            RaycastHit2D hit = FindBlockingSweepHit(center, direction, distance + Skin);
+            if (hit.collider == null || hit.distance >= distance + Skin)
             {
                 return distance;
             }
 
             if (requireHorizontalNormal
-                && Mathf.Abs(hit.Normal.x) < CharacterGroundProbe.MinimumUpwardNormalY)
+                && Mathf.Abs(hit.normal.x) < CharacterGroundProbe.MinimumUpwardNormalY)
             {
                 return distance;
             }
 
             blocked = true;
-            return Mathf.Max(0f, hit.Distance - Skin);
+            return Mathf.Max(0f, hit.distance - Skin);
+        }
+
+        private RaycastHit2D FindBlockingSweepHit(Vector2 center, Vector2 direction, float distance)
+        {
+            RaycastHit2D[] hits = Physics2D.CapsuleCastAll(
+                center, capsule.Size, CapsuleDirection2D.Vertical, 0f, direction, distance,
+                settings.SolidLayers);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider == null || hit.collider == rig.BodyCollider || hit.collider.isTrigger)
+                {
+                    continue;
+                }
+
+                // A capsule already resting on a floor can report that floor
+                // at distance zero when casting upward.  It is support, not a
+                // ceiling, so it must not stall a climb or an ordinary jump.
+                if (direction.y > 0.01f && hit.normal.y > CharacterGroundProbe.MinimumUpwardNormalY)
+                {
+                    continue;
+                }
+
+                if (CharacterLiveOneWayPlatform.TryFind(hit.collider.GetInstanceID(),
+                    out CharacterLiveOneWayPlatform oneWay))
+                {
+                    // Top-only collision: no side/underside block, and the
+                    // temporarily selected drop-through platform alone is ignored.
+                    if (direction.y >= -0.01f || !ShouldBlockOneWay(oneWay, center))
+                    {
+                        continue;
+                    }
+                }
+
+                return hit;
+            }
+
+            return default;
         }
 
         private void SynchronizeColliderGeometry()
@@ -431,6 +703,11 @@ namespace StarNight.Character.Live.Movement
             Vector2 size = rig.BodyCollider.size;
             capsule = new CharacterCapsuleGeometry(size.x, size.y);
             capsuleOffset = rig.BodyCollider.offset;
+        }
+
+        private void OnDisable()
+        {
+            ClearOneWayIgnore();
         }
     }
 }

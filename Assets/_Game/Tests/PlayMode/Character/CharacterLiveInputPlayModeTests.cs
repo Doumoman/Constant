@@ -77,9 +77,11 @@ namespace StarNight.Character.Tests.PlayMode
                 InputActionType.Button, map.FindAction("Down", true).type);
             Assert.AreEqual(
                 InputActionType.Button, map.FindAction("Walk", true).type);
+            Assert.AreEqual(
+                InputActionType.Button, map.FindAction("Up", true).type);
 
-            // RMAP02 보행 modifier는 ActionId가 아닌 Live 속도 선택 입력이다.
-            Assert.AreEqual(7, map.actions.Count);
+            // Shift/Up은 ActionId를 늘리지 않는 Live 이동 축이다.
+            Assert.AreEqual(8, map.actions.Count);
         }
 
         [UnityTest]
@@ -127,6 +129,13 @@ namespace StarNight.Character.Tests.PlayMode
             Press(keyboard.downArrowKey);
             yield return null;
             Assert.IsTrue(Consume().DownHeld, "DownArrow=down");
+
+            Release(keyboard.downArrowKey);
+            yield return null;
+            Consume();
+            Press(keyboard.wKey);
+            yield return null;
+            Assert.IsTrue(Consume().UpHeld, "W=up");
         }
 
         [UnityTest]
