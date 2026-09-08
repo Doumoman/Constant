@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.6265609">
+  <test-suite type="TestSuite" id="1080" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.626561" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1050" name="Game.Character.Live.PlayMode.Tests.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Character.Live.PlayMode.Tests.dll" runstate="Runnable" testcasecount="39" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.620023" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="39088" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1051" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="39" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.618553" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1052" name="Character" fullname="StarNight.Character" runstate="Runnable" testcasecount="39" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.617191" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1053" name="Tests" fullname="StarNight.Character.Tests" runstate="Runnable" testcasecount="39" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.615817" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1054" name="PlayMode" fullname="StarNight.Character.Tests.PlayMode" runstate="Runnable" testcasecount="39" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.613861" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1055" name="Rmap07" fullname="StarNight.Character.Tests.PlayMode.Rmap07" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.611117" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1014" name="RmapPatternGalleryPlayModeTests" fullname="StarNight.Character.Tests.PlayMode.Rmap07.RmapPatternGalleryPlayModeTests" classname="StarNight.Character.Tests.PlayMode.Rmap07.RmapPatternGalleryPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:26Z" duration="4.609345" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP07" />
+                  </properties>
+                  <test-case id="1015" name="A01_A15_SavedGallery_UsesActualPlayerAndTilemapColliderTerrain" fullname="StarNight.Character.Tests.PlayMode.Rmap07.RmapPatternGalleryPlayModeTests.A01_A15_SavedGallery_UsesActualPlayerAndTilemapColliderTerrain" methodname="A01_A15_SavedGallery_UsesActualPlayerAndTilemapColliderTerrain" classname="StarNight.Character.Tests.PlayMode.Rmap07.RmapPatternGalleryPlayModeTests" runstate="Runnable" seed="86791712" result="Passed" start-time="2026-09-08 11:34:21Z" end-time="2026-09-08 11:34:23Z" duration="1.376833" asserts="0">
+                    <properties>
+                      <property name="_JOINTYPE" value="UnityCombinatorial" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1016" name="A12_ActualPlayer_PassesUpwardAndLandsOnAllFourTilemapOneWayTransforms" fullname="StarNight.Character.Tests.PlayMode.Rmap07.RmapPatternGalleryPlayModeTests.A12_ActualPlayer_PassesUpwardAndLandsOnAllFourTilemapOneWayTransforms" methodname="A12_ActualPlayer_PassesUpwardAndLandsOnAllFourTilemapOneWayTransforms" classname="StarNight.Character.Tests.PlayMode.Rmap07.RmapPatternGalleryPlayModeTests" runstate="Runnable" seed="1948110546" result="Passed" start-time="2026-09-08 11:34:23Z" end-time="2026-09-08 11:34:26Z" duration="3.221244" asserts="0">
+                    <properties>
+                      <property name="_JOINTYPE" value="UnityCombinatorial" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

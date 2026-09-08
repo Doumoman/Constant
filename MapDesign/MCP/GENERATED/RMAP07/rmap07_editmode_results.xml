@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 11:33:03Z" end-time="2026-09-08 11:33:04Z" duration="1.2858986">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26649" result="Passed" start-time="2026-09-08 11:33:03Z" end-time="2026-09-08 11:33:04Z" duration="1.285899" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24684" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22629" result="Passed" start-time="2026-09-08 11:33:03Z" end-time="2026-09-08 11:33:04Z" duration="1.104321" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="45544" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24685" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22629" result="Passed" start-time="2026-09-08 11:33:03Z" end-time="2026-09-08 11:33:04Z" duration="0.960146" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24693" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22413" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.824338" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24697" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22354" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.575644" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24706" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7672" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.397660" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24722" name="Rmap07" fullname="StarNight.Map.Tests.EditMode.Rmap07" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.333364" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24622" name="RmapPatternCatalogTests" fullname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" classname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.332059" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP07" />
+                  </properties>
+                  <test-case id="24623" name="A01_A06_A08_InitialPool_Has48DistinctTyped16CellCandidatesAndAllRoles" fullname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests.A01_A06_A08_InitialPool_Has48DistinctTyped16CellCandidatesAndAllRoles" methodname="A01_A06_A08_InitialPool_Has48DistinctTyped16CellCandidatesAndAllRoles" classname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" runstate="Runnable" seed="297659442" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.308786" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24624" name="A07_A09_FirstPool_PreservesAllIntentTagsWithoutUsingThemAsClassificationInput" fullname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests.A07_A09_FirstPool_PreservesAllIntentTagsWithoutUsingThemAsClassificationInput" methodname="A07_A09_FirstPool_PreservesAllIntentTagsWithoutUsingThemAsClassificationInput" classname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" runstate="Runnable" seed="1386058550" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.002947" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24625" name="A10_Characteristics_KeepOneWaySeparateFromSolidAndAirAndUseFourNeighborAir" fullname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests.A10_Characteristics_KeepOneWaySeparateFromSolidAndAirAndUseFourNeighborAir" methodname="A10_Characteristics_KeepOneWaySeparateFromSolidAndAirAndUseFourNeighborAir" classname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" runstate="Runnable" seed="639262626" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.002014" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24626" name="A11_A12_Transforms_UseLowerLeftCoordinatesReclassifyDirectionsAndDeduplicateByCells" fullname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests.A11_A12_Transforms_UseLowerLeftCoordinatesReclassifyDirectionsAndDeduplicateByCells" methodname="A11_A12_Transforms_UseLowerLeftCoordinatesReclassifyDirectionsAndDeduplicateByCells" classname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" runstate="Runnable" seed="758114206" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.000348" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24627" name="A15_Csv_RoundTripsStableIdsAndValidatesEvery16CellRow" fullname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests.A15_Csv_RoundTripsStableIdsAndValidatesEvery16CellRow" methodname="A15_Csv_RoundTripsStableIdsAndValidatesEvery16CellRow" classname="StarNight.Map.Tests.EditMode.Rmap07.RmapPatternCatalogTests" runstate="Runnable" seed="867734673" result="Passed" start-time="2026-09-08 11:33:04Z" end-time="2026-09-08 11:33:04Z" duration="0.002956" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
