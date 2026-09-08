@@ -1,0 +1,12 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP10/MoonPalaceSmallRun_RMAP10.unity",
+  "active_seed": 1107,
+  "active_size": "36x24",
+  "recipe": "PortGalleryV1",
+  "plan_digest": "eb1cfad667d49a9837011a2ff66d8bc321b1c206e97f0e583f08c6d7c67c6869",
+  "profile_digest": "12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68",
+  "physical_path": "RMAP10_BaseTerrain TilemapCollider2D; RMAP10_OneWayOverlay TilemapCollider2D+PlatformEffector2D; RMAP10_LadderOverlay trigger; RMAP10_Player; RMAP10_Exit",
+  "representative_digests": "1107:eb1cfad667d49a9837011a2ff66d8bc321b1c206e97f0e583f08c6d7c67c6869;2203:6f626b0ab432ee1979e5269f9a0f3d4cf0316ff3e3ba1a002bc62ca075fea10a;3301:abb2d1fe15c7a7d71d44263568e10e7f4836f09d0be771817df4c89dccc4d20f",
+  "supported_sizes": "36x24;48x24",
+  "regenerate": "Tools/MoonPalace/RMAP10/Small Run Generator"
+}
