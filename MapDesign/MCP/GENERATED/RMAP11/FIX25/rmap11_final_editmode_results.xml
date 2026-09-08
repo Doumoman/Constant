@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 17:40:43Z" end-time="2026-09-08 17:40:45Z" duration="1.6457206">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26666" result="Passed" start-time="2026-09-08 17:40:43Z" end-time="2026-09-08 17:40:45Z" duration="1.645721" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24705" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22646" result="Passed" start-time="2026-09-08 17:40:43Z" end-time="2026-09-08 17:40:45Z" duration="1.500461" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="37472" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24706" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22646" result="Passed" start-time="2026-09-08 17:40:43Z" end-time="2026-09-08 17:40:45Z" duration="1.380450" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24714" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22430" result="Passed" start-time="2026-09-08 17:40:43Z" end-time="2026-09-08 17:40:45Z" duration="1.260839" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24718" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22371" result="Passed" start-time="2026-09-08 17:40:43Z" end-time="2026-09-08 17:40:45Z" duration="1.142119" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24727" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7689" result="Passed" start-time="2026-09-08 17:40:44Z" end-time="2026-09-08 17:40:45Z" duration="0.942354" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24743" name="Rmap11" fullname="StarNight.Map.Tests.EditMode.Rmap11" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-08 17:40:44Z" end-time="2026-09-08 17:40:45Z" duration="0.905545" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24622" name="RmapPatternPool500Tests" fullname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests" classname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-08 17:40:44Z" end-time="2026-09-08 17:40:45Z" duration="0.904222" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP11" />
+                  </properties>
+                  <test-case id="24623" name="A13_A14_FinalPoolHas500UniqueActualGeometriesAndCompleteProvenance" fullname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests.A13_A14_FinalPoolHas500UniqueActualGeometriesAndCompleteProvenance" methodname="A13_A14_FinalPoolHas500UniqueActualGeometriesAndCompleteProvenance" classname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests" runstate="Runnable" seed="1788702395" result="Passed" start-time="2026-09-08 17:40:44Z" end-time="2026-09-08 17:40:45Z" duration="0.818046" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24625" name="A14_FinalPoolCsvAndPortSafeDetailAreDeterministicAndTyped" fullname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests.A14_FinalPoolCsvAndPortSafeDetailAreDeterministicAndTyped" methodname="A14_FinalPoolCsvAndPortSafeDetailAreDeterministicAndTyped" classname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests" runstate="Runnable" seed="1761075394" result="Passed" start-time="2026-09-08 17:40:45Z" end-time="2026-09-08 17:40:45Z" duration="0.006307" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24626" name="ConsumerUsesFinalPoolAndAnEntryOutsideTheHistoricalFirst48" fullname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests.ConsumerUsesFinalPoolAndAnEntryOutsideTheHistoricalFirst48" methodname="ConsumerUsesFinalPoolAndAnEntryOutsideTheHistoricalFirst48" classname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests" runstate="Runnable" seed="83856833" result="Passed" start-time="2026-09-08 17:40:45Z" end-time="2026-09-08 17:40:45Z" duration="0.042242" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24624" name="Fix25_ExactSourceMappingPreserves475AndMatchesTheIndependentPreview" fullname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests.Fix25_ExactSourceMappingPreserves475AndMatchesTheIndependentPreview" methodname="Fix25_ExactSourceMappingPreserves475AndMatchesTheIndependentPreview" classname="StarNight.Map.Tests.EditMode.Rmap11.RmapPatternPool500Tests" runstate="Runnable" seed="413409498" result="Passed" start-time="2026-09-08 17:40:45Z" end-time="2026-09-08 17:40:45Z" duration="0.026179" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

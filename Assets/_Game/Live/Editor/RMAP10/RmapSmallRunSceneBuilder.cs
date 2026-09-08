@@ -26,6 +26,14 @@ namespace StarNight.Character.Live.Rmap10.Editor
         private const string PlayerPrefabPath = "Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab";
         private const string TerrainTilePath = "Assets/_Game/Live/Prefabs/RMAP02/Tiles/RMAP02_Terrain.asset";
         private const string OverlayTilePath = "Assets/_Game/Live/Prefabs/RMAP02/Tiles/RMAP02_Affordance.asset";
+        private static readonly Output Rmap10Output = new Output("RMAP10", ScenePath, GeneratedDirectory,
+            "MoonPalace_SmallRun_RMAP10", "MoonPalaceSmallRun");
+        private static readonly Output Rmap11Output = new Output("RMAP11",
+            "Assets/_Game/Map/Scenes/MoonPalace/RMAP11/MoonPalacePool500_RMAP11.unity",
+            "MapDesign/MCP/GENERATED/RMAP11", "MoonPalace_Pool500_RMAP11", "MoonPalacePool500");
+        private static readonly Output Rmap11Fix25Output = new Output("RMAP11_FIX25",
+            "Assets/_Game/Map/Scenes/MoonPalace/RMAP11/MoonPalacePool500_FIX25_RMAP11.unity",
+            "MapDesign/MCP/GENERATED/RMAP11/FIX25", "MoonPalace_Pool500_FIX25_RMAP11", "MoonPalacePool500_FIX25");
 
         [MenuItem("Tools/MoonPalace/RMAP10/Build Representative Small Run")]
         public static void BuildRepresentativeScene()
@@ -35,27 +43,44 @@ namespace StarNight.Character.Live.Rmap10.Editor
 
         public static void Build(RmapSmallRunRequest request)
         {
+            Build(request, Rmap10Output);
+        }
+
+        /// <summary>Builds an isolated RMAP11 scene without rewriting the historical RMAP10 evidence.</summary>
+        public static void BuildPool500Review(RmapSmallRunRequest request)
+        {
+            Build(request, Rmap11Output);
+        }
+
+        /// <summary>Publishes FIX25 evidence without overwriting the pre-revision RMAP11 scene or artifacts.</summary>
+        public static void BuildPool500Fix25Review(RmapSmallRunRequest request)
+        {
+            Build(request, Rmap11Fix25Output);
+        }
+
+        private static void Build(RmapSmallRunRequest request, Output output)
+        {
             RmapSmallRunPlan plan = RmapSmallRunHarness.Generate(request);
-            if (!plan.Success) throw new InvalidOperationException("RMAP10 plan failed: " + plan.FailureSummary);
+            if (!plan.Success) throw new InvalidOperationException(output.Id + " plan failed: " + plan.FailureSummary);
             Tile terrainTile = LoadTile(TerrainTilePath, "terrain");
             Tile overlayTile = LoadTile(OverlayTilePath, "overlay");
-            Directory.CreateDirectory(Path.GetDirectoryName(ScenePath));
+            Directory.CreateDirectory(Path.GetDirectoryName(output.ScenePath));
             Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-            var root = new GameObject("MoonPalace_SmallRun_RMAP10", typeof(Grid), typeof(RmapSmallRunSceneState));
+            var root = new GameObject(output.RootName, typeof(Grid), typeof(RmapSmallRunSceneState));
             root.GetComponent<RmapSmallRunSceneState>().Configure(plan);
-            Tilemap terrain = CreateTerrain(root.transform);
+            Tilemap terrain = CreateTerrain(root.transform, output);
             BakeBase(terrain, terrainTile, plan);
-            CreateOneWay(root.transform, terrainTile, plan);
-            CreateLadders(root.transform, overlayTile, plan);
-            CharacterLivePlayerRig player = CreatePlayer(scene, plan.StartTile);
-            CreateExit(root.transform, plan.ExitTile);
-            CreateCamera(root.transform, player.transform, plan);
-            CreateLabels(root.transform, plan);
+            CreateOneWay(root.transform, terrainTile, plan, output);
+            CreateLadders(root.transform, overlayTile, plan, output);
+            CharacterLivePlayerRig player = CreatePlayer(scene, plan.StartTile, output);
+            CreateExit(root.transform, plan.ExitTile, output);
+            CreateCamera(root.transform, player.transform, plan, output);
+            CreateLabels(root.transform, plan, output);
             Physics2D.SyncTransforms();
             EditorSceneManager.MarkSceneDirty(scene);
-            EditorSceneManager.SaveScene(scene, ScenePath);
+            EditorSceneManager.SaveScene(scene, output.ScenePath);
             AssetDatabase.SaveAssets();
-            WriteArtifacts(plan);
+            WriteArtifacts(plan, output);
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
         }
 
@@ -66,9 +91,9 @@ namespace StarNight.Character.Live.Rmap10.Editor
             return tile;
         }
 
-        private static Tilemap CreateTerrain(Transform parent)
+        private static Tilemap CreateTerrain(Transform parent, Output output)
         {
-            var target = new GameObject("RMAP10_BaseTerrain", typeof(Tilemap), typeof(TilemapRenderer),
+            var target = new GameObject(output.Id + "_BaseTerrain", typeof(Tilemap), typeof(TilemapRenderer),
                 typeof(TilemapCollider2D), typeof(Rigidbody2D));
             target.transform.SetParent(parent, false);
             target.GetComponent<TilemapRenderer>().sortingOrder = 1;
@@ -90,9 +115,9 @@ namespace StarNight.Character.Live.Rmap10.Editor
             EditorUtility.SetDirty(tilemap);
         }
 
-        private static void CreateOneWay(Transform parent, Tile tile, RmapSmallRunPlan plan)
+        private static void CreateOneWay(Transform parent, Tile tile, RmapSmallRunPlan plan, Output output)
         {
-            var target = new GameObject("RMAP10_OneWayOverlay", typeof(Tilemap), typeof(TilemapRenderer),
+            var target = new GameObject(output.Id + "_OneWayOverlay", typeof(Tilemap), typeof(TilemapRenderer),
                 typeof(TilemapCollider2D), typeof(Rigidbody2D), typeof(PlatformEffector2D), typeof(CharacterLiveOneWayPlatform));
             target.transform.SetParent(parent, false);
             target.GetComponent<TilemapRenderer>().sortingOrder = 2;
@@ -106,20 +131,20 @@ namespace StarNight.Character.Live.Rmap10.Editor
                 .Where(index => chunk.BaseCells[index] == RmapPatternBaseCell.OneWayPlatform)
                 .Select(index => new Vector3Int(chunk.OriginX + (index % RmapPortCatalog.ChunkWidth),
                     chunk.OriginY + (index / RmapPortCatalog.ChunkWidth), 0))).ToArray();
-            if (cells.Length == 0) throw new InvalidOperationException("RMAP10 requires selected one-way output.");
+            if (cells.Length == 0) throw new InvalidOperationException(output.Id + " requires selected one-way output.");
             tilemap.SetTiles(cells, Enumerable.Repeat<TileBase>(tile, cells.Length).ToArray());
             EditorUtility.SetDirty(tilemap);
         }
 
-        private static void CreateLadders(Transform parent, Tile tile, RmapSmallRunPlan plan)
+        private static void CreateLadders(Transform parent, Tile tile, RmapSmallRunPlan plan, Output output)
         {
-            var target = new GameObject("RMAP10_LadderOverlay", typeof(Tilemap), typeof(TilemapRenderer),
+            var target = new GameObject(output.Id + "_LadderOverlay", typeof(Tilemap), typeof(TilemapRenderer),
                 typeof(BoxCollider2D), typeof(CharacterLiveClimbSurface));
             target.transform.SetParent(parent, false);
             target.GetComponent<TilemapRenderer>().sortingOrder = 3;
             Vector3Int[] cells = plan.Chunks.SelectMany(chunk => chunk.Overlays.Select(overlay =>
                 new Vector3Int(chunk.OriginX + overlay.Cell.X, chunk.OriginY + overlay.Cell.Y, 0))).ToArray();
-            if (cells.Length == 0) throw new InvalidOperationException("RMAP10 requires RMAP09's Type3 ladder overlay.");
+            if (cells.Length == 0) throw new InvalidOperationException(output.Id + " requires RMAP09's Type3 ladder overlay.");
             target.GetComponent<Tilemap>().SetTiles(cells, Enumerable.Repeat<TileBase>(tile, cells.Length).ToArray());
             float centerX = (float)cells.Average(cell => cell.x) + 0.5f;
             float minY = cells.Min(cell => cell.y);
@@ -130,15 +155,15 @@ namespace StarNight.Character.Live.Rmap10.Editor
             target.GetComponent<CharacterLiveClimbSurface>().Configure(CharacterLiveClimbSurface.SurfaceKind.Ladder, trigger);
         }
 
-        private static CharacterLivePlayerRig CreatePlayer(Scene scene, Vector2Int start)
+        private static CharacterLivePlayerRig CreatePlayer(Scene scene, Vector2Int start, Output output)
         {
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PlayerPrefabPath);
-            if (prefab == null) throw new InvalidOperationException("RMAP10 Player prefab is missing.");
+            if (prefab == null) throw new InvalidOperationException(output.Id + " Player prefab is missing.");
             GameObject player = PrefabUtility.InstantiatePrefab(prefab, scene) as GameObject;
-            player.name = "RMAP10_Player";
+            player.name = output.Id + "_Player";
             CharacterLivePlayerRig rig = player.GetComponent<CharacterLivePlayerRig>();
             CharacterLiveMovementDriver movement = player.GetComponent<CharacterLiveMovementDriver>();
-            if (rig == null || movement == null) throw new InvalidOperationException("RMAP10 requires the Production Player rig and movement driver.");
+            if (rig == null || movement == null) throw new InvalidOperationException(output.Id + " requires the Production Player rig and movement driver.");
             rig.BodyCollider.size = new Vector2(0.4f, 0.8f);
             rig.BodyCollider.offset = new Vector2(0f, 0.4f);
             movement.ConfigureRmap02(1 << LayerMask.NameToLayer("Default"));
@@ -147,9 +172,9 @@ namespace StarNight.Character.Live.Rmap10.Editor
             return rig;
         }
 
-        private static void CreateExit(Transform parent, Vector2Int exit)
+        private static void CreateExit(Transform parent, Vector2Int exit, Output output)
         {
-            var target = new GameObject("RMAP10_Exit", typeof(BoxCollider2D), typeof(CharacterLiveMapRunExit));
+            var target = new GameObject(output.Id + "_Exit", typeof(BoxCollider2D), typeof(CharacterLiveMapRunExit));
             target.transform.SetParent(parent, false);
             target.transform.position = new Vector3(exit.x + 0.5f, exit.y + 0.7f, 0f);
             BoxCollider2D trigger = target.GetComponent<BoxCollider2D>();
@@ -157,9 +182,9 @@ namespace StarNight.Character.Live.Rmap10.Editor
             trigger.isTrigger = true;
         }
 
-        private static void CreateCamera(Transform parent, Transform player, RmapSmallRunPlan plan)
+        private static void CreateCamera(Transform parent, Transform player, RmapSmallRunPlan plan, Output output)
         {
-            var target = new GameObject("RMAP10_FollowCamera", typeof(Camera), typeof(CharacterLiveCameraFollowDriver));
+            var target = new GameObject(output.Id + "_FollowCamera", typeof(Camera), typeof(CharacterLiveCameraFollowDriver));
             target.transform.SetParent(parent, false);
             Camera camera = target.GetComponent<Camera>();
             camera.orthographic = true; camera.nearClipPlane = 0.1f; camera.farClipPlane = 100f;
@@ -167,23 +192,23 @@ namespace StarNight.Character.Live.Rmap10.Editor
                 new Rect(0f, 0f, plan.Request.Width, plan.Request.Height + 1f), 12f, 8f, 0.08f);
         }
 
-        private static void CreateLabels(Transform parent, RmapSmallRunPlan plan)
+        private static void CreateLabels(Transform parent, RmapSmallRunPlan plan, Output output)
         {
-            var target = new GameObject("RMAP10_Controls", typeof(TextMesh));
+            var target = new GameObject(output.Id + "_Controls", typeof(TextMesh));
             target.transform.SetParent(parent, false);
             target.transform.position = new Vector3(0.25f, plan.Request.Height + 0.6f, -1f);
             TextMesh text = target.GetComponent<TextMesh>();
-            text.text = "RMAP10 | Seed " + plan.Request.Seed.ToString(CultureInfo.InvariantCulture) + " | " +
+            text.text = output.Id + " | " + plan.PoolVersion + " | Seed " + plan.Request.Seed.ToString(CultureInfo.InvariantCulture) + " | " +
                 plan.Request.Width + "x" + plan.Request.Height + " | " + plan.Request.RecipeId +
                 "\nA/D or arrows: move to Exit | ladder/one-way are generated separately | " + plan.PlanDigest.Substring(0, 12);
             text.color = new Color(0.85f, 0.94f, 1f, 1f); text.characterSize = 0.18f; text.fontSize = 26;
             text.anchor = TextAnchor.UpperLeft;
         }
 
-        private static void WriteArtifacts(RmapSmallRunPlan active)
+        private static void WriteArtifacts(RmapSmallRunPlan active, Output output)
         {
             string root = Directory.GetParent(Application.dataPath).FullName;
-            string directory = Path.Combine(root, GeneratedDirectory.Replace('/', Path.DirectorySeparatorChar));
+            string directory = Path.Combine(root, output.GeneratedDirectory.Replace('/', Path.DirectorySeparatorChar));
             Directory.CreateDirectory(directory);
             RmapSmallRunPlan[] cases =
             {
@@ -191,14 +216,14 @@ namespace StarNight.Character.Live.Rmap10.Editor
                 RmapSmallRunHarness.Generate(new RmapSmallRunRequest(2203, 48, 24, RmapSmallRunRecipe.PortGalleryV1)),
                 RmapSmallRunHarness.Generate(new RmapSmallRunRequest(3301, 36, 24, RmapSmallRunRecipe.PortGalleryV1)),
             };
-            if (cases.Any(value => !value.Success)) throw new InvalidOperationException("RMAP10 representative generation failed.");
-            Write(directory, "rmap10_seed_evidence.csv", SeedCsv(cases));
-            Write(directory, "rmap10_chunk_plan.csv", ChunkCsv(active));
-            Write(directory, "rmap10_selected_patterns.csv", SelectionCsv(active));
-            Write(directory, "rmap10_ports.csv", PortCsv(active));
-            Write(directory, "rmap10_base_cells.csv", BaseCsv(active));
-            Write(directory, "rmap10_overlay.csv", OverlayCsv(active));
-            Write(directory, "rmap10_manifest.json", Manifest(active, cases));
+            if (cases.Any(value => !value.Success)) throw new InvalidOperationException(output.Id + " representative generation failed.");
+            Write(directory, output.ArtifactPrefix + "_seed_evidence.csv", SeedCsv(cases));
+            Write(directory, output.ArtifactPrefix + "_chunk_plan.csv", ChunkCsv(active));
+            Write(directory, output.ArtifactPrefix + "_selected_patterns.csv", SelectionCsv(active));
+            Write(directory, output.ArtifactPrefix + "_ports.csv", PortCsv(active));
+            Write(directory, output.ArtifactPrefix + "_base_cells.csv", BaseCsv(active));
+            Write(directory, output.ArtifactPrefix + "_overlay.csv", OverlayCsv(active));
+            Write(directory, output.ArtifactPrefix + "_manifest.json", Manifest(active, cases, output));
         }
 
         private static void Write(string directory, string name, string content)
@@ -260,20 +285,35 @@ namespace StarNight.Character.Live.Rmap10.Editor
             return text.ToString();
         }
 
-        private static string Manifest(RmapSmallRunPlan active, IEnumerable<RmapSmallRunPlan> plans)
+        private static string Manifest(RmapSmallRunPlan active, IEnumerable<RmapSmallRunPlan> plans, Output output)
         {
             return "{\n" +
-                "  \"scene_path\": \"" + ScenePath + "\",\n" +
+                "  \"scene_path\": \"" + output.ScenePath + "\",\n" +
                 "  \"active_seed\": " + active.Request.Seed + ",\n" +
                 "  \"active_size\": \"" + active.Request.Width + "x" + active.Request.Height + "\",\n" +
                 "  \"recipe\": \"" + active.Request.RecipeId + "\",\n" +
+                "  \"pool_version\": \"" + active.PoolVersion + "\",\n" +
                 "  \"plan_digest\": \"" + active.PlanDigest + "\",\n" +
                 "  \"profile_digest\": \"" + RmapPortCatalog.BuildFixture().ProfileDigest + "\",\n" +
-                "  \"physical_path\": \"RMAP10_BaseTerrain TilemapCollider2D; RMAP10_OneWayOverlay TilemapCollider2D+PlatformEffector2D; RMAP10_LadderOverlay trigger; RMAP10_Player; RMAP10_Exit\",\n" +
+                "  \"physical_path\": \"" + output.Id + "_BaseTerrain TilemapCollider2D; " + output.Id + "_OneWayOverlay TilemapCollider2D+PlatformEffector2D; " + output.Id + "_LadderOverlay trigger; " + output.Id + "_Player; " + output.Id + "_Exit\",\n" +
                 "  \"representative_digests\": \"" + string.Join(";", plans.Select(value => value.Request.Seed + ":" + value.PlanDigest)) + "\",\n" +
                 "  \"supported_sizes\": \"36x24;48x24\",\n" +
                 "  \"regenerate\": \"Tools/MoonPalace/RMAP10/Small Run Generator\"\n" +
                 "}\n";
+        }
+
+        private sealed class Output
+        {
+            public Output(string id, string scenePath, string generatedDirectory, string rootName, string artifactPrefix)
+            {
+                Id = id; ScenePath = scenePath; GeneratedDirectory = generatedDirectory; RootName = rootName;
+                ArtifactPrefix = artifactPrefix;
+            }
+            public string Id { get; }
+            public string ScenePath { get; }
+            public string GeneratedDirectory { get; }
+            public string RootName { get; }
+            public string ArtifactPrefix { get; }
         }
     }
 }

@@ -11,9 +11,9 @@ using UnityEngine;
 
 namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
 {
-    /// <summary>RMAP10's bounded, physical small-run plan.  It deliberately
-    /// consumes the RMAP07/08/09 contracts and does not enter the historical
-    /// 500-pattern seeded-run pipeline.</summary>
+    /// <summary>Bounded, physical small-run plan. RMAP11 keeps the existing
+    /// RMAP07/08/09 contracts while making the finalized 500-pattern catalog
+    /// the direct source for its non-composer selections.</summary>
     public enum RmapSmallRunRecipe { PortGalleryV1 = 0 }
 
     public sealed class RmapSmallRunRequest
@@ -33,8 +33,15 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
     {
         internal RmapSmallRunPatternSelection(int slotX, int slotY, RmapPatternCandidate candidate,
             RmapPatternTransform transform, IEnumerable<RmapPatternBaseCell> cells)
+            : this(slotX, slotY, candidate == null ? throw new ArgumentNullException(nameof(candidate)) : candidate.CandidateId,
+                transform, cells)
         {
-            SlotX = slotX; SlotY = slotY; CandidateId = candidate.CandidateId; Transform = transform;
+        }
+
+        internal RmapSmallRunPatternSelection(int slotX, int slotY, string candidateId,
+            RmapPatternTransform transform, IEnumerable<RmapPatternBaseCell> cells)
+        {
+            SlotX = slotX; SlotY = slotY; CandidateId = candidateId ?? throw new ArgumentNullException(nameof(candidateId)); Transform = transform;
             FinalCells = new ReadOnlyCollection<RmapPatternBaseCell>((cells ?? Array.Empty<RmapPatternBaseCell>()).ToArray());
         }
         public int SlotX { get; }
@@ -94,19 +101,21 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
     public sealed class RmapSmallRunPlan
     {
         internal RmapSmallRunPlan(RmapSmallRunRequest request, IEnumerable<RmapSmallRunChunk> chunks,
-            IEnumerable<RmapSmallRunPort> ports, IEnumerable<string> failures)
+            IEnumerable<RmapSmallRunPort> ports, IEnumerable<string> failures, string poolVersion)
         {
             Request = request;
             Chunks = new ReadOnlyCollection<RmapSmallRunChunk>((chunks ?? Array.Empty<RmapSmallRunChunk>()).ToArray());
             Ports = new ReadOnlyCollection<RmapSmallRunPort>((ports ?? Array.Empty<RmapSmallRunPort>()).ToArray());
             Failures = new ReadOnlyCollection<string>((failures ?? Array.Empty<string>()).Distinct().OrderBy(value => value, StringComparer.Ordinal).ToArray());
-            BaseDigest = Digest("RMAP10_BASE_V1", Chunks.SelectMany(chunk => chunk.BaseCells.Select((cell, index) =>
+            PoolVersion = poolVersion ?? string.Empty;
+            BaseDigest = Digest("RMAP11_BASE_V1", Chunks.SelectMany(chunk => chunk.BaseCells.Select((cell, index) =>
                 chunk.InstanceId + ":" + index.ToString(CultureInfo.InvariantCulture) + ":" + cell)));
-            PlanDigest = Digest("RMAP10_PLAN_V1", new[]
+            PlanDigest = Digest("RMAP11_PLAN_V1", new[]
             {
                 request == null ? string.Empty : request.Seed.ToString(CultureInfo.InvariantCulture),
                 request == null ? string.Empty : request.Width + "x" + request.Height,
                 request == null ? string.Empty : request.RecipeId,
+                PoolVersion,
                 BaseDigest,
                 string.Join(";", Chunks.Select(chunk => chunk.InstanceId + "=" + chunk.Source.ChunkId + ":" + string.Join("|", chunk.Selections.Select(selection => selection.CandidateId + ":" + selection.Transform)))),
                 string.Join(";", Ports.Select(port => port.ChunkInstanceId + ":" + port.PortId + ":" + string.Join("/", port.GlobalCells))),
@@ -120,6 +129,7 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
         public string FailureSummary => string.Join(";", Failures);
         public string BaseDigest { get; }
         public string PlanDigest { get; }
+        public string PoolVersion { get; }
         public Vector2Int StartTile => new Vector2Int(1, 1);
         public Vector2Int ExitTile => Request == null ? Vector2Int.zero : new Vector2Int(Request.Width - 2, 1);
         public int MaximumAttempts => 3;
@@ -147,17 +157,19 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
         [SerializeField] private int height;
         [SerializeField] private RmapSmallRunRecipe recipe;
         [SerializeField] private string planDigest;
+        [SerializeField] private string poolVersion;
         public int Seed => seed;
         public int Width => width;
         public int Height => height;
         public RmapSmallRunRecipe Recipe => recipe;
         public string PlanDigest => planDigest;
+        public string PoolVersion => poolVersion;
         public RmapSmallRunRequest Request => new RmapSmallRunRequest(seed, width, height, recipe);
         public void Configure(RmapSmallRunPlan plan)
         {
             if (plan == null || !plan.Success) throw new ArgumentException("A successful RMAP10 plan is required.", nameof(plan));
             seed = plan.Request.Seed; width = plan.Request.Width; height = plan.Request.Height;
-            recipe = plan.Request.Recipe; planDigest = plan.PlanDigest;
+            recipe = plan.Request.Recipe; planDigest = plan.PlanDigest; poolVersion = plan.PoolVersion;
         }
     }
 
@@ -182,7 +194,8 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
                     failures.Add("UNSUPPORTED_SIZE:" + request.Width + "x" + request.Height + ";SUPPORTED=36x24,48x24");
                 if (request.Recipe != RmapSmallRunRecipe.PortGalleryV1) failures.Add("UNSUPPORTED_RECIPE:" + request.Recipe);
             }
-            if (failures.Count != 0) return new RmapSmallRunPlan(request, Array.Empty<RmapSmallRunChunk>(), Array.Empty<RmapSmallRunPort>(), failures);
+            if (failures.Count != 0) return new RmapSmallRunPlan(request, Array.Empty<RmapSmallRunChunk>(), Array.Empty<RmapSmallRunPort>(), failures,
+                RmapPatternPool500.DataVersion);
 
             RmapPortCatalogSnapshot ports = RmapPortCatalog.BuildFixture();
             if (!RmapPortCatalog.Validate(ports).IsValid) failures.Add("PORT_CATALOG_INVALID");
@@ -203,7 +216,7 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
             }
             var globalPorts = chunks.SelectMany(chunk => chunk.Source.Ports.Select(port => new RmapSmallRunPort(chunk, port))).ToList();
             ValidatePlan(request, chunks, globalPorts, failures);
-            return new RmapSmallRunPlan(request, chunks, globalPorts, failures);
+            return new RmapSmallRunPlan(request, chunks, globalPorts, failures, RmapPatternPool500.DataVersion);
         }
 
         private static string SourceFor(int x, int y, int columns)
@@ -234,23 +247,23 @@ namespace StarNight.Map.WorldGeneration.MoonPalace.RunGeneration
                     composed.AttemptCount);
             }
 
-            RmapPatternCatalogSnapshot pool = RmapPatternCatalog.BuildInitialPool();
-            RmapPatternCandidate floor = pool.Candidates.Single(value => value.CandidateId == FloorCandidateId);
-            RmapPatternCandidate clear = pool.Candidates.Single(value => value.CandidateId == ClearCandidateId);
-            RmapPatternCandidate detail = pool.Candidates[(StableIndex(request.Seed, ordinal, pool.Candidates.Count))];
-            RmapPatternCandidate oneWay = pool.Candidates.Single(value => value.CandidateId == "RMAP07_348D65F87C81");
+            RmapPatternPool500Snapshot pool = RmapPatternPool500.BuildFinalPool();
+            RmapPatternPool500Entry floor = pool.Candidates.Single(value => value.CandidateId == FloorCandidateId);
+            RmapPatternPool500Entry clear = pool.Candidates.Single(value => value.CandidateId == ClearCandidateId);
+            RmapPatternPool500Entry detail = RmapPatternPool500.SelectPortSafeDetail(request.Seed, ordinal);
+            RmapPatternPool500Entry oneWay = pool.Candidates.Single(value => value.CandidateId == "RMAP07_348D65F87C81");
             var selections = new List<RmapSmallRunPatternSelection>();
             for (var slotY = 0; slotY < 2; slotY++)
             for (var slotX = 0; slotX < 3; slotX++)
             {
-                RmapPatternCandidate candidate;
+                RmapPatternPool500Entry candidate;
                 if (source.SpaceState == RmapPortSpaceState.InactiveSolid || source.ChunkId == "T0_BREAKABLE_SECRET") candidate = clear;
                 else if (slotY == 0) candidate = source.ChunkType == RmapPortChunkType.Type2 || source.ChunkType == RmapPortChunkType.Type4 ? clear : floor;
                 else if (source.ChunkId == "T0_SINGLE_ENTRANCE" && slotX == 0) candidate = oneWay;
                 else candidate = (slotX == 1 || source.ChunkType == RmapPortChunkType.Type4) ? clear : detail;
                 RmapPatternTransform transform = candidate == detail ? (RmapPatternTransform)(StableIndex(request.Seed + 17, ordinal + slotX + (slotY * 3), 4)) : RmapPatternTransform.R0;
                 selections.Add(new RmapSmallRunPatternSelection(slotX * RmapPatternCatalog.Width, slotY * RmapPatternCatalog.Height,
-                    candidate, transform, RmapPatternCatalog.TransformCells(candidate.BaseCells, transform)));
+                    candidate.CandidateId, transform, RmapPatternCatalog.TransformCells(candidate.BaseCells, transform)));
             }
             RmapPatternBaseCell[] baseCells = AssembleSelections(selections);
             if (source.SpaceState == RmapPortSpaceState.InactiveSolid || source.ChunkId == "T0_BREAKABLE_SECRET")

@@ -1,0 +1,20 @@
+{
+  "name": "Game.Character.Live.Rmap11.Editor",
+  "rootNamespace": "StarNight.Character.Live.Rmap11.Editor",
+  "references": [
+    "Game.Character.Live",
+    "Game.Map.Runtime",
+    "Game.Character.Live.Rmap10.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

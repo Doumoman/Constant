@@ -1,0 +1,10 @@
+InstanceId,Origin,SourceChunk,SpaceState,Type,Selections,BaseCells,Overlays,Attempts
+C0_0,0;0,T1_A,Active,Type1,6,96,0,1
+C1_0,12;0,T1_B,Active,Type1,6,96,0,1
+C2_0,24;0,T1_A,Active,Type1,6,96,0,1
+C0_1,0;8,T2_DROP,Active,Type2,6,96,0,1
+C1_1,12;8,T3_CLIMB,Active,Type3,6,96,7,3
+C2_1,24;8,T4_SPLIT,Active,Type4,6,96,0,1
+C0_2,0;16,T0_BREAKABLE_SECRET,Secret,Type0,6,96,0,1
+C1_2,12;16,T0_SINGLE_ENTRANCE,Active,Type0,6,96,0,1
+C2_2,24;16,T1_B,Active,Type1,6,96,0,1

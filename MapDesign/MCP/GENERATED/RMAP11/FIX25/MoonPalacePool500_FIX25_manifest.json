@@ -1,0 +1,13 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP11/MoonPalacePool500_FIX25_RMAP11.unity",
+  "active_seed": 1107,
+  "active_size": "36x24",
+  "recipe": "PortGalleryV1",
+  "pool_version": "RMAP11_POOL500_V2_FIX25",
+  "plan_digest": "30be62744e490af43a59ec795c52e3aec2534cd55c4dfb9062bcd191018db6bd",
+  "profile_digest": "12415531bfa37bc8db427f672fefe47c92fee65bf61fccd94887af09669c2d68",
+  "physical_path": "RMAP11_FIX25_BaseTerrain TilemapCollider2D; RMAP11_FIX25_OneWayOverlay TilemapCollider2D+PlatformEffector2D; RMAP11_FIX25_LadderOverlay trigger; RMAP11_FIX25_Player; RMAP11_FIX25_Exit",
+  "representative_digests": "1107:30be62744e490af43a59ec795c52e3aec2534cd55c4dfb9062bcd191018db6bd;2203:0caa9cec11a67d45099d3055ac6b3aa1968ee4cd3b5ea19ad70282ce78157d32;3301:c4ec09f0bc2ae6b80f1ac8d7b34b95fc90b4d0226ccc0bdb8f86a565bb9fbef0",
+  "supported_sizes": "36x24;48x24",
+  "regenerate": "Tools/MoonPalace/RMAP10/Small Run Generator"
+}
