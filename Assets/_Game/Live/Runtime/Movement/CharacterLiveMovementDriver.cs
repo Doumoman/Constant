@@ -23,8 +23,8 @@ namespace StarNight.Character.Live.Movement
         [SerializeField] private CharacterLiveMovementSettings settings =
             new CharacterLiveMovementSettings();
 
-        private readonly CharacterCapsuleGeometry capsule =
-            CharacterCapsuleGeometry.Default;
+        private CharacterCapsuleGeometry capsule = CharacterCapsuleGeometry.Default;
+        private Vector2 capsuleOffset;
 
         private ICharacterCollisionWorld collisionWorld;
         private CharacterGroundProbe probe;
@@ -64,6 +64,17 @@ namespace StarNight.Character.Live.Movement
             get { return physicsTick; }
         }
 
+        public CharacterLiveMovementSettings Settings
+        {
+            get { return settings; }
+        }
+
+        /// <summary>RMAP02 scene builder가 기존 Player prefab을 국소 fixture로 조립할 때 사용한다.</summary>
+        public void ConfigureRmap02(int solidLayerMask)
+        {
+            settings.ConfigureRmap02(solidLayerMask);
+        }
+
         /// <summary>스폰 소비 직후 호출 — 운동 상태 초기화 + 구동 시작.</summary>
         public void ResetMotion()
         {
@@ -84,18 +95,20 @@ namespace StarNight.Character.Live.Movement
                 rig = GetComponent<CharacterLivePlayerRig>();
             }
 
+            SynchronizeColliderGeometry();
+
             collisionWorld = new UnityPhysics2DCharacterCollisionWorld(
                 settings.SolidLayers);
             probe = new CharacterGroundProbe(
                 collisionWorld, capsule, CharacterGroundProbeSettings.Default);
             groundMotor = new CharacterGroundMotor(
-                CharacterGroundMotorSettings.Default);
+                settings.CreateGroundMotorSettings());
             airControlMotor = new CharacterAirControlMotor(
-                CharacterAirControlSettings.Default);
+                settings.CreateAirControlSettings());
             gravityMotor = new CharacterGravityMotor(
-                CharacterGravitySettings.Default);
+                settings.CreateGravitySettings());
             jumpController = new CharacterJumpController(
-                CharacterJumpSettings.Default);
+                settings.CreateJumpSettings());
             landingDetector = new CharacterLandingDetector();
             jumpState = new CharacterJumpState();
         }
@@ -112,7 +125,10 @@ namespace StarNight.Character.Live.Movement
             physicsTime += dt;
 
             CharacterInputSnapshot input = rig.ConsumeFixedSnapshot(physicsTick);
-            Vector2 center = rig.Body.position;
+            // Rigidbody2D owns the Player's feet pivot in RMAP02.  The
+            // collision queries instead use the capsule centre, matching the
+            // real CapsuleCollider2D's local offset and dimensions.
+            Vector2 center = rig.Body.position + capsuleOffset;
 
             // (1) 지면 판정 — 순수 프로브(실물리 질의 주입).
             CharacterGroundProbeResult probeResult = probe.Probe(center, velocity.y);
@@ -163,7 +179,8 @@ namespace StarNight.Character.Live.Movement
                     ? CharacterLocomotionState.Grounded
                     : CharacterLocomotionState.Airborne);
             motorState = groundMotor.Step(
-                in motorState, input.Horizontal, settings.AlwaysRun, dt);
+                in motorState, input.Horizontal,
+                settings.ResolveAlwaysRun(rig.InputSource != null && rig.InputSource.IsWalkHeld), dt);
             velocity = motorState.Velocity;
             facing = motorState.Facing;
 
@@ -192,7 +209,7 @@ namespace StarNight.Character.Live.Movement
                 velocity.y = 0f;
             }
 
-            rig.Body.MovePosition(center);
+            rig.Body.MovePosition(center - capsuleOffset);
 
             IsGroundedNow = grounded;
             wasGrounded = grounded;
@@ -233,6 +250,20 @@ namespace StarNight.Character.Live.Movement
 
             blocked = true;
             return Mathf.Max(0f, hit.Distance - Skin);
+        }
+
+        private void SynchronizeColliderGeometry()
+        {
+            if (rig == null || rig.BodyCollider == null)
+            {
+                capsule = CharacterCapsuleGeometry.Default;
+                capsuleOffset = Vector2.zero;
+                return;
+            }
+
+            Vector2 size = rig.BodyCollider.size;
+            capsule = new CharacterCapsuleGeometry(size.x, size.y);
+            capsuleOffset = rig.BodyCollider.offset;
         }
     }
 }

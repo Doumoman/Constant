@@ -22,6 +22,7 @@ namespace StarNight.Character.Live.Input
 
         private InputActionMap playerMap;
         private InputAction moveAction;
+        private InputAction walkAction;
         private InputAction downAction;
         private InputAction jumpAction;
         private InputAction actionAction;
@@ -43,6 +44,15 @@ namespace StarNight.Character.Live.Input
         public bool HasActionsAsset
         {
             get { return actionsAsset != null; }
+        }
+
+        /// <summary>
+        /// RMAP02의 Shift 보행 유지 상태. 논리 ActionId에는 추가하지 않고,
+        /// 기존 snapshot 소비 이후 Live 이동 조립에서만 속도를 선택한다.
+        /// </summary>
+        public bool IsWalkHeld
+        {
+            get { return walkAction != null && walkAction.IsPressed(); }
         }
 
         /// <summary>고정 스텝 소비: 누적 에지 포함 스냅샷 반환(에지 소거).</summary>
@@ -123,6 +133,7 @@ namespace StarNight.Character.Live.Input
             }
 
             moveAction = playerMap.FindAction("Move", true);
+            walkAction = playerMap.FindAction("Walk", true);
             downAction = playerMap.FindAction("Down", true);
             jumpAction = playerMap.FindAction("Jump", true);
             actionAction = playerMap.FindAction("Action", true);

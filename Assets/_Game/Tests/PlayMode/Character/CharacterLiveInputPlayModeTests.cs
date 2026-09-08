@@ -75,9 +75,11 @@ namespace StarNight.Character.Tests.PlayMode
                 InputActionType.Button, map.FindAction("Jump", true).type);
             Assert.AreEqual(
                 InputActionType.Button, map.FindAction("Down", true).type);
+            Assert.AreEqual(
+                InputActionType.Button, map.FindAction("Walk", true).type);
 
-            // 잠금 액션 6종 외 액션 없음.
-            Assert.AreEqual(6, map.actions.Count);
+            // RMAP02 보행 modifier는 ActionId가 아닌 Live 속도 선택 입력이다.
+            Assert.AreEqual(7, map.actions.Count);
         }
 
         [UnityTest]
