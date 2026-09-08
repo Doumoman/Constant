@@ -30,6 +30,12 @@ namespace StarNight.Character.Live.Movement
         [SerializeField] private float coyoteTime = 0.08f;
         [SerializeField] private float jumpBufferTime = 0.10f;
         [SerializeField] private float releaseCutMultiplier = 0.42f;
+        [SerializeField] private float grabProbeDistance = 0.35f;
+        [SerializeField] private float grabVerticalWindow = 0.45f;
+        [SerializeField] private float grabSideOffset = 0.21f;
+        [SerializeField] private float grabHangOffset = 0.62f;
+        [SerializeField] private float grabReentryDelay = 0.12f;
+        [SerializeField] private float grabMaxUpwardVelocity = 0.01f;
 
         public LayerMask SolidLayers
         {
@@ -46,6 +52,12 @@ namespace StarNight.Character.Live.Movement
         public float JumpVelocity { get { return jumpVelocity; } }
         public float CoyoteTime { get { return coyoteTime; } }
         public float JumpBufferTime { get { return jumpBufferTime; } }
+        public float GrabProbeDistance { get { return grabProbeDistance; } }
+        public float GrabVerticalWindow { get { return grabVerticalWindow; } }
+        public float GrabSideOffset { get { return grabSideOffset; } }
+        public float GrabHangOffset { get { return grabHangOffset; } }
+        public float GrabReentryDelay { get { return grabReentryDelay; } }
+        public float GrabMaxUpwardVelocity { get { return grabMaxUpwardVelocity; } }
 
         public bool ResolveAlwaysRun(bool walkHeld)
         {
@@ -93,6 +105,12 @@ namespace StarNight.Character.Live.Movement
             coyoteTime = 0.08f;
             jumpBufferTime = 0.10f;
             releaseCutMultiplier = 0.42f;
+            grabProbeDistance = 0.35f;
+            grabVerticalWindow = 0.45f;
+            grabSideOffset = 0.21f;
+            grabHangOffset = 0.62f;
+            grabReentryDelay = 0.12f;
+            grabMaxUpwardVelocity = 0.01f;
         }
     }
 }

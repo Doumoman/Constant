@@ -1,0 +1,8 @@
+{
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP03/MoonPalaceCornerGrab_RMAP03.unity",
+  "player_collider": "0.4x0.8 foot-pivot",
+  "safe_static": "Tilemap wall at x=8, y=1..2",
+  "safe_destructible": "BoxCollider at x=15.5, y=2",
+  "safe_moving": "Kinematic BoxCollider x=20.5..23.5, speed=1.5",
+  "unsafe_markers": ["OneWay", "Hazard", "Crushing", "Decoration"]
+}

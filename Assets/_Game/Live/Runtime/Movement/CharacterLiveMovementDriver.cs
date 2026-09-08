@@ -37,6 +37,12 @@ namespace StarNight.Character.Live.Movement
 
         private Vector2 velocity;
         private CharacterFacingDirection facing = CharacterFacingDirection.Right;
+        private bool isGrabbing;
+        private CharacterLiveGrabSurface grabbedSurface;
+        private Collider2D grabbedCollider;
+        private Vector2 grabAnchorLocal;
+        private int grabSide;
+        private double grabReentryAllowedAt;
         private bool wasGrounded;
         private bool isDriving;
         private long physicsTick;
@@ -69,6 +75,17 @@ namespace StarNight.Character.Live.Movement
             get { return settings; }
         }
 
+        /// <summary>RMAP03의 현재 모서리 Grab 상태(등반/벽차기 상태는 포함하지 않음).</summary>
+        public bool IsGrabbing
+        {
+            get { return isGrabbing; }
+        }
+
+        /// <summary>RMAP05가 소비할 수 있는 마지막 안전 Grab 성립 정보.</summary>
+        public bool HasSafeGrabContact { get; private set; }
+
+        public Vector2 LastSafeGrabAnchor { get; private set; }
+
         /// <summary>RMAP02 scene builder가 기존 Player prefab을 국소 fixture로 조립할 때 사용한다.</summary>
         public void ConfigureRmap02(int solidLayerMask)
         {
@@ -80,6 +97,14 @@ namespace StarNight.Character.Live.Movement
         {
             velocity = Vector2.zero;
             facing = CharacterFacingDirection.Right;
+            isGrabbing = false;
+            grabbedSurface = null;
+            grabbedCollider = null;
+            grabAnchorLocal = Vector2.zero;
+            grabSide = 0;
+            grabReentryAllowedAt = 0d;
+            HasSafeGrabContact = false;
+            LastSafeGrabAnchor = Vector2.zero;
             wasGrounded = false;
             IsGroundedNow = false;
             physicsTick = 0;
@@ -129,6 +154,21 @@ namespace StarNight.Character.Live.Movement
             // collision queries instead use the capsule centre, matching the
             // real CapsuleCollider2D's local offset and dimensions.
             Vector2 center = rig.Body.position + capsuleOffset;
+
+            if (isGrabbing)
+            {
+                if (UpdateGrab(input))
+                {
+                    return;
+                }
+
+                center = rig.Body.position + capsuleOffset;
+            }
+            else if (TryBeginGrab(input, center))
+            {
+                HoldGrabAtAnchor();
+                return;
+            }
 
             // (1) 지면 판정 — 순수 프로브(실물리 질의 주입).
             CharacterGroundProbeResult probeResult = probe.Probe(center, velocity.y);
@@ -213,6 +253,133 @@ namespace StarNight.Character.Live.Movement
 
             IsGroundedNow = grounded;
             wasGrounded = grounded;
+        }
+
+        private bool UpdateGrab(in CharacterInputSnapshot input)
+        {
+            if (grabbedSurface == null || grabbedCollider == null ||
+                !grabbedCollider.enabled || !grabbedSurface.IsGrabAllowed)
+            {
+                EndGrab(drop: true);
+                return false;
+            }
+
+            if (input.DownHeld)
+            {
+                EndGrab(drop: true);
+                return false;
+            }
+
+            if (input.Jump.PressedThisFrame)
+            {
+                EndGrab(drop: false);
+                velocity.y = settings.JumpVelocity;
+                return false;
+            }
+
+            // Horizontal input deliberately has no wall-kick branch.  It
+            // exits Grab and the existing air-control motor consumes the same
+            // snapshot in this fixed step.
+            if (Mathf.Abs(input.Horizontal) > 0.01f)
+            {
+                EndGrab(drop: false);
+                return false;
+            }
+
+            HoldGrabAtAnchor();
+            return true;
+        }
+
+        private bool TryBeginGrab(in CharacterInputSnapshot input, Vector2 center)
+        {
+            if (physicsTime < grabReentryAllowedAt || input.DownHeld ||
+                input.Jump.PressedThisFrame || velocity.y > settings.GrabMaxUpwardVelocity)
+            {
+                return false;
+            }
+
+            int preferredSide = input.Horizontal > 0.01f ? 1 :
+                input.Horizontal < -0.01f ? -1 :
+                facing == CharacterFacingDirection.Right ? 1 : -1;
+            if (TryBeginGrabOnSide(preferredSide, center))
+            {
+                return true;
+            }
+
+            return Mathf.Abs(input.Horizontal) <= 0.01f &&
+                TryBeginGrabOnSide(-preferredSide, center);
+        }
+
+        private bool TryBeginGrabOnSide(int side, Vector2 center)
+        {
+            Vector2 origin = center + new Vector2(side * (capsule.Width * 0.5f - Skin), 0f);
+            RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(side, 0f),
+                settings.GrabProbeDistance, settings.SolidLayers);
+            if (hit.collider == null || hit.collider == rig.BodyCollider || hit.collider.isTrigger)
+            {
+                return false;
+            }
+
+            CharacterLiveGrabSurface surface =
+                hit.collider.GetComponentInParent<CharacterLiveGrabSurface>();
+            if (surface == null || !surface.IsGrabAllowed)
+            {
+                return false;
+            }
+
+            Bounds bounds = hit.collider.bounds;
+            Vector2 corner = new Vector2(side > 0 ? bounds.min.x : bounds.max.x, bounds.max.y);
+            Vector2 desiredFeet = corner + new Vector2(
+                -side * settings.GrabSideOffset, -settings.GrabHangOffset);
+            if (Mathf.Abs(rig.Body.position.x - desiredFeet.x) > settings.GrabProbeDistance ||
+                Mathf.Abs(rig.Body.position.y - desiredFeet.y) > settings.GrabVerticalWindow)
+            {
+                return false;
+            }
+
+            // A solid directly above the outward shoulder means this is not
+            // an exposed world-up corner.  This keeps ceiling/inner-corner
+            // contacts out of the Grab candidate set.
+            Vector2 exposedOrigin = corner + new Vector2(-side * 0.08f, 0.02f);
+            if (Physics2D.Raycast(exposedOrigin, Vector2.up, 0.12f,
+                    settings.SolidLayers).collider != null)
+            {
+                return false;
+            }
+
+            grabbedSurface = surface;
+            grabbedCollider = hit.collider;
+            grabAnchorLocal = surface.transform.InverseTransformPoint(corner);
+            grabSide = side;
+            isGrabbing = true;
+            HasSafeGrabContact = true;
+            LastSafeGrabAnchor = corner;
+            return true;
+        }
+
+        private void HoldGrabAtAnchor()
+        {
+            Vector2 anchor = grabbedSurface.transform.TransformPoint(grabAnchorLocal);
+            Vector2 feet = anchor + new Vector2(
+                -grabSide * settings.GrabSideOffset, -settings.GrabHangOffset);
+            rig.Body.MovePosition(feet);
+            velocity = Vector2.zero;
+            IsGroundedNow = false;
+            wasGrounded = false;
+            LastSafeGrabAnchor = anchor;
+        }
+
+        private void EndGrab(bool drop)
+        {
+            isGrabbing = false;
+            grabbedSurface = null;
+            grabbedCollider = null;
+            grabSide = 0;
+            grabReentryAllowedAt = physicsTime + settings.GrabReentryDelay;
+            if (drop)
+            {
+                velocity.y = Mathf.Min(velocity.y, -0.1f);
+            }
         }
 
         /// <summary>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.358367">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26622" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.358367" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1229" name="Game.Character.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Character.Tests.EditMode.dll" runstate="Runnable" testcasecount="178" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.029869" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="37808" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1230" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="178" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.027391" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1231" name="Character" fullname="StarNight.Character" runstate="Runnable" testcasecount="178" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.025094" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1232" name="Tests" fullname="StarNight.Character.Tests" runstate="Runnable" testcasecount="178" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.022794" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1237" name="EditMode" fullname="StarNight.Character.Tests.EditMode" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.019104" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1238" name="Rmap03" fullname="StarNight.Character.Tests.EditMode.Rmap03" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.018272" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1093" name="CharacterLiveGrabSurfaceTests" fullname="StarNight.Character.Tests.EditMode.Rmap03.CharacterLiveGrabSurfaceTests" classname="StarNight.Character.Tests.EditMode.Rmap03.CharacterLiveGrabSurfaceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.016668" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP03" />
+                  </properties>
+                  <test-case id="1094" name="SurfaceClassification_OnlySafeSolidKindsAllowGrab" fullname="StarNight.Character.Tests.EditMode.Rmap03.CharacterLiveGrabSurfaceTests.SurfaceClassification_OnlySafeSolidKindsAllowGrab" methodname="SurfaceClassification_OnlySafeSolidKindsAllowGrab" classname="StarNight.Character.Tests.EditMode.Rmap03.CharacterLiveGrabSurfaceTests" runstate="Runnable" seed="970946926" result="Passed" start-time="2026-09-08 07:40:27Z" end-time="2026-09-08 07:40:27Z" duration="0.005765" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
