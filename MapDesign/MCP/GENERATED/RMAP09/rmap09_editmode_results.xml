@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Passed" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 12:50:44Z" end-time="2026-09-08 12:50:45Z" duration="1.0956137">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26659" result="Passed" start-time="2026-09-08 12:50:44Z" end-time="2026-09-08 12:50:45Z" duration="1.095614" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24696" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22639" result="Passed" start-time="2026-09-08 12:50:44Z" end-time="2026-09-08 12:50:45Z" duration="0.937262" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="45316" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24697" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22639" result="Passed" start-time="2026-09-08 12:50:44Z" end-time="2026-09-08 12:50:45Z" duration="0.813550" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24705" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22423" result="Passed" start-time="2026-09-08 12:50:44Z" end-time="2026-09-08 12:50:45Z" duration="0.690747" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24709" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22364" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.513959" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24718" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7682" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.361688" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24734" name="Rmap09" fullname="StarNight.Map.Tests.EditMode.Rmap09" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.304295" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24622" name="RmapComposerTests" fullname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests" classname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.302990" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="RMAP09" />
+                  </properties>
+                  <test-case id="24623" name="A22_ComposesSixRmap07SelectionsIntoACompleteProtected12x8Type3Base" fullname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests.A22_ComposesSixRmap07SelectionsIntoACompleteProtected12x8Type3Base" methodname="A22_ComposesSixRmap07SelectionsIntoACompleteProtected12x8Type3Base" classname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests" runstate="Runnable" seed="83279711" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.287896" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24624" name="A23_OverlayIsSeparateFromTheBaseAndKeepsTheClimbClearanceUntouched" fullname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests.A23_OverlayIsSeparateFromTheBaseAndKeepsTheClimbClearanceUntouched" methodname="A23_OverlayIsSeparateFromTheBaseAndKeepsTheClimbClearanceUntouched" classname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests" runstate="Runnable" seed="618511280" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.002320" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24625" name="A24_RecordsRejectedPlansAndStopsAtTheDeclaredBoundWithoutCarvingOrRepairing" fullname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests.A24_RecordsRejectedPlansAndStopsAtTheDeclaredBoundWithoutCarvingOrRepairing" methodname="A24_RecordsRejectedPlansAndStopsAtTheDeclaredBoundWithoutCarvingOrRepairing" classname="StarNight.Map.Tests.EditMode.Rmap09.RmapComposerTests" runstate="Runnable" seed="1085295548" result="Passed" start-time="2026-09-08 12:50:45Z" end-time="2026-09-08 12:50:45Z" duration="0.002291" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
