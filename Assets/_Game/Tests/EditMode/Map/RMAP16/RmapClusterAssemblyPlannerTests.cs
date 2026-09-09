@@ -33,7 +33,8 @@ namespace StarNight.Map.Tests.EditMode.Rmap16
             Assert.That(plan.Chunks.Count, Is.EqualTo(52 * 52));
             Assert.That(plan.SpecialPlan.Cells.Count, Is.EqualTo(2432));
             Assert.That(plan.TerrainReservationGateCalls, Is.GreaterThan(2704));
-            Assert.That(plan.RejectedProtectedWrites, Is.GreaterThan(0));
+            Assert.That(plan.RejectedProtectedWrites, Is.EqualTo(0),
+                "The close repair prefilters protected cells before each gated write; no rejected candidate may become final terrain.");
             Assert.That(plan.Cells.Select(value => value.BaseCell).Distinct(), Is.EquivalentTo(new[]
             {
                 RmapPatternBaseCell.Air, RmapPatternBaseCell.Solid, RmapPatternBaseCell.OneWayPlatform,
@@ -51,14 +52,36 @@ namespace StarNight.Map.Tests.EditMode.Rmap16
             Assert.That(plan.Patterns.All(value => value.PoolIndex >= 0 && !string.IsNullOrWhiteSpace(value.CandidateId)), Is.True);
             Assert.That(plan.Ports.Count, Is.EqualTo(45));
             Assert.That(plan.Routes.Count, Is.EqualTo(plan.Graph.Edges.Count));
-            Assert.That(plan.Routes.All(value => value.Cells.Count > 0 && value.StaticTraversalContract.Contains("PLAYER_0.4x0.8")), Is.True);
+            Assert.That(plan.Routes.All(value => value.Cells.Count > 0 && value.Evidence.IsValid &&
+                value.Evidence.Authority.Contains("CharacterLiveMovementSettings")), Is.True);
             Assert.That(plan.Secrets.Single().Chunks.Count, Is.InRange(1, 6));
             Assert.That(plan.Secrets.Single().Clues.Count, Is.GreaterThanOrEqualTo(2));
+            foreach (RmapSpecialWorldPoint clue in plan.Secrets.Single().Clues)
+            {
+                Assert.That(plan.GetCell(clue.X, clue.Y).SourceKind, Is.EqualTo(Rmap16TerrainSourceKind.Route), clue.ToString());
+                Assert.That(plan.Routes.Any(route => route.Cells.Contains(clue)), Is.True, clue.ToString());
+            }
             Assert.That(plan.StateGeometry.Count(value => value.OwnerId == "RMAP15_SITE_SEALBOSS" && value.State == "SEALED" &&
                 value.BaseCell == RmapPatternBaseCell.Solid), Is.EqualTo(3));
             Assert.That(plan.StateGeometry.Count(value => value.OwnerId == "RMAP15_SITE_SEALBOSS" && value.State == "OPEN" &&
                 value.BaseCell == RmapPatternBaseCell.Air), Is.EqualTo(3));
             Assert.That(plan.Chunks.Count(value => value.State == Rmap16ChunkState.InactiveSolid), Is.GreaterThan(0));
+            foreach (Rmap16Chunk chunk in plan.Chunks.Where(value => value.State == Rmap16ChunkState.InactiveSolid))
+                Assert.That(CellsForChunk(plan, chunk.Coordinate).All(value => value.BaseCell == RmapPatternBaseCell.Solid), Is.True,
+                    chunk.Coordinate.ToString());
+            foreach (Rmap16Route route in plan.Routes)
+            {
+                Assert.That(Enumerable.Range(0, route.Cells.Count).All(index =>
+                {
+                    RmapSpecialWorldPoint point = route.Cells[index];
+                    bool boundaryPort = point.Y + 1 >= 416 && (index == 0 || index == route.Cells.Count - 1);
+                    return plan.GetCell(point.X, point.Y).BaseCell == RmapPatternBaseCell.Air &&
+                        (boundaryPort || (point.Y + 1 < 416 && plan.GetCell(point.X, point.Y + 1).BaseCell == RmapPatternBaseCell.Air));
+                }), Is.True, route.EdgeId);
+                int vertical = Enumerable.Range(1, route.Cells.Count - 1).Count(index => route.Cells[index].X == route.Cells[index - 1].X &&
+                    route.Cells[index].Y != route.Cells[index - 1].Y);
+                Assert.That(plan.Overlays.Count(value => value.OwnerId == route.EdgeId && value.Kind == "LADDER"), Is.EqualTo(vertical), route.EdgeId);
+            }
         }
 
         [Test]
@@ -74,6 +97,25 @@ namespace StarNight.Map.Tests.EditMode.Rmap16
             Assert.That(plan.Densities.Select(value => value.Profile), Does.Contain(RmapBiomeDensityProfileId.Dense));
             foreach (Rmap16DensityMeasurement density in plan.Densities)
                 Assert.That(density.DensityPermille, Is.InRange(density.MinimumPermille, density.MaximumPermille), density.PatchId);
+        }
+
+        [Test]
+        public void CloseAudit_FinalPatternsTraversalAndBakeSnapshotRetainExactFinalCells()
+        {
+            Rmap16ClusterAssemblyPlan plan = Plan(1304);
+            foreach (Rmap16PatternPlacement placement in plan.Patterns)
+            {
+                char[] values = placement.BaseCells16.ToCharArray();
+                Assert.That(values.Length, Is.EqualTo(16));
+                for (int y = 0; y < 4; y++) for (int x = 0; x < 4; x++)
+                    Assert.That(Token(plan.GetCell(placement.X + x, placement.Y + y).BaseCell), Is.EqualTo(values[(y * 4) + x].ToString()),
+                        placement.CandidateId + "@" + placement.X + "," + placement.Y);
+            }
+            Rmap16BakeSnapshot snapshot = RmapClusterAssemblyPlanner.CreateBakeSnapshot(plan);
+            Assert.That(snapshot.IsExactWorld, Is.True);
+            Assert.That(snapshot.SourceCellDigest, Is.EqualTo(plan.CellDigest));
+            Assert.That(ReferenceEquals(snapshot.Cells, plan.Cells), Is.True);
+            Assert.That(ReferenceEquals(snapshot.Overlays, plan.Overlays), Is.True);
         }
 
         [Test]
@@ -99,6 +141,8 @@ namespace StarNight.Map.Tests.EditMode.Rmap16
             Write(Path.Combine(directory, "rmap16_state_geometry.csv"), RmapClusterAssemblyExport.StateGeometryCsv(first));
             Write(Path.Combine(directory, "rmap16_density.csv"), RmapClusterAssemblyExport.DensityCsv(first));
             Write(Path.Combine(directory, "rmap16_shape_summary.csv"), RmapClusterAssemblyExport.ShapeSummaryCsv(first));
+            Write(Path.Combine(directory, "rmap16_scope_density.csv"), RmapClusterAssemblyExport.ScopeDensityCsv(first));
+            Write(Path.Combine(directory, "rmap16_assembly_summary.csv"), RmapClusterAssemblyExport.AssemblySummaryCsv(first));
             File.WriteAllBytes(Path.Combine(directory, "rmap16_layout.png"), FullMapPng(first, false));
             File.WriteAllBytes(Path.Combine(review, "rmap16_terrain_overview.png"), FullMapPng(first, false));
             File.WriteAllBytes(Path.Combine(review, "rmap16_route_overlay.png"), FullMapPng(first, true));
@@ -199,6 +243,16 @@ namespace StarNight.Map.Tests.EditMode.Rmap16
             int height = pixels.Length / width;
             for (int row = Math.Max(0, y); row < Math.Min(height, y + fillHeight); row++)
             for (int column = Math.Max(0, x); column < Math.Min(width, x + fillWidth); column++) pixels[(row * width) + column] = color;
+        }
+
+        private static IEnumerable<Rmap16TerrainCell> CellsForChunk(Rmap16ClusterAssemblyPlan plan, Rmap16MicroChunkCoordinate chunk)
+        {
+            return plan.Cells.Where(value => value.X / 12 == chunk.X && value.Y / 8 == chunk.Y);
+        }
+
+        private static string Token(RmapPatternBaseCell value)
+        {
+            return value == RmapPatternBaseCell.Air ? "A" : value == RmapPatternBaseCell.Solid ? "S" : "O";
         }
 
         private static WorldGenerationRngStreams RngStreams()

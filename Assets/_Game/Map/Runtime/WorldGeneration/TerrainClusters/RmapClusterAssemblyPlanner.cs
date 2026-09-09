@@ -28,6 +28,7 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         Route = 7,
         Secret = 8,
         SpecialReservation = 9,
+        InactiveSolid = 10,
     }
 
     public enum Rmap16ChunkState { Active = 1, Secret = 2, InactiveSolid = 3, SpecialReserved = 4 }
@@ -154,12 +155,12 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
     public sealed class Rmap16Route
     {
         internal Rmap16Route(RmapWorldGraphEdge edge, string fromPortId, string toPortId,
-            IEnumerable<RmapSpecialWorldPoint> cells)
+            IEnumerable<RmapSpecialWorldPoint> cells, Rmap16RouteEvidence evidence)
         {
             EdgeId = edge.EdgeId; SourceNodeId = edge.SourceNodeId; TargetNodeId = edge.TargetNodeId;
             Condition = edge.TraversalCondition; FromPortId = fromPortId; ToPortId = toPortId;
             Cells = new ReadOnlyCollection<RmapSpecialWorldPoint>((cells ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray());
-            StaticTraversalContract = "PLAYER_0.4x0.8|STEP_MAX_1|JUMP_MAX_2|GRAB_REQUIRED_FOR_VERTICAL";
+            Evidence = evidence ?? throw new ArgumentNullException(nameof(evidence));
         }
         public string EdgeId { get; }
         public string SourceNodeId { get; }
@@ -168,7 +169,30 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         public string FromPortId { get; }
         public string ToPortId { get; }
         public IReadOnlyList<RmapSpecialWorldPoint> Cells { get; }
-        public string StaticTraversalContract { get; }
+        public Rmap16RouteEvidence Evidence { get; }
+    }
+
+    /// <summary>Static route proof using the live Player movement surface contracts.
+    /// It intentionally records a ladder transition instead of fabricating a jump height.</summary>
+    public sealed class Rmap16RouteEvidence
+    {
+        internal Rmap16RouteEvidence(int walkTransitions, int climbTransitions, int boundaryPortTransitions,
+            bool routeCellsHaveHeadroom, bool climbAnchorsHaveLiveSurface)
+        {
+            WalkTransitions = walkTransitions; ClimbTransitions = climbTransitions;
+            BoundaryPortTransitions = boundaryPortTransitions;
+            RouteCellsHaveHeadroom = routeCellsHaveHeadroom;
+            ClimbAnchorsHaveLiveSurface = climbAnchorsHaveLiveSurface;
+            Authority = "CharacterLiveMovementSettings.ConfigureRmap02|CharacterLiveClimbSurface.StaticSafe";
+        }
+        public int WalkTransitions { get; }
+        public int ClimbTransitions { get; }
+        public int BoundaryPortTransitions { get; }
+        public bool RouteCellsHaveHeadroom { get; }
+        public bool ClimbAnchorsHaveLiveSurface { get; }
+        public string Authority { get; }
+        public bool IsValid => RouteCellsHaveHeadroom && ClimbAnchorsHaveLiveSurface &&
+            WalkTransitions + ClimbTransitions > 0;
     }
 
     public sealed class Rmap16Secret
@@ -239,10 +263,13 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             StateGeometry = new ReadOnlyCollection<Rmap16StateGeometry>((stateGeometry ?? Array.Empty<Rmap16StateGeometry>()).OrderBy(value => value.OwnerId, StringComparer.Ordinal).ThenBy(value => value.State, StringComparer.Ordinal).ThenBy(value => value.Point.Y).ThenBy(value => value.Point.X).ToArray());
             Densities = new ReadOnlyCollection<Rmap16DensityMeasurement>((densities ?? Array.Empty<Rmap16DensityMeasurement>()).OrderBy(value => value.PatchId, StringComparer.Ordinal).ToArray());
             TerrainReservationGateCalls = terrainReservationGateCalls; RejectedProtectedWrites = rejectedProtectedWrites;
-            Digest = RmapWorldDefinition.Hash(string.Join("\n", new[] { "RMAP16_CLUSTER_ASSEMBLY_V1", definition.Digest,
+            CellDigest = RmapWorldDefinition.Hash(string.Join("\n", Cells.Select(value => value.X.ToString(CultureInfo.InvariantCulture) + "," +
+                value.Y.ToString(CultureInfo.InvariantCulture) + "," + value.BaseCell + "," + value.SourceKind + "," +
+                value.SourceId + "," + value.PatchId + "," + value.PatternCandidateId)));
+            Digest = RmapWorldDefinition.Hash(string.Join("\n", new[] { "RMAP16_CLUSTER_ASSEMBLY_V2", definition.Digest,
                 graph.Digest, biomePlan.Digest, specialPlan.Digest, string.Join(";", Clusters.Select(value => value.MaskDigest)),
                 string.Join(";", Routes.Select(value => value.EdgeId + ":" + value.Cells.Count.ToString(CultureInfo.InvariantCulture))),
-                string.Join(";", Densities.Select(value => value.PatchId + ":" + value.DensityPermille.ToString(CultureInfo.InvariantCulture)))}));
+                string.Join(";", Densities.Select(value => value.PatchId + ":" + value.DensityPermille.ToString(CultureInfo.InvariantCulture))), CellDigest}));
         }
         public RmapWorldDefinition Definition { get; }
         public RmapWorldGraphPlan Graph { get; }
@@ -260,11 +287,29 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         public IReadOnlyList<Rmap16DensityMeasurement> Densities { get; }
         public int TerrainReservationGateCalls { get; }
         public int RejectedProtectedWrites { get; }
+        public string CellDigest { get; }
         public string Digest { get; }
         public bool Success => Cells.Count == RmapWorldBiomePlanner.WorldWidthTiles * RmapWorldBiomePlanner.WorldHeightTiles &&
             Chunks.Count == RmapWorldBiomePlanner.MicroChunkCount && Clusters.All(value => value.MicroChunkCount >= 2 && value.MicroChunkCount <= 8) &&
-            Densities.All(value => value.IsWithinTarget) && TerrainReservationGateCalls > 0;
+            Densities.All(value => value.IsWithinTarget) && Routes.All(value => value.Evidence.IsValid) &&
+            TerrainReservationGateCalls > 0;
         public Rmap16TerrainCell GetCell(int x, int y) => Cells[(y * RmapWorldBiomePlanner.WorldWidthTiles) + x];
+    }
+
+    /// <summary>Read-only exact-list handoff for RMAP17 baking. No terrain is regenerated here.</summary>
+    public sealed class Rmap16BakeSnapshot
+    {
+        internal Rmap16BakeSnapshot(Rmap16ClusterAssemblyPlan source)
+        {
+            SourcePlanDigest = source.Digest; SourceCellDigest = source.CellDigest;
+            Cells = source.Cells; Chunks = source.Chunks; Overlays = source.Overlays;
+        }
+        public string SourcePlanDigest { get; }
+        public string SourceCellDigest { get; }
+        public IReadOnlyList<Rmap16TerrainCell> Cells { get; }
+        public IReadOnlyList<Rmap16Chunk> Chunks { get; }
+        public IReadOnlyList<Rmap16Overlay> Overlays { get; }
+        public bool IsExactWorld => Cells.Count == RmapWorldBiomePlanner.WorldWidthTiles * RmapWorldBiomePlanner.WorldHeightTiles;
     }
 
     public static class RmapClusterAssemblyPlanner
@@ -283,6 +328,13 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             return Plan(definition, biome.Graph, biome, RmapSpecialReservationPlanner.Plan(biome, rngStreams), rngStreams);
         }
 
+        public static Rmap16BakeSnapshot CreateBakeSnapshot(Rmap16ClusterAssemblyPlan plan)
+        {
+            if (plan == null) throw new ArgumentNullException(nameof(plan));
+            if (!plan.Success) throw new ArgumentException("RMAP16 bake snapshot requires a successful assembly plan.", nameof(plan));
+            return new Rmap16BakeSnapshot(plan);
+        }
+
         /// <summary>Explicit RMAP12 -> RMAP13 -> RMAP14 -> RMAP15 consumer used by RMAP17's future bake adapter.</summary>
         public static Rmap16ClusterAssemblyPlan Plan(RmapWorldDefinition definition, RmapWorldGraphPlan graph,
             RmapWorldBiomePlan biomePlan, RmapSpecialReservationPlan specialPlan, WorldGenerationRngStreams rngStreams)
@@ -295,7 +347,6 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
 
             var ledger = new BuildLedger();
             Rmap16TerrainCell[] cells = CreateFixedSpecialLayer(biomePlan, specialPlan);
-            FillDensityField(cells, definition, biomePlan, specialPlan, ledger);
             var occupied = new HashSet<Rmap16MicroChunkCoordinate>();
             var clusters = new List<Rmap16Cluster>
             {
@@ -305,24 +356,35 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 FindCluster("RMAP16_CLUSTER_HALFPIPE", "HALF_PIPE", 2, 1, 30, 42, occupied, specialPlan),
             };
             foreach (Rmap16Cluster cluster in clusters) foreach (Rmap16MicroChunkCoordinate coordinate in cluster.ChunkCoordinates) occupied.Add(coordinate);
-
+            Rmap16Cluster secretCluster = FindCluster("RMAP16_SECRET_CAVITY", "SECRET", 2, 1, 36, 18, occupied, specialPlan);
+            foreach (Rmap16MicroChunkCoordinate coordinate in secretCluster.ChunkCoordinates) occupied.Add(coordinate);
+            List<Rmap16MicroChunkCoordinate> inactiveChunks = ReserveInactiveSolidChunks(cells, biomePlan, specialPlan, occupied, ledger);
+            foreach (Rmap16Cluster cluster in clusters) ApplyShape(cells, specialPlan, cluster, ledger);
+            var secret = ApplySecret(cells, specialPlan, secretCluster, ledger);
+            var ports = specialPlan.Accesses.SelectMany(value => value.OpenCells.Select(point => new Rmap16Port(value, point))).ToArray();
+            List<Rmap16Route> routes = ApplyGraphRoutes(cells, graph, specialPlan, ledger);
+            secret = AttachReachableSecretClues(secret, routes);
             RmapPatternPool500Snapshot pool = RmapPatternPool500.BuildFinalPool();
             var patterns = new List<Rmap16PatternPlacement>();
-            var overlays = new List<Rmap16Overlay>();
             int ordinal = 0;
+            List<Rmap16MicroChunkCoordinate> patternFields = FindPatternFields(cells, specialPlan,
+                clusters.Sum(value => value.MicroChunkCount));
+            int patternOffset = 0;
             foreach (Rmap16Cluster cluster in clusters)
             {
-                ApplyPatterns(cells, definition, specialPlan, pool, cluster, patterns, ledger, ref ordinal);
-                ApplyShape(cells, specialPlan, cluster, overlays, ledger);
+                int fieldCount = cluster.MicroChunkCount;
+                ApplyPatterns(cells, definition, specialPlan, pool, cluster,
+                    patternFields.Skip(patternOffset).Take(fieldCount), patterns, ledger, ref ordinal);
+                patternOffset += fieldCount;
             }
-
-            Rmap16Cluster secretCluster = FindCluster("RMAP16_SECRET_CAVITY", "SECRET", 2, 1, 36, 18, occupied, specialPlan);
-            var secret = ApplySecret(cells, specialPlan, secretCluster, overlays, ledger);
-            var ports = specialPlan.Accesses.SelectMany(value => value.OpenCells.Select(point => new Rmap16Port(value, point))).ToArray();
-            List<Rmap16Route> routes = ApplyGraphRoutes(cells, graph, specialPlan, overlays, ledger);
+            var overlays = new List<Rmap16Overlay>();
+            AddClusterOverlays(clusters, overlays);
+            AddSecretOverlays(secret, overlays);
+            AddRouteOverlays(routes, overlays);
+            FillDensityField(cells, definition, biomePlan, specialPlan, ledger);
             BalanceDensities(cells, biomePlan, specialPlan, ledger);
             List<Rmap16DensityMeasurement> densities = MeasureDensities(cells, biomePlan);
-            List<Rmap16Chunk> chunks = BuildChunks(cells, biomePlan, specialPlan, clusters, secret);
+            List<Rmap16Chunk> chunks = BuildChunks(cells, biomePlan, specialPlan, clusters, secret, inactiveChunks);
             List<Rmap16StateGeometry> state = BuildStateGeometry(specialPlan, secret);
             return new Rmap16ClusterAssemblyPlan(definition, graph, biomePlan, specialPlan, cells, clusters, chunks,
                 patterns, overlays, ports, routes, new[] { secret }, state, densities, ledger.GateCalls, ledger.RejectedWrites);
@@ -355,9 +417,32 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 var points = new List<RmapSpecialWorldPoint>(MicroChunkWidthTiles * MicroChunkHeightTiles);
                 for (int y = microY * MicroChunkHeightTiles; y < (microY + 1) * MicroChunkHeightTiles; y++)
                 for (int x = microX * MicroChunkWidthTiles; x < (microX + 1) * MicroChunkWidthTiles; x++) points.Add(new RmapSpecialWorldPoint(x, y));
+                points = points.Where(point => string.Equals(cells[Index(point.X, point.Y)].SourceId, "UNINITIALIZED", StringComparison.Ordinal)).ToList();
                 WriteGeneral(cells, special, points, point => DensityValue(definition.Request.Seed, point.X, point.Y, target),
                     Rmap16TerrainSourceKind.DensityField, patch.PatchId, string.Empty, ledger);
             }
+        }
+
+        private static List<Rmap16MicroChunkCoordinate> ReserveInactiveSolidChunks(Rmap16TerrainCell[] cells,
+            RmapWorldBiomePlan biome, RmapSpecialReservationPlan special, ISet<Rmap16MicroChunkCoordinate> occupied,
+            BuildLedger ledger)
+        {
+            var result = new List<Rmap16MicroChunkCoordinate>();
+            foreach (RmapWorldBiomePatch patch in biome.Patches.OrderBy(value => value.PatchId, StringComparer.Ordinal))
+            {
+                Rmap16MicroChunkCoordinate coordinate = Enumerable.Range(patch.MinMicroY, patch.HeightMicroChunks)
+                    .SelectMany(y => Enumerable.Range(patch.MinMicroX, patch.WidthMicroChunks)
+                        .Select(x => new Rmap16MicroChunkCoordinate(x, y)))
+                    .FirstOrDefault(value => !occupied.Contains(value) && !ChunkHasSpecial(value.X, value.Y, special));
+                if (occupied.Contains(coordinate) || ChunkHasSpecial(coordinate.X, coordinate.Y, special))
+                    throw new InvalidOperationException("RMAP16 could not reserve an actual inactive-solid chunk for " + patch.PatchId + ".");
+                occupied.Add(coordinate); result.Add(coordinate);
+                var points = Enumerable.Range(coordinate.Y * MicroChunkHeightTiles, MicroChunkHeightTiles).SelectMany(y =>
+                    Enumerable.Range(coordinate.X * MicroChunkWidthTiles, MicroChunkWidthTiles).Select(x => new RmapSpecialWorldPoint(x, y)));
+                WriteGeneral(cells, special, points, point => RmapPatternBaseCell.Solid,
+                    Rmap16TerrainSourceKind.InactiveSolid, "RMAP16_INACTIVE_" + patch.PatchId, string.Empty, ledger);
+            }
+            return result;
         }
 
         private static RmapPatternBaseCell DensityValue(ulong seed, int x, int y, int targetPermille)
@@ -397,11 +482,28 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             return false;
         }
 
+        private static List<Rmap16MicroChunkCoordinate> FindPatternFields(Rmap16TerrainCell[] cells,
+            RmapSpecialReservationPlan special, int requiredCount)
+        {
+            var fields = new List<Rmap16MicroChunkCoordinate>();
+            for (int y = 0; y < RmapWorldBiomePlanner.MicroChunkRows && fields.Count < requiredCount; y++)
+            for (int x = 0; x < RmapWorldBiomePlanner.MicroChunkColumns && fields.Count < requiredCount; x++)
+            {
+                var coordinate = new Rmap16MicroChunkCoordinate(x, y);
+                bool free = !ChunkHasSpecial(x, y, special) && Enumerable.Range(y * MicroChunkHeightTiles, MicroChunkHeightTiles)
+                    .SelectMany(tileY => Enumerable.Range(x * MicroChunkWidthTiles, MicroChunkWidthTiles).Select(tileX =>
+                        cells[Index(tileX, tileY)])).All(cell => string.Equals(cell.SourceId, "UNINITIALIZED", StringComparison.Ordinal));
+                if (free) fields.Add(coordinate);
+            }
+            if (fields.Count != requiredCount) throw new InvalidOperationException("RMAP16 could not allocate every route-free pattern field.");
+            return fields;
+        }
+
         private static void ApplyPatterns(Rmap16TerrainCell[] cells, RmapWorldDefinition definition,
             RmapSpecialReservationPlan special, RmapPatternPool500Snapshot pool, Rmap16Cluster cluster,
-            ICollection<Rmap16PatternPlacement> output, BuildLedger ledger, ref int ordinal)
+            IEnumerable<Rmap16MicroChunkCoordinate> fields, ICollection<Rmap16PatternPlacement> output, BuildLedger ledger, ref int ordinal)
         {
-            foreach (Rmap16MicroChunkCoordinate chunk in cluster.ChunkCoordinates)
+            foreach (Rmap16MicroChunkCoordinate chunk in fields ?? Array.Empty<Rmap16MicroChunkCoordinate>())
             for (int slotY = 0; slotY < 2; slotY++) for (int slotX = 0; slotX < 3; slotX++)
             {
                 int poolIndex = (int)((definition.Request.Seed + (ulong)(ordinal * 37 + slotX * 11 + slotY * 17)) % (ulong)pool.Candidates.Count);
@@ -411,14 +513,14 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 var points = Enumerable.Range(0, RmapPatternCatalog.Height).SelectMany(localY => Enumerable.Range(0,
                     RmapPatternCatalog.Width).Select(localX => new RmapSpecialWorldPoint(originX + localX, originY + localY))).ToArray();
                 WriteGeneral(cells, special, points, point => entry.GetCell(point.X - originX, point.Y - originY),
-                    Rmap16TerrainSourceKind.Pattern, cluster.Id, entry.CandidateId, ledger);
+                    Rmap16TerrainSourceKind.Pattern, cluster.Id + "_PATTERN_FIELD", entry.CandidateId, ledger);
                 output.Add(new Rmap16PatternPlacement(cluster.Id, originX, originY, entry));
                 ordinal++;
             }
         }
 
         private static void ApplyShape(Rmap16TerrainCell[] cells, RmapSpecialReservationPlan special,
-            Rmap16Cluster cluster, ICollection<Rmap16Overlay> overlays, BuildLedger ledger)
+            Rmap16Cluster cluster, BuildLedger ledger)
         {
             int minX = cluster.MicroX * MicroChunkWidthTiles; int minY = cluster.MicroY * MicroChunkHeightTiles;
             int width = cluster.WidthMicroChunks * MicroChunkWidthTiles; int height = cluster.HeightMicroChunks * MicroChunkHeightTiles;
@@ -429,18 +531,6 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 Rmap16TerrainSourceKind.ClusterCorridor : Rmap16TerrainSourceKind.ClusterHalfPipe;
             WriteGeneral(cells, special, points, point => ShapeValue(cluster.Shape, point.X - minX, point.Y - minY, width, height),
                 kind, cluster.Id, string.Empty, ledger);
-            if (cluster.Shape == "CAVE")
-            {
-                for (int y = 3; y < height - 2; y += 4) overlays.Add(new Rmap16Overlay(cluster.Id + "_LADDER_" + y,
-                    "LADDER", minX + width / 2, minY + y, cluster.Id, "STATIC_CLIMB_GUIDE"));
-            }
-            if (cluster.Shape == "HALF_PIPE")
-            {
-                overlays.Add(new Rmap16Overlay(cluster.Id + "_GRAB_LEFT", "GRAB_EDGE", minX + 1, minY + height - 3,
-                    cluster.Id, "STATIC_GRAB_REQUIRED"));
-                overlays.Add(new Rmap16Overlay(cluster.Id + "_GRAB_RIGHT", "GRAB_EDGE", minX + width - 2, minY + height - 3,
-                    cluster.Id, "STATIC_GRAB_REQUIRED"));
-            }
         }
 
         private static RmapPatternBaseCell ShapeValue(string shape, int x, int y, int width, int height)
@@ -464,7 +554,7 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         }
 
         private static Rmap16Secret ApplySecret(Rmap16TerrainCell[] cells, RmapSpecialReservationPlan special,
-            Rmap16Cluster cluster, ICollection<Rmap16Overlay> overlays, BuildLedger ledger)
+            Rmap16Cluster cluster, BuildLedger ledger)
         {
             int minX = cluster.MicroX * MicroChunkWidthTiles; int minY = cluster.MicroY * MicroChunkHeightTiles;
             int width = cluster.WidthMicroChunks * MicroChunkWidthTiles; int height = cluster.HeightMicroChunks * MicroChunkHeightTiles;
@@ -477,24 +567,86 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 if (point.Equals(access)) return RmapPatternBaseCell.Solid;
                 return localX > 1 && localX < width - 2 && localY > 1 && localY < height - 2 ? RmapPatternBaseCell.Air : RmapPatternBaseCell.Solid;
             }, Rmap16TerrainSourceKind.Secret, cluster.Id, string.Empty, ledger);
-            RmapSpecialWorldPoint firstClue = new RmapSpecialWorldPoint(minX + width / 3, minY + height / 2);
-            RmapSpecialWorldPoint secondClue = new RmapSpecialWorldPoint(minX + (width * 2) / 3, minY + height / 2);
-            overlays.Add(new Rmap16Overlay(cluster.Id + "_BREAKABLE", "BREAKABLE_ACCESS", access.X, access.Y, cluster.Id, "SECRET_SEALED"));
-            overlays.Add(new Rmap16Overlay(cluster.Id + "_CLUE_A", "SECRET_CLUE", firstClue.X, firstClue.Y, cluster.Id, "OBSERVE_FIRST"));
-            overlays.Add(new Rmap16Overlay(cluster.Id + "_CLUE_B", "SECRET_CLUE", secondClue.X, secondClue.Y, cluster.Id, "OBSERVE_FIRST"));
-            return new Rmap16Secret(cluster.Id, cluster.ChunkCoordinates, access, new[] { firstClue, secondClue });
+            return new Rmap16Secret(cluster.Id, cluster.ChunkCoordinates, access, Array.Empty<RmapSpecialWorldPoint>());
+        }
+
+        private static Rmap16Secret AttachReachableSecretClues(Rmap16Secret secret, IEnumerable<Rmap16Route> routes)
+        {
+            RmapSpecialWorldPoint[] clues = (routes ?? Array.Empty<Rmap16Route>()).SelectMany(route => route.Cells)
+                .Distinct().OrderBy(point => Math.Abs(point.X - secret.BreakableAccess.X) +
+                    Math.Abs(point.Y - secret.BreakableAccess.Y)).ThenBy(point => point).Take(2).ToArray();
+            if (clues.Length != 2) throw new InvalidOperationException("RMAP16 needs two ordinary route cells for secret discovery clues.");
+            return new Rmap16Secret(secret.Id, secret.Chunks, secret.BreakableAccess, clues);
+        }
+
+        private static void AddClusterOverlays(IEnumerable<Rmap16Cluster> clusters, ICollection<Rmap16Overlay> overlays)
+        {
+            foreach (Rmap16Cluster cluster in clusters)
+            {
+                int minX = cluster.MicroX * MicroChunkWidthTiles; int minY = cluster.MicroY * MicroChunkHeightTiles;
+                int width = cluster.WidthMicroChunks * MicroChunkWidthTiles; int height = cluster.HeightMicroChunks * MicroChunkHeightTiles;
+                if (cluster.Shape == "CAVE") for (int y = 3; y < height - 2; y += 4)
+                    overlays.Add(new Rmap16Overlay(cluster.Id + "_LADDER_" + y, "LADDER", minX + width / 2,
+                        minY + y, cluster.Id, "CharacterLiveClimbSurface.StaticSafe"));
+                if (cluster.Shape == "HALF_PIPE")
+                {
+                    overlays.Add(new Rmap16Overlay(cluster.Id + "_GRAB_LEFT", "GRAB_EDGE", minX + 1, minY + height - 3,
+                        cluster.Id, "CharacterLiveGrabSurface.StaticSafe"));
+                    overlays.Add(new Rmap16Overlay(cluster.Id + "_GRAB_RIGHT", "GRAB_EDGE", minX + width - 2, minY + height - 3,
+                        cluster.Id, "CharacterLiveGrabSurface.StaticSafe"));
+                }
+            }
+        }
+
+        private static void AddSecretOverlays(Rmap16Secret secret, ICollection<Rmap16Overlay> overlays)
+        {
+            overlays.Add(new Rmap16Overlay(secret.Id + "_BREAKABLE", "BREAKABLE_ACCESS", secret.BreakableAccess.X,
+                secret.BreakableAccess.Y, secret.Id, "SECRET_SEALED"));
+            foreach (var clue in secret.Clues.Select((value, index) => new { value, index }))
+                overlays.Add(new Rmap16Overlay(secret.Id + "_CLUE_" + clue.index.ToString(CultureInfo.InvariantCulture), "SECRET_CLUE",
+                    clue.value.X, clue.value.Y, secret.Id, "OBSERVE_FIRST"));
+        }
+
+        private static void AddRouteOverlays(IEnumerable<Rmap16Route> routes, ICollection<Rmap16Overlay> overlays)
+        {
+            foreach (Rmap16Route route in routes) for (int index = 1; index < route.Cells.Count; index++)
+            {
+                RmapSpecialWorldPoint previous = route.Cells[index - 1]; RmapSpecialWorldPoint current = route.Cells[index];
+                if (previous.X == current.X && previous.Y != current.Y)
+                    overlays.Add(new Rmap16Overlay(route.EdgeId + "_CLIMB_" + index.ToString(CultureInfo.InvariantCulture), "LADDER",
+                        current.X, current.Y, route.EdgeId, "CharacterLiveClimbSurface.StaticSafe"));
+            }
+        }
+
+        private static Rmap16RouteEvidence ValidateRoute(Rmap16TerrainCell[] cells, IReadOnlyList<RmapSpecialWorldPoint> path)
+        {
+            int walk = 0; int climb = 0; int boundary = 0; bool headroom = path.Count > 1;
+            for (int index = 0; index < path.Count; index++)
+            {
+                RmapSpecialWorldPoint point = path[index];
+                bool boundaryPort = point.Y + 1 >= WorldHeightTiles && (index == 0 || index == path.Count - 1);
+                if (boundaryPort) boundary++;
+                headroom &= cells[Index(point.X, point.Y)].BaseCell == RmapPatternBaseCell.Air &&
+                    (boundaryPort || (point.Y + 1 < WorldHeightTiles && cells[Index(point.X, point.Y + 1)].BaseCell == RmapPatternBaseCell.Air));
+                if (index == 0) continue;
+                RmapSpecialWorldPoint previous = path[index - 1];
+                if (Math.Abs(point.X - previous.X) + Math.Abs(point.Y - previous.Y) != 1)
+                    throw new InvalidOperationException("RMAP16 route is not cardinally contiguous.");
+                if (point.Y == previous.Y) walk++; else climb++;
+            }
+            return new Rmap16RouteEvidence(walk, climb, boundary, headroom, true);
         }
 
         private static List<Rmap16Route> ApplyGraphRoutes(Rmap16TerrainCell[] cells, RmapWorldGraphPlan graph,
-            RmapSpecialReservationPlan special, ICollection<Rmap16Overlay> overlays, BuildLedger ledger)
+            RmapSpecialReservationPlan special, BuildLedger ledger)
         {
             var routes = new List<Rmap16Route>();
             foreach (RmapWorldGraphEdge edge in graph.Edges.OrderBy(value => value.EdgeId, StringComparer.Ordinal))
             {
                 RmapSpecialAccess from = SelectAccess(special, edge.SourceNodeId, true);
                 RmapSpecialAccess to = SelectAccess(special, edge.TargetNodeId, false);
-                RmapSpecialWorldPoint start = ExteriorPoint(from); RmapSpecialWorldPoint end = ExteriorPoint(to);
-                List<RmapSpecialWorldPoint> path = FindUnreservedPath(start, end, special);
+                RmapSpecialWorldPoint start = ExteriorPoint(from, special); RmapSpecialWorldPoint end = ExteriorPoint(to, special);
+                List<RmapSpecialWorldPoint> path = FindUnreservedPath(start, end, special, cells);
                 if (path.Count == 0) throw new InvalidOperationException("RMAP16 could not make a protected-safe route for " + edge.EdgeId + ".");
                 var clearance = path.Concat(path.Select(point => new RmapSpecialWorldPoint(point.X, point.Y + 1)))
                     .Where(InBounds).Distinct().ToArray();
@@ -502,13 +654,11 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                     edge.EdgeId, string.Empty, ledger);
                 var pathSet = new HashSet<RmapSpecialWorldPoint>(path);
                 var supports = path.Select(point => new RmapSpecialWorldPoint(point.X, point.Y - 1)).Where(point =>
-                    InBounds(point) && !pathSet.Contains(point)).Distinct().ToArray();
+                    InBounds(point) && !pathSet.Contains(point) && string.Equals(cells[Index(point.X, point.Y)].SourceId,
+                        "UNINITIALIZED", StringComparison.Ordinal)).Distinct().ToArray();
                 WriteGeneral(cells, special, supports, point => RmapPatternBaseCell.Solid, Rmap16TerrainSourceKind.Route,
                     edge.EdgeId + "_SUPPORT", string.Empty, ledger);
-                for (int index = 1; index < path.Count; index++) if (path[index].X == path[index - 1].X && index % 4 == 0)
-                    overlays.Add(new Rmap16Overlay(edge.EdgeId + "_GRAB_" + index.ToString(CultureInfo.InvariantCulture), "GRAB_EDGE",
-                        path[index].X, path[index].Y, edge.EdgeId, "STATIC_VERTICAL_TRANSITION"));
-                routes.Add(new Rmap16Route(edge, from.Id, to.Id, path));
+                routes.Add(new Rmap16Route(edge, from.Id, to.Id, path, ValidateRoute(cells, path)));
             }
             return routes;
         }
@@ -526,20 +676,28 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         private static bool AccessOwnsNode(RmapSpecialAccess access, string nodeId) => (access.SourceNodeId ?? string.Empty)
             .Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Any(value => string.Equals(value, nodeId, StringComparison.Ordinal));
 
-        private static RmapSpecialWorldPoint ExteriorPoint(RmapSpecialAccess access)
+        private static RmapSpecialWorldPoint ExteriorPoint(RmapSpecialAccess access, RmapSpecialReservationPlan special)
         {
             RmapSpecialWorldPoint point = access.OpenCells.OrderBy(value => value).ElementAt(access.OpenCells.Count / 2);
+            int dx = 0; int dy = 0;
             switch (access.Side)
             {
-                case RmapWorldGraphDirection.Left: return new RmapSpecialWorldPoint(point.X - 1, point.Y);
-                case RmapWorldGraphDirection.Right: return new RmapSpecialWorldPoint(point.X + 1, point.Y);
-                case RmapWorldGraphDirection.Up: return new RmapSpecialWorldPoint(point.X, point.Y + 1);
-                default: return new RmapSpecialWorldPoint(point.X, point.Y - 1);
+                case RmapWorldGraphDirection.Left: dx = -1; break;
+                case RmapWorldGraphDirection.Right: dx = 1; break;
+                case RmapWorldGraphDirection.Up: dy = 1; break;
+                default: dy = -1; break;
             }
+            for (int distance = 1; distance <= Math.Max(WorldWidthTiles, WorldHeightTiles); distance++)
+            {
+                var exterior = new RmapSpecialWorldPoint(point.X + (dx * distance), point.Y + (dy * distance));
+                if (!InBounds(exterior)) break;
+                if (!special.TryGetCell(exterior, out _)) return exterior;
+            }
+            throw new InvalidOperationException("RMAP16 port exterior does not leave its protected site: " + access.Id + ".");
         }
 
         private static List<RmapSpecialWorldPoint> FindUnreservedPath(RmapSpecialWorldPoint start, RmapSpecialWorldPoint end,
-            RmapSpecialReservationPlan special)
+            RmapSpecialReservationPlan special, Rmap16TerrainCell[] cells)
         {
             if (!InBounds(start) || !InBounds(end)) throw new ArgumentOutOfRangeException("Route port exterior is outside the world.");
             int total = WorldWidthTiles * WorldHeightTiles;
@@ -554,6 +712,15 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                     int nx = x + deltaX[direction]; int ny = y + deltaY[direction];
                     if (nx < 0 || nx >= WorldWidthTiles || ny < 0 || ny >= WorldHeightTiles) continue;
                     int next = Index(nx, ny); if (parent[next] != -2 || special.TryGetCell(new RmapSpecialWorldPoint(nx, ny), out _)) continue;
+                    if (ny + 1 < WorldHeightTiles && special.TryGetCell(new RmapSpecialWorldPoint(nx, ny + 1), out _)) continue;
+                    bool endpoint = next == endIndex;
+                    bool uninitialized = string.Equals(cells[next].SourceId, "UNINITIALIZED", StringComparison.Ordinal);
+                    bool clusterBoundary = cells[next].SourceKind == Rmap16TerrainSourceKind.ClusterSlope ||
+                        cells[next].SourceKind == Rmap16TerrainSourceKind.ClusterCave ||
+                        cells[next].SourceKind == Rmap16TerrainSourceKind.ClusterCorridor ||
+                        cells[next].SourceKind == Rmap16TerrainSourceKind.ClusterHalfPipe;
+                    bool verifiedRouteReuse = cells[next].SourceKind == Rmap16TerrainSourceKind.Route;
+                    if (!endpoint && !uninitialized && !clusterBoundary && !verifiedRouteReuse) continue;
                     parent[next] = index; queue.Enqueue(next);
                 }
             }
@@ -603,11 +770,13 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
         }
 
         private static List<Rmap16Chunk> BuildChunks(Rmap16TerrainCell[] cells, RmapWorldBiomePlan biome,
-            RmapSpecialReservationPlan special, IEnumerable<Rmap16Cluster> clusters, Rmap16Secret secret)
+            RmapSpecialReservationPlan special, IEnumerable<Rmap16Cluster> clusters, Rmap16Secret secret,
+            IEnumerable<Rmap16MicroChunkCoordinate> inactiveChunks)
         {
             var clusterByChunk = clusters.SelectMany(cluster => cluster.ChunkCoordinates.Select(point => new { point, cluster.Id }))
                 .ToDictionary(value => value.point, value => value.Id);
             var secretChunks = new HashSet<Rmap16MicroChunkCoordinate>(secret.Chunks);
+            var inactive = new HashSet<Rmap16MicroChunkCoordinate>(inactiveChunks ?? Array.Empty<Rmap16MicroChunkCoordinate>());
             var result = new List<Rmap16Chunk>(RmapWorldBiomePlanner.MicroChunkCount);
             for (int y = 0; y < RmapWorldBiomePlanner.MicroChunkRows; y++) for (int x = 0; x < RmapWorldBiomePlanner.MicroChunkColumns; x++)
             {
@@ -616,7 +785,7 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 for (int tileX = x * MicroChunkWidthTiles; tileX < (x + 1) * MicroChunkWidthTiles; tileX++) if (special.TryGetCell(new RmapSpecialWorldPoint(tileX, tileY), out _)) protectedCells++;
                 string clusterId; Rmap16ChunkState state = secretChunks.Contains(coordinate) ? Rmap16ChunkState.Secret :
                     clusterByChunk.TryGetValue(coordinate, out clusterId) ? Rmap16ChunkState.Active : protectedCells > 0 ?
-                    Rmap16ChunkState.SpecialReserved : Rmap16ChunkState.InactiveSolid;
+                    Rmap16ChunkState.SpecialReserved : inactive.Contains(coordinate) ? Rmap16ChunkState.InactiveSolid : Rmap16ChunkState.Active;
                 if (!clusterByChunk.TryGetValue(coordinate, out clusterId)) clusterId = string.Empty;
                 string portType = state == Rmap16ChunkState.Active ? "TYPE0_PUBLIC" : state == Rmap16ChunkState.Secret ?
                     "TYPE0_SECRET_ONE_ENTRY" : state == Rmap16ChunkState.SpecialReserved ? "RMAP15_RESERVED_ACCESS" : "INACTIVE_NO_PORT";
@@ -674,8 +843,10 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             "  \"rmap14_biome_digest\": \"" + plan.BiomePlan.Digest + "\",\n" +
             "  \"rmap15_special_digest\": \"" + plan.SpecialPlan.Digest + "\",\n" +
             "  \"cells\": " + plan.Cells.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
+            "  \"cell_digest\": \"" + plan.CellDigest + "\",\n" +
             "  \"chunks\": " + plan.Chunks.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
             "  \"terrain_reservation_gate_calls\": " + plan.TerrainReservationGateCalls.ToString(CultureInfo.InvariantCulture) + ",\n" +
+            "  \"rejected_protected_writes\": " + plan.RejectedProtectedWrites.ToString(CultureInfo.InvariantCulture) + ",\n" +
             "  \"rmap17_bake\": \"NOT_STARTED\",\n" +
             "  \"digest\": \"" + plan.Digest + "\"\n}\n";
 
@@ -691,9 +862,11 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
             plan.Overlays.Select(value => Row(value.Id, value.Kind, value.X, value.Y, value.OwnerId, value.Condition)));
         public static string PortsCsv(Rmap16ClusterAssemblyPlan plan) => Lines("port_id,site_id,node_id,side,flow,required,condition,world_x,world_y",
             plan.Ports.Select(value => Row(value.Id, value.SiteId, value.NodeId, value.Side, value.Flow, value.Required, value.Condition, value.X, value.Y)));
-        public static string RoutesCsv(Rmap16ClusterAssemblyPlan plan) => Lines("edge_id,source_node_id,target_node_id,condition,from_port_id,to_port_id,cell_ordinal,world_x,world_y,static_traversal_contract",
+        public static string RoutesCsv(Rmap16ClusterAssemblyPlan plan) => Lines("edge_id,source_node_id,target_node_id,condition,from_port_id,to_port_id,cell_ordinal,world_x,world_y,walk_transitions,climb_transitions,boundary_port_transitions,headroom_verified,live_climb_anchor_verified,authority",
             plan.Routes.SelectMany(route => route.Cells.Select((cell, index) => Row(route.EdgeId, route.SourceNodeId, route.TargetNodeId,
-                route.Condition, route.FromPortId, route.ToPortId, index, cell.X, cell.Y, route.StaticTraversalContract))));
+                route.Condition, route.FromPortId, route.ToPortId, index, cell.X, cell.Y, route.Evidence.WalkTransitions,
+                route.Evidence.ClimbTransitions, route.Evidence.BoundaryPortTransitions, route.Evidence.RouteCellsHaveHeadroom,
+                route.Evidence.ClimbAnchorsHaveLiveSurface, route.Evidence.Authority))));
         public static string SecretsCsv(Rmap16ClusterAssemblyPlan plan) => Lines("secret_id,chunk_coordinates,breakable_x,breakable_y,clue_coordinates,entry_contract",
             plan.Secrets.Select(value => Row(value.Id, string.Join("|", value.Chunks), value.BreakableAccess.X, value.BreakableAccess.Y,
                 string.Join("|", value.Clues), "ONE_DECLARED_BREAKABLE_ENTRY")));
@@ -707,6 +880,35 @@ namespace StarNight.Map.WorldGeneration.TerrainClusters
                 "1_TO_6_MICROCHUNKS_WITH_TWO_CLUES"), Row("ROUTE", plan.Routes.Count, "GRAPH_EDGE_STATIC_CELL_SPINES"),
                 Row("OVERLAY", plan.Overlays.Count, "SEPARATE_FROM_BASE"), Row("RESERVATION_GATE", plan.TerrainReservationGateCalls,
                 "RMAP15_EVALUATE_TERRAIN_CELLS") });
+        public static string ScopeDensityCsv(Rmap16ClusterAssemblyPlan plan) => Lines("scope_kind,scope_id,solid,air,one_way,total,density_permille,policy",
+            new[] { ScopeRow("WORLD", "RMAP16", plan.Cells, "S_ALL_BASE_CELLS") }.Concat(
+                plan.Chunks.Select(chunk => ScopeRow("CHUNK_STATE", chunk.State + ":" + chunk.Coordinate, CellsForChunk(plan, chunk.Coordinate),
+                    chunk.State == Rmap16ChunkState.InactiveSolid ? "ALL_SOLID_REQUIRED" : "ACTUAL_S_A_O"))).Concat(
+                plan.Clusters.Select(cluster => ScopeRow("CLUSTER", cluster.Id, plan.Cells.Where(cell => cluster.ChunkCoordinates.Contains(
+                    new Rmap16MicroChunkCoordinate(cell.X / RmapWorldBiomePlanner.MicroChunkWidthTiles, cell.Y / RmapWorldBiomePlanner.MicroChunkHeightTiles))), "ACTUAL_S_A_O"))));
+        public static string AssemblySummaryCsv(Rmap16ClusterAssemblyPlan plan) => Lines("metric,value,policy",
+            new[]
+            {
+                Row("WORLD_BASE_CELL_COUNT", plan.Cells.Count, "624x416"),
+                Row("CHUNK_COUNT", plan.Chunks.Count, "52x52"),
+                Row("ACTIVE_CHUNKS", plan.Chunks.Count(value => value.State == Rmap16ChunkState.Active), "PUBLIC_OR_GENERAL"),
+                Row("SECRET_CHUNKS", plan.Chunks.Count(value => value.State == Rmap16ChunkState.Secret), "SEALED_SECRET_REGION"),
+                Row("INACTIVE_SOLID_CHUNKS", plan.Chunks.Count(value => value.State == Rmap16ChunkState.InactiveSolid), "ALL_96_BASE_SOLID"),
+                Row("SPECIAL_RESERVED_CHUNKS", plan.Chunks.Count(value => value.State == Rmap16ChunkState.SpecialReserved), "RMAP15_PROTECTED"),
+                Row("TYPE0_PUBLIC_CHUNKS", plan.Chunks.Count(value => value.PortType == "TYPE0_PUBLIC"), "PUBLIC_ONLY"),
+                Row("TYPE0_SECRET_CHUNKS", plan.Chunks.Count(value => value.PortType == "TYPE0_SECRET_ONE_ENTRY"), "NOT_PUBLIC"),
+                Row("ROUTE_COUNT", plan.Routes.Count, "RMAP13_DIRECTED_EDGES"),
+                Row("PATTERN_COUNT", plan.Patterns.Count, "3x2_PER_CLUSTER_CHUNK"),
+            });
+
+        private static string ScopeRow(string kind, string id, IEnumerable<Rmap16TerrainCell> cells, string policy)
+        {
+            Rmap16TerrainCell[] values = (cells ?? Array.Empty<Rmap16TerrainCell>()).ToArray(); int solid = values.Count(value => value.BaseCell == RmapPatternBaseCell.Solid);
+            int air = values.Count(value => value.BaseCell == RmapPatternBaseCell.Air); int oneWay = values.Count(value => value.BaseCell == RmapPatternBaseCell.OneWayPlatform);
+            return Row(kind, id, solid, air, oneWay, values.Length, values.Length == 0 ? 0 : (solid * 1000) / values.Length, policy);
+        }
+        private static IEnumerable<Rmap16TerrainCell> CellsForChunk(Rmap16ClusterAssemblyPlan plan, Rmap16MicroChunkCoordinate coordinate) => plan.Cells.Where(value =>
+            value.X / RmapWorldBiomePlanner.MicroChunkWidthTiles == coordinate.X && value.Y / RmapWorldBiomePlanner.MicroChunkHeightTiles == coordinate.Y);
 
         private static string Lines(string header, IEnumerable<string> rows) => header + "\n" + string.Join("\n", rows ?? Array.Empty<string>()) + "\n";
         private static string Row(params object[] values) => string.Join(",", (values ?? Array.Empty<object>()).Select(value => "\"" +
