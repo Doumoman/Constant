@@ -1,0 +1,23 @@
+{
+  "format": "RMAP17_STATIC_WORLD_BAKE_V1",
+  "scene_path": "Assets/_Game/Map/Scenes/MoonPalace/RMAP17/MoonPalaceWorldBake_RMAP17.unity",
+  "source_plan_digest": "50ecb8ba5493bd519d100345b4eabcdd8827ec5aba0784a09a05a51e07dacded",
+  "source_cell_digest": "3a40b473d497178d19e11d746d4655cc9a0856c10c0a03e981341ca7b1bda733",
+  "bake_digest": "e7e74aa867e6b96d7898daccf9f54da577f01088ad6db0c6a8ee1ce0b60859aa",
+  "world_tiles": "624x416",
+  "base_cells": { "solid": 150064, "air": 109420, "one_way": 100 },
+  "overlay_cells": { "ladder": 1627, "grab": 2, "marker": 3 },
+  "overlay_tile_projection": "one tile per unique world coordinate; source overlay records remain exact",
+  "tilemap_inventory": { "solid": 150064, "one_way": 100, "ladder": 1236, "grab": 2, "marker": 3 },
+  "player_start": "419,337",
+  "player_collider": "0.4x0.8 foot_pivot",
+  "camera_bounds": "0,0,624,416",
+  "camera_viewport": "12x8",
+  "solid_collider": "TilemapCollider2D+Rigidbody2D(static)+CompositeCollider2D",
+  "one_way_collider": "TilemapCollider2D+PlatformEffector2D+CharacterLiveOneWayPlatform",
+  "ladder_trigger_segments": 17,
+  "scene_collider_count": 23,
+  "solid_composite_shape_count": 14570,
+  "one_way_shape_count": 100,
+  "rebuild_removed_builder_roots": 1
+}
