@@ -1,0 +1,44 @@
+{
+  "registration_authority": "explicit user SV5_START request; one-time boundary recorded in MCP/SV5/00_APPROVAL_BASELINE.md",
+  "handoff": {
+    "path": "MCP_INBOX/SV5_START.md",
+    "sha256": "9f440662458d69a74127fa81c4af89e35649dd06426ea19071285f1fd0ddbbef"
+  },
+  "source_spec": {
+    "path": "MCP/INPUTS/SV5/tasks/SV5_01_APPROVAL_BASELINE.md",
+    "sha256": "4a4f6a1c9dcb74ae63e4ee30269551f133aabdf256caff5ee4374276d385dcdf",
+    "format": "source_spec_v1",
+    "execution_status": "not executed directly"
+  },
+  "bound_task": {
+    "path": "MCP/TASKS/SV5_01_APPROVAL_BASELINE.md",
+    "sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed",
+    "format": "single_task_v1"
+  },
+  "archive_task": {
+    "path": "MCP_ARCHIVE/SV5_01_APPROVAL_BASELINE.md",
+    "sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed"
+  },
+  "predecessor": {
+    "task": "RMAP17_WORLD_BAKE",
+    "result_path": "MCP/REPORTS/RMAP17_WORLD_BAKE_RESULT.md",
+    "result_sha256": "53109e3b24e3df8191e634d7ec2e3f06087108965e5f9bc2af937f030a563c6b",
+    "installed_task_sha256": "5017331f8083ee8cc57cb8fed771c9d636df3248979ce39fa7efc43b2f018e46",
+    "status": "PASS / COMPLETE"
+  },
+  "read_allowlist": [
+    "SV5 package inputs and baseline summaries",
+    "MCP entry/apply/change/finalize/status/Master documents",
+    "installed RMAP17 Task and current PASS Result"
+  ],
+  "write_allowlist": [
+    "MCP/SV5 registration records",
+    "MCP Master/Status SV5 registration and SV5_01 transitions",
+    "MCP/GENERATED/SV5_01",
+    "installed/archive bound Task and matching Result"
+  ],
+  "prohibited": [
+    "Assets", "Scenes", "Prefabs", "Player settings", "map-generation code", "runtime CSV",
+    "RMAP18", "RMAP19", "SV5_02 and later", "push"
+  ]
+}

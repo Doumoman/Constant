@@ -483,3 +483,62 @@ respectively [RMAP/00_BASELINE_V4_2.md](RMAP/00_BASELINE_V4_2.md),
 The prior 29-task `RMAP00_*`~`RMAP04_*` labels are retained only as the
 requirement crosswalk in `RMAP/01_SEQUENCE_V4_2.md`; they are not executable
 v4.2 rows. After RMAP01, every row uses the unchanged SHA and lock procedure.
+
+---
+
+## SV5 — Approved Spatial Composition Execution Plan
+
+The explicit SV5 start handoff registers a new, independent 45-task plan. Its
+approval baseline, ordered sequence, and normal future issuing rules are
+respectively [SV5/00_APPROVAL_BASELINE.md](SV5/00_APPROVAL_BASELINE.md),
+[SV5/01_SEQUENCE_V5.md](SV5/01_SEQUENCE_V5.md), and
+[SV5/02_PROTOCOL_V5.md](SV5/02_PROTOCOL_V5.md). This plan neither rewrites
+completed RMAP work nor opens RMAP18/19.
+
+| Order | Task | Initial state |
+| ---: | --- | --- |
+| 01 | SV5_01_APPROVAL_BASELINE | LOCKED |
+| 02 | SV5_02_RULES | LOCKED |
+| 03 | SV5_03_BINDINGS | LOCKED |
+| 04 | SV5_04_CORE_RESERVE | LOCKED |
+| 05 | SV5_05_ROUTE_STATE | LOCKED |
+| 06 | SV5_06_SPACE_GRAPH | LOCKED |
+| 07 | SV5_07_DIVERSITY | LOCKED |
+| 08 | SV5_08_INFILL | LOCKED |
+| 09 | SV5_09_LOOPS | LOCKED |
+| 10 | SV5_10_SIDEPATH | LOCKED |
+| 11 | SV5_11_HUB_SHELL | LOCKED |
+| 12 | SV5_12_TREE_GRAB | LOCKED |
+| 13 | SV5_13_JUMP_CONTRACT | LOCKED |
+| 14 | SV5_14_JUMP_SOLID | LOCKED |
+| 15 | SV5_15_JUMP_GRAB | LOCKED |
+| 16 | SV5_16_JUMP_OUTLINE | LOCKED |
+| 17 | SV5_17_JUMP_RECIPES | LOCKED |
+| 18 | SV5_18_JUMP_CLEARANCE | LOCKED |
+| 19 | SV5_19_JUMP_RECOVERY | LOCKED |
+| 20 | SV5_20_JUMP_PLAYER | LOCKED |
+| 21 | SV5_21_LIBRARY | LOCKED |
+| 22 | SV5_22_STAIR_DATA | LOCKED |
+| 23 | SV5_23_STAIR_MOTOR | LOCKED |
+| 24 | SV5_24_CAVE | LOCKED |
+| 25 | SV5_25_RATDEN | LOCKED |
+| 26 | SV5_26_CANYON | LOCKED |
+| 27 | SV5_27_HOUSING | LOCKED |
+| 28 | SV5_28_HALL | LOCKED |
+| 29 | SV5_29_RANCH | LOCKED |
+| 30 | SV5_30_LAKE | LOCKED |
+| 31 | SV5_31_FARM | LOCKED |
+| 32 | SV5_32_RAIL_PATH | LOCKED |
+| 33 | SV5_33_RAIL_RIDE | LOCKED |
+| 34 | SV5_34_RAIL_CRASH | LOCKED |
+| 35 | SV5_35_CAPSULE | LOCKED |
+| 36 | SV5_36_PRISON | LOCKED |
+| 37 | SV5_37_PINBALL_SHELL | LOCKED |
+| 38 | SV5_38_WORKSHOP | LOCKED |
+| 39 | SV5_39_RABBIT_VILLAGE | LOCKED |
+| 40 | SV5_40_ELEVATOR | LOCKED |
+| 41 | SV5_41_COMPOSE | LOCKED |
+| 42 | SV5_42_FINAL_SCAN | LOCKED |
+| 43 | SV5_43_WORLD_BAKE | LOCKED |
+| 44 | SV5_44_WORLD_PLAYER | LOCKED |
+| 45 | SV5_45_REVIEW_HANDOFF | LOCKED |

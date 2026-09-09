@@ -1,0 +1,22 @@
+{
+  "source_plan": "MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+  "source_csv": "MCP/INPUTS/SV5/TASKS.csv",
+  "source_json": "MCP/INPUTS/SV5/TASKS.json",
+  "registered_sequence": "MCP/SV5/01_SEQUENCE_V5.md",
+  "master_registration": "MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+  "status_registration": "MCP/06_IMPLEMENTATION_STATUS.md",
+  "task_count": 45,
+  "order_verified": true,
+  "duplicates": 0,
+  "first_task": "SV5_01_APPROVAL_BASELINE",
+  "next_task": "SV5_02_RULES",
+  "finalized_state": {
+    "SV5_01_APPROVAL_BASELINE": "COMPLETE",
+    "SV5_02_RULES_through_SV5_45_REVIEW_HANDOFF": "LOCKED"
+  },
+  "prior_plan_handling": {
+    "RMAP01_through_RMAP17": "preserved COMPLETE",
+    "RMAP18_and_RMAP19": "preserved LOCKED",
+    "SV4_mapping": "preserved as immutable SV5 input reference; not installed or executed"
+  }
+}

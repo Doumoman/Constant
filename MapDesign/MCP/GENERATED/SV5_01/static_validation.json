@@ -1,0 +1,29 @@
+{
+  "input_verifier": {
+    "command": "python -X utf8 SV5_VERIFY.py --manifest-sha 74d4435f8128d44943b54774416329e027a7c8f584e42225c0504e600e2f5456",
+    "status": "PASS_LOCAL_INPUTS",
+    "files_checked": 32,
+    "tasks": 45,
+    "cells": 259584,
+    "regions": 101,
+    "errors": []
+  },
+  "csv_scan": {
+    "header": "x,y,cell,region",
+    "rows": 259584,
+    "unique_coordinates": 259584,
+    "expected_coordinates": 259584,
+    "invalid_rows": 0,
+    "tile_counts": { "S": 121051, "O": 20527, "A": 117430, "R": 576 },
+    "region_ids_including_outside_zero": 102
+  },
+  "plan_scan": {
+    "tasks_csv": 45,
+    "tasks_json": 45,
+    "tasks_md": 45,
+    "unique_task_ids": 45,
+    "ordered_ids_agree": true
+  },
+  "unity": "NOT_RUN",
+  "game_code_changes": 0
+}

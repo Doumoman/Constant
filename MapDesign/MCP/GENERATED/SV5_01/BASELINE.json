@@ -1,0 +1,27 @@
+{
+  "scope": "AUTHORED_624x416_EXAMPLE_NOT_UNITY_BAKE",
+  "approval": "spatial composition of 624x416 static example",
+  "source_seed": 40921,
+  "coordinate_origin": "world_cells.csv x=0..623, y=0..415",
+  "tile_size": [1, 1],
+  "pattern_size": [4, 4],
+  "microchunk_size": [12, 8],
+  "world_microchunks": [52, 52],
+  "world_size": [624, 416],
+  "cells": 259584,
+  "tile_counts": { "S": 121051, "O": 20527, "A": 117430, "R": 576 },
+  "regions": 101,
+  "named_connections": 166,
+  "physics": "NOT_RUN",
+  "unity_play_verified": false,
+  "preserved_inputs": {
+    "world_cells": { "path": "MCP/INPUTS/SV5/baseline/world_cells.csv", "sha256": "3504bb66f506463223b5775a71e8fcfe323e67865cd0791b92aa102683c30538", "bytes": 3329329 },
+    "regions": { "path": "MCP/INPUTS/SV5/baseline/regions.json", "sha256": "17d3bfcc1b60839796805c52dabb8ab65a723aca82bcb8eb470b7b1d5f1abccd", "bytes": 312595 },
+    "connections": { "path": "MCP/INPUTS/SV5/baseline/connections.json", "sha256": "e4cf9bb03e0740ce4393ddf4a0db37afafa19dc5e114a7d337384428d22356bd", "bytes": 301914 },
+    "validation": { "path": "MCP/INPUTS/SV5/baseline/validation.json", "sha256": "52ccb91f40832f71235481683535df1c4ff5ff14d0615d1c7ca73eb01901a8f4", "bytes": 1784 },
+    "pdf": { "path": "MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.pdf", "sha256": "b1850daed1afd2779deb5ab7bccb7a1f1f70a0594c467ee0a3703440cbcaf011", "bytes": 5410543 },
+    "overview_png": { "path": "MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.png", "sha256": "033b25d58d1d6be81126c35c232658f7f8e6e2a1db671840fec633055ab1207b", "bytes": 814488 },
+    "detail_png": { "path": "MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_DETAIL.png", "sha256": "84c295a26a36ef1ecc314f1460517e5349bfe6fd9db39029810f432e84b4f0d5", "bytes": 156504 },
+    "source_zip": { "path": "MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.zip", "sha256": "ee7eef7d818ee99acb62aea4d6ed24772d3948ad581eb6f12e06f29af11abd5e", "bytes": 9783657 }
+  }
+}
