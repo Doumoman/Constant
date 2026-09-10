@@ -1,0 +1,16 @@
+{
+  "format": "sv5_05_binding_v1",
+  "task_id": "SV5_05_ROUTE_STATE",
+  "module_root": "MapDesign",
+  "handoff": {"path":"MCP_INBOX/SV5_05_START.md","sha256":"b735b387be09f0031c6979cc46e9b228329bd60464eb4816b52cafb0240d0aa4"},
+  "source_spec": {"path":"MCP/INPUTS/SV5_05/SV5_05_ROUTE_STATE.md","sha256":"7f09d1564c90052b2e6e91bfee8a5857bf2c8712ebcac57fe5e891752d21086a"},
+  "manifest": {"path":"MCP/INPUTS/SV5_05/FILES.json","sha256":"cc2502e7d3fa623de5b290741f26623d0ab96d4d8bc6283ae3bb221327542b0d","package_check":"PASS_PACKAGE_ONLY","local_precheck":"PASS_LOCAL_BYTES_ONLY"},
+  "bound_task": {"path":"MCP/TASKS/SV5_05_ROUTE_STATE.md","sha256":"38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1","format":"single_task_v1"},
+  "predecessor": {"task":"SV5_04_CORE_RESERVE","result_path":"MCP/REPORTS/SV5_04_CORE_RESERVE_RESULT.md","result_sha256":"e7f75abeae77693f2190a6cc58dee50fd27cf2ea3bbf589f37140ebc242b073a","task_and_archive_sha256":"fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2","finalize_commit":"dbe770f8b385b7596a2d4f57627380395072515e","finalize_parent":"7fcd3447d8b233039ff77924447be21d4875ee03"},
+  "pre_apply_state": {"total":285,"complete":242,"current":0,"locked":43,"current_task":"NONE","status_sha256":"cc905b8d9d795d407c966d2d1bb493b2d3c55be3952c507e030fef65d7cf99f0"},
+  "execution_state": {"total":285,"complete":242,"current":1,"locked":42,"current_task":"SV5_05_ROUTE_STATE","status_sha256":"358ea2fbf01dc3d74b891f013994963ba01e7fa65c8b6684ca7c0cf04c560d0e"},
+  "api": {"state_authority":"RmapWorldGraphPlanner.Evaluate","analysis_extension":"RmapWorldGraphPlanner.EvaluateWithAnalysisNodes","consumer":"Sv5RouteStatePolicy.Analyze","core_adapter":"Sv5CoreReservationPlanner.Plan(Rmap16ClusterAssemblyPlan)","completion_boundary":"GeneratedCompletionSearch.Search"},
+  "source_bytes": {"rmap13_before":"93a77853b140f5a97aa15056921794e2212d722ebc6184e498e0cb59bc5a7729","rmap13_after":"39362098ddc6da4100af3790d3200a5c9c80b72e6bb57531f34e00a26c2d475a","sv5_05_policy":"030d53903caec2f491b273da01340535536fdf66aae08481745a7a6ef593b27f","sv5_05_test":"3e9ae15708243d440bc169c0290882155ca622637371e09abd31618cd01c8953","sv5_04_adapter":"128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3","completion_read_only":"ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e"},
+  "write_scope": "one pure RMAP13 analysis extension, new SV5_05 policy and focused test, plus SV5_05 MCP evidence only",
+  "not_run": ["SV5_06_PLUS","FULL_REGRESSION","PLAYMODE","BUILD","SCENE_BAKE","RMAP18","RMAP19","PUSH"]
+}

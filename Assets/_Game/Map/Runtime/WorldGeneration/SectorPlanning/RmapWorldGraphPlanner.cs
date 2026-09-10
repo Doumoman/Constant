@@ -312,10 +312,31 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public static RmapWorldGraphProof Evaluate(
             IEnumerable<RmapWorldGraphNode> sourceNodes,
             IEnumerable<RmapWorldGraphEdge> sourceEdges,
+            IEnumerable<RmapWorldGraphRole> requestedOrder) =>
+            EvaluateWithAnalysisNodes(sourceNodes, Array.Empty<string>(), sourceEdges, requestedOrder);
+
+        /// <summary>
+        /// Evaluates the existing RMAP13 state machine with explicitly declared,
+        /// action-less analysis nodes. This is a pure candidate-analysis surface:
+        /// it neither changes the source graph nor grants a resource, Forge, Seal,
+        /// Boss, or Exit transition at an added node.
+        /// </summary>
+        public static RmapWorldGraphProof EvaluateWithAnalysisNodes(
+            IEnumerable<RmapWorldGraphNode> sourceNodes,
+            IEnumerable<string> sourceAnalysisNodeIds,
+            IEnumerable<RmapWorldGraphEdge> sourceEdges,
             IEnumerable<RmapWorldGraphRole> requestedOrder)
         {
             var nodes = (sourceNodes ?? Array.Empty<RmapWorldGraphNode>()).Where(value => value != null)
                 .ToDictionary(value => value.NodeId, value => value, StringComparer.Ordinal);
+            var analysisNodeIds = new HashSet<string>(StringComparer.Ordinal);
+            foreach (string sourceId in sourceAnalysisNodeIds ?? Array.Empty<string>())
+            {
+                string id = RmapWorldGraphIdentity.Require(sourceId, nameof(sourceAnalysisNodeIds));
+                if (nodes.ContainsKey(id) || !analysisNodeIds.Add(id))
+                    throw new ArgumentException("Analysis node IDs must be distinct from source graph nodes.",
+                        nameof(sourceAnalysisNodeIds));
+            }
             var roles = nodes.Values.GroupBy(value => value.Role).ToDictionary(value => value.Key,
                 value => value.Single());
             var order = (requestedOrder ?? Array.Empty<RmapWorldGraphRole>()).ToArray();
@@ -327,8 +348,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (failures.Count != 0) return new RmapWorldGraphProof(order, null,
                 Array.Empty<string>(), failures);
 
+            var knownNodeIds = new HashSet<string>(nodes.Keys, StringComparer.Ordinal);
+            knownNodeIds.UnionWith(analysisNodeIds);
             var edges = (sourceEdges ?? Array.Empty<RmapWorldGraphEdge>()).Where(value => value != null)
-                .Where(value => nodes.ContainsKey(value.SourceNodeId) && nodes.ContainsKey(value.TargetNodeId))
+                .Where(value => knownNodeIds.Contains(value.SourceNodeId) && knownNodeIds.Contains(value.TargetNodeId))
                 .OrderBy(value => value).ToArray();
             var bySource = edges.GroupBy(value => value.SourceNodeId, StringComparer.Ordinal)
                 .ToDictionary(value => value.Key, value => value.OrderBy(edge => edge).ToArray(), StringComparer.Ordinal);

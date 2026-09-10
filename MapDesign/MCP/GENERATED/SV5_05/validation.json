@@ -1,0 +1,11 @@
+{
+  "format": "sv5_05_validation_v1",
+  "task_id": "SV5_05_ROUTE_STATE",
+  "result_time_state": "SV5_05_CURRENT_BEFORE_FINALIZE",
+  "input_checks": {"package":"PASS_PACKAGE_ONLY","local_precheck":"PASS_LOCAL_BYTES_ONLY","source_lock_files":39,"actual_sv5_04_finalize_commit":"dbe770f8b385b7596a2d4f57627380395072515e"},
+  "focused_editmode": {"command":"unity test . --editor-version 6000.3.8f1 --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStatePolicyTests;StarNight.Map.Tests.EditMode.Rmap13.RmapWorldGraphPlannerTests --output MapDesign/MCP/GENERATED/SV5_05/focused_results.xml --report-format nunit --timeout 600","test_classes":["StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStatePolicyTests","StarNight.Map.Tests.EditMode.Rmap13.RmapWorldGraphPlannerTests"],"final_total":14,"final_passed":14,"final_failed":0,"final_skipped":0,"xml_sha256":"bb66f7c42fa9b419b9734f81bd6263dbc3876752bd1cd5b2aea689de7bf660cb","earlier_attempt":"compile scope stopped before verdict; missing WorldData import was corrected"},
+  "logical_evidence": {"actual_route_bindings":11,"resource_orders":6,"candidate_set_checked":true,"review_label_contacts":3,"raw_air_witness_edges":109,"logical_state_verified":true},
+  "physical_readiness": {"geometry_state_ready":false,"player_verified":false,"reason":"AIR witness and static route reservations are not Player or final geometry proof"},
+  "preservation": {"sv5_04_adapter_changed":false,"core_plan_mutated":false,"rmap13_default_plan_and_evaluate_retested":true,"temporary_work_paths_remaining":[],"new_project_root_helper_files":0,"preexisting_dirty_files_preserved":true},
+  "not_run": ["SV5_06_PLUS","FULL_REGRESSION","PLAYMODE","BUILD","SCENE_BAKE","RMAP18","RMAP19","PUSH"]
+}
