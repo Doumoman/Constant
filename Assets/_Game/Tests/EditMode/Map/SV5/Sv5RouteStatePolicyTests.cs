@@ -26,6 +26,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static readonly Lazy<Sv5CoreReservationPlan> Representative =
             new Lazy<Sv5CoreReservationPlan>(() => Sv5CoreReservationPlanner.Plan(BuildRouteSource(1304)));
 
+        internal static Sv5CoreReservationPlan RepresentativePlanForFix01 => Representative.Value;
+
         [Test]
         public void T01_BindsElevenActualRoutesToGraphNodesPortsAndPredicates()
         {
@@ -260,7 +262,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Write(Path.Combine(directory, "route_state_manifest.json"), Sv5RouteStateExport.ManifestJson(analysis));
         }
 
-        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED", "SV5_05");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
+            "SV5_05_FIX01", "legacy_sv5_05_policy_export");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static void Write(string path, string text) => File.WriteAllText(path, text, new UTF8Encoding(false));
 

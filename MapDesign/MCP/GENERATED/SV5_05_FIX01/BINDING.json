@@ -1,0 +1,75 @@
+{
+  "format": "sv5_05_fix01_binding_v1",
+  "task": "SV5_05_FIX01",
+  "registration": {
+    "patch_id": "SV5_05_FIX01_REG",
+    "package_manifest_sha256": "a54fefc40e0f29eb387dff85e3a3b3090903349e0f2e0f968b2b59e393a6dd9f",
+    "receipt_path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/REGISTRATION_RECEIPT.json",
+    "receipt_sha256": "36135757f4670de12b47c1b35af794d7c1b0834e045bb9c18009819f0fa1f15c",
+    "record_path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/REGISTRATION_RECORD.md",
+    "record_sha256": "d51edb35bd8ba290631f510d0755863b2654508d428fc12181dd9c3d3597a018",
+    "inbox_original_count": 12,
+    "inbox_originals": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS",
+    "staged_task_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0"
+  },
+  "predecessor": {
+    "task": "SV5_05_ROUTE_STATE",
+    "result_path": "MapDesign/MCP/REPORTS/SV5_05_ROUTE_STATE_RESULT.md",
+    "result_sha256": "2a8da38b83e4f124ed8059c071a8d7a718ba19178582d935657fe2b3a5d13222",
+    "installed_task_path": "MapDesign/MCP/TASKS/SV5_05_ROUTE_STATE.md",
+    "installed_task_sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+    "finalize_commit": "117d99a82eb0889ab0edfeda250e535c5f56c295",
+    "finalize_parent": "dbe770f8b385b7596a2d4f57627380395072515e",
+    "head_before_fix01": "117d99a82eb0889ab0edfeda250e535c5f56c295"
+  },
+  "lifecycle": {
+    "bound_inbox_path": "MapDesign/MCP_INBOX/SV5_05_FIX01.md",
+    "installed_task_path": "MapDesign/MCP/TASKS/SV5_05_FIX01.md",
+    "archive_path": "MapDesign/MCP_ARCHIVE/SV5_05_FIX01.md",
+    "installed_task_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+    "archive_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+    "status_sha256_at_current": "b2dd23214df1ca61a3b76934ea1a26d1ee014f6d0c75854a81e6efcb495b2e59",
+    "status_sha256_after_finalize": "f1c450c04ba9ed8aac05d86c87ea22815b3aa7d28bd30deacbdb02edadec6f29",
+    "master_sha256_after_registration": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+    "result_path": "MapDesign/MCP/REPORTS/SV5_05_FIX01_RESULT.md",
+    "result_sha256": "46d9e5b0dceb2a1efc431602df7d5da068642831e67468042f4f90498e4c1ef3",
+    "status_counts_at_current": { "complete": 243, "current": 1, "locked": 42 },
+    "status_counts_after_finalize": { "complete": 244, "current": 0, "locked": 42 }
+  },
+  "source_sha256": {
+    "before": {
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs": "030d53903caec2f491b273da01340535536fdf66aae08481745a7a6ef593b27f",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs": "39362098ddc6da4100af3790d3200a5c9c80b72e6bb57531f34e00a26c2d475a",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs": "3e9ae15708243d440bc169c0290882155ca622637371e09abd31618cd01c8953",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3"
+    },
+    "after": {
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs": "980a2fb31a1b0a5e94538989737c8b00343782be8c488278d464c87c51c7cb77",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs": "37f2aea9c310a337846fb2be0d066919cfa1b784b6ccce0be61b4e7d48057aa7",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs": "f2c58c16609ab557d60bb23d42ff3b91b9ae5fbdebd1ab154667c13443267504",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs.meta": "4ee0d22ae7c5ab55a52847844ed99f014cdb68a5ea337a4f7ffdc13f0e4235f5",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3"
+    }
+  },
+  "read": [
+    "MapDesign/MCP/INPUTS/SV5_05_FIX01_REG/REGISTRATION.md",
+    "MapDesign/MCP/INPUTS/SV5_05_FIX01_REG/REGISTRATION.json",
+    "MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW_FINDINGS.json",
+    "MapDesign/MCP/INPUTS/SV5_05_FIX01/REPAIR_CONTRACT.md",
+    "MapDesign/MCP/INPUTS/SV5_05_FIX01/PROTOCOL_APPEND.md",
+    "MapDesign/MCP/GENERATED/SV5_05/*",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs"
+  ],
+  "write": [
+    "Sv5RouteStatePolicy.cs",
+    "RmapWorldGraphPlanner.cs",
+    "Sv5RouteStatePolicyTests.cs",
+    "Sv5RouteStateFix01Tests.cs and .meta",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md append only",
+    "MapDesign/MCP/SV5/09_ROUTE_STATE_FIX01.md",
+    "MapDesign/MCP/GENERATED/SV5_05_FIX01/*",
+    "MapDesign/MCP/REPORTS/SV5_05_FIX01_RESULT.md"
+  ],
+  "not_run": ["SV5_06+", "RMAP18/19", "PlayMode", "build", "Scene Bake", "push"]
+}

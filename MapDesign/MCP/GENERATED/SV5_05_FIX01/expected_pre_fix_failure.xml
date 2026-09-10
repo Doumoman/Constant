@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-10 06:19:23Z" end-time="2026-09-10 06:19:27Z" duration="3.3861555">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26708" result="Failed" site="Child" start-time="2026-09-10 06:19:23Z" end-time="2026-09-10 06:19:27Z" duration="3.386156" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="24756" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22688" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="3.206401" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="36792" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="24757" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22688" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="3.067907" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="24765" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22472" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="2.859280" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="24769" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22413" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="2.728963" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="24778" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7731" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="2.556437" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="24794" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="19" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="2.484350" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="24631" name="Sv5RouteStateFix01Tests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStateFix01Tests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStateFix01Tests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="2.481844" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5_05_FIX01" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="24632" name="T01_ForgeToBossWithoutSealIsRejectedWithTheReachableMissingGuard" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStateFix01Tests.T01_ForgeToBossWithoutSealIsRejectedWithTheReachableMissingGuard" methodname="T01_ForgeToBossWithoutSealIsRejectedWithTheReachableMissingGuard" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStateFix01Tests" runstate="Runnable" seed="150041717" result="Failed" start-time="2026-09-10 06:19:24Z" end-time="2026-09-10 06:19:27Z" duration="2.471478" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  Expected: WeakRequiredCondition
+  But was:  Allowed
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStateFix01Tests.T01_ForgeToBossWithoutSealIsRejectedWithTheReachableMissingGuard () [0x00071] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5RouteStateFix01Tests.cs:24
+]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

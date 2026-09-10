@@ -1,0 +1,159 @@
+{
+  "patch_id": "SV5_05_FIX01_REG",
+  "task_id": "SV5_05_FIX01",
+  "original_package_manifest_sha256": "72d5fa3db7f75bcc92d70aaa49b984eb813b872f9c3839cd528dda37f359342d",
+  "original_source_spec_sha256": "96e43d745f5a0bf2057b54c2bbd2007530293211b87e84bb5f76b4b0afb5330b",
+  "context_zip_sha256": "e1e00df59a3ce1b2765ba0fd00d8fd5e98a8d1624f3d7fb0a891f141ee8a889d",
+  "bound_task_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+  "edits": [
+    {
+      "path": "MCP/06_IMPLEMENTATION_STATUS.md",
+      "before_sha256": "ebe0fa373949ba0801c367ad2b78adab948cae6870a3641a91f5d52f7e081101",
+      "after_sha256": "f0dc1665d51455025d49e0d4a906fd09052ac576b5935a5f7992cadae0bdf4cb",
+      "anchor": "| SV5_06_SPACE_GRAPH | LOCKED |\n",
+      "insert_before": "| SV5_05_FIX01 | LOCKED |\n"
+    },
+    {
+      "path": "MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+      "before_sha256": "cbe616e54c85a05181759dc87997f68e94f5ee92ff1a2a9896396a9e3c937d4c",
+      "after_sha256": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+      "anchor": "| 06 | SV5_06_SPACE_GRAPH | LOCKED |\n",
+      "insert_before": "| 05.F1 | SV5_05_FIX01 | LOCKED |\n"
+    }
+  ],
+  "moves": [
+    {
+      "from": "MCP_INBOX/README.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/README.md",
+      "sha256": "39cda710f2d021167e5a2d3de896db604dd3e9cab053b683fcb2aefdfb26e495",
+      "bytes": 3536
+    },
+    {
+      "from": "MCP_INBOX/RMAP11_FIX.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/RMAP11_FIX.md",
+      "sha256": "d66a140d8f384642414b44b0fd7a26bd60e2b22e2116dfa7314820bd6a4e85a9",
+      "bytes": 15253
+    },
+    {
+      "from": "MCP_INBOX/RMAP12_CLOSE.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/RMAP12_CLOSE.md",
+      "sha256": "80dca49e7ebba3643e1c2387280c143562759a0a46af33bb03afb168f950d307",
+      "bytes": 21481
+    },
+    {
+      "from": "MCP_INBOX/RMAP16_CLOSE.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/RMAP16_CLOSE.md",
+      "sha256": "1d822e7dda5e320148164ed52ecbfbf2487af48ff943ccfc8c4dfe732b23e017",
+      "bytes": 22725
+    },
+    {
+      "from": "MCP_INBOX/SV5_02_R2_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_02_R2_START.md",
+      "sha256": "558ca42645c58d3c2ed9bf4e6975caf4e4b1af4bc45f00f9cae65b2c0d68ae94",
+      "bytes": 2485
+    },
+    {
+      "from": "MCP_INBOX/SV5_02_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_02_START.md",
+      "sha256": "c27f7a0d34694b79264cbc5155b68abaf4d9b13e9c09af9829c9715ba5396c46",
+      "bytes": 2467
+    },
+    {
+      "from": "MCP_INBOX/SV5_03_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_03_START.md",
+      "sha256": "5c6ef9b3b8192166c3a4117ca6534ce52a3aaa5eed42642abd3918f1d62f8b73",
+      "bytes": 2246
+    },
+    {
+      "from": "MCP_INBOX/SV5_04_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_04_START.md",
+      "sha256": "349a6955ad8c03434c5a99d905600792632de162d71c17a9518e6cda610f9664",
+      "bytes": 2232
+    },
+    {
+      "from": "MCP_INBOX/SV5_05_FIX01_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_05_FIX01_START.md",
+      "sha256": "4adc3b8841d264158501fc09f116894fb4d8384e66622c8d9beb22fbb4d4b128",
+      "bytes": 1727
+    },
+    {
+      "from": "MCP_INBOX/SV5_05_ROUTE_STATE.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_05_ROUTE_STATE.md",
+      "sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+      "bytes": 5539
+    },
+    {
+      "from": "MCP_INBOX/SV5_05_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_05_START.md",
+      "sha256": "b735b387be09f0031c6979cc46e9b228329bd60464eb4816b52cafb0240d0aa4",
+      "bytes": 2328
+    },
+    {
+      "from": "MCP_INBOX/SV5_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_START.md",
+      "sha256": "9f440662458d69a74127fa81c4af89e35649dd06426ea19071285f1fd0ddbbef",
+      "bytes": 3841
+    }
+  ],
+  "protocol_locks": [
+    {
+      "path": "MCP/00_MCP_ENTRYPOINT.md",
+      "sha256": "cd2a70cdaf886a363756e9abd781807d8f6aef2c457f493268bab0bcdb283402"
+    },
+    {
+      "path": "MCP/01_PROJECT_LOCKED_RULES.md",
+      "sha256": "a01b69a9827deedd411ce6f2e040df0b52758dd0b699f48ee980774e3ce45400"
+    },
+    {
+      "path": "MCP/05_CHANGE_CONTROL_RULES.md",
+      "sha256": "45bb7fd6e5981fe8f89bf5d34887086ecceb1db8410543564ef1338981302ba3"
+    },
+    {
+      "path": "MCP/07_PATCH_APPLY_RULES.md",
+      "sha256": "7c3c78b0fd72ded29d41a179b899d3c7d73fb1567cd7d717e82bbf6cd5e45728"
+    },
+    {
+      "path": "MCP/08_STATUS_FINALIZE_RULES.md",
+      "sha256": "e121a60b78eb28d0e12e38ddba8b56ac825435a130fc707ad5f0de29df92e169"
+    },
+    {
+      "path": "MCP/APPLY_PATCH_AND_RUN_CURRENT_TASK.md",
+      "sha256": "31c590564d4501de2f3c9c92d09142c3374e77dfcfbde7dc91e83fe7026561e4"
+    },
+    {
+      "path": "MCP/TASKS/SV5_01_APPROVAL_BASELINE.md",
+      "sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_01/BINDING.json",
+      "sha256": "fe5ce5f6ac16857608b86c64ebb11930124f5d3f2ed2b8b4559096f1a269129c"
+    }
+  ],
+  "preserve_original_45_task_ids_and_relative_order": true,
+  "registration_does_not_apply_or_complete_task": true,
+  "approval_required": "Explicit user approval of this exact one-time registration and 12-file relocation.",
+  "author_validation": {
+    "context_files_checked": 23,
+    "isolated_helper_cases_passed": 15,
+    "native_status_master_inbox_bytes_used": true,
+    "synthetic_missing_prerequisites_in_isolated_fixtures": 8,
+    "native_MCP_Unity_git_execution": false,
+    "cases": [
+      "read_only_preflight",
+      "missing_explicit_approval_identifier_no_writes",
+      "unexpected_MD_blocks_without_deletion",
+      "unapplied_legacy_directory_blocks",
+      "hold_destination_collision_blocks",
+      "unexpected_Status_bytes_preserved_and_rejected",
+      "failure_after_edits_and_moves_restores_all_original_files",
+      "exact_two_row_insertions_12_byte_preserving_moves_one_native_MD",
+      "staged_verification_and_idempotent_reapply_have_zero_writes",
+      "bridge_accepts_immutable_inputs_after_normal_Apply_simulation",
+      "pre_implementation_mode_rejects_changed_mutable_source",
+      "post_mode_permits_authorized_source_change_only",
+      "post_mode_rejects_historical_generated_mutation",
+      "held_original_SHA_is_still_enforced",
+      "completed_Task_does_not_reopen_on_registration_reapply"
+    ]
+  }
+}

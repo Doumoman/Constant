@@ -1,0 +1,95 @@
+{
+  "patch_id": "SV5_05_FIX01_REG",
+  "status": "REGISTERED_LOCKED_TASK_NOT_APPLIED",
+  "package_manifest_sha256": "a54fefc40e0f29eb387dff85e3a3b3090903349e0f2e0f968b2b59e393a6dd9f",
+  "registration_sha256": "a75f822d086c2a0ba83f27169dd38abb0db8693c6a9212560d6cb24473ad3970",
+  "bound_task_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+  "moves": [
+    {
+      "from": "MCP_INBOX/README.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/README.md",
+      "sha256": "39cda710f2d021167e5a2d3de896db604dd3e9cab053b683fcb2aefdfb26e495",
+      "bytes": 3536
+    },
+    {
+      "from": "MCP_INBOX/RMAP11_FIX.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/RMAP11_FIX.md",
+      "sha256": "d66a140d8f384642414b44b0fd7a26bd60e2b22e2116dfa7314820bd6a4e85a9",
+      "bytes": 15253
+    },
+    {
+      "from": "MCP_INBOX/RMAP12_CLOSE.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/RMAP12_CLOSE.md",
+      "sha256": "80dca49e7ebba3643e1c2387280c143562759a0a46af33bb03afb168f950d307",
+      "bytes": 21481
+    },
+    {
+      "from": "MCP_INBOX/RMAP16_CLOSE.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/RMAP16_CLOSE.md",
+      "sha256": "1d822e7dda5e320148164ed52ecbfbf2487af48ff943ccfc8c4dfe732b23e017",
+      "bytes": 22725
+    },
+    {
+      "from": "MCP_INBOX/SV5_02_R2_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_02_R2_START.md",
+      "sha256": "558ca42645c58d3c2ed9bf4e6975caf4e4b1af4bc45f00f9cae65b2c0d68ae94",
+      "bytes": 2485
+    },
+    {
+      "from": "MCP_INBOX/SV5_02_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_02_START.md",
+      "sha256": "c27f7a0d34694b79264cbc5155b68abaf4d9b13e9c09af9829c9715ba5396c46",
+      "bytes": 2467
+    },
+    {
+      "from": "MCP_INBOX/SV5_03_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_03_START.md",
+      "sha256": "5c6ef9b3b8192166c3a4117ca6534ce52a3aaa5eed42642abd3918f1d62f8b73",
+      "bytes": 2246
+    },
+    {
+      "from": "MCP_INBOX/SV5_04_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_04_START.md",
+      "sha256": "349a6955ad8c03434c5a99d905600792632de162d71c17a9518e6cda610f9664",
+      "bytes": 2232
+    },
+    {
+      "from": "MCP_INBOX/SV5_05_FIX01_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_05_FIX01_START.md",
+      "sha256": "4adc3b8841d264158501fc09f116894fb4d8384e66622c8d9beb22fbb4d4b128",
+      "bytes": 1727
+    },
+    {
+      "from": "MCP_INBOX/SV5_05_ROUTE_STATE.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_05_ROUTE_STATE.md",
+      "sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+      "bytes": 5539
+    },
+    {
+      "from": "MCP_INBOX/SV5_05_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_05_START.md",
+      "sha256": "b735b387be09f0031c6979cc46e9b228329bd60464eb4816b52cafb0240d0aa4",
+      "bytes": 2328
+    },
+    {
+      "from": "MCP_INBOX/SV5_START.md",
+      "to": "MCP/GENERATED/SV5_05_FIX01_REG/INBOX_ORIGINALS/SV5_START.md",
+      "sha256": "9f440662458d69a74127fa81c4af89e35649dd06426ea19071285f1fd0ddbbef",
+      "bytes": 3841
+    }
+  ],
+  "state_before": {
+    "complete": 243,
+    "current": 0,
+    "locked": 42
+  },
+  "state_after": {
+    "complete": 243,
+    "current": 0,
+    "locked": 43
+  },
+  "candidate_count": 1,
+  "approval_identifier": "SV5_05_FIX01_REG",
+  "approval_evidence": "The invoking user instruction must explicitly authorize this exact patch.",
+  "native_apply_execution_finalize_commit": "NOT_RUN_BY_REGISTRATION_HELPER"
+}

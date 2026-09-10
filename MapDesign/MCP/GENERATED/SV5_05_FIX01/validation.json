@@ -1,0 +1,43 @@
+{
+  "format": "sv5_05_fix01_validation_v1",
+  "implementation_gate": "PASS",
+  "focused_editmode": {
+    "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Rmap13.RmapWorldGraphPlannerTests|StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStatePolicyTests|StarNight.Map.Tests.EditMode.Sv5.Sv5RouteStateFix01Tests --output MapDesign/MCP/GENERATED/SV5_05_FIX01/_work/focused_results.xml --timeout 240",
+    "unity_version": "6000.3.8f1",
+    "filter_scope": ["RMAP13 direct", "SV5_05 existing", "SV5_05_FIX01 T01-T07"],
+    "total": 21,
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0,
+    "xml_path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/focused_results.xml",
+    "xml_sha256": "5addbe7c8524c6b97d4cfca4a782e5f69a0ed59e91df47a82eb1ebd77f6ca931"
+  },
+  "pre_fix_counterexample": {
+    "status": "EXPECTED_PRE_FIX_FAILURE",
+    "case": "T01_ForgeToBossWithoutSealIsRejectedWithTheReachableMissingGuard",
+    "observed_before_fix": "Allowed",
+    "xml_path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/expected_pre_fix_failure.xml",
+    "xml_sha256": "77b359fd70490ba602420c47142288a8126218436047a381bd26cf357d9c334e",
+    "excluded_from_final_focused_counts": true
+  },
+  "registration_bridge": {
+    "preflight": "PASS_REGISTRATION_PREFLIGHT_ONLY",
+    "apply": "PASS_REGISTRATION_ONLY",
+    "verify_staged": "PASS_STAGED_BYTES_ONLY",
+    "verify_task_inputs": "PASS_READONLY_BYTES_ONLY",
+    "post_readonly": "PASS_READONLY_BYTES_ONLY",
+    "post_readonly_checked_local_files": 50
+  },
+  "preservation": {
+    "original_sv5_05_route_state_manifest_sha256": "514a0773ec5a038acae18702df84243254d5145b89d3674f8932814ba9c564a7",
+    "protocol_append_exact_suffix": true,
+    "old_generated_export_redirected": "legacy_sv5_05_policy_export",
+    "temporary_work_directory_removed": true
+  },
+  "readiness": {
+    "logical_state_verified": true,
+    "geometry_state_ready": false,
+    "player_verified": false
+  },
+  "not_run": ["full regression", "PlayMode", "build", "Scene Bake", "SV5_06+", "RMAP18/19", "push"]
+}

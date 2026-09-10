@@ -211,6 +211,44 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public bool Success => FinalState != null && Failures.Count == 0;
     }
 
+    /// <summary>One legal transition observed while exploring the existing
+    /// RMAP13 finite state machine. This is analysis evidence only.</summary>
+    public sealed class RmapWorldGraphTransition : IComparable<RmapWorldGraphTransition>
+    {
+        internal RmapWorldGraphTransition(RmapWorldGraphState before, RmapWorldGraphState after, string action)
+        {
+            Before = before ?? throw new ArgumentNullException(nameof(before));
+            After = after ?? throw new ArgumentNullException(nameof(after));
+            Action = RmapWorldGraphIdentity.Require(action, nameof(action));
+        }
+
+        public RmapWorldGraphState Before { get; }
+        public RmapWorldGraphState After { get; }
+        public string Action { get; }
+        public int CompareTo(RmapWorldGraphTransition other) => other == null ? 1 :
+            string.Compare(Before.StableToken + "|" + Action + "|" + After.StableToken,
+                other.Before.StableToken + "|" + other.Action + "|" + other.After.StableToken,
+                StringComparison.Ordinal);
+    }
+
+    /// <summary>Complete reachable-state evidence from the existing RMAP13
+    /// transitions. It does not mutate a graph, world, Player, or scene.</summary>
+    public sealed class RmapWorldGraphExploration
+    {
+        internal RmapWorldGraphExploration(IEnumerable<RmapWorldGraphState> sourceStates,
+            IEnumerable<RmapWorldGraphTransition> sourceTransitions)
+        {
+            States = new ReadOnlyCollection<RmapWorldGraphState>((sourceStates ?? Array.Empty<RmapWorldGraphState>())
+                .Where(value => value != null).OrderBy(value => value).ToArray());
+            Transitions = new ReadOnlyCollection<RmapWorldGraphTransition>((sourceTransitions ??
+                Array.Empty<RmapWorldGraphTransition>()).Where(value => value != null).Distinct()
+                .OrderBy(value => value).ToArray());
+        }
+
+        public IReadOnlyList<RmapWorldGraphState> States { get; }
+        public IReadOnlyList<RmapWorldGraphTransition> Transitions { get; }
+    }
+
     public sealed class RmapWorldGraphPlan
     {
         internal RmapWorldGraphPlan(
@@ -395,6 +433,67 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 if (!visited.Add(next)) return;
                 predecessor.Add(next, new Previous(previous, action));
                 queue.Enqueue(next);
+            }
+        }
+
+        /// <summary>
+        /// Enumerates every reachable legal state and transition through the
+        /// same RMAP13 transition function used by Evaluate. Declared analysis
+        /// nodes remain action-less and are never persisted to the source graph.
+        /// </summary>
+        public static RmapWorldGraphExploration ExploreWithAnalysisNodes(
+            IEnumerable<RmapWorldGraphNode> sourceNodes,
+            IEnumerable<string> sourceAnalysisNodeIds,
+            IEnumerable<RmapWorldGraphEdge> sourceEdges,
+            IEnumerable<RmapWorldGraphRole> requestedOrder)
+        {
+            var nodes = (sourceNodes ?? Array.Empty<RmapWorldGraphNode>()).Where(value => value != null)
+                .ToDictionary(value => value.NodeId, value => value, StringComparer.Ordinal);
+            var analysisNodeIds = new HashSet<string>(StringComparer.Ordinal);
+            foreach (string sourceId in sourceAnalysisNodeIds ?? Array.Empty<string>())
+            {
+                string id = RmapWorldGraphIdentity.Require(sourceId, nameof(sourceAnalysisNodeIds));
+                if (nodes.ContainsKey(id) || !analysisNodeIds.Add(id))
+                    throw new ArgumentException("Analysis node IDs must be distinct from source graph nodes.",
+                        nameof(sourceAnalysisNodeIds));
+            }
+            var roles = nodes.Values.GroupBy(value => value.Role).ToDictionary(value => value.Key,
+                value => value.Single());
+            var order = (requestedOrder ?? Array.Empty<RmapWorldGraphRole>()).ToArray();
+            RmapWorldGraphFailure orderFailure = ValidateOrder(order).FirstOrDefault();
+            if (orderFailure != null) throw new ArgumentException(orderFailure.Detail, nameof(requestedOrder));
+            if (!roles.TryGetValue(RmapWorldGraphRole.Start, out RmapWorldGraphNode start) ||
+                !roles.ContainsKey(RmapWorldGraphRole.Exit))
+                throw new ArgumentException("START_OR_EXIT", nameof(sourceNodes));
+
+            var knownNodeIds = new HashSet<string>(nodes.Keys, StringComparer.Ordinal);
+            knownNodeIds.UnionWith(analysisNodeIds);
+            var bySource = (sourceEdges ?? Array.Empty<RmapWorldGraphEdge>()).Where(value => value != null)
+                .Where(value => knownNodeIds.Contains(value.SourceNodeId) && knownNodeIds.Contains(value.TargetNodeId))
+                .OrderBy(value => value).GroupBy(value => value.SourceNodeId, StringComparer.Ordinal)
+                .ToDictionary(value => value.Key, value => value.OrderBy(edge => edge).ToArray(), StringComparer.Ordinal);
+            var initial = new RmapWorldGraphState(start.NodeId, 0, 0, false, false, false);
+            var queue = new Queue<RmapWorldGraphState>();
+            var visited = new HashSet<RmapWorldGraphState>();
+            var transitions = new List<RmapWorldGraphTransition>();
+            queue.Enqueue(initial);
+            visited.Add(initial);
+            while (queue.Count != 0)
+            {
+                RmapWorldGraphState state = queue.Dequeue();
+                foreach (Transition transition in StateTransitions(state, roles, order))
+                    Add(state, transition.State, transition.Action);
+                if (!bySource.TryGetValue(state.PositionNodeId, out RmapWorldGraphEdge[] outgoing)) continue;
+                foreach (RmapWorldGraphEdge edge in outgoing.Where(edge => edge.CanTraverse(state)))
+                    Add(state, new RmapWorldGraphState(edge.TargetNodeId, state.ResourceMask, state.OrderCursor,
+                        state.ForgeMade, state.SealOpen, state.BossComplete), "MOVE|" + edge.EdgeId);
+            }
+            return new RmapWorldGraphExploration(visited, transitions);
+
+            void Add(RmapWorldGraphState before, RmapWorldGraphState after, string action)
+            {
+                transitions.Add(new RmapWorldGraphTransition(before, after, action));
+                if (visited.Add(after)) queue.Enqueue(after);
             }
         }
 
