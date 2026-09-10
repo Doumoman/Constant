@@ -12,6 +12,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 {
     public enum Sv5RouteStateAnchorKind { ExistingGraphNode = 1, GeneralConnection = 2 }
     public enum Sv5RouteStateReadiness { Verified = 1, Pending = 2 }
+    public enum Sv5RouteContactCellKind { Passage = 1, Clearance = 2 }
     public enum Sv5RouteShortcutDecisionCode
     {
         Allowed = 1,
@@ -101,6 +102,67 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         public IReadOnlyList<Sv5RouteStateReviewContact> Contacts => contacts;
         public IReadOnlyList<RmapSpecialWorldPoint> AirWitness => airWitness;
+    }
+
+    /// <summary>One physical route reservation sample used by the shared
+    /// contact-pair enumerator.  The type is deliberately independent from
+    /// RMAP16 so focused fixtures can prove pair completeness.</summary>
+    public sealed class Sv5RouteContactCell
+    {
+        public Sv5RouteContactCell(string routeId, RmapSpecialWorldPoint world,
+            Sv5RouteContactCellKind kind)
+        {
+            if (string.IsNullOrWhiteSpace(routeId))
+                throw new ArgumentException("A route ID is required.", nameof(routeId));
+            if (!Enum.IsDefined(typeof(Sv5RouteContactCellKind), kind))
+                throw new ArgumentOutOfRangeException(nameof(kind));
+            RouteId = routeId.Trim();
+            World = world;
+            Kind = kind;
+        }
+
+        public string RouteId { get; }
+        public RmapSpecialWorldPoint World { get; }
+        public Sv5RouteContactCellKind Kind { get; }
+    }
+
+    /// <summary>An unordered distinct route pair at one shared cell or one
+    /// cardinal face.  Face orientation remains explicit while duplicate
+    /// pair observations at the same physical contact are collapsed.</summary>
+    public sealed class Sv5RouteContactPair : IComparable<Sv5RouteContactPair>
+    {
+        internal Sv5RouteContactPair(string kind, RmapSpecialWorldPoint firstWorld,
+            RmapSpecialWorldPoint secondWorld, string routeA, string routeB,
+            string firstKinds, string secondKinds)
+        {
+            Kind = kind;
+            FirstWorld = firstWorld;
+            SecondWorld = secondWorld;
+            RouteA = routeA;
+            RouteB = routeB;
+            FirstKinds = firstKinds;
+            SecondKinds = secondKinds;
+            Direction = firstWorld.Equals(secondWorld) ? "SHARED" :
+                secondWorld.X > firstWorld.X ? "RIGHT" : secondWorld.X < firstWorld.X ? "LEFT" :
+                secondWorld.Y > firstWorld.Y ? "UP" : "DOWN";
+            Id = kind + "_" + firstWorld.X.ToString(CultureInfo.InvariantCulture) + "_" +
+                firstWorld.Y.ToString(CultureInfo.InvariantCulture) + "_" +
+                secondWorld.X.ToString(CultureInfo.InvariantCulture) + "_" +
+                secondWorld.Y.ToString(CultureInfo.InvariantCulture) + "_" +
+                RmapWorldDefinition.Hash(routeA + "|" + routeB).Substring(0, 12);
+        }
+
+        public string Id { get; }
+        public string Kind { get; }
+        public RmapSpecialWorldPoint FirstWorld { get; }
+        public RmapSpecialWorldPoint SecondWorld { get; }
+        public string RouteA { get; }
+        public string RouteB { get; }
+        public string Direction { get; }
+        public string FirstKinds { get; }
+        public string SecondKinds { get; }
+        public int CompareTo(Sv5RouteContactPair other) => other == null ? 1 :
+            string.Compare(Id, other.Id, StringComparison.Ordinal);
     }
 
     public sealed class Sv5RouteStateReviewContact : IComparable<Sv5RouteStateReviewContact>
@@ -306,9 +368,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Review = review ?? throw new ArgumentNullException(nameof(review));
             LogicalStateVerified = bindings.Count == 11 && proofs.Count == 6 && proofs.All(value => value.Success) &&
                 candidateSetProofs.Count == 6 && candidateSetProofs.All(value => value.Success) &&
-                shortcuts.All(value => value.IsAllowed) && contacts.All(value => value.LogicalStateTransitionChecked &&
-                    !string.Equals(value.Classification, "UNKNOWN_ROUTE_REJECTED", StringComparison.Ordinal) &&
-                    !string.Equals(value.Classification, "INVALID_WITNESS", StringComparison.Ordinal));
+                shortcuts.All(value => value.IsAllowed);
+            ContactStateVerified = contacts.Count != 0 && contacts.All(value =>
+                value.LogicalStateTransitionChecked &&
+                !string.Equals(value.Classification, "UNKNOWN_ROUTE_REJECTED", StringComparison.Ordinal) &&
+                !string.Equals(value.Classification, "INVALID_WITNESS", StringComparison.Ordinal));
             GeometryStateReady = false;
             PlayerVerified = false;
             Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
@@ -324,6 +388,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5RouteStateObligation> Obligations => obligations;
         public Sv5RouteStateReviewInput Review { get; }
         public bool LogicalStateVerified { get; }
+        public bool ContactStateVerified { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
         public string Digest { get; }
@@ -416,6 +481,52 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             if (corePlan == null) throw new ArgumentNullException(nameof(corePlan));
             return RmapWorldGraphPlanner.Plan(corePlan.RouteSource.Definition, policy);
+        }
+
+        /// <summary>Enumerates every unordered distinct route pair at shared
+        /// cells and cardinal faces.  A common route never suppresses the
+        /// remaining Cartesian-product pairs.</summary>
+        public static IReadOnlyList<Sv5RouteContactPair> EnumerateContactPairs(
+            IEnumerable<Sv5RouteContactCell> sourceCells)
+        {
+            var groups = (sourceCells ?? Array.Empty<Sv5RouteContactCell>()).Where(value => value != null)
+                .GroupBy(value => value.World).ToDictionary(value => value.Key, value => value
+                    .GroupBy(cell => cell.RouteId, StringComparer.Ordinal)
+                    .ToDictionary(route => route.Key, route => string.Join("|", route.Select(cell => cell.Kind)
+                        .Distinct().OrderBy(kind => kind).Select(kind => kind.ToString())), StringComparer.Ordinal));
+            var output = new Dictionary<string, Sv5RouteContactPair>(StringComparer.Ordinal);
+            foreach (KeyValuePair<RmapSpecialWorldPoint, Dictionary<string, string>> entry in groups)
+            {
+                string[] routes = entry.Value.Keys.OrderBy(value => value, StringComparer.Ordinal).ToArray();
+                for (var left = 0; left < routes.Length; left++)
+                for (var right = left + 1; right < routes.Length; right++)
+                    AddPair("SHARED", entry.Key, entry.Key, routes[left], routes[right],
+                        entry.Value[routes[left]], entry.Value[routes[right]]);
+
+                foreach (RmapSpecialWorldPoint neighbor in Neighbors(entry.Key))
+                {
+                    if (entry.Key.CompareTo(neighbor) >= 0 || !groups.TryGetValue(neighbor, out var other)) continue;
+                    foreach (string firstRoute in routes)
+                    foreach (string secondRoute in other.Keys.OrderBy(value => value, StringComparer.Ordinal))
+                    {
+                        if (string.Equals(firstRoute, secondRoute, StringComparison.Ordinal)) continue;
+                        string routeA = string.Compare(firstRoute, secondRoute, StringComparison.Ordinal) < 0 ?
+                            firstRoute : secondRoute;
+                        string routeB = string.Equals(routeA, firstRoute, StringComparison.Ordinal) ?
+                            secondRoute : firstRoute;
+                        AddPair("FACE", entry.Key, neighbor, routeA, routeB,
+                            entry.Value[firstRoute], other[secondRoute]);
+                    }
+                }
+            }
+            return new ReadOnlyCollection<Sv5RouteContactPair>(output.Values.OrderBy(value => value).ToArray());
+
+            void AddPair(string kind, RmapSpecialWorldPoint first, RmapSpecialWorldPoint second,
+                string routeA, string routeB, string firstKinds, string secondKinds)
+            {
+                var pair = new Sv5RouteContactPair(kind, first, second, routeA, routeB, firstKinds, secondKinds);
+                if (!output.ContainsKey(pair.Id)) output.Add(pair.Id, pair);
+            }
         }
 
         private static IEnumerable<Sv5RouteConditionBinding> Bind(Sv5CoreReservationPlan corePlan,
@@ -631,25 +742,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5RouteConditionBinding> sourceBindings, Sv5RouteStateReviewInput review)
         {
             var bindings = sourceBindings.ToDictionary(value => value.Route.RouteId, value => value, StringComparer.Ordinal);
-            var byPoint = corePlan.RouteCells.Where(value => value.Kind == Sv5CoreRouteReservationKind.Passage ||
-                    value.Kind == Sv5CoreRouteReservationKind.Clearance).GroupBy(value => value.World)
-                .ToDictionary(value => value.Key, value => value.Select(item => item.RouteId).Distinct(StringComparer.Ordinal)
-                    .OrderBy(item => item, StringComparer.Ordinal).ToArray());
             var output = new Dictionary<string, Sv5RouteContactCheck>(StringComparer.Ordinal);
-            foreach (KeyValuePair<RmapSpecialWorldPoint, string[]> entry in byPoint.Where(value => value.Value.Length > 1))
-                AddContact(output, "SHARED", entry.Key, entry.Value, bindings);
-            foreach (KeyValuePair<RmapSpecialWorldPoint, string[]> entry in byPoint)
-            {
-                foreach (RmapSpecialWorldPoint neighbor in Neighbors(entry.Key))
-                {
-                    if (!byPoint.TryGetValue(neighbor, out string[] other)) continue;
-                    if (entry.Key.CompareTo(neighbor) >= 0 || entry.Value.Intersect(other, StringComparer.Ordinal).Any()) continue;
-                    string[] routes = entry.Value.Concat(other).Distinct(StringComparer.Ordinal).OrderBy(value => value,
-                        StringComparer.Ordinal).ToArray();
-                    if (routes.Select(value => bindings[value].Edge.TraversalCondition).Distinct(StringComparer.Ordinal).Count() > 1)
-                        AddContact(output, "FACE", entry.Key, routes, bindings);
-                }
-            }
+            Sv5RouteContactCell[] cells = corePlan.RouteCells.Where(value =>
+                    value.Kind == Sv5CoreRouteReservationKind.Passage ||
+                    value.Kind == Sv5CoreRouteReservationKind.Clearance)
+                .Select(value => new Sv5RouteContactCell(value.RouteId, value.World,
+                    value.Kind == Sv5CoreRouteReservationKind.Passage ? Sv5RouteContactCellKind.Passage :
+                    Sv5RouteContactCellKind.Clearance)).ToArray();
+            foreach (Sv5RouteContactPair pair in EnumerateContactPairs(cells))
+                AddContact(output, pair, bindings);
             foreach (Sv5RouteStateReviewContact reviewContact in review.Contacts)
             {
                 bool routesExist = reviewContact.RouteIds.All(bindings.ContainsKey);
@@ -658,7 +759,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     reviewContact.RouteIds, routesExist ? "LOGICAL_GUARD_PRESENT_GEOMETRY_PENDING" : "UNKNOWN_ROUTE_REJECTED",
                     routesExist ? "Review label mismatch is classified from actual RMAP13 predicates, not the label alone."
                         : "Review input references an unknown route ID.", routesExist ?
-                    RequiredPredicate(reviewContact.RouteIds, bindings) : "UNKNOWN_ROUTE", routesExist);
+                    RequiredPredicate(reviewContact.RouteIds, bindings) : "UNKNOWN_ROUTE", false);
             }
             if (review.AirWitness.Count != 0)
             {
@@ -676,7 +777,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     Array.Empty<string>(), validWitness ? "STATIC_AIR_CONTACT_GEOMETRY_PENDING" : "INVALID_WITNESS",
                     validWitness ? "Raw 4-neighbour fixed-AIR witness is diagnostic only; it is not Player proof."
                         : "Review witness must retain cardinal endpoints, fixed AIR cells, and SEALED exclusion.",
-                    "CARDINAL_CONTIGUOUS && FIXED_AIR && EXCLUDES_SEALED", validWitness);
+                    "CARDINAL_CONTIGUOUS && FIXED_AIR && EXCLUDES_SEALED", false);
             }
             return output.Values.OrderBy(value => value).ToArray();
         }
@@ -807,18 +908,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             yield return new RmapSpecialWorldPoint(point.X, point.Y + 1);
         }
 
-        private static void AddContact(IDictionary<string, Sv5RouteContactCheck> output, string kind,
-            RmapSpecialWorldPoint point, IEnumerable<string> routeIds,
+        private static void AddContact(IDictionary<string, Sv5RouteContactCheck> output, Sv5RouteContactPair pair,
             IReadOnlyDictionary<string, Sv5RouteConditionBinding> bindings)
         {
-            string[] ids = routeIds.OrderBy(value => value, StringComparer.Ordinal).ToArray();
+            string[] ids = { pair.RouteA, pair.RouteB };
             bool guarded = ids.Select(value => bindings[value].Edge).Any(edge => edge.RequiredResourceMask != 0 ||
                 edge.RequiresForge || edge.RequiresSeal || edge.RequiresBossComplete);
-            string id = ContactId(kind, point, ids);
-            output[id] = new Sv5RouteContactCheck(id, kind, point, ids,
+            output[pair.Id] = new Sv5RouteContactCheck(pair.Id, pair.Kind, pair.FirstWorld, ids,
                 guarded ? "LOGICAL_GUARD_PRESENT_GEOMETRY_PENDING" : "SAME_STAGE_MERGE_GEOMETRY_PENDING",
-                guarded ? "Actual RMAP13 edge predicate remains logical-only until geometry adds the required guard."
-                    : "Same-stage route merge has no Player or geometry proof.", RequiredPredicate(ids, bindings), true);
+                guarded ? "Pair was completely enumerated; its RMAP13 predicates are classified but the mid-route switch is not yet evaluated."
+                    : "Pair was completely enumerated; a split-node transition still requires the shared FSM evaluation.",
+                RequiredPredicate(ids, bindings), false);
         }
 
         private static string RequiredPredicate(IEnumerable<string> routeIds,
@@ -941,6 +1041,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"candidate_set_proof_count\": " + value.CandidateSetProofs.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
                 "  \"candidate_count\": " + value.Candidates.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
                 "  \"logical_state_verified\": " + Json(value.LogicalStateVerified) + ",\n" +
+                "  \"contact_state_verified\": " + Json(value.ContactStateVerified) + ",\n" +
                 "  \"geometry_state_ready\": false,\n" +
                 "  \"player_verified\": false,\n" +
                 "  \"physical_readiness\": \"PENDING_SV5_06_SV5_09_SV5_41_SV5_44\",\n" +
@@ -965,6 +1066,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"shortcut_decisions\": [" + string.Join(",", value.ShortcutDecisions.Select(DecisionJson)) + "],\n" +
                 "  \"contact_checks\": [" + string.Join(",", value.ContactChecks.Select(ContactCheckJson)) + "],\n" +
                 "  \"readiness\": {\"logical_state_verified\": " + Json(value.LogicalStateVerified) +
+                    ", \"contact_state_verified\": " + Json(value.ContactStateVerified) +
                     ", \"geometry_state_ready\": false, \"player_verified\": false}\n" +
                 "}\n";
         }

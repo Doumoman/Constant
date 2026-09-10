@@ -42,3 +42,13 @@ SV5_05의 과거 6순서 PASS만으로 새 후보집합의 접근 조건·복귀
 현재 candidate payload/digest와 보완된 상태 검사 결과를 사용한다. 미해결 geometry와 Player 검증은 별도로 남긴다.
 SV5_41은 합성 geometry, SV5_44는 전체 Player 검증을 담당한다. 기존 45개 ID/순서와 한 Task 실행 원칙을 유지한다.
 <!-- SV5_05_FIX01_END -->
+
+<!-- SV5_06_SPACE_GRAPH_BEGIN -->
+## SV5 공간 그래프 소비
+
+SV5_07~10 및 SV5_41은 MCP/SV5/10_SPACE_GRAPH_V5.md와 MCP/GENERATED/SV5_06의 실제 plan/validation을 읽는다.
+장소·통로·접촉·보호 예약은 동일한 공간 plan digest로 연결한다. 과거 FIX01의 contact checked 표시를 물리 증거로 승격하지 않는다.
+후속 배치 변경은 06의 접촉 전수검사와 현재 FSM 기반 전체 연결 검사를 다시 호출한다.
+PLANNED_LAYOUT / LOGICAL_STATE / CONTACT_STATE / COMPOSED_GEOMETRY / PLAYER 검증을 분리한다.
+SV5_06 완료는 세부 지형·기능·Scene Bake 완료가 아니다. 다음 Task 하나씩만 새 정상 입력으로 연다.
+<!-- SV5_06_SPACE_GRAPH_END -->

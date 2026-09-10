@@ -154,6 +154,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             }));
             Assert.That(reviews, Is.All.Matches<Sv5RouteContactCheck>(value =>
                 value.Classification == "LOGICAL_GUARD_PRESENT_GEOMETRY_PENDING"));
+            Assert.That(reviews.All(value => !value.LogicalStateTransitionChecked), Is.True);
+            Assert.That(analysis.ContactStateVerified, Is.False);
         }
 
         [Test]
@@ -263,7 +265,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         }
 
         private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
-            "SV5_05_FIX01", "legacy_sv5_05_policy_export");
+            "SV5_06", "legacy_exports", "sv5_05_policy_t10");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static void Write(string path, string text) => File.WriteAllText(path, text, new UTF8Encoding(false));
 

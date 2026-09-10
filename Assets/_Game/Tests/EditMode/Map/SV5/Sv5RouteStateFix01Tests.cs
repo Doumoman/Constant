@@ -119,14 +119,16 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             {
                 new Sv5RouteStateReviewContact(new RmapSpecialWorldPoint(1, 1), new[] { "UNKNOWN_ROUTE", "OTHER_UNKNOWN_ROUTE" }),
             }, new[] { new RmapSpecialWorldPoint(0, 0), new RmapSpecialWorldPoint(0, 1) }));
-            Assert.That(invalid.LogicalStateVerified, Is.False);
+            Assert.That(invalid.LogicalStateVerified, Is.True);
+            Assert.That(invalid.ContactStateVerified, Is.False);
             Assert.That(invalid.ContactChecks.Any(value => value.Classification == "UNKNOWN_ROUTE_REJECTED"), Is.True);
             Assert.That(invalid.ContactChecks.Single(value => value.Id == "AIR_WITNESS_109_EDGE").Classification, Is.EqualTo("INVALID_WITNESS"));
 
             Sv5RouteStateAnalysis actual = Analyze(SafeCandidates(), ActualReview());
             Sv5RouteContactCheck[] reviews = actual.ContactChecks.Where(value => value.Kind == "REVIEW_LABEL_CONTACT").ToArray();
             Assert.That(reviews.Select(value => value.World), Is.EquivalentTo(new[] { new RmapSpecialWorldPoint(415, 301), new RmapSpecialWorldPoint(491, 301), new RmapSpecialWorldPoint(523, 134) }));
-            Assert.That(reviews.All(value => value.LogicalStateTransitionChecked && value.RequiredPredicate.Length != 0), Is.True);
+            Assert.That(reviews.All(value => !value.LogicalStateTransitionChecked && value.RequiredPredicate.Length != 0), Is.True);
+            Assert.That(actual.ContactStateVerified, Is.False);
             Assert.That(actual.ContactChecks.Single(value => value.Id == "AIR_WITNESS_109_EDGE").Classification, Is.EqualTo("STATIC_AIR_CONTACT_GEOMETRY_PENDING"));
             Assert.That(actual.GeometryStateReady, Is.False);
             Assert.That(actual.PlayerVerified, Is.False);
@@ -205,7 +207,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Write(Path.Combine(directory, "obligations.csv"), Sv5RouteStateExport.ObligationsCsv(analysis));
             Write(Path.Combine(directory, "route_state_manifest.json"), Sv5RouteStateExport.ManifestJson(analysis));
         }
-        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED", "SV5_05_FIX01");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
+            "SV5_06", "legacy_exports", "sv5_05_fix01_t05");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static void Write(string path, string text) => File.WriteAllText(path, text, new UTF8Encoding(false));
         private static string HashFile(string path)
