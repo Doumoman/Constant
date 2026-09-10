@@ -215,7 +215,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static string GeneratedDirectory()
         {
             string root = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
-            return Path.Combine(root, "MapDesign", "MCP", "GENERATED", "SV5_06_FIX02", "legacy_exports",
+            return Path.Combine(root, "MapDesign", "MCP", "GENERATED", "SV5_06_FIX03", "legacy_exports",
                 "sv5_04_core_t08");
         }
 

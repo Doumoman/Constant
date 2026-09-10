@@ -1,0 +1,62 @@
+{
+  "format": "sv5_06_fix03_package_v1",
+  "task": "SV5_06_FIX03",
+  "bound_task_sha256": "ba914e5b18054260e59f5311a7a3d27eb50d146ba65eafe1844ad59a32f213c1",
+  "files": [
+    {
+      "path": "PRECHECK.py",
+      "sha256": "2d59030af67137b7d2c14ed5b6f98b7f7697df076dafff22fca9d7917060a073",
+      "bytes": 10232
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "sha256": "362a02c8ed5628b0de0b0480b6cda000e3b4cef8ad26c78422af79670603251b",
+      "bytes": 813
+    },
+    {
+      "path": "REGISTRATION.diff",
+      "sha256": "e04eedb4766a7dac2bfd27f36dfbdadaaa4a87d726e8a69de454f1dd76588abc",
+      "bytes": 696
+    },
+    {
+      "path": "REGISTRATION.json",
+      "sha256": "a5b8497abdb3598b6b6ebdf4b44f7d1247604b7e70cf387c4664c960b2b7c83f",
+      "bytes": 1818
+    },
+    {
+      "path": "REGISTRATION.md",
+      "sha256": "f384186818c256551c526ca9a78cc3e178c8054d812aaeeb69caddf478f2ddc9",
+      "bytes": 2306
+    },
+    {
+      "path": "REPAIR_CONTRACT.md",
+      "sha256": "50b0f2b54aa808800064e51fbffb167120187ae462804566e7af0f1b16189fdb",
+      "bytes": 9729
+    },
+    {
+      "path": "REPRODUCE.py",
+      "sha256": "8209da9c0a02f6a169be8635a4291991ab1a22aa4a67b6c926f51c06227f9478",
+      "bytes": 6622
+    },
+    {
+      "path": "REVIEW.pdf",
+      "sha256": "0cde8e0b325df3561944564a295befea4c2c86f7aac2b6c5bc0833d9489c6b52",
+      "bytes": 33536
+    },
+    {
+      "path": "REVIEW_FINDINGS.json",
+      "sha256": "b813904a363e4b8db520cea152cf1832130c0dafd749574e2a0e1b1fcda785de",
+      "bytes": 13396
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "94e695c8815ac7e1e22cc43ce258c22cb7080aaaeb229eaf062f9572011bb286",
+      "bytes": 86820
+    },
+    {
+      "path": "SV5_06_FIX03.md",
+      "sha256": "ba914e5b18054260e59f5311a7a3d27eb50d146ba65eafe1844ad59a32f213c1",
+      "bytes": 5187
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+issue_id,owner_task,requirement,readiness
+"SV5_06_CONDITION_CONTACTS","SV5_06_SPACE_GRAPH","Resolve or guard condition-crossing route contacts in final generated geometry.","PENDING"
+"SV5_06_START_EXIT","SV5_06_SPACE_GRAPH","Declare use or non-use of the preserved Start EXIT port in generated geometry.","PENDING"
+"SV5_06_VILLAGE_PORTS","SV5_06_SPACE_GRAPH","Connect preserved Village ENTRY/EXIT optional access and return without making it mandatory.","PENDING"
+"SV5_09_ROUTE_RECHECK","SV5_09_LOOPS","Recheck shortcut and condition boundaries after loop generation.","PENDING"
+"SV5_41_COMPOSED_GEOMETRY","SV5_41_COMPOSE","Recheck final geometry contacts before geometry readiness promotion.","PENDING"
+"SV5_44_WHOLE_WORLD_PLAYER","SV5_44_WORLD_PLAYER","Run whole-world Player traversal verification after composed geometry is available.","PENDING"

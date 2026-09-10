@@ -136,14 +136,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 RmapWorldGraphEdge left = known ? leftRoute.Edge : null;
                 RmapWorldGraphEdge right = known ? rightRoute.Edge : null;
                 string predicate = known ? PredicatePair(left, right) : "UNKNOWN";
+                bool samePredicate = known && SamePredicate(left, right);
+                Sv5SpaceGate boundaryGate = known && !samePredicate ? SelectBoundaryGate(contact, gates) : null;
                 Sv5SpaceCrossingKind crossing = !known || !checkedState ? Sv5SpaceCrossingKind.Pending :
-                    SamePredicate(left, right) ? Sv5SpaceCrossingKind.Join : Sv5SpaceCrossingKind.Separated;
-                string boundaryId = string.Empty;
+                    samePredicate ? Sv5SpaceCrossingKind.Join : boundaryGate != null ?
+                    Sv5SpaceCrossingKind.ConditionalGate : Sv5SpaceCrossingKind.Pending;
+                string boundaryId = boundaryGate == null ? string.Empty : boundaryGate.BoundaryId;
                 decisions.Add(new Sv5SpaceContactDecision(contact, splitNodeIds[contact.Id], crossing, predicate,
                     boundaryId, contactCoverageVerified, known && checkedState, known && checkedState ?
                     (crossing == Sv5SpaceCrossingKind.Join ?
-                    "The complete compatible-predicate pair is a shared split node evaluated by RMAP13." :
-                    "The complete incompatible-predicate pair remains a planned separated boundary; route-owned typed gates are validated before every source segment repeats its predicate.") :
+                    "The compatible pair is one global world-cell/face join; Clearance remains non-traversable." :
+                    crossing == Sv5SpaceCrossingKind.ConditionalGate ?
+                    "The incompatible pair remains visible in the global coordinate graph and is covered by the typed global face-cut boundary " + boundaryId + "." :
+                    "The incompatible pair has no verifiable global boundary.") :
                     "The contact could not be accepted by the shared finite-state projection."));
             }
             return new Sv5SpaceProjectionResult(decisions, gates, proofs, gateStateChecks, diagnostics);
@@ -152,6 +157,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 string node = NodeId(placeId, startNodeId);
                 if (!string.Equals(node, startNodeId, StringComparison.Ordinal)) optionalNodeIds.Add(node);
+            }
+
+            Sv5SpaceGate SelectBoundaryGate(Sv5RouteContactPair contact, IEnumerable<Sv5SpaceGate> sourceGates)
+            {
+                return (sourceGates ?? Array.Empty<Sv5SpaceGate>()).Where(value =>
+                        string.Equals(value.SourceRouteId, contact.RouteA, StringComparison.Ordinal) ||
+                        string.Equals(value.SourceRouteId, contact.RouteB, StringComparison.Ordinal))
+                    .OrderByDescending(value => PredicateRank(value.TypedPredicate))
+                    .ThenBy(value => value.SideAAnchor).ThenBy(value => value.Id, StringComparer.Ordinal)
+                    .FirstOrDefault();
             }
         }
 
@@ -284,6 +299,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             right != null && left.RequiredResourceMask == right.RequiredResourceMask &&
             left.RequiresForge == right.RequiresForge && left.RequiresSeal == right.RequiresSeal &&
             left.RequiresBossComplete == right.RequiresBossComplete;
+        private static int PredicateRank(Sv5SpaceGatePredicate value) => value.RequiresBossComplete ? 4 :
+            value.RequiresSeal ? 3 : value.RequiresForge ? 2 : value.RequiredResourceMask != 0 ? 1 : 0;
         private static string EdgePredicate(RmapWorldGraphEdge edge) => edge.EdgeId + ":mask=" +
             edge.RequiredResourceMask.ToString(CultureInfo.InvariantCulture) + ",forge=" + (edge.RequiresForge ? "1" : "0") +
             ",seal=" + (edge.RequiresSeal ? "1" : "0") + ",boss=" + (edge.RequiresBossComplete ? "1" : "0");

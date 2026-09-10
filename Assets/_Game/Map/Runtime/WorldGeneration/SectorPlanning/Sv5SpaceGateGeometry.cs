@@ -121,6 +121,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Where(value => value != null).ToArray();
             var edges = core.RouteSource.Graph.Edges.ToDictionary(value => value.EdgeId, value => value,
                 StringComparer.Ordinal);
+            var globalPassage = new HashSet<RmapSpecialWorldPoint>(connections.SelectMany(value =>
+                value.Centerline.Concat(value.ApertureCells)));
             var output = new List<Sv5SpaceGate>();
             foreach (Sv5SpaceConnection connection in connections.Where(value => value.Kind ==
                          Sv5SpaceConnectionKind.CoreProgression && edges.TryGetValue(value.SourceGraphEdgeId,
@@ -128,7 +130,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 RmapWorldGraphEdge edge = edges[connection.SourceGraphEdgeId];
                 GateCut cut = FullWidthCut(core, connection);
-                Sv5SpaceBoundaryFace[] faces = cut.Faces.ToArray();
+                Sv5SpaceBoundaryFace[] faces = cut.Faces.Where(value => globalPassage.Contains(value.First) &&
+                    globalPassage.Contains(value.Second)).ToArray();
+                if (faces.Length == 0)
+                    throw new InvalidOperationException("A guarded connection needs a traversable global cut: " +
+                        connection.Id);
                 Sv5SpaceGatePredicate predicate = Sv5SpaceGatePredicate.FromEdge(edge);
                 string routeKey = Sv5SpaceGraphPlanner.RouteKey(connection);
                 string boundaryId = "SV5_ROUTE_BOUNDARY_" + RmapWorldDefinition.Hash(connection.Id + "|" +
@@ -147,7 +153,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     "SEALED_BLOCKS_ROUTE_OWNED_FULL_WIDTH_FACES",
                     "OPEN_RESTORES_SOURCE_EDGE_DIRECTION"));
             }
-            return new ReadOnlyCollection<Sv5SpaceGate>(output.OrderBy(value => value).ToArray());
+            return Sv5SpacePhysicalMovement.ExpandGlobalCuts(core, connections,
+                output.OrderBy(value => value).ToArray());
         }
 
         internal static IReadOnlyList<Sv5SpaceGateStateCheck> BuildChecks(Sv5CoreReservationPlan core,
@@ -210,6 +217,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 StringComparer.Ordinal);
             var protectedAir = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Where(value =>
                 value.Protection == RmapSpecialProtectionKind.ProtectedAir).Select(value => value.World));
+            var globalPassage = new HashSet<RmapSpecialWorldPoint>(connections.SelectMany(value =>
+                value.Centerline.Concat(value.ApertureCells)));
             var errors = new List<string>();
 
             foreach (Sv5SpaceConnection connection in connections.Where(value => value.Kind ==
@@ -225,9 +234,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 if (gate.SourceRouteId != Sv5SpaceGraphPlanner.RouteKey(connection) ||
                     gate.SourcePortId != connection.FromPortId || gate.TargetPortId != connection.ToPortId)
                     errors.Add("GATE_SOURCE_BINDING_MISMATCH|" + gate.Id);
-                var envelope = new HashSet<RmapSpecialWorldPoint>(connection.Envelope);
-                if (gate.BlockingFaces.Any(value => !envelope.Contains(value.First) || !envelope.Contains(value.Second)))
-                    errors.Add("GATE_FACE_OUTSIDE_ACCEPTED_ENVELOPE|" + gate.Id);
+                if (gate.BlockingFaces.Any(value => !globalPassage.Contains(value.First) ||
+                    !globalPassage.Contains(value.Second)))
+                    errors.Add("GATE_FACE_OUTSIDE_GLOBAL_PASSAGE|" + gate.Id);
                 if (gate.BlockingCells.Any(protectedAir.Contains))
                     errors.Add("GATE_PROTECTED_AIR_STATE_CONFLICT|" + gate.Id);
                 MovementEvidence sealedEvidence = Explore(core, connections, gates, connection, 0, false,
@@ -249,6 +258,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             })
                 if (checks.Count(value => value.Id == required && value.Success) != 1)
                     errors.Add("GATE_REQUIRED_WITNESS_MISSING|" + required);
+            errors.AddRange(Sv5SpacePhysicalMovement.FindStateErrors(core, connections, gates));
             return new ReadOnlyCollection<string>(errors.Distinct(StringComparer.Ordinal)
                 .OrderBy(value => value, StringComparer.Ordinal).ToArray());
         }
@@ -258,97 +268,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Sv5SpaceConnection connection, ulong resourceMask, bool forgeMade, bool sealOpen, bool bossComplete,
             bool? targetOpenOverride)
         {
-            var accesses = core.Source.Accesses.ToDictionary(value => value.Id, value => value,
-                StringComparer.Ordinal);
-            RmapSpecialAccess from = accesses[connection.FromPortId];
-            RmapSpecialAccess to = accesses[connection.ToPortId];
-            Sv5SpaceConnection[] connections = (sourceConnections ?? Array.Empty<Sv5SpaceConnection>())
-                .Where(value => value != null).ToArray();
-            var allowed = connections.GroupBy(Sv5SpaceGraphPlanner.RouteKey, StringComparer.Ordinal)
-                .ToDictionary(value => value.Key, value => new HashSet<RmapSpecialWorldPoint>(value.SelectMany(
-                    item => item.Envelope)), StringComparer.Ordinal);
-            Sv5SpaceGate[] sealedGates = (sourceGates ?? Array.Empty<Sv5SpaceGate>()).Where(value => value != null &&
-                !(value.SourceConnectionId == connection.Id && targetOpenOverride.HasValue ?
-                    targetOpenOverride.Value : value.TypedPredicate.IsOpen(resourceMask, forgeMade, sealOpen,
-                        bossComplete))).ToArray();
-            var blockedCells = sealedGates.GroupBy(value => value.SourceRouteId, StringComparer.Ordinal)
-                .ToDictionary(value => value.Key, value => new HashSet<RmapSpecialWorldPoint>(value.SelectMany(
-                    item => item.BlockingCells)), StringComparer.Ordinal);
-            var blockedFaces = sealedGates.GroupBy(value => value.SourceRouteId, StringComparer.Ordinal)
-                .ToDictionary(value => value.Key, value => new HashSet<string>(value.SelectMany(item =>
-                    item.BlockingFaces).Select(item => item.StableToken), StringComparer.Ordinal),
-                    StringComparer.Ordinal);
-            IReadOnlyList<Sv5RouteContactCell> contactCells = Sv5SpaceGraphValidator.AcceptedContactCells(core,
-                connections);
-            Sv5RouteContactPair[] contacts = Sv5RouteStatePolicy.EnumerateContactPairs(contactCells)
-                .Where(value => SamePredicate(core, connections, value.RouteA, value.RouteB)).ToArray();
-            var crossings = new Dictionary<RoutePoint, List<RoutePoint>>();
-            foreach (Sv5RouteContactPair contact in contacts)
-            {
-                AddCrossing(new RoutePoint(contact.RouteA, contact.RouteAWorld),
-                    new RoutePoint(contact.RouteB, contact.RouteBWorld));
-                AddCrossing(new RoutePoint(contact.RouteB, contact.RouteBWorld),
-                    new RoutePoint(contact.RouteA, contact.RouteAWorld));
-            }
-            string sourceRoute = Sv5SpaceGraphPlanner.RouteKey(connection);
-            var reached = new HashSet<RoutePoint>();
-            var queue = new Queue<RoutePoint>();
-            foreach (RmapSpecialWorldPoint point in from.OpenCells.Where(value => allowed[sourceRoute].Contains(value) &&
-                         !IsBlocked(sourceRoute, value)))
-            {
-                var start = new RoutePoint(sourceRoute, point);
-                if (reached.Add(start)) queue.Enqueue(start);
-            }
-            while (queue.Count != 0)
-            {
-                RoutePoint current = queue.Dequeue();
-                foreach (RmapSpecialWorldPoint nextWorld in Neighbors(current.World))
-                {
-                    if (!allowed[current.Route].Contains(nextWorld) || IsBlocked(current.Route, nextWorld) ||
-                        IsFaceBlocked(current.Route, current.World, nextWorld)) continue;
-                    var next = new RoutePoint(current.Route, nextWorld);
-                    if (!reached.Add(next)) continue;
-                    queue.Enqueue(next);
-                }
-                if (!crossings.TryGetValue(current, out List<RoutePoint> adjacent)) continue;
-                foreach (RoutePoint next in adjacent)
-                    if (allowed[next.Route].Contains(next.World) && !IsBlocked(next.Route, next.World) &&
-                        reached.Add(next)) queue.Enqueue(next);
-            }
-            Sv5SpaceGate target = (sourceGates ?? Array.Empty<Sv5SpaceGate>()).Single(value =>
-                value.SourceConnectionId == connection.Id);
-            return new MovementEvidence(reached.Contains(new RoutePoint(sourceRoute, target.SideAAnchor)),
-                to.OpenCells.Any(value => reached.Contains(new RoutePoint(sourceRoute, value))));
-
-            bool IsBlocked(string route, RmapSpecialWorldPoint world) =>
-                blockedCells.TryGetValue(route, out HashSet<RmapSpecialWorldPoint> values) && values.Contains(world);
-            bool IsFaceBlocked(string route, RmapSpecialWorldPoint first, RmapSpecialWorldPoint second) =>
-                blockedFaces.TryGetValue(route, out HashSet<string> values) && values.Contains(FaceToken(first, second));
-            void AddCrossing(RoutePoint first, RoutePoint second)
-            {
-                if (!crossings.TryGetValue(first, out List<RoutePoint> values))
-                    crossings.Add(first, values = new List<RoutePoint>());
-                values.Add(second);
-            }
-        }
-
-        private static bool SamePredicate(Sv5CoreReservationPlan core,
-            IEnumerable<Sv5SpaceConnection> sourceConnections, string leftRoute, string rightRoute)
-        {
-            var edges = core.RouteSource.Graph.Edges.ToDictionary(value => value.EdgeId, value => value,
-                StringComparer.Ordinal);
-            var routes = (sourceConnections ?? Array.Empty<Sv5SpaceConnection>()).Where(value => value != null)
-                .ToDictionary(Sv5SpaceGraphPlanner.RouteKey, value => value, StringComparer.Ordinal);
-            if (!routes.ContainsKey(leftRoute) || !routes.ContainsKey(rightRoute)) return false;
-            Sv5SpaceGatePredicate left = Predicate(leftRoute), right = Predicate(rightRoute);
-            return left.Equals(right);
-
-            Sv5SpaceGatePredicate Predicate(string route)
-            {
-                Sv5SpaceConnection value = routes[route];
-                return edges.TryGetValue(value.SourceGraphEdgeId, out RmapWorldGraphEdge edge) ?
-                    Sv5SpaceGatePredicate.FromEdge(edge) : new Sv5SpaceGatePredicate(0, false, false, false);
-            }
+            Sv5SpaceGate[] targetGate = (sourceGates ?? Array.Empty<Sv5SpaceGate>()).Where(value =>
+                value != null && value.SourceConnectionId == connection.Id).ToArray();
+            Sv5SpacePhysicalReachability value = Sv5SpacePhysicalMovement.Explore(core, sourceConnections,
+                targetGate, connection, resourceMask, forgeMade, sealOpen, bossComplete, targetOpenOverride);
+            return new MovementEvidence(value.SourceAnchorReachable, value.TargetPortReachable);
         }
 
         private static GateCut FullWidthCut(Sv5CoreReservationPlan core, Sv5SpaceConnection connection)
@@ -442,18 +366,5 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             public RmapSpecialWorldPoint TargetAnchor { get; }
         }
 
-        private sealed class RoutePoint : IEquatable<RoutePoint>
-        {
-            public RoutePoint(string route, RmapSpecialWorldPoint world) { Route = route; World = world; }
-            public string Route { get; }
-            public RmapSpecialWorldPoint World { get; }
-            public bool Equals(RoutePoint other) => other != null && World.Equals(other.World) &&
-                string.Equals(Route, other.Route, StringComparison.Ordinal);
-            public override bool Equals(object obj) => Equals(obj as RoutePoint);
-            public override int GetHashCode()
-            {
-                unchecked { return ((Route != null ? Route.GetHashCode() : 0) * 397) ^ World.GetHashCode(); }
-            }
-        }
     }
 }

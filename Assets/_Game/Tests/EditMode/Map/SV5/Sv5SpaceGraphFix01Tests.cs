@@ -86,14 +86,15 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         public void N05_SideBypassFixtureFailsAndAcceptedFullBoundaryPassesOpenSealedChecks()
         {
             Assert.That(Plan.Value.ContactDecisions.All(value => value.Crossing == Sv5SpaceCrossingKind.Join ||
-                value.Crossing == Sv5SpaceCrossingKind.Separated), Is.True);
+                value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
             Assert.That(Plan.Value.ContactDecisions.Any(value =>
-                value.Crossing == Sv5SpaceCrossingKind.Separated), Is.True);
+                value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
             Assert.That(Plan.Value.Gates.All(value => value.BlockingFaces.Count > 0 &&
-                value.SealedState.Contains("ROUTE_OWNED_FULL_WIDTH") &&
-                value.OpenState.Contains("SOURCE_EDGE_DIRECTION")), Is.True);
+                value.SealedState.Contains("GLOBAL_WORLD_FACE_CUT") &&
+                value.OpenState.Contains("GLOBAL_WORLD_FACES")), Is.True);
             Assert.That(Sv5SpaceGateGeometry.FindStateErrors(Plan.Value.Core, Plan.Value.Connections,
                 Plan.Value.Gates, Plan.Value.GateStateChecks), Is.Empty);
+            Assert.That(Plan.Value.PhysicalMovement.Success, Is.True);
         }
 
         [Test]
@@ -153,7 +154,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 new FileInfo(Path.Combine(directory, value)).Length > 0), Is.True);
             Assert.That(File.ReadAllText(Path.Combine(directory, "validation.json")),
                 Does.Contain("\"status\": \"PASS\"").And.Contain(Plan.Value.Digest));
-            Assert.That(Directory.GetFiles(Path.Combine(directory, "preview"), "*.svg").Length, Is.EqualTo(19));
+            Assert.That(Directory.GetFiles(Path.Combine(directory, "preview"), "*.svg").Length, Is.EqualTo(20));
             TestContext.Out.WriteLine("SV5_06_FIX01_EXPORT_BEGIN");
             TestContext.Out.WriteLine("PLAN_DIGEST=" + Plan.Value.Digest);
             TestContext.Out.WriteLine("OUTPUT_DIRECTORY=" + directory);
@@ -211,7 +212,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static int I(string value) => int.Parse(value, CultureInfo.InvariantCulture);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX02", "legacy_exports",
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX03", "legacy_exports",
             "sv5_06_fix01_n08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)

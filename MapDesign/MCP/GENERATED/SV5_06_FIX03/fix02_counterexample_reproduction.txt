@@ -1,0 +1,20 @@
+{
+  "status": "EXPECTED_FIX02_FAILURE_REPRODUCED",
+  "scope": "EXACT_EXPORTED_ACCEPTED_ENVELOPE_AND_GATE_FACES;NOT_UNITY_OR_PLAYER",
+  "contact_counts": {
+    "all": 7188,
+    "separated": 225,
+    "shared": 61,
+    "face": 164,
+    "empty_boundary": 225,
+    "passage_to_passage": 93
+  },
+  "forbidden_cases": [
+    {"condition":"FORGE_GATED_SEAL_APPROACH","state":"INITIAL","route_identity_reachable":false,"all_contacts_reachable":true},
+    {"condition":"SEAL_GATED_BOSS_APPROACH","state":"INITIAL","route_identity_reachable":false,"all_contacts_reachable":true},
+    {"condition":"SEAL_GATED_BOSS_APPROACH","state":"FORGE","route_identity_reachable":false,"all_contacts_reachable":true},
+    {"condition":"BOSS_GATED_EXIT_APPROACH","state":"INITIAL","route_identity_reachable":false,"all_contacts_reachable":true},
+    {"condition":"BOSS_GATED_EXIT_APPROACH","state":"FORGE","route_identity_reachable":false,"all_contacts_reachable":true},
+    {"condition":"BOSS_GATED_EXIT_APPROACH","state":"SEAL","route_identity_reachable":false,"all_contacts_reachable":true}
+  ]
+}

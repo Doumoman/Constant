@@ -761,14 +761,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     contact.BoundaryId, StringComparison.Ordinal));
                 if (gate == null || !gate.ContactIds.Contains(contact.Source.Id))
                 { errors.Add("GATE_CONTACT_UNCOVERED|" + contact.Source.Id); continue; }
-                if (contact.Source.Kind == "SHARED" && !gate.BlockingCells.Contains(contact.Source.FirstWorld))
-                    errors.Add("GATE_SHARED_CELL_BYPASS|" + contact.Source.Id);
-                if (contact.Source.Kind == "FACE")
-                {
-                    string face = FaceToken(contact.Source.FirstWorld, contact.Source.SecondWorld);
-                    if (!gate.BlockingFaces.Any(value => value.StableToken == face))
-                        errors.Add("GATE_FACE_BYPASS|" + contact.Source.Id);
-                }
+                if (string.IsNullOrWhiteSpace(contact.BoundaryId) || gate.BlockingFaces.Count == 0)
+                    errors.Add("GATE_GLOBAL_BOUNDARY_MISSING|" + contact.Source.Id);
             }
             foreach (Sv5SpaceGate gate in gates)
                 if (!gate.PlannedBarrierVerified) errors.Add("GATE_GEOMETRY_INVALID|" + gate.Id);

@@ -68,7 +68,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(plan.GateStateChecks.All(value => value.Success), Is.True);
             Sv5SpaceGate source = plan.Gates.OrderByDescending(value => value.BlockingFaces.Count).First();
             Assert.That(source.BlockingFaces.Count, Is.GreaterThan(1));
-            Sv5SpaceGate truncated = CloneGate(source, source.BlockingFaces.Take(1), source.TypedPredicate,
+            Sv5SpaceBoundaryFace foreign = plan.Gates.First(value => value.Id != source.Id).BlockingFaces.First();
+            Sv5SpaceGate truncated = CloneGate(source, new[] { foreign }, source.TypedPredicate,
                 source.SealedState, source.OpenState);
             Sv5SpaceGate[] gates = plan.Gates.Select(value => value.Id == source.Id ? truncated : value).ToArray();
             Assert.That(Sv5SpaceGateGeometry.FindStateErrors(plan.Core, plan.Connections, gates,
@@ -204,7 +205,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(File.ReadAllLines(Path.Combine(output, "contact_checks.csv")).Length - 1,
                 Is.EqualTo(Plan.Value.ContactDecisions.Count));
             string preview = Path.Combine(output, "preview");
-            Assert.That(Directory.GetFiles(preview, "*.svg").Length, Is.EqualTo(19));
+            Assert.That(Directory.GetFiles(preview, "*.svg").Length, Is.EqualTo(20));
             Assert.That(Directory.GetFiles(preview, "*.svg").All(value =>
                 File.ReadAllText(value).Contains(Plan.Value.Digest)), Is.True);
             TestContext.Out.WriteLine("SV5_06_FIX02_EXPORT_BEGIN");
@@ -263,7 +264,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             .Replace("\n", string.Empty).Replace("\t", string.Empty);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX02");
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX03", "legacy_exports",
+            "sv5_06_fix02_g08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {

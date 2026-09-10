@@ -1,0 +1,420 @@
+{
+  "format": "sv5_06_fix02_independent_review_v1",
+  "task": "SV5_06_FIX02",
+  "verdict": "CORRECTION_REQUIRED",
+  "review_zip": {
+    "sha256": "ba2f1cade402ed104be59942f1dfaba53fc8d98217e2f33c5e465bfb5ad7ecbc",
+    "entries": 266,
+    "manifest_files_verified": 265,
+    "manifest_hash_mismatches": 0,
+    "reported_commit": "05ff2344263d1cbd46f6c9b21995a06539d02832",
+    "reported_parent": "de57f7b1454d2b138bda9915bdb03ad1ae09cbe3",
+    "reported_tests": {
+      "total": 51,
+      "passed": 51,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "accepted_plan": {
+    "digest": "e31b49b72f3c90857ac4ebce75ffab1cfef27a40b7b65a87e9d518a07226b905",
+    "connections": 28,
+    "contacts": 7188,
+    "contact_crossings": {
+      "Join": 6963,
+      "Separated": 225
+    },
+    "separated_contacts": 225,
+    "separated_by_kind": {
+      "FACE": 164,
+      "SHARED": 61
+    },
+    "separated_with_empty_boundary_id": 225,
+    "separated_with_passage_on_both_routes": 93,
+    "conditional_gates": 3
+  },
+  "primary_issue": {
+    "id": "SG06F2-R1",
+    "severity": "BLOCKING",
+    "title": "Predicate-incompatible physical contacts are removed from movement instead of separated by geometry",
+    "facts": [
+      "All 225 predicate-incompatible contacts are labelled Separated with an empty boundary_id.",
+      "61 of those contacts share the exact same world cell and 164 touch across a cardinal face.",
+      "93 separated contacts include Passage ownership on both routes.",
+      "Sv5SpaceGateGeometry.Explore filters crossings through SamePredicate before BFS.",
+      "Blocked cells and faces are keyed by route identity, so a physical cell is not treated globally.",
+      "Only three guarded source-route cuts exist; no geometry realizes the other separated contacts."
+    ],
+    "source_locations": [
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs",
+        "lines": "267-284",
+        "meaning": "route-keyed envelopes and SamePredicate crossing filter"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs",
+        "lines": "274-280,323-326",
+        "meaning": "route-keyed blocked cells/faces"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+        "lines": "reviewed production projection",
+        "meaning": "only compatible contacts become split joins"
+      }
+    ]
+  },
+  "forbidden_reachability_cases": [
+    {
+      "condition": "FORGE_GATED_SEAL_APPROACH",
+      "state": {
+        "name": "INITIAL",
+        "resource_mask": 0,
+        "forge": false,
+        "seal": false,
+        "boss_complete": false
+      },
+      "gate_id": "SV5_GATE_5FCEEA94BE3D1091CA34",
+      "predicate_open": false,
+      "submitted_route_identity_crossing_reachable": false,
+      "coordinate_contact_crossing_reachable": true,
+      "coordinate_path_nodes": 252,
+      "route_switch_count": 4,
+      "route_switches": [
+        {
+          "from_route": "29dc755094886d48300e9f8cf0fb0e54f09125a29c2fac78855bda7885f7dbaa",
+          "from_cell": [
+            523,
+            135
+          ],
+          "to_route": "0fc428a59647d62495d286c4c25fd66afac209842182354729188041dc5796e3",
+          "to_cell": [
+            523,
+            136
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "0fc428a59647d62495d286c4c25fd66afac209842182354729188041dc5796e3",
+          "from_cell": [
+            502,
+            143
+          ],
+          "to_route": "a98881f4240397805efa4bd7a49fec0d564a271544864f5fdd66657aed45cdff",
+          "to_cell": [
+            502,
+            144
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "a98881f4240397805efa4bd7a49fec0d564a271544864f5fdd66657aed45cdff",
+          "from_cell": [
+            491,
+            302
+          ],
+          "to_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "to_cell": [
+            492,
+            302
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "from_cell": [
+            532,
+            302
+          ],
+          "to_route": "29dc755094886d48300e9f8cf0fb0e54f09125a29c2fac78855bda7885f7dbaa",
+          "to_cell": [
+            532,
+            303
+          ],
+          "kind": "contact"
+        }
+      ]
+    },
+    {
+      "condition": "SEAL_GATED_BOSS_APPROACH",
+      "state": {
+        "name": "INITIAL",
+        "resource_mask": 0,
+        "forge": false,
+        "seal": false,
+        "boss_complete": false
+      },
+      "gate_id": "SV5_GATE_75AA75C4364C9D97E839",
+      "predicate_open": false,
+      "submitted_route_identity_crossing_reachable": false,
+      "coordinate_contact_crossing_reachable": true,
+      "coordinate_path_nodes": 46,
+      "route_switch_count": 2,
+      "route_switches": [
+        {
+          "from_route": "88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2",
+          "from_cell": [
+            560,
+            313
+          ],
+          "to_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "to_cell": [
+            559,
+            313
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "from_cell": [
+            532,
+            321
+          ],
+          "to_route": "88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2",
+          "to_cell": [
+            532,
+            320
+          ],
+          "kind": "contact"
+        }
+      ]
+    },
+    {
+      "condition": "SEAL_GATED_BOSS_APPROACH",
+      "state": {
+        "name": "FORGE",
+        "resource_mask": 7,
+        "forge": true,
+        "seal": false,
+        "boss_complete": false
+      },
+      "gate_id": "SV5_GATE_75AA75C4364C9D97E839",
+      "predicate_open": false,
+      "submitted_route_identity_crossing_reachable": false,
+      "coordinate_contact_crossing_reachable": true,
+      "coordinate_path_nodes": 46,
+      "route_switch_count": 2,
+      "route_switches": [
+        {
+          "from_route": "88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2",
+          "from_cell": [
+            560,
+            313
+          ],
+          "to_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "to_cell": [
+            559,
+            313
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "from_cell": [
+            532,
+            321
+          ],
+          "to_route": "88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2",
+          "to_cell": [
+            532,
+            320
+          ],
+          "kind": "contact"
+        }
+      ]
+    },
+    {
+      "condition": "BOSS_GATED_EXIT_APPROACH",
+      "state": {
+        "name": "INITIAL",
+        "resource_mask": 0,
+        "forge": false,
+        "seal": false,
+        "boss_complete": false
+      },
+      "gate_id": "SV5_GATE_329D114068877B00E166",
+      "predicate_open": false,
+      "submitted_route_identity_crossing_reachable": false,
+      "coordinate_contact_crossing_reachable": true,
+      "coordinate_path_nodes": 245,
+      "route_switch_count": 3,
+      "route_switches": [
+        {
+          "from_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "from_cell": [
+            560,
+            313
+          ],
+          "to_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "to_cell": [
+            559,
+            313
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "from_cell": [
+            415,
+            321
+          ],
+          "to_route": "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "to_cell": [
+            415,
+            320
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "from_cell": [
+            415,
+            302
+          ],
+          "to_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "to_cell": [
+            414,
+            302
+          ],
+          "kind": "contact"
+        }
+      ]
+    },
+    {
+      "condition": "BOSS_GATED_EXIT_APPROACH",
+      "state": {
+        "name": "FORGE",
+        "resource_mask": 7,
+        "forge": true,
+        "seal": false,
+        "boss_complete": false
+      },
+      "gate_id": "SV5_GATE_329D114068877B00E166",
+      "predicate_open": false,
+      "submitted_route_identity_crossing_reachable": false,
+      "coordinate_contact_crossing_reachable": true,
+      "coordinate_path_nodes": 245,
+      "route_switch_count": 3,
+      "route_switches": [
+        {
+          "from_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "from_cell": [
+            560,
+            313
+          ],
+          "to_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "to_cell": [
+            559,
+            313
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "from_cell": [
+            415,
+            321
+          ],
+          "to_route": "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "to_cell": [
+            415,
+            320
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "from_cell": [
+            415,
+            302
+          ],
+          "to_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "to_cell": [
+            414,
+            302
+          ],
+          "kind": "contact"
+        }
+      ]
+    },
+    {
+      "condition": "BOSS_GATED_EXIT_APPROACH",
+      "state": {
+        "name": "SEAL",
+        "resource_mask": 7,
+        "forge": true,
+        "seal": true,
+        "boss_complete": false
+      },
+      "gate_id": "SV5_GATE_329D114068877B00E166",
+      "predicate_open": false,
+      "submitted_route_identity_crossing_reachable": false,
+      "coordinate_contact_crossing_reachable": true,
+      "coordinate_path_nodes": 245,
+      "route_switch_count": 3,
+      "route_switches": [
+        {
+          "from_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "from_cell": [
+            560,
+            313
+          ],
+          "to_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "to_cell": [
+            559,
+            313
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "SV5_OPTIONAL_RETURN_TO_START",
+          "from_cell": [
+            415,
+            321
+          ],
+          "to_route": "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "to_cell": [
+            415,
+            320
+          ],
+          "kind": "contact"
+        },
+        {
+          "from_route": "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "from_cell": [
+            415,
+            302
+          ],
+          "to_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4",
+          "to_cell": [
+            414,
+            302
+          ],
+          "kind": "contact"
+        }
+      ]
+    }
+  ],
+  "review_conclusion": [
+    "The W01/W02 protected-air self-lock from FIX01 was corrected.",
+    "The submitted 51/51 tests and state checks do not exercise physical crossing at predicate-mismatched contacts.",
+    "Every guarded route is reachable while its predicate is false when all exported SHARED/FACE contacts are traversable.",
+    "PlannedBarrierVerified therefore cannot be accepted for the current plan."
+  ],
+  "required_fix": [
+    "Use coordinate-first global movement, or prove an equivalent model that cannot firewall routes by label.",
+    "Eliminate every incompatible SHARED/FACE contact by rerouting, or bind it to explicit separation/gate geometry.",
+    "A SHARED world cell cannot be declared separated without changing the accepted geometry or adding typed state ownership.",
+    "Run closed/open state reachability through all exported contacts and all simultaneous gates.",
+    "Add production negative fixtures for unconditional mid-route SHARED and FACE bypasses.",
+    "Keep the corrected W01/W02 port behavior, protected AIR checks, digest semantics, and prior evidence immutable."
+  ],
+  "scope_limit": "Static review plus independent re-evaluation of the submitted accepted-envelope model. Unity and Player physics were not executed here.",
+  "evidence_hashes": {
+    "connections.csv": "b5eba89bc41ab9f91dc172a1970baa04a6d2ff778b27e725cc7e9daa9a978379",
+    "ports.csv": "4b26743b9ec9d761d34a8277058ed0acd6b5dc05b9cd061ed17332401413c5a8",
+    "contact_checks.csv": "9f1a09897682f5874553aa994fa46173e0357320062dc73884b2ee22598c88c8",
+    "gate_geometry.json": "0cab19392162c1dc8aae6dc78295a2719c37e488fdf4068021ad926380d49446",
+    "gate_state_checks.json": "2cdf4f071c57b8bef9cbc04b8cd5f0c1c2a77c9186e062669b52b2125873c413",
+    "validation.json": "c1c90dda82d3dd1854f0e9d4c86bb1d98100c1599b9e748a6e4a2a8f2a7231cd"
+  }
+}

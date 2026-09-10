@@ -419,6 +419,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             GeometryStateReady = false;
             PlayerVerified = false;
             InfillPendingTileCount = 624 * 416 - Reservations.Select(value => value.World).Distinct().Count();
+            PhysicalMovement = Sv5SpacePhysicalMovement.Analyze(Core, Connections, ContactDecisions, Gates);
             Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
@@ -433,6 +434,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5SpaceContactDecision> ContactDecisions { get; }
         public IReadOnlyList<Sv5SpaceProjectionOrderProof> ProjectionProofs { get; }
         public IReadOnlyList<Sv5SpaceGateStateCheck> GateStateChecks { get; }
+        public Sv5SpacePhysicalMovementPlan PhysicalMovement { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
@@ -445,11 +447,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             ContactDecisions.Count != 0 && ContactDecisions.All(value => value.CoverageChecked &&
                 value.LogicalStateTransitionChecked) && Gates.All(value => value.PlannedBarrierVerified) &&
             GateStateChecks.Count >= Gates.Count * 2 && GateStateChecks.All(value => value.Success) &&
-            ProjectionProofs.Count == 6 && ProjectionProofs.All(value => value.Success) && InfillPendingTileCount > 0;
+            PhysicalMovement.Success && ProjectionProofs.Count == 6 && ProjectionProofs.All(value => value.Success) &&
+            InfillPendingTileCount > 0;
 
         private IEnumerable<string> CanonicalLines()
         {
-            yield return "SV5_SPACE_GRAPH_PLAN_FIX02_V3";
+            yield return "SV5_SPACE_GRAPH_PLAN_FIX03_V1";
             yield return Core.RouteSource.Definition.Digest;
             yield return Core.Digest;
             yield return Core.RouteSource.Graph.Digest;
@@ -491,6 +494,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 (value.SourceAnchorReachable ? "1" : "0") + (value.TargetPortReachable ? "1" : "0") +
                 (value.SealedCutVerified ? "1" : "0") + (value.OpenPathVerified ? "1" : "0") + "|" +
                 value.CheckedCells + "|" + value.CheckedFaces + "|" + L(value.Evidence);
+            yield return "physical-movement|" + PhysicalMovement.SemanticDigest + "|" +
+                (PhysicalMovement.Success ? "1" : "0");
         }
 
         private static string L(string value)

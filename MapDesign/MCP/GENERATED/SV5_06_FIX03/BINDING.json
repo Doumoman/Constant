@@ -1,0 +1,101 @@
+{
+  "format": "sv5_06_fix03_binding_v1",
+  "task": "SV5_06_FIX03",
+  "manifest_sha256": "b0b536a2f5d952e05bab7882681b2fceed30bd389444254210433d7b6716cf00",
+  "package_sha256": "58c9096f0a83e70557af30d43cf425b4e263abbe27fbf7a8ffdf6e84fd70f0d8",
+  "predecessor": {
+    "task": "SV5_06_FIX02",
+    "result_sha256": "20a611e78a10887e494fa3c02f64daa734e0f0dc3f0f775e86490b936372dc41",
+    "installed_task_sha256": "149d300e2010a08d9f399a94e8fdfa6289e12752e6af332b5115b89cd6c0ba5d",
+    "commit": "05ff2344263d1cbd46f6c9b21995a06539d02832",
+    "parent": "de57f7b1454d2b138bda9915bdb03ad1ae09cbe3"
+  },
+  "registration": {
+    "approval": "SV5_06_FIX03_REG",
+    "scope": [
+      "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md: add one SV5_06_FIX03 LOCKED row",
+      "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md: add one 06.F3 SV5_06_FIX03 LOCKED row"
+    ],
+    "status_before_sha256": "ab6cb816b3d43ef50bfac9e4b90b0e88b8c27a714a01e294707283161f014b89",
+    "status_registered_sha256": "d4e329bbdf708eb5392040ba23e05b6473330342294348824d7872396448aa55",
+    "status_applied_sha256": "82af89777dba17b5fb052cc0b75bdcb3dfaf6bac9b0e94fe16363c5cd3da095f",
+    "status_final_sha256": "ce5da361c72b99fa59a5ebb4d327b58e1008530e5f32de864b96d05c39be44ad",
+    "master_before_sha256": "882675204091f954c2c2e06a4196574a7202b403751ae3cdbc29d385da46322e",
+    "master_registered_and_final_sha256": "a4322f20b840a0548c1f4404a23708d7d9b92dbe27e4be43f296fa09cef64686",
+    "states": {
+      "before": "247 COMPLETE / 0 CURRENT / 41 LOCKED / Current NONE / 288 rows",
+      "registered": "247 COMPLETE / 0 CURRENT / 42 LOCKED / Current NONE / 289 rows",
+      "applied": "247 COMPLETE / 1 CURRENT / 41 LOCKED / Current TASKS/SV5_06_FIX03.md / 289 rows",
+      "final_expected": "248 COMPLETE / 0 CURRENT / 41 LOCKED / Current NONE / 289 rows"
+    },
+    "pre_registration": "PASS",
+    "git_apply_check": "PASS",
+    "git_apply": "PASS",
+    "pre_stage": "PASS",
+    "stage": "PASS_STAGED_ONLY",
+    "post_apply_readonly": "PASS_POST_READONLY_READONLY"
+  },
+  "apply": {
+    "inbox_sha256": "ba914e5b18054260e59f5311a7a3d27eb50d146ba65eafe1844ad59a32f213c1",
+    "installed_task_sha256": "ba914e5b18054260e59f5311a7a3d27eb50d146ba65eafe1844ad59a32f213c1",
+    "archive_sha256": "ba914e5b18054260e59f5311a7a3d27eb50d146ba65eafe1844ad59a32f213c1",
+    "inbox_candidate_count_after_apply": 0,
+    "post_finalize_readonly": "PASS_POST_READONLY_READONLY"
+  },
+  "source_changes": [
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs","before":"0bb66daef50025e7ea9af0825c345e73a20130fcf819413aa5d2cb2bfe74bdeb","after":"2a7811e80eae48de748899c6db9bb2316735f5c17ba5066e0510238740c75e33","role":"global passage gate cuts plus isolated single-gate geometry regression"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs","before":"a44caa26ee8018b3b23b61d20554053d50bcd57334eefc526f6138b9f9885367","after":"21b54781469297f30e8533e703e376d74ac6d5b631fbd547f400b3e9fa1ab77f","role":"FIX03 physical contact/state evidence and 20 SVG previews"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs","before":"ab72bf664e0e2cff94baccfce49b64b2002ccb9afaf4d2096a98053498e3feaf","after":"58e7edb71ce325ee93d8ea99db064bf2bbc5abbfe472fd67ae7447001d38e4da","role":"physical movement plan and digest binding"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs","before":"26b4c0755bf33aa4ad518c5d901c2164efbc4ead371c2fb5d9c5d123d67d2262","after":"48d84f49572951803153683906fd049f883dfa4b5f48f0c50cebf4bb1d0db090","role":"conditional contact boundary validation"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs","before":"e9539fbf91426c99b0addf138701b1aad474925d834c24d6f719cb18d75d3908","after":"61d1fa97c469f02bae1f5c6ebbf13d7109e7af4acdaaf1a672fc4ba1da4330ad","role":"incompatible contact to typed global boundary projection"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalMovement.cs","before":null,"after":"7adf53b33b9bd159378b0013f19cede771b51bd4f5e119aed912ba9a4fae932d","role":"production global-coordinate movement and simultaneous gate validator"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalMovement.cs.meta","before":null,"after":"08fdda5bbe3ed5cabedfd887da0b9cb7752093f64952c8105fa9f6d93ab6683a","role":"Unity asset identity"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs","before":null,"after":"59c1c728f1fb5cbff1394ed957c0b3f727625179ea378616c412105331d3d53f","role":"G01-G08 focused production regressions"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs.meta","before":null,"after":"ea77b55c0b170543ce9e866be805d486b970404de97d53786cf3c022a3dd8490","role":"Unity test asset identity"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs","before":"c673f0534d7f099adfb57635894f17ff1514a331b7d689d66fe25fa4957f7080","after":"d0e9c47ed3f154c5c7fea83d1a629b4aaadff1335fd9ef30c8bbb34201bdd26a","role":"legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs","before":"9fe0ed70f0edb3f83a972bc0394fdb41ac63047df35eaad4817c66424bbaf402","after":"2efa634bd4927085eae72945b1763285eedc1ee1a3d937de4d583e0b9309039b","role":"legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs","before":"80b75e926fef77c8f6bb8e3d8e143b192cb1173aa260e93bbc88e0529d76ca83","after":"5d9bce6060f7fde1b9958d81a82302821b3b1497a8c43202717537d366db98a7","role":"legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs","before":"fd39cd12a8ffffa95a2e404a982acccb76bd7c02d1390876c023554e06e10c43","after":"910c814be416ee0646348dbeea97d904f4d126d42298f35bf8de031c4676c8cd","role":"replace stale separated assertion with global boundary regression and isolate export"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs","before":"cdcd68c5dfdb7cab45413d1b625d489bb9eede23fff738a58cbd1d05a75b048e","after":"0956e0a58a962a26fb9879e4db24e3bc304ff1384a483725627d4de6aa82d8ce","role":"retain G01-G08 with real global side-bypass mutation and isolate export"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs","before":"c381fc6badcd4342a2e6c92f79db14aed7875ba43a04314e77d110b3c2844b31","after":"19dda52c0bab8c2b0d142d8ee2913626878e2ea83031dda4d923300f6bc4201c","role":"global gate semantics and export count regression"},
+    {"path":"MapDesign/MCP/SV5/02_PROTOCOL_V5.md","before":"c21a5a2cf288c282e4e1d587ec93541a0650378ef3fe720fa242c70319f8bd58","after":"a21d561c42382bb0dc2a47be51bd5118b59809fcc0eef11d49049dbcd6f4ac28","role":"provided suffix appended byte-exactly once"},
+    {"path":"MapDesign/MCP/SV5/13_SPACE_CONTACT_FIX03.md","before":null,"after":"cb03fa0fdc9281c7fcb59f0e87d7d0df4bc85dd51d371787b6bd19de0956b1b4","role":"active FIX03 movement contract and evidence"}
+  ],
+  "verification": {
+    "reproduce_command": "python -X utf8 MapDesign/MCP/INPUTS/SV5_06_FIX03/REPRODUCE.py --project-root .",
+    "reproduce_result": "EXPECTED_FIX02_FAILURE_REPRODUCED",
+    "unity_cli": "1.0.0-beta.9",
+    "unity_editor": "6000.3.8f1 (1c7db571dde0)",
+    "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_06_FIX03/focused_results.xml --timeout 1800",
+    "result": "PASS",
+    "discovered": 59,
+    "executed": 59,
+    "passed": 59,
+    "failed": 0,
+    "skipped": 0,
+    "xml_worktree_sha256": "984170a4aef8456ac1e93b4e4ea9a91817e44643faabff9c5578d34d02bb2303"
+  },
+  "accepted_plan": {
+    "digest": "0d74dabc7c5ad27aec04a4025bca6ac543f504caca2703e60865f210899dbb30",
+    "physical_movement_digest": "50e0a08ffcf5e00a74370993c961a3c5a392010daf2a5815adce8c74d18423f9",
+    "connections": 28,
+    "contacts": 7188,
+    "joins": 6963,
+    "typed_global_boundaries": 225,
+    "conditional_gates": 3,
+    "closed_state_checks": 6,
+    "open_state_checks": 3,
+    "projection_orders": 6,
+    "diagnostics": 0,
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "historical_bytes_verified": {
+    "fix02_space_graph_sha256": "1494100f3e35f0cd44ba67d3641bfd90940a5b3cac4daff8b7b656659f2f0100",
+    "fix02_contact_checks_sha256": "9f1a09897682f5874553aa994fa46173e0357320062dc73884b2ee22598c88c8",
+    "fix02_gate_geometry_sha256": "0cab19392162c1dc8aae6dc78295a2719c37e488fdf4068021ad926380d49446",
+    "fix02_result_sha256": "20a611e78a10887e494fa3c02f64daa734e0f0dc3f0f775e86490b936372dc41",
+    "fix02_task_sha256": "149d300e2010a08d9f399a94e8fdfa6289e12752e6af332b5115b89cd6c0ba5d"
+  },
+  "open_obligation": "SV5_07/08/09 retain family, density and rejoin work; composed geometry and Player verification remain false. SV5_07 stays LOCKED and no successor is opened."
+}

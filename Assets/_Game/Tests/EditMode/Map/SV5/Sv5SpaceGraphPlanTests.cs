@@ -140,7 +140,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(plan.ContactDecisions.Any(value => value.Crossing == Sv5SpaceCrossingKind.Join), Is.True);
             Assert.That(plan.ContactDecisions.Where(value => value.Predicate.Contains("seal=1"))
                 .All(value => value.Crossing == Sv5SpaceCrossingKind.Join ||
-                    value.Crossing == Sv5SpaceCrossingKind.Separated), Is.True);
+                    value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
             Assert.That(plan.Gates.Any(value => value.TypedPredicate.RequiresSeal), Is.True);
             Assert.That(plan.Gates.All(value => !value.RuntimeVerified), Is.True);
             Assert.That(plan.GeometryStateReady, Is.False);
@@ -169,12 +169,12 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpaceGraphPlan plan = Representative.Value;
             Assert.That(plan.ContactDecisions.All(value => value.Crossing != Sv5SpaceCrossingKind.Pending), Is.True);
             Assert.That(plan.ContactDecisions.All(value => value.Crossing == Sv5SpaceCrossingKind.Join ||
-                value.Crossing == Sv5SpaceCrossingKind.Separated), Is.True);
-            Assert.That(plan.ContactDecisions.Any(value => value.Crossing == Sv5SpaceCrossingKind.Separated), Is.True);
+                value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
+            Assert.That(plan.ContactDecisions.Any(value => value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
             Assert.That(plan.Gates.Select(value => value.SourceConnectionId).Distinct().Count(),
                 Is.EqualTo(plan.Gates.Count));
-            Assert.That(plan.Gates.All(value => value.SealedState.Contains("ROUTE_OWNED_FULL_WIDTH") &&
-                value.OpenState.Contains("SOURCE_EDGE_DIRECTION")), Is.True);
+            Assert.That(plan.Gates.All(value => value.SealedState.Contains("GLOBAL_WORLD_FACE_CUT") &&
+                value.OpenState.Contains("GLOBAL_WORLD_FACES")), Is.True);
             Assert.That(plan.Reservations.Count(value => value.Kind == Sv5SpaceReservationKind.ConditionalGate),
                 Is.GreaterThanOrEqualTo(plan.Gates.Count));
             Assert.That(plan.Gates.All(value => value.PlannedBarrierVerified &&
@@ -232,7 +232,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(required.All(value => File.Exists(Path.Combine(directory, value)) &&
                 new FileInfo(Path.Combine(directory, value)).Length > 0), Is.True);
             string preview = Path.Combine(directory, "preview");
-            Assert.That(Directory.GetFiles(preview, "*.svg").Length, Is.EqualTo(19));
+            Assert.That(Directory.GetFiles(preview, "*.svg").Length, Is.EqualTo(20));
             Assert.That(File.ReadAllText(Path.Combine(preview, "overview.svg")), Does.Contain("viewBox=\"0 0 624 416\""));
             Assert.That(File.ReadAllText(Path.Combine(preview, "A1.svg")), Does.Contain("viewBox=\"0 0 156 104\""));
             Assert.That(File.ReadAllText(Path.Combine(directory, "validation.json")), Does.Contain("\"status\": \"PASS\""));
@@ -252,7 +252,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         }
 
         private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
-            "SV5_06_FIX02", "legacy_exports", "sv5_06_original_t10");
+            "SV5_06_FIX03", "legacy_exports", "sv5_06_original_t10");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {
