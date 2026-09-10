@@ -1,0 +1,1638 @@
+{
+  "format": "sv5_06_fix02_lock_v1",
+  "all_paths_relative_to": "ACTUAL_UNITY_PROJECT_ROOT",
+  "predecessor": {
+    "task": "SV5_06_FIX01",
+    "result_sha256": "ed7f1f81911c5209eddcb3cbffd7f6aeee5bb246c08e5588d7ff3534bca9de5c",
+    "task_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+    "commit": "de57f7b1454d2b138bda9915bdb03ad1ae09cbe3",
+    "parent": "7b7dc99527b878eadc398388e27b3fce173971ef"
+  },
+  "hash_roles": "Raw worktree bytes and exact predecessor commit blob bytes have independent pinned SHA. No runtime EOL normalization, alternate path synthesis, or SHA auto-repair.",
+  "files": [
+    {
+      "path": "Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraRoomDriver.cs",
+      "worktree_sha256": "582ae528bc90e89a9368c0b7714b0c3d7e789be1d6b114c114b045ce89c8a89d",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Camera/CharacterLiveCameraRoomDriver.cs.meta",
+      "worktree_sha256": "2016768dca0a377eb0e7185f927ad267d4e0f3ec3fed78f7ac451eafb64bb356",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveClimbSurface.cs",
+      "worktree_sha256": "26bebd9526a2dedfd21a4f3d725bd14e714c16f12ffa935ea174f5e1ead50744",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveClimbSurface.cs.meta",
+      "worktree_sha256": "7e46670fce094ee92a0f9641677daba3132c29149483d1a66e63c5cf132cb636",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveGrabSurface.cs",
+      "worktree_sha256": "2063a45e59fcaea7a3c8f2746da6991d54c7132a4e67be78d0e1dd77bbd5ed0e",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveGrabSurface.cs.meta",
+      "worktree_sha256": "0c51f5961d5925a6bc96e4a5e43fc2c2ee567bc946a12af186f60deb8a8b40ec",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs",
+      "worktree_sha256": "7bc7a6d973e1b18a648fad240fed77ec9c9e40cd661c1d66b009de5bc47ad6dc",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs.meta",
+      "worktree_sha256": "622212673a0a1156e951c9d78ed961855a0b2e9f6752c39036f604050e2a2fc7",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs",
+      "worktree_sha256": "c96fafa4d67186eaa2f105cba27a6634f443f1472b9aae2f4861663083ad0654",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs.meta",
+      "worktree_sha256": "d289cc72a8163c9888856a8acb14d8bef066dc07dcf3058232d8a6a12e112bb9",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "worktree_sha256": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs.meta",
+      "worktree_sha256": "567d98ba416a08e8f49c7247afdc6b313e5afe5e8510bdd447a51ca826350cc7",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+      "worktree_sha256": "8b5c48ad349de2e6e0ea50ccb79f4c39bdb1f0e7ed39104b36360a80d9f2d9c5",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs.meta",
+      "worktree_sha256": "ce438f43f3ce6199c9e741c7cbc92759b54ba67343df155d8cce2a1ff42d1f03",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+      "worktree_sha256": "ebfdfeb7f826fa7a1cdb1862ba927dafede5ed5bc7b06a6aaa810bde60275b33",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs.meta",
+      "worktree_sha256": "6fa5056a3fdfbd7d8a777298b52b3e25fb18cbcbfd2a11c48087ca6d0e249c8d",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+      "worktree_sha256": "5009f508c0f5a441730c57ab7c0195299a3c014b91fe39b2c55231bca1d7f19a",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs.meta",
+      "worktree_sha256": "f156a70019cbce522a01cc5d6fac2295b58d8cd8cbedaa8edbf16c49dc38fc7c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+      "worktree_sha256": "cfe082d792378425cadb423fdf002d74f10d3fa0c4639cfa8ca7f8e4bfc4a512",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs.meta",
+      "worktree_sha256": "1b8f8a3c68f56069ff93495ba5e140073b953741a474c2064f0f7dc01ea6d67a",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+      "worktree_sha256": "d9841fa54c2e64a32f6cc20ee86d2ba6a593f73c228c81c4f4fc1bc2bc92b565",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs.meta",
+      "worktree_sha256": "fb3f3ec5149354fea295c3922c04fac896b78b31d284793907b269e1c1ea000e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/RmapSpecialReservationPlanner.cs",
+      "worktree_sha256": "e524df90e1ea1744a979f7fdaac8b1b80601407ea07cbce029baabbcc70ed216",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/RmapSpecialReservationPlanner.cs.meta",
+      "worktree_sha256": "124a08bc5d965d4340163c7f238f196c645112655be6876a03481f655af36be6",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "worktree_sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs.meta",
+      "worktree_sha256": "1828260a2e556fd03ae30838367403a7819c52025042edf60919f2fde0a6142d",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs",
+      "worktree_sha256": "48bc1b2664034beb923427c037a0b0b2d18f7a8c11d1705e9fce432a37324bab",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs.meta",
+      "worktree_sha256": "8ff32435d71afaaac9cfbe521e59d96866094726e867f21802f29d3e9aa2073c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs",
+      "worktree_sha256": "ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs.meta",
+      "worktree_sha256": "d63969403812a51bdf45acc02f51ac4859f16244f5ca5633ccc68ce88023cb61",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/WorldData/RmapWorldDataContract.cs",
+      "worktree_sha256": "345458eb9a59a0add84ca15bd3106226ca2b3151c94831d7b6667943ac0b2841",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/WorldData/RmapWorldDataContract.cs.meta",
+      "worktree_sha256": "182d4159223dfbda3c749f8e2eaa73aa4efb131e87eb2a1259dc2cf47dcc8f57",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs",
+      "worktree_sha256": "c9b0e71ace1bcc665387744d8c3de679eef8668f0994125663f96ee6156379ae",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs.meta",
+      "worktree_sha256": "4007d978d8ed2931cf2a767bb40ef79ad2cd2a164ee1fd4bda77d5a747309386",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "worktree_sha256": "0ad252215729eb7c2a325395ef81ae730f72f3ab5af244476313c921b4d0b4d8",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs.meta",
+      "worktree_sha256": "a53c1d8804f25f2e064318bf5877026e2f3fbfb034559c8b7f3c16716abdba3f",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "worktree_sha256": "ae6d296bfb964645335e192479dcada3599684fef779017ea90b9e106cf29c0b",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs.meta",
+      "worktree_sha256": "4ee0d22ae7c5ab55a52847844ed99f014cdb68a5ea337a4f7ffdc13f0e4235f5",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "worktree_sha256": "1ec195352dac3f542446d74689ee7d8a065f276ab0b992d4fd1a6294eeaaae67",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs.meta",
+      "worktree_sha256": "820ccb6c904ea83971403e70965e1e3d6dfaab454d46e43a1921453f2d834341",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+      "worktree_sha256": "57d24edbdcd84e4b8e3029d8871e4f8244ecdcddde75757597a6dd49612ac437",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs.meta",
+      "worktree_sha256": "4e5c30c4011de0f385be010b28f4cb9c56e7a7d2c169395a0acf2103a3e65457",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+      "worktree_sha256": "412d1b91d83c048e38fd323f1ad39f56d85785200e7eb52bbdfc821f45216937",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs.meta",
+      "worktree_sha256": "982d0e24a71018f8edbd6af5c7196f4a41788c7906e314539617bd293efcf096",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/00_MCP_ENTRYPOINT.md",
+      "worktree_sha256": "cd2a70cdaf886a363756e9abd781807d8f6aef2c457f493268bab0bcdb283402",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/01_PROJECT_LOCKED_RULES.md",
+      "worktree_sha256": "a01b69a9827deedd411ce6f2e040df0b52758dd0b699f48ee980774e3ce45400",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/05_CHANGE_CONTROL_RULES.md",
+      "worktree_sha256": "45bb7fd6e5981fe8f89bf5d34887086ecceb1db8410543564ef1338981302ba3",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/07_PATCH_APPLY_RULES.md",
+      "worktree_sha256": "7c3c78b0fd72ded29d41a179b899d3c7d73fb1567cd7d717e82bbf6cd5e45728",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/08_STATUS_FINALIZE_RULES.md",
+      "worktree_sha256": "e121a60b78eb28d0e12e38ddba8b56ac825435a130fc707ad5f0de29df92e169",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/APPLY_PATCH_AND_RUN_CURRENT_TASK.md",
+      "worktree_sha256": "31c590564d4501de2f3c9c92d09142c3374e77dfcfbde7dc91e83fe7026561e4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/BINDING.json",
+      "worktree_sha256": "6eb339dea116ce1b82e20407793ae77568e01cf09014ab5a771e08edbd2c685b",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/BINDINGS.csv",
+      "worktree_sha256": "387334b77c82b2aa62e9e9b6c11330d3b83f4106abc4bf8916f5fe6afecdefee",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/CORE_BINDINGS.csv",
+      "worktree_sha256": "3063f808d294e09e5b03f33a2b2357a1f4f2ba510c38c56dac4ed0e10ccfac35",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/DATA_SCHEMAS.csv",
+      "worktree_sha256": "083f91e9d4cfc5118d9cdeba4a0f1cc7184d0b6d3cacd653609076b763d5542c",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/SOURCE_SNAPSHOT.json",
+      "worktree_sha256": "1021386d9e1dd20f267a6f917f857e55ad431d612a1f3709da9f4df394fd49ac",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/TASK_COVERAGE.csv",
+      "worktree_sha256": "86309a520cf32fc268f0c9cabd25c68568fdc3b868ccf6b95c19611cba4644c6",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/validation.json",
+      "worktree_sha256": "87bb4af251e023d03a4f4c02079fb74ebc09686718f7388ce829b50f34248b96",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/BINDING.json",
+      "worktree_sha256": "bc7d94a6c1fdb05a0e9067d4bc8488c6294e75b2293cafa979c19f4f05b5568f",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/access_bindings.csv",
+      "worktree_sha256": "9600d72d0df139937462aefab5bf0fde86ab8117eaa32831df47777f6fc10379",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/core_cells.csv",
+      "worktree_sha256": "10a6bc42eea1aebba755cc94d10d0d999688ecc850cc4901417c83a9ec8ad389",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/core_sites.csv",
+      "worktree_sha256": "78dd267b778dbdbf04b2d53cb912bc334984f3ea4b3495c319c21270cedba9bd",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/focused_results.xml",
+      "worktree_sha256": "42a550abf7c4bf618a22ddd52fbbf42eae5a83a1fbbc9cd077bd47d5dfc716b4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/reservation_manifest.json",
+      "worktree_sha256": "e567722745d1f15feef314b3efa047a7e53d44cc7704893ff14a1875ebdc00b5",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/route_cells.csv",
+      "worktree_sha256": "63e3d445377a0fdea658ed39b0a8765b5b66b14083a560b4c54b434b743cba13",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/state_geometry.csv",
+      "worktree_sha256": "ac93edca65636b73a71c47af3c58e514cb6759d1d549f00575d08846245d8785",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/validation.json",
+      "worktree_sha256": "7dacd96e607b7dd362c03aec5d53f7f2ff5e8aa273f2d81277aa1caebe31fa77",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/BINDING.json",
+      "worktree_sha256": "db89d2814c28e962b5a34d687c1828b972cadad85bd5395adbf86f1fb16b8664",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/analysis.json",
+      "worktree_sha256": "c23ff673fd02b62551fc28065a28694364e0540f4e5f0be258bd348aa71d54ed",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/candidate_set_proofs.csv",
+      "worktree_sha256": "44c24cf4f5386d7ef0354e5eabc554fa4b8bfde097fb16b80d650c06069c5f06",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/condition_bindings.csv",
+      "worktree_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/contact_checks.csv",
+      "worktree_sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/expected_pre_fix_failure.xml",
+      "worktree_sha256": "77b359fd70490ba602420c47142288a8126218436047a381bd26cf357d9c334e",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/focused_results.xml",
+      "worktree_sha256": "5addbe7c8524c6b97d4cfca4a782e5f69a0ed59e91df47a82eb1ebd77f6ca931",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/condition_bindings.csv",
+      "worktree_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/contact_checks.csv",
+      "worktree_sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/obligations.csv",
+      "worktree_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/order_proofs.csv",
+      "worktree_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/route_state_manifest.json",
+      "worktree_sha256": "c2b05bec50b6ec693a6eb6b5218abe5dd4a52c2f924da18cc1d97ada741ff023",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/shortcut_decisions.csv",
+      "worktree_sha256": "9663b19aa9f9c729f37e6b3e85fd0c962d96237df2d68bd7446e659ed88ae038",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/state_traces.csv",
+      "worktree_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/obligations.csv",
+      "worktree_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/order_proofs.csv",
+      "worktree_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/route_state_manifest.json",
+      "worktree_sha256": "f45b24a73587b14c9caabc0d8b6adf9b467cd67baa93c5db262b24e7dcba2396",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/shortcut_decisions.csv",
+      "worktree_sha256": "b387bfe71e3676483a18f949596809f90de2cb78517d14d52f849d631143e1a6",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/state_traces.csv",
+      "worktree_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/validation.json",
+      "worktree_sha256": "9799c651606f7f19709b26ed36c6fb7e4984791a11cba7f324f6303f675f9c21",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/BINDING.json",
+      "worktree_sha256": "b635021d3e04fe2706016eacf971fb6bbd0a8f982d857519989cf5deea9d543d",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/connections.csv",
+      "worktree_sha256": "107ea1e97a9b309a608171ff761edbc00c4a254e86a8dc2e8111f1c15bbf245c",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/contact_checks.csv",
+      "worktree_sha256": "708fdb3a2cfc24bd9a1321958f81775df3506df0f56cd317f6869c4fca41a67d",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/focused_results.xml",
+      "worktree_sha256": "34710c4474dc4c753ab3ea5102e1cb45672e75ec115407329c120a9b373c16bf",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/analysis.json",
+      "worktree_sha256": "92c7d04196787e4a919759393fc0567517dd17aa483b1d9ba132054dd3e0f324",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/candidate_set_proofs.csv",
+      "worktree_sha256": "44c24cf4f5386d7ef0354e5eabc554fa4b8bfde097fb16b80d650c06069c5f06",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/condition_bindings.csv",
+      "worktree_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/contact_checks.csv",
+      "worktree_sha256": "fa8c7d49d39226f671aebfd806ec6ba82dd0a2a1cb9f8230bd46570ecdab2de8",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/obligations.csv",
+      "worktree_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/order_proofs.csv",
+      "worktree_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/route_state_manifest.json",
+      "worktree_sha256": "060ba208d0afb4a41ee87bcc2e1ac8d753965595ada83720661ff7d9865726ff",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/shortcut_decisions.csv",
+      "worktree_sha256": "b387bfe71e3676483a18f949596809f90de2cb78517d14d52f849d631143e1a6",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_fix01_t05/state_traces.csv",
+      "worktree_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/condition_bindings.csv",
+      "worktree_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/contact_checks.csv",
+      "worktree_sha256": "fa8c7d49d39226f671aebfd806ec6ba82dd0a2a1cb9f8230bd46570ecdab2de8",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/obligations.csv",
+      "worktree_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/order_proofs.csv",
+      "worktree_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/route_state_manifest.json",
+      "worktree_sha256": "fd3e00d0230971fe2a4f76e55825854f189e202c56efc9e57d13ce5a0db6ae06",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/shortcut_decisions.csv",
+      "worktree_sha256": "9663b19aa9f9c729f37e6b3e85fd0c962d96237df2d68bd7446e659ed88ae038",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/legacy_exports/sv5_05_policy_t10/state_traces.csv",
+      "worktree_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/obligations.csv",
+      "worktree_sha256": "6d8dbb1a8586a528ed9d02adb288d2a1db13a27605a037835e82478e7de7d278",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/places.csv",
+      "worktree_sha256": "efbd1ac2d185afd8dc838e2d105b7bc0c6392b9e031d036937e5481bafe29db2",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/ports.csv",
+      "worktree_sha256": "b0c553491426ffff32e6a5a167887a2b93cae4b731311b06b428a0ecc3576cce",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/A1.svg",
+      "worktree_sha256": "29097be52d2f266ee296dca27c02f10c01875d9348e1464875b3a1b7c248166a",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/A2.svg",
+      "worktree_sha256": "3d2cb93aafd189ba8689fc7d6f508f7e36ebb686f903d6d5ec52acb06b0a1013",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/A3.svg",
+      "worktree_sha256": "f7bc4d80bafe3dd36102561030cbb2f1dd0e99b878c5bf573d20db801c5462b1",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/A4.svg",
+      "worktree_sha256": "eb45722eabf192cd6ece50e3caaa5e8c647daf4af74269b3436369d8e6095232",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/B1.svg",
+      "worktree_sha256": "c3105cb280f2ace22fbe30ba06b00c8017a7bf3c65f5eb5b79b97177ca3a2371",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/B2.svg",
+      "worktree_sha256": "457176ad61b549f0c6962c56db642ad8f83abf9236541b9c8da2ec879fede9c3",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/B3.svg",
+      "worktree_sha256": "e336c930488e8d8cc3738cdf12aca4d0d2780feb3c7f9fb8c9aece21fd69b1ac",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/B4.svg",
+      "worktree_sha256": "116a6acd0644c5b230954271c2a5d89bfa2322d982306832e4bbe3b95a4e77b4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/C1.svg",
+      "worktree_sha256": "c1f7a5b915f4dff6bc41acb2b7af8a279d5a518c785140f113362521ff7e2cf9",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/C2.svg",
+      "worktree_sha256": "e7d76a0c9387b7fdf1fc707b479b2b8fe2b58df4927caf8361949ceb9264b477",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/C3.svg",
+      "worktree_sha256": "8d2f49189ed2d9b6fb316d540bc946aede67b4f0022fef93d31ddbc9ae3d3583",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/C4.svg",
+      "worktree_sha256": "444e27018f860869758de1adbb75e65cac2a186320c487e5a2d89487282f7e35",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/D1.svg",
+      "worktree_sha256": "1e9282ec686f90e84ca18d3efc58507047a2f0f738e26facb70a23e03ff4a694",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/D2.svg",
+      "worktree_sha256": "86b05a3183769569a593b9cff933e21102a09fce2de8e19fdc5243335ad4dc27",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/D3.svg",
+      "worktree_sha256": "b47e13f65b5addf179decd182edf10d7598a80f8fffa97f5b71fd0934db6f4bd",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/D4.svg",
+      "worktree_sha256": "31ee2d4f66fb0693cc01adf101d2bd1ec0a2a0eaf54bed84626699a02f87c624",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/index.html",
+      "worktree_sha256": "3440f8b10eb3ca6fc595862d4858b4a7ca3e84de6181ba1f12a61340a2f55ba3",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/preview/overview.svg",
+      "worktree_sha256": "c1868b80b366bab6dbd83183f347cac83f082c5a0089137c6d999a6775128483",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/reservation_cells.csv",
+      "worktree_sha256": "ad3c3e2ab2cfca535180187346ab430610462f83d62a769503a83ce0d06b23c9",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/space_graph.json",
+      "worktree_sha256": "1237990fd0890677e0719d1cbf2d96047dd072c06a5cf4fc110fa029b863de5c",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/state_proofs.json",
+      "worktree_sha256": "d19b2f75f8f8daafa8a92a772781dcbae8f4708e83b85642d67436c2758f936a",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/validation.json",
+      "worktree_sha256": "e36fff86c1d3da6a9eab6b6508ce18d4e0dab6829727e105899ddc92ff64bf2f",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/BINDING.json",
+      "worktree_sha256": "6877ecff085eb94b68a7e66356ea986e8fb8dc4a7ff0fe39389c283c60d5ecf9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/connections.csv",
+      "worktree_sha256": "1689769e0174898998e6680a27657e82958e156b4843b20ada0c72ba81ba8b9b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/contact_checks.csv",
+      "worktree_sha256": "1079f1a3af64c97cc141bede7a4cef1809bfb50b7db41d844bb968b050cf1dcb",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/expected_pre_fix_failure.xml",
+      "worktree_sha256": "47cad9c24f2b079c28343aea2165b523dcee5e1bdb89a5f8f88bca38687e106d",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/focused_results.xml",
+      "worktree_sha256": "8e4bc3239a4be60af250500e20c309a8f9e5eb2ee8c470224cb1850e98ca396c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/gate_geometry.json",
+      "worktree_sha256": "cb84e4b725e7ddd0f9bcf4293f0d469b9ec86dd878ee16246f8788a3085b9e8a",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/analysis.json",
+      "worktree_sha256": "92c7d04196787e4a919759393fc0567517dd17aa483b1d9ba132054dd3e0f324",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/candidate_set_proofs.csv",
+      "worktree_sha256": "44c24cf4f5386d7ef0354e5eabc554fa4b8bfde097fb16b80d650c06069c5f06",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/condition_bindings.csv",
+      "worktree_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/contact_checks.csv",
+      "worktree_sha256": "fa8c7d49d39226f671aebfd806ec6ba82dd0a2a1cb9f8230bd46570ecdab2de8",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/obligations.csv",
+      "worktree_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/order_proofs.csv",
+      "worktree_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/route_state_manifest.json",
+      "worktree_sha256": "060ba208d0afb4a41ee87bcc2e1ac8d753965595ada83720661ff7d9865726ff",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/shortcut_decisions.csv",
+      "worktree_sha256": "b387bfe71e3676483a18f949596809f90de2cb78517d14d52f849d631143e1a6",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_fix01_t05/state_traces.csv",
+      "worktree_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/condition_bindings.csv",
+      "worktree_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/contact_checks.csv",
+      "worktree_sha256": "fa8c7d49d39226f671aebfd806ec6ba82dd0a2a1cb9f8230bd46570ecdab2de8",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/obligations.csv",
+      "worktree_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/order_proofs.csv",
+      "worktree_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/route_state_manifest.json",
+      "worktree_sha256": "fd3e00d0230971fe2a4f76e55825854f189e202c56efc9e57d13ce5a0db6ae06",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/shortcut_decisions.csv",
+      "worktree_sha256": "9663b19aa9f9c729f37e6b3e85fd0c962d96237df2d68bd7446e659ed88ae038",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_05_policy_t10/state_traces.csv",
+      "worktree_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/connections.csv",
+      "worktree_sha256": "1689769e0174898998e6680a27657e82958e156b4843b20ada0c72ba81ba8b9b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/contact_checks.csv",
+      "worktree_sha256": "1079f1a3af64c97cc141bede7a4cef1809bfb50b7db41d844bb968b050cf1dcb",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/gate_geometry.json",
+      "worktree_sha256": "cb84e4b725e7ddd0f9bcf4293f0d469b9ec86dd878ee16246f8788a3085b9e8a",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/obligations.csv",
+      "worktree_sha256": "b14dbd83fce71946cd99ff8494d657cf363a834b8b0be39dddd879667dee85db",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/places.csv",
+      "worktree_sha256": "37e0e2227876a631854e7601e7bf5cbcde1efa7e9d23e942bbe797ed9c31232c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/ports.csv",
+      "worktree_sha256": "21baf0c265a92cb3443cc7faaaab1baed9cb1e9a8c6622d96e198ea5b63f8ffa",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/A1.svg",
+      "worktree_sha256": "fcdc80e7edb4d9a54f4f0bdcda82326cfa069e1ff269116502c39901b70cc8a2",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/A2.svg",
+      "worktree_sha256": "4a7cd90203adddcd225f0ff68981c8e852aef18b1ec72bdbb640b727099a1f2e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/A3.svg",
+      "worktree_sha256": "cf9a537616cc4de331258740942743127641c00063ede13cfb2c099d78cbea98",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/A4.svg",
+      "worktree_sha256": "6eea73016efafea5989b59d402a5e55d91f7f768eb4cb4d9baec380a1614a9a1",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/B1.svg",
+      "worktree_sha256": "0236d2f66325fcbfa7a4f2d03192d200bb0a421b224caf26acb37a4cae0b4e08",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/B2.svg",
+      "worktree_sha256": "f0a2909575bc58bd1d81146787d4f32a32b16aac4727af5b00e79eba97e29685",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/B3.svg",
+      "worktree_sha256": "5412d61427f66295f7da422b7ec137992b3841fada37130c701a8c7cd6aa2f8c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/B4.svg",
+      "worktree_sha256": "1583ff0df6794494203d467faf467c66e7c71ab962ab45518eeb919440988267",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/C1.svg",
+      "worktree_sha256": "496e4d58788ad6c2f9aed908a2e62a40eba76817c7b406ed0cedb0342718656d",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/C2.svg",
+      "worktree_sha256": "44f7c937e604596cb19e0fae51fdce3d73402a2cec977a1319751bfc7a8966ab",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/C3.svg",
+      "worktree_sha256": "bde0d9712b742b9cf6a6e2b4cad82e0dcfe2a9b0adf34f2216b340f12e618f55",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/C4.svg",
+      "worktree_sha256": "65f6a6f0108ff2394076a7f94cc22dc2c736e0edcf1355d51da1d043d7b9976b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/D1.svg",
+      "worktree_sha256": "135122c1e93d356c9e40890752eefd3d14c5407e8b4b8b0fd101fb6152f1cbb9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/D2.svg",
+      "worktree_sha256": "84923734249077ba27bf3b9d0b78e601097a4e715bb12b2b24c0ade94b382082",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/D3.svg",
+      "worktree_sha256": "bcae63ea57f32456d003e45b61d7839c1de64c33739a4106db312960d4ffddb9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/D4.svg",
+      "worktree_sha256": "d75a6015dcd32abf0b6dec6211b486876b75972419a4e6a835f68a0c908017e3",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/index.html",
+      "worktree_sha256": "18b6d0ee7bb9ae0c207b6fbf936d1f0db9a112e5f83fe687f7dad8020726b683",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/preview/overview.svg",
+      "worktree_sha256": "7518d760e77ac5cf01aab0fc76df71c32832142b07ff2730e89b9bc4c57ed123",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/reservation_cells.csv",
+      "worktree_sha256": "fcc13be86bace041baf275fe850824601de7bde0247daa4e7666955d734c46e9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/space_graph.json",
+      "worktree_sha256": "81a561c7b37a0529f660101defa800cb4c549a82a0d851ef9c9d654b8dfe6081",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/state_proofs.json",
+      "worktree_sha256": "538520515414fac0b445b5900c000f969cffc7986b453732c63d73d493c9ac82",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/legacy_exports/sv5_06_original_t10/validation.json",
+      "worktree_sha256": "9d63628929ae8fbffd56fab6ef333d4a79502d5dc3adc721c3e50e7353419053",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/obligations.csv",
+      "worktree_sha256": "b14dbd83fce71946cd99ff8494d657cf363a834b8b0be39dddd879667dee85db",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/places.csv",
+      "worktree_sha256": "37e0e2227876a631854e7601e7bf5cbcde1efa7e9d23e942bbe797ed9c31232c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/ports.csv",
+      "worktree_sha256": "21baf0c265a92cb3443cc7faaaab1baed9cb1e9a8c6622d96e198ea5b63f8ffa",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/A1.svg",
+      "worktree_sha256": "fcdc80e7edb4d9a54f4f0bdcda82326cfa069e1ff269116502c39901b70cc8a2",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/A2.svg",
+      "worktree_sha256": "4a7cd90203adddcd225f0ff68981c8e852aef18b1ec72bdbb640b727099a1f2e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/A3.svg",
+      "worktree_sha256": "cf9a537616cc4de331258740942743127641c00063ede13cfb2c099d78cbea98",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/A4.svg",
+      "worktree_sha256": "6eea73016efafea5989b59d402a5e55d91f7f768eb4cb4d9baec380a1614a9a1",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/B1.svg",
+      "worktree_sha256": "0236d2f66325fcbfa7a4f2d03192d200bb0a421b224caf26acb37a4cae0b4e08",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/B2.svg",
+      "worktree_sha256": "f0a2909575bc58bd1d81146787d4f32a32b16aac4727af5b00e79eba97e29685",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/B3.svg",
+      "worktree_sha256": "5412d61427f66295f7da422b7ec137992b3841fada37130c701a8c7cd6aa2f8c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/B4.svg",
+      "worktree_sha256": "1583ff0df6794494203d467faf467c66e7c71ab962ab45518eeb919440988267",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/C1.svg",
+      "worktree_sha256": "496e4d58788ad6c2f9aed908a2e62a40eba76817c7b406ed0cedb0342718656d",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/C2.svg",
+      "worktree_sha256": "44f7c937e604596cb19e0fae51fdce3d73402a2cec977a1319751bfc7a8966ab",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/C3.svg",
+      "worktree_sha256": "bde0d9712b742b9cf6a6e2b4cad82e0dcfe2a9b0adf34f2216b340f12e618f55",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/C4.svg",
+      "worktree_sha256": "65f6a6f0108ff2394076a7f94cc22dc2c736e0edcf1355d51da1d043d7b9976b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/D1.svg",
+      "worktree_sha256": "135122c1e93d356c9e40890752eefd3d14c5407e8b4b8b0fd101fb6152f1cbb9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/D2.svg",
+      "worktree_sha256": "84923734249077ba27bf3b9d0b78e601097a4e715bb12b2b24c0ade94b382082",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/D3.svg",
+      "worktree_sha256": "bcae63ea57f32456d003e45b61d7839c1de64c33739a4106db312960d4ffddb9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/D4.svg",
+      "worktree_sha256": "d75a6015dcd32abf0b6dec6211b486876b75972419a4e6a835f68a0c908017e3",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/index.html",
+      "worktree_sha256": "18b6d0ee7bb9ae0c207b6fbf936d1f0db9a112e5f83fe687f7dad8020726b683",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/preview/overview.svg",
+      "worktree_sha256": "7518d760e77ac5cf01aab0fc76df71c32832142b07ff2730e89b9bc4c57ed123",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/reservation_cells.csv",
+      "worktree_sha256": "fcc13be86bace041baf275fe850824601de7bde0247daa4e7666955d734c46e9",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/space_graph.json",
+      "worktree_sha256": "81a561c7b37a0529f660101defa800cb4c549a82a0d851ef9c9d654b8dfe6081",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/state_proofs.json",
+      "worktree_sha256": "538520515414fac0b445b5900c000f969cffc7986b453732c63d73d493c9ac82",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/validation.json",
+      "worktree_sha256": "9d63628929ae8fbffd56fab6ef333d4a79502d5dc3adc721c3e50e7353419053",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/CONTRACT.md",
+      "worktree_sha256": "3da0b25a84afe3fd0b63f19173d71fc0e59dfeb458de9a93aac2e58a2841f059",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/FILES.json",
+      "worktree_sha256": "335820c289e67829cd2897c15cb5623f86aeda9610e09f8b80cc5157b993fe63",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/PROTOCOL_APPEND.md",
+      "worktree_sha256": "837a76bf4797d465357ac29f953bdcc1be47949403cea17045c360945b4cd8e4",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/REVIEW_FINDINGS.json",
+      "worktree_sha256": "d24ccfa85b758f1f1e787dab4853111e061480076ced917a3766ca0e7c5dbff1",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/SOURCE_LOCK.json",
+      "worktree_sha256": "ab0f044d4256c33701f486385c1b0f58c3a8d733a5fdc4ec837f5065d76659fc",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/STAGE.py",
+      "worktree_sha256": "12a546a1b1ae0786a7a0cb1c710abd24ce9bfd44caed869d155e869c1f448c11",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/SV5_06_SPACE_GRAPH.md",
+      "worktree_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/CLEARANCE_CONFLICTS.json",
+      "worktree_sha256": "52a801b1ab6918fbf4afdbba2a78b13cb1d4d6f3d33046bc85a6c37d6ec9b956",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/FILES.json",
+      "worktree_sha256": "3ea7ae088b57305d16aa1aafc4a1b8c9fa14abed7ad0adc585451a7a859f5d5e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/PRECHECK.py",
+      "worktree_sha256": "e827712417ec4517030f697a47541e1eebf360b6fae50e904a39e6410c564eb3",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/PROTOCOL_APPEND.md",
+      "worktree_sha256": "c7b3ccc0499b78a8175c92ff3ae603a23fd8479a7f785b317eb435005d978927",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/REGISTRATION.diff",
+      "worktree_sha256": "1a60087eca00351cf6d89294daea3c03f3b14e668921e534b14ac10c35a43218",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/REGISTRATION.json",
+      "worktree_sha256": "bf6c3cca207ae1727993f027fe92ade34cf117c211222c6466592e611e149991",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/REGISTRATION.md",
+      "worktree_sha256": "24578cdeac601bb6f3fb9fd868c6e5168eb7b8d008406bff2596bbdba03ca06d",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/REPAIR_CONTRACT.md",
+      "worktree_sha256": "2f82a71b664c1a441523ee60f1ada5980c0e789c35e485e4039f42946172d29f",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/REVIEW_FINDINGS.json",
+      "worktree_sha256": "cbfa61b5327c9c50028f043fabb20bc4abf486d92b136e2b156cef6af2a1224f",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/REVIEW_NOTES.pdf",
+      "worktree_sha256": "02ef557379e32474acc3dce713bcdcef0f1d9e38ad2ebd365f4086d02485630b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/SOURCE_LOCK.json",
+      "worktree_sha256": "b3c306c430507fcc1d1657ef95d7d4850fe7afcee85900d46d42c9e29bc08298",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX01/SV5_06_FIX01.md",
+      "worktree_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_06_FIX01_RESULT.md",
+      "worktree_sha256": "ed7f1f81911c5209eddcb3cbffd7f6aeee5bb246c08e5588d7ff3534bca9de5c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_06_SPACE_GRAPH_RESULT.md",
+      "worktree_sha256": "05af804fd2e231c91670bcb35a90833228b43064a2d22d3c8edd3345c9470c3c",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "worktree_sha256": "51197b438af7903f158a9d157ca77e549e3674259698929a232b3bb035f596be",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/10_SPACE_GRAPH_V5.md",
+      "worktree_sha256": "7d8c33bc61949524c68c8ad1863ffe612c05e568db70ab59a4b8f0831a7d8335",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/11_SPACE_GRAPH_FIX01.md",
+      "worktree_sha256": "d6abfe8f30379144698ceaf0c948556899c4939f5f4ead9a0ff405843586d029",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_06_FIX01.md",
+      "worktree_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_06_SPACE_GRAPH.md",
+      "worktree_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_06_FIX01.md",
+      "worktree_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+      "phase": "ALWAYS",
+      "evidence": "SV5_06_FIX01_REVIEW_MANIFEST_RAW_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_06_SPACE_GRAPH.md",
+      "worktree_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+      "phase": "ALWAYS",
+      "evidence": "PRESERVED_PREDECESSOR_SOURCE_LOCK"
+    }
+  ],
+  "commit_blobs": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "sha256": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "bytes": 42730,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+      "sha256": "8b5c48ad349de2e6e0ea50ccb79f4c39bdb1f0e7ed39104b36360a80d9f2d9c5",
+      "bytes": 74431,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+      "sha256": "ebfdfeb7f826fa7a1cdb1862ba927dafede5ed5bc7b06a6aaa810bde60275b33",
+      "bytes": 27598,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+      "sha256": "5009f508c0f5a441730c57ab7c0195299a3c014b91fe39b2c55231bca1d7f19a",
+      "bytes": 28997,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+      "sha256": "cfe082d792378425cadb423fdf002d74f10d3fa0c4639cfa8ca7f8e4bfc4a512",
+      "bytes": 50214,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+      "sha256": "d9841fa54c2e64a32f6cc20ee86d2ba6a593f73c228c81c4f4fc1bc2bc92b565",
+      "bytes": 23064,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs",
+      "sha256": "c9b0e71ace1bcc665387744d8c3de679eef8668f0994125663f96ee6156379ae",
+      "bytes": 10672,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "sha256": "0ad252215729eb7c2a325395ef81ae730f72f3ab5af244476313c921b4d0b4d8",
+      "bytes": 16199,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "sha256": "ae6d296bfb964645335e192479dcada3599684fef779017ea90b9e106cf29c0b",
+      "bytes": 18427,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "sha256": "1ec195352dac3f542446d74689ee7d8a065f276ab0b992d4fd1a6294eeaaae67",
+      "bytes": 20003,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+      "sha256": "57d24edbdcd84e4b8e3029d8871e4f8244ecdcddde75757597a6dd49612ac437",
+      "bytes": 13697,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+      "sha256": "412d1b91d83c048e38fd323f1ad39f56d85785200e7eb52bbdfc821f45216937",
+      "bytes": 18961,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+      "sha256": "90f0189def2c85346ae87b1df678f67ab1bc886c2ba82eb4e156da089e6d047c",
+      "bytes": 102358,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/BINDING.json",
+      "sha256": "6877ecff085eb94b68a7e66356ea986e8fb8dc4a7ff0fe39389c283c60d5ecf9",
+      "bytes": 7653,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/connections.csv",
+      "sha256": "1689769e0174898998e6680a27657e82958e156b4843b20ada0c72ba81ba8b9b",
+      "bytes": 175495,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/contact_checks.csv",
+      "sha256": "1079f1a3af64c97cc141bede7a4cef1809bfb50b7db41d844bb968b050cf1dcb",
+      "bytes": 4782822,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/expected_pre_fix_failure.xml",
+      "sha256": "47cad9c24f2b079c28343aea2165b523dcee5e1bdb89a5f8f88bca38687e106d",
+      "bytes": 1064,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/focused_results.xml",
+      "sha256": "04b9d3cf70a74a530c61aa6ba97e312a9dbfa5c762e6e8a63c3ecd101c9e9c2a",
+      "bytes": 41088,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/gate_geometry.json",
+      "sha256": "cb84e4b725e7ddd0f9bcf4293f0d469b9ec86dd878ee16246f8788a3085b9e8a",
+      "bytes": 25104,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/obligations.csv",
+      "sha256": "b14dbd83fce71946cd99ff8494d657cf363a834b8b0be39dddd879667dee85db",
+      "bytes": 2385,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/places.csv",
+      "sha256": "37e0e2227876a631854e7601e7bf5cbcde1efa7e9d23e942bbe797ed9c31232c",
+      "bytes": 4003,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/ports.csv",
+      "sha256": "21baf0c265a92cb3443cc7faaaab1baed9cb1e9a8c6622d96e198ea5b63f8ffa",
+      "bytes": 11507,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/reservation_cells.csv",
+      "sha256": "fcc13be86bace041baf275fe850824601de7bde0247daa4e7666955d734c46e9",
+      "bytes": 4512253,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/space_graph.json",
+      "sha256": "81a561c7b37a0529f660101defa800cb4c549a82a0d851ef9c9d654b8dfe6081",
+      "bytes": 255868,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/state_proofs.json",
+      "sha256": "538520515414fac0b445b5900c000f969cffc7986b453732c63d73d493c9ac82",
+      "bytes": 442015,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/validation.json",
+      "sha256": "9d63628929ae8fbffd56fab6ef333d4a79502d5dc3adc721c3e50e7353419053",
+      "bytes": 694,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+      "sha256": "083c324fe00531b47f140048f2b1729db2bdadaf9c880560d708f2ba95cc5b03",
+      "bytes": 36729,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_06_FIX01_RESULT.md",
+      "sha256": "ed7f1f81911c5209eddcb3cbffd7f6aeee5bb246c08e5588d7ff3534bca9de5c",
+      "bytes": 5367,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "51197b438af7903f158a9d157ca77e549e3674259698929a232b3bb035f596be",
+      "bytes": 4200,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_06_FIX01.md",
+      "sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+      "bytes": 5539,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_06_FIX01.md",
+      "sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+      "bytes": 5539,
+      "role": "EXACT_PREDECESSOR_COMMIT_BLOB_FROM_REVIEW_MANIFEST_NOT_WORKTREE"
+    }
+  ],
+  "owned_implementation_paths": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs.meta",
+    "MapDesign/MCP/SV5/12_SPACE_GATE_FIX02.md",
+    "MapDesign/MCP/GENERATED/SV5_06_FIX02",
+    "MapDesign/MCP/REPORTS/SV5_06_FIX02_RESULT.md"
+  ],
+  "expected_absent_before": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs.meta",
+    "MapDesign/MCP/SV5/12_SPACE_GATE_FIX02.md",
+    "MapDesign/MCP/GENERATED/SV5_06_FIX02",
+    "MapDesign/MCP/REPORTS/SV5_06_FIX02_RESULT.md"
+  ],
+  "protocol_before_sha256": "51197b438af7903f158a9d157ca77e549e3674259698929a232b3bb035f596be"
+}

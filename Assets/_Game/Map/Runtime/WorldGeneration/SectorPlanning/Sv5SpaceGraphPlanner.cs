@@ -70,7 +70,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 projection.Gates).ToList();
             Validate(core, places, ports, connections, reservations, projection, diagnostics);
             return new Sv5SpaceGraphPlan(core, seed, profile, places, ports, connections, projection.Gates,
-                reservations, projection.Contacts, projection.Proofs, diagnostics);
+                reservations, projection.Contacts, projection.Proofs, projection.GateStateChecks, diagnostics);
         }
 
         private static IEnumerable<Sv5SpacePlace> BuildCorePlaces(Sv5CoreReservationPlan core)
@@ -323,7 +323,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach (Sv5SpaceGate gate in gates)
             foreach (RmapSpecialWorldPoint point in gate.BlockingCells)
                 yield return new Sv5SpaceReservationCell(point, Sv5SpaceReservationKind.ConditionalGate,
-                    gate.Id, "SEALED:" + gate.Predicate + "|OPEN:PASSAGE");
+                    gate.Id, "CELL_BLOCK|SEALED:" + gate.TypedPredicate.StableToken + "|OPEN:PASSAGE");
+            foreach (Sv5SpaceGate gate in gates)
+            foreach (Sv5SpaceBoundaryFace face in gate.BlockingFaces)
+            {
+                yield return new Sv5SpaceReservationCell(face.First, Sv5SpaceReservationKind.ConditionalGate,
+                    gate.Id, "FACE_ONLY_STATE_BOUNDARY|" + face.StableToken + "|SEALED:" +
+                    gate.TypedPredicate.StableToken + "|OPEN:PASSAGE");
+                yield return new Sv5SpaceReservationCell(face.Second, Sv5SpaceReservationKind.ConditionalGate,
+                    gate.Id, "FACE_ONLY_STATE_BOUNDARY|" + face.StableToken + "|SEALED:" +
+                    gate.TypedPredicate.StableToken + "|OPEN:PASSAGE");
+            }
         }
 
         private static void Validate(Sv5CoreReservationPlan core, IReadOnlyList<Sv5SpacePlace> places,
@@ -357,6 +367,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 diagnostics.Add(error);
             foreach (string error in Sv5SpaceGraphValidator.FindGateErrors(projection.Contacts, projection.Gates))
                 diagnostics.Add(error);
+            foreach (string error in Sv5SpaceGateGeometry.FindStateErrors(core, connections, projection.Gates,
+                         projection.GateStateChecks)) diagnostics.Add(error);
             if (reservations.Any(value => value.World.X < 0 || value.World.X >= WorldWidth || value.World.Y < 0 ||
                 value.World.Y >= WorldHeight)) diagnostics.Add("RESERVATION_OUT_OF_WORLD");
             if (!ReferenceEquals(core.Source, core.RouteSource.SpecialPlan) ||
@@ -535,10 +547,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5SpaceReservationProbe
     {
         public Sv5SpaceReservationProbe(RmapSpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId)
-        { World = world; Kind = kind; OwnerId = ownerId ?? string.Empty; }
+            : this(world, kind, ownerId, string.Empty) { }
+        public Sv5SpaceReservationProbe(RmapSpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId,
+            string semantics)
+        { World = world; Kind = kind; OwnerId = ownerId ?? string.Empty; Semantics = semantics ?? string.Empty; }
         public RmapSpecialWorldPoint World { get; }
         public Sv5SpaceReservationKind Kind { get; }
         public string OwnerId { get; }
+        public string Semantics { get; }
     }
 
     /// <summary>Production validation used by planning and by FIX01 negative fixtures.</summary>
@@ -636,6 +652,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     connection.ApertureCells.Any(value => !envelope.Contains(value)))
                     errors.Add("CONNECTION_ENVELOPE_INCOMPLETE|" + connection.Id);
                 var aperture = new HashSet<RmapSpecialWorldPoint>(connection.ApertureCells);
+                var apertureReachable = new HashSet<RmapSpecialWorldPoint>(from.BoundaryCells
+                    .Concat(to.BoundaryCells).Where(aperture.Contains));
+                var apertureQueue = new Queue<RmapSpecialWorldPoint>(apertureReachable);
+                while (apertureQueue.Count != 0)
+                {
+                    RmapSpecialWorldPoint current = apertureQueue.Dequeue();
+                    foreach (RmapSpecialWorldPoint next in CardinalNeighbors(current))
+                        if (aperture.Contains(next) && apertureReachable.Add(next)) apertureQueue.Enqueue(next);
+                }
+                if (aperture.Count != 0 && apertureReachable.Count != aperture.Count)
+                    errors.Add("CONNECTION_APERTURE_NOT_PORT_REACHABLE|" + connection.Id);
                 if (connection.Kind != Sv5SpaceConnectionKind.CoreProgression)
                     foreach (RmapSpecialWorldPoint point in connection.Centerline.Where(value => !aperture.Contains(value)))
                         if (!CardinalCross(point).All(envelope.Contains))
@@ -650,7 +677,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             return FindRequiredReservationConflicts(core, (sourceReservations ??
                 Array.Empty<Sv5SpaceReservationCell>()).Where(value => value != null)
-                .Select(value => new Sv5SpaceReservationProbe(value.World, value.Kind, value.OwnerId)));
+                .Select(value => new Sv5SpaceReservationProbe(value.World, value.Kind, value.OwnerId,
+                    value.Semantics)));
         }
 
         public static IReadOnlyList<string> FindRequiredReservationConflicts(Sv5CoreReservationPlan core,
@@ -661,14 +689,23 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 value.Protection == RmapSpecialProtectionKind.FixedSolid).Select(value => value.World));
             var routeSolid = new HashSet<RmapSpecialWorldPoint>(core.RouteCells.Where(value =>
                 value.RequiredBaseCell == RmapPatternBaseCell.Solid).Select(value => value.World));
+            var protectedAir = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Where(value =>
+                value.Protection == RmapSpecialProtectionKind.ProtectedAir).Select(value => value.World));
             var errors = new List<string>();
             foreach (Sv5SpaceReservationProbe value in (sourceReservations ?? Array.Empty<Sv5SpaceReservationProbe>())
                          .Where(value => value != null && (value.Kind == Sv5SpaceReservationKind.CorridorCenterline ||
                              value.Kind == Sv5SpaceReservationKind.CorridorClearance ||
-                             value.Kind == Sv5SpaceReservationKind.PortAperture)))
+                             value.Kind == Sv5SpaceReservationKind.PortAperture ||
+                             value.Kind == Sv5SpaceReservationKind.ConditionalGate)))
             {
-                if (fixedSolid.Contains(value.World)) errors.Add("RESERVATION_FIXED_SOLID_CONFLICT|" + value.World + "|" + value.OwnerId);
-                if (routeSolid.Contains(value.World)) errors.Add("RESERVATION_ROUTE_SUPPORT_CONFLICT|" + value.World + "|" + value.OwnerId);
+                if (value.Kind != Sv5SpaceReservationKind.ConditionalGate)
+                {
+                    if (fixedSolid.Contains(value.World)) errors.Add("RESERVATION_FIXED_SOLID_CONFLICT|" + value.World + "|" + value.OwnerId);
+                    if (routeSolid.Contains(value.World)) errors.Add("RESERVATION_ROUTE_SUPPORT_CONFLICT|" + value.World + "|" + value.OwnerId);
+                }
+                if (value.Kind == Sv5SpaceReservationKind.ConditionalGate && protectedAir.Contains(value.World) &&
+                    !value.Semantics.StartsWith("FACE_ONLY_STATE_BOUNDARY|", StringComparison.Ordinal))
+                    errors.Add("RESERVATION_PROTECTED_AIR_STATE_CONFLICT|" + value.World + "|" + value.OwnerId);
             }
             return new ReadOnlyCollection<string>(errors.Distinct(StringComparer.Ordinal)
                 .OrderBy(value => value, StringComparer.Ordinal).ToArray());
@@ -681,33 +718,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<RmapSpecialWorldPoint> sourceEnvelope,
             IEnumerable<RmapSpecialWorldPoint> sourceAperture)
         {
-            var errors = new List<string>();
-            var ports = (sourcePorts ?? Array.Empty<Sv5SpacePort>()).Where(value => value != null)
-                .ToDictionary(value => value.Id, value => value, StringComparer.Ordinal);
-            if (!ports.TryGetValue(fromPortId ?? string.Empty, out Sv5SpacePort from) ||
-                !ports.TryGetValue(toPortId ?? string.Empty, out Sv5SpacePort to))
-                return new ReadOnlyCollection<string>(new[] { "CONNECTION_UNKNOWN_PORT|FIXTURE" });
-            RmapSpecialWorldPoint[] centerline = (sourceCenterline ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray();
-            var envelope = new HashSet<RmapSpecialWorldPoint>(sourceEnvelope ?? Array.Empty<RmapSpecialWorldPoint>());
-            var aperture = new HashSet<RmapSpecialWorldPoint>(sourceAperture ?? Array.Empty<RmapSpecialWorldPoint>());
-            if (!string.Equals(from.PlaceId, fromPlaceId, StringComparison.Ordinal) ||
-                !string.Equals(to.PlaceId, toPlaceId, StringComparison.Ordinal))
-                errors.Add("CONNECTION_PLACE_PORT_MISMATCH|FIXTURE");
-            if (centerline.Length < 2 || !from.BoundaryCells.Contains(centerline.FirstOrDefault()) ||
-                !to.BoundaryCells.Contains(centerline.LastOrDefault()))
-                errors.Add("CONNECTION_ENDPOINT_MISMATCH|FIXTURE");
-            if (!string.Equals(flow, "ONE_WAY", StringComparison.Ordinal) &&
-                !string.Equals(flow, "BIDIRECTIONAL", StringComparison.Ordinal))
-                errors.Add("CONNECTION_UNKNOWN_FLOW|FIXTURE");
-            if (centerline.Length >= 2 && GeometryDirection(centerline[0], centerline[1]) != direction)
-                errors.Add("CONNECTION_DIRECTION_MISMATCH|FIXTURE");
-            if (centerline.Any(value => !envelope.Contains(value)) || aperture.Any(value => !envelope.Contains(value)))
-                errors.Add("CONNECTION_ENVELOPE_INCOMPLETE|FIXTURE");
-            foreach (RmapSpecialWorldPoint point in centerline.Where(value => !aperture.Contains(value)))
-                if (!CardinalCross(point).All(envelope.Contains))
-                { errors.Add("CONNECTION_REQUIRED_WIDTH_NARROW|FIXTURE|" + point); break; }
-            return new ReadOnlyCollection<string>(errors.Distinct(StringComparer.Ordinal)
-                .OrderBy(value => value, StringComparer.Ordinal).ToArray());
+            try
+            {
+                var connection = new Sv5SpaceConnection("FIXTURE", Sv5SpaceConnectionKind.OptionalBranch,
+                    fromPortId, toPortId, fromPlaceId, toPlaceId, direction, flow, "FIXTURE", string.Empty,
+                    "FIXTURE", sourceCenterline, sourceEnvelope, sourceAperture);
+                return FindConnectionErrors(sourcePorts, new[] { connection });
+            }
+            catch (ArgumentException error)
+            {
+                return new ReadOnlyCollection<string>(new[] { "CONNECTION_MALFORMED|FIXTURE|" + error.ParamName });
+            }
         }
 
         public static IReadOnlyList<string> ValidateBarrierFixture(Sv5RouteContactPair contact,
@@ -758,6 +779,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static IEnumerable<RmapSpecialWorldPoint> CardinalCross(RmapSpecialWorldPoint point)
         {
             yield return point;
+            if (point.X > 0) yield return new RmapSpecialWorldPoint(point.X - 1, point.Y);
+            if (point.X < Sv5SpaceGraphPlanner.WorldWidth - 1) yield return new RmapSpecialWorldPoint(point.X + 1, point.Y);
+            if (point.Y > 0) yield return new RmapSpecialWorldPoint(point.X, point.Y - 1);
+            if (point.Y < Sv5SpaceGraphPlanner.WorldHeight - 1) yield return new RmapSpecialWorldPoint(point.X, point.Y + 1);
+        }
+        private static IEnumerable<RmapSpecialWorldPoint> CardinalNeighbors(RmapSpecialWorldPoint point)
+        {
             if (point.X > 0) yield return new RmapSpecialWorldPoint(point.X - 1, point.Y);
             if (point.X < Sv5SpaceGraphPlanner.WorldWidth - 1) yield return new RmapSpecialWorldPoint(point.X + 1, point.Y);
             if (point.Y > 0) yield return new RmapSpecialWorldPoint(point.X, point.Y - 1);

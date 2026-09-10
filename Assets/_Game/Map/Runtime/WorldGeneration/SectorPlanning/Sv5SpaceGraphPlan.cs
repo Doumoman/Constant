@@ -264,7 +264,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<RmapSpecialWorldPoint> sourceBlockingCells,
             IEnumerable<Sv5SpaceBoundaryFace> sourceBlockingFaces, RmapSpecialWorldPoint sideAAnchor,
             RmapSpecialWorldPoint sideBAnchor, RmapWorldGraphDirection direction, string flow, string predicate,
-            Sv5SpaceCrossingKind crossing, string sealedState, string openState)
+            Sv5SpaceGatePredicate typedPredicate, string sourceConnectionId, string sourceRouteId,
+            string sourcePortId, string targetPortId, Sv5SpaceCrossingKind crossing, string sealedState,
+            string openState)
         {
             Id = Sv5SpaceGraphAuthoringProfile.Require(id, nameof(id));
             BoundaryId = Sv5SpaceGraphAuthoringProfile.Require(boundaryId, nameof(boundaryId));
@@ -282,6 +284,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             SideAAnchor = sideAAnchor; SideBAnchor = sideBAnchor; Direction = direction;
             Flow = Sv5SpaceGraphAuthoringProfile.Require(flow, nameof(flow));
             Predicate = Sv5SpaceGraphAuthoringProfile.Require(predicate, nameof(predicate));
+            TypedPredicate = typedPredicate ?? throw new ArgumentNullException(nameof(typedPredicate));
+            SourceConnectionId = Sv5SpaceGraphAuthoringProfile.Require(sourceConnectionId, nameof(sourceConnectionId));
+            SourceRouteId = Sv5SpaceGraphAuthoringProfile.Require(sourceRouteId, nameof(sourceRouteId));
+            SourcePortId = Sv5SpaceGraphAuthoringProfile.Require(sourcePortId, nameof(sourcePortId));
+            TargetPortId = Sv5SpaceGraphAuthoringProfile.Require(targetPortId, nameof(targetPortId));
             Crossing = crossing;
             SealedState = Sv5SpaceGraphAuthoringProfile.Require(sealedState, nameof(sealedState));
             OpenState = Sv5SpaceGraphAuthoringProfile.Require(openState, nameof(openState));
@@ -298,11 +305,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public RmapWorldGraphDirection Direction { get; }
         public string Flow { get; }
         public string Predicate { get; }
+        public Sv5SpaceGatePredicate TypedPredicate { get; }
+        public string SourceConnectionId { get; }
+        public string SourceRouteId { get; }
+        public string SourcePortId { get; }
+        public string TargetPortId { get; }
         public Sv5SpaceCrossingKind Crossing { get; }
         public string SealedState { get; }
         public string OpenState { get; }
         public bool PlannedBarrierVerified => blockingCells.Count + blockingFaces.Count > 0 &&
-            !SideAAnchor.Equals(SideBAnchor) && string.Equals(Flow, "BIDIRECTIONAL", StringComparison.Ordinal);
+            !SideAAnchor.Equals(SideBAnchor) && (string.Equals(Flow, "ONE_WAY", StringComparison.Ordinal) ||
+            string.Equals(Flow, "BIDIRECTIONAL", StringComparison.Ordinal)) && TypedPredicate != null &&
+            !string.IsNullOrWhiteSpace(SourceConnectionId) && !string.IsNullOrWhiteSpace(SourceRouteId) &&
+            !string.IsNullOrWhiteSpace(SourcePortId) && !string.IsNullOrWhiteSpace(TargetPortId);
         public bool RuntimeVerified => false;
         public int CompareTo(Sv5SpaceGate other) => other == null ? 1 : string.Compare(Id, other.Id, StringComparison.Ordinal);
     }
@@ -384,7 +399,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
             IEnumerable<Sv5SpaceReservationCell> sourceReservations,
             IEnumerable<Sv5SpaceContactDecision> sourceContacts,
-            IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs, IEnumerable<string> sourceDiagnostics)
+            IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs,
+            IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks, IEnumerable<string> sourceDiagnostics)
         {
             Core = core ?? throw new ArgumentNullException(nameof(core));
             Seed = seed;
@@ -396,6 +412,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Reservations = Freeze(sourceReservations);
             ContactDecisions = Freeze(sourceContacts);
             ProjectionProofs = Freeze(sourceProofs);
+            GateStateChecks = Freeze(sourceGateStateChecks);
             Diagnostics = new ReadOnlyCollection<string>((sourceDiagnostics ?? Array.Empty<string>()).Where(value =>
                 !string.IsNullOrWhiteSpace(value)).Distinct(StringComparer.Ordinal).OrderBy(value => value,
                 StringComparer.Ordinal).ToArray());
@@ -415,6 +432,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5SpaceReservationCell> Reservations { get; }
         public IReadOnlyList<Sv5SpaceContactDecision> ContactDecisions { get; }
         public IReadOnlyList<Sv5SpaceProjectionOrderProof> ProjectionProofs { get; }
+        public IReadOnlyList<Sv5SpaceGateStateCheck> GateStateChecks { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
@@ -426,11 +444,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Core.Sites.Count == 8 && Core.CoreCells.Count == 2432 &&
             ContactDecisions.Count != 0 && ContactDecisions.All(value => value.CoverageChecked &&
                 value.LogicalStateTransitionChecked) && Gates.All(value => value.PlannedBarrierVerified) &&
+            GateStateChecks.Count >= Gates.Count * 2 && GateStateChecks.All(value => value.Success) &&
             ProjectionProofs.Count == 6 && ProjectionProofs.All(value => value.Success) && InfillPendingTileCount > 0;
 
         private IEnumerable<string> CanonicalLines()
         {
-            yield return "SV5_SPACE_GRAPH_PLAN_V2";
+            yield return "SV5_SPACE_GRAPH_PLAN_FIX02_V3";
             yield return Core.RouteSource.Definition.Digest;
             yield return Core.Digest;
             yield return Core.RouteSource.Graph.Digest;
@@ -450,7 +469,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 Strings(value.ContactIds) + "|" + Points(value.BlockingCells) + "|" +
                 Strings(value.BlockingFaces.Select(item => item.StableToken)) + "|" + value.SideAAnchor + "|" +
                 value.SideBAnchor + "|" + value.Direction + "|" + L(value.Flow) + L(value.Predicate) +
-                value.Crossing + "|" + L(value.SealedState) + L(value.OpenState);
+                L(value.TypedPredicate.StableToken) + L(value.SourceConnectionId) + L(value.SourceRouteId) +
+                L(value.SourcePortId) + L(value.TargetPortId) + value.Crossing + "|" + L(value.SealedState) +
+                L(value.OpenState);
             foreach (Sv5SpaceReservationCell value in Reservations) yield return "reservation|" + value.World + "|" +
                 value.Kind + "|" + value.OwnerId + "|" + value.Semantics;
             foreach (Sv5SpaceContactDecision value in ContactDecisions) yield return "contact|" +
@@ -462,6 +483,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 value.GoalProof.ProofId + "|" + value.ReachableStates + "|" + value.Transitions + "|" +
                 value.ReverseReachableStates + "|" + Strings(value.GoalProof.RequestedOrder.Select(item =>
                     item.ToString())) + "|" + Strings(value.GoalProof.Actions) + "|" + Strings(value.DeadEnds);
+            foreach (Sv5SpaceGateStateCheck value in GateStateChecks) yield return "gate-state-check|" +
+                L(value.Id) + L(value.GateId) + L(value.ConnectionId) + L(value.SourcePortId) +
+                L(value.TargetPortId) + value.ResourceMask + "|" + (value.ForgeMade ? "1" : "0") +
+                (value.SealOpen ? "1" : "0") + (value.BossComplete ? "1" : "0") +
+                (value.ExpectedOpen ? "1" : "0") + (value.ActualOpen ? "1" : "0") +
+                (value.SourceAnchorReachable ? "1" : "0") + (value.TargetPortReachable ? "1" : "0") +
+                (value.SealedCutVerified ? "1" : "0") + (value.OpenPathVerified ? "1" : "0") + "|" +
+                value.CheckedCells + "|" + value.CheckedFaces + "|" + L(value.Evidence);
         }
 
         private static string L(string value)

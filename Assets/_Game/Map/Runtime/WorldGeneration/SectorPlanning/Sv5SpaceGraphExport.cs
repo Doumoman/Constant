@@ -27,12 +27,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(directory, "state_proofs.json"), StateProofsJson(plan));
             Write(Path.Combine(directory, "contact_checks.csv"), ContactChecksCsv(plan));
             Write(Path.Combine(directory, "gate_geometry.json"), GateGeometryJson(plan));
+            Write(Path.Combine(directory, "gate_state_checks.json"), GateStateChecksJson(plan));
             Write(Path.Combine(directory, "obligations.csv"), ObligationsCsv(plan));
             Write(Path.Combine(directory, "validation.json"), ValidationJson(plan));
             Write(Path.Combine(preview, "overview.svg"), OverviewSvg(plan));
             for (var row = 0; row < 4; row++)
             for (var column = 0; column < 4; column++)
                 Write(Path.Combine(preview, ZoomName(row, column) + ".svg"), ZoomSvg(plan, row, column));
+            Write(Path.Combine(preview, "W01_before_after.svg"), WitnessSvg(plan,
+                "W01_SEAL_ENTRY_REACHABLE", "W01 - Forge-complete Seal entry"));
+            Write(Path.Combine(preview, "W02_before_after.svg"), WitnessSvg(plan,
+                "W02_BOSS_APPROACH_REACHABLE", "W02 - Seal-open Boss approach"));
             Write(Path.Combine(preview, "index.html"), IndexHtml(plan));
         }
 
@@ -40,7 +45,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             var text = new StringBuilder();
-            text.Append("{\n  \"schema\": \"SV5_SPACE_GRAPH_FIX01_V2\",\n")
+            text.Append("{\n  \"schema\": \"SV5_SPACE_GRAPH_FIX02_V3\",\n")
                 .Append("  \"world\": {\"width\":624,\"height\":416,\"origin\":\"BOTTOM_LEFT\",\"bounds\":\"HALF_OPEN\",\"micro_chunk\":[12,8],\"pattern\":[4,4]},\n")
                 .Append("  \"seed\": ").Append(plan.Seed.ToString(CultureInfo.InvariantCulture)).Append(",\n")
                 .Append("  \"profile\": {\"id\":").Append(J(plan.Profile.Id)).Append(",\"version\":")
@@ -49,7 +54,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append(",\"core_digest\":").Append(J(plan.Core.Digest)).Append(",\"graph_digest\":")
                 .Append(J(plan.Core.RouteSource.Graph.Digest)).Append(",\"core_sites\":8,\"core_cells\":2432},\n")
                 .Append("  \"plan_digest\": ").Append(J(plan.Digest)).Append(",\n")
-                .Append("  \"readiness\": {\"planned_layout\":true,\"logical_state\":true,\"contact_coverage\":true,\"planned_gate_geometry\":true,\"composed_geometry\":false,\"player\":false},\n")
+                .Append("  \"readiness\": {\"planned_layout\":true,\"logical_state\":true,\"contact_coverage\":true,\"planned_gate_geometry\":true,\"planned_gate_state\":true,\"composed_geometry\":false,\"player\":false},\n")
                 .Append("  \"infill\": {\"owner\":\"SV5_08_INFILL\",\"state\":\"INFILL_PENDING\",\"tile_count\":")
                 .Append(plan.InfillPendingTileCount.ToString(CultureInfo.InvariantCulture)).Append("},\n")
                 .Append("  \"places\": [\n");
@@ -79,7 +84,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 J(value.BoundaryId) + ",\"contact_ids\":[" + string.Join(",", value.ContactIds.Select(J)) +
                 "],\"side_a_anchor\":" + Point(value.SideAAnchor) + ",\"side_b_anchor\":" +
                 Point(value.SideBAnchor) + ",\"direction\":" + J(value.Direction.ToString()) + ",\"flow\":" +
-                J(value.Flow) + ",\"predicate\":" + J(value.Predicate) + ",\"crossing\":" +
+                J(value.Flow) + ",\"predicate\":" + J(value.Predicate) + ",\"typed_predicate\":{" +
+                "\"required_resource_mask\":" + value.TypedPredicate.RequiredResourceMask.ToString(CultureInfo.InvariantCulture) +
+                ",\"requires_forge\":" + B(value.TypedPredicate.RequiresForge) + ",\"requires_seal\":" +
+                B(value.TypedPredicate.RequiresSeal) + ",\"requires_boss_complete\":" +
+                B(value.TypedPredicate.RequiresBossComplete) + "},\"source_connection_id\":" +
+                J(value.SourceConnectionId) + ",\"source_route_id\":" + J(value.SourceRouteId) +
+                ",\"source_port_id\":" + J(value.SourcePortId) + ",\"target_port_id\":" +
+                J(value.TargetPortId) + ",\"crossing\":" +
                 J(value.Crossing.ToString()) + ",\"blocking_cells\":[" +
                 string.Join(",", value.BlockingCells.Select(Point)) + "],\"blocking_faces\":[" +
                 string.Join(",", value.BlockingFaces.Select(item => J(item.StableToken))) +
@@ -135,7 +147,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             return "{\n" +
-                "  \"schema\": \"SV5_PLANNED_GATE_GEOMETRY_V2\",\n" +
+                "  \"schema\": \"SV5_PLANNED_GATE_GEOMETRY_FIX02_V3\",\n" +
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
                 "  \"composed_geometry_ready\": false,\n" +
                 "  \"player_verified\": false,\n" +
@@ -148,9 +160,43 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     "],\"side_a_anchor\":" + Point(value.SideAAnchor) + ",\"side_b_anchor\":" +
                     Point(value.SideBAnchor) + ",\"direction\":" + J(value.Direction.ToString()) +
                     ",\"flow\":" + J(value.Flow) + ",\"predicate\":" + J(value.Predicate) +
+                    ",\"typed_predicate\":{\"required_resource_mask\":" +
+                    value.TypedPredicate.RequiredResourceMask.ToString(CultureInfo.InvariantCulture) +
+                    ",\"requires_forge\":" + B(value.TypedPredicate.RequiresForge) +
+                    ",\"requires_seal\":" + B(value.TypedPredicate.RequiresSeal) +
+                    ",\"requires_boss_complete\":" + B(value.TypedPredicate.RequiresBossComplete) +
+                    "},\"source_connection_id\":" + J(value.SourceConnectionId) +
+                    ",\"source_route_id\":" + J(value.SourceRouteId) + ",\"source_port_id\":" +
+                    J(value.SourcePortId) + ",\"target_port_id\":" + J(value.TargetPortId) +
                     ",\"sealed_state\":" + J(value.SealedState) + ",\"open_state\":" + J(value.OpenState) +
                     ",\"planned_barrier_verified\":" + B(value.PlannedBarrierVerified) + "}")) +
                 "\n  ]\n}\n";
+        }
+
+        public static string GateStateChecksJson(Sv5SpaceGraphPlan plan)
+        {
+            Require(plan);
+            return "{\n" +
+                "  \"schema\": \"SV5_GATE_STATE_CHECKS_FIX02_V1\",\n" +
+                "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
+                "  \"movement_space\": \"ACCEPTED_ENVELOPE_ONLY_INFILL_PENDING_EXCLUDED\",\n" +
+                "  \"composed_geometry_ready\": false,\n" +
+                "  \"player_verified\": false,\n" +
+                "  \"checks\": [\n" + string.Join(",\n", plan.GateStateChecks.Select(value =>
+                    "    {\"id\":" + J(value.Id) + ",\"gate_id\":" + J(value.GateId) +
+                    ",\"connection_id\":" + J(value.ConnectionId) + ",\"source_port_id\":" +
+                    J(value.SourcePortId) + ",\"target_port_id\":" + J(value.TargetPortId) +
+                    ",\"state\":{\"resource_mask\":" + value.ResourceMask.ToString(CultureInfo.InvariantCulture) +
+                    ",\"forge_made\":" + B(value.ForgeMade) + ",\"seal_open\":" + B(value.SealOpen) +
+                    ",\"boss_complete\":" + B(value.BossComplete) + "},\"expected_open\":" +
+                    B(value.ExpectedOpen) + ",\"actual_open\":" + B(value.ActualOpen) +
+                    ",\"source_anchor_reachable\":" + B(value.SourceAnchorReachable) +
+                    ",\"target_port_reachable\":" + B(value.TargetPortReachable) +
+                    ",\"sealed_cut_verified\":" + B(value.SealedCutVerified) +
+                    ",\"open_path_verified\":" + B(value.OpenPathVerified) +
+                    ",\"checked_cells\":" + N(value.CheckedCells) + ",\"checked_faces\":" +
+                    N(value.CheckedFaces) + ",\"success\":" + B(value.Success) + ",\"evidence\":" +
+                    J(value.Evidence) + "}")) + "\n  ]\n}\n";
         }
 
         public static string ObligationsCsv(Sv5SpaceGraphPlan plan)
@@ -169,7 +215,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             rows.Add(new[] { "SV5_41_COMPOSE", "SV5_41_COMPOSE", "Materialize planned envelopes and gates, then promote composed geometry only with collision evidence.", "PENDING", "COMPOSED_GEOMETRY" });
             rows.Add(new[] { "SV5_42_FINAL_SCAN", "SV5_42_FINAL_SCAN", "Run final 3-4 tile gap and 6x6 solid-window scans.", "PENDING", "COMPOSED_GEOMETRY" });
             rows.Add(new[] { "SV5_44_PLAYER", "SV5_44_WORLD_PLAYER", "Run actual whole-world Player traversal after composed geometry exists.", "PENDING", "PLAYER" });
-            rows.Add(new[] { "SG06_F5_SPARSE_SINGLE_CIRCUIT", "SV5_07_08_09", "Resolve sparse 22-place single-circuit structure; FIX01 repairs reservation/contact/gate correctness only.", "PENDING", "WHOLE_WORLD_STRUCTURE" });
+            rows.Add(new[] { "SG06_F5_SPARSE_SINGLE_CIRCUIT", "SV5_07_08_09", "Resolve sparse 22-place single-circuit structure; FIX02 repairs typed state-gate correctness only.", "PENDING", "WHOLE_WORLD_STRUCTURE" });
             return Csv("obligation_id,owner_task,requirement,readiness,verification_layer", rows.Select(Row));
         }
 
@@ -177,12 +223,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             return "{\n" +
-                "  \"schema\": \"SV5_SPACE_STATE_PROOFS_FIX01_V2\",\n" +
+                "  \"schema\": \"SV5_SPACE_STATE_PROOFS_FIX02_V3\",\n" +
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
                 "  \"baseline\": {\"source\":\"RMAP13\",\"edge_count\":" + N(plan.Core.RouteSource.Graph.Edges.Count) +
                     ",\"proof_count\":" + N(plan.Core.RouteSource.Graph.Proofs.Count) + ",\"pass\":" +
                     B(plan.Core.RouteSource.Graph.Success) + "},\n" +
                 "  \"candidate_set\": {\"source\":\"SV5_05_FIX01_API\",\"status\":\"PRESERVED_SEPARATE\"},\n" +
+                "  \"gate_bindings\": [" + string.Join(",", plan.Gates.Select(value =>
+                    "{\"gate_id\":" + J(value.Id) + ",\"connection_id\":" + J(value.SourceConnectionId) +
+                    ",\"typed_predicate\":" + J(value.TypedPredicate.StableToken) + "}")) + "],\n" +
                 "  \"actual_projection\": [\n" + string.Join(",\n", plan.ProjectionProofs.Select(value =>
                     "    {\"proof_id\":" + J(value.GoalProof.ProofId) + ",\"resource_order\":" +
                     J(string.Join(">", value.GoalProof.RequestedOrder)) + ",\"success\":" + B(value.Success) +
@@ -198,7 +247,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             return "{\n" +
-                "  \"schema\": \"SV5_SPACE_VALIDATION_FIX01_V2\",\n" +
+                "  \"schema\": \"SV5_SPACE_VALIDATION_FIX02_V3\",\n" +
                 "  \"status\": " + J(plan.Success ? "PASS" : "FAIL") + ",\n" +
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
                 "  \"world\": [624,416],\n" +
@@ -217,18 +266,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     plan.Reservations).Count) + ",\n" +
                 "  \"gate_geometry_errors\": " + N(Sv5SpaceGraphValidator.FindGateErrors(plan.ContactDecisions,
                     plan.Gates).Count) + ",\n" +
+                "  \"gate_state_errors\": " + N(Sv5SpaceGateGeometry.FindStateErrors(plan.Core,
+                    plan.Connections, plan.Gates, plan.GateStateChecks).Count) + ",\n" +
+                "  \"gate_state_checks\": " + N(plan.GateStateChecks.Count) + ",\n" +
                 "  \"conditional_gates\": " + N(plan.Gates.Count) + ",\n" +
                 "  \"projection_orders\": " + N(plan.ProjectionProofs.Count) + ",\n" +
                 "  \"projection_pass\": " + B(plan.ProjectionProofs.Count == 6 && plan.ProjectionProofs.All(value => value.Success)) + ",\n" +
                 "  \"infill_pending_tiles\": " + N(plan.InfillPendingTileCount) + ",\n" +
                 "  \"geometry_state_ready\": false,\n" +
+                "  \"composed_geometry_ready\": false,\n" +
                 "  \"player_verified\": false,\n" +
                 "  \"focused_test_evidence\": \"EXTERNAL_FOCUSED_RESULTS_XML\",\n" +
                 "  \"diagnostics\": [" + string.Join(",", plan.Diagnostics.Select(J)) + "]\n" +
                 "}\n";
         }
 
-        public static string OverviewSvg(Sv5SpaceGraphPlan plan) => Svg(plan, 0, 0, 624, 416, true, "SV5_06_FIX01 accepted 624x416 space graph");
+        public static string OverviewSvg(Sv5SpaceGraphPlan plan) => Svg(plan, 0, 0, 624, 416, true, "SV5_06_FIX02 state-aware 624x416 space graph");
         public static string ZoomSvg(Sv5SpaceGraphPlan plan, int row, int column)
         {
             if (row < 0 || row > 3 || column < 0 || column > 3) throw new ArgumentOutOfRangeException(nameof(row));
@@ -248,13 +301,45 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     .Append(name).Append(".svg\" alt=\"").Append(name).Append("\"></a><figcaption>")
                     .Append(name).Append("</figcaption></figure>");
             }
-            return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>SV5_06_FIX01 review</title>" +
+            return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>SV5_06_FIX02 review</title>" +
                 "<style>body{font:14px system-ui;background:#101820;color:#eef4f1;margin:24px}img{width:100%;background:#18252c;border:1px solid #78909c}main{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}figure{margin:0}figcaption{padding:4px} .legend{line-height:1.6}</style></head><body>" +
-                "<h1>SV5_06_FIX01 accepted reservation/contact plan</h1><p>Digest <code>" + H(plan.Digest) +
+                "<h1>SV5_06_FIX02 state-aware gate plan</h1><p>Digest <code>" + H(plan.Digest) +
                 "</code>. This is planned layout evidence; composed geometry and Player verification remain false.</p>" +
                 "<p class=\"legend\">Blue: preserved core · Gold: large place · Green: ordinary room · Cyan: actual core connector · Purple: optional return circuit · Red: conditional split gate · Grey: INFILL_PENDING.</p>" +
-                "<p><a href=\"overview.svg\"><img src=\"overview.svg\" alt=\"overview\"></a></p><main>" + cards +
+                "<p><a href=\"overview.svg\"><img src=\"overview.svg\" alt=\"overview\"></a></p>" +
+                "<p><a href=\"W01_before_after.svg\">W01</a> · <a href=\"W02_before_after.svg\">W02</a></p><main>" + cards +
                 "</main></body></html>\n";
+        }
+
+        private static string WitnessSvg(Sv5SpaceGraphPlan plan, string checkId, string title)
+        {
+            Sv5SpaceGateStateCheck check = Require(plan).GateStateChecks.Single(value => value.Id == checkId);
+            Sv5SpaceGate gate = plan.Gates.Single(value => value.Id == check.GateId);
+            int minX = Math.Max(0, gate.BlockingFaces.SelectMany(value => new[] { value.First.X, value.Second.X })
+                .Concat(new[] { gate.SideAAnchor.X, gate.SideBAnchor.X }).Min() - 5);
+            int minY = Math.Max(0, gate.BlockingFaces.SelectMany(value => new[] { value.First.Y, value.Second.Y })
+                .Concat(new[] { gate.SideAAnchor.Y, gate.SideBAnchor.Y }).Min() - 5);
+            int width = 14, height = 14;
+            var text = new StringBuilder();
+            text.Append("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 210\" role=\"img\">")
+                .Append("<title>").Append(H(title)).Append("</title><desc>Plan ").Append(H(plan.Digest))
+                .Append("; composed geometry and Player verification remain pending.</desc>")
+                .Append("<rect width=\"420\" height=\"210\" fill=\"#101820\"/>")
+                .Append("<text x=\"18\" y=\"28\" fill=\"#fff\" font-size=\"18\" font-family=\"sans-serif\">")
+                .Append(H(title)).Append("</text><text x=\"18\" y=\"52\" fill=\"#b0bec5\" font-size=\"11\" font-family=\"monospace\">")
+                .Append(H(check.Id + " | gate=" + check.GateId)).Append("</text>")
+                .Append("<text x=\"18\" y=\"78\" fill=\"#80cbc4\" font-size=\"13\" font-family=\"sans-serif\">before: FIX01 blocked required port</text>")
+                .Append("<text x=\"18\" y=\"104\" fill=\"#a5d6a7\" font-size=\"13\" font-family=\"sans-serif\">after: route-owned full-width face cut</text>")
+                .Append("<text x=\"18\" y=\"130\" fill=\"#fff\" font-size=\"12\" font-family=\"monospace\">")
+                .Append(H("state=" + check.ResourceMask + "/" + check.ForgeMade + "/" + check.SealOpen + "/" + check.BossComplete +
+                    " expected=" + (check.ExpectedOpen ? "OPEN" : "SEALED"))).Append("</text>")
+                .Append("<text x=\"18\" y=\"154\" fill=\"#fff\" font-size=\"12\" font-family=\"monospace\">")
+                .Append(H("source=" + check.SourceAnchorReachable + " target=" + check.TargetPortReachable +
+                    " cut=" + check.SealedCutVerified + " openPath=" + check.OpenPathVerified)).Append("</text>")
+                .Append("<text x=\"18\" y=\"184\" fill=\"#90a4ae\" font-size=\"10\" font-family=\"monospace\">")
+                .Append(H("window=" + minX + "," + minY + "," + width + "," + height +
+                    " faces=" + gate.BlockingFaces.Count)).Append("</text></svg>\n");
+            return text.ToString();
         }
 
         private static string Svg(Sv5SpaceGraphPlan plan, int viewX, int viewY, int viewWidth, int viewHeight,

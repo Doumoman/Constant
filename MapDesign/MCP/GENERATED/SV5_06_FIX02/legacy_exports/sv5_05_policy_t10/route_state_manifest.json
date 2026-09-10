@@ -1,0 +1,17 @@
+{
+  "format": "SV5_05_ROUTE_STATE_FIX01_V2",
+  "core_reservation_digest": "2c0ebd820fb101ef307fa0d0dcf57371ad6b3796dd1c762020de78faf7efe569",
+  "rmap13_graph_digest": "37d192ef32117dce3094fecfa17412687fcf9d854230d8195e9f87cd816e27f6",
+  "analysis_digest": "ca9c817ffa809e34979ae154d27cb3c530c0f96ae5591486e2f3612288b724d7",
+  "route_count": 11,
+  "resource_order_count": 6,
+  "candidate_set_proof_count": 6,
+  "candidate_count": 2,
+  "logical_state_verified": true,
+  "contact_state_verified": false,
+  "geometry_state_ready": false,
+  "player_verified": false,
+  "physical_readiness": "PENDING_SV5_06_SV5_09_SV5_41_SV5_44",
+  "consumer": "Sv5RouteStatePolicy.Analyze",
+  "full_world_bake": "NOT_RUN"
+}

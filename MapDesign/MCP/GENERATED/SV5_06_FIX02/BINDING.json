@@ -1,0 +1,87 @@
+{
+  "format": "sv5_06_fix02_binding_v1",
+  "task": "SV5_06_FIX02",
+  "manifest_sha256": "955e37751fb515300b4c8eac69a300124074959c3f6ea82adc65631626bb1974",
+  "predecessor": {
+    "task": "SV5_06_FIX01",
+    "result_sha256": "ed7f1f81911c5209eddcb3cbffd7f6aeee5bb246c08e5588d7ff3534bca9de5c",
+    "installed_task_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+    "commit": "de57f7b1454d2b138bda9915bdb03ad1ae09cbe3",
+    "parent": "7b7dc99527b878eadc398388e27b3fce173971ef"
+  },
+  "registration": {
+    "approval": "SV5_06_FIX02_REG",
+    "scope": [
+      "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md: add one SV5_06_FIX02 LOCKED row",
+      "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md: add one 06.F2 SV5_06_FIX02 LOCKED row"
+    ],
+    "status_before_sha256": "90f0189def2c85346ae87b1df678f67ab1bc886c2ba82eb4e156da089e6d047c",
+    "status_registered_sha256": "e834c9a2adbd1edacb750052602332a96a06b9e7a28e77eaf9447ad4e05f3578",
+    "status_applied_sha256": "56f3326e6549e49d845442b5d5acdf9ace0993ff2eeb7bbec14bf84dc86df762",
+    "status_final_sha256": "ab6cb816b3d43ef50bfac9e4b90b0e88b8c27a714a01e294707283161f014b89",
+    "master_before_sha256": "083c324fe00531b47f140048f2b1729db2bdadaf9c880560d708f2ba95cc5b03",
+    "master_registered_sha256": "882675204091f954c2c2e06a4196574a7202b403751ae3cdbc29d385da46322e",
+    "states": {
+      "before": "246 COMPLETE / 0 CURRENT / 41 LOCKED / Current NONE",
+      "registered": "246 COMPLETE / 0 CURRENT / 42 LOCKED / Current NONE",
+      "applied": "246 COMPLETE / 1 CURRENT / 41 LOCKED / Current TASKS/SV5_06_FIX02.md",
+      "final_expected": "247 COMPLETE / 0 CURRENT / 41 LOCKED / Current NONE"
+    },
+    "git_options": "core.autocrlf=false core.eol=lf",
+    "pre_registration": "PASS",
+    "pre_stage": "PASS",
+    "stage": "PASS_STAGED_ONLY"
+  },
+  "apply": {
+    "inbox_sha256": "149d300e2010a08d9f399a94e8fdfa6289e12752e6af332b5115b89cd6c0ba5d",
+    "installed_task_sha256": "149d300e2010a08d9f399a94e8fdfa6289e12752e6af332b5115b89cd6c0ba5d",
+    "archive_sha256": "149d300e2010a08d9f399a94e8fdfa6289e12752e6af332b5115b89cd6c0ba5d",
+    "post_apply_readonly": "PASS_POST_READONLY_READONLY",
+    "post_finalize_readonly": "PASS_POST_READONLY_READONLY"
+  },
+  "source_changes": [
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs","before":"5009f508c0f5a441730c57ab7c0195299a3c014b91fe39b2c55231bca1d7f19a","after":"ab72bf664e0e2cff94baccfce49b64b2002ccb9afaf4d2096a98053498e3feaf","role":"typed gate, state-check model and semantic digest"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs","before":"cfe082d792378425cadb423fdf002d74f10d3fa0c4639cfa8ca7f8e4bfc4a512","after":"26b4c0755bf33aa4ad518c5d901c2164efbc4ead371c2fb5d9c5d123d67d2262","role":"ConditionalGate ProtectedAir and production aperture validation"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs","before":"d9841fa54c2e64a32f6cc20ee86d2ba6a593f73c228c81c4f4fc1bc2bc92b565","after":"e9539fbf91426c99b0addf138701b1aad474925d834c24d6f719cb18d75d3908","role":"predicate-compatible contact topology and gate-bound FSM segments"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs","before":"ebfdfeb7f826fa7a1cdb1862ba927dafede5ed5bc7b06a6aaa810bde60275b33","after":"a44caa26ee8018b3b23b61d20554053d50bcd57334eefc526f6138b9f9885367","role":"FIX02 schemas, gate state evidence, overview and witnesses"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs","before":null,"after":"0bb66daef50025e7ea9af0825c345e73a20130fcf819413aa5d2cb2bfe74bdeb","role":"route-owned full-width gate construction and state-wide movement validator"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs.meta","before":null,"after":"b208d9a428a98960e0a3d5b494ad24cbce80ab52d19c8e7688d1b095308234e7","role":"Unity asset identity"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs","before":"0ad252215729eb7c2a325395ef81ae730f72f3ab5af244476313c921b4d0b4d8","after":"c673f0534d7f099adfb57635894f17ff1514a331b7d689d66fe25fa4957f7080","role":"legacy SV5_04 export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs","before":"ae6d296bfb964645335e192479dcada3599684fef779017ea90b9e106cf29c0b","after":"9fe0ed70f0edb3f83a972bc0394fdb41ac63047df35eaad4817c66424bbaf402","role":"legacy route FIX01 export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs","before":"1ec195352dac3f542446d74689ee7d8a065f276ab0b992d4fd1a6294eeaaae67","after":"80b75e926fef77c8f6bb8e3d8e143b192cb1173aa260e93bbc88e0529d76ca83","role":"legacy route policy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs","before":"57d24edbdcd84e4b8e3029d8871e4f8244ecdcddde75757597a6dd49612ac437","after":"fd39cd12a8ffffa95a2e404a982acccb76bd7c02d1390876c023554e06e10c43","role":"valid FIX01 assertions retained with FIX02 export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs","before":"412d1b91d83c048e38fd323f1ad39f56d85785200e7eb52bbdfc821f45216937","after":"c381fc6badcd4342a2e6c92f79db14aed7875ba43a04314e77d110b3c2844b31","role":"route-owned gate assertions and legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs","before":null,"after":"cdcd68c5dfdb7cab45413d1b625d489bb9eede23fff738a58cbd1d05a75b048e","role":"G01-G08 production positive, negative and mutation tests"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs.meta","before":null,"after":"06dd37cf7adc7f2ad758cb1886a4d033236cc5460edb097f19080dd42e69339e","role":"Unity test asset identity"},
+    {"path":"MapDesign/MCP/SV5/02_PROTOCOL_V5.md","before":"51197b438af7903f158a9d157ca77e549e3674259698929a232b3bb035f596be","after":"c21a5a2cf288c282e4e1d587ec93541a0650378ef3fe720fa242c70319f8bd58","role":"provided protocol suffix appended byte-exactly once"},
+    {"path":"MapDesign/MCP/SV5/12_SPACE_GATE_FIX02.md","before":null,"after":"b8e3691ac3d0e36d46aa6974cbfeefd9b2ba04db9874acd97f984a4f329f9249","role":"active FIX02 gate contract and evidence"}
+  ],
+  "verification": {
+    "unity_cli": "1.0.0-beta.9",
+    "unity_editor": "6000.3.8f1 (1c7db571dde0)",
+    "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_06_FIX02/focused_results.xml --timeout 1800 --no-color",
+    "result": "PASS",
+    "discovered": 51,
+    "executed": 51,
+    "passed": 51,
+    "failed": 0,
+    "skipped": 0,
+    "xml_worktree_sha256": "d938215bae8766ba45ddadebe1b87642d579c7c52b78d7249b13669025b3eafc"
+  },
+  "accepted_plan": {
+    "digest": "e31b49b72f3c90857ac4ebce75ffab1cfef27a40b7b65a87e9d518a07226b905",
+    "connections": 28,
+    "contact_input_cells": 16222,
+    "complete_contact_pairs": 7188,
+    "conditional_gates": 3,
+    "gate_state_checks": 9,
+    "contact_coverage_errors": 0,
+    "reservation_conflicts": 0,
+    "gate_geometry_errors": 0,
+    "gate_state_errors": 0,
+    "projection_orders": 6,
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "open_obligation": "SV5_07/08/09 retain family, density and rejoin work; composed geometry and Player verification remain false. No successor was opened."
+}

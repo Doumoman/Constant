@@ -1,0 +1,278 @@
+{
+  "format": "sv5_06_fix01_feedback_v1",
+  "review_verdict": "CORRECTION_REQUIRED_BEFORE_SV5_07",
+  "submitted_result_status": "PASS",
+  "date": "2026-09-10",
+  "scope": "Review only. Does not register a Task or mutate MCP history. A later correction uses the normal approved registration and Apply process.",
+  "evidence_level": "Uploaded bytes, source review, submitted XML, independent Python reservation/contact checks; no Unity run, live Git inspection, composed geometry, or Player test here.",
+  "review_zip": {
+    "name": "SV5_06_FIX01_REVIEW.zip",
+    "sha256": "05a878e863eb5854bd01e1448e66d74773697ff359efda8a728ae41d3b45186b"
+  },
+  "reported_commit": "de57f7b1454d2b138bda9915bdb03ad1ae09cbe3",
+  "reported_parent": "7b7dc99527b878eadc398388e27b3fce173971ef",
+  "live_git_verified_here": false,
+  "verified": {
+    "manifest_files": 128,
+    "issued_package_identical_files": 12,
+    "task_archive_bound_bytes_identical": true,
+    "status_exact_prior_plus_own_complete_row": true,
+    "master_exact_prior_plus_own_registration_row": true,
+    "protocol_exact_prior_plus_approved_suffix": true,
+    "readonly_context_files_compared": 16,
+    "all_old_historical_files_reverified_here": false,
+    "submitted_tests": {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/focused_results.xml",
+      "worktree_sha256": "8e4bc3239a4be60af250500e20c309a8f9e5eb2ee8c470224cb1850e98ca396c",
+      "commit_blob_sha256": "04b9d3cf70a74a530c61aa6ba97e312a9dbfa5c762e6e8a63c3ecd101c9e9c2a",
+      "worktree_bytes": 41423,
+      "commit_blob_bytes": 41088,
+      "total": 43,
+      "passed": 43,
+      "failed": 0,
+      "skipped": 0
+    },
+    "final_state": {
+      "complete": 246,
+      "current": 0,
+      "locked": 41,
+      "current_task": "NONE",
+      "sv5_07": "LOCKED"
+    },
+    "contact_input_cells": 16222,
+    "complete_contact_pairs": 7188,
+    "contact_pair_missing_extra_duplicate": 0,
+    "new_corridor_fixed_solid_conflict_rows": 0,
+    "new_corridor_old_support_conflict_rows": 0,
+    "gates": 14,
+    "two_route_local_cut_checks": {
+      "open_connected": 14,
+      "closed_disconnected": 14,
+      "scope": "Individual gate; union of its two route envelopes only. This is positive evidence of local cuts, not state-wide safety or recovery."
+    }
+  },
+  "source_state_geometry": {
+    "path": "MapDesign/MCP/GENERATED/SV5_04/state_geometry.csv",
+    "source": "Earlier SV5_06_REVIEW.zip, manifest verified in that review",
+    "sha256": "ac93edca65636b73a71c47af3c58e514cb6759d1d549f00575d08846245d8785",
+    "bytes": 869,
+    "state_variant_cells": [
+      [
+        560,
+        311
+      ],
+      [
+        560,
+        312
+      ],
+      [
+        560,
+        313
+      ]
+    ]
+  },
+  "findings": [
+    {
+      "id": "SG06F1-R1",
+      "priority": "P1",
+      "title": "닫힌 gate가 필수 진입 포트를 막지만 상태 증명은 해당 차단을 반영하지 않음",
+      "contract": [
+        "C03",
+        "C04",
+        "C08"
+      ],
+      "witnesses": [
+        {
+          "id": "W01_SEAL_ENTRY_BLOCKED",
+          "gate_id": "SV5_GATE_F3608BF3D1EE0923F69A",
+          "state": {
+            "resource_mask": 7,
+            "ForgeMade": true,
+            "SealOpen": false,
+            "BossComplete": false
+          },
+          "required_connection": "FORGE_GATED_SEAL_APPROACH",
+          "target_port": "RMAP15_SITE_SEALBOSS_PORT_ENTRY",
+          "blocked_cells": [
+            [
+              533,
+              311
+            ],
+            [
+              533,
+              312
+            ],
+            [
+              533,
+              313
+            ]
+          ],
+          "declared_gate_open_condition": "ForgeMade && SealOpen",
+          "explanation": "ForgeMade만 필요했던 Seal 접근의 마지막 3칸이 SealOpen까지 요구하는 새 gate로 닫힌다. Seal action에 접근해야 SealOpen으로 바꿀 수 있는데, projection은 이 차단을 검사하지 않는다."
+        },
+        {
+          "id": "W02_OPEN_EXIT_REBLOCKED",
+          "gate_id": "SV5_GATE_3699556D982E455C6E7E",
+          "state": {
+            "resource_mask": 7,
+            "ForgeMade": true,
+            "SealOpen": true,
+            "BossComplete": false
+          },
+          "required_connection": "SEAL_GATED_BOSS_APPROACH",
+          "source_port": "RMAP15_SITE_SEALBOSS_PORT_EXIT",
+          "blocked_cells": [
+            [
+              560,
+              311
+            ],
+            [
+              560,
+              312
+            ],
+            [
+              560,
+              313
+            ]
+          ],
+          "declared_gate_open_condition": "SealOpen && BossComplete",
+          "explanation": "정본 OPEN 상태에서 복구해야 하는 3칸을 BossComplete 조건의 새 gate가 다시 막는다. 원래의 SEALED/OPEN 소유권과 불일치한다."
+        }
+      ],
+      "source_refs": [
+        {
+          "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+          "line": 75,
+          "detail": "BuildSplitEdges와 FSM 증명이 gate 생성보다 먼저 실행된다."
+        },
+        {
+          "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+          "line": 193,
+          "detail": "Segment는 원래 edge guard만 반복하며 blocking cells/faces를 소비하지 않는다."
+        },
+        {
+          "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+          "line": 305,
+          "detail": "서로 다른 route predicate를 일괄 AND한다."
+        },
+        {
+          "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+          "line": 304,
+          "detail": "PlannedBarrierVerified는 차단 원소 존재, 서로 다른 anchor, BIDIRECTIONAL 문자열만 검사한다."
+        }
+      ],
+      "limit": "This proves an inconsistency in the exported planned reservation and required connector semantics. It is not a demonstrated Unity/Player softlock or a discovered side-clearance exploit."
+    },
+    {
+      "id": "SG06F1-R2",
+      "priority": "P1",
+      "title": "ConditionalGate의 보호 AIR 충돌과 원래 상태 예약을 검증하지 않음",
+      "contract": [
+        "C02",
+        "C04"
+      ],
+      "all_protected_air_overlap_rows": 24,
+      "all_protected_air_overlap_cells": 15,
+      "outside_original_state_geometry_rows": 15,
+      "outside_original_state_geometry_cells": 12,
+      "detail": "새 통로의 FixedSolid/support 충돌은 0으로 수정됐지만 FindRequiredReservationConflicts는 CorridorCenterline/CorridorClearance/PortAperture만 검사한다. ConditionalGate가 protected AIR를 SEALED 고체로 예약하는 경우와 OPEN 복구 상태 충돌은 검사하지 않는다. 원래 허용된 560,311~313 상태 셀은 별도 구분했다.",
+      "source_refs": [
+        {
+          "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+          "line": 656,
+          "detail": "충돌 검사의 예약 종류가 세 가지로 제한됨."
+        },
+        {
+          "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+          "line": 323,
+          "detail": "모든 gate blocking cell을 SEALED/OPEN 예약으로 출력함."
+        }
+      ]
+    },
+    {
+      "id": "SG06F1-R3",
+      "priority": "P2",
+      "title": "N03~N07 일부 시험은 계약의 반례를 실제로 실행하지 않음",
+      "contract": [
+        "C06",
+        "C08"
+      ],
+      "tests": [
+        {
+          "test": "N03",
+          "present": "unknown port, invalid flow, wrong direction, 좁은 envelope 검사",
+          "missing": "실제 연결 검증기와 별도인 ValidatePortTransitionFixture를 호출한다. 가짜 aperture 확대로 폭 검사를 회피하는 반례가 없다."
+        },
+        {
+          "test": "N04",
+          "present": "실제 core connector 삭제 시 실패",
+          "missing": "무조건 중간 접촉 및 반대 방향 우회 주입 사례"
+        },
+        {
+          "test": "N05",
+          "present": "빈 blocking 집합은 실패, 해당 contact face를 포함하면 통과",
+          "missing": "통행 공간 탐색, 실제 옆 우회 경로, 상태별 정상 OPEN/SEALED 진행과 복귀. state 문자열 포함 여부를 확인하는 것으로 종료한다."
+        },
+        {
+          "test": "N06",
+          "present": "대표 plan의 6순서와 역도달 성공 확인",
+          "missing": "도달 가능한 복귀 불능 가지를 주입해 실패시키고 정상 왕복 말단은 통과시키는 사례"
+        },
+        {
+          "test": "N07",
+          "present": "예전 digest와 다름, export 키 포함, profile 순서/크기 변경",
+          "missing": "실제 port boundary/flow/envelope/gate OPEN-SEALED를 각각 변경한 plan digest 비교"
+        }
+      ],
+      "source_refs": [
+        {
+          "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+          "line": 54
+        },
+        {
+          "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+          "line": 74
+        },
+        {
+          "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+          "line": 86
+        },
+        {
+          "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+          "line": 101
+        },
+        {
+          "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+          "line": 113
+        }
+      ]
+    }
+  ],
+  "repair_scope": [
+    "불변 core와 기존 OPEN/SEALED 소유권을 보존하며 gate 배치/경계/허용 방향을 재설계한다. 실제 predicate 필드를 사용하고 route 조건을 무조건 AND/OR하지 않는다.",
+    "같은 accepted 모델에서 상태별 셀/face와 필수 포트의 정상 진입·복귀를 먼저 검증한다. 통로를 닫는 gate, 주변 clearance, 함께 닫힌 다른 gate를 모두 소비한다.",
+    "각 projection guard를 검증된 실제 계획 경계/port 근거에 묶고 그 결과로 6순서/모든 reachable state의 복귀 증명을 다시 만든다.",
+    "ConditionalGate까지 포함한 충돌 검증을 추가한다. 보호 AIR를 목록에서 빼거나 원본 core bytes를 바꾸어 통과시키지 않는다. 필요한 route 재설계는 새 active geometry와 old-ID 매핑으로 일관되게 처리한다.",
+    "위 두 입구 차단 반례와 C06의 누락된 실제 mutation/negative/positive 시험을 production API로 실행한다. 성공 플래그나 시험 이름 변경만으로 해결하지 않는다.",
+    "기존 FIX01 완료 기록은 보존하고 후속 보완은 별도 등록 절차를 따른다. 이번 검토 자료 자체에는 등록 또는 Apply 패치가 없다."
+  ],
+  "remaining_design": {
+    "places": 22,
+    "ordinary_places": 6,
+    "infill_pending_tiles": 235942,
+    "pending_percent": 90.892,
+    "pending_is_air": false,
+    "owners": {
+      "SV5_07": "Family 분포",
+      "SV5_08": "일반 공간 밀도",
+      "SV5_09": "재합류 확장"
+    },
+    "whole_world_visual_approval": false
+  },
+  "pins": {
+    "result_sha256": "ed7f1f81911c5209eddcb3cbffd7f6aeee5bb246c08e5588d7ff3534bca9de5c",
+    "task_archive_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+    "status_sha256": "90f0189def2c85346ae87b1df678f67ab1bc886c2ba82eb4e156da089e6d047c",
+    "plan_digest": "5e8e12a9b389d9a686f787e759d466a03fd57712a98bfdebb3a0b1aac3f3e494"
+  }
+}

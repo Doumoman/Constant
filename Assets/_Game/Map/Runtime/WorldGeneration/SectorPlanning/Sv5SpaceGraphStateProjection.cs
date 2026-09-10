@@ -12,7 +12,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         public Sv5SpaceProjectionResult(IEnumerable<Sv5SpaceContactDecision> contacts,
             IEnumerable<Sv5SpaceGate> gates, IEnumerable<Sv5SpaceProjectionOrderProof> proofs,
-            IEnumerable<string> diagnostics)
+            IEnumerable<Sv5SpaceGateStateCheck> gateStateChecks, IEnumerable<string> diagnostics)
         {
             Contacts = new ReadOnlyCollection<Sv5SpaceContactDecision>((contacts ??
                 Array.Empty<Sv5SpaceContactDecision>()).OrderBy(value => value).ToArray());
@@ -20,6 +20,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .OrderBy(value => value).ToArray());
             Proofs = new ReadOnlyCollection<Sv5SpaceProjectionOrderProof>((proofs ??
                 Array.Empty<Sv5SpaceProjectionOrderProof>()).OrderBy(value => value).ToArray());
+            GateStateChecks = new ReadOnlyCollection<Sv5SpaceGateStateCheck>((gateStateChecks ??
+                Array.Empty<Sv5SpaceGateStateCheck>()).OrderBy(value => value).ToArray());
             Diagnostics = new ReadOnlyCollection<string>((diagnostics ?? Array.Empty<string>())
                 .Where(value => !string.IsNullOrWhiteSpace(value)).Distinct(StringComparer.Ordinal)
                 .OrderBy(value => value, StringComparer.Ordinal).ToArray());
@@ -27,6 +29,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5SpaceContactDecision> Contacts { get; }
         public IReadOnlyList<Sv5SpaceGate> Gates { get; }
         public IReadOnlyList<Sv5SpaceProjectionOrderProof> Proofs { get; }
+        public IReadOnlyList<Sv5SpaceGateStateCheck> GateStateChecks { get; }
         public IReadOnlyList<string> Diagnostics { get; }
     }
 
@@ -58,7 +61,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
             var splitNodeIds = contacts.ToDictionary(value => value.Id,
                 value => ContactNodeId(value), StringComparer.Ordinal);
-            var analysisNodeIds = new HashSet<string>(splitNodeIds.Values, StringComparer.Ordinal);
+            var analysisNodeIds = new HashSet<string>(StringComparer.Ordinal);
             var optionalNodeIds = new HashSet<string>(StringComparer.Ordinal);
             string startNodeId = graph.Nodes.Single(value => value.Role == RmapWorldGraphRole.Start).NodeId;
             foreach (Sv5SpaceConnection connection in connections.Where(value => value.Kind !=
@@ -89,9 +92,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach (Sv5RouteContactPair contact in contacts)
                 if (!logicalRoutes.ContainsKey(contact.RouteA) || !logicalRoutes.ContainsKey(contact.RouteB))
                     diagnostics.Add("UNKNOWN_CONTACT_ROUTE|" + contact.Id);
+            Sv5RouteContactPair[] joinedContacts = contacts.Where(value =>
+                logicalRoutes.TryGetValue(value.RouteA, out LogicalRoute left) &&
+                logicalRoutes.TryGetValue(value.RouteB, out LogicalRoute right) &&
+                SamePredicate(left.Edge, right.Edge)).ToArray();
+            analysisNodeIds.UnionWith(joinedContacts.Select(value => splitNodeIds[value.Id]));
 
-            List<RmapWorldGraphEdge> projectedEdges = BuildSplitEdges(core, logicalRoutes, contacts,
-                splitNodeIds, diagnostics).ToList();
+            IReadOnlyList<Sv5SpaceGate> gates = Sv5SpaceGateGeometry.Build(core, connections, contacts);
+            IReadOnlyList<Sv5SpaceGateStateCheck> gateStateChecks = Sv5SpaceGateGeometry.BuildChecks(core,
+                connections, gates);
+            diagnostics.AddRange(Sv5SpaceGateGeometry.FindStateErrors(core, connections, gates, gateStateChecks));
+            var gateByConnection = gates.ToDictionary(value => value.SourceConnectionId, value => value,
+                StringComparer.Ordinal);
+            List<RmapWorldGraphEdge> projectedEdges = BuildSplitEdges(core, logicalRoutes, joinedContacts,
+                splitNodeIds, gateByConnection, diagnostics).ToList();
 
             RmapWorldGraphRole[][] orders = ResourceOrders().ToArray();
             var proofs = new List<Sv5SpaceProjectionOrderProof>();
@@ -121,19 +135,18 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     logicalRoutes.TryGetValue(contact.RouteB, out rightRoute);
                 RmapWorldGraphEdge left = known ? leftRoute.Edge : null;
                 RmapWorldGraphEdge right = known ? rightRoute.Edge : null;
-                string predicate = known ? CombinedPredicate(left, right) : "UNKNOWN";
-                bool guarded = known && (IsGuarded(left) || IsGuarded(right));
+                string predicate = known ? PredicatePair(left, right) : "UNKNOWN";
                 Sv5SpaceCrossingKind crossing = !known || !checkedState ? Sv5SpaceCrossingKind.Pending :
-                    guarded ? Sv5SpaceCrossingKind.ConditionalGate : Sv5SpaceCrossingKind.Join;
-                string boundaryId = crossing == Sv5SpaceCrossingKind.ConditionalGate ? BoundaryId(contact, predicate) :
-                    string.Empty;
+                    SamePredicate(left, right) ? Sv5SpaceCrossingKind.Join : Sv5SpaceCrossingKind.Separated;
+                string boundaryId = string.Empty;
                 decisions.Add(new Sv5SpaceContactDecision(contact, splitNodeIds[contact.Id], crossing, predicate,
                     boundaryId, contactCoverageVerified, known && checkedState, known && checkedState ?
-                    "The complete pair is a shared split node evaluated by RMAP13; every outgoing segment repeats its source predicate." :
+                    (crossing == Sv5SpaceCrossingKind.Join ?
+                    "The complete compatible-predicate pair is a shared split node evaluated by RMAP13." :
+                    "The complete incompatible-predicate pair remains a planned separated boundary; route-owned typed gates are validated before every source segment repeats its predicate.") :
                     "The contact could not be accepted by the shared finite-state projection."));
             }
-            List<Sv5SpaceGate> gates = BuildGates(decisions, logicalRoutes).ToList();
-            return new Sv5SpaceProjectionResult(decisions, gates, proofs, diagnostics);
+            return new Sv5SpaceProjectionResult(decisions, gates, proofs, gateStateChecks, diagnostics);
 
             void AddOptionalNode(string placeId)
             {
@@ -145,11 +158,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static IEnumerable<RmapWorldGraphEdge> BuildSplitEdges(Sv5CoreReservationPlan core,
             IReadOnlyDictionary<string, LogicalRoute> logicalRoutes,
             IEnumerable<Sv5RouteContactPair> contacts, IReadOnlyDictionary<string, string> splitNodeIds,
-            ICollection<string> diagnostics)
+            IReadOnlyDictionary<string, Sv5SpaceGate> gateByConnection, ICollection<string> diagnostics)
         {
             foreach (LogicalRoute route in logicalRoutes.Values.OrderBy(value => value.RouteKey, StringComparer.Ordinal))
             {
                 RmapWorldGraphEdge edge = route.Edge;
+                gateByConnection.TryGetValue(route.Connection.Id, out Sv5SpaceGate routeGate);
                 var splits = new List<RouteSplit>();
                 foreach (Sv5RouteContactPair contact in contacts.Where(value => value.RouteA == route.RouteKey ||
                              value.RouteB == route.RouteKey))
@@ -170,30 +184,32 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     .ThenBy(value => value.ContactId, StringComparer.Ordinal).ToArray();
                 foreach (RouteSplit split in ordered)
                 {
-                    yield return Segment(edge, route.Connection.Id, segment++, previous, split.NodeId);
+                    yield return Segment(edge, route.Connection.Id, routeGate, segment++, previous, split.NodeId);
                     previous = split.NodeId;
                 }
-                yield return Segment(edge, route.Connection.Id, segment, previous, edge.TargetNodeId);
+                yield return Segment(edge, route.Connection.Id, routeGate, segment, previous, edge.TargetNodeId);
                 if (string.Equals(route.Connection.Flow, "BIDIRECTIONAL", StringComparison.Ordinal))
                 {
                     previous = edge.TargetNodeId;
                     segment = 0;
                     foreach (RouteSplit split in ordered.Reverse())
                     {
-                        yield return Segment(edge, route.Connection.Id + "|REVERSE", segment++, previous, split.NodeId,
+                        yield return Segment(edge, route.Connection.Id + "|REVERSE", routeGate, segment++, previous, split.NodeId,
                             Opposite(source: edge.Direction));
                         previous = split.NodeId;
                     }
-                    yield return Segment(edge, route.Connection.Id + "|REVERSE", segment, previous,
+                    yield return Segment(edge, route.Connection.Id + "|REVERSE", routeGate, segment, previous,
                         edge.SourceNodeId, Opposite(source: edge.Direction));
                 }
             }
         }
 
-        private static RmapWorldGraphEdge Segment(RmapWorldGraphEdge source, string connectionId, int ordinal,
+        private static RmapWorldGraphEdge Segment(RmapWorldGraphEdge source, string connectionId,
+            Sv5SpaceGate routeGate, int ordinal,
             string from, string to, RmapWorldGraphDirection? direction = null) => new RmapWorldGraphEdge(from, to,
             direction ?? source.Direction,
-            source.TraversalCondition, connectionId + "|SEGMENT|" + ordinal.ToString(CultureInfo.InvariantCulture), true,
+            source.TraversalCondition, connectionId + (routeGate == null ? string.Empty : "|GATE|" + routeGate.Id) +
+            "|SEGMENT|" + ordinal.ToString(CultureInfo.InvariantCulture), true,
             source.RequiredResourceMask, source.RequiresForge, source.RequiresSeal, source.RequiresBossComplete);
 
         private static int ContactOrdinal(Sv5CoreReservationPlan core, LogicalRoute route,
@@ -227,54 +243,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (result.Proofs.Count != 6 || result.Proofs.Any(value => !value.Success))
                 errors.Add("PROJECTION_STATE_SAFETY_FAILED");
             errors.AddRange(Sv5SpaceGraphValidator.FindGateErrors(result.Contacts, result.Gates));
+            errors.AddRange(Sv5SpaceGateGeometry.FindStateErrors(core, connections, result.Gates,
+                result.GateStateChecks));
             return new ReadOnlyCollection<string>(errors.Distinct(StringComparer.Ordinal)
                 .OrderBy(value => value, StringComparer.Ordinal).ToArray());
-        }
-
-        private static IEnumerable<Sv5SpaceGate> BuildGates(IEnumerable<Sv5SpaceContactDecision> sourceDecisions,
-            IReadOnlyDictionary<string, LogicalRoute> routes)
-        {
-            foreach (IGrouping<string, Sv5SpaceContactDecision> group in sourceDecisions.Where(value =>
-                         value.Crossing == Sv5SpaceCrossingKind.ConditionalGate)
-                         .GroupBy(value => value.BoundaryId, StringComparer.Ordinal)
-                         .OrderBy(value => value.Key, StringComparer.Ordinal))
-            {
-                Sv5SpaceContactDecision first = group.First();
-                LogicalRoute routeA = routes[first.Source.RouteA];
-                LogicalRoute routeB = routes[first.Source.RouteB];
-                var cells = group.SelectMany(value => value.Source.Kind == "SHARED" ?
-                        new[] { value.Source.FirstWorld } :
-                        new[] { value.Source.FirstWorld, value.Source.SecondWorld })
-                    .Distinct().OrderBy(value => value).ToArray();
-                Sv5SpaceBoundaryFace[] faces = group.Where(value => value.Source.Kind == "FACE")
-                    .Select(value => new Sv5SpaceBoundaryFace(value.Source.FirstWorld, value.Source.SecondWorld))
-                    .GroupBy(value => value.StableToken, StringComparer.Ordinal).Select(value => value.First())
-                    .OrderBy(value => value).ToArray();
-                RmapSpecialWorldPoint anchorA = SideAnchor(routeA.Connection, first.Source.RouteAWorld, false, cells);
-                RmapSpecialWorldPoint anchorB = SideAnchor(routeB.Connection, first.Source.RouteBWorld, true, cells);
-                if (anchorA.Equals(anchorB))
-                    anchorB = SideAnchor(routeB.Connection, first.Source.RouteBWorld, false, cells);
-                if (anchorA.Equals(anchorB))
-                    anchorB = routeB.Connection.Centerline.First(value => !value.Equals(anchorA));
-                yield return new Sv5SpaceGate("SV5_GATE_" + group.Key.Substring("SV5_BOUNDARY_".Length), group.Key,
-                    group.Select(value => value.Source.Id), cells, faces, anchorA, anchorB,
-                    Direction(anchorA, anchorB), "BIDIRECTIONAL", first.Predicate,
-                    Sv5SpaceCrossingKind.ConditionalGate, "SEALED_BLOCKS_ALL_BOUNDARY_CELLS_AND_FACES",
-                    "OPEN_RESTORES_BIDIRECTIONAL_PREDICATE_SEGMENTS");
-            }
-        }
-
-        private static RmapSpecialWorldPoint SideAnchor(Sv5SpaceConnection connection,
-            RmapSpecialWorldPoint contact, bool forward, IEnumerable<RmapSpecialWorldPoint> sourceBlocked)
-        {
-            var blocked = new HashSet<RmapSpecialWorldPoint>(sourceBlocked ?? Array.Empty<RmapSpecialWorldPoint>());
-            int[] candidates = Enumerable.Range(0, connection.Centerline.Count)
-                .Where(index => !blocked.Contains(connection.Centerline[index])).OrderBy(index =>
-                    Math.Abs(connection.Centerline[index].X - contact.X) +
-                    Math.Abs(connection.Centerline[index].Y - contact.Y))
-                .ThenBy(index => forward ? -index : index).ToArray();
-            if (candidates.Length != 0) return connection.Centerline[candidates[0]];
-            return forward ? connection.Centerline.Last() : connection.Centerline.First();
         }
 
         private static HashSet<RmapWorldGraphState> ReverseReachable(RmapWorldGraphExploration exploration,
@@ -302,24 +274,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             placeId == "RMAP15_SITE_VILLAGE" ? "SV5_ANALYSIS_VILLAGE" : placeId;
         private static bool IsGuarded(RmapWorldGraphEdge edge) => edge.RequiredResourceMask != 0 || edge.RequiresForge ||
             edge.RequiresSeal || edge.RequiresBossComplete;
-        private static string CombinedPredicate(RmapWorldGraphEdge left, RmapWorldGraphEdge right)
+        private static string PredicatePair(RmapWorldGraphEdge left, RmapWorldGraphEdge right)
         {
             string first = EdgePredicate(left), second = EdgePredicate(right);
-            return string.Equals(first, second, StringComparison.Ordinal) ? first : first + " && " + second;
+            return string.Equals(first, second, StringComparison.Ordinal) ? first : "routeA{" + first +
+                "};routeB{" + second + "}";
         }
+        private static bool SamePredicate(RmapWorldGraphEdge left, RmapWorldGraphEdge right) => left != null &&
+            right != null && left.RequiredResourceMask == right.RequiredResourceMask &&
+            left.RequiresForge == right.RequiresForge && left.RequiresSeal == right.RequiresSeal &&
+            left.RequiresBossComplete == right.RequiresBossComplete;
         private static string EdgePredicate(RmapWorldGraphEdge edge) => edge.EdgeId + ":mask=" +
             edge.RequiredResourceMask.ToString(CultureInfo.InvariantCulture) + ",forge=" + (edge.RequiresForge ? "1" : "0") +
             ",seal=" + (edge.RequiresSeal ? "1" : "0") + ",boss=" + (edge.RequiresBossComplete ? "1" : "0");
         private static string ContactNodeId(Sv5RouteContactPair contact) => "SV5_CONTACT_NODE_" +
             RmapWorldDefinition.Hash(contact.Kind + "|" + contact.FirstWorld + "|" + contact.SecondWorld)
                 .Substring(0, 20).ToUpperInvariant();
-        private static string BoundaryId(Sv5RouteContactPair contact, string predicate) => "SV5_BOUNDARY_" +
-            RmapWorldDefinition.Hash(contact.RouteA + "|" + contact.RouteB + "|" + predicate)
-                .Substring(0, 20).ToUpperInvariant();
-        private static RmapWorldGraphDirection Direction(RmapSpecialWorldPoint first, RmapSpecialWorldPoint second) =>
-            Math.Abs(second.X - first.X) >= Math.Abs(second.Y - first.Y) ?
-                (second.X >= first.X ? RmapWorldGraphDirection.Right : RmapWorldGraphDirection.Left) :
-                (second.Y >= first.Y ? RmapWorldGraphDirection.Up : RmapWorldGraphDirection.Down);
         private static RmapWorldGraphDirection Opposite(RmapWorldGraphDirection source) =>
             source == RmapWorldGraphDirection.Left ? RmapWorldGraphDirection.Right :
             source == RmapWorldGraphDirection.Right ? RmapWorldGraphDirection.Left :
