@@ -1,0 +1,11 @@
+{
+  "format": "sv5_04_validation_v1",
+  "task_id": "SV5_04_CORE_RESERVE",
+  "result_time_state": "SV5_04_CURRENT_BEFORE_FINALIZE",
+  "input_checks": {"package":"PASS_PACKAGE_ONLY","local_precheck":"PASS_LOCAL_BYTES_ONLY","actual_sv5_03_result":true,"actual_sv5_03_finalize_commit":"7fcd3447d8b233039ff77924447be21d4875ee03"},
+  "source_preservation": {"physical_sites":8,"source_core_cells":2432,"core_cells_equivalent_to_rmap15":true,"base_counts":{"A":1919,"S":483,"O":30},"slot_count":10,"physical_port_cells":45,"sealboss_state_rows":{"OPEN":3,"SEALED":3}},
+  "route_reservation": {"actual_graph_routes":11,"graph_route_bound_accesses":12,"preserved_not_selected_accesses":1,"preserved_no_graph_reservation_accesses":2,"semantic_rows":{"Passage":3019,"Clearance":3019,"Support":1037},"route_source":"Rmap16ClusterAssemblyPlan"},
+  "focused_editmode": {"command":"unity test . --editor-version 6000.3.8f1 --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests --output MapDesign/MCP/GENERATED/SV5_04/focused_results.xml --report-format nunit --timeout 600","test_class":"StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests","final_total":8,"final_passed":8,"final_failed":0,"final_skipped":0,"xml_sha256":"42a550abf7c4bf618a22ddd52fbbf42eae5a83a1fbbc9cd077bd47d5dfc716b4","earlier_attempts":"two compile-scope corrections; one 7/8 failure corrected from stale 12-route expectation to actual 11-route graph"},
+  "static_checks": {"same_plan_exports":true,"source_cell_equivalence":true,"route_and_access_references":true,"candidate_gate_exercised":true,"temporary_work_paths_remaining":[],"new_project_root_helper_files":0,"preexisting_dirty_files_preserved":true},
+  "not_run": ["SV5_05_PLUS","FULL_REGRESSION","PLAYMODE","FULL_SCENE_BAKE","RMAP18","RMAP19","PUSH"]
+}

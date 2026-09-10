@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Passed" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-10 03:27:57Z" end-time="2026-09-10 03:28:05Z" duration="8.0495285">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26697" result="Passed" start-time="2026-09-10 03:27:57Z" end-time="2026-09-10 03:28:05Z" duration="8.049529" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24743" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22677" result="Passed" start-time="2026-09-10 03:27:57Z" end-time="2026-09-10 03:28:05Z" duration="7.816560" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="26844" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24744" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22677" result="Passed" start-time="2026-09-10 03:27:57Z" end-time="2026-09-10 03:28:05Z" duration="7.697685" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24752" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22461" result="Passed" start-time="2026-09-10 03:27:58Z" end-time="2026-09-10 03:28:05Z" duration="7.578196" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24756" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22402" result="Passed" start-time="2026-09-10 03:27:58Z" end-time="2026-09-10 03:28:05Z" duration="7.460611" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24765" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7720" result="Passed" start-time="2026-09-10 03:27:58Z" end-time="2026-09-10 03:28:05Z" duration="7.243903" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24781" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-10 03:27:58Z" end-time="2026-09-10 03:28:05Z" duration="7.184315" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24622" name="Sv5CoreReservationPlanTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-10 03:27:58Z" end-time="2026-09-10 03:28:05Z" duration="7.183075" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5_04" />
+                  </properties>
+                  <test-case id="24623" name="T01_RepresentativePlanRetainsEightSitesAnd2432CoreCells" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T01_RepresentativePlanRetainsEightSitesAnd2432CoreCells" methodname="T01_RepresentativePlanRetainsEightSitesAnd2432CoreCells" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="2006951542" result="Passed" start-time="2026-09-10 03:27:58Z" end-time="2026-09-10 03:28:00Z" duration="2.088880" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24624" name="T02_ConsumerRejectsProtectedCoreAirAndSlotSupportOrHeadroom" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T02_ConsumerRejectsProtectedCoreAirAndSlotSupportOrHeadroom" methodname="T02_ConsumerRejectsProtectedCoreAirAndSlotSupportOrHeadroom" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1627403882" result="Passed" start-time="2026-09-10 03:28:00Z" end-time="2026-09-10 03:28:00Z" duration="0.006676" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24625" name="T03_NormalCandidatesAndCompatibleDuplicatesAreAllowedButConflictsFail" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T03_NormalCandidatesAndCompatibleDuplicatesAreAllowedButConflictsFail" methodname="T03_NormalCandidatesAndCompatibleDuplicatesAreAllowedButConflictsFail" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1449907052" result="Passed" start-time="2026-09-10 03:28:00Z" end-time="2026-09-10 03:28:00Z" duration="0.000739" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24626" name="T04_EveryCurrentGraphRouteUsesContinuousPortsAndStaticEvidence" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T04_EveryCurrentGraphRouteUsesContinuousPortsAndStaticEvidence" methodname="T04_EveryCurrentGraphRouteUsesContinuousPortsAndStaticEvidence" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1123499340" result="Passed" start-time="2026-09-10 03:28:00Z" end-time="2026-09-10 03:28:00Z" duration="0.003465" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24627" name="T05_ConsumerRejectsRouteAndStateGeometryIntrusions" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T05_ConsumerRejectsRouteAndStateGeometryIntrusions" methodname="T05_ConsumerRejectsRouteAndStateGeometryIntrusions" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1833139148" result="Passed" start-time="2026-09-10 03:28:00Z" end-time="2026-09-10 03:28:00Z" duration="0.000632" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24628" name="T06_OutOfRangeAndMixedSourcePlansFailWithoutRelocation" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T06_OutOfRangeAndMixedSourcePlansFailWithoutRelocation" methodname="T06_OutOfRangeAndMixedSourcePlansFailWithoutRelocation" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1310413293" result="Passed" start-time="2026-09-10 03:28:00Z" end-time="2026-09-10 03:28:02Z" duration="1.573670" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24629" name="T07_RebuildAndCandidateOrderAreDeterministicWithoutNewRng" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T07_RebuildAndCandidateOrderAreDeterministicWithoutNewRng" methodname="T07_RebuildAndCandidateOrderAreDeterministicWithoutNewRng" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1362549717" result="Passed" start-time="2026-09-10 03:28:02Z" end-time="2026-09-10 03:28:05Z" duration="3.441479" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24630" name="T08_ExportsComeFromTheSameValidatedPlan" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests.T08_ExportsComeFromTheSameValidatedPlan" methodname="T08_ExportsComeFromTheSameValidatedPlan" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5CoreReservationPlanTests" runstate="Runnable" seed="1177643338" result="Passed" start-time="2026-09-10 03:28:05Z" end-time="2026-09-10 03:28:05Z" duration="0.056259" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[SV5_04_EXPORT_BEGIN
+PLAN_DIGEST=2c0ebd820fb101ef307fa0d0dcf57371ad6b3796dd1c762020de78faf7efe569
+OUTPUT_DIRECTORY=C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\MapDesign\MCP\GENERATED\SV5_04
+SV5_04_EXPORT_END
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

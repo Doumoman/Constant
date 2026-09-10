@@ -1,0 +1,15 @@
+{
+  "format": "sv5_04_binding_v1",
+  "task_id": "SV5_04_CORE_RESERVE",
+  "module_root": "MapDesign",
+  "handoff": {"path":"MCP_INBOX/SV5_04_START.md","sha256":"349a6955ad8c03434c5a99d905600792632de162d71c17a9518e6cda610f9664"},
+  "source_spec": {"path":"MCP/INPUTS/SV5_04/SV5_04_CORE_RESERVE.md","sha256":"658aa2ccf67d1f4c3a4507cd4b1521d0fc56dc414fd946636410f682e4b54d3c"},
+  "manifest": {"path":"MCP/INPUTS/SV5_04/FILES.json","sha256":"48a7164e431cbaf4d6edc88007a8c1532e02654447a35a88e357e4a8160c5dce","package_check":"PASS_PACKAGE_ONLY","local_precheck":"PASS_LOCAL_BYTES_ONLY"},
+  "bound_task": {"path":"MCP/TASKS/SV5_04_CORE_RESERVE.md","sha256":"fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2","format":"single_task_v1"},
+  "predecessor": {"task":"SV5_03_BINDINGS","result_path":"MCP/REPORTS/SV5_03_BINDINGS_RESULT.md","result_sha256":"0b6f9c0a8ba658de8e911781f3b5a3e614c27333ff25faf3c63720e7486ae422","task_and_archive_sha256":"b8f6f5865dae26d512a50a3f62061c1370daec8bc12e9c56578ebda3565677b3","finalize_commit":"7fcd3447d8b233039ff77924447be21d4875ee03","finalize_parent":"ffd81805cf3840b56c74944a284d0a4d3f512297"},
+  "pre_apply_state": {"total":285,"complete":241,"current":0,"locked":44,"current_task":"NONE","status_sha256":"b3779eb69b6227532f105de55a41cba0632db5eb934063c94cad8d34a4b6ff45"},
+  "execution_state": {"total":285,"complete":241,"current":1,"locked":43,"current_task":"SV5_04_CORE_RESERVE","status_sha256":"43f786d561ed172205d466f07230895b92787a307d8e00a0f2b8bdcb9d648e0f"},
+  "api": {"adapter":"Sv5CoreReservationPlanner.Plan(Rmap16ClusterAssemblyPlan)","consumer_gate":"Sv5CoreReservationPlan.EvaluateTerrainCandidates","rmap15_gate":"RmapSpecialReservationPlan.EvaluateTerrainCells","rmap15_source_sha256":"e524df90e1ea1744a979f7fdaac8b1b80601407ea07cbce029baabbcc70ed216","rmap16_source_sha256":"48bc1b2664034beb923427c037a0b0b2d18f7a8c11d1705e9fce432a37324bab","adapter_source_sha256":"128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3"},
+  "write_scope": "new SV5_04 adapter and focused EditMode test plus MCP evidence only",
+  "not_run": ["SV5_05_PLUS","FULL_REGRESSION","PLAYMODE","FULL_SCENE_BAKE","RMAP18","RMAP19","PUSH"]
+}
