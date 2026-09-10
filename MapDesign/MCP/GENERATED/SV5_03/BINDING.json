@@ -1,0 +1,13 @@
+{
+  "format": "sv5_03_binding_v1",
+  "task_id": "SV5_03_BINDINGS",
+  "module_root": "MapDesign",
+  "handoff": {"path":"MCP_INBOX/SV5_03_START.md","sha256":"5c6ef9b3b8192166c3a4117ca6534ce52a3aaa5eed42642abd3918f1d62f8b73"},
+  "source_spec": {"path":"MCP/INPUTS/SV5_03/SV5_03_BINDINGS.md","sha256":"5bdc2b45cc0c4dc51a4ea347ad28be12c57aa2d9c53d17df1c41f2a8fef1bce9","format":"source_spec_v1","executed_directly":false},
+  "manifest": {"path":"MCP/INPUTS/SV5_03/FILES.json","sha256":"c789119d6ff5b9de78f69d0811d7e64d97e8a82a3950b14cf29cc4e1af78a670","package_check":"PASS_PACKAGE_ONLY","local_precheck":"PASS_LOCAL_BYTES_ONLY"},
+  "bound_task": {"path":"MCP/TASKS/SV5_03_BINDINGS.md","sha256":"b8f6f5865dae26d512a50a3f62061c1370daec8bc12e9c56578ebda3565677b3","format":"single_task_v1"},
+  "predecessor": {"task":"SV5_02_RULES","result_path":"MCP/REPORTS/SV5_02_RULES_RESULT.md","result_sha256":"ed4e9ee6fd6f271bd81915040e1d6e103832a3737bd90d5eb90cc9371956a496","task_and_archive_sha256":"b0bc1a19dc1ff100cdf8116ba5e1447af6080556a98011b05bbc84deb1619fc1","finalize_commit":"ffd81805cf3840b56c74944a284d0a4d3f512297","finalize_parent":"9e6a71489fb4881c4112c378f7ca043bbbd85e85"},
+  "pre_apply_state": {"total":285,"complete":240,"current":0,"locked":45,"current_task":"NONE","status_sha256":"ea5f1b205c712a6c093cfeefaa8e3160a79498ac714b7d17382992450e12b68f","master_sha256":"cbe616e54c85a05181759dc87997f68e94f5ee92ff1a2a9896396a9e3c937d4c"},
+  "write_scope":"SV5 active binding documents generated audit evidence Result and normal task state only",
+  "not_run":["UNITY","COMPILE","TEST","BUILD","BAKE","GAME_CODE","SV5_04_PLUS","RMAP18","RMAP19","PUSH"]
+}

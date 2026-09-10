@@ -1,0 +1,11 @@
+{
+  "format": "sv5_03_static_validation_v1",
+  "task_id": "SV5_03_BINDINGS",
+  "result_time_state": "SV5_03_CURRENT_BEFORE_FINALIZE",
+  "input_checks": {"package":"PASS_PACKAGE_ONLY","local_precheck":"PASS_LOCAL_BYTES_ONLY","actual_prior_result_used":true,"prior_finalize_commit_verified":"ffd81805cf3840b56c74944a284d0a4d3f512297"},
+  "audit": {"groups":13,"future_tasks":42,"physical_core_sites":8,"reuse_bindings":13,"adapt_bindings":4,"new_bindings":2,"task_coverage_unique":true,"core_site_ids_unique":true},
+  "source_checks": {"binding_source_sha_match":"PASS","data_schema_header_observed":"PASS","absence_searches_recorded":2,"new_api_invented":false},
+  "active_documents": {"bindings_entrypoint":"MCP/SV5/06_BINDINGS_V5.md","file_flow_source_sha256":"611f604f8d65a7ac15a70f20ab848a4ed40ecf5d7fafa4428f3a77167c7f43a4","file_flow_byte_identity":"PASS","protocol_pre_apply_sha256":"c77c776975f8416678f3f29cc6cc0af96b65dd95ede5894d4b9402cf565842b5","protocol_marker_count":1},
+  "cleanup": {"temporary_work_paths_created":[],"temporary_work_paths_remaining":[],"new_project_root_helper_files":0,"preexisting_dirty_files_preserved":true},
+  "not_run":["UNITY_LAUNCH","COMPILE","TEST","BUILD","BAKE","PLAYER","GAME_CODE","PUSH"]
+}

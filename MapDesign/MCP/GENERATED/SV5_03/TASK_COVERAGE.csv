@@ -1,0 +1,43 @@
+task_id,audit_ids,binding_ids,readiness,blocking_reason,next_reads
+SV5_04_CORE_RESERVE,B01;B02;B03;B04,BND-01;BND-02;BND-03;BND-04;BND-05;BND-06,READ_READY,NONE,RMAP15 sites fixed_cells access graph_bindings slots state_geometry
+SV5_05_ROUTE_STATE,B01;B02;B04,BND-01;BND-02;BND-04,READ_READY,NONE,RMAP13 graph exports and RMAP15 graph bindings
+SV5_06_SPACE_GRAPH,B01;B02;B03;B04;B05;B06;B13,BND-01;BND-02;BND-03;BND-04;BND-07;BND-08;BND-09;BND-10;BND-19,READ_READY,NONE,Current world graph biome special pattern cluster and VIS boundaries
+SV5_07_DIVERSITY,B01;B03;B06,BND-01;BND-03;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not implement diversity policy,Current biome ownership and cluster representation
+SV5_08_INFILL,B01;B06,BND-01;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not implement infill,Current world data and cluster representation
+SV5_09_LOOPS,B01;B02;B04;B06,BND-01;BND-02;BND-04;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not implement loop placement,Current graph ports and protection exports
+SV5_10_SIDEPATH,B01;B06,BND-01;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not implement sidepaths,Current data contract and cluster representation
+SV5_11_HUB_SHELL,B05;B06,BND-07;BND-08;BND-09;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not implement hub shell,Current pattern port and cluster sources
+SV5_12_TREE_GRAB,B08,BND-12;BND-13;BND-14,NEEDS_IMPLEMENTATION,SV5_03 did not author tree grab terrain,Current Player grab and camera components
+SV5_13_JUMP_CONTRACT,B05;B08,BND-07;BND-08;BND-09;BND-12;BND-13,NEEDS_IMPLEMENTATION,SV5_03 did not define jump contract,Current pattern port and Player components
+SV5_14_JUMP_SOLID,B05;B08,BND-07;BND-08;BND-09;BND-12;BND-13,NEEDS_IMPLEMENTATION,SV5_03 did not author jump solids,Current pattern port and Player components
+SV5_15_JUMP_GRAB,B08,BND-12;BND-13,NEEDS_IMPLEMENTATION,SV5_03 did not author grab edges,Current CharacterLiveGrabSurface
+SV5_16_JUMP_OUTLINE,B06,BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not alter outlines,Current cluster representation
+SV5_17_JUMP_RECIPES,B05;B08,BND-07;BND-08;BND-09;BND-12;BND-13,NEEDS_IMPLEMENTATION,SV5_03 did not author recipes,Current pattern port and Player components
+SV5_18_JUMP_CLEARANCE,B08;B12,BND-12;BND-13;BND-18,NEEDS_IMPLEMENTATION,SV5_03 did not run clearance validation,Current motor grab and static validation sources
+SV5_19_JUMP_RECOVERY,B08;B12,BND-12;BND-13;BND-18,NEEDS_IMPLEMENTATION,SV5_03 did not author recovery,Current motor grab and static validation sources
+SV5_20_JUMP_PLAYER,B08;B12,BND-12;BND-13;BND-14;BND-18,NEEDS_IMPLEMENTATION,SV5_03 did not run Player validation,Current Player camera and validation sources
+SV5_21_LIBRARY,B06;B09,BND-10;BND-15,NEEDS_IMPLEMENTATION,No dedicated stair implementation found,Current cluster source and stair absence evidence
+SV5_22_STAIR_DATA,B09,BND-15,NEEDS_IMPLEMENTATION,No dedicated stair data source found,Re-run stair absence search and inspect Player contact model
+SV5_23_STAIR_MOTOR,B08;B09,BND-12;BND-15,NEEDS_IMPLEMENTATION,No dedicated stair motor found,Current motor and stair absence evidence
+SV5_24_CAVE,B03;B05;B06,BND-03;BND-07;BND-08;BND-09;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not author cave terrain,Current biome pattern and cluster sources
+SV5_25_RATDEN,B03;B05;B06;B08,BND-03;BND-07;BND-08;BND-09;BND-10;BND-12;BND-13,NEEDS_IMPLEMENTATION,SV5_03 did not author ratden terrain,Current biome pattern cluster and Player sources
+SV5_26_CANYON,B03;B05;B06,BND-03;BND-07;BND-08;BND-09;BND-10,NEEDS_IMPLEMENTATION,SV5_03 did not author canyon terrain,Current biome pattern and cluster sources
+SV5_27_HOUSING,B06;B09,BND-10;BND-15,NEEDS_IMPLEMENTATION,No dedicated elevator implementation found,Current cluster source and stair/elevator absence evidence
+SV5_28_HALL,B06;B10,BND-10;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author hall,Current cluster and slot sources
+SV5_29_RANCH,B06;B10,BND-10;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author ranch,Current cluster and slot sources
+SV5_30_LAKE,B06;B10,BND-10;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author lake,Current cluster and slot sources
+SV5_31_FARM,B06;B10,BND-10;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author farm,Current cluster and slot sources
+SV5_32_RAIL_PATH,B11,BND-17,NEEDS_IMPLEMENTATION,No dedicated rail source found,Re-run rail absence search and define data contract
+SV5_33_RAIL_RIDE,B11,BND-17,NEEDS_IMPLEMENTATION,No dedicated rail ride source found,Re-run rail absence search and define runtime boundary
+SV5_34_RAIL_CRASH,B11,BND-17,NEEDS_IMPLEMENTATION,No dedicated rail crash source found,Re-run rail absence search and define damage boundary
+SV5_35_CAPSULE,B02;B04;B10,BND-02;BND-04;BND-05;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author capsule,Current graph protection and slot sources
+SV5_36_PRISON,B02;B04;B10,BND-02;BND-04;BND-05;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author prison,Current graph protection and slot sources
+SV5_37_PINBALL_SHELL,B10,BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author pinball shell,Current fixed slot sources
+SV5_38_WORKSHOP,B04;B10,BND-04;BND-05;BND-06;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not reserve workshop,Current protection and slot sources
+SV5_39_RABBIT_VILLAGE,B04;B06;B09;B10,BND-04;BND-05;BND-06;BND-10;BND-15;BND-16,NEEDS_IMPLEMENTATION,SV5_03 did not author village,Current site cluster and stair/elevator evidence
+SV5_40_ELEVATOR,B08;B09,BND-12;BND-13;BND-15,NEEDS_IMPLEMENTATION,No dedicated elevator source found,Current motor grab and absence evidence
+SV5_41_COMPOSE,B01;B03;B04;B05;B06;B07;B13,BND-01;BND-03;BND-04;BND-07;BND-08;BND-09;BND-10;BND-11;BND-19,NEEDS_IMPLEMENTATION,SV5_03 did not compose a world,Current data biome site pattern cluster bake and VIS boundaries
+SV5_42_FINAL_SCAN,B03;B04;B06;B07;B12,BND-03;BND-04;BND-10;BND-11;BND-18,NEEDS_IMPLEMENTATION,SV5_03 did not run final scan,Current biome protection cluster bake and validation sources
+SV5_43_WORLD_BAKE,B01;B07;B08;B12;B13,BND-01;BND-11;BND-12;BND-13;BND-14;BND-18;BND-19,NEEDS_IMPLEMENTATION,SV5_03 did not bake a world,Current data bake Player validation and VIS boundaries
+SV5_44_WORLD_PLAYER,B02;B04;B08;B12,BND-02;BND-04;BND-12;BND-13;BND-14;BND-18,NEEDS_IMPLEMENTATION,SV5_03 did not run whole-world Player progression,Current graph sites Player and validation sources
+SV5_45_REVIEW_HANDOFF,B07;B12;B13,BND-11;BND-18;BND-19,NEEDS_IMPLEMENTATION,SV5_03 did not publish review handoff,Current bake validation and VIS boundaries

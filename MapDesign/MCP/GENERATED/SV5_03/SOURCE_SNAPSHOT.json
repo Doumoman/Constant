@@ -1,0 +1,42 @@
+{
+  "format": "sv5_03_source_snapshot_v1",
+  "task_id": "SV5_03_BINDINGS",
+  "git_head_before_task_commit": "ffd81805cf3840b56c74944a284d0a4d3f512297",
+  "predecessor_finalize_commit": "ffd81805cf3840b56c74944a284d0a4d3f512297",
+  "predecessor_finalize_parent": "9e6a71489fb4881c4112c378f7ca043bbbd85e85",
+  "observation": "Read-only source audit; no Unity execution or source mutation.",
+  "rmap_task_evidence": [
+    {"task":"RMAP12_WORLD_DATA","task_sha256":"f6b649abc0e452fb897e7e4175adee3ab94e4cfe051cb7234be8147ee9c184fb","result_sha256":"920e2b598e1effdabeb50711ef31852e4551c78700864afdc26e0ee170a5aaf9","tracked_state":"tracked_clean"},
+    {"task":"RMAP13_WORLD_GRAPH","task_sha256":"00b926dcfcb3fc5ed4e76a5f541fe68064346a2036fe473aeaa7308063685f12","result_sha256":"2aeae5f7b259787b2b70d5ce07f61145e4b40f0c3717cbff079d948cc3e01a01","tracked_state":"tracked_clean"},
+    {"task":"RMAP14_BIOMES","task_sha256":"9d99d0241eeb904ce0cd523c53349e290707cb9eca242e78719a0905ccc42f0b","result_sha256":"38b22e7d5414aef3eb56a9b97cd7d44af9ea9af0fa488c3273f577e7a84b8c48","tracked_state":"tracked_clean"},
+    {"task":"RMAP15_SPECIALS","task_sha256":"96bb700defb9e494563850004455983022b793b9fe21948294403fb9b99afa80","result_sha256":"734a09ce776e95986b3fca0ee2e8c1ad6323a48d64ae0ba8347779f209c1274c","tracked_state":"tracked_clean"},
+    {"task":"RMAP16_CLUSTERS","task_sha256":"9b7c78e2c8257a5baf1d679b562763a9db4e478f42676e4d94e730ef4b2691ca","result_sha256":"e25ebd333873179c437ddc38cd61e338819d999b4cc703f4d197e9aa19ba9514","tracked_state":"tracked_clean"},
+    {"task":"RMAP17_WORLD_BAKE","task_sha256":"5017331f8083ee8cc57cb8fed771c9d636df3248979ce39fa7efc43b2f018e46","result_sha256":"53109e3b24e3df8191e634d7ec2e3f06087108965e5f9bc2af937f030a563c6b","tracked_state":"tracked_clean"}
+  ],
+  "actual_sources": [
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/WorldData/RmapWorldDataContract.cs","sha256":"345458eb9a59a0add84ca15bd3106226ca2b3151c94831d7b6667943ac0b2841","role":"B01","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs","sha256":"93a77853b140f5a97aa15056921794e2212d722ebc6184e498e0cb59bc5a7729","role":"B02","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/Biomes/RmapWorldBiomePlanner.cs","sha256":"36f531e5192da1040da2dffdaf6a440245e3fb97bc4993e8ad225545587158a0","role":"B03","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/RmapSpecialReservationPlanner.cs","sha256":"e524df90e1ea1744a979f7fdaac8b1b80601407ea07cbce029baabbcc70ed216","role":"B04","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/MicroPatterns/RmapPatternCatalog.cs","sha256":"d4246e170d0f1b59113d8da2bbea2d68e71fc773958c2d46c7a623af034cfbef","role":"B05","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs","sha256":"48bc1b2664034beb923427c037a0b0b2d18f7a8c11d1705e9fce432a37324bab","role":"B06","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/Baking/RmapWorldBakeExecutor.cs","sha256":"b95579618edf0b4021502feebc29ff1fe3550fbe63ab0d6403adcef8af638ea4","role":"B07","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs","sha256":"7bc7a6d973e1b18a648fad240fed77ec9c9e40cd661c1d66b009de5bc47ad6dc","role":"B08","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs","sha256":"ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e","role":"B12","tracked_state":"tracked_clean"},
+    {"path_base":"PROJECT","path":"Assets/_Game/Map/Runtime/WorldGeneration/MoonPalace/Visualization/MoonPalaceOneSectorGrayboxGenerator.cs","sha256":"8fbddb4c591e91ad7e4ebf42444fe53ab3becb955ad9fda0601e1a82e404b0f0","role":"B13","tracked_state":"tracked_clean"}
+  ],
+  "absence_searches": [
+    {"audit_id":"B09","root":"Assets/_Game","query":"word-boundary Stair Elevator StairMotor","matches":0,"decision":"NEW"},
+    {"audit_id":"B11","root":"Assets/_Game","query":"word-boundary Rail Train RailRide RailCrash TrainRide","matches":0,"decision":"NEW"}
+  ],
+  "visualisation_boundary": {
+    "source":"MoonPalaceOneSectorGrayboxGenerator is one-sector VIS scope",
+    "not_promoted_to":"SV5 full-world approval or future task completion"
+  },
+  "preexisting_dirty_observations": [
+    "Assets/_Game/Map/Scenes/MoonPalace/VIS01/MoonPalaceGrayboxExample_VIS01.unity modified",
+    "Constant.slnx modified",
+    "MCP REPORTS VIS01 and VIS02 Result working-tree deletions",
+    "Other preexisting untracked inputs and reports retained without staging"
+  ]
+}
