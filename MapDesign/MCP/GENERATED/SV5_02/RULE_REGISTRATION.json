@@ -1,0 +1,44 @@
+{
+  "format": "sv5_rule_registration_v1",
+  "task_id": "SV5_02_RULES",
+  "input_revision": "R2",
+  "scope": "DOCUMENTATION_RULE_REGISTRATION_ONLY",
+  "source": {
+    "path": "MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+    "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54"
+  },
+  "active_files": [
+    {
+      "path": "MCP/SV5/03_RULES_V5.md",
+      "candidate_path": "MCP/INPUTS/SV5_02_R2/candidate/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe"
+    },
+    {
+      "path": "MCP/SV5/04_RULE_COVERAGE_V5.csv",
+      "candidate_path": "MCP/INPUTS/SV5_02_R2/candidate/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07"
+    },
+    {
+      "path": "MCP/SV5/05_RULE_READSET_V5.json",
+      "candidate_path": "MCP/INPUTS/SV5_02_R2/candidate/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9"
+    }
+  ],
+  "protocol": {
+    "path": "MCP/SV5/02_PROTOCOL_V5.md",
+    "pre_apply_sha256": "d0dca368acc3b961a09b1a54f1efa1a1ffce37d13734b0201b0e66098897201e",
+    "append_source": "MCP/INPUTS/SV5_02_R2/PROTOCOL_APPEND.md",
+    "append_sha256": "96218d33b866541b6ab8b99f2e00cf50073d02ce5178f1f569d1a050f0463763",
+    "marker": "SV5_02_RULES_BEGIN/END",
+    "marker_count": 1
+  },
+  "rule_interpretation": {
+    "approved_composition": "624x416; tiles 1x1; patterns 4x4; microchunks 12x8",
+    "jump_rules": "JUMP-01 through JUMP-14",
+    "authoring_defaults": ["JUMP-07", "JUMP-10"],
+    "unverified_movement_candidates": "horizontal 3-4 cell candidates remain unverified",
+    "solid_ratio": "UNSET_NUMERIC_RATIO",
+    "player_or_progression_pass": "NOT_ASSERTED"
+  },
+  "not_run": ["UNITY", "GAME_CODE", "BAKE", "PLAYER_VALIDATION", "PUSH"]
+}

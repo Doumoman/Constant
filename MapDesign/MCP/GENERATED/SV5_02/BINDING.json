@@ -1,0 +1,51 @@
+{
+  "format": "sv5_02_binding_v1",
+  "task_id": "SV5_02_RULES",
+  "input_revision": "R2",
+  "module_root": "MapDesign",
+  "r2_handoff": {
+    "path": "MCP_INBOX/SV5_02_R2_START.md",
+    "sha256": "558ca42645c58d3c2ed9bf4e6975caf4e4b1af4bc45f00f9cae65b2c0d68ae94"
+  },
+  "source_spec": {
+    "path": "MCP/INPUTS/SV5_02_R2/SV5_02_RULES.md",
+    "sha256": "4b371aaddbfd4f1946fbf32b1da2096e522a7dacef45bd4958f0cb477653a321",
+    "format": "source_spec_v1",
+    "executed_directly": false
+  },
+  "package": {
+    "manifest_path": "SV5_02_R2_FILES.json",
+    "manifest_sha256": "a664020b4a0d548bfec05fca6ed20d6751fcea151c4fc98f225566e950b15bdf",
+    "reported_zip_sha256": "67cafe772bb8d0ca461d7142196b0d1639f6ea07431ea7d22ca0a1e3b23f60f6",
+    "zip_present_in_workspace": false,
+    "package_check": "PASS_PACKAGE_ONLY",
+    "local_precheck": "PASS_LOCAL_BYTES_ONLY"
+  },
+  "bound_task": {
+    "path": "MCP/TASKS/SV5_02_RULES.md",
+    "sha256": "b0bc1a19dc1ff100cdf8116ba5e1447af6080556a98011b05bbc84deb1619fc1",
+    "format": "single_task_v1"
+  },
+  "predecessor": {
+    "task": "SV5_01_APPROVAL_BASELINE",
+    "result_path": "MCP/REPORTS/SV5_01_APPROVAL_BASELINE_RESULT.md",
+    "result_sha256": "78f9e84bf82b9640c51a5ee4bc2847610a296ebd26e0849706d3ce58601a37b6",
+    "installed_and_archive_task_sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed",
+    "finalize_commit": "9e6a71489fb4881c4112c378f7ca043bbbd85e85",
+    "finalize_commit_parent": "da1803447ac3275da4c674fc67a00844ff252ad5"
+  },
+  "r2_path_correction": {
+    "previous_outputs": "MCP/GENERATED/SV5_01",
+    "current_outputs": "MCP/GENERATED/SV5_02",
+    "no_generated_alias_or_copy_created": true
+  },
+  "pre_apply_state": {
+    "status_sha256": "143350621914313f3ba8ccf12dccada6b98078b25c7c4a7044892c9262c2071a",
+    "master_sha256": "cbe616e54c85a05181759dc87997f68e94f5ee92ff1a2a9896396a9e3c937d4c",
+    "counts": {"total": 285, "complete": 239, "current": 0, "locked": 46},
+    "current_task": "NONE",
+    "sv5_02": "LOCKED"
+  },
+  "write_scope": "SV5_02 registration records, generated evidence, Result, and normal task state only",
+  "not_run": ["UNITY", "GAME_CODE", "RMAP18", "RMAP19", "SV5_03_PLUS", "PUSH"]
+}
