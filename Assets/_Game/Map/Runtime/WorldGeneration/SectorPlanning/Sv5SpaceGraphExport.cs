@@ -26,6 +26,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(directory, "reservation_cells.csv"), ReservationCellsCsv(plan));
             Write(Path.Combine(directory, "state_proofs.json"), StateProofsJson(plan));
             Write(Path.Combine(directory, "contact_checks.csv"), ContactChecksCsv(plan));
+            Write(Path.Combine(directory, "gate_geometry.json"), GateGeometryJson(plan));
             Write(Path.Combine(directory, "obligations.csv"), ObligationsCsv(plan));
             Write(Path.Combine(directory, "validation.json"), ValidationJson(plan));
             Write(Path.Combine(preview, "overview.svg"), OverviewSvg(plan));
@@ -39,7 +40,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             var text = new StringBuilder();
-            text.Append("{\n  \"schema\": \"SV5_SPACE_GRAPH_V1\",\n")
+            text.Append("{\n  \"schema\": \"SV5_SPACE_GRAPH_FIX01_V2\",\n")
                 .Append("  \"world\": {\"width\":624,\"height\":416,\"origin\":\"BOTTOM_LEFT\",\"bounds\":\"HALF_OPEN\",\"micro_chunk\":[12,8],\"pattern\":[4,4]},\n")
                 .Append("  \"seed\": ").Append(plan.Seed.ToString(CultureInfo.InvariantCulture)).Append(",\n")
                 .Append("  \"profile\": {\"id\":").Append(J(plan.Profile.Id)).Append(",\"version\":")
@@ -48,7 +49,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append(",\"core_digest\":").Append(J(plan.Core.Digest)).Append(",\"graph_digest\":")
                 .Append(J(plan.Core.RouteSource.Graph.Digest)).Append(",\"core_sites\":8,\"core_cells\":2432},\n")
                 .Append("  \"plan_digest\": ").Append(J(plan.Digest)).Append(",\n")
-                .Append("  \"readiness\": {\"planned_layout\":true,\"logical_state\":true,\"contact_state\":true,\"composed_geometry\":false,\"player\":false},\n")
+                .Append("  \"readiness\": {\"planned_layout\":true,\"logical_state\":true,\"contact_coverage\":true,\"planned_gate_geometry\":true,\"composed_geometry\":false,\"player\":false},\n")
                 .Append("  \"infill\": {\"owner\":\"SV5_08_INFILL\",\"state\":\"INFILL_PENDING\",\"tile_count\":")
                 .Append(plan.InfillPendingTileCount.ToString(CultureInfo.InvariantCulture)).Append("},\n")
                 .Append("  \"places\": [\n");
@@ -70,11 +71,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 J(value.ToPortId) + ",\"direction\":" + J(value.Direction.ToString()) + ",\"flow\":" +
                 J(value.Flow) + ",\"condition\":" + J(value.Condition) + ",\"source_graph_edge_id\":" +
                 J(value.SourceGraphEdgeId) + ",\"selection_state\":" + J(value.SelectionState) +
-                ",\"centerline\":[" + string.Join(",", value.Centerline.Select(Point)) + "]}"));
+                ",\"centerline\":[" + string.Join(",", value.Centerline.Select(Point)) + "],\"envelope\":[" +
+                string.Join(",", value.Envelope.Select(Point)) + "],\"aperture_cells\":[" +
+                string.Join(",", value.ApertureCells.Select(Point)) + "]}"));
             text.Append("  ],\n  \"gates\": [\n");
-            AppendObjects(text, plan.Gates.Select(value => "    {\"id\":" + J(value.Id) + ",\"contact_id\":" +
-                J(value.ContactId) + ",\"world\":" + Point(value.World) + ",\"predicate\":" +
-                J(value.Predicate) + ",\"crossing\":" + J(value.Crossing.ToString()) +
+            AppendObjects(text, plan.Gates.Select(value => "    {\"id\":" + J(value.Id) + ",\"boundary_id\":" +
+                J(value.BoundaryId) + ",\"contact_ids\":[" + string.Join(",", value.ContactIds.Select(J)) +
+                "],\"side_a_anchor\":" + Point(value.SideAAnchor) + ",\"side_b_anchor\":" +
+                Point(value.SideBAnchor) + ",\"direction\":" + J(value.Direction.ToString()) + ",\"flow\":" +
+                J(value.Flow) + ",\"predicate\":" + J(value.Predicate) + ",\"crossing\":" +
+                J(value.Crossing.ToString()) + ",\"blocking_cells\":[" +
+                string.Join(",", value.BlockingCells.Select(Point)) + "],\"blocking_faces\":[" +
+                string.Join(",", value.BlockingFaces.Select(item => J(item.StableToken))) +
+                "],\"planned_barrier_verified\":" + B(value.PlannedBarrierVerified) +
                 ",\"runtime_verified\":false}"));
             text.Append("  ],\n  \"counts\": {\"places\":").Append(N(plan.Places.Count)).Append(",\"ports\":")
                 .Append(N(plan.Ports.Count)).Append(",\"connections\":").Append(N(plan.Connections.Count))
@@ -98,11 +107,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 value.SourceAccessId, value.SourceNodeId, value.Status, plan.Digest)));
 
         public static string ConnectionsCsv(Sv5SpaceGraphPlan plan) => Csv(
-            "connection_id,kind,from_port_id,to_port_id,from_place_id,to_place_id,direction,flow,condition,source_graph_edge_id,selection_state,centerline_count,centerline,envelope_count,envelope,plan_digest",
+            "connection_id,kind,from_port_id,to_port_id,from_place_id,to_place_id,direction,flow,condition,source_graph_edge_id,selection_state,centerline_count,centerline,envelope_count,envelope,aperture_count,aperture_cells,plan_digest",
             Require(plan).Connections.Select(value => Row(value.Id, value.Kind, value.FromPortId, value.ToPortId,
                 value.FromPlaceId, value.ToPlaceId, value.Direction, value.Flow, value.Condition,
                 value.SourceGraphEdgeId, value.SelectionState, value.Centerline.Count, Cells(value.Centerline),
-                value.Envelope.Count, Cells(value.Envelope), plan.Digest)));
+                value.Envelope.Count, Cells(value.Envelope), value.ApertureCells.Count,
+                Cells(value.ApertureCells), plan.Digest)));
 
         public static string ReservationCellsCsv(Sv5SpaceGraphPlan plan) => Csv(
             "world_x,world_y,reservation_kind,owner_id,semantics,micro_chunk_x,micro_chunk_y,pattern_x,pattern_y,is_final_tile,plan_digest",
@@ -111,12 +121,37 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 plan.Digest)));
 
         public static string ContactChecksCsv(Sv5SpaceGraphPlan plan) => Csv(
-            "contact_id,kind,first_x,first_y,second_x,second_y,direction,route_a,route_b,first_kinds,second_kinds,split_node_id,crossing,predicate,logical_state_transition_checked,geometry_state,player_state,detail,plan_digest",
+            "contact_id,kind,first_x,first_y,second_x,second_y,direction,route_a,route_a_x,route_a_y,route_a_kinds,route_b,route_b_x,route_b_y,route_b_kinds,first_kinds,second_kinds,split_node_id,crossing,predicate,boundary_id,coverage_checked,logical_state_transition_checked,geometry_state,player_state,detail,plan_digest",
             Require(plan).ContactDecisions.Select(value => Row(value.Source.Id, value.Source.Kind,
                 value.Source.FirstWorld.X, value.Source.FirstWorld.Y, value.Source.SecondWorld.X,
-                value.Source.SecondWorld.Y, value.Source.Direction, value.Source.RouteA, value.Source.RouteB,
+                value.Source.SecondWorld.Y, value.Source.Direction, value.Source.RouteA, value.Source.RouteAWorld.X,
+                value.Source.RouteAWorld.Y, value.Source.RouteAKinds, value.Source.RouteB,
+                value.Source.RouteBWorld.X, value.Source.RouteBWorld.Y, value.Source.RouteBKinds,
                 value.Source.FirstKinds, value.Source.SecondKinds, value.SplitNodeId, value.Crossing, value.Predicate,
-                value.LogicalStateTransitionChecked, value.GeometryState, value.PlayerState, value.Detail, plan.Digest)));
+                value.BoundaryId, value.CoverageChecked, value.LogicalStateTransitionChecked, value.GeometryState,
+                value.PlayerState, value.Detail, plan.Digest)));
+
+        public static string GateGeometryJson(Sv5SpaceGraphPlan plan)
+        {
+            Require(plan);
+            return "{\n" +
+                "  \"schema\": \"SV5_PLANNED_GATE_GEOMETRY_V2\",\n" +
+                "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
+                "  \"composed_geometry_ready\": false,\n" +
+                "  \"player_verified\": false,\n" +
+                "  \"gates\": [\n" + string.Join(",\n", plan.Gates.Select(value =>
+                    "    {\"gate_id\":" + J(value.Id) + ",\"boundary_id\":" + J(value.BoundaryId) +
+                    ",\"contact_ids\":[" + string.Join(",", value.ContactIds.Select(J)) +
+                    "],\"blocking_cells\":[" + string.Join(",", value.BlockingCells.Select(Point)) +
+                    "],\"blocking_faces\":[" + string.Join(",", value.BlockingFaces.Select(item =>
+                        "{\"first\":" + Point(item.First) + ",\"second\":" + Point(item.Second) + "}")) +
+                    "],\"side_a_anchor\":" + Point(value.SideAAnchor) + ",\"side_b_anchor\":" +
+                    Point(value.SideBAnchor) + ",\"direction\":" + J(value.Direction.ToString()) +
+                    ",\"flow\":" + J(value.Flow) + ",\"predicate\":" + J(value.Predicate) +
+                    ",\"sealed_state\":" + J(value.SealedState) + ",\"open_state\":" + J(value.OpenState) +
+                    ",\"planned_barrier_verified\":" + B(value.PlannedBarrierVerified) + "}")) +
+                "\n  ]\n}\n";
+        }
 
         public static string ObligationsCsv(Sv5SpaceGraphPlan plan)
         {
@@ -134,6 +169,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             rows.Add(new[] { "SV5_41_COMPOSE", "SV5_41_COMPOSE", "Materialize planned envelopes and gates, then promote composed geometry only with collision evidence.", "PENDING", "COMPOSED_GEOMETRY" });
             rows.Add(new[] { "SV5_42_FINAL_SCAN", "SV5_42_FINAL_SCAN", "Run final 3-4 tile gap and 6x6 solid-window scans.", "PENDING", "COMPOSED_GEOMETRY" });
             rows.Add(new[] { "SV5_44_PLAYER", "SV5_44_WORLD_PLAYER", "Run actual whole-world Player traversal after composed geometry exists.", "PENDING", "PLAYER" });
+            rows.Add(new[] { "SG06_F5_SPARSE_SINGLE_CIRCUIT", "SV5_07_08_09", "Resolve sparse 22-place single-circuit structure; FIX01 repairs reservation/contact/gate correctness only.", "PENDING", "WHOLE_WORLD_STRUCTURE" });
             return Csv("obligation_id,owner_task,requirement,readiness,verification_layer", rows.Select(Row));
         }
 
@@ -141,7 +177,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             return "{\n" +
-                "  \"schema\": \"SV5_SPACE_STATE_PROOFS_V1\",\n" +
+                "  \"schema\": \"SV5_SPACE_STATE_PROOFS_FIX01_V2\",\n" +
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
                 "  \"baseline\": {\"source\":\"RMAP13\",\"edge_count\":" + N(plan.Core.RouteSource.Graph.Edges.Count) +
                     ",\"proof_count\":" + N(plan.Core.RouteSource.Graph.Proofs.Count) + ",\"pass\":" +
@@ -162,7 +198,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Require(plan);
             return "{\n" +
-                "  \"schema\": \"SV5_SPACE_VALIDATION_V1\",\n" +
+                "  \"schema\": \"SV5_SPACE_VALIDATION_FIX01_V2\",\n" +
                 "  \"status\": " + J(plan.Success ? "PASS" : "FAIL") + ",\n" +
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
                 "  \"world\": [624,416],\n" +
@@ -172,6 +208,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"ordinary_places\": " + N(plan.Places.Count(value => value.Kind == Sv5SpacePlaceKind.Ordinary)) + ",\n" +
                 "  \"connections\": " + N(plan.Connections.Count) + ",\n" +
                 "  \"complete_contact_pairs\": " + N(plan.ContactDecisions.Count) + ",\n" +
+                "  \"contact_input_cells\": " + N(Sv5SpaceGraphValidator.AcceptedContactCells(plan.Core,
+                    plan.Connections).Count) + ",\n" +
+                "  \"contact_coverage_errors\": " + N(Sv5SpaceGraphValidator.FindContactCoverageErrors(
+                    Sv5SpaceGraphValidator.AcceptedContactCells(plan.Core, plan.Connections),
+                    plan.ContactDecisions.Select(value => value.Source)).Count) + ",\n" +
+                "  \"reservation_conflicts\": " + N(Sv5SpaceGraphValidator.FindReservationConflicts(plan.Core,
+                    plan.Reservations).Count) + ",\n" +
+                "  \"gate_geometry_errors\": " + N(Sv5SpaceGraphValidator.FindGateErrors(plan.ContactDecisions,
+                    plan.Gates).Count) + ",\n" +
                 "  \"conditional_gates\": " + N(plan.Gates.Count) + ",\n" +
                 "  \"projection_orders\": " + N(plan.ProjectionProofs.Count) + ",\n" +
                 "  \"projection_pass\": " + B(plan.ProjectionProofs.Count == 6 && plan.ProjectionProofs.All(value => value.Success)) + ",\n" +
@@ -183,7 +228,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "}\n";
         }
 
-        public static string OverviewSvg(Sv5SpaceGraphPlan plan) => Svg(plan, 0, 0, 624, 416, true, "SV5_06 planned 624x416 space graph");
+        public static string OverviewSvg(Sv5SpaceGraphPlan plan) => Svg(plan, 0, 0, 624, 416, true, "SV5_06_FIX01 accepted 624x416 space graph");
         public static string ZoomSvg(Sv5SpaceGraphPlan plan, int row, int column)
         {
             if (row < 0 || row > 3 || column < 0 || column > 3) throw new ArgumentOutOfRangeException(nameof(row));
@@ -203,9 +248,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     .Append(name).Append(".svg\" alt=\"").Append(name).Append("\"></a><figcaption>")
                     .Append(name).Append("</figcaption></figure>");
             }
-            return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>SV5_06 review</title>" +
+            return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>SV5_06_FIX01 review</title>" +
                 "<style>body{font:14px system-ui;background:#101820;color:#eef4f1;margin:24px}img{width:100%;background:#18252c;border:1px solid #78909c}main{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}figure{margin:0}figcaption{padding:4px} .legend{line-height:1.6}</style></head><body>" +
-                "<h1>SV5_06 planned space graph</h1><p>Digest <code>" + H(plan.Digest) +
+                "<h1>SV5_06_FIX01 accepted reservation/contact plan</h1><p>Digest <code>" + H(plan.Digest) +
                 "</code>. This is planned layout evidence; composed geometry and Player verification remain false.</p>" +
                 "<p class=\"legend\">Blue: preserved core · Gold: large place · Green: ordinary room · Cyan: actual core connector · Purple: optional return circuit · Red: conditional split gate · Grey: INFILL_PENDING.</p>" +
                 "<p><a href=\"overview.svg\"><img src=\"overview.svg\" alt=\"overview\"></a></p><main>" + cards +
@@ -239,9 +284,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 svg.Append("<circle cx=\"").Append(value.Anchor.X).Append("\" cy=\"").Append(value.Anchor.Y)
                     .Append("\" r=\"").Append(overview ? "1.2" : "1.8").Append("\" fill=\"#fff176\"/>");
             foreach (Sv5SpaceGate value in plan.Gates)
-                svg.Append("<circle cx=\"").Append(value.World.X).Append("\" cy=\"").Append(value.World.Y)
-                    .Append("\" r=\"").Append(overview ? "1.7" : "2.3")
-                    .Append("\" fill=\"none\" stroke=\"#ef5350\" stroke-width=\"1\"/>");
+            {
+                foreach (RmapSpecialWorldPoint cell in value.BlockingCells)
+                    svg.Append("<rect x=\"").Append(cell.X).Append("\" y=\"").Append(cell.Y)
+                        .Append("\" width=\"1\" height=\"1\" fill=\"#ef5350\"/>");
+                foreach (Sv5SpaceBoundaryFace face in value.BlockingFaces)
+                    svg.Append("<line x1=\"").Append(face.First.X + 0.5).Append("\" y1=\"")
+                        .Append(face.First.Y + 0.5).Append("\" x2=\"").Append(face.Second.X + 0.5)
+                        .Append("\" y2=\"").Append(face.Second.Y + 0.5)
+                        .Append("\" stroke=\"#ef5350\" stroke-width=\"1.4\"/>");
+            }
             svg.Append("</g>");
             if (overview)
             {

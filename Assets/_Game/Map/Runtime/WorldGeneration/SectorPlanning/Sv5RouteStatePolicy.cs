@@ -133,15 +133,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         internal Sv5RouteContactPair(string kind, RmapSpecialWorldPoint firstWorld,
             RmapSpecialWorldPoint secondWorld, string routeA, string routeB,
-            string firstKinds, string secondKinds)
+            RmapSpecialWorldPoint routeAWorld, RmapSpecialWorldPoint routeBWorld,
+            string firstKinds, string secondKinds, string routeAKinds, string routeBKinds)
         {
             Kind = kind;
             FirstWorld = firstWorld;
             SecondWorld = secondWorld;
             RouteA = routeA;
             RouteB = routeB;
+            RouteAWorld = routeAWorld;
+            RouteBWorld = routeBWorld;
             FirstKinds = firstKinds;
             SecondKinds = secondKinds;
+            RouteAKinds = routeAKinds;
+            RouteBKinds = routeBKinds;
             Direction = firstWorld.Equals(secondWorld) ? "SHARED" :
                 secondWorld.X > firstWorld.X ? "RIGHT" : secondWorld.X < firstWorld.X ? "LEFT" :
                 secondWorld.Y > firstWorld.Y ? "UP" : "DOWN";
@@ -158,9 +163,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public RmapSpecialWorldPoint SecondWorld { get; }
         public string RouteA { get; }
         public string RouteB { get; }
+        public RmapSpecialWorldPoint RouteAWorld { get; }
+        public RmapSpecialWorldPoint RouteBWorld { get; }
         public string Direction { get; }
         public string FirstKinds { get; }
         public string SecondKinds { get; }
+        public string RouteAKinds { get; }
+        public string RouteBKinds { get; }
+        public string CanonicalPayload => Kind + "|" + FirstWorld + "|" + SecondWorld + "|" + RouteA + "|" +
+            RouteAWorld + "|" + RouteAKinds + "|" + RouteB + "|" + RouteBWorld + "|" + RouteBKinds;
         public int CompareTo(Sv5RouteContactPair other) => other == null ? 1 :
             string.Compare(Id, other.Id, StringComparison.Ordinal);
     }
@@ -500,8 +511,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 string[] routes = entry.Value.Keys.OrderBy(value => value, StringComparer.Ordinal).ToArray();
                 for (var left = 0; left < routes.Length; left++)
                 for (var right = left + 1; right < routes.Length; right++)
-                    AddPair("SHARED", entry.Key, entry.Key, routes[left], routes[right],
-                        entry.Value[routes[left]], entry.Value[routes[right]]);
+                    AddPair("SHARED", entry.Key, entry.Key, routes[left], routes[right], entry.Key, entry.Key,
+                        entry.Value[routes[left]], entry.Value[routes[right]], entry.Value[routes[left]],
+                        entry.Value[routes[right]]);
 
                 foreach (RmapSpecialWorldPoint neighbor in Neighbors(entry.Key))
                 {
@@ -515,16 +527,25 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                         string routeB = string.Equals(routeA, firstRoute, StringComparison.Ordinal) ?
                             secondRoute : firstRoute;
                         AddPair("FACE", entry.Key, neighbor, routeA, routeB,
-                            entry.Value[firstRoute], other[secondRoute]);
+                            string.Equals(routeA, firstRoute, StringComparison.Ordinal) ? entry.Key : neighbor,
+                            string.Equals(routeA, firstRoute, StringComparison.Ordinal) ? neighbor : entry.Key,
+                            entry.Value[firstRoute], other[secondRoute],
+                            string.Equals(routeA, firstRoute, StringComparison.Ordinal) ? entry.Value[firstRoute] :
+                                other[secondRoute],
+                            string.Equals(routeA, firstRoute, StringComparison.Ordinal) ? other[secondRoute] :
+                                entry.Value[firstRoute]);
                     }
                 }
             }
             return new ReadOnlyCollection<Sv5RouteContactPair>(output.Values.OrderBy(value => value).ToArray());
 
             void AddPair(string kind, RmapSpecialWorldPoint first, RmapSpecialWorldPoint second,
-                string routeA, string routeB, string firstKinds, string secondKinds)
+                string routeA, string routeB, RmapSpecialWorldPoint routeAWorld,
+                RmapSpecialWorldPoint routeBWorld, string firstKinds, string secondKinds,
+                string routeAKinds, string routeBKinds)
             {
-                var pair = new Sv5RouteContactPair(kind, first, second, routeA, routeB, firstKinds, secondKinds);
+                var pair = new Sv5RouteContactPair(kind, first, second, routeA, routeB, routeAWorld, routeBWorld,
+                    firstKinds, secondKinds, routeAKinds, routeBKinds);
                 if (!output.ContainsKey(pair.Id)) output.Add(pair.Id, pair);
             }
         }

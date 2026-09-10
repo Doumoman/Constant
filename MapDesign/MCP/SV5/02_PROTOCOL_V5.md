@@ -52,3 +52,13 @@ SV5_07~10 및 SV5_41은 MCP/SV5/10_SPACE_GRAPH_V5.md와 MCP/GENERATED/SV5_06의 
 PLANNED_LAYOUT / LOGICAL_STATE / CONTACT_STATE / COMPOSED_GEOMETRY / PLAYER 검증을 분리한다.
 SV5_06 완료는 세부 지형·기능·Scene Bake 완료가 아니다. 다음 Task 하나씩만 새 정상 입력으로 연다.
 <!-- SV5_06_SPACE_GRAPH_END -->
+
+<!-- SV5_06_FIX01_BEGIN -->
+## SV5 공간 예약 검증 보완 소비
+
+SV5_07~10/41의 다음 바인딩은 SV5_06_FIX01 실제 Result/Finalize와 SV5/11_SPACE_GRAPH_FIX01.md를 읽는다.
+SV5_06의 과거 contact PASS는 새 clearance를 모두 포함한 검증이 아니다. 보완 결과의 정본 reservation/projection을 소비한다.
+미확정 gate 또는 보호 셀 충돌을 state segment의 guard만으로 안전하다고 바꾸지 않는다.
+공간 밀도·단일 순환 구조의 미완 항목은 승인된 전체 예시와 대조해07~09와최종REVIEW에서 계속 검토한다.
+이 규칙은 다음 Task를 자동으로 열거나45개 본 작업의범위를임의로교체하지않는다.
+<!-- SV5_06_FIX01_END -->

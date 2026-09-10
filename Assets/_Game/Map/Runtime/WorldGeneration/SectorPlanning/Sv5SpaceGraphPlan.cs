@@ -18,7 +18,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         PlannedFootprint = 3,
         CorridorCenterline = 4,
         CorridorClearance = 5,
-        ConditionalGate = 6,
+        PortAperture = 6,
+        ConditionalGate = 7,
     }
 
     public readonly struct Sv5SpaceBounds : IEquatable<Sv5SpaceBounds>
@@ -186,11 +187,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         private readonly ReadOnlyCollection<RmapSpecialWorldPoint> centerline;
         private readonly ReadOnlyCollection<RmapSpecialWorldPoint> envelope;
+        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> apertureCells;
 
         internal Sv5SpaceConnection(string id, Sv5SpaceConnectionKind kind, string fromPortId, string toPortId,
             string fromPlaceId, string toPlaceId, RmapWorldGraphDirection direction, string flow, string condition,
             string sourceGraphEdgeId, string selectionState, IEnumerable<RmapSpecialWorldPoint> sourceCenterline,
-            IEnumerable<RmapSpecialWorldPoint> sourceEnvelope)
+            IEnumerable<RmapSpecialWorldPoint> sourceEnvelope,
+            IEnumerable<RmapSpecialWorldPoint> sourceApertureCells)
         {
             Id = Sv5SpaceGraphAuthoringProfile.Require(id, nameof(id));
             Kind = kind;
@@ -207,11 +210,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 Array.Empty<RmapSpecialWorldPoint>()).ToArray());
             envelope = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceEnvelope ??
                 Array.Empty<RmapSpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
+            apertureCells = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceApertureCells ??
+                Array.Empty<RmapSpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
             if (centerline.Count < 2) throw new ArgumentException("A connection needs a cardinal centerline.", nameof(sourceCenterline));
             for (var index = 1; index < centerline.Count; index++)
                 if (Math.Abs(centerline[index].X - centerline[index - 1].X) +
                     Math.Abs(centerline[index].Y - centerline[index - 1].Y) != 1)
                     throw new ArgumentException("Connection centerlines must be cardinally continuous.", nameof(sourceCenterline));
+            if (centerline.Any(value => !envelope.Contains(value)) || apertureCells.Any(value => !envelope.Contains(value)))
+                throw new ArgumentException("Centerline and aperture cells must be members of the accepted envelope.", nameof(sourceEnvelope));
         }
 
         public string Id { get; }
@@ -227,24 +234,75 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string SelectionState { get; }
         public IReadOnlyList<RmapSpecialWorldPoint> Centerline => centerline;
         public IReadOnlyList<RmapSpecialWorldPoint> Envelope => envelope;
+        public IReadOnlyList<RmapSpecialWorldPoint> ApertureCells => apertureCells;
         public int CompareTo(Sv5SpaceConnection other) => other == null ? 1 : string.Compare(Id, other.Id, StringComparison.Ordinal);
+    }
+
+    public sealed class Sv5SpaceBoundaryFace : IComparable<Sv5SpaceBoundaryFace>
+    {
+        internal Sv5SpaceBoundaryFace(RmapSpecialWorldPoint first, RmapSpecialWorldPoint second)
+        {
+            if (Math.Abs(first.X - second.X) + Math.Abs(first.Y - second.Y) != 1)
+                throw new ArgumentException("A blocking face must join cardinally adjacent cells.", nameof(second));
+            if (first.CompareTo(second) <= 0) { First = first; Second = second; }
+            else { First = second; Second = first; }
+        }
+        public RmapSpecialWorldPoint First { get; }
+        public RmapSpecialWorldPoint Second { get; }
+        public string StableToken => First + ">" + Second;
+        public int CompareTo(Sv5SpaceBoundaryFace other) => other == null ? 1 :
+            string.Compare(StableToken, other.StableToken, StringComparison.Ordinal);
     }
 
     public sealed class Sv5SpaceGate : IComparable<Sv5SpaceGate>
     {
-        internal Sv5SpaceGate(string id, string contactId, RmapSpecialWorldPoint world, string predicate,
+        private readonly ReadOnlyCollection<string> contactIds;
+        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> blockingCells;
+        private readonly ReadOnlyCollection<Sv5SpaceBoundaryFace> blockingFaces;
+
+        internal Sv5SpaceGate(string id, string boundaryId, IEnumerable<string> sourceContactIds,
+            IEnumerable<RmapSpecialWorldPoint> sourceBlockingCells,
+            IEnumerable<Sv5SpaceBoundaryFace> sourceBlockingFaces, RmapSpecialWorldPoint sideAAnchor,
+            RmapSpecialWorldPoint sideBAnchor, RmapWorldGraphDirection direction, string flow, string predicate,
             Sv5SpaceCrossingKind crossing, string sealedState, string openState)
         {
-            Id = id; ContactId = contactId; World = world; Predicate = predicate; Crossing = crossing;
-            SealedState = sealedState; OpenState = openState;
+            Id = Sv5SpaceGraphAuthoringProfile.Require(id, nameof(id));
+            BoundaryId = Sv5SpaceGraphAuthoringProfile.Require(boundaryId, nameof(boundaryId));
+            contactIds = new ReadOnlyCollection<string>((sourceContactIds ?? Array.Empty<string>())
+                .Where(value => !string.IsNullOrWhiteSpace(value)).Distinct(StringComparer.Ordinal)
+                .OrderBy(value => value, StringComparer.Ordinal).ToArray());
+            blockingCells = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceBlockingCells ??
+                Array.Empty<RmapSpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
+            blockingFaces = new ReadOnlyCollection<Sv5SpaceBoundaryFace>((sourceBlockingFaces ??
+                Array.Empty<Sv5SpaceBoundaryFace>()).Where(value => value != null)
+                .GroupBy(value => value.StableToken, StringComparer.Ordinal).Select(value => value.First())
+                .OrderBy(value => value).ToArray());
+            if (contactIds.Count == 0 || blockingCells.Count + blockingFaces.Count == 0)
+                throw new ArgumentException("A planned gate needs contacts and full-width blocking geometry.", nameof(sourceContactIds));
+            SideAAnchor = sideAAnchor; SideBAnchor = sideBAnchor; Direction = direction;
+            Flow = Sv5SpaceGraphAuthoringProfile.Require(flow, nameof(flow));
+            Predicate = Sv5SpaceGraphAuthoringProfile.Require(predicate, nameof(predicate));
+            Crossing = crossing;
+            SealedState = Sv5SpaceGraphAuthoringProfile.Require(sealedState, nameof(sealedState));
+            OpenState = Sv5SpaceGraphAuthoringProfile.Require(openState, nameof(openState));
         }
         public string Id { get; }
-        public string ContactId { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public string BoundaryId { get; }
+        public IReadOnlyList<string> ContactIds => contactIds;
+        public string ContactId => contactIds[0];
+        public RmapSpecialWorldPoint World => SideAAnchor;
+        public IReadOnlyList<RmapSpecialWorldPoint> BlockingCells => blockingCells;
+        public IReadOnlyList<Sv5SpaceBoundaryFace> BlockingFaces => blockingFaces;
+        public RmapSpecialWorldPoint SideAAnchor { get; }
+        public RmapSpecialWorldPoint SideBAnchor { get; }
+        public RmapWorldGraphDirection Direction { get; }
+        public string Flow { get; }
         public string Predicate { get; }
         public Sv5SpaceCrossingKind Crossing { get; }
         public string SealedState { get; }
         public string OpenState { get; }
+        public bool PlannedBarrierVerified => blockingCells.Count + blockingFaces.Count > 0 &&
+            !SideAAnchor.Equals(SideBAnchor) && string.Equals(Flow, "BIDIRECTIONAL", StringComparison.Ordinal);
         public bool RuntimeVerified => false;
         public int CompareTo(Sv5SpaceGate other) => other == null ? 1 : string.Compare(Id, other.Id, StringComparison.Ordinal);
     }
@@ -277,15 +335,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5SpaceContactDecision : IComparable<Sv5SpaceContactDecision>
     {
         internal Sv5SpaceContactDecision(Sv5RouteContactPair source, string splitNodeId,
-            Sv5SpaceCrossingKind crossing, string predicate, bool checkedState, string detail)
+            Sv5SpaceCrossingKind crossing, string predicate, string boundaryId, bool coverageChecked,
+            bool checkedState, string detail)
         {
             Source = source; SplitNodeId = splitNodeId; Crossing = crossing; Predicate = predicate;
+            BoundaryId = boundaryId ?? string.Empty; CoverageChecked = coverageChecked;
             LogicalStateTransitionChecked = checkedState; Detail = detail;
         }
         public Sv5RouteContactPair Source { get; }
         public string SplitNodeId { get; }
         public Sv5SpaceCrossingKind Crossing { get; }
         public string Predicate { get; }
+        public string BoundaryId { get; }
+        public bool CoverageChecked { get; }
         public bool LogicalStateTransitionChecked { get; }
         public string Detail { get; }
         public string GeometryState => "PLANNED_RESERVATION";
@@ -362,35 +424,55 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Places.Count(value => value.Kind == Sv5SpacePlaceKind.Large) >= 4 &&
             Places.Count(value => value.Kind == Sv5SpacePlaceKind.Ordinary) >= 4 &&
             Core.Sites.Count == 8 && Core.CoreCells.Count == 2432 &&
-            ContactDecisions.Count != 0 && ContactDecisions.All(value => value.LogicalStateTransitionChecked) &&
+            ContactDecisions.Count != 0 && ContactDecisions.All(value => value.CoverageChecked &&
+                value.LogicalStateTransitionChecked) && Gates.All(value => value.PlannedBarrierVerified) &&
             ProjectionProofs.Count == 6 && ProjectionProofs.All(value => value.Success) && InfillPendingTileCount > 0;
 
         private IEnumerable<string> CanonicalLines()
         {
-            yield return "SV5_SPACE_GRAPH_PLAN_V1";
+            yield return "SV5_SPACE_GRAPH_PLAN_V2";
             yield return Core.RouteSource.Definition.Digest;
             yield return Core.Digest;
             yield return Core.RouteSource.Graph.Digest;
             yield return Seed.ToString(CultureInfo.InvariantCulture);
             yield return Profile.Digest;
-            foreach (Sv5SpacePlace value in Places) yield return "place|" + value.Id + "|" + value.Family + "|" +
-                value.Kind + "|" + value.Bounds + "|" + value.CoreSiteId + "|" + value.FutureOwner + "|" + value.DistributionSector;
-            foreach (Sv5SpacePort value in Ports) yield return "port|" + value.Id + "|" + value.PlaceId + "|" +
-                value.Anchor + "|" + value.Direction + "|" + value.Flow + "|" + value.Condition + "|" + value.SourceAccessId;
-            foreach (Sv5SpaceConnection value in Connections) yield return "connection|" + value.Id + "|" +
-                value.FromPortId + "|" + value.ToPortId + "|" + value.Direction + "|" + value.Condition + "|" +
-                value.SourceGraphEdgeId + "|" + string.Join(";", value.Centerline);
-            foreach (Sv5SpaceGate value in Gates) yield return "gate|" + value.Id + "|" + value.ContactId + "|" +
-                value.World + "|" + value.Predicate + "|" + value.Crossing;
+            foreach (Sv5SpacePlace value in Places) yield return "place|" + L(value.Id) + L(value.Family) +
+                value.Kind + "|" + value.Bounds + "|" + L(value.CoreSiteId) + L(value.FutureOwner) + value.DistributionSector;
+            foreach (Sv5SpacePort value in Ports) yield return "port|" + L(value.Id) + L(value.PlaceId) +
+                Points(value.BoundaryCells) + "|" + value.Anchor + "|" + value.Direction + "|" + L(value.Flow) +
+                L(value.Condition) + L(value.SourceAccessId) + L(value.SourceNodeId) + L(value.Status);
+            foreach (Sv5SpaceConnection value in Connections) yield return "connection|" + L(value.Id) +
+                value.Kind + "|" + L(value.FromPortId) + L(value.ToPortId) + L(value.FromPlaceId) + L(value.ToPlaceId) +
+                value.Direction + "|" + L(value.Flow) + L(value.Condition) + L(value.SourceGraphEdgeId) +
+                L(value.SelectionState) + Points(value.Centerline) + "|" + Points(value.Envelope) + "|" +
+                Points(value.ApertureCells);
+            foreach (Sv5SpaceGate value in Gates) yield return "gate|" + L(value.Id) + L(value.BoundaryId) +
+                Strings(value.ContactIds) + "|" + Points(value.BlockingCells) + "|" +
+                Strings(value.BlockingFaces.Select(item => item.StableToken)) + "|" + value.SideAAnchor + "|" +
+                value.SideBAnchor + "|" + value.Direction + "|" + L(value.Flow) + L(value.Predicate) +
+                value.Crossing + "|" + L(value.SealedState) + L(value.OpenState);
             foreach (Sv5SpaceReservationCell value in Reservations) yield return "reservation|" + value.World + "|" +
                 value.Kind + "|" + value.OwnerId + "|" + value.Semantics;
-            foreach (Sv5SpaceContactDecision value in ContactDecisions) yield return "contact|" + value.Source.Id + "|" +
-                value.SplitNodeId + "|" + value.Crossing + "|" + value.Predicate + "|" +
-                (value.LogicalStateTransitionChecked ? "1" : "0");
+            foreach (Sv5SpaceContactDecision value in ContactDecisions) yield return "contact|" +
+                L(value.Source.CanonicalPayload) + L(value.SplitNodeId) + value.Crossing + "|" + L(value.Predicate) +
+                L(value.BoundaryId) + (value.CoverageChecked ? "1" : "0") + "|" +
+                (value.LogicalStateTransitionChecked ? "1" : "0") + "|" + L(value.GeometryState) +
+                L(value.PlayerState) + L(value.Detail);
             foreach (Sv5SpaceProjectionOrderProof value in ProjectionProofs) yield return "proof|" +
                 value.GoalProof.ProofId + "|" + value.ReachableStates + "|" + value.Transitions + "|" +
-                value.ReverseReachableStates + "|" + string.Join(";", value.DeadEnds);
+                value.ReverseReachableStates + "|" + Strings(value.GoalProof.RequestedOrder.Select(item =>
+                    item.ToString())) + "|" + Strings(value.GoalProof.Actions) + "|" + Strings(value.DeadEnds);
         }
+
+        private static string L(string value)
+        {
+            string text = value ?? string.Empty;
+            return text.Length.ToString(CultureInfo.InvariantCulture) + ":" + text + "|";
+        }
+        private static string Points(IEnumerable<RmapSpecialWorldPoint> values) => Strings((values ??
+            Array.Empty<RmapSpecialWorldPoint>()).Select(value => value.ToString()));
+        private static string Strings(IEnumerable<string> values) => string.Join(string.Empty, (values ??
+            Array.Empty<string>()).Select(L));
 
         private static ReadOnlyCollection<T> Freeze<T>(IEnumerable<T> values) where T : IComparable<T> =>
             new ReadOnlyCollection<T>((values ?? Array.Empty<T>()).Where(value => value != null).OrderBy(value => value).ToArray());

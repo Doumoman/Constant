@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<expected-pre-fix-failure task="SV5_06_FIX01" executed-as-final-pass="false" source="preserved SV5_06 bytes plus independent production enumerator/validator">
+  <case id="N01" expected="FAIL">
+    <old-contact-pairs>5347</old-contact-pairs>
+    <pairs-with-exported-corridor-clearance>10093</pairs-with-exported-corridor-clearance>
+    <omitted-pairs>4746</omitted-pairs>
+    <representative>FACE (175,77)-(176,77) SV5_OPTIONAL_07/SV5_OPTIONAL_08</representative>
+  </case>
+  <case id="N02" expected="FAIL">
+    <fixed-solid-conflict-rows>72</fixed-solid-conflict-rows>
+    <fixed-solid-distinct-cells>47</fixed-solid-distinct-cells>
+    <route-support-conflict-rows>113</route-support-conflict-rows>
+    <representative>(492,280) SV5_OPTIONAL_TO_VILLAGE versus RMAP15_SITE_VILLAGE FixedSolid</representative>
+  </case>
+  <note>The final focused NUnit XML is focused_results.xml; these expected failures are preserved counterexample measurements and are not counted as final passing tests.</note>
+</expected-pre-fix-failure>

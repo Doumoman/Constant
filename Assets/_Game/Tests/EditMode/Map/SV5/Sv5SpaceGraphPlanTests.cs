@@ -118,6 +118,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             }).Where(value => value.Kind == "SHARED").ToArray();
             Assert.That(shared.Count, Is.EqualTo(3));
             Assert.That(shared.Select(value => value.Id).Distinct().Count(), Is.EqualTo(3));
+            Assert.That(face.Single(value => value.RouteA == "A" && value.RouteB == "B").RouteAWorld,
+                Is.EqualTo(q));
+            Assert.That(face.Single(value => value.RouteA == "A" && value.RouteB == "B").RouteBWorld,
+                Is.EqualTo(p));
             Assert.That(Representative.Value.ContactDecisions.Count, Is.GreaterThanOrEqualTo(1422));
         }
 
@@ -163,11 +167,17 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpaceGraphPlan plan = Representative.Value;
             Assert.That(plan.ContactDecisions.All(value => value.Crossing != Sv5SpaceCrossingKind.Pending), Is.True);
             Assert.That(plan.ContactDecisions.Where(value => value.Crossing == Sv5SpaceCrossingKind.ConditionalGate)
-                .Select(value => value.Source.Id), Is.EquivalentTo(plan.Gates.Select(value => value.ContactId)));
-            Assert.That(plan.Gates.All(value => value.SealedState.Contains("BLOCKS_ROUTE_SWITCH") &&
-                value.OpenState.Contains("PREDICATE_SEGMENTS")), Is.True);
+                .Select(value => value.BoundaryId).Distinct(),
+                Is.EquivalentTo(plan.Gates.Select(value => value.BoundaryId)));
+            Assert.That(plan.ContactDecisions.Where(value => value.Crossing == Sv5SpaceCrossingKind.ConditionalGate)
+                .All(value => plan.Gates.Single(gate => gate.BoundaryId == value.BoundaryId)
+                    .ContactIds.Contains(value.Source.Id)), Is.True);
+            Assert.That(plan.Gates.All(value => value.SealedState.Contains("BLOCKS_ALL_BOUNDARY_CELLS_AND_FACES") &&
+                value.OpenState.Contains("BIDIRECTIONAL_PREDICATE_SEGMENTS")), Is.True);
             Assert.That(plan.Reservations.Count(value => value.Kind == Sv5SpaceReservationKind.ConditionalGate),
-                Is.EqualTo(plan.Gates.Count));
+                Is.GreaterThanOrEqualTo(plan.Gates.Count));
+            Assert.That(plan.Gates.All(value => value.PlannedBarrierVerified &&
+                value.BlockingCells.Count + value.BlockingFaces.Count > 0), Is.True);
             Assert.That(plan.Gates.Any(value => value.Predicate.Contains("boss=1")), Is.True);
         }
 
@@ -216,7 +226,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             string[] required =
             {
                 "space_graph.json", "places.csv", "ports.csv", "connections.csv", "reservation_cells.csv",
-                "state_proofs.json", "contact_checks.csv", "obligations.csv", "validation.json",
+                "state_proofs.json", "contact_checks.csv", "gate_geometry.json", "obligations.csv", "validation.json",
             };
             Assert.That(required.All(value => File.Exists(Path.Combine(directory, value)) &&
                 new FileInfo(Path.Combine(directory, value)).Length > 0), Is.True);
@@ -240,7 +250,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             return Sv5CoreReservationPlanner.Plan(routeSource);
         }
 
-        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED", "SV5_06");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
+            "SV5_06_FIX01", "legacy_exports", "sv5_06_original_t10");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {

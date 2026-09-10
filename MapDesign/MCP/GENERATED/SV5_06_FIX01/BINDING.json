@@ -1,0 +1,94 @@
+{
+  "format": "sv5_06_fix01_binding_v1",
+  "task": "SV5_06_FIX01",
+  "manifest_sha256": "3ea7ae088b57305d16aa1aafc4a1b8c9fa14abed7ad0adc585451a7a859f5d5e",
+  "predecessor": {
+    "task": "SV5_06_SPACE_GRAPH",
+    "result_sha256": "05af804fd2e231c91670bcb35a90833228b43064a2d22d3c8edd3345c9470c3c",
+    "installed_task_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+    "commit": "7b7dc99527b878eadc398388e27b3fce173971ef",
+    "parent": "37c09eb8663656da182453c19487f65ea056c8f2"
+  },
+  "registration": {
+    "approval": "SV5_06_FIX01_REG",
+    "scope": [
+      "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md: add one SV5_06_FIX01 LOCKED row",
+      "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md: add one 06.F1 SV5_06_FIX01 LOCKED row"
+    ],
+    "status_before_sha256": "cbf1f16e98c1ced26a7ce27e1e0e278e460111faa5c85b113efd243bec953e98",
+    "status_registered_sha256": "a708a1f64da9041e7c79049fec8e0553c64f6f49a02951da6dbe817984dc9e79",
+    "master_before_sha256": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+    "master_registered_sha256": "083c324fe00531b47f140048f2b1729db2bdadaf9c880560d708f2ba95cc5b03",
+    "states": {
+      "before": "245 COMPLETE / 0 CURRENT / 41 LOCKED / Current NONE",
+      "registered": "245 COMPLETE / 0 CURRENT / 42 LOCKED / Current NONE",
+      "applied": "245 COMPLETE / 1 CURRENT / 41 LOCKED / Current TASKS/SV5_06_FIX01.md",
+      "final_expected": "246 COMPLETE / 0 CURRENT / 41 LOCKED / Current NONE"
+    },
+    "byte_note": "The first git apply attempt was rolled back only for these two clean files after system core.autocrlf changed all line endings. The same diff was reapplied with core.autocrlf=false and core.eol=lf; exact contractual after hashes then matched. No expected hash or package byte was changed."
+  },
+  "apply": {
+    "inbox_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+    "installed_task_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+    "archive_sha256": "e7695992c081b856fc2e05757cc68fa8121178a83b6b1c3e352d4ec172e74276",
+    "post_readonly": "PASS_POST_READONLY_READONLY"
+  },
+  "source_changes": [
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs","before":"7fdb4cc23450cd5ee0451f39a37226106b62aec6b1b91ff7cc7989bfabedbe4e","after":"8b5c48ad349de2e6e0ea50ccb79f4c39bdb1f0e7ed39104b36360a80d9f2d9c5","role":"route-owned contact coordinate and kind preservation"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs","before":"b07aadb7b5f78e7c4e07c6ec5a073198aeac38c544a8f2a7f22c15938693bb5e","after":"5009f508c0f5a441730c57ab7c0195299a3c014b91fe39b2c55231bca1d7f19a","role":"accepted envelope, port aperture, full boundary gate and semantic digest"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs","before":"a0a2b6d63809efb6af64c97a3e3d103d2f156e7b2db7b571a3c861ad8c309542","after":"cfe082d792378425cadb423fdf002d74f10d3fa0c4639cfa8ca7f8e4bfc4a512","role":"full-width candidate routing, explicit port adapters, unified contact/reservation validators"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs","before":"66b8439a5fe1dbd4c54ee59431bb1f30f1edf788e18ca862b2ccfbbf13053f6c","after":"d9841fa54c2e64a32f6cc20ee86d2ba6a593f73c228c81c4f4fc1bc2bc92b565","role":"active-geometry ordinals, shared physical nodes, bidirectional projection and merged boundary gates"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs","before":"dc4e259e22c862b58a58d0dbb43c50b7231a7e3dec911d1b0c9ccdef77f8a9bb","after":"ebfdfeb7f826fa7a1cdb1862ba927dafede5ed5bc7b06a6aaa810bde60275b33","role":"v2 complete semantic evidence, gate geometry and regenerated previews"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs","before":"77a52923c22381af062fd7d5a8cf4c882cecacdce6255b4f943a917fc89f3400","after":"1ec195352dac3f542446d74689ee7d8a065f276ab0b992d4fd1a6294eeaaae67","role":"legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs","before":"2477c12936d6d232f5af2b72d3215246159ccb6f92a4ac945e4795338306779e","after":"ae6d296bfb964645335e192479dcada3599684fef779017ea90b9e106cf29c0b","role":"legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs","before":"e23db4d8e79fc545f6191a3c58f8e5c63d0c461b2d7c66e073aea9aa1417f7ca","after":"412d1b91d83c048e38fd323f1ad39f56d85785200e7eb52bbdfc821f45216937","role":"shared-boundary readiness correction and legacy export isolation"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs","before":null,"after":"57d24edbdcd84e4b8e3029d8871e4f8244ecdcddde75757597a6dd49612ac437","role":"N01-N08 production-validator fixtures"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs.meta","before":null,"after":"4e5c30c4011de0f385be010b28f4cb9c56e7a7d2c169395a0acf2103a3e65457","role":"Unity asset identity"},
+    {"path":"MapDesign/MCP/SV5/02_PROTOCOL_V5.md","before":"7825d29132f40141cea169a83c2c32cd0884ef931d84e1343f9dd4df5063363d","after":"51197b438af7903f158a9d157ca77e549e3674259698929a232b3bb035f596be","role":"provided protocol suffix appended exactly once"}
+  ],
+  "verification": {
+    "unity_editor": "6000.3.8f1 (1c7db571dde0)",
+    "command": "unity --no-color --non-interactive test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_06_FIX01/focused_results.xml --timeout 1200",
+    "result": "PASS",
+    "discovered": 43,
+    "executed": 43,
+    "passed": 43,
+    "failed": 0,
+    "skipped": 0,
+    "xml_worktree_sha256": "8e4bc3239a4be60af250500e20c309a8f9e5eb2ee8c470224cb1850e98ca396c",
+    "xml_commit_blob_sha256": "RECORDED_IN_POST_COMMIT_REVIEW_MANIFEST"
+  },
+  "accepted_plan": {
+    "digest": "5e8e12a9b389d9a686f787e759d466a03fd57712a98bfdebb3a0b1aac3f3e494",
+    "connections": 28,
+    "contact_input_cells": 16222,
+    "complete_contact_pairs": 7188,
+    "reservation_rows": 27629,
+    "conditional_boundaries": 14,
+    "contact_coverage_errors": 0,
+    "reservation_conflicts": 0,
+    "gate_geometry_errors": 0,
+    "projection_orders": 6,
+    "geometry_state_ready": false,
+    "player_verified": false
+  },
+  "preserved": {
+    "sv5_06_result_sha256": "05af804fd2e231c91670bcb35a90833228b43064a2d22d3c8edd3345c9470c3c",
+    "sv5_06_task_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+    "sv5_06_review_zip_sha256": "1dbcfe2c92cc6e94f48b4b2af4e487a9cfa13c190c09cc79641620bb0c45f683",
+    "sv5_06_validation_sha256": "e36fff86c1d3da6a9eab6b6508ce18d4e0dab6829727e105899ddc92ff64bf2f"
+  },
+  "read_scope": [
+    "MapDesign/MCP native entry/change/apply/finalize rules",
+    "MapDesign/MCP/INPUTS/SV5_06_FIX01 registration, repair, findings, conflicts, protocol and source locks",
+    "MapDesign/MCP/GENERATED/SV5_04, SV5_05_FIX01 and SV5_06 evidence",
+    "RMAP13 graph and SV5 core/route/space production APIs and direct tests"
+  ],
+  "write_scope": [
+    "approved registration rows and native Task/Archive/Status lifecycle",
+    "five SV5 space/contact runtime files and three existing plus one new focused test files",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md suffix and SV5/11_SPACE_GRAPH_FIX01.md",
+    "MapDesign/MCP/GENERATED/SV5_06_FIX01 and REPORTS/SV5_06_FIX01_RESULT.md"
+  ],
+  "open_obligation": "SG06-F5 remains assigned to SV5_07/SV5_08/SV5_09; this fix does not claim final whole-world density, composed geometry, or Player verification."
+}

@@ -1,0 +1,463 @@
+{
+  "format": "sv5_06_review_findings_v1",
+  "verdict": "CORRECTION_REQUIRED_BEFORE_SV5_07",
+  "evidence_level": "UPLOADED_BYTES_XML_STATIC_SOURCE_AND_INDEPENDENT_PYTHON_GEOMETRY_ANALYSIS_NOT_UNITY_EXECUTION",
+  "review_zip_sha256": "1dbcfe2c92cc6e94f48b4b2af4e487a9cfa13c190c09cc79641620bb0c45f683",
+  "verified_manifest_files": 137,
+  "preserved_fix01_generated_files": 20,
+  "result_sha256": "05af804fd2e231c91670bcb35a90833228b43064a2d22d3c8edd3345c9470c3c",
+  "installed_archive_task_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+  "reported_commit": "7b7dc99527b878eadc398388e27b3fce173971ef",
+  "reported_parent": "37c09eb8663656da182453c19487f65ea056c8f2",
+  "live_user_git_verified_here": false,
+  "uploaded_tests": {
+    "total": 31,
+    "passed": 31,
+    "failed": 0,
+    "skipped": 0,
+    "xml_sha256": "34710c4474dc4c753ab3ea5102e1cb45672e75ec115407329c120a9b373c16bf",
+    "run_here": false
+  },
+  "plan_digest": "fbbc847599b34b8b4695628d6e4970d0669938e04e35eb4b08220ef78d31cf84",
+  "counts": {
+    "places": 22,
+    "ports": 43,
+    "connections": 28,
+    "contacts": 5347,
+    "gates": 103,
+    "reservation_rows": 26489
+  },
+  "findings": [
+    {
+      "id": "SG06-F1",
+      "priority": "P1",
+      "title": "New corridor clearance is missing from contact checker input",
+      "contract": [
+        "C04",
+        "C05",
+        "T04",
+        "T05"
+      ],
+      "source": "Sv5SpaceGraphPlanner.cs:52-64",
+      "existing_exported_pair_count": 5347,
+      "independently_reproduced_exactly": true,
+      "pair_count_after_adding_only_new_exported_envelopes": 10093,
+      "omitted_pair_count": 4746,
+      "examples": [
+        {
+          "kind": "FACE",
+          "first": [
+            175,
+            77
+          ],
+          "second": [
+            176,
+            77
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            175,
+            78
+          ],
+          "second": [
+            176,
+            78
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            175,
+            79
+          ],
+          "second": [
+            176,
+            79
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            176,
+            76
+          ],
+          "second": [
+            176,
+            77
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            176,
+            77
+          ],
+          "second": [
+            176,
+            78
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            176,
+            77
+          ],
+          "second": [
+            177,
+            77
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            176,
+            78
+          ],
+          "second": [
+            176,
+            79
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        },
+        {
+          "kind": "FACE",
+          "first": [
+            176,
+            79
+          ],
+          "second": [
+            176,
+            80
+          ],
+          "route_a": "SV5_OPTIONAL_07",
+          "route_b": "SV5_OPTIONAL_08"
+        }
+      ],
+      "meaning": "The pair enumerator is fixed, but its caller omits the new Clearance cells already present in reservation_cells.csv. The exported complete-contact claim is incomplete."
+    },
+    {
+      "id": "SG06-F2",
+      "priority": "P1",
+      "title": "Corridor reservations conflict with fixed core SOLID/support",
+      "contract": [
+        "C02",
+        "C04",
+        "C07",
+        "T01",
+        "T07"
+      ],
+      "source": "Sv5SpaceGraphPlanner.cs:219-239, 278-305, 332-342",
+      "clearance_fixed_solid_row_count": 72,
+      "centerline_fixed_solid_row_count": 0,
+      "clearance_fixed_solid_distinct_cells": 47,
+      "core_solid_examples": [
+        {
+          "world": [
+            492,
+            280
+          ],
+          "connection": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            515,
+            280
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            492,
+            281
+          ],
+          "connection": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            515,
+            281
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            492,
+            282
+          ],
+          "connection": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            515,
+            282
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            492,
+            283
+          ],
+          "connection": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            515,
+            283
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            492,
+            284
+          ],
+          "connection": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            515,
+            284
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            492,
+            285
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        },
+        {
+          "world": [
+            492,
+            285
+          ],
+          "connection": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "CorridorClearance",
+          "semantics": "CLEARANCE_RESERVED",
+          "core_site": "RMAP15_SITE_VILLAGE",
+          "core_base": "S",
+          "protection": "FixedSolid"
+        }
+      ],
+      "core_route_support_collision_rows": 113,
+      "support_examples": [
+        {
+          "world": [
+            414,
+            300
+          ],
+          "connection": "SV5_OPTIONAL_01",
+          "kind": "CorridorClearance",
+          "source_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4"
+        },
+        {
+          "world": [
+            414,
+            300
+          ],
+          "connection": "SV5_OPTIONAL_02",
+          "kind": "CorridorClearance",
+          "source_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4"
+        },
+        {
+          "world": [
+            414,
+            300
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "source_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4"
+        },
+        {
+          "world": [
+            416,
+            300
+          ],
+          "connection": "SV5_OPTIONAL_01",
+          "kind": "CorridorClearance",
+          "source_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4"
+        },
+        {
+          "world": [
+            416,
+            300
+          ],
+          "connection": "SV5_OPTIONAL_02",
+          "kind": "CorridorClearance",
+          "source_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4"
+        },
+        {
+          "world": [
+            416,
+            300
+          ],
+          "connection": "SV5_OPTIONAL_RETURN_TO_START",
+          "kind": "CorridorClearance",
+          "source_route": "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4"
+        }
+      ],
+      "meaning": "BFS checks centerline allowed cells; expanded envelope is neither obstacle-tested nor rejected by Validate. Retaining old core bytes does not make incompatible new clearance safe."
+    },
+    {
+      "id": "SG06-F3",
+      "priority": "P1",
+      "title": "State-safe segments are assumed without full-width planned gate geometry",
+      "contract": [
+        "C04",
+        "C05",
+        "T05",
+        "T07"
+      ],
+      "source": "Sv5SpaceGraphStateProjection.cs:127-185; Sv5SpaceGraphPlan.cs:232-247",
+      "gate_records": 103,
+      "distinct_gate_cells": 26,
+      "gate_cell_duplicates": 77,
+      "same_corridor_bypass_examples": [],
+      "meaning": "Sv5SpaceGate stores a point plus descriptive strings; every logical segment receives guards regardless of a planned blocking boundary. RuntimeVerified=false is correct, but does not satisfy the Task requirement to plan an actual full-width cut.",
+      "witness_limit": "No successful local detour witness was found for new optional centerlines in this check. This finding concerns absent full-width, state-specific blocking geometry and its validation; it does not claim a demonstrated Player bypass."
+    },
+    {
+      "id": "SG06-F4",
+      "priority": "P2",
+      "title": "Required negative tests are mostly missing",
+      "contract": [
+        "T03",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "source": "Sv5SpaceGraphPlanTests.cs:69-201",
+      "missing": [
+        "malformed/unknown port and wrong flow rejection",
+        "delete actual connector and require projection failure",
+        "inject an unguarded mid-route contact and reject",
+        "full-width gate / side AIR bypass rejection",
+        "inject reachable non-returning dead end",
+        "change actual topology/port/guard geometry and require plan digest change"
+      ],
+      "meaning": "T05-T09 mainly assert the representative plan has true flags/counts and expected schema; test names alone do not establish these negative requirements."
+    },
+    {
+      "id": "SG06-F5",
+      "priority": "P2",
+      "title": "Whole-world structure remains a sparse single optional circuit",
+      "contract": [
+        "C03",
+        "C04"
+      ],
+      "world_tiles": 259584,
+      "infill_pending_tiles": 237192,
+      "infill_pending_percent": 91.374,
+      "non_core_place_count": 14,
+      "ordinary_places": 6,
+      "optional_connection_flows": {
+        "ONE_WAY": 16
+      },
+      "longest_connections": [
+        {
+          "id": "SV5_CORE_CONN_fec566f68036a383",
+          "kind": "CoreProgression",
+          "edges": 483
+        },
+        {
+          "id": "SV5_CORE_CONN_21e6a90771dd0ec3",
+          "kind": "CoreProgression",
+          "edges": 462
+        },
+        {
+          "id": "SV5_OPTIONAL_TO_VILLAGE",
+          "kind": "OptionalBranch",
+          "edges": 343
+        },
+        {
+          "id": "SV5_CORE_CONN_b7862f4e818afdb3",
+          "kind": "CoreProgression",
+          "edges": 320
+        },
+        {
+          "id": "SV5_CORE_CONN_0fc428a59647d624",
+          "kind": "CoreProgression",
+          "edges": 317
+        }
+      ],
+      "source": "Sv5SpaceGraphPlanner.BuildOptionalCircuit; Sv5SpaceGraphAuthoringProfile.RepresentativeV1",
+      "meaning": "All 14 non-core places are threaded in one ordered one-way circuit. There is no placement density/connection-length budget, reversible ordinary terminal example, or exact field of reserved ordinary spaces. 91% pending is not AIR; it still leaves most desired structure unplanned.",
+      "boundary": "SV5_08 may fill residual spaces, SV5_09 may add loops. No universal fixed 101-place requirement or new final tile density rule is inferred."
+    }
+  ]
+}

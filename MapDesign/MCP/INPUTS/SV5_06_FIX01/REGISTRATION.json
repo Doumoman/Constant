@@ -1,0 +1,56 @@
+{
+  "format": "explicit_one_time_contract_change_v1",
+  "patch_id": "SV5_06_FIX01_REG",
+  "target_task": "SV5_06_FIX01",
+  "normal_task_schema_unchanged": "single_task_v1",
+  "authorization": "Apply this separate exact registration diff only after the user explicitly supplies the accompanying local execution instruction approving SV5_06_FIX01_REG. This is not standing authority to add future tasks.",
+  "status": {
+    "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+    "before_sha256": "cbf1f16e98c1ced26a7ce27e1e0e278e460111faa5c85b113efd243bec953e98",
+    "after_sha256": "a708a1f64da9041e7c79049fec8e0553c64f6f49a02951da6dbe817984dc9e79",
+    "inserted_line": "| SV5_06_FIX01 | LOCKED |"
+  },
+  "master": {
+    "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+    "before_sha256": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+    "after_sha256": "083c324fe00531b47f140048f2b1729db2bdadaf9c880560d708f2ba95cc5b03",
+    "inserted_line": "| 06.F1 | SV5_06_FIX01 | LOCKED |"
+  },
+  "before": {
+    "rows": 286,
+    "complete": 245,
+    "current": 0,
+    "locked": 41,
+    "current_task": "NONE"
+  },
+  "after_registration": {
+    "rows": 287,
+    "complete": 245,
+    "current": 0,
+    "locked": 42,
+    "current_task": "NONE"
+  },
+  "after_apply": {
+    "rows": 287,
+    "complete": 245,
+    "current": 1,
+    "locked": 41,
+    "current_task": "TASKS/SV5_06_FIX01.md"
+  },
+  "after_finalize": {
+    "rows": 287,
+    "complete": 246,
+    "current": 0,
+    "locked": 41,
+    "current_task": "NONE"
+  },
+  "unchanged": [
+    "All prior rows/text bytes",
+    "Current NONE during registration",
+    "SV5_06 COMPLETE",
+    "SV5_07 LOCKED",
+    "Native protocol validation",
+    "Existing INBOX candidates",
+    "Old Task/Archive/Result/Generated"
+  ]
+}
