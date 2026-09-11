@@ -415,8 +415,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs,
             IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks, IEnumerable<string> sourceDiagnostics,
             Sv5DiversityProfile diversityProfile, IEnumerable<Sv5DiversityDecision> diversityDecisions)
+            : this(core, seed, profile, sourcePlaces, sourcePorts, sourceConnections, sourceGates,
+                sourceReservations, sourceContacts, sourceProofs, sourceGateStateChecks, sourceDiagnostics,
+                diversityProfile, diversityDecisions, null) { }
+
+        internal Sv5SpaceGraphPlan(Sv5CoreReservationPlan core, ulong seed, Sv5SpaceGraphAuthoringProfile profile,
+            IEnumerable<Sv5SpacePlace> sourcePlaces, IEnumerable<Sv5SpacePort> sourcePorts,
+            IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
+            IEnumerable<Sv5SpaceReservationCell> sourceReservations, IEnumerable<Sv5SpaceContactDecision> sourceContacts,
+            IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs, IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks,
+            IEnumerable<string> sourceDiagnostics, Sv5DiversityProfile diversityProfile,
+            IEnumerable<Sv5DiversityDecision> diversityDecisions, Sv5InfillPlan infill)
         {
             Core = core ?? throw new ArgumentNullException(nameof(core));
+            Infill = infill;
             Seed = seed;
             Profile = profile ?? throw new ArgumentNullException(nameof(profile));
             Places = Freeze(sourcePlaces);
@@ -432,7 +444,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 StringComparer.Ordinal).ToArray());
             GeometryStateReady = false;
             PlayerVerified = false;
-            InfillPendingTileCount = 624 * 416 - Reservations.Select(value => value.World).Distinct().Count();
+            InfillPendingTileCount = 624 * 416 - Reservations.Select(value => value.World)
+                .Concat(Infill == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Infill.Cells.Select(c => c.World)).Distinct().Count();
             PhysicalMovement = Sv5SpacePhysicalMovement.Analyze(Core, Connections, ContactDecisions, Gates);
             PhysicalProduct = PhysicalMovement.Product;
             Segments = Sv5SpacePhysicalProduct.BuildSegments(Connections, Gates);
@@ -455,12 +468,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public Sv5SpacePhysicalProductPlan PhysicalProduct { get; }
         public IReadOnlyList<Sv5SpaceSegment> Segments { get; }
         public Sv5DiversityPlan Diversity { get; }
+        public Sv5InfillPlan Infill { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
         public int InfillPendingTileCount { get; }
         public string Digest { get; }
-        public bool Success => Diagnostics.Count == 0 && Places.Count(value => value.Kind == Sv5SpacePlaceKind.Core) == 8 &&
+        public bool Success => (Infill == null || Infill.Success) && Diagnostics.Count == 0 && Places.Count(value => value.Kind == Sv5SpacePlaceKind.Core) == 8 &&
             Places.Count(value => value.Kind == Sv5SpacePlaceKind.Large) >= 4 &&
             Places.Count(value => value.Kind == Sv5SpacePlaceKind.Ordinary) >= 4 &&
             Core.Sites.Count == 8 && Core.CoreCells.Count == 2432 &&
@@ -479,6 +493,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             yield return Seed.ToString(CultureInfo.InvariantCulture);
             yield return Profile.Digest;
             yield return "diversity|" + Diversity.Digest;
+            if (Infill != null) yield return "infill|" + Infill.Digest;
             foreach (Sv5SpacePlace value in Places) yield return "place|" + L(value.Id) + L(value.Family) +
                 value.Kind + "|" + value.Bounds + "|" + L(value.CoreSiteId) + L(value.FutureOwner) + value.DistributionSector;
             foreach (Sv5SpacePort value in Ports) yield return "port|" + L(value.Id) + L(value.PlaceId) +

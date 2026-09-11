@@ -17,6 +17,57 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public const int MicroChunkHeight = 8;
         public const int PatternSize = 4;
 
+        public static Sv5SpaceGraphPlan PlanWithInfill(Sv5CoreReservationPlan core, ulong seed,
+            Sv5SpaceGraphAuthoringProfile profile = null, Sv5DiversityProfile diversity = null, Sv5InfillProfile infill = null)
+        {
+            var baseline = Plan(core,seed,profile,diversity);
+            infill = infill ?? new Sv5InfillProfile();
+            if (!infill.Enabled) return baseline;
+            // The historical graph is captured once at this boundary. The infill generator consumes
+            // only immutable source facts and owns its success criteria independently.
+            var source = Sv5SpaceInfill.Capture(baseline);
+            var payload = Sv5SpaceInfill.Build(source,infill);
+            return AttachInfill(baseline,source,payload);
+        }
+
+        public static Sv5SpaceGraphPlan AttachInfill(Sv5SpaceGraphPlan baseline, Sv5InfillPlan payload)
+            => AttachInfill(baseline,Sv5SpaceInfill.Capture(baseline),payload);
+
+        private static Sv5SpaceGraphPlan AttachInfill(Sv5SpaceGraphPlan baseline, Sv5InfillSource source, Sv5InfillPlan payload)
+        {
+            if (baseline.Digest != payload.BaselineDigest) throw new ArgumentException("Infill baseline digest mismatch.");
+            var diagnostics = new List<string>(Sv5SpaceInfill.ValidatePayload(source,payload));
+            var connections = baseline.Connections.Select(c =>
+            {
+                var added = payload.Cells.Where(cell => cell.Value == Sv5InfillCellValue.Air &&
+                    cell.Host.Split(';').Contains(c.Id)).Select(cell => cell.World).ToArray();
+                if (added.Length == 0) return c;
+                // Existing centerline is unchanged; explicitly carry its known AIR into the port-connected aperture union.
+                return new Sv5SpaceConnection(c.Id,c.Kind,c.FromPortId,c.ToPortId,c.FromPlaceId,c.ToPlaceId,c.Direction,
+                    c.Flow,c.Condition,c.SourceGraphEdgeId,c.SelectionState,c.Centerline,c.Envelope.Concat(added),
+                    c.ApertureCells.Concat(c.Centerline).Concat(added));
+            }).ToArray();
+            var routeCells = BuildRouteContactCells(baseline.Core,connections).ToArray();
+            var pairs = Sv5RouteStatePolicy.EnumerateContactPairs(routeCells);
+            var coverage = Sv5SpaceGraphValidator.FindContactCoverageErrors(routeCells,pairs);
+            diagnostics.AddRange(coverage);
+            var projection = Sv5SpaceGraphStateProjection.Project(baseline.Core,connections,pairs,coverage.Count == 0);
+            diagnostics.AddRange(projection.Diagnostics);
+            foreach (var gate in baseline.Gates)
+            {
+                var current = projection.Gates.SingleOrDefault(g => g.Id == gate.Id);
+                if (current == null || current.TypedPredicate.StableToken != gate.TypedPredicate.StableToken ||
+                    !current.BlockingCells.SequenceEqual(gate.BlockingCells) ||
+                    !current.BlockingFaces.Select(f=>f.StableToken).SequenceEqual(gate.BlockingFaces.Select(f=>f.StableToken)))
+                    diagnostics.Add("INFILL_CHANGED_PRESERVED_GATE|"+gate.Id);
+            }
+            var reservations = BuildReservations(baseline.Core,baseline.Places,connections,projection.Gates).ToArray();
+            Validate(baseline.Core,baseline.Places,baseline.Ports,connections,reservations,projection,diagnostics);
+            return new Sv5SpaceGraphPlan(baseline.Core,baseline.Seed,baseline.Profile,baseline.Places,baseline.Ports,
+                connections,projection.Gates,reservations,projection.Contacts,projection.Proofs,projection.GateStateChecks,
+                diagnostics,baseline.Diversity.Profile,baseline.Diversity.Decisions,payload);
+        }
+
         public static Sv5SpaceGraphPlan Plan(Sv5CoreReservationPlan core, ulong seed,
             Sv5SpaceGraphAuthoringProfile profile = null, Sv5DiversityProfile diversity = null)
         {

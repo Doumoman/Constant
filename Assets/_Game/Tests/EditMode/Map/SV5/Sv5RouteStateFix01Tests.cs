@@ -208,7 +208,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Write(Path.Combine(directory, "route_state_manifest.json"), Sv5RouteStateExport.ManifestJson(analysis));
         }
         private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
-            "SV5_07", "_work", "legacy_exports", "sv5_05_fix01_t05");
+            "SV5_08", "_work", "legacy_exports", "sv5_05_fix01_t05");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static void Write(string path, string text) => File.WriteAllText(path, text, new UTF8Encoding(false));
         private static string HashFile(string path)

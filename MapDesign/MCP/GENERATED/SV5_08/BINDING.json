@@ -1,0 +1,175 @@
+{
+  "task": "SV5_08_INFILL",
+  "phase": "TASK_EXECUTION_PASS_AWAITING_NATIVE_FINALIZE",
+  "manifest_sha256": "b1893ce4937c6800c7cf6ecea6b862d3b1a6beb0c15c91c164cdb8c0c892363d",
+  "installed_task_sha256": "ebf2e2bf48e1431353e5f9ddcf32a5f92effe3e4ec2580cf715020956e70e8dc",
+  "predecessor": {
+    "task": "SV5_07_DIVERSITY",
+    "commit": "ab82efcfb3d183c995d0184db9d3dc55f2f3acc9",
+    "parent": "c96f76b8097c0baaa7e5d5e7a92465e38124ad2a",
+    "result_sha256": "2dcf0fa8a0da9d342c5c6ee9577feced6299bec15ffe7f716428e44128983810",
+    "review_zip_sha256": "975fd1396513c5ffcf74bf6830a02d054c5019e1bbb065fea3dd720b3bb329da"
+  },
+  "authorizations": [
+    "External connector length is the sum of cardinal AIR centerline cells; both axes of a +1 step count.",
+    "SV5 production implementation must not derive success from pre-SV5 success flags, copied proof counts, or empty assertions.",
+    "Legacy retirement is deliberately not mixed into SV5_08 and requires a separately scoped dependency-safe procedure."
+  ],
+  "helpers": [
+    "MapDesign/MCP/INPUTS/SV5_08/tools/audit.py"
+  ],
+  "write_roots": [
+    "MapDesign/MCP/GENERATED/SV5_08"
+  ],
+  "non_owned_dirty_snapshot": {
+    "path": "MapDesign/MCP/GENERATED/SV5_08/non_owned_dirty.json",
+    "sha256": "33360efe864cba2cd86a37a49223564a81a4104dd373d5fd42b5d163a6afe42f",
+    "bytes": 65672,
+    "initial_audit_entries": 373,
+    "unique_paths": 367,
+    "final_mismatch": 0
+  },
+  "production_api": [
+    "Sv5SpaceGraphPlanner.PlanWithInfill",
+    "Sv5SpaceInfill.Capture",
+    "Sv5SpaceInfill.Build",
+    "Sv5SpaceInfill.CardinalCenterline",
+    "Sv5SpaceInfill.ValidateCandidate",
+    "Sv5SpaceInfill.ValidatePayload",
+    "Sv5InfillPatterns.Screen",
+    "Sv5InfillPatterns.Split",
+    "Sv5InfillPatterns.Reconstruct",
+    "Sv5InfillExport.WriteCase",
+    "Sv5InfillExport.WriteComparison",
+    "Sv5SpacePhysicalMovement",
+    "Sv5SpacePhysicalProduct"
+  ],
+  "write_existing": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md"
+  ],
+  "write_new": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceInfill.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceInfill.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillPatterns.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillPatterns.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceInfillTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceInfillTests.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillPatternTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillPatternTests.cs.meta",
+    "MapDesign/MCP/SV5/16_INFILL_V5.md",
+    "MapDesign/MCP/GENERATED/SV5_08/"
+  ],
+  "source_snapshot": {
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs": {"sha256":"c03c735121dc85551eadfb8fc3b3af08b6b812e27b6df24daefa8a79efbab894","bytes":35620},
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs": {"sha256":"974497d9198942ca00f80ed319979f93e13c688558da899ce94201af3d79b191","bytes":60293},
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs": {"sha256":"0bc63cfc95ecc5c9ebf43106780dcba6bccfbf3dc4c15d73bbf2775f7875efe6","bytes":68824},
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceInfill.cs": {"sha256":"9cc602ad556bb7031a61472208f0c3c7de801e202644de6eb99ef13755cd750c","bytes":48744},
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillPatterns.cs": {"sha256":"6d02c8dbd68ebe951f6bb615e272b490e3732796377348fd100df1970374e24d","bytes":12059},
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs": {"sha256":"7b275c7b675404a807b59e61e576323a39ef8a88ac3413ae73ff5d791df09e50","bytes":17685},
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceInfillTests.cs": {"sha256":"c4dc73685083a9a5157f7be3bccab195ef2e1bb21e076f31459f3ea6a5008ce1","bytes":31716},
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillPatternTests.cs": {"sha256":"3303661bf0bb050b2cded48f6bc4b4f683b55f1af8eb96959d49c8c2c51317d5","bytes":6141}
+  },
+  "accepted_cases": {
+    "default": {
+      "baseline_digest": "10080e53c3d4c47f6e93f49118c7c648f07c1f3162742ce866b6ecd8a0be3e46",
+      "plan_digest": "ec2e35e4ffb165bdd113c03108582c40d55bf1104b554fc339a8a251385dc465",
+      "infill_digest": "0cd216b04eada31b29d0f0d781cb46b06173e6cd4f1a455746eb49706b06f951",
+      "new_rooms": 213,
+      "new_owned_tiles": 64409,
+      "sector_counts": [22,13,7,19,20,13,2,13,20,13,3,9,20,16,12,11],
+      "termination": "CANDIDATES_EXHAUSTED",
+      "target_shortfall": 43,
+      "fully_known_windows": 26369,
+      "mixed_pending_windows": 228040
+    },
+    "repeat": {
+      "baseline_digest": "94c9f3a353e39984633a755af7842e87989e86dc97c3545ce87a4ac4da4397b7",
+      "plan_digest": "82c31034ea601389a257e773caf96fe146abde1b3016018ff3aeae60115f73eb",
+      "infill_digest": "e2d11ee1c11539b14e3b3c120e7866de5f40e723c7876ecb54264817a0382472",
+      "new_rooms": 232,
+      "new_owned_tiles": 70266,
+      "sector_counts": [22,13,7,19,19,13,2,13,19,10,9,10,25,22,18,11],
+      "termination": "CANDIDATES_EXHAUSTED",
+      "target_shortfall": 24,
+      "fully_known_windows": 29131,
+      "mixed_pending_windows": 225278
+    }
+  },
+  "validation": {
+    "CELLS": true,
+    "PATTERNS": true,
+    "STATIC_SCREEN": true,
+    "CONTACT": true,
+    "PHYSICAL_PRODUCT": true,
+    "six_resource_orders": true,
+    "solid_window_failures": 0,
+    "COMPOSED": false,
+    "PLAYER": false
+  },
+  "focused_run": {
+    "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_08/focused_results.xml --timeout 1800",
+    "unity_version": "6000.3.8f1 (1c7db571dde0)",
+    "start_utc": "2026-09-11T16:32:44Z",
+    "end_utc": "2026-09-11T16:47:07Z",
+    "duration_seconds": 863.0671594,
+    "discovered": 95,
+    "executed": 95,
+    "passed": 95,
+    "failed": 0,
+    "skipped": 0,
+    "existing_names_preserved": 82,
+    "new_tests": 13,
+    "xml": {
+      "path": "MapDesign/MCP/GENERATED/SV5_08/focused_results.xml",
+      "raw_sha256": "21d2d31470b6c9a85a74192e3a1dc142460f707aea1dd6368d5b76dc368f2a34",
+      "raw_bytes": 99364,
+      "git_blob_sha256": "f287ee528ff846fb1cdaa6a7bd372137350a62e58b2b8bf3b0fe7c1088ab232e",
+      "git_blob_bytes": 98621,
+      "git_blob_oid": "88a1372b4193d99697445cb78041cb63a82c2db0"
+    },
+    "source_match": true
+  },
+  "readonly_audit": {
+    "command": "python -X utf8 MapDesign/MCP/INPUTS/SV5_08/STAGE.py --mode post-readonly --project-root . --expected-manifest-sha b1893ce4937c6800c7cf6ecea6b862d3b1a6beb0c15c91c164cdb8c0c892363d",
+    "always_worktree_files": 645,
+    "predecessor_commit_blobs": 41,
+    "status": "PASS_READONLY_LOCAL_AND_GIT",
+    "non_owned_dirty_baseline": 373,
+    "non_owned_dirty_mismatch": 0,
+    "unexpected_non_owned_changes": []
+  },
+  "exports": {
+    "default_files": 45,
+    "repeat_files": 45,
+    "preview_files": 20,
+    "full_world_before_after": ["preview/before_after.svg","preview/repeat_before_after.svg"],
+    "sector_views": ["A1","A2","A3","A4","B1","B2","B3","B4","C1","C2","C3","C4","D1","D2","D3","D4"],
+    "same_payload_for_cells_patterns_windows_validation_preview_digest": true
+  },
+  "cleanup": {
+    "path": "MapDesign/MCP/GENERATED/SV5_08/_work",
+    "files_removed": 339,
+    "bytes_removed": 409744717,
+    "exists_after_cleanup": false,
+    "unrelated_dirty_preserved": true
+  },
+  "next": {
+    "SV5_09_LOOPS": "LOCKED",
+    "push": false,
+    "status_finalize": "PENDING_PASS_RESULT"
+  }
+}

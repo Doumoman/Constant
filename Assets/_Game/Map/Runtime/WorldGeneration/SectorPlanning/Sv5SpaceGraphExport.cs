@@ -191,6 +191,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "W02_BOSS_APPROACH_REACHABLE", "W02 - Seal-open Boss approach"));
             Write(Path.Combine(preview, "FIX02_bypass_before_after.svg"), BypassSvg(plan));
             Write(Path.Combine(preview, "index.html"), IndexHtml(plan));
+            if (plan.Infill != null) Sv5InfillExport.WriteCase(plan,directory);
         }
 
         public static string SegmentsJson(Sv5SpaceGraphPlan plan)
@@ -325,7 +326,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append("  \"diversity_digest\": ").Append(J(plan.Diversity.Digest)).Append(",\n")
                 .Append("  \"physical_movement_digest\": ").Append(J(plan.PhysicalMovement.SemanticDigest)).Append(",\n")
                 .Append("  \"readiness\": {\"planned_layout\":true,\"logical_state\":true,\"contact_coverage\":true,\"global_coordinate_movement\":true,\"planned_gate_geometry\":true,\"planned_gate_state\":true,\"composed_geometry\":false,\"player\":false},\n")
-                .Append("  \"infill\": {\"owner\":\"SV5_08_INFILL\",\"state\":\"INFILL_PENDING\",\"tile_count\":")
+                .Append("  \"infill\": {\"owner\":\"SV5_08_INFILL\",\"state\":")
+                .Append(J(plan.Infill == null ? "INFILL_PENDING" : plan.Success ? "LOCAL_CELLS_STATIC_SCREEN" : "LOCAL_CELLS_FAILED"))
+                .Append(plan.Infill == null ? "" : ",\"digest\":"+J(plan.Infill.Digest)+",\"owned_cells\":"+N(plan.Infill.Cells.Count))
+                .Append(",\"tile_count\":")
                 .Append(plan.InfillPendingTileCount.ToString(CultureInfo.InvariantCulture)).Append("},\n")
                 .Append("  \"places\": [\n");
             AppendObjects(text, plan.Places.Select(value => "    {\"id\":" + J(value.Id) + ",\"family\":" +
@@ -530,15 +534,21 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                          Sv5SpacePlaceKind.Core).GroupBy(value => value.FutureOwner).OrderBy(value => value.Key,
                          StringComparer.Ordinal))
                 rows.Add(new[] { "FAMILY_" + group.Key, group.Key, "Implement reserved shells for " +
-                    string.Join("|", group.Select(value => value.Id)), "PENDING", "PLANNED_LAYOUT" });
-            rows.Add(new[] { "SV5_07_DISTRIBUTION", "SV5_07_DIVERSITY", "Refine repeated-family distribution without changing the 06 ownership contract.", "PENDING", "PLANNED_LAYOUT" });
-            rows.Add(new[] { "SV5_08_INFILL", "SV5_08_INFILL", "Fill INFILL_PENDING only; do not reinterpret it as AIR or SOLID before that task.", "PENDING", "PLANNED_LAYOUT" });
+                    string.Join("|", group.Select(value => value.Id)),
+                    group.Key=="SV5_08_INFILL" && plan.Infill!=null && plan.Success ? "LOCAL_CELLS_STATIC_SCREEN" : "PENDING", "PLANNED_LAYOUT" });
+            rows.Add(new[] { "SV5_07_DISTRIBUTION", "SV5_07_DIVERSITY", "Repeated-family distribution policy; preserved selection trace.",
+                plan.Diversity.Profile.Enabled ? "APPLIED" : "IMPLEMENTED_DISABLED", "PLANNED_LAYOUT" });
+            rows.Add(new[] { "SV5_08_INFILL", "SV5_08_INFILL", "Local actual cells and supported movement; unknown remainder is not AIR or SOLID.",
+                plan.Infill==null ? "PENDING" : plan.Success ? "LOCAL_CELLS_STATIC_SCREEN" : "LOCAL_CELLS_FAILED", "LOCAL_CELLS" });
             rows.Add(new[] { "SV5_09_CONTACT_RECHECK", "SV5_09_LOOPS", "Re-run complete contact projection after loop candidates are added.", "PENDING", "CONTACT_STATE" });
             rows.Add(new[] { "SV5_10_SIDEPATH", "SV5_10_SIDEPATH", "Evaluate optional side-path dead ends against the same reverse-reachability gate.", "PENDING", "LOGICAL_STATE" });
             rows.Add(new[] { "SV5_41_COMPOSE", "SV5_41_COMPOSE", "Materialize planned envelopes and gates, then promote composed geometry only with collision evidence.", "PENDING", "COMPOSED_GEOMETRY" });
             rows.Add(new[] { "SV5_42_FINAL_SCAN", "SV5_42_FINAL_SCAN", "Run final 3-4 tile gap and 6x6 solid-window scans.", "PENDING", "COMPOSED_GEOMETRY" });
             rows.Add(new[] { "SV5_44_PLAYER", "SV5_44_WORLD_PLAYER", "Run actual whole-world Player traversal after composed geometry exists.", "PENDING", "PLAYER" });
-            rows.Add(new[] { "SG06_F5_SPARSE_SINGLE_CIRCUIT", "SV5_07_08_09", "Resolve sparse 22-place single-circuit structure; FIX02 repairs typed state-gate correctness only.", "PENDING", "WHOLE_WORLD_STRUCTURE" });
+            rows.Add(new[] { "SG06_F5_SPARSE_SINGLE_CIRCUIT", "SV5_07_08_09", "Current places="+N(plan.Places.Count)+
+                "; original connections="+N(plan.Connections.Count)+"; infill rooms="+N(plan.Infill?.NewRoomCount ?? 0)+
+                "; infill links="+N(plan.Infill?.Links.Count ?? 0)+". SV5_08 local density and SV5_09 loop connectivity are separate obligations.",
+                plan.Infill!=null && plan.Success ? "LOCAL_INFILL_APPLIED_LOOP_PENDING" : "PENDING", "WHOLE_WORLD_STRUCTURE" });
             return Csv("obligation_id,owner_task,requirement,readiness,verification_layer", rows.Select(Row));
         }
 
