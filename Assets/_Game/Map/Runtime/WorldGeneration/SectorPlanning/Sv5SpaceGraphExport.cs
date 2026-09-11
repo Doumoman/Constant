@@ -12,6 +12,152 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         private static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
+        public static string DiversityProfileJson(Sv5DiversityProfile p) =>
+            "{\"id\":"+J(p.Id)+",\"version\":"+J(p.Version)+",\"enabled\":"+B(p.Enabled)+
+            ",\"radius\":"+N(p.Radius)+",\"weights\":["+string.Join(",",p.Weights.Select(N))+
+            "],\"metric\":"+J(Sv5DiversityProfile.Metric)+",\"salt\":"+J(Sv5DiversityProfile.Salt)+
+            ",\"aliases\":{"+string.Join(",",p.Aliases.Select(a=>J(a.Key)+":"+J(a.Value)))+
+            "},\"exceptions\":[\"FIXED_CORE\",\"ORDINARY_ROOM\"],\"digest\":"+J(p.Digest)+"}";
+
+        public static string DiversityComparisonJson(params Sv5SpaceGraphPlan[] plans)
+        {
+            CheckComparison(plans);
+            return "{\n\"schema\":\"SV5_DIVERSITY_COMPARISON_V1\",\"composed_geometry_ready\":false,\"player_verified\":false,"+
+                "\"cases\":["+string.Join(",\n",plans.Select((p,i)=>"{\"case\":"+J(CaseName(i))+
+                ",\"policy\":"+DiversityProfileJson(p.Diversity.Profile)+",\"diversity_digest\":"+J(p.Diversity.Digest)+
+                ",\"eligible_near_pairs\":"+N(p.Diversity.EligibleNearPairs)+",\"observation\":"+J(p.Diversity.Observation)+
+                ",\"fallback_count\":"+N(p.Diversity.Decisions.Count(d=>d.Fallback))+
+                ",\"family_counts\":{"+string.Join(",",p.Diversity.Parts.GroupBy(x=>p.Diversity.Profile.FamilyKey(x.Family))
+                    .OrderBy(g=>g.Key,StringComparer.Ordinal).Select(g=>J(g.Key)+":"+N(g.Select(x=>x.FormationId).Distinct().Count())))+
+                "},\"requests\":["+string.Join(",",p.Profile.Families.Select(f=>"{\"ordinal\":"+N(f.Ordinal)+
+                    ",\"family\":"+J(f.Family)+",\"kind\":"+J(f.Kind.ToString())+",\"width\":"+N(f.Width)+
+                    ",\"height\":"+N(f.Height)+",\"future_owner\":"+J(f.FutureOwner)+"}"))+
+                "],\"validation\":"+ValidationJson(p)+",\"plan\":"+SpaceGraphJson(p)+"}"))+ "]\n}\n";
+        }
+
+        public static string DiversityDecisionsCsv(params Sv5SpaceGraphPlan[] plans) => Csv(
+            "case,seed,request_id,formation_id,family_key,x,y,width,height,sector,sector_offset,rank,neighbor_ids,neighbor_count,weight,roll,decision,fallback,policy_digest,diversity_digest,plan_digest",
+            plans.SelectMany((p,i)=>p.Diversity.Decisions.Select(d=>Row(CaseName(i),p.Seed,d.RequestId,d.FormationId,
+                p.Diversity.Profile.FamilyKey(d.Family),d.Candidate.Bounds.X,d.Candidate.Bounds.Y,d.Candidate.Bounds.Width,d.Candidate.Bounds.Height,
+                d.Candidate.Sector,d.Candidate.SectorOffset,d.Candidate.Rank,string.Join("|",d.Neighbors),d.Neighbors.Count,d.Weight,d.Roll,d.Outcome,d.Fallback,
+                p.Diversity.Profile.Digest,p.Diversity.Digest,p.Digest))));
+
+        public static string DiversityPairsCsv(params Sv5SpaceGraphPlan[] plans) => Csv(
+            "case,seed,family_key,first_formation,second_formation,first_bounds,second_bounds,gap,near,eligible_near,exclusion,policy_digest,plan_digest",
+            plans.SelectMany((p,i)=>p.Diversity.Pairs.Select(pair=>Row(CaseName(i),p.Seed,pair.Family,pair.First,pair.Second,
+                pair.FirstBounds,pair.SecondBounds,pair.Gap,pair.Near,pair.EligibleNear,pair.Exclusion,p.Diversity.Profile.Digest,p.Digest))));
+
+        public static void WriteDiversityComparison(string directory, params Sv5SpaceGraphPlan[] plans)
+        {
+            CheckComparison(plans);
+            Directory.CreateDirectory(directory); Directory.CreateDirectory(Path.Combine(directory,"preview"));
+            WriteAll(plans[1],Path.Combine(directory,"default")); WriteAll(plans[3],Path.Combine(directory,"repeat"));
+            Write(Path.Combine(directory,"diversity.json"),DiversityComparisonJson(plans));
+            Write(Path.Combine(directory,"decisions.csv"),DiversityDecisionsCsv(plans));
+            Write(Path.Combine(directory,"pairs.csv"),DiversityPairsCsv(plans));
+            Write(Path.Combine(directory,"preview/before_after.svg"),DiversityComparisonSvg(plans[2],plans[3],false));
+            Write(Path.Combine(directory,"preview/detail.svg"),DiversityComparisonSvg(plans[2],plans[3],true));
+            Write(Path.Combine(directory,"preview/index.html"),"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\">"+
+                "<title>SV5_07 actual diversity comparison</title><style>body{font:16px system-ui;margin:24px;color:#17212b}img{width:100%;border:1px solid #ccd}code{overflow-wrap:anywhere}</style>"+
+                "<h1>Independent terrain diversity · seed 1304</h1><p>Repeat near pairs OFF "+plans[2].Diversity.EligibleNearPairs+
+                " → ON "+plans[3].Diversity.EligibleNearPairs+". Default: "+H(plans[1].Diversity.Observation)+
+                ". No place removed or shrunk. Same numbered request / family color before and after.</p>"+
+                "<p>Outlines = planned footprints; blue lines = planned corridors; white = unassembled. Not finished terrain or Player evidence.</p>"+
+                "<p><a href=\"../diversity.json\">Full OFF/ON geometry and metrics</a> · <a href=\"../decisions.csv\">Decisions</a> · <a href=\"../pairs.csv\">Pairs</a></p>"+
+                "<a href=\"before_after.svg\"><img src=\"before_after.svg\" alt=\"Full 624 by 416 OFF and ON plans\"></a>"+
+                "<a href=\"detail.svg\"><img src=\"detail.svg\" alt=\"Actual moved footprint and corridor detail with one-cell and four-cell grids\"></a>"+
+                "<p>OFF <code>"+plans[2].Digest+"</code><br>ON <code>"+plans[3].Digest+"</code></p>"+
+                "<p>ComposedGeometryReady=false; PlayerVerified=false. SV5_08 and later work remain pending.</p></html>\n");
+        }
+
+        private static string CaseName(int i) => new[] { "default/OFF","default/ON","repeat/OFF","repeat/ON" }[i];
+        private static void CheckComparison(Sv5SpaceGraphPlan[] plans)
+        {
+            if(plans==null||plans.Length!=4||plans.Any(p=>p==null||!p.Success))
+                throw new ArgumentException("Four validated default OFF/ON and repeat OFF/ON plans are required.");
+            for(int i=0;i<4;i++) if(plans[i].Diversity.Profile.Enabled!=(i%2==1))
+                throw new ArgumentException("Comparison policy order must be OFF, ON, OFF, ON.");
+            for(int i=0;i<4;i+=2) if(plans[i].Seed!=plans[i+1].Seed||plans[i].Profile.Digest!=plans[i+1].Profile.Digest||
+                plans[i].Core.Digest!=plans[i+1].Core.Digest) throw new ArgumentException("Comparison inputs must match.");
+        }
+
+        public static string DiversityComparisonSvg(Sv5SpaceGraphPlan off, Sv5SpaceGraphPlan on, bool detail)
+        {
+            var before=off.Diversity.Decisions.Where(d=>d.Selected).ToDictionary(d=>d.RequestId);
+            var moved=on.Diversity.Decisions.Where(d=>d.Selected && !d.Candidate.Bounds.Equals(before[d.RequestId].Candidate.Bounds)).ToArray();
+            var changed=moved.SelectMany(d=>new[]{d.Candidate.Bounds,before[d.RequestId].Candidate.Bounds}).ToArray();
+            int x=0,y=0,w=624,h=416;
+            if(detail&&changed.Length>0)
+            {
+                x=Math.Max(0,changed.Min(b=>b.X)-8)/4*4; y=Math.Max(0,changed.Min(b=>b.Y)-8)/4*4;
+                w=Math.Min(624,changed.Max(b=>b.MaxXExclusive)+8)-x;
+                h=Math.Min(416,changed.Max(b=>b.MaxYExclusive)+8)-y;
+            }
+            var s=new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1320 620\" role=\"img\">");
+            s.Append("<title>SV5_07 ").Append(detail?"actual changed corridor detail":"full 624x416 comparison")
+                .Append("</title><desc>OFF ").Append(off.Digest).Append(" ON ").Append(on.Digest)
+                .Append("; policy ").Append(on.Diversity.Profile.Digest).Append("; seed ").Append(on.Seed)
+                .Append("; planned footprints and corridors, not composed terrain.</desc><rect width=\"1320\" height=\"620\" fill=\"white\"/>")
+                .Append("<g font-family=\"sans-serif\" fill=\"#17212b\"><text x=\"20\" y=\"28\" font-size=\"20\">SV5_07 · ")
+                .Append(detail?"Actual moved footprint / corridor detail":"Independent cave repetition · full world").Append("</text>")
+                .Append("<text x=\"20\" y=\"50\" font-size=\"13\">White: unassembled | outline: planned place | blue: planned corridor | dark: confirmed fixed SOLID | red: gate</text>")
+                .Append("<text x=\"20\" y=\"70\" font-size=\"13\">Thin grid 1 cell; thick grid 4x4 (detail). Dashed gray: other comparison footprint. Labels: stable request ordinal / family.</text>");
+            Panel(off,on,20,"OFF"); Panel(on,off,680,"ON");
+            s.Append("<text x=\"20\" y=\"544\" font-size=\"13\">Near eligible pairs: ").Append(off.Diversity.EligibleNearPairs).Append(" → ")
+                .Append(on.Diversity.EligibleNearPairs).Append("; moved requests: ").Append(H(string.Join(", ",moved.Select(d=>d.RequestId))))
+                .Append("</text><text x=\"20\" y=\"566\" font-size=\"13\">World window: ").Append(x).Append(",").Append(y).Append(" + ").Append(w).Append("x").Append(h)
+                .Append(". Coordinate reachability is not floor / landing / headroom proof.</text>")
+                .Append("<text x=\"20\" y=\"588\" font-size=\"13\">ComposedGeometryReady=false; PlayerVerified=false. No SV5_08 density or later terrain work performed.</text></g></svg>\n");
+            return s.ToString();
+
+            void Panel(Sv5SpaceGraphPlan p,Sv5SpaceGraphPlan other,int ox,string label)
+            {
+                s.Append("<text x=\"").Append(ox).Append("\" y=\"98\" font-size=\"16\">").Append(label).Append(" · ").Append(p.Places.Count)
+                    .Append(" places / ").Append(p.Diversity.EligibleNearPairs).Append(" near pairs</text><svg x=\"").Append(ox)
+                    .Append("\" y=\"110\" width=\"624\" height=\"416\" style=\"overflow:hidden\" viewBox=\"").Append(x).Append(' ').Append(416-y-h).Append(' ').Append(w).Append(' ').Append(h).Append("\">");
+                s.Append("<g transform=\"translate(0 416) scale(1 -1)\">");
+                if(detail)
+                {
+                    for(int gx=x;gx<=x+w;gx++) s.Append("<path d=\"M").Append(gx).Append(' ').Append(y).Append("v").Append(h)
+                        .Append("\" stroke=\"").Append(gx%4==0?"#9aa7b2":"#dce2e6").Append("\" stroke-width=\"").Append(gx%4==0?"0.15":"0.05").Append("\"/>");
+                    for(int gy=y;gy<=y+h;gy++) s.Append("<path d=\"M").Append(x).Append(' ').Append(gy).Append("h").Append(w)
+                        .Append("\" stroke=\"").Append(gy%4==0?"#9aa7b2":"#dce2e6").Append("\" stroke-width=\"").Append(gy%4==0?"0.15":"0.05").Append("\"/>");
+                }
+                foreach(var c in p.Core.CoreCells.Where(c=>c.Protection==RmapSpecialProtectionKind.FixedSolid))
+                    s.Append("<rect x=\"").Append(c.World.X).Append("\" y=\"").Append(c.World.Y).Append("\" width=\"1\" height=\"1\" fill=\"#37434d\"/>");
+                foreach(var c in p.Connections) s.Append("<polyline points=\"").Append(string.Join(" ",c.Centerline.Select(v=>N(v.X)+","+N(v.Y))))
+                    .Append("\" fill=\"none\" stroke=\"#377ec4\" stroke-width=\"0.45\"/>");
+                if(detail) foreach(var d in moved) Rect(other.Diversity.Decisions.Single(k=>k.Selected&&k.RequestId==d.RequestId).Candidate.Bounds,"#777","2 1");
+                foreach(var place in p.Places) Rect(place.Bounds,Color(p.Diversity.Profile.FamilyKey(place.Family)),"");
+                foreach(var gate in p.Gates) foreach(var face in gate.BlockingFaces)
+                {
+                    double cx=(face.First.X+face.Second.X)/2.0+0.5,cy=(face.First.Y+face.Second.Y)/2.0+0.5;
+                    bool vertical=face.First.X!=face.Second.X;
+                    s.Append("<path d=\"M").Append(F(cx-(vertical?0:0.5))).Append(' ').Append(F(cy-(vertical?0.5:0)))
+                        .Append(vertical?"v1":"h1").Append("\" stroke=\"#cf263d\" stroke-width=\"0.8\"/>");
+                }
+                s.Append("</g>");
+                foreach(var place in p.Places)
+                {
+                    var decision=p.Diversity.Decisions.FirstOrDefault(d=>d.Selected&&d.FormationId==place.Id);
+                    string number=decision==null?"CORE":decision.RequestId.Substring("SV5_REQUEST_".Length);
+                    s.Append("<text x=\"").Append(place.Bounds.X+1).Append("\" y=\"").Append(416-place.Bounds.MaxYExclusive+5)
+                        .Append("\" font-size=\"4\" fill=\"").Append(Color(p.Diversity.Profile.FamilyKey(place.Family))).Append("\">")
+                        .Append(H(number+" "+p.Diversity.Profile.FamilyKey(place.Family))).Append("</text>");
+                }
+                s.Append("</svg>");
+                void Rect(Sv5SpaceBounds b,string color,string dash) => s.Append("<rect x=\"").Append(b.X).Append("\" y=\"").Append(b.Y)
+                    .Append("\" width=\"").Append(b.Width).Append("\" height=\"").Append(b.Height).Append("\" fill=\"none\" stroke=\"")
+                    .Append(color).Append("\" stroke-width=\"0.7\" stroke-dasharray=\"").Append(dash).Append("\"/>");
+            }
+            string Color(string family)
+            {
+                string hash=StarNight.Map.WorldGeneration.WorldData.RmapWorldDefinition.Hash(family);
+                return "#"+string.Join("",Enumerable.Range(0,3).Select(i=>(32+int.Parse(hash.Substring(i*2,2),NumberStyles.HexNumber)%128).ToString("x2")));
+            }
+            string F(double n) => n.ToString(CultureInfo.InvariantCulture);
+        }
+
         public static void WriteAll(Sv5SpaceGraphPlan plan, string directory)
         {
             Require(plan);
@@ -175,13 +321,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append(",\"core_digest\":").Append(J(plan.Core.Digest)).Append(",\"graph_digest\":")
                 .Append(J(plan.Core.RouteSource.Graph.Digest)).Append(",\"core_sites\":8,\"core_cells\":2432},\n")
                 .Append("  \"plan_digest\": ").Append(J(plan.Digest)).Append(",\n")
+                .Append("  \"diversity_profile\": ").Append(DiversityProfileJson(plan.Diversity.Profile)).Append(",\n")
+                .Append("  \"diversity_digest\": ").Append(J(plan.Diversity.Digest)).Append(",\n")
                 .Append("  \"physical_movement_digest\": ").Append(J(plan.PhysicalMovement.SemanticDigest)).Append(",\n")
                 .Append("  \"readiness\": {\"planned_layout\":true,\"logical_state\":true,\"contact_coverage\":true,\"global_coordinate_movement\":true,\"planned_gate_geometry\":true,\"planned_gate_state\":true,\"composed_geometry\":false,\"player\":false},\n")
                 .Append("  \"infill\": {\"owner\":\"SV5_08_INFILL\",\"state\":\"INFILL_PENDING\",\"tile_count\":")
                 .Append(plan.InfillPendingTileCount.ToString(CultureInfo.InvariantCulture)).Append("},\n")
                 .Append("  \"places\": [\n");
             AppendObjects(text, plan.Places.Select(value => "    {\"id\":" + J(value.Id) + ",\"family\":" +
-                J(value.Family) + ",\"kind\":" + J(value.Kind.ToString()) + ",\"bounds\":{" +
+                J(value.Family) + ",\"formation_id\":"+J(value.FormationId)+",\"family_key\":"+J(plan.Diversity.Profile.FamilyKey(value.Family))+
+                ",\"kind\":" + J(value.Kind.ToString()) + ",\"bounds\":{" +
                 "\"x\":" + N(value.Bounds.X) + ",\"y\":" + N(value.Bounds.Y) + ",\"width\":" +
                 N(value.Bounds.Width) + ",\"height\":" + N(value.Bounds.Height) + "},\"core_site_id\":" +
                 J(value.CoreSiteId) + ",\"future_owner\":" + J(value.FutureOwner) + ",\"readiness\":" +
@@ -191,7 +340,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 J(value.PlaceId) + ",\"anchor\":" + Point(value.Anchor) + ",\"direction\":" +
                 J(value.Direction.ToString()) + ",\"flow\":" + J(value.Flow) + ",\"condition\":" +
                 J(value.Condition) + ",\"source_access_id\":" + J(value.SourceAccessId) + ",\"status\":" +
-                J(value.Status) + "}"));
+                J(value.Status) + ",\"source_node_id\":"+J(value.SourceNodeId)+",\"boundary_cells\":["+string.Join(",",value.BoundaryCells.Select(Point))+"]}"));
             text.Append("  ],\n  \"connections\": [\n");
             AppendObjects(text, plan.Connections.Select(value => "    {\"id\":" + J(value.Id) + ",\"kind\":" +
                 J(value.Kind.ToString()) + ",\"from_port\":" + J(value.FromPortId) + ",\"to_port\":" +
@@ -424,6 +573,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return "{\n" +
                 "  \"schema\": \"SV5_SPACE_VALIDATION_FIX03_V1\",\n" +
                 "  \"status\": " + J(plan.Success ? "PASS" : "FAIL") + ",\n" +
+                "  \"validation_layers\": {\"PLANNED_LAYOUT\":"+B(plan.Success)+",\"DIVERSITY\":"+
+                B(plan.Diversity.Decisions.Where(d=>d.Selected).Select(d=>d.RequestId).Distinct().Count()==plan.Profile.Families.Count)+
+                ",\"CONTACT\":"+B(plan.PhysicalMovement.Success)+",\"PHYSICAL_PRODUCT\":"+B(plan.PhysicalProduct.Success)+
+                ",\"COMPOSED_GEOMETRY\":false,\"PLAYER\":false},\n"+
+                "  \"diversity_digest\": "+J(plan.Diversity.Digest)+",\n"+
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
                 "  \"world\": [624,416],\n" +
                 "  \"core_sites\": " + N(plan.Core.Sites.Count) + ",\n" +

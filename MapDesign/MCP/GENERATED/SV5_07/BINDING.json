@@ -1,0 +1,2066 @@
+{
+  "task": "SV5_07_DIVERSITY",
+  "phase": "IMPLEMENTATION_VERIFIED_PASS",
+  "final_evidence": {
+    "status": "PASS",
+    "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_07/focused_results.xml --timeout 1800",
+    "unity_cli": "1.0.0-beta.9",
+    "unity_editor": "6000.3.8f1 (1c7db571dde0)",
+    "verification": {
+      "existing_tests_unchanged": 70,
+      "new_tests": [
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V01_EmptyBoundsGapUsesInclusiveRadiusAndExactTileSpacing",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V02_FormationSubdivisionsCountOnceAndConflictingOwnershipIsRejected",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V03_FamilyAliasesIgnoreDisplayVariantsAndOrdinaryRoomsRemainExempt",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V04_RequestScopedRollAndStableSelectionMatchTheFrozenProfile",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V05_ProductionSelectorActuallyMovesAwayFromNearbyRepeatsAcross64Seeds",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V06_AllSoftFailuresUseMinimumRepeatLegalFallbackNotInvalidOrMissingPlaces",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V07_DefaultRealPlanKeepsFix04GeometryAndReportsNoEligibleRepeat",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V08_FrozenThreeCaveIntegrationBuildsBothActualWorldPlans",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V09_RealRepeatedPlanReducesPairsWithoutDeletingShrinkingOrRelabeling",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V10_BothChangedPlansUseUnchangedProductionSafetyAndRejectNegativeGeometry",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V11_ExportsBindActualSelectionsGeometryAndPolicyAndAreByteDeterministic",
+        "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceDiversityTests.V12_HistoricalAlwaysBytesAndSeventyExistingTestNamesRemainUnchanged"
+      ],
+      "actual_run": {
+        "id": "2",
+        "testcasecount": "82",
+        "result": "Passed",
+        "total": "82",
+        "passed": "82",
+        "failed": "0",
+        "inconclusive": "0",
+        "skipped": "0",
+        "asserts": "0",
+        "engine-version": "3.5.0.0",
+        "clr-version": "4.0.30319.42000",
+        "start-time": "2026-09-11 12:30:45Z",
+        "end-time": "2026-09-11 12:37:18Z",
+        "duration": "392.2471696"
+      },
+      "xml_raw_sha256": "f032d5ca73fde2a83150758704ce5381a7c7b804626eb6a20f0ad9e8d19c4ade",
+      "xml_raw_bytes": 86909,
+      "output_path_only_test_diffs": 8,
+      "metrics": [
+        {
+          "case": "default/ON",
+          "matrix_rows": 28350,
+          "orders": [
+            "CondensedCoefficientSap>DeepStarYeast>MooncoreOre",
+            "CondensedCoefficientSap>MooncoreOre>DeepStarYeast",
+            "DeepStarYeast>CondensedCoefficientSap>MooncoreOre",
+            "DeepStarYeast>MooncoreOre>CondensedCoefficientSap",
+            "MooncoreOre>CondensedCoefficientSap>DeepStarYeast",
+            "MooncoreOre>DeepStarYeast>CondensedCoefficientSap"
+          ],
+          "places": 22,
+          "plan_digest": "10080e53c3d4c47f6e93f49118c7c648f07c1f3162742ce866b6ecd8a0be3e46",
+          "fallbacks": 0
+        },
+        {
+          "case": "repeat/ON",
+          "matrix_rows": 33810,
+          "orders": [
+            "CondensedCoefficientSap>DeepStarYeast>MooncoreOre",
+            "CondensedCoefficientSap>MooncoreOre>DeepStarYeast",
+            "DeepStarYeast>CondensedCoefficientSap>MooncoreOre",
+            "DeepStarYeast>MooncoreOre>CondensedCoefficientSap",
+            "MooncoreOre>CondensedCoefficientSap>DeepStarYeast",
+            "MooncoreOre>DeepStarYeast>CondensedCoefficientSap"
+          ],
+          "places": 24,
+          "plan_digest": "94c9f3a353e39984633a755af7842e87989e86dc97c3545ce87a4ac4da4397b7",
+          "fallbacks": 0
+        }
+      ]
+    },
+    "xml_git_blob": {
+      "sha256": "fcf004fc01785d675d24c0f75087795c966fa86448cba9023f65c4b55d4b8037",
+      "bytes": 86264,
+      "oid": "541c20bf5b640f136cfbd7098ff0d980ac369d5f",
+      "normalization": "Existing text=auto Git attribute; raw XML preserved. Verify index and final commit blob before handoff."
+    },
+    "tested_sources": [
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+        "raw_sha256": "c0aef258ca40f846dcc9913961ddfaff9af836db37723330879308c5ffce578d",
+        "raw_bytes": 67891,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+        "raw_sha256": "e9dfe1fdfc734d9b0ac7548def117e00e3b0f4de1cd4df95830a51c7e22cd861",
+        "raw_bytes": 34309,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+        "raw_sha256": "0c6ad926d5f06f2f484bcd71d34cdef6ef3e5c0052061354eb8dcd3e012803f2",
+        "raw_bytes": 56561,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceDiversity.cs",
+        "raw_sha256": "c2d845a3fd94d170a6e7c241b1d8e7e0a6cf0536e2c2c05948c36f7561dbe2f4",
+        "raw_bytes": 14312,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+        "raw_sha256": "bde10b01efa79485d970f59d4aaa8ddc801e3aada1c7790ff2d17a071358eb75",
+        "raw_bytes": 16261,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+        "raw_sha256": "76a4cdd0d6b78a0ef5aaf8385ccb2eb239435c8e00ca95ecae4c3d5956154141",
+        "raw_bytes": 18430,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+        "raw_sha256": "7a97f085511c23c52016013bac85c1d04fd2adffc72ef90f7e93dec2caee2fe3",
+        "raw_bytes": 20006,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs",
+        "raw_sha256": "85566d9b007db00cfb061d213205cac18331a92cf618bd6b8b3b91bb5c3d565c",
+        "raw_bytes": 21229,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+        "raw_sha256": "7441019becedc59d30399ea9f14620e95593759107186267bc8da919b364660d",
+        "raw_bytes": 13948,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+        "raw_sha256": "cb6c135119ef09c99f10262cbb9dd1be56e69554eac30fcd31f8156d7e01ad1b",
+        "raw_bytes": 18197,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+        "raw_sha256": "21bf03526c7ec04c118b48b48c62c3f7dd091fcc67692ce986005da89dba052c",
+        "raw_bytes": 15478,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+        "raw_sha256": "d32348d5779f635cdbb4c158a97162fd0935401e71cca7a5db09728a23b1cd6d",
+        "raw_bytes": 18007,
+        "unchanged_after_test_and_user_cleanup": true
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+        "raw_sha256": "4c36969b25b7314a373a54246205f9352c7d047263ebc6a0c122201d77e86de1",
+        "raw_bytes": 19316,
+        "unchanged_after_test_and_user_cleanup": true
+      }
+    ],
+    "preservation": {
+      "always_files": 543,
+      "predecessor_commit_blobs": 47,
+      "unrelated_baseline_entries": 371,
+      "before_unity": "PASS",
+      "after_unity": "PASS",
+      "after_user_cleanup": "PASS",
+      "mismatches": 0,
+      "restore_performed": false
+    },
+    "cleanup": {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/_work",
+      "performed_by": "USER",
+      "verified_absent": true,
+      "older_task_outputs_preserved": true,
+      "intermediate_xmls_removed": true
+    },
+    "helpers": [
+      {
+        "path": "MapDesign/MCP/INPUTS/SV5_07/tools/audit.py",
+        "sha256": "d44cd237383a41cd43124cf0892832ac5528eb87bef668318e3a1181e2a07371",
+        "bytes": 2141
+      },
+      {
+        "path": "MapDesign/MCP/INPUTS/SV5_07/tools/review.py",
+        "sha256": "3d79745331b3b49436cf2ff3286203c3990a4b92586acf837ad356ff61216515",
+        "bytes": 4043
+      },
+      {
+        "path": "MapDesign/MCP/INPUTS/SV5_07/tools/verify_outputs.py",
+        "sha256": "1cd9055b0384edb04bf11db32918c55c249f6f8f411d612f64b827e6da8f2247",
+        "bytes": 5392
+      }
+    ],
+    "intermediate_runs": [
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_07/_work/diversity_results.xml",
+        "sha256": "8c674995c0c727f55af75096c52101cae6913ec46fe3b3d3b673c3020d42ec9a",
+        "bytes": 14456,
+        "run": {
+          "id": "2",
+          "testcasecount": "12",
+          "result": "Passed",
+          "total": "12",
+          "passed": "12",
+          "failed": "0",
+          "inconclusive": "0",
+          "skipped": "0",
+          "asserts": "0",
+          "engine-version": "3.5.0.0",
+          "clr-version": "4.0.30319.42000",
+          "start-time": "2026-09-11 12:26:26Z",
+          "end-time": "2026-09-11 12:28:51Z",
+          "duration": "145.6588632"
+        },
+        "evidence_role": "INTERMEDIATE_ONLY_NOT_FINAL_SOURCE_EVIDENCE",
+        "removed_with_user_cleanup": true
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_07/_work/integration_results.xml",
+        "sha256": "fbbc773e2526ce190b07a4499827c44d1fe9798d05ff64f0a00f15dd78ac8e48",
+        "bytes": 7504,
+        "run": {
+          "id": "2",
+          "testcasecount": "4",
+          "result": "Passed",
+          "total": "4",
+          "passed": "4",
+          "failed": "0",
+          "inconclusive": "0",
+          "skipped": "0",
+          "asserts": "0",
+          "engine-version": "3.5.0.0",
+          "clr-version": "4.0.30319.42000",
+          "start-time": "2026-09-11 12:19:48Z",
+          "end-time": "2026-09-11 12:21:10Z",
+          "duration": "82.1246265"
+        },
+        "evidence_role": "INTERMEDIATE_ONLY_NOT_FINAL_SOURCE_EVIDENCE",
+        "removed_with_user_cleanup": true
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_07/_work/pure_results.xml",
+        "sha256": "3c30fe24cade47faffd6f59e69d08cd970a1bd9e951dc67e5de9c093cae58861",
+        "bytes": 8948,
+        "run": {
+          "id": "2",
+          "testcasecount": "6",
+          "result": "Passed",
+          "total": "6",
+          "passed": "6",
+          "failed": "0",
+          "inconclusive": "0",
+          "skipped": "0",
+          "asserts": "0",
+          "engine-version": "3.5.0.0",
+          "clr-version": "4.0.30319.42000",
+          "start-time": "2026-09-11 12:15:17Z",
+          "end-time": "2026-09-11 12:15:18Z",
+          "duration": "1.0090956"
+        },
+        "evidence_role": "INTERMEDIATE_ONLY_NOT_FINAL_SOURCE_EVIDENCE",
+        "removed_with_user_cleanup": true
+      }
+    ],
+    "actual_plans": [
+      {
+        "case": "default/OFF",
+        "plan_digest": "6ee60821aba144aaf21e2d5539dfe30745ce044379c349d414b8d279389abe3d",
+        "diversity_digest": "d9f0f53bddeffd062ab3f74978a0d3de18005576172c8186e7fa5ea56f7a115d",
+        "policy": {
+          "id": "SV5_DIVERSITY_SOFT_V1",
+          "version": "1.0.0",
+          "enabled": false,
+          "radius": 36,
+          "weights": [
+            100,
+            70,
+            49,
+            34
+          ],
+          "metric": "HALF_OPEN_BOUNDS_EMPTY_GAP_MANHATTAN",
+          "salt": "SV5_DIVERSITY_V1",
+          "aliases": {
+            "CANYON_SHAFT": "CANYON_SHAFT",
+            "CAVE_BAND": "CAVE_BAND",
+            "FARM_TERRACE": "FARM_TERRACE",
+            "HIGH_HALL": "HIGH_HALL",
+            "JUMP_RESERVE": "JUMP_RESERVE",
+            "LAKE_CHAMBER": "LAKE_CHAMBER",
+            "LIBRARY_STACK": "LIBRARY_STACK",
+            "ORDINARY_ROOM_A": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_B": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_C": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_D": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_E": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_F": "ORDINARY_ROOM",
+            "RANCH_YARD": "RANCH_YARD"
+          },
+          "exceptions": [
+            "FIXED_CORE",
+            "ORDINARY_ROOM"
+          ],
+          "digest": "359432d9e27ab7683923e363268896c1b77cbc8628ef187c3ea5485e7a9de23d"
+        },
+        "near_pairs": 0,
+        "places": 22,
+        "fallbacks": 0
+      },
+      {
+        "case": "default/ON",
+        "plan_digest": "10080e53c3d4c47f6e93f49118c7c648f07c1f3162742ce866b6ecd8a0be3e46",
+        "diversity_digest": "00536f723cbee0dbf8c755ac53ed596f2369b83ea442429af61d0e377e571333",
+        "policy": {
+          "id": "SV5_DIVERSITY_SOFT_V1",
+          "version": "1.0.0",
+          "enabled": true,
+          "radius": 36,
+          "weights": [
+            100,
+            70,
+            49,
+            34
+          ],
+          "metric": "HALF_OPEN_BOUNDS_EMPTY_GAP_MANHATTAN",
+          "salt": "SV5_DIVERSITY_V1",
+          "aliases": {
+            "CANYON_SHAFT": "CANYON_SHAFT",
+            "CAVE_BAND": "CAVE_BAND",
+            "FARM_TERRACE": "FARM_TERRACE",
+            "HIGH_HALL": "HIGH_HALL",
+            "JUMP_RESERVE": "JUMP_RESERVE",
+            "LAKE_CHAMBER": "LAKE_CHAMBER",
+            "LIBRARY_STACK": "LIBRARY_STACK",
+            "ORDINARY_ROOM_A": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_B": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_C": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_D": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_E": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_F": "ORDINARY_ROOM",
+            "RANCH_YARD": "RANCH_YARD"
+          },
+          "exceptions": [
+            "FIXED_CORE",
+            "ORDINARY_ROOM"
+          ],
+          "digest": "a8cf26e6690524607228f8d2e27e0f4094ee611cbaca189803209d459fe592c4"
+        },
+        "near_pairs": 0,
+        "places": 22,
+        "fallbacks": 0
+      },
+      {
+        "case": "repeat/OFF",
+        "plan_digest": "5d775db39431fc1bcc482f3e867e97aa6eba6232965544715e4422cb7c746c93",
+        "diversity_digest": "b4d0a161173ebce633d0e852233224d5f4c52a7707f3d554d2af360f66da32f1",
+        "policy": {
+          "id": "SV5_DIVERSITY_SOFT_V1",
+          "version": "1.0.0",
+          "enabled": false,
+          "radius": 36,
+          "weights": [
+            100,
+            70,
+            49,
+            34
+          ],
+          "metric": "HALF_OPEN_BOUNDS_EMPTY_GAP_MANHATTAN",
+          "salt": "SV5_DIVERSITY_V1",
+          "aliases": {
+            "CANYON_SHAFT": "CANYON_SHAFT",
+            "CAVE_BAND": "CAVE_BAND",
+            "FARM_TERRACE": "FARM_TERRACE",
+            "HIGH_HALL": "HIGH_HALL",
+            "JUMP_RESERVE": "JUMP_RESERVE",
+            "LAKE_CHAMBER": "LAKE_CHAMBER",
+            "LIBRARY_STACK": "LIBRARY_STACK",
+            "ORDINARY_ROOM_A": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_B": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_C": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_D": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_E": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_F": "ORDINARY_ROOM",
+            "RANCH_YARD": "RANCH_YARD"
+          },
+          "exceptions": [
+            "FIXED_CORE",
+            "ORDINARY_ROOM"
+          ],
+          "digest": "359432d9e27ab7683923e363268896c1b77cbc8628ef187c3ea5485e7a9de23d"
+        },
+        "near_pairs": 3,
+        "places": 24,
+        "fallbacks": 0
+      },
+      {
+        "case": "repeat/ON",
+        "plan_digest": "94c9f3a353e39984633a755af7842e87989e86dc97c3545ce87a4ac4da4397b7",
+        "diversity_digest": "5f2a95e61c74e5b8d967786ea77a7d0537d98361d63e3cc733d6c144fc8a8347",
+        "policy": {
+          "id": "SV5_DIVERSITY_SOFT_V1",
+          "version": "1.0.0",
+          "enabled": true,
+          "radius": 36,
+          "weights": [
+            100,
+            70,
+            49,
+            34
+          ],
+          "metric": "HALF_OPEN_BOUNDS_EMPTY_GAP_MANHATTAN",
+          "salt": "SV5_DIVERSITY_V1",
+          "aliases": {
+            "CANYON_SHAFT": "CANYON_SHAFT",
+            "CAVE_BAND": "CAVE_BAND",
+            "FARM_TERRACE": "FARM_TERRACE",
+            "HIGH_HALL": "HIGH_HALL",
+            "JUMP_RESERVE": "JUMP_RESERVE",
+            "LAKE_CHAMBER": "LAKE_CHAMBER",
+            "LIBRARY_STACK": "LIBRARY_STACK",
+            "ORDINARY_ROOM_A": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_B": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_C": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_D": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_E": "ORDINARY_ROOM",
+            "ORDINARY_ROOM_F": "ORDINARY_ROOM",
+            "RANCH_YARD": "RANCH_YARD"
+          },
+          "exceptions": [
+            "FIXED_CORE",
+            "ORDINARY_ROOM"
+          ],
+          "digest": "a8cf26e6690524607228f8d2e27e0f4094ee611cbaca189803209d459fe592c4"
+        },
+        "near_pairs": 2,
+        "places": 24,
+        "fallbacks": 0
+      }
+    ],
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "manifest_sha256": "c560a05ea06588043c3bce4875838de778de21cc21a09638fecdd1a79fdfd14a",
+  "task_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+  "predecessor_commit": "c96f76b8097c0baaa7e5d5e7a92465e38124ad2a",
+  "native_apply": "PASS",
+  "stage_checks": {
+    "all_before": 555,
+    "always_after": 543,
+    "commit_blobs": 47
+  },
+  "read_write_binding": {
+    "owned_existing": [
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+      "MapDesign/MCP/SV5/02_PROTOCOL_V5.md"
+    ],
+    "owned_new": [
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceDiversity.cs",
+      "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceDiversity.cs.meta",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs.meta",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5TestOutputPaths.cs",
+      "Assets/_Game/Tests/EditMode/Map/SV5/Sv5TestOutputPaths.cs.meta",
+      "MapDesign/MCP/SV5/15_DIVERSITY_V5.md"
+    ],
+    "before": [
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+        "worktree_sha256": "e0449cfdcb0ce2a842b41ee4ae285275db9110a185409fc940bff9fdd5328d31",
+        "worktree_bytes": 53392,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+        "worktree_sha256": "11d5340fb65a71621edfa3b0a84bb46243414c482570439937fd6447312f3f82",
+        "worktree_bytes": 32775,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+        "worktree_sha256": "a6d2505df7330f8860c76ee13978ebaa949cbcf889ab42d86a30fba479919347",
+        "worktree_bytes": 56427,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+        "worktree_sha256": "e84c16f2feda1a900c719094e270e3cf2738dbcd7afe4424dd59922834d42da7",
+        "worktree_bytes": 16258,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+        "worktree_sha256": "f2a4867a61c9b13a5d9e8226fb2fb1d88836c6af57ee3309ad1f4fd3a3c405dc",
+        "worktree_bytes": 18427,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+        "worktree_sha256": "b08bf154ee4bc1a5620cc13e81a2bb8624a1797e7d567f3f9dfca5f485b55bd8",
+        "worktree_bytes": 20003,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+        "worktree_sha256": "da2a51a401b4a39296eac620757f76d731a7bd7ccb14650346f958550124bcba",
+        "worktree_bytes": 13945,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+        "worktree_sha256": "8d0497c6ab1faea8aa57b8bf5ba291aa63ad020a40e4106ffe97247ff1274bb1",
+        "worktree_bytes": 18194,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+        "worktree_sha256": "e3d5bcdd3a8d6cb7eaa57d3c69449b33c3e9fff8c9e360b04077e3dfdbecd8fb",
+        "worktree_bytes": 15475,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+        "worktree_sha256": "a9fe51f9d02ab278906c5b8434675728fa3c5e59d8556f966666cb8ff27a82a4",
+        "worktree_bytes": 17979,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+        "worktree_sha256": "c97d0b54808e1a9a9b542fa0fc6a0d10666243b257b0d091e8e1f9f353275379",
+        "worktree_bytes": 19313,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      },
+      {
+        "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+        "worktree_sha256": "14b7726c314148051997994780faa6a9ab26c587fd8fa5ef633565e42bb01501",
+        "worktree_bytes": 6799,
+        "phase": "BEFORE_ONLY",
+        "evidence": "SV5_06_FIX04_REVIEW_RAW_BYTES"
+      }
+    ]
+  },
+  "non_owned_baseline": [
+    {
+      "path": "Assets/_Game/Editor/MapAuthoring/Tests/EditMode/WorldGeneration/TerrainClusters.meta",
+      "sha": "EB5F6F90324085DD62A9C642C881F1AE18B337097AA1963A0028349915C7C6D9"
+    },
+    {
+      "path": "Assets/_Game/Editor/MapAuthoring/WorldGeneration/TerrainClusters.meta",
+      "sha": "D840F87375531EA8A7B8B407AA6AA44ABF16DA16B53B2EE076A1C5F569C2F157"
+    },
+    {
+      "path": "Assets/_Game/Tests/PlayMode/Map/WorldGeneration/TerrainClusters.meta",
+      "sha": "B3BF7222678D4EE0EEAF2D657110253F21FC50D9D3AA59D3C6EC24264DC41670"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/CONTRACT.md",
+      "sha": "3DA0B25A84AFE3FD0B63F19173D71FC0E59DFEB458DE9A93AAC2E58A2841F059"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/FILES.json",
+      "sha": "335820C289E67829CD2897C15CB5623F86AEDA9610E09F8B80CC5157B993FE63"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/PROTOCOL_APPEND.md",
+      "sha": "837A76BF4797D465357AC29F953BDCC1BE47949403CEA17045C360945B4CD8E4"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/REVIEW_FINDINGS.json",
+      "sha": "D24CCFA85B758F1F1E787DAB4853111E061480076CED917A3766CA0E7C5DBFF1"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/SOURCE_LOCK.json",
+      "sha": "AB0F044D4256C33701F486385C1B0F58C3A8D733A5FDC4EC837F5065D76659FC"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/STAGE.py",
+      "sha": "12A546A1B1AE0786A7A0CB1C710ABD24CE9BFD44CAED869D155E869C1F448C11"
+    },
+    {
+      "path": "CLI/MapDesign/MCP/INPUTS/SV5_06/SV5_06_SPACE_GRAPH.md",
+      "sha": "C8786C2A4B35702DC67E8B975B0647125B3C988CEE9929BAF7A86BFCD99A4925"
+    },
+    {
+      "path": "MAP17_01_REPAIR_INSTALLED_TASK_BODY_SHA_PRECONDITION.md",
+      "sha": "61E3EAA6F8E70AF6F496A0A9695C004862066EEE27C311A8100F23797D0FA35A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/SV5_04_REVIEW.zip",
+      "sha": "D57B7DFC6725A0C3FC732B7893F2B820B2E7A99B872DF131DD84EADC397FC6D6"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/SV5_05_REVIEW.zip",
+      "sha": "1FA933CDEC25E12A845C43EF6F2BC7959514DBC3C2A9CB9B2E8EA9229876DFC8"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/SV5_05_FIX01_REVIEW.zip",
+      "sha": "AE95024B5564A6D5DBCCCCA35BA6424153B82CFC755F3C73E43F7423CFF3F038"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_PREFLIGHT/SV5_05_FIX01_REG_CONTEXT.zip",
+      "sha": "E1E00DF59A3CE1B2765BA0FD00D8FD5E98A8D1624F3D7FB0A891F141EE8A889D"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06/SV5_06_REVIEW.zip",
+      "sha": "1DBCFE2C92CC6E94F48B4B2AF4E487A9CFA13C190C09CC79641620BB0C45F683"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX01/SV5_06_FIX01_REVIEW.zip",
+      "sha": "05A878E863EB5854BD01E1448E66D74773697FF359EFDA8A728AE41D3B45186B"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX02/SV5_06_FIX02_REVIEW.zip",
+      "sha": "BA2F1CADE402ED104BE59942F1DFABA53FC8D98217E2F33C5E465BFB5AD7ECBC"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX03/SV5_06_FIX03_REVIEW.zip",
+      "sha": "A9109B70CF0B9AB35F75E529D33E5AD340B19AFB0026D52A53F1B5AB59D9A214"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX03/_REVIEW_MANIFEST.json",
+      "sha": "04888CE92AA0A7CD3A0BD125AB1C58B99A394699D1E7EB2207969F34B7BF5E1A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/SV5_06_FIX04_REVIEW.zip",
+      "sha": "DA04B31AC2CCC8F71C8F56DD8BFD55AEA5A842F1B5A2DAFA475A0ED045281C5A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_REVIEW_MANIFEST.json",
+      "sha": "AB72FDE53CC0CC75A0F0A433F35BD9C2792D8EAC7F521B6616C17623C08CDEEF"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/c02.xml",
+      "sha": "E4A5545983A729CFD7E4AD70E9054646A28B4E89FB93B779C66BD7E81B9AE5F6"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/deepstar_before_after.png",
+      "sha": "8C7721516F5E36BC66E030017AA0029BD4F18346813681F71B92CD6E4A4CE129"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/determinism.xml",
+      "sha": "1575352036A3F6C9802CFA15CF1D670F8D74DA1A58D4D84039FE40767CFC350F"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/forge.xml",
+      "sha": "F7F2E919B1D6A4BAAF464CE1B195AEB53D59C9564A4F8752257023077D07DEA1"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/package_review.py",
+      "sha": "7490E8100DA358F112D03A1B50EFD65AD31AB9DAE26B56A28ECC2B7D935721BE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/regression.xml",
+      "sha": "2196BDDECBB75B80B326931E4FA24D396609AA4F23A593109AA99474A7D065E4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Crashpad/metadata",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Crashpad/settings.dat",
+      "sha": "C54AFD074C631C2348B8C14BFDC6DE649E766323FC71FDD38E6E4799A5D4359A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/CrashpadMetrics-active.pma",
+      "sha": "5FF0845170A70505DB2FA2C6E71716E6C4E7FB3984333388EC04EE7AAF134568"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/CrashpadMetrics.pma",
+      "sha": "5FF0845170A70505DB2FA2C6E71716E6C4E7FB3984333388EC04EE7AAF134568"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Account Web Data",
+      "sha": "305E7AAEBF602F4188B259D78479651D8072DC4E527A0DE9613D94ACD03CC3C0"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Account Web Data-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Affiliation Database",
+      "sha": "E2F405EE0F79B4CCC221B0F295266BA8B69A452BFCDBCCA26CE828645AF46D3E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Affiliation Database-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/BookmarkMergedSurfaceOrdering",
+      "sha": "4489F9E3E454748B3521EB214E0A5694D562CFF3D9FF511CB456953C8F534C00"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/Cache_Data/data_0",
+      "sha": "35B0D7F298F2A1AC9E4EBCA060F747DC1D4BBA580020D2D450D2314E87A67BF8"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/Cache_Data/data_1",
+      "sha": "09E7B634823BD0C8AED2F507191C3300C10BC5A45408A0AC6A8A6FE6E8B4FBCA"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/Cache_Data/data_2",
+      "sha": "CD2DB2192BFED9BCAAEBB6B017643932FF767185A9752730152196BAB04FE736"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/Cache_Data/data_3",
+      "sha": "A0CAD7ACD95F5D4E7AF22278828EC79DF1966CFA8932403A84F16ABF44C03F27"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/Cache_Data/index",
+      "sha": "6E43B43AB4299CC7CFCFA3ACB458B873B648A54BB92685FA7C1A8954745A838F"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/No_Vary_Search/journal.baj",
+      "sha": "9C169428D852E25BD59B27652ED533D2A1F09F96E4C329FA5E06F47E16731543"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Cache/No_Vary_Search/snapshot.baf",
+      "sha": "0C2DD377ED0CC66161E9DB8F89F7D8BCB3AD8C06C4A054BDCBA214AB05F58C9A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/ClientCertificates/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/ClientCertificates/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/ClientCertificates/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Code Cache/js/ba678a2fbd8c358c_0",
+      "sha": "BD3ABAAC50D435DD85EF88C7DD239BBB109337F360FC756EF13ACD3422B8EA26"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Code Cache/js/index",
+      "sha": "FBCFE23A2ECB82B7100C50811691DDE0A33AA3DA8D176BE9882A9DB485DC0F2D"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Code Cache/js/index-dir/the-real-index",
+      "sha": "6AECF67BB2B85C462D73C38B8996872596DBF0DBCA67C9CABC4173D8D72C17DF"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Code Cache/wasm/index",
+      "sha": "FBCFE23A2ECB82B7100C50811691DDE0A33AA3DA8D176BE9882A9DB485DC0F2D"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Code Cache/wasm/index-dir/the-real-index",
+      "sha": "E1B70C8729CD7F8623F46139FEC44D42A276B6CA3EFA1E0490D311ECFA6F9360"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnGraphiteCache/data_0",
+      "sha": "D6A5FE39CD672781B256E0E3102F7022635F1D4BB7CFCC90A80FFFE4D0F3877E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnGraphiteCache/data_1",
+      "sha": "B1E963D702392FB7224786E7D56D43973E9B9EFD1B89C17814D7C558FFC0CDEC"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnGraphiteCache/data_2",
+      "sha": "EC1702806F4CC7C42A82FC2B38E89835FDE7C64BB32060E0823C9077CA92EFB7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnGraphiteCache/data_3",
+      "sha": "E09F42C398D688DCE168570291F1F92D079987DEDA3099A34ADB9E8C0522B30C"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnGraphiteCache/index",
+      "sha": "68A486688C12217F21DCD0AFE106CCC32EF9A2E04F80DC1B4D771413AED6DF8A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnWebGPUCache/data_0",
+      "sha": "D6A5FE39CD672781B256E0E3102F7022635F1D4BB7CFCC90A80FFFE4D0F3877E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnWebGPUCache/data_1",
+      "sha": "B1E963D702392FB7224786E7D56D43973E9B9EFD1B89C17814D7C558FFC0CDEC"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnWebGPUCache/data_2",
+      "sha": "EC1702806F4CC7C42A82FC2B38E89835FDE7C64BB32060E0823C9077CA92EFB7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnWebGPUCache/data_3",
+      "sha": "E09F42C398D688DCE168570291F1F92D079987DEDA3099A34ADB9E8C0522B30C"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/DawnWebGPUCache/index",
+      "sha": "C88907C12261084F69FADC6B7CC63B1EDCB905AEC30D67DB5F6C4F398E01F94B"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Rules/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Rules/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Rules/LOG",
+      "sha": "184C3E962E59ACBC8476EC37B48CCD5BBB39642D7D0A4A5CA9548A933436D75A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Rules/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Scripts/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Scripts/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Scripts/LOG",
+      "sha": "5BB9FBA3E579EF7CC7215C133603459FA781B087590CFC59CF924A9970BBD8AE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension Scripts/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension State/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension State/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension State/LOG",
+      "sha": "F97A2F1451A88AB66C183AA2D1FAB77C26B5B47D482D2816341BC7CF080EF599"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension State/LOG.old",
+      "sha": "F511A5D8F4E4BA815E49DF19F36836968747B8A6EB8C8DCA71483C90D78A89A6"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Extension State/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Favicons",
+      "sha": "80C585DC2536081A8BC8859AC0F5A282E00AB45A4BE7F01D8ED4EAA04A7D0F23"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Favicons-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/GPUCache/data_0",
+      "sha": "D6A5FE39CD672781B256E0E3102F7022635F1D4BB7CFCC90A80FFFE4D0F3877E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/GPUCache/data_1",
+      "sha": "B1E963D702392FB7224786E7D56D43973E9B9EFD1B89C17814D7C558FFC0CDEC"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/GPUCache/data_2",
+      "sha": "EC1702806F4CC7C42A82FC2B38E89835FDE7C64BB32060E0823C9077CA92EFB7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/GPUCache/data_3",
+      "sha": "E09F42C398D688DCE168570291F1F92D079987DEDA3099A34ADB9E8C0522B30C"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/GPUCache/index",
+      "sha": "063699D59FC20CF5F70577C22C76BF747E0C2B79036E6662088B9247BF89FA79"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/History",
+      "sha": "F111B666D86990F39F6A598404D2C23027732EA885079495802F91D078EE40E0"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/History-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Local Storage/leveldb/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Local Storage/leveldb/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Local Storage/leveldb/LOG",
+      "sha": "45285FC3C432D8470F27DF2010FD183F290020FFD0619940635D00BCF2EED392"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Local Storage/leveldb/LOG.old",
+      "sha": "A50B29D00308BA117ADD3521D14429FAE759118A058942E1CDC41129FDBFAE5F"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Local Storage/leveldb/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Login Data",
+      "sha": "C812C4E5C2D956BD57443E02311B518F2B2BFC582F5CAF18FE7C22F7B5556E70"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Login Data For Account",
+      "sha": "C812C4E5C2D956BD57443E02311B518F2B2BFC582F5CAF18FE7C22F7B5556E70"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Login Data For Account-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Login Data-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Cookies",
+      "sha": "02E91E428250A649611888B6A2512DF9E5BD7C9FA31830B9B3A9FCC4420D58AA"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Cookies-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Device Bound Sessions",
+      "sha": "5DEA582961AEA120CCFD668DA5DA2B09BACFA18D7D8ADC3C1B741D2434ED4760"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Device Bound Sessions-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Network Persistent State",
+      "sha": "D8307CD5B5EE38889302022BF250F6DE21FE6E6A0F36433F92D7F831A9FE5199"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/NetworkDataMigrated",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Reporting and NEL",
+      "sha": "54E4D90F430136D43E507EE9E3373381780A53BAFE6EDAB319D1E1523ED6C063"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Reporting and NEL-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Trust Tokens",
+      "sha": "48DC8B9ACBEDB0B7DE6579F89E873E9434CA389B8C6ED986F705C86FD2819599"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Network/Trust Tokens-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/PersistentOriginTrials/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/PersistentOriginTrials/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/PersistentOriginTrials/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Preferences",
+      "sha": "934730662790EE7E6FD156331376274EF8898086D0B844A5C9EC978F28FDDB94"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/README",
+      "sha": "C43668EEC4A8D88A5B3A06A84F8846853FE33E54293C2DB56899A5A5DFB4D944"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Safe Browsing Network/NetworkDataMigrated",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Secure Preferences",
+      "sha": "2D4D7042DC4D8E06418CE777E5A6B848E8E2739A7314EFA2B8E76E01F23E03FE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SegmentInfoDB/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SegmentInfoDB/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SegmentInfoDB/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SignalDB/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SignalDB/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SignalDB/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SignalStorageConfigDB/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SignalStorageConfigDB/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Segmentation Platform/SignalStorageConfigDB/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/ServerCertificate",
+      "sha": "6760D3A8E5F41F831B2EDC09C45002A910C01011F899EF0DBE201D9E8B1ECB02"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/ServerCertificate-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/Database/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/Database/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/Database/LOG",
+      "sha": "A210603B8452B5EDB940D73E068819A56DD19703DF122A199CDC40D477A45996"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/Database/LOG.old",
+      "sha": "0F35430530F52DB006CE1096C2EA46544E72E5C1ED1B0974D24F3866E2566AE4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/Database/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/ScriptCache/2cc80dabc69f58b6_0",
+      "sha": "7433E2DE592BAC3D53E34206CD580D140D107EAE0DEFA146B238D209D3B34C87"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/ScriptCache/4cb013792b196a35_0",
+      "sha": "9BFCD210DC08C82CE5D351F0B2E015D246BE763173E1310CC3FE651D99C308AA"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/ScriptCache/4cb013792b196a35_1",
+      "sha": "5B48690E758755F84A6802C05505BF1E0213D3C7FDAF3D2FEFA16FA439C07644"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/ScriptCache/index",
+      "sha": "FBCFE23A2ECB82B7100C50811691DDE0A33AA3DA8D176BE9882A9DB485DC0F2D"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Service Worker/ScriptCache/index-dir/the-real-index",
+      "sha": "345F6235C763A69E8420B3370CEC28B8F1E3FB48C697C799D9A942F86322B103"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Session Storage/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Session Storage/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Session Storage/LOG",
+      "sha": "5379C7D03739103EC41B64D06F5F22F762F6E4625A6ADF43F8B918311503D1AA"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Session Storage/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sessions/Session_13433596031306551",
+      "sha": "BD54760DE20CA14029A3C04C1595ACFF22B6A6E0A001A15BA12BAB03FD1C6028"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sessions/Session_13433596777735035",
+      "sha": "CA221DEA46F0F1813762E3B3246A30FD1FF6B759C56F821BABFDC4BB527C8AE3"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sessions/Tabs_13433596031312714",
+      "sha": "42844EC0E0BAD7CC6DB4898F9B91523A1D1EDB504400486076FF36C483FFE9BF"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sessions/Tabs_13433596777738736",
+      "sha": "7B829A28284356785124227F5CBB1F9B9FFB7E7880B237A70E3F49B8B280E357"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Shared Dictionary/cache/index",
+      "sha": "FBCFE23A2ECB82B7100C50811691DDE0A33AA3DA8D176BE9882A9DB485DC0F2D"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Shared Dictionary/cache/index-dir/the-real-index",
+      "sha": "E0D796A5FD11A5C4E14768A34B0A120BB58269D63B1B545B29AAA2305B849F95"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Shared Dictionary/db",
+      "sha": "DB9734C1E3001F7ABD08BCC472A7B4F5DAF8076EAEE708F04BA98B11BD70131D"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Shared Dictionary/db-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Site Characteristics Database/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Site Characteristics Database/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Site Characteristics Database/LOG",
+      "sha": "B6DEC8842F97F8B89B4A373D691DBF32A68EA81E0EA1554523B4112BCE552DE9"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Site Characteristics Database/LOG.old",
+      "sha": "D4B88E04AB22166CBB6B7063A73BCAC8B904DB5253152689E06BCA79FAD9AA0E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Site Characteristics Database/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sync Data/LevelDB/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sync Data/LevelDB/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sync Data/LevelDB/LOG",
+      "sha": "996652B631E1660140688A34C93DDF5AB84CC223A573370CF51E3FB102B70019"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sync Data/LevelDB/LOG.old",
+      "sha": "C38770D86E7F291B1E446A5233D1828031C328595853558716ADBAADC6ED75E7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Sync Data/LevelDB/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Top Sites",
+      "sha": "66887294D0583021E5D0BBC4F90C4DFB20BE750A9DAE40F185A9DD63866FBAEF"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Top Sites-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Web Data",
+      "sha": "0735D19D98DB931C9391188F6A840A49D7FBD966BCBB4C1A0C6ABE7C7B1CB8A2"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/Web Data-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/WebStorage/QuotaManager",
+      "sha": "A440B837388010EEDEAA3B173A11B8E4D5B31632423386F43E9847CF794BDFE8"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/WebStorage/QuotaManager-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/chrome_cart_db/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/chrome_cart_db/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/chrome_cart_db/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/commerce_subscription_db/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/commerce_subscription_db/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/commerce_subscription_db/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/declarative_performance_observer.db",
+      "sha": "6B77B54313DF8D759334819FDAD7D879F15DCE045017BD11BB557DD94CE52F66"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/declarative_performance_observer.db-journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/discount_infos_db/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/discount_infos_db/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/discount_infos_db/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/discounts_db/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/discounts_db/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/discounts_db/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/engine_allowlist.bf",
+      "sha": "63E82EB5C06B4C0057D99777BB9B9B8967A5629D20BF795A24448D79C24BE281"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/parcel_tracking_db/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/parcel_tracking_db/LOG",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/parcel_tracking_db/LOG.old",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/LOG",
+      "sha": "B2557432EF83616D52A32ABDDFD4C05DBB587F327E6134268E1916659A84ACEE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/LOG.old",
+      "sha": "D4A74FC8B05E42A0568F3E2893CB9A8F698548045A3CC4EB14FA41B8B08D4628"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/metadata/CURRENT",
+      "sha": "0F1BAD70C7BD1E0A69562853EC529355462FCD0423263A3D39D6D0D70B780443"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/metadata/LOCK",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/metadata/LOG",
+      "sha": "010611F40B576C2AF9AA1C65D476890523E109CE19D0583E574F352BB82F0D3A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/metadata/LOG.old",
+      "sha": "DB47B4030DA61AC71D432EB9B9CC22BE950B86BE49D15DF9DC8EC529CF789464"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Default/shared_proto_db/metadata/MANIFEST-000001",
+      "sha": "F9D31B278E215EB0D0E9CD709EDFA037E828F36214AB7906F612160FEAD4B2B4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GPUPersistentCache/DawnGraphiteCache/3VTFBHJDFNU2V4IGSN4IATDSGV2NT3ME/cache.db",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GPUPersistentCache/DawnGraphiteCache/3VTFBHJDFNU2V4IGSN4IATDSGV2NT3ME/cache.db-wal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GPUPersistentCache/DawnGraphiteCache/3VTFBHJDFNU2V4IGSN4IATDSGV2NT3ME/cache.journal",
+      "sha": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GrShaderCache/data_0",
+      "sha": "D6A5FE39CD672781B256E0E3102F7022635F1D4BB7CFCC90A80FFFE4D0F3877E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GrShaderCache/data_1",
+      "sha": "B1E963D702392FB7224786E7D56D43973E9B9EFD1B89C17814D7C558FFC0CDEC"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GrShaderCache/data_2",
+      "sha": "EC1702806F4CC7C42A82FC2B38E89835FDE7C64BB32060E0823C9077CA92EFB7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GrShaderCache/data_3",
+      "sha": "E09F42C398D688DCE168570291F1F92D079987DEDA3099A34ADB9E8C0522B30C"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/GrShaderCache/index",
+      "sha": "FD833DEDE04A57153F812BCBFC33E6568688D2E2325F9E7BB64351AFF6733957"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Last Version",
+      "sha": "88550FCB5CFE384E5F4796D704A11238B582440377662B31D5EF2CE58EFA9413"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Local State",
+      "sha": "DADA89AE620584F5BFCD3B4F1D77A611602E000848A721692D4E4C7441D86380"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/ShaderCache/data_0",
+      "sha": "D6A5FE39CD672781B256E0E3102F7022635F1D4BB7CFCC90A80FFFE4D0F3877E"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/ShaderCache/data_1",
+      "sha": "B1E963D702392FB7224786E7D56D43973E9B9EFD1B89C17814D7C558FFC0CDEC"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/ShaderCache/data_2",
+      "sha": "EC1702806F4CC7C42A82FC2B38E89835FDE7C64BB32060E0823C9077CA92EFB7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/ShaderCache/data_3",
+      "sha": "E09F42C398D688DCE168570291F1F92D079987DEDA3099A34ADB9E8C0522B30C"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/ShaderCache/index",
+      "sha": "D4E5D161002C4ABF96AB6F44F84339FC544C1BF84E0D4EBEEEC983195901C843"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/Variations",
+      "sha": "B26DA4F8C7E283AA74386DA0229D66AF14A37986B8CA828E054FC932F68DD557"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/VariationsSafeSeedV2",
+      "sha": "1560B22B2264F7CB6B7F6910164813F76C5E8A06FB1ACF85B375E687EE49C1AD"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/VariationsSeedV2",
+      "sha": "B4CC4174735C28360B9081BE3C3D0552D8A4B3CDB54431AC00ED0D622BAB6296"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/extensions_crx_cache/metadata.json",
+      "sha": "2771D13C637C267132AFFF9DB67537BEF95708534B79AE8D954254C4E64E4E0F"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/render_profile/segmentation_platform/ukm_db",
+      "sha": "EB0BD03B0DE5FE5B49833067A3F57646A46A86D78AAE4DBFD0604C58A0C95FAE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/repair_before_after.png",
+      "sha": "0716B15752CDCE12A73C3C297FE4D379A918EF531B810022E550375AC06D4119"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/_work/run.ps1",
+      "sha": "AF92A515C71A4AE26ED0452C790B62DA98B8F9F9DF9AF67E720A818D49F8BA8F"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/compile_check.xml",
+      "sha": "B917F232724F86BE2CFD74DC0D5C6037321A4F9BFEF93C39A7CB222FF4F4C20A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug.xml",
+      "sha": "901E44CB8239B6E5F299BA9C6E7D1725B91A9CED79712E0704FB148128D01C57"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug10.xml",
+      "sha": "9AFAB07F7037A1FAB6CBC17632D014B3D17558ED78F7EEC63CEBBAD399374E42"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug11.xml",
+      "sha": "83C2391952B4879C01A40A2963E7EA8BB77F422861A18599EC906D8CD531489A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug12.xml",
+      "sha": "DDFC8C764BC901469B4C595F43DC16B6A0FCC40961B8AD1B4CF6A15F960AC4F8"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug2.xml",
+      "sha": "D1D7B1F0D4A7122939D57FC24518E22B52A3735011C434F92FA21D362B887F0F"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug3.xml",
+      "sha": "38FB404D396B7850B94E71F37F6A03801E99C02449EFAD3758C025A02792F355"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug5.xml",
+      "sha": "CA70038E1AE4CF96813136A2993C87E5D8D5A738D61BEC036BC8525D165F50E2"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug6.xml",
+      "sha": "7AD5A3FFBF4FB4B8FEEDA06CD2F059518526877537FADD116FA3C782265E5D95"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug7.xml",
+      "sha": "0A469963D1008FB9C837C16C59FB84A3E1C62F81EEBA8978DF1055BA48B7832A"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug8.xml",
+      "sha": "7A17E9623891FE96657A78A5F37DBF6838883A9AC50FD2B91CCF88FD526D1EA1"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/debug9.xml",
+      "sha": "ACA62BB6E1E11F466AC8736247AA583CEBC5D936397CC2EFB87911B36E49A852"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/f04.xml",
+      "sha": "AE1AD5C6BDCC40D2283754A9E9EA04CF677021AF445B0DF098A3504A5795B6FD"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/focused.xml",
+      "sha": "9F0F0CDDE0E477D50BBBA8244C60039A0E5B97BA11A5D1620C1C828741A80294"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/focused_fix04.xml",
+      "sha": "D30679BDC1DBD7FF718D7409070AE8AF8B736F988B5E8B3CF434BCE38C5651E8"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_06_FIX04/g08.xml",
+      "sha": "0B23E720C80A11E8EF3BC8481865B81B4E9A265491CBAEB8B636428D890B7551"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/R11FIX/RMAP12_PREP.md",
+      "sha": "F19B4473CCAFBE31EC3EC788540EC36C9305B68778313D98C0EEC2031D3F80FB"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/R11FIX/RMAP12_SPEC.md",
+      "sha": "7C06E9011055F94076D53BE375BC37C5BF66A0A1F944256C0374B04C9082EEC0"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/R11FIX/patch25.csv",
+      "sha": "44F85693F5EECADF364D88AA7AB55AA171953FB4870BCECB7188BF7EB1CD5C0B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/R11FIX/preview500.csv",
+      "sha": "9941BB470C604C7F240A1AEA0233CF2C359F8C1E1FF1CFB3A4DC0B844FD6D986"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/R11FIX/review.json",
+      "sha": "10A9D391053991F0E36C2A83ADE84F2BA21319EE1C84D134C96B49DD7C270FC6"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/PLAN_ORIGIN.json",
+      "sha": "B0E13C0B9D37EE2C05A6105AC1BC183B287160CC441FCC7ACAE9D78F42005EE2"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/README.md",
+      "sha": "458DCEC7B5B6F9082FF3411B7851A9CA9AFA453EB1A498F0131D5B47CE4FABAA"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SHA256.json",
+      "sha": "153AD42818EA6F2273A9051D6F8129B1978F9967A85BA1F41D76E0F94701C84B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha": "8759D6BC0DED6CDFB306BCB0EF13404B9BFEF612092021CC868215BB91E26F85"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha": "4CC8E65A23F511B05A91E74AF75A5C2ADE522F266BD9CE3A9BB5DA8108F0EE54"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha": "6CA7BA9FC236E8C1A0625145221BF226613203DBFF2870FC3E7157CB0C30EFDC"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/TASKS.csv",
+      "sha": "AAC3C738F4F16FD69CE6EE71ABB897420CF3B239D470E097E82311B304804052"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/TASKS.json",
+      "sha": "7932DE9AC46A82CF27046599A0EDE47BF5A35F35C29EDB374DF178FEEB70B367"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/BASELINE_SHA.json",
+      "sha": "E7F77144BAFAE687F960CFBF6BE5096958C197C593D22479E4A1DED24EC5D70C"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.pdf",
+      "sha": "B1850DAED1AFD2779DEB5AB7BCCB7A1F1F70A0594C467EE0A3703440CBCAF011"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.png",
+      "sha": "033B25D58D1D6BE81126C35C232658F7F8E6E2A1DB671840FEC633055AB1207B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.zip",
+      "sha": "EE7EEF7D818EE99ACB62AEA4D6ED24772D3948AD581EB6F12E06F29AF11ABD5E"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_DETAIL.png",
+      "sha": "84C295A26A36EF1ECC314F1460517E5349BFE6FD9DB39029810F432E84B4F0D5"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/connections.json",
+      "sha": "E4CF9BB03E0740CE4393DDF4A0DB37AFAFA19DC5E114A7D337384428D22356BD"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/regions.json",
+      "sha": "17D3BFCC1B60839796805C52DABB8AB65A723ACA82BCB8EB470B7B1D5F1ABCCD"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/validation.json",
+      "sha": "52CCB91F40832F71235481683535DF1C4FF5FF14D0615D1C7CA73EB01901A8F4"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/world_cells.csv",
+      "sha": "3504BB66F506463223B5775A71E8FCFE323E67865CD0791B92AA102683C30538"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/reported/RMAP17_WORLD_BAKE_RESULT.md",
+      "sha": "53109E3B24E3DF8191E634D7EC2E3F06087108965E5F9BC2AF937F030A563C6B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_COVERAGE.md",
+      "sha": "859D592584D22238B116F212AA6F13085B373502EB385413383A3EAA2605354B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_FILL.md",
+      "sha": "34BD4D366582454AA57F2005639177C64B326CE191B2C142B9B6849BE6A2B6F1"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+      "sha": "C4BDF67D505D6C2F6D5400A5CF5300E6A6BB45E9DCCECE731B02FC615894B761"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_NETWORK.md",
+      "sha": "815637F2DF4F18F1BE37A8A499D016A200DBC8BB5759A340CFC90F43493E1706"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_PLACES.md",
+      "sha": "96D240D783501072BB547CCC5DA781013964916AA5E83AF396776A62626B3E20"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_RAIL.md",
+      "sha": "8E3219243AF72B3A1412AE7D911D91D3384044BDF0221A6E90D609E85D9ED6FB"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+      "sha": "39ACC95088558121B9CA08FB1CECCA07BD3B966E58AD6D6DD64AF8099196B554"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_RULES.md",
+      "sha": "AB5D9EFDAD350E8123A0FF7B05A812A9752E455E8F47FD600E91E4FEF2553AA5"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_SPAWN.md",
+      "sha": "1BDA912A84D38A1177CE5DB166A6C49C0CE1F945E475D6C4F4251399F517BC0A"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_SPECIALS.md",
+      "sha": "A88298CFA97F90ED8454A9FAE072F460B63E81E15F98B855B30CD270907B30B1"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_STAIRS.md",
+      "sha": "A53A524C281D4672A6D3A5C6FBFB3EF732206B7F03B111640DEC9389820CD134"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/tasks/SV5_01_APPROVAL_BASELINE.md",
+      "sha": "4A4F6A1C9DCB74AE63E4EE30269551F133AABDF256CAFF5EE4374276D385DCDF"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/PROTOCOL_APPEND.md",
+      "sha": "96218D33B866541B6AB8B99F2E00CF50073D02CE5178F1F569D1A050F0463763"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/SOURCE_LOCK.json",
+      "sha": "50EA164F990023495DFF430CDC60529F7CAF41CA80BC59595499217BF430557C"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/SV5_02_RULES.md",
+      "sha": "47DE1A12A07E7C76CE0156CEA451A36129161AA11C17B569FEF47389315A52E0"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/candidate/03_RULES_V5.md",
+      "sha": "ECAD8F6D292DCC5238D99F9B259F40FE57B554F253F1B920FB39476494641EFE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/candidate/04_RULE_COVERAGE_V5.csv",
+      "sha": "0AAED8E54F63946FF1680C2B7474F84E5C836AAACC8FC2AA13049604F1C4CE07"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/candidate/05_RULE_READSET_V5.json",
+      "sha": "271A659F44A10737478377A1B7D7F7D8F90830153594C0CBE8AC33828D22B8A9"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/reference/RULES_SOURCE.md",
+      "sha": "4CC8E65A23F511B05A91E74AF75A5C2ADE522F266BD9CE3A9BB5DA8108F0EE54"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02/reference/SV5_01_RESULT.md",
+      "sha": "78F9E84BF82B9640C51A5EE4BC2847610A296EBD26E0849706D3CE58601A37B6"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/PROTOCOL_APPEND.md",
+      "sha": "96218D33B866541B6AB8B99F2E00CF50073D02CE5178F1F569D1A050F0463763"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/REPAIR.md",
+      "sha": "F3DF789173AD91E03FD3F4BD226A2D85829EF8F10BE9CD38FA59A0A9111DA847"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/REVISION.json",
+      "sha": "1E7D29FB33C75F1704DB041CCD1AD4AEFA82262D06DAD9009E65AE14C3526F45"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/SOURCE_LOCK.json",
+      "sha": "6B38D2FBCF5D9DBEA808B24303899A8FC2081718EAF590C2CA5A76E4B8D79E7E"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/SV5_02_RULES.md",
+      "sha": "4B371AADDBFD4F1946FBF32B1DA2096E522A7DACEF45BD4958F0CB477653A321"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/candidate/03_RULES_V5.md",
+      "sha": "ECAD8F6D292DCC5238D99F9B259F40FE57B554F253F1B920FB39476494641EFE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/candidate/04_RULE_COVERAGE_V5.csv",
+      "sha": "0AAED8E54F63946FF1680C2B7474F84E5C836AAACC8FC2AA13049604F1C4CE07"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/candidate/05_RULE_READSET_V5.json",
+      "sha": "271A659F44A10737478377A1B7D7F7D8F90830153594C0CBE8AC33828D22B8A9"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/reference/RULES_SOURCE.md",
+      "sha": "4CC8E65A23F511B05A91E74AF75A5C2ADE522F266BD9CE3A9BB5DA8108F0EE54"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/reference/SV5_01_RESULT.md",
+      "sha": "78F9E84BF82B9640C51A5EE4BC2847610A296EBD26E0849706D3CE58601A37B6"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/AUDIT_SCOPE.json",
+      "sha": "3364E9E08DBCA72B924E1337EC0932F042F8CCEFFC4E58A121D62810E864ABD2"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/FILES.json",
+      "sha": "C789119D6FF5B9DE78F69D0811D7E64D97E8A82A3950B14CF29CC4E1AF78A670"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/FILE_FLOW.md",
+      "sha": "611F604F8D65A7AC15A70F20AB848A4ED40ECF5D7FAFA4428F3A77167C7F43A4"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/OUTPUT_CONTRACT.md",
+      "sha": "C256EE7D46001077A5975AE5410062FC1791C802156DEB1F4D8ADEF574B8362C"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/PACKAGE_CHECK.json",
+      "sha": "817B964BB9AB5398832938571C231C4524EFF5EAE60283834D2988024F6E77DD"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/PROTOCOL_APPEND.md",
+      "sha": "040E1424924C02E6882AA10AC996A1577C120D89A5E23925C43BC25185FC2FFC"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/REFERENCE_SV5_02.md",
+      "sha": "ED4E9EE6FD6F271BD81915040E1D6E103832A3737BD90D5EB90CC9371956A496"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/SOURCE_LOCK.json",
+      "sha": "C4A0D2369042A347448C02C9656F517A167730D461D0F42B9FD5EE3D9C7879EB"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/SV5_03_BINDINGS.md",
+      "sha": "5BDC2B45CC0C4DC51A4EA347AD28BE12C57AA2D9C53D17DF1C41F2A8FEF1BCE9"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_03/VERIFY.py",
+      "sha": "62D7AA28DA51908129797E029B8C4CA5C99FD0DACE07F6B140B55D8F3ED7B043"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/FILES.json",
+      "sha": "48A7164E431CBAF4D6EDC88007A8C1532E02654447A35A88E357E4A8160C5DCE"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/OUTPUT_CONTRACT.md",
+      "sha": "8F6243374C152BE819A2CE793FE5DD738E301E120F693CD46940F6F8AD8CABA1"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/PACKAGE_CHECK.json",
+      "sha": "BC1561A00E6250F7662BECC8890BDDECE7F155498BBE49649C8C2F64DD426BF2"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/REFERENCE_SV5_03.md",
+      "sha": "0B6F9C0A8BA658DE8E911781F3B5A3E614C27333FF25FAF3C63720E7486AE422"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/RESERVATION_CONTRACT.md",
+      "sha": "DF60DCE841EF482336234AE85B0FDE2CEE4AB54542CCA84C046E6E89232E649E"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/SOURCE_LOCK.json",
+      "sha": "138D0D85156697BA9A4CBE498E28226780F7590DF96FD46759E6C58EF19EDF8B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/SV5_04_CORE_RESERVE.md",
+      "sha": "658AA2CCF67D1F4C3A4507CD4B1521D0FC56DC414FD946636410F682E4B54D3C"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/VALIDATION_CONTRACT.md",
+      "sha": "17F6D7515EB640A02809A977F4D99013E40E25A3761806A9DA8330D3EE3C398B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_04/VERIFY.py",
+      "sha": "167C2EDCCBA94E8A7347618D9ADA5B656171D2CCB58AF631025BFD32F4D12C65"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/FILES.json",
+      "sha": "CC2502E7D3FA623DE5B290741F26623D0AB96D4D8BC6283AE3BB221327542B0D"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/OUTPUT_CONTRACT.md",
+      "sha": "192A4A95785A52DDA991AC447E3B3BAFE078E4CCCE4AB2EC6A52173D2F8DE109"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/PACKAGE_CHECK.json",
+      "sha": "BB5986E36E2E65AA13BEEA9C2CFC5C168ACDB6541ACEB3DBD02AB502E3AD1475"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/REFERENCE_SV5_04.md",
+      "sha": "E7F75ABEAE77693F2190A6CC58DEE50FD27CF2EA3BBF589F37140EBC242B073A"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/REVIEW_FINDINGS.json",
+      "sha": "1916341DC20114B4AE24167BDA59A816618169FE6F411D5CE21B4B8EC2679474"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/REVIEW_NOTES.md",
+      "sha": "0314E9974253E7867ABB97249CE54CAD60A2FDC6E435B4FB9BFC93FDE6808B23"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/SOURCE_LOCK.json",
+      "sha": "9C64BA4CA8AF228CF54C3859A519A4640577E52E846BCEE190B83856FCE2E224"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/STATE_CONTRACT.md",
+      "sha": "3A9FC6688C1C4C43953A3B7460E9E44B5001F4CCC3DD11812ED699BEDA4CBB0A"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/SV5_05_ROUTE_STATE.md",
+      "sha": "7F09D1564C90052B2E6E91BFEE8A5857BF2C8712EBCAC57FE5E891752D21086A"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/VALIDATION_CONTRACT.md",
+      "sha": "CBF51AA55437D4A5DFEEEE3A71D30EB7EF3AE82FC003549BBA0C9FAAE218F0C8"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05/VERIFY.py",
+      "sha": "68EAC8284801A6866BCE8AD88738A47F320A4C7616C49FF71A88DFFBDD3104EB"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/FILES.json",
+      "sha": "72D5FA3DB7F75BCC92D70AAA49B984EB813B872F9C3839CD528DDA37F359342D"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/PROTOCOL_APPEND.md",
+      "sha": "A4C630947472C6D4A3E30D860651E11E5AEA73036CA4434CD1DC8B572BD1087B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REFERENCE_SV5_05.md",
+      "sha": "2A8DA38B83E4F124ED8059C071A8D7A718BA19178582D935657FE2B3A5D13222"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REPAIR_CONTRACT.md",
+      "sha": "D4B8197FC2720F0CCE038E11ED2909C3B1E83DD2054204876FEBD5D2C76BDB0B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW.md",
+      "sha": "102146B1EEE0E6150E4E584893E8C2ED05BBB48C634B097A29AD03014AD61413"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW_FINDINGS.json",
+      "sha": "7D073DFDEF6E4B5CE4517E4D8974CD6E082BF7AB41CD1FBB6F417CAFC04B056E"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/SOURCE_LOCK.json",
+      "sha": "75F587982CEABA952DBF3D34DDBF0E4B77ED97FCF4B828C765F1723D8B5582F8"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/SV5_05_FIX01.md",
+      "sha": "96E43D745F5A0BF2057B54C2BBD2007530293211B87E84BB5F76B4B0AFB5330B"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/VERIFY.py",
+      "sha": "57FAF794E4C895026EDF720DCE6520FB88393D277B45BECB0C6EBAB00659261D"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/CONTRACT.md",
+      "sha": "3DA0B25A84AFE3FD0B63F19173D71FC0E59DFEB458DE9A93AAC2E58A2841F059"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/FILES.json",
+      "sha": "335820C289E67829CD2897C15CB5623F86AEDA9610E09F8B80CC5157B993FE63"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/PROTOCOL_APPEND.md",
+      "sha": "837A76BF4797D465357AC29F953BDCC1BE47949403CEA17045C360945B4CD8E4"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/REVIEW_FINDINGS.json",
+      "sha": "D24CCFA85B758F1F1E787DAB4853111E061480076CED917A3766CA0E7C5DBFF1"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/SOURCE_LOCK.json",
+      "sha": "AB0F044D4256C33701F486385C1B0F58C3A8D733A5FDC4EC837F5065D76659FC"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/STAGE.py",
+      "sha": "12A546A1B1AE0786A7A0CB1C710ABD24CE9BFD44CAED869D155E869C1F448C11"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06/SV5_06_SPACE_GRAPH.md",
+      "sha": "C8786C2A4B35702DC67E8B975B0647125B3C988CEE9929BAF7A86BFCD99A4925"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/MAP17_STRUCTURE_OBSERVATION_AUDIT_RESULT.md",
+      "sha": "A53E38A15F4BA1DEF081124CC93457EB05B648C640F78EA84992DB8DA8DDA226"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/MOONPALACE_LLM_IMPLEMENTATION_HANDOFF.md",
+      "sha": "CE7357CCBDF65829917ACF152D86B0F85802289ED28E6FEEB5A8D08ED3309CCF"
+    },
+    {
+      "path": "MapDesign/MCP_INBOX/SHA256SUMS.txt",
+      "sha": "ACF08C4215612C8A0FE6AA4BD408C7D868F02F471E0A120C523CED3DD7330613"
+    },
+    {
+      "path": "SV5_02_CHECK.json",
+      "sha": "5F82F31C2D1D2B61791D8F72B019505378013ABF5D44FEA7CA0C7E72EA101451"
+    },
+    {
+      "path": "SV5_02_FILES.json",
+      "sha": "5C319BFFCBDD1CFF841A7B2A11A8CF96BCBEC6DDDFC01B36A16033ECD55FF11D"
+    },
+    {
+      "path": "SV5_02_R2_CHECK.json",
+      "sha": "4FA665DE5293828A58597CC4A92E0C741BFC271F8987D0640AACBB1461D63895"
+    },
+    {
+      "path": "SV5_02_R2_FILES.json",
+      "sha": "A664020B4A0D548BFEC05FCA6ED20D6751FCEA151C4FC98F225566E950B15BDF"
+    },
+    {
+      "path": "SV5_02_R2_README.md",
+      "sha": "198F095AD9F09B68720D904037EF06694642AC913F42F2403C1E1F92CC431CBF"
+    },
+    {
+      "path": "SV5_02_R2_VERIFY.py",
+      "sha": "39A6F63D304E3202F2A7738BD51DF22E08FA93F8FCEAF8F82061714BC7DF87DA"
+    },
+    {
+      "path": "SV5_02_README.md",
+      "sha": "80AF0F8BD3AB7A8B30C01373E63E10166A0E68AF8EE34DFC0331ABCF8B4182CA"
+    },
+    {
+      "path": "SV5_02_VERIFY.py",
+      "sha": "65B0A08AA14A13890ECE4B1A818AF134C0957DF390CF07D2499B27F38348BD1C"
+    },
+    {
+      "path": "SV5_06_FIX04_DIAG.zip",
+      "sha": "1EF075F00CA91050C5F0C5A8F734D89A878A05CB5A889FA93BE163CDFA2B5F47"
+    },
+    {
+      "path": "SV5_FILES.json",
+      "sha": "74D4435F8128D44943B54774416329E027A7C8F584E42225C0504E600E2F5456"
+    },
+    {
+      "path": "SV5_LOCAL_CHECK.json",
+      "sha": "B9A5450FB80230E8D1655205B7445D208F87A233135E84557B89AD1517B36B78"
+    },
+    {
+      "path": "SV5_README.md",
+      "sha": "D44ABA4BC9EA03A2638DF1682E4DF5284AE4A88830050D55BD651F15A9B3C4D2"
+    },
+    {
+      "path": "SV5_VERIFY.py",
+      "sha": "8FC072C3D17514FFDE54FC9D10A893594C12E3032C9ECA0EF504AF29D107C87F"
+    },
+    {
+      "path": "Assets/_Game/Map/Scenes/MoonPalace/VIS01/MoonPalaceGrayboxExample_VIS01.unity",
+      "sha": "9B641EADF499026C8A01104580CEDD04316BEE745F335165592448AC06B7E8FF"
+    },
+    {
+      "path": "Constant.slnx",
+      "sha": "A4376C76EDFD016630E2E9697AD5AD7C338E6025BFBECAB41F9C4A9733378718"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_catalog_snapshot.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_catalog_snapshot.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_digest_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_digest_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_generation_result.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_generation_result.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_pattern_candidates_500.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_pattern_candidates_500.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_scene_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_scene_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_digest_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_digest_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_dry_run_result.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_dry_run_result.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_run_history.csv",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_run_history.csv",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_run_result.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_run_result.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_write_scope_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_write_scope_manifest.json",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1_RESULT.md",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1_RESULT.md",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE_RESULT.md",
+      "sha": "MISSING"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE_RESULT.md",
+      "sha": "MISSING"
+    }
+  ],
+  "apis": {
+    "adapt": [
+      "Sv5SpaceGraphPlanner.Plan/PlaceFamily",
+      "Sv5SpaceGraphPlan",
+      "Sv5SpaceGraphExport"
+    ],
+    "reuse_immutable": [
+      "Sv5SpaceGraphStateProjection.Project",
+      "Sv5SpaceGateGeometry",
+      "Sv5SpacePhysicalMovement",
+      "Sv5SpacePhysicalProduct",
+      "RMAP13 FSM",
+      "Sv5CoreReservationPlan"
+    ]
+  }
+}

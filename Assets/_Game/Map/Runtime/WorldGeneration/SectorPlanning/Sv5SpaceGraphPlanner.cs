@@ -18,7 +18,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public const int PatternSize = 4;
 
         public static Sv5SpaceGraphPlan Plan(Sv5CoreReservationPlan core, ulong seed,
-            Sv5SpaceGraphAuthoringProfile profile = null)
+            Sv5SpaceGraphAuthoringProfile profile = null, Sv5DiversityProfile diversity = null)
         {
             if (core == null) throw new ArgumentNullException(nameof(core));
             if (core.RouteSource.Definition.Request.Seed != seed)
@@ -26,14 +26,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (core.Sites.Count != 8 || core.CoreCells.Count != 2432 || !core.RouteSource.Graph.Success)
                 throw new ArgumentException("A passing SV5_04/RMAP13 source is required.", nameof(core));
             profile = profile ?? Sv5SpaceGraphAuthoringProfile.RepresentativeV1();
+            diversity = diversity ?? new Sv5DiversityProfile();
 
             var diagnostics = new List<string>();
+            var diversityDecisions = new List<Sv5DiversityDecision>();
             List<Sv5SpacePlace> places = BuildCorePlaces(core).ToList();
             var placementBlocked = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Select(value => value.World));
             placementBlocked.UnionWith(core.RouteCells.Select(value => value.World));
             foreach (Sv5SpaceFamilySpec spec in profile.Families)
             {
-                Sv5SpacePlace place = PlaceFamily(spec, seed, placementBlocked);
+                Sv5SpacePlace place = PlaceFamily(spec, seed, placementBlocked, places, diversity, diversityDecisions);
                 if (place == null)
                 {
                     diagnostics.Add("PLACE_UNAVAILABLE|" + spec.Family);
@@ -71,7 +73,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 projection.Gates).ToList();
             Validate(core, places, ports, connections, reservations, projection, diagnostics);
             return new Sv5SpaceGraphPlan(core, seed, profile, places, ports, connections, projection.Gates,
-                reservations, projection.Contacts, projection.Proofs, projection.GateStateChecks, diagnostics);
+                reservations, projection.Contacts, projection.Proofs, projection.GateStateChecks, diagnostics,
+                diversity, diversityDecisions);
         }
 
         private static IEnumerable<Sv5SpacePlace> BuildCorePlaces(Sv5CoreReservationPlan core)
@@ -83,10 +86,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         private static Sv5SpacePlace PlaceFamily(Sv5SpaceFamilySpec spec, ulong seed,
-            ISet<RmapSpecialWorldPoint> blocked)
+            ISet<RmapSpecialWorldPoint> blocked, IEnumerable<Sv5SpacePlace> placed,
+            Sv5DiversityProfile diversity, ICollection<Sv5DiversityDecision> decisions)
         {
             int preferred = (spec.Ordinal + (int)(seed % 16UL)) % 16;
-            var candidates = new List<Candidate>();
+            var candidates = new List<Sv5PlacementCandidate>();
             for (var sectorOffset = 0; sectorOffset < 16; sectorOffset++)
             {
                 int sector = (preferred + sectorOffset) % 16;
@@ -98,21 +102,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 int maxY = (sy + 1) * 104 - spec.Height - 4;
                 for (int y = Align4(minY); y <= maxY; y += 4)
                 for (int x = Align4(minX); x <= maxX; x += 4)
-                    candidates.Add(new Candidate(x, y, sector, sectorOffset,
+                    candidates.Add(new Sv5PlacementCandidate(new Sv5SpaceBounds(x, y, spec.Width, spec.Height), sector, sectorOffset,
                         StableRank(seed, spec.Ordinal, x, y)));
             }
-            foreach (Candidate candidate in candidates.OrderBy(value => value.SectorOffset)
-                         .ThenBy(value => value.Rank).ThenBy(value => value.Y).ThenBy(value => value.X))
-            {
-                var bounds = new Sv5SpaceBounds(candidate.X, candidate.Y, spec.Width, spec.Height);
-                if (BoundsCells(bounds, 2).Any(blocked.Contains)) continue;
-                string id = "SV5_PLACE_" + spec.Ordinal.ToString("00", CultureInfo.InvariantCulture) + "_" +
-                    RmapWorldDefinition.Hash(seed.ToString(CultureInfo.InvariantCulture) + "|" + spec.StableToken + "|" + bounds)
-                        .Substring(0, 16).ToUpperInvariant();
-                return new Sv5SpacePlace(id, spec.Family, spec.Kind, bounds, string.Empty, spec.FutureOwner,
-                    candidate.Sector);
-            }
-            return null;
+            var selection = Sv5SpaceDiversity.Select(spec, seed, candidates, placed.Select(Sv5FormationPart.FromPlace),
+                diversity, candidate => !BoundsCells(candidate.Bounds, 2).Any(blocked.Contains));
+            foreach (var decision in selection.Trace) decisions.Add(decision);
+            var chosen = selection.Chosen;
+            return chosen == null ? null : new Sv5SpacePlace(Sv5SpaceDiversity.PlaceId(spec, seed, chosen.Bounds),
+                spec.Family, spec.Kind, chosen.Bounds, string.Empty, spec.FutureOwner, chosen.Sector);
         }
 
         private static IEnumerable<Sv5SpacePort> BuildCorePorts(Sv5CoreReservationPlan core)

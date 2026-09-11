@@ -59,6 +59,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             families = new ReadOnlyCollection<Sv5SpaceFamilySpec>((sourceFamilies ??
                 Array.Empty<Sv5SpaceFamilySpec>()).Where(value => value != null)
                 .OrderBy(value => value.Ordinal).ToArray());
+            if (families.Select(f => f.Ordinal).Distinct().Count() != families.Count)
+                throw new ArgumentException("Independent requests need unique ordinals.", nameof(sourceFamilies));
             if (families.Count < 8 || families.Count(value => value.Kind == Sv5SpacePlaceKind.Large) < 4 ||
                 families.Count(value => value.Kind == Sv5SpacePlaceKind.Ordinary) < 4)
                 throw new ArgumentException("A profile needs several large and ordinary place families.", nameof(sourceFamilies));
@@ -144,6 +146,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string FutureOwner { get; }
         public int DistributionSector { get; }
         public string Readiness => Kind == Sv5SpacePlaceKind.Core ? "PRESERVED_CORE" : "PLANNED_SHELL";
+        public string FormationId => Id;
         public int CompareTo(Sv5SpacePlace other) => other == null ? 1 : string.Compare(Id, other.Id, StringComparison.Ordinal);
     }
 
@@ -394,13 +397,24 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5SpaceGraphPlan
     {
+        // Preserve the existing immutable-plan constructor used by direct mutation fixtures.
+        internal Sv5SpaceGraphPlan(Sv5CoreReservationPlan core, ulong seed, Sv5SpaceGraphAuthoringProfile profile,
+            IEnumerable<Sv5SpacePlace> sourcePlaces, IEnumerable<Sv5SpacePort> sourcePorts,
+            IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
+            IEnumerable<Sv5SpaceReservationCell> sourceReservations, IEnumerable<Sv5SpaceContactDecision> sourceContacts,
+            IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs, IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks,
+            IEnumerable<string> sourceDiagnostics) : this(core, seed, profile, sourcePlaces, sourcePorts,
+                sourceConnections, sourceGates, sourceReservations, sourceContacts, sourceProofs, sourceGateStateChecks,
+                sourceDiagnostics, new Sv5DiversityProfile(), null) { }
+
         internal Sv5SpaceGraphPlan(Sv5CoreReservationPlan core, ulong seed, Sv5SpaceGraphAuthoringProfile profile,
             IEnumerable<Sv5SpacePlace> sourcePlaces, IEnumerable<Sv5SpacePort> sourcePorts,
             IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
             IEnumerable<Sv5SpaceReservationCell> sourceReservations,
             IEnumerable<Sv5SpaceContactDecision> sourceContacts,
             IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs,
-            IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks, IEnumerable<string> sourceDiagnostics)
+            IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks, IEnumerable<string> sourceDiagnostics,
+            Sv5DiversityProfile diversityProfile, IEnumerable<Sv5DiversityDecision> diversityDecisions)
         {
             Core = core ?? throw new ArgumentNullException(nameof(core));
             Seed = seed;
@@ -422,6 +436,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             PhysicalMovement = Sv5SpacePhysicalMovement.Analyze(Core, Connections, ContactDecisions, Gates);
             PhysicalProduct = PhysicalMovement.Product;
             Segments = Sv5SpacePhysicalProduct.BuildSegments(Connections, Gates);
+            Diversity = new Sv5DiversityPlan(seed, diversityProfile ?? new Sv5DiversityProfile(), Places, diversityDecisions);
             Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
@@ -439,6 +454,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public Sv5SpacePhysicalMovementPlan PhysicalMovement { get; }
         public Sv5SpacePhysicalProductPlan PhysicalProduct { get; }
         public IReadOnlyList<Sv5SpaceSegment> Segments { get; }
+        public Sv5DiversityPlan Diversity { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
@@ -462,6 +478,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             yield return Core.RouteSource.Graph.Digest;
             yield return Seed.ToString(CultureInfo.InvariantCulture);
             yield return Profile.Digest;
+            yield return "diversity|" + Diversity.Digest;
             foreach (Sv5SpacePlace value in Places) yield return "place|" + L(value.Id) + L(value.Family) +
                 value.Kind + "|" + value.Bounds + "|" + L(value.CoreSiteId) + L(value.FutureOwner) + value.DistributionSector;
             foreach (Sv5SpacePort value in Ports) yield return "port|" + L(value.Id) + L(value.PlaceId) +

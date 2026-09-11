@@ -1,0 +1,44 @@
+{
+  "format": "sv5_07_package_v1",
+  "task": "SV5_07_DIVERSITY",
+  "native_inbox_file": "MapDesign/MCP_INBOX/SV5_07_DIVERSITY.md",
+  "source_predecessor_commit": "c96f76b8097c0baaa7e5d5e7a92465e38124ad2a",
+  "bound_task_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "bytes": 17025,
+      "sha256": "828036c70ac31cb542aa594dd579d357ee7457fda74c0a493a6dc9b936dc8d20"
+    },
+    {
+      "path": "DIVERSITY_PROFILE.json",
+      "bytes": 2930,
+      "sha256": "c83b66e3bf66f854fda67fb93aeb88331f0925b38e45214419dbece37105a844"
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "bytes": 824,
+      "sha256": "b9a09f22bda37b913a01958a20afcbf41c48873d04bc013bcfce768e4c815012"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "bytes": 185918,
+      "sha256": "d2115258bd275cd18efa6da15c932934033075b3506aea50206794868da0ba2d"
+    },
+    {
+      "path": "STAGE.py",
+      "bytes": 13151,
+      "sha256": "2d31bda1814429e8d8daab3d32ecae669a3d161c22e43664330104312c5d337c"
+    },
+    {
+      "path": "SV5_07_DIVERSITY.md",
+      "bytes": 7262,
+      "sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd"
+    }
+  ],
+  "self_exclusion": [
+    "FILES.json",
+    "SV5_07_PATCH.zip"
+  ],
+  "scope": "INPUTS_ONLY_STAGE_ONE_NATIVE_MD_IMPLEMENTATION_NOT_RUN"
+}

@@ -266,7 +266,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             .Replace("\n", string.Empty).Replace("\t", string.Empty);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX04", "legacy_exports",
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_07", "_work", "legacy_exports",
             "sv5_06_fix02_g08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
