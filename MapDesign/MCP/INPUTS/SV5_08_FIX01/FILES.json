@@ -1,0 +1,70 @@
+{
+  "format": "sv5_08_fix01_package_v1",
+  "task": "SV5_08_FIX01",
+  "native_inbox_file": "MapDesign/MCP_INBOX/SV5_08_FIX01.md",
+  "source_predecessor_commit": "953b833cb22904721f9e8687283a65d5bae64cb7",
+  "bound_task_sha256": "7ed6ed35d87410475b4a8a6c0c9af34b0aafc8ac8e68f596fffd9fc3d74ee2c3",
+  "files": [
+    {
+      "path": "LENGTH_EVIDENCE.json",
+      "bytes": 355171,
+      "sha256": "1c252e21900603ac9490b5874ab0bfa7b4d62881b1498ec1da29aa897e0cad60"
+    },
+    {
+      "path": "LENGTH_RULE.json",
+      "bytes": 1218,
+      "sha256": "541da93da252991c656a45181a13ddb682bb52276f01b78cae1249af256f0a40"
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "bytes": 1288,
+      "sha256": "31ee2c22ae8de7a3be708c352b471eb4be1abed348e8d950c9270487b99dd27e"
+    },
+    {
+      "path": "REGISTRATION.diff",
+      "bytes": 695,
+      "sha256": "20bf744f0f47106e4cc62b4028e184ba4b3411427f0c7c244b156b9a7d90bfbe"
+    },
+    {
+      "path": "REGISTRATION.json",
+      "bytes": 1383,
+      "sha256": "db417ad3c1828155cee702f52d0308b984318c2f6414f807373bcc851a4fdd2d"
+    },
+    {
+      "path": "REGISTRATION.md",
+      "bytes": 2267,
+      "sha256": "ce8c18e2a67e3814b7e880d35e0b7412637b4ad06e90a58302c2363ab106791b"
+    },
+    {
+      "path": "REPAIR_CONTRACT.md",
+      "bytes": 13466,
+      "sha256": "6bcb3fd60dd85431339ac2cbdc9094d8ac8d4b6201670f0f4992f94cb6bbfd82"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "bytes": 283981,
+      "sha256": "3871af1e2e2bf53998df1b9092ff9ab1e613380742910d745b7dc2cac31fba79"
+    },
+    {
+      "path": "SV5_08_FIX01.md",
+      "bytes": 5016,
+      "sha256": "7ed6ed35d87410475b4a8a6c0c9af34b0aafc8ac8e68f596fffd9fc3d74ee2c3"
+    },
+    {
+      "path": "SV5_LEGACY_RETIREMENT_DIRECTIVE.md",
+      "bytes": 5971,
+      "sha256": "8a445c1e5b4800158750974d8598dddd4a9cee233f40a8638666d5b11f2414d4"
+    },
+    {
+      "path": "tools/PRECHECK.py",
+      "bytes": 15273,
+      "sha256": "42d154aa6c874259ae7a7c8f7e5312f2bc887068089a8ae849edc4cfbbf6544f"
+    },
+    {
+      "path": "tools/check_lengths.py",
+      "bytes": 5131,
+      "sha256": "de22ddb40b677511aa54cf24983fb0f5c2b4aede0c217d892277d59b50f522f6"
+    }
+  ],
+  "scope": "INPUTS_ONLY; EXPLICIT_REGISTRATION_DIFF; STAGE_ONE_MD; IMPLEMENTATION_NOT_RUN"
+}

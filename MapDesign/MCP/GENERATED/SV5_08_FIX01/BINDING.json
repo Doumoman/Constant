@@ -1,0 +1,123 @@
+{
+  "schema": "SV5_08_FIX01_BINDING_V1",
+  "task": "SV5_08_FIX01",
+  "package_manifest_sha256": "f9d989370e91ac80299c0b6592f7d8935081485d473bd3a64d7a2fbec6eaaf65",
+  "bound_task_sha256": "7ed6ed35d87410475b4a8a6c0c9af34b0aafc8ac8e68f596fffd9fc3d74ee2c3",
+  "git": {
+    "predecessor_commit": "953b833cb22904721f9e8687283a65d5bae64cb7",
+    "predecessor_parent": "ab82efcfb3d183c995d0184db9d3dc55f2f3acc9",
+    "head_during_execution": "953b833cb22904721f9e8687283a65d5bae64cb7",
+    "predecessor_commit_blobs_verified": 143
+  },
+  "registration": {
+    "patch_id": "SV5_08_FIX01_REG",
+    "master_before_sha256": "125463da8dcee31f9b74e3613b2ed4978696a1d111cf2f471fa57ff0ada0ef64",
+    "master_after_sha256": "d0804d9c9f386e169aeaa97c0ebbefce3fa6d208e36b48521eace3b4c7e525a4",
+    "status_before_sha256": "2683746a5c6f5971ba2b235cf63b8a314f39b41bb6725d55f33879d8d316151e",
+    "status_after_registration_sha256": "dd0787aa4ad3b819bc6a95d0925a57997f035119c42ffcdeb71aebc635cc5469",
+    "registered_rows": [
+      "| 08.F1 | SV5_08_FIX01 | LOCKED |",
+      "| SV5_08_FIX01 | LOCKED |"
+    ]
+  },
+  "source_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF in listed order)",
+    "targeted_tested_source_sha256": "7b6291d3106feb74ff9bf8ad7d6f3cca890ec0824cd613ac6ac037711ced4ca2",
+    "final_tested_source_sha256": "9ebbb28334ebc58177662dc9e5aa7904ab39b8c707d6635beab5d71a53638a6f",
+    "targeted_to_final_change": "Sv5InfillExport comparison rendering only; final focused run supersedes targeted evidence",
+    "files": [
+      {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceInfill.cs","raw_sha256":"50cc6ec26cee2f64fae6786f56f972cb1b0669ca50e940834872e1b40d32af6a","raw_bytes":52374,"blob_sha256":"50cc6ec26cee2f64fae6786f56f972cb1b0669ca50e940834872e1b40d32af6a","blob_bytes":52374,"blob_oid":"127f9bc56f968a3f50c4f56e84b2ef053859cf6e"},
+      {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs","raw_sha256":"9ba3805c0dfa5e5e34391536ade80ec8b4d6d197cb330a2d31ad011aff4d905b","raw_bytes":25657,"blob_sha256":"9ba3805c0dfa5e5e34391536ade80ec8b4d6d197cb330a2d31ad011aff4d905b","blob_bytes":25657,"blob_oid":"b0d7152bac83b3de60adc5f8cf69aebab5bedce3"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs","raw_sha256":"195534ce300bd23f3dc3d21528fd12ea67b7f35e70a1d494217661e486bf0622","raw_bytes":16267,"blob_sha256":"195534ce300bd23f3dc3d21528fd12ea67b7f35e70a1d494217661e486bf0622","blob_bytes":16267,"blob_oid":"8503c7dfdf740ab5aa2bab3509432a180aa20e3e"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs","raw_sha256":"75185f3a89303d0d759e6772e1ba8db501e3d618c2c0450ea7c0e56720dc58d7","raw_bytes":18436,"blob_sha256":"75185f3a89303d0d759e6772e1ba8db501e3d618c2c0450ea7c0e56720dc58d7","blob_bytes":18436,"blob_oid":"b3b78b3ec701b8fe8066a909cd5f24093c8b88a8"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs","raw_sha256":"8b5995ea681c10075cd627981d967feba681701db5f742cd2789e72dfac38c59","raw_bytes":20012,"blob_sha256":"8b5995ea681c10075cd627981d967feba681701db5f742cd2789e72dfac38c59","blob_bytes":20012,"blob_oid":"b55384b8c4080cbcb48d8ee74dc82ab770f65ee7"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs","raw_sha256":"ecf3dc72bdb1c191c883e0d914131d4da744c41c1804788469f1685f626dff26","raw_bytes":21267,"blob_sha256":"ecf3dc72bdb1c191c883e0d914131d4da744c41c1804788469f1685f626dff26","blob_bytes":21267,"blob_oid":"5832651ee286fd8e96ab0d5c31593f939ce2ad51"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs","raw_sha256":"3a01846e749be10530683b8c71bff4c9f14c3f385f970db718254896c33fafd6","raw_bytes":13954,"blob_sha256":"3a01846e749be10530683b8c71bff4c9f14c3f385f970db718254896c33fafd6","blob_bytes":13954,"blob_oid":"37bc708e924b6867c4fb8996ac65bdccce0d7f49"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs","raw_sha256":"a67daa80af960589c743d04ebccf1ac46e83c87c5eee51f2bb173a872aded7cb","raw_bytes":18203,"blob_sha256":"a67daa80af960589c743d04ebccf1ac46e83c87c5eee51f2bb173a872aded7cb","blob_bytes":18203,"blob_oid":"608df044b5900c67477fcb40a2c685690a963164"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs","raw_sha256":"d9cec3309c175d7f8e585dad769864757953d5a198c709987f2cab06bb72ba41","raw_bytes":15484,"blob_sha256":"d9cec3309c175d7f8e585dad769864757953d5a198c709987f2cab06bb72ba41","blob_bytes":15484,"blob_oid":"44f0379100d7d0cd7c2a5bf987719c4c1e2426a9"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs","raw_sha256":"eefa2757e1135353d3ba29ec8f78ca1fd19b4ee2e23485db10304a9b0f0f08eb","raw_bytes":18013,"blob_sha256":"eefa2757e1135353d3ba29ec8f78ca1fd19b4ee2e23485db10304a9b0f0f08eb","blob_bytes":18013,"blob_oid":"4d829335161970384620388672c47733eb3f42a7"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs","raw_sha256":"f7745ba505575af12301fb56e2ed645a4245237b55c9df9837fd0527341f13c9","raw_bytes":19322,"blob_sha256":"f7745ba505575af12301fb56e2ed645a4245237b55c9df9837fd0527341f13c9","blob_bytes":19322,"blob_oid":"65a324862b8de0401728bbe2b3dcd06679982f28"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceInfillTests.cs","raw_sha256":"ed356f52edd21946923d5112d0ebe637b6331807977a597b960e0bba355eb14d","raw_bytes":34848,"blob_sha256":"ed356f52edd21946923d5112d0ebe637b6331807977a597b960e0bba355eb14d","blob_bytes":34848,"blob_oid":"296dc6fc2948527bb651ee0ab8495eb86c0bfe91"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillLengthFix01Tests.cs","raw_sha256":"487908603d10e6e9a392b081449357deb582adb94b6eb16847b50795e2172c5f","raw_bytes":9938,"blob_sha256":"487908603d10e6e9a392b081449357deb582adb94b6eb16847b50795e2172c5f","blob_bytes":9938,"blob_oid":"7f2d0037d56acf47d990eb77e306faf0d7d63d84"},
+      {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillLengthFix01Tests.cs.meta","raw_sha256":"152d4c32b7ae46dfb5ea7e5a8ff4409e909b2b444d65361e91f5130315e4250c","raw_bytes":60,"blob_sha256":"152d4c32b7ae46dfb5ea7e5a8ff4409e909b2b444d65361e91f5130315e4250c","blob_bytes":60,"blob_oid":"62330e91680fc3879a16e255fd5d44fb33d18f66"}
+    ]
+  },
+  "commands": {
+    "pre_registration": "python -X utf8 MapDesign/MCP/INPUTS/SV5_08_FIX01/tools/PRECHECK.py --mode pre-registration --project-root . --expected-manifest-sha f9d989370e91ac80299c0b6592f7d8935081485d473bd3a64d7a2fbec6eaaf65",
+    "registration_check": "git -c core.autocrlf=false -c core.eol=lf apply --check MapDesign/MCP/INPUTS/SV5_08_FIX01/REGISTRATION.diff",
+    "registration_apply": "git -c core.autocrlf=false -c core.eol=lf apply MapDesign/MCP/INPUTS/SV5_08_FIX01/REGISTRATION.diff",
+    "stage": "python -X utf8 MapDesign/MCP/INPUTS/SV5_08_FIX01/tools/PRECHECK.py --mode stage --project-root . --expected-manifest-sha f9d989370e91ac80299c0b6592f7d8935081485d473bd3a64d7a2fbec6eaaf65",
+    "targeted_fix01": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5.Sv5InfillLengthFix01Tests --output MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/fix01_regression.xml --timeout 1800 --format json",
+    "targeted_infill": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceInfillTests --output MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/infill_regression.xml --timeout 1800 --format json",
+    "focused": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_08_FIX01/focused_results.xml --timeout 1800 --format json",
+    "length_audit": "python -X utf8 MapDesign/MCP/INPUTS/SV5_08_FIX01/tools/check_lengths.py --generated-root MapDesign/MCP/GENERATED/SV5_08_FIX01",
+    "post_readonly": "python -X utf8 MapDesign/MCP/INPUTS/SV5_08_FIX01/tools/PRECHECK.py --mode post-readonly --project-root . --expected-manifest-sha f9d989370e91ac80299c0b6592f7d8935081485d473bd3a64d7a2fbec6eaaf65"
+  },
+  "unity": {
+    "editor_version": "6000.3.8f1",
+    "editor_revision": "1c7db571dde0",
+    "cli_version": "1.0.0-beta.9"
+  },
+  "test_runs": {
+    "targeted_fix01": {"total":7,"passed":7,"failed":0,"skipped":0,"inconclusive":0,"duration_seconds":163.1587723,"raw_sha256":"12a4950c815aa5432b8bb27bf5151ca34ecf6e792c3f46e3ea5c95cf5c700c14","raw_bytes":9798,"cleaned_with_work":true,"superseded_by_final_focused":true},
+    "targeted_infill": {"total":9,"passed":9,"failed":0,"skipped":0,"inconclusive":0,"duration_seconds":433.419517,"raw_sha256":"96fa44d7a3080913f389c5886c7ef650c0ec05c1ef6b3995ff6d232a052a48da","raw_bytes":12303,"cleaned_with_work":true,"superseded_by_final_focused":true},
+    "final_focused": {
+      "result": "Passed",
+      "testcasecount": 102,
+      "total": 102,
+      "passed": 102,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 960.2594794,
+      "start_utc": "2026-09-11T18:48:37Z",
+      "end_utc": "2026-09-11T19:04:37Z",
+      "raw_sha256": "9a1a7b4ea5325957a272ebc8b4a1eabbab4f316bbb269ee914c0869c591e2b75",
+      "raw_bytes": 105643,
+      "raw_crlf_count": 790,
+      "blob_sha256": "6fe07cef57207c0c51a62277edab34f83f04114611f00500d94ff6752f9fa009",
+      "blob_bytes": 104853,
+      "blob_oid": "3f605f031b048a266ab5128c98183278959fb091"
+    }
+  },
+  "exports": {
+    "default": {"plan_digest":"04f47c94883ccec465d891d500841a5bc4f811d5299cae2562d4e19ca2c10d5f","infill_digest":"fe3e1204f58e11ceccb3cd933d139e34c43b3d7e5d03156daf8187faae56e530","new_rooms":217,"new_owned_tiles":62806,"maximum_inclusive":24,"over_24":0,"endpoint_errors":0,"non_cardinal":0},
+    "repeat": {"plan_digest":"06d95903a803eda03751fbbb3bd47d50da79388f740e7ca6ae8b22832795f5ea","infill_digest":"315bd2b523d102c9fe203ab30699f80a4a5296cc631d981a1ae849718a9baea3","new_rooms":234,"new_owned_tiles":67625,"maximum_inclusive":24,"over_24":0,"endpoint_errors":0,"non_cardinal":0},
+    "length_audit_sha256": "acb15d1ddbe0aaa239aafc84a9bfb475d1e12855e34e0a3049decba6d61748cf",
+    "comparison_sha256": "05123ec9eba2d4698a115dfcc198ee201b2315a7b76e58377801876680a1ac0b",
+    "legacy_inventory_sha256": "5b1b557310812b3ef79c22e1e4962303cf6b14ea8c3e8933d03d2782b7fa4827",
+    "final_file_count_before_binding": 114,
+    "final_bytes_before_binding": 156569515
+  },
+  "locks": {
+    "before_unity": {"always_checked":780,"mismatches":0,"commit_blob_checks":143},
+    "after_unity": {"always_checked":780,"mismatches":0,"commit_blob_checks":143,"status":"PASS_READONLY_LOCAL_AND_GIT"}
+  },
+  "cleanup": {
+    "path": "MapDesign/MCP/GENERATED/SV5_08_FIX01/_work",
+    "removed_files": 344,
+    "removed_directories": 29,
+    "removed_bytes": 432899127,
+    "work_absent": true,
+    "recoverability": "regenerable by the recorded test commands; not moved to recycle bin"
+  },
+  "ownership": {
+    "final_output_root": "MapDesign/MCP/GENERATED/SV5_08_FIX01",
+    "legacy_test_writes": "isolated under FIX01/_work/legacy_exports and removed after PASS",
+    "historical_inputs": "read-only",
+    "unrelated_dirty_preserved": true,
+    "unrelated_dirty_excluded_from_commit": [
+      "Assets/_Game/Map/Scenes/MoonPalace/VIS01/MoonPalaceGrayboxExample_VIS01.unity",
+      "Constant.slnx",
+      "pre-existing VIS01/VIS02 deletions",
+      "pre-existing review zips, diagnostics, root helper files and unrelated reports"
+    ]
+  },
+  "readiness": {
+    "status_finalize": {"rows":291,"COMPLETE":252,"CURRENT":0,"LOCKED":39,"current_task":"NONE"},
+    "ComposedGeometryReady": false,
+    "PlayerVerified": false,
+    "SV5_09_LOOPS": "LOCKED",
+    "push_performed": false
+  }
+}

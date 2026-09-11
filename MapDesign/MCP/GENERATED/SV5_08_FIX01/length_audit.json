@@ -1,0 +1,6518 @@
+{
+  "status": "PASS_LENGTH_CSV_ONLY",
+  "unity_verified": false,
+  "cases": [
+    {
+      "case": "default",
+      "success": true,
+      "policy": "SV5_INFILL_LENGTH_RULE_V2",
+      "plan_digests": [
+        "04f47c94883ccec465d891d500841a5bc4f811d5299cae2562d4e19ca2c10d5f"
+      ],
+      "new_connections_checked": 217,
+      "legacy_interior_links": 6,
+      "maximum_inclusive": 24,
+      "over_24": 0,
+      "errors": [],
+      "connections": [
+        {
+          "room_id": "SV5_INFILL_ROOM_0004120110f44eef5c72",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            132,
+            51
+          ],
+          "end": [
+            111,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0017896242681bbba695",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            135,
+            335
+          ],
+          "end": [
+            148,
+            339
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00214737a7823549ff84",
+          "legacy": false,
+          "inclusive_count": 19,
+          "start": [
+            41,
+            299
+          ],
+          "end": [
+            27,
+            295
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0024793eb465e7cf43f8",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            184,
+            11
+          ],
+          "end": [
+            179,
+            15
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_002847beba22c27fafc7",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            384,
+            355
+          ],
+          "end": [
+            404,
+            355
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_002b1fdb38d3b5d62912",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            556,
+            23
+          ],
+          "end": [
+            560,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0033f24aa202678fd527",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            168,
+            207
+          ],
+          "end": [
+            176,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0036192e65ffed678614",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            40,
+            391
+          ],
+          "end": [
+            27,
+            399
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0038cd07afe0acfefffa",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            531,
+            393
+          ],
+          "end": [
+            548,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_003c64be23db80287d41",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            579,
+            23
+          ],
+          "end": [
+            600,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00473322334dddb23100",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            40,
+            327
+          ],
+          "end": [
+            23,
+            331
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_004a21fe679a80497ef7",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            328,
+            379
+          ],
+          "end": [
+            315,
+            371
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0058509cbbf5ecd5a28e",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            583,
+            393
+          ],
+          "end": [
+            604,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_005a04bda9ede05b1190",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            128,
+            131
+          ],
+          "end": [
+            107,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_005e769b555b56fe007d",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            199,
+            321
+          ],
+          "end": [
+            212,
+            323
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00636997b68d562b57db",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            176,
+            99
+          ],
+          "end": [
+            167,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_006e09773eb20b7351b0",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            220,
+            111
+          ],
+          "end": [
+            207,
+            111
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0074c7f66d6a87c31d5f",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            74,
+            263
+          ],
+          "end": [
+            63,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_007c17890d68e31350a9",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            144,
+            27
+          ],
+          "end": [
+            127,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0081ac017846ab0e0d78",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            500,
+            79
+          ],
+          "end": [
+            487,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00935d046d479aecb80d",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            88,
+            243
+          ],
+          "end": [
+            75,
+            235
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0093b9c559d99efd34f8",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            180,
+            367
+          ],
+          "end": [
+            171,
+            375
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0096ec3a665cb4efc92b",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            156,
+            196
+          ],
+          "end": [
+            172,
+            191
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0097a6b558d6e61e58f5",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            382,
+            315
+          ],
+          "end": [
+            371,
+            323
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_009ef3f64388d61dce55",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            463,
+            383
+          ],
+          "end": [
+            468,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00a7e77543f9bf76279e",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            60,
+            235
+          ],
+          "end": [
+            55,
+            231
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00b4a4fe56b192880b8c",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            43
+          ],
+          "end": [
+            568,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00c18a953b0a68c4097f",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            585,
+            287
+          ],
+          "end": [
+            596,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00cf93b8e5daaa4b04e1",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            128,
+            103
+          ],
+          "end": [
+            123,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00d2b967a3d3b2f6b4b1",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            220,
+            23
+          ],
+          "end": [
+            211,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00e46d5d0ba666a9579a",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            168,
+            31
+          ],
+          "end": [
+            159,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00e5c1799c48f53348c3",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            91
+          ],
+          "end": [
+            551,
+            91
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00e883e8005721574f5b",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            115,
+            337
+          ],
+          "end": [
+            120,
+            335
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00fe6dfb4eef486a889c",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            87
+          ],
+          "end": [
+            572,
+            91
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0101a927b6208b1c30a1",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            67,
+            323
+          ],
+          "end": [
+            72,
+            319
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01122f644626dea695c0",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            60,
+            267
+          ],
+          "end": [
+            51,
+            271
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_012515d71cbb8a4aa159",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            524,
+            23
+          ],
+          "end": [
+            507,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01436909100db22b451e",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            168,
+            235
+          ],
+          "end": [
+            159,
+            239
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_014900279cc1ebc8f1c2",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            603,
+            311
+          ],
+          "end": [
+            599,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_014ea698f88348a9d9a6",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            580,
+            247
+          ],
+          "end": [
+            584,
+            247
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_014ff8b35cb7a06ee610",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            128,
+            187
+          ],
+          "end": [
+            111,
+            191
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_015c9cef18a476102e65",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            108,
+            213
+          ],
+          "end": [
+            99,
+            219
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_015e047734bb1781d7ff",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            76,
+            111
+          ],
+          "end": [
+            63,
+            107
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_016130f8c175d446c415",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            40,
+            83
+          ],
+          "end": [
+            23,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_016e566fdda939779b86",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            603,
+            351
+          ],
+          "end": [
+            599,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0172fae7eed3ae487f8f",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            128,
+            159
+          ],
+          "end": [
+            144,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0185002ddaf865f0355b",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            36,
+            131
+          ],
+          "end": [
+            19,
+            135
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_018765724e6a988ed29c",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            503,
+            387
+          ],
+          "end": [
+            516,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0193b889fad304bdfe2d",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            472,
+            73
+          ],
+          "end": [
+            459,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_019f7dfb6c5038fd6bbb",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            221,
+            12
+          ],
+          "end": [
+            199,
+            11
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ab2e7fdecd01da9567",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            167,
+            339
+          ],
+          "end": [
+            172,
+            343
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ab4f357f1a1a51e05d",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            220,
+            23
+          ],
+          "end": [
+            224,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ba3c3a3c17419084a1",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            128,
+            163
+          ],
+          "end": [
+            123,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01bb1b07c551a2aea448",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            63,
+            371
+          ],
+          "end": [
+            72,
+            363
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01c1477b3c55cfc6e110",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            187,
+            139
+          ],
+          "end": [
+            200,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ddd88472d49aff5c99",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            44,
+            63
+          ],
+          "end": [
+            39,
+            63
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01dff27f34909d8482fd",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            295,
+            351
+          ],
+          "end": [
+            304,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01f1deda8d91f26fc910",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            163,
+            283
+          ],
+          "end": [
+            168,
+            283
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01fd763216564c4ab82e",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            96,
+            53
+          ],
+          "end": [
+            91,
+            55
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_020c68eab2640b2d5781",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            40,
+            319
+          ],
+          "end": [
+            48,
+            323
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0211dda6690845617294",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            220,
+            51
+          ],
+          "end": [
+            203,
+            55
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02131663b956c4b63225",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            164,
+            15
+          ],
+          "end": [
+            155,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_021b4048fa47706aeaf6",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            76,
+            167
+          ],
+          "end": [
+            71,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02284733d117494c6d27",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            40,
+            351
+          ],
+          "end": [
+            44,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02310f3878fc359b92be",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            48,
+            251
+          ],
+          "end": [
+            39,
+            259
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02317cbd349a906d55ab",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            159,
+            299
+          ],
+          "end": [
+            180,
+            299
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0233efc146f9a48950d8",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            427,
+            383
+          ],
+          "end": [
+            448,
+            383
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0249a8d4b3775d965893",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            220,
+            79
+          ],
+          "end": [
+            224,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02515634e73d42bbbebe",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            187,
+            191
+          ],
+          "end": [
+            196,
+            195
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02587486b3c152380c1b",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            163,
+            135
+          ],
+          "end": [
+            172,
+            139
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_026b4248321dee685078",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            587,
+            93
+          ],
+          "end": [
+            600,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0274815fcd6818f05a6a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            128,
+            151
+          ],
+          "end": [
+            107,
+            151
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_028a34c9c8e65cb1c636",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            211,
+            255
+          ],
+          "end": [
+            216,
+            255
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_029b432f4140a9c49192",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            68,
+            129
+          ],
+          "end": [
+            51,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02ae7414022cdad35012",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            512,
+            101
+          ],
+          "end": [
+            503,
+            95
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02b3ff92c2cf8349563c",
+          "legacy": false,
+          "inclusive_count": 4,
+          "start": [
+            361,
+            395
+          ],
+          "end": [
+            364,
+            395
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02bb145ab70126550c47",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            208,
+            244
+          ],
+          "end": [
+            216,
+            235
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02bb77b38d2830e3098a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            127,
+            295
+          ],
+          "end": [
+            144,
+            299
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02c005e09e1c31c6fd00",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            87,
+            319
+          ],
+          "end": [
+            100,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02c450bd7f02577d51cc",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            48,
+            109
+          ],
+          "end": [
+            35,
+            99
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02c9b2d6e7ba5ded15f4",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            96,
+            83
+          ],
+          "end": [
+            91,
+            87
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02df71f8b6dc6956e1bd",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            211,
+            275
+          ],
+          "end": [
+            228,
+            279
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_030a02d7aa5a692e4bf7",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            40,
+            355
+          ],
+          "end": [
+            23,
+            359
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0315a5303806deccb68e",
+          "legacy": false,
+          "inclusive_count": 19,
+          "start": [
+            361,
+            383
+          ],
+          "end": [
+            347,
+            379
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_031d1d62b78c134dc1c8",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            119,
+            311
+          ],
+          "end": [
+            128,
+            315
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_033678ff7e9c05d21528",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            128,
+            115
+          ],
+          "end": [
+            144,
+            119
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_033878718f1e33807663",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            40,
+            371
+          ],
+          "end": [
+            44,
+            371
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0338f39aba7496f3ee5e",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            451,
+            353
+          ],
+          "end": [
+            468,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03457115457eb0b59c96",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            56,
+            171
+          ],
+          "end": [
+            47,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0348461d960659e46de4",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            140,
+            9
+          ],
+          "end": [
+            119,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03514fe3df18dd932b15",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            156,
+            375
+          ],
+          "end": [
+            147,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03850b67c3244694a906",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            36,
+            209
+          ],
+          "end": [
+            19,
+            207
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0385fb7a684e6007e3c3",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            163,
+            119
+          ],
+          "end": [
+            168,
+            115
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03b08efc4624bc79bd40",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            40,
+            371
+          ],
+          "end": [
+            27,
+            379
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03bff8d63e21cbc62be9",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            220,
+            51
+          ],
+          "end": [
+            224,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03e607e34238c975c8c8",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            108,
+            163
+          ],
+          "end": [
+            95,
+            167
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03eb84acec7e9db8f52e",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            84,
+            219
+          ],
+          "end": [
+            67,
+            219
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03f794e9844c481d8faa",
+          "legacy": false,
+          "inclusive_count": 12,
+          "start": [
+            196,
+            29
+          ],
+          "end": [
+            187,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03ffbc2c3bc5f015a247",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            211,
+            171
+          ],
+          "end": [
+            228,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_041cc40ca34ac9669c39",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            72,
+            87
+          ],
+          "end": [
+            55,
+            83
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_042225214705273a5475",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            456,
+            27
+          ],
+          "end": [
+            451,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04306d96a9442be86a73",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            191,
+            211
+          ],
+          "end": [
+            208,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04411f6d27775360dabd",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            175,
+            319
+          ],
+          "end": [
+            184,
+            319
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04458846b0c9a081817d",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            176,
+            87
+          ],
+          "end": [
+            188,
+            87
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_045401b7a790b2dc7e82",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            271,
+            347
+          ],
+          "end": [
+            280,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04683155dc682c4ccd05",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            483,
+            389
+          ],
+          "end": [
+            488,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_046863d4c69cd86e081e",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            556,
+            75
+          ],
+          "end": [
+            535,
+            75
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_046d6d59228be1a29d93",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            187,
+            165
+          ],
+          "end": [
+            196,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0478d2bded42dc4c9dba",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            528,
+            355
+          ],
+          "end": [
+            507,
+            355
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04a89a1ea13d228de7cf",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            48,
+            39
+          ],
+          "end": [
+            35,
+            43
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04aa6c25103dea14b6e1",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            163,
+            163
+          ],
+          "end": [
+            172,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04b3ee2d2f798b163c8e",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            556,
+            23
+          ],
+          "end": [
+            539,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_050679a438450aaa44e4",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            87,
+            363
+          ],
+          "end": [
+            100,
+            363
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0506fdfb6b446fb73eeb",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            143,
+            315
+          ],
+          "end": [
+            160,
+            319
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_050904725fdcd82ff28e",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            71
+          ],
+          "end": [
+            572,
+            75
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_050dc7e3b0d32cf22249",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            52,
+            21
+          ],
+          "end": [
+            31,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05300313b23b3b52092c",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            419,
+            357
+          ],
+          "end": [
+            436,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0555f7159cc5807eccd0",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            168,
+            203
+          ],
+          "end": [
+            155,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_055856717f4139baf16b",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            92,
+            131
+          ],
+          "end": [
+            83,
+            127
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0573f914122762e2eb87",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            439,
+            260
+          ],
+          "end": [
+            431,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_057683d5fe82e4d2d316",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            207,
+            347
+          ],
+          "end": [
+            220,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0584c23697100b09d0ae",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            188,
+            55
+          ],
+          "end": [
+            183,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05885ce148e473a135b3",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            155
+          ],
+          "end": [
+            551,
+            155
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0591ab8eb2a9227b48a9",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            580,
+            295
+          ],
+          "end": [
+            584,
+            295
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05c2f6d74e4669826a3f",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            268,
+            367
+          ],
+          "end": [
+            263,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05c86cf090f60cb83689",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            76,
+            55
+          ],
+          "end": [
+            63,
+            63
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05ca1ce41aa5fccf5e3e",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            132,
+            79
+          ],
+          "end": [
+            115,
+            83
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_06221a856d3548df6440",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            47
+          ],
+          "end": [
+            551,
+            47
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_062a3c2e546c33beff13",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            187,
+            343
+          ],
+          "end": [
+            192,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_062bdedbace97bb71fc4",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            563,
+            391
+          ],
+          "end": [
+            568,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_068c7c9992134cb31e50",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            248,
+            369
+          ],
+          "end": [
+            235,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_069bc950dfc606260497",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            436,
+            275
+          ],
+          "end": [
+            431,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_06b5e74710bf880c80b2",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            109,
+            263
+          ],
+          "end": [
+            120,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_06d7a128bf1180015fa4",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            40,
+            231
+          ],
+          "end": [
+            31,
+            223
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_071e519de6c295adb1fe",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            76,
+            15
+          ],
+          "end": [
+            67,
+            19
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0721ca040a4fb03db0b5",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            296,
+            371
+          ],
+          "end": [
+            287,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0740dfaa546673a8b5c1",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            492,
+            27
+          ],
+          "end": [
+            471,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_077c8203eda478d84a8a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            220,
+            367
+          ],
+          "end": [
+            199,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07ae130cd11db41e86f7",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            215,
+            131
+          ],
+          "end": [
+            224,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07af10cb4acde894de2d",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            164,
+            51
+          ],
+          "end": [
+            151,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07e007d06ec3f751ba08",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            591,
+            75
+          ],
+          "end": [
+            604,
+            67
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07fb3ac254e765673737",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            127
+          ],
+          "end": [
+            576,
+            127
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_085ccdd2aab522478401",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            595,
+            127
+          ],
+          "end": [
+            604,
+            119
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_08841863b709bc42cfdb",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            427,
+            395
+          ],
+          "end": [
+            444,
+            399
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_088b52ae78584124831f",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            183,
+            283
+          ],
+          "end": [
+            196,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_088f25cbc663d6d3b7a4",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            384,
+            367
+          ],
+          "end": [
+            379,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0906eed53b6b0073b19f",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            195,
+            301
+          ],
+          "end": [
+            208,
+            307
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0909a36ec6e7704afdde",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            87,
+            343
+          ],
+          "end": [
+            100,
+            335
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_090d026d03e4c895fe2f",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            88,
+            151
+          ],
+          "end": [
+            79,
+            155
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0975974720d7a7ab44f2",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            456,
+            103
+          ],
+          "end": [
+            451,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_09beaf6f785387326af3",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            144,
+            239
+          ],
+          "end": [
+            127,
+            235
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_09cb99c9abddc7fd396e",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            580,
+            231
+          ],
+          "end": [
+            592,
+            231
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a0176e55952a06363c6",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            145,
+            263
+          ],
+          "end": [
+            156,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a107f903c1e96b3791e",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            239,
+            351
+          ],
+          "end": [
+            256,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a31f8299bcf4e6b93c9",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            112,
+            235
+          ],
+          "end": [
+            103,
+            243
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a36c81afd9dafbde939",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            536,
+            47
+          ],
+          "end": [
+            523,
+            39
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a876125fd11905b88fc",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            211,
+            195
+          ],
+          "end": [
+            228,
+            199
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0ae6927cb63168de9a09",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            128,
+            175
+          ],
+          "end": [
+            132,
+            175
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0b37330b20cc0a7ce9c9",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            100,
+            7
+          ],
+          "end": [
+            91,
+            15
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0b825bde62b1eee79257",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            40,
+            307
+          ],
+          "end": [
+            31,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0c69ae74af31ab21da75",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            488,
+            97
+          ],
+          "end": [
+            471,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0c74848c713648c23e1f",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            436,
+            31
+          ],
+          "end": [
+            431,
+            35
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0c97bc8d682a1b5e9ce0",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            140,
+            213
+          ],
+          "end": [
+            123,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0cf3150abb2be197bdc3",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            104,
+            103
+          ],
+          "end": [
+            95,
+            111
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0d63595f6cd949c1a932",
+          "legacy": false,
+          "inclusive_count": 19,
+          "start": [
+            581,
+            8
+          ],
+          "end": [
+            596,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0d6757c798ece8ef8ef4",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            520,
+            75
+          ],
+          "end": [
+            515,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0d8cf875280fe40a6142",
+          "legacy": false,
+          "inclusive_count": 9,
+          "start": [
+            40,
+            307
+          ],
+          "end": [
+            48,
+            307
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0dab25b86c4a80f558fb",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            583,
+            53
+          ],
+          "end": [
+            596,
+            43
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0dbd53f17d6303f0e39e",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            436,
+            103
+          ],
+          "end": [
+            431,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0e03c89fc44cb27c66ab",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            187
+          ],
+          "end": [
+            551,
+            187
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0e1d0458b0d793642356",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            444,
+            79
+          ],
+          "end": [
+            435,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0e316ce78212c7a7aa18",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            96,
+            193
+          ],
+          "end": [
+            79,
+            199
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0eaf7a838d77541f94b1",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            28,
+            163
+          ],
+          "end": [
+            19,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0eec20aa3a5b45e6fa41",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            436,
+            49
+          ],
+          "end": [
+            431,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0eed68767be005747705",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            64,
+            199
+          ],
+          "end": [
+            51,
+            207
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0f17f69a0304b7b0be0e",
+          "legacy": false,
+          "inclusive_count": 19,
+          "start": [
+            382,
+            319
+          ],
+          "end": [
+            392,
+            327
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0f5736599d7acc3ea0a8",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            123
+          ],
+          "end": [
+            551,
+            123
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0f8b0d9ffd48309ac358",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            484,
+            371
+          ],
+          "end": [
+            471,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0fbf6eda874a033c0543",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            319,
+            347
+          ],
+          "end": [
+            324,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1021773e205f6254b33f",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            72,
+            31
+          ],
+          "end": [
+            63,
+            39
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_10723a60cc9b706bf1c1",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            584,
+            351
+          ],
+          "end": [
+            579,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_11ea6749b4a84e4590a4",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            468,
+            43
+          ],
+          "end": [
+            451,
+            47
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_12b7e28ceac0decd5997",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            112,
+            31
+          ],
+          "end": [
+            91,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_136a2d749c8d7eddcf7e",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            128,
+            147
+          ],
+          "end": [
+            132,
+            147
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_136ff74ff913d769873e",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            580,
+            263
+          ],
+          "end": [
+            584,
+            263
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_150d787e360e62610bbb",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            312,
+            19
+          ],
+          "end": [
+            295,
+            19
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_151318558e48aa217292",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            203
+          ],
+          "end": [
+            551,
+            203
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_16870ede36f0a6d666e9",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            24,
+            259
+          ],
+          "end": [
+            19,
+            263
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_16de283f3026f06e031f",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            107
+          ],
+          "end": [
+            572,
+            111
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_16ef78d2a7097c01be03",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            528,
+            363
+          ],
+          "end": [
+            519,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_174a5fe09e7fd27dfbba",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            536,
+            91
+          ],
+          "end": [
+            527,
+            99
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_182a17cb890b879d85a4",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            126,
+            284
+          ],
+          "end": [
+            148,
+            283
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_190cf8428ea073484d80",
+          "legacy": false,
+          "inclusive_count": 12,
+          "start": [
+            177,
+            72
+          ],
+          "end": [
+            171,
+            67
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_194f12f3b9fdea3e9c6d",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            223,
+            307
+          ],
+          "end": [
+            228,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_19964c61275fdbcb2d6a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            60,
+            155
+          ],
+          "end": [
+            47,
+            147
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_19a08e580d8eca79134f",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            504,
+            39
+          ],
+          "end": [
+            487,
+            43
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1a82971bf4756de9b6e1",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            384,
+            367
+          ],
+          "end": [
+            388,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1b1a069b5675bac4c797",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            59,
+            351
+          ],
+          "end": [
+            68,
+            343
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1c4c6b34887f12eefac3",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            128,
+            135
+          ],
+          "end": [
+            148,
+            135
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1ea3a9898e39ffe90dff",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            107
+          ],
+          "end": [
+            551,
+            107
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2086070c2f754602b0be",
+          "legacy": false,
+          "inclusive_count": 7,
+          "start": [
+            489,
+            267
+          ],
+          "end": [
+            483,
+            267
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2089d42e9ee8a59ad22d",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            135,
+            76
+          ],
+          "end": [
+            127,
+            67
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2192769697c59dae3b85",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            348,
+            19
+          ],
+          "end": [
+            327,
+            19
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_225c40e5664c1cf9ab35",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            32,
+            147
+          ],
+          "end": [
+            23,
+            155
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2325332083fe0bf08a93",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            36,
+            271
+          ],
+          "end": [
+            23,
+            279
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2552a495926947171721",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            108,
+            67
+          ],
+          "end": [
+            99,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_25b653b8d4924f41c50c",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            171
+          ],
+          "end": [
+            551,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2678b577b7872468bc34",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            223,
+            211
+          ],
+          "end": [
+            228,
+            215
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2ffc6e44cb591e10f332",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            84,
+            71
+          ],
+          "end": [
+            79,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_33f41990cacb1dba9034",
+          "legacy": false,
+          "inclusive_count": 7,
+          "start": [
+            382,
+            311
+          ],
+          "end": [
+            388,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_39e7fd02f83a59cef59e",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            504,
+            367
+          ],
+          "end": [
+            499,
+            371
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_41bfb11db98643b33449",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            176,
+            87
+          ],
+          "end": [
+            171,
+            87
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_41d8d12437f0a0253f28",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            599,
+            247
+          ],
+          "end": [
+            604,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_5eb07ccd7c43c8a2a37d",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            139
+          ],
+          "end": [
+            551,
+            139
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_7e2a072aec3341bfd326",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            40,
+            343
+          ],
+          "end": [
+            35,
+            343
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_939a268ae0351a48d2f8",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            533,
+            287
+          ],
+          "end": [
+            544,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_9643b540e628fa680b9f",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            384,
+            347
+          ],
+          "end": [
+            379,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_08_3479F08218885852",
+          "legacy": true,
+          "inclusive_count": 12,
+          "start": [
+            136,
+            83
+          ],
+          "end": [
+            147,
+            83
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_09_0BAFE3A7FA93D31C",
+          "legacy": true,
+          "inclusive_count": 16,
+          "start": [
+            180,
+            71
+          ],
+          "end": [
+            195,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_10_F83FE72914C9299C",
+          "legacy": true,
+          "inclusive_count": 12,
+          "start": [
+            352,
+            21
+          ],
+          "end": [
+            363,
+            21
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_11_E64745F7462770DD",
+          "legacy": true,
+          "inclusive_count": 20,
+          "start": [
+            560,
+            7
+          ],
+          "end": [
+            579,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_12_391D0CF7A4422180",
+          "legacy": true,
+          "inclusive_count": 12,
+          "start": [
+            132,
+            195
+          ],
+          "end": [
+            143,
+            195
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_13_97A1D09E3197EA92",
+          "legacy": true,
+          "inclusive_count": 16,
+          "start": [
+            224,
+            113
+          ],
+          "end": [
+            239,
+            113
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "case": "repeat",
+      "success": true,
+      "policy": "SV5_INFILL_LENGTH_RULE_V2",
+      "plan_digests": [
+        "06d95903a803eda03751fbbb3bd47d50da79388f740e7ca6ae8b22832795f5ea"
+      ],
+      "new_connections_checked": 234,
+      "legacy_interior_links": 6,
+      "maximum_inclusive": 24,
+      "over_24": 0,
+      "errors": [],
+      "connections": [
+        {
+          "room_id": "SV5_INFILL_ROOM_0004120110f44eef5c72",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            132,
+            51
+          ],
+          "end": [
+            111,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0009256b2ee54633b586",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            60,
+            335
+          ],
+          "end": [
+            68,
+            339
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_000c3495817d6dc43df6",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            83,
+            387
+          ],
+          "end": [
+            92,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0024793eb465e7cf43f8",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            184,
+            11
+          ],
+          "end": [
+            179,
+            15
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_002847beba22c27fafc7",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            384,
+            355
+          ],
+          "end": [
+            404,
+            355
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_002b1fdb38d3b5d62912",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            556,
+            23
+          ],
+          "end": [
+            560,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_002d3e65ad37c08fccde",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            44,
+            199
+          ],
+          "end": [
+            39,
+            195
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0033f24aa202678fd527",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            168,
+            207
+          ],
+          "end": [
+            176,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0038cd07afe0acfefffa",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            531,
+            393
+          ],
+          "end": [
+            548,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_003c64be23db80287d41",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            579,
+            23
+          ],
+          "end": [
+            600,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0051000692d8e452ab1f",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            375,
+            251
+          ],
+          "end": [
+            380,
+            247
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00567d25c8515283ea43",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            44,
+            259
+          ],
+          "end": [
+            39,
+            259
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0058509cbbf5ecd5a28e",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            583,
+            393
+          ],
+          "end": [
+            604,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_005a04bda9ede05b1190",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            128,
+            131
+          ],
+          "end": [
+            107,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00636997b68d562b57db",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            176,
+            99
+          ],
+          "end": [
+            167,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_006e09773eb20b7351b0",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            220,
+            111
+          ],
+          "end": [
+            207,
+            111
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_007c17890d68e31350a9",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            144,
+            27
+          ],
+          "end": [
+            127,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0081ac017846ab0e0d78",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            500,
+            79
+          ],
+          "end": [
+            487,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_008612738e348fea12fd",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            60,
+            367
+          ],
+          "end": [
+            51,
+            371
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_008784ed882cfab2d029",
+          "legacy": false,
+          "inclusive_count": 11,
+          "start": [
+            361,
+            363
+          ],
+          "end": [
+            355,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00882305a20f8d480cad",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            123,
+            355
+          ],
+          "end": [
+            128,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_008dd29754a6056014e3",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            308,
+            303
+          ],
+          "end": [
+            303,
+            299
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0093829c5033366c54f2",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            60,
+            331
+          ],
+          "end": [
+            43,
+            335
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0096ec3a665cb4efc92b",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            156,
+            196
+          ],
+          "end": [
+            172,
+            191
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0097a6b558d6e61e58f5",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            382,
+            315
+          ],
+          "end": [
+            371,
+            323
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_009ef3f64388d61dce55",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            463,
+            383
+          ],
+          "end": [
+            468,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00b4a4fe56b192880b8c",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            43
+          ],
+          "end": [
+            568,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00c18a953b0a68c4097f",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            585,
+            287
+          ],
+          "end": [
+            596,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00cf93b8e5daaa4b04e1",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            128,
+            103
+          ],
+          "end": [
+            123,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00d2455ea8bdf900b553",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            244,
+            359
+          ],
+          "end": [
+            252,
+            363
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00d2b967a3d3b2f6b4b1",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            220,
+            23
+          ],
+          "end": [
+            211,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00d4966768776d94d554",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            336,
+            351
+          ],
+          "end": [
+            323,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00e46d5d0ba666a9579a",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            168,
+            31
+          ],
+          "end": [
+            159,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00e5c1799c48f53348c3",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            91
+          ],
+          "end": [
+            551,
+            91
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_00fe6dfb4eef486a889c",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            87
+          ],
+          "end": [
+            572,
+            91
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_010b8263d27bde49eb3b",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            340,
+            369
+          ],
+          "end": [
+            335,
+            371
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_011090d282560d8c79a1",
+          "legacy": false,
+          "inclusive_count": 12,
+          "start": [
+            180,
+            393
+          ],
+          "end": [
+            171,
+            395
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0113db4a7212c3db13e5",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            492,
+            355
+          ],
+          "end": [
+            487,
+            359
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_012515d71cbb8a4aa159",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            524,
+            23
+          ],
+          "end": [
+            507,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0126187edf0338c47579",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            281,
+            263
+          ],
+          "end": [
+            292,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01436909100db22b451e",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            168,
+            235
+          ],
+          "end": [
+            159,
+            239
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_014900279cc1ebc8f1c2",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            603,
+            311
+          ],
+          "end": [
+            599,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01492d75910c4c5fcc30",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            244,
+            391
+          ],
+          "end": [
+            227,
+            395
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_014ea698f88348a9d9a6",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            580,
+            247
+          ],
+          "end": [
+            584,
+            247
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_014ff8b35cb7a06ee610",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            128,
+            187
+          ],
+          "end": [
+            111,
+            191
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_015c9cef18a476102e65",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            108,
+            213
+          ],
+          "end": [
+            99,
+            219
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_015e047734bb1781d7ff",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            76,
+            111
+          ],
+          "end": [
+            63,
+            107
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_016130f8c175d446c415",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            40,
+            83
+          ],
+          "end": [
+            23,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_016e566fdda939779b86",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            603,
+            351
+          ],
+          "end": [
+            599,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0172fae7eed3ae487f8f",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            128,
+            159
+          ],
+          "end": [
+            144,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_017b400cb5829173a757",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            167,
+            307
+          ],
+          "end": [
+            176,
+            315
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0185002ddaf865f0355b",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            36,
+            131
+          ],
+          "end": [
+            19,
+            135
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0186b28fa0b2a39be20e",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            384,
+            387
+          ],
+          "end": [
+            375,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_018765724e6a988ed29c",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            503,
+            387
+          ],
+          "end": [
+            516,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_018ed3e9158d726fe3ab",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            212,
+            395
+          ],
+          "end": [
+            195,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0190d41e154eefdb6547",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            316,
+            371
+          ],
+          "end": [
+            303,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0193b889fad304bdfe2d",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            472,
+            73
+          ],
+          "end": [
+            459,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_019f7dfb6c5038fd6bbb",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            221,
+            12
+          ],
+          "end": [
+            199,
+            11
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ab4f357f1a1a51e05d",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            220,
+            23
+          ],
+          "end": [
+            224,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ba3c3a3c17419084a1",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            128,
+            163
+          ],
+          "end": [
+            123,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01c1477b3c55cfc6e110",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            187,
+            139
+          ],
+          "end": [
+            200,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ca61b13471c905122c",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            288,
+            369
+          ],
+          "end": [
+            279,
+            375
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01d0bc2f676c3532c7ce",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            61,
+            284
+          ],
+          "end": [
+            43,
+            279
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ddd88472d49aff5c99",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            44,
+            63
+          ],
+          "end": [
+            39,
+            63
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01ed7b7c5925bf37dc1e",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            212,
+            363
+          ],
+          "end": [
+            195,
+            359
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_01fd763216564c4ab82e",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            96,
+            53
+          ],
+          "end": [
+            91,
+            55
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0211dda6690845617294",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            220,
+            51
+          ],
+          "end": [
+            203,
+            55
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02131663b956c4b63225",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            164,
+            15
+          ],
+          "end": [
+            155,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_021416edcede730f39c2",
+          "legacy": false,
+          "inclusive_count": 9,
+          "start": [
+            244,
+            347
+          ],
+          "end": [
+            252,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_021b4048fa47706aeaf6",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            76,
+            167
+          ],
+          "end": [
+            71,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0226d4b2d11164e9e339",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            347,
+            319
+          ],
+          "end": [
+            335,
+            327
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0233efc146f9a48950d8",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            427,
+            383
+          ],
+          "end": [
+            448,
+            383
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0249a8d4b3775d965893",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            220,
+            79
+          ],
+          "end": [
+            224,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02515634e73d42bbbebe",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            187,
+            191
+          ],
+          "end": [
+            196,
+            195
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02587486b3c152380c1b",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            163,
+            135
+          ],
+          "end": [
+            172,
+            139
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_026b4248321dee685078",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            587,
+            93
+          ],
+          "end": [
+            600,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0274815fcd6818f05a6a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            128,
+            151
+          ],
+          "end": [
+            107,
+            151
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0277e37d8a1cd7afd435",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            28,
+            279
+          ],
+          "end": [
+            23,
+            283
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0282f0dabf4912108d47",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            267,
+            347
+          ],
+          "end": [
+            284,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_029b432f4140a9c49192",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            68,
+            129
+          ],
+          "end": [
+            51,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02ad728ae6ec8e988675",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            107,
+            303
+          ],
+          "end": [
+            120,
+            299
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02ae7414022cdad35012",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            512,
+            101
+          ],
+          "end": [
+            503,
+            95
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02bb145ab70126550c47",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            208,
+            244
+          ],
+          "end": [
+            216,
+            235
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02c450bd7f02577d51cc",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            48,
+            109
+          ],
+          "end": [
+            35,
+            99
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02c9b2d6e7ba5ded15f4",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            96,
+            83
+          ],
+          "end": [
+            91,
+            87
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02cd489a4e683021fd8e",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            135,
+            301
+          ],
+          "end": [
+            148,
+            307
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_02eb000c5def9fe17f6c",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            60,
+            303
+          ],
+          "end": [
+            47,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0302951adf56016fc5e5",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            60,
+            311
+          ],
+          "end": [
+            64,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_032723ec76224555dc3f",
+          "legacy": false,
+          "inclusive_count": 11,
+          "start": [
+            361,
+            347
+          ],
+          "end": [
+            355,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_033321d73a23186368ba",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            52,
+            219
+          ],
+          "end": [
+            39,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_033678ff7e9c05d21528",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            128,
+            115
+          ],
+          "end": [
+            144,
+            119
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0336ae99bc580abe01f7",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            60,
+            359
+          ],
+          "end": [
+            39,
+            359
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03457115457eb0b59c96",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            56,
+            171
+          ],
+          "end": [
+            47,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0348461d960659e46de4",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            140,
+            9
+          ],
+          "end": [
+            119,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_034e96ec4b59b2e7de89",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            24,
+            359
+          ],
+          "end": [
+            19,
+            355
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_035798141bd571f529ac",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            356,
+            391
+          ],
+          "end": [
+            347,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0385fb7a684e6007e3c3",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            163,
+            119
+          ],
+          "end": [
+            168,
+            115
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_039382eb9614b75fd49c",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            127,
+            275
+          ],
+          "end": [
+            132,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03bff8d63e21cbc62be9",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            220,
+            51
+          ],
+          "end": [
+            224,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03e009d59a50bdf34915",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            320,
+            327
+          ],
+          "end": [
+            303,
+            327
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03e607e34238c975c8c8",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            108,
+            163
+          ],
+          "end": [
+            95,
+            167
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03e9854a823531fd8709",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            347,
+            307
+          ],
+          "end": [
+            343,
+            307
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03eb84acec7e9db8f52e",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            84,
+            219
+          ],
+          "end": [
+            67,
+            219
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03f794e9844c481d8faa",
+          "legacy": false,
+          "inclusive_count": 12,
+          "start": [
+            196,
+            29
+          ],
+          "end": [
+            187,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_03ffbc2c3bc5f015a247",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            211,
+            171
+          ],
+          "end": [
+            228,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_041cc40ca34ac9669c39",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            72,
+            87
+          ],
+          "end": [
+            55,
+            83
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_042225214705273a5475",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            456,
+            27
+          ],
+          "end": [
+            451,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04258432ab0f33139931",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            244,
+            355
+          ],
+          "end": [
+            231,
+            363
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04306d96a9442be86a73",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            191,
+            211
+          ],
+          "end": [
+            208,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_044025be775aa1c9b4b9",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            79,
+            313
+          ],
+          "end": [
+            92,
+            303
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04458846b0c9a081817d",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            176,
+            87
+          ],
+          "end": [
+            188,
+            87
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04563627f2f464bd550e",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            220,
+            327
+          ],
+          "end": [
+            211,
+            331
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04683155dc682c4ccd05",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            483,
+            389
+          ],
+          "end": [
+            488,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_046863d4c69cd86e081e",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            556,
+            75
+          ],
+          "end": [
+            535,
+            75
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_046d6d59228be1a29d93",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            187,
+            165
+          ],
+          "end": [
+            196,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0478d2bded42dc4c9dba",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            528,
+            355
+          ],
+          "end": [
+            507,
+            355
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0478ddb1471ef6cceb90",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            332,
+            387
+          ],
+          "end": [
+            319,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0496c8692f6450167db1",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            60,
+            359
+          ],
+          "end": [
+            80,
+            359
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04a09a81b1cf9f7b40f0",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            180,
+            361
+          ],
+          "end": [
+            159,
+            363
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04a89a1ea13d228de7cf",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            48,
+            39
+          ],
+          "end": [
+            35,
+            43
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04aa6c25103dea14b6e1",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            163,
+            163
+          ],
+          "end": [
+            172,
+            163
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04ad25dcb101169f2db9",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            244,
+            375
+          ],
+          "end": [
+            235,
+            379
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04b3ee2d2f798b163c8e",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            556,
+            23
+          ],
+          "end": [
+            539,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04e7f66dbff892010bd0",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            349,
+            263
+          ],
+          "end": [
+            360,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_04ed135bc0ea044996b2",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            243,
+            291
+          ],
+          "end": [
+            235,
+            295
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_050904725fdcd82ff28e",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            71
+          ],
+          "end": [
+            572,
+            75
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_050dc7e3b0d32cf22249",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            52,
+            21
+          ],
+          "end": [
+            31,
+            23
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05128c4f61465444fbf3",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            152,
+            395
+          ],
+          "end": [
+            139,
+            395
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05300313b23b3b52092c",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            419,
+            357
+          ],
+          "end": [
+            436,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0555f7159cc5807eccd0",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            168,
+            203
+          ],
+          "end": [
+            155,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_055856717f4139baf16b",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            92,
+            131
+          ],
+          "end": [
+            83,
+            127
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0573f914122762e2eb87",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            439,
+            260
+          ],
+          "end": [
+            431,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_057bf90d15626a0398cb",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            328,
+            307
+          ],
+          "end": [
+            323,
+            303
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0584c23697100b09d0ae",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            188,
+            55
+          ],
+          "end": [
+            183,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05885ce148e473a135b3",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            155
+          ],
+          "end": [
+            551,
+            155
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0591ab8eb2a9227b48a9",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            580,
+            295
+          ],
+          "end": [
+            584,
+            295
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_059f0ce534524d850551",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            243,
+            323
+          ],
+          "end": [
+            235,
+            327
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05c86cf090f60cb83689",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            76,
+            55
+          ],
+          "end": [
+            63,
+            63
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05ca1ce41aa5fccf5e3e",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            132,
+            79
+          ],
+          "end": [
+            115,
+            83
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_05e0339d990ed8f50723",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            111,
+            335
+          ],
+          "end": [
+            120,
+            327
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_06221a856d3548df6440",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            47
+          ],
+          "end": [
+            551,
+            47
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_062bdedbace97bb71fc4",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            563,
+            391
+          ],
+          "end": [
+            568,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_06398b49b858f203e93f",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            95,
+            361
+          ],
+          "end": [
+            104,
+            355
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_066d680be4ccb704b181",
+          "legacy": false,
+          "inclusive_count": 15,
+          "start": [
+            157,
+            263
+          ],
+          "end": [
+            147,
+            259
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_068aa4ee0963a83e4586",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            47,
+            252
+          ],
+          "end": [
+            39,
+            243
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_071e519de6c295adb1fe",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            76,
+            15
+          ],
+          "end": [
+            67,
+            19
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0740dfaa546673a8b5c1",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            492,
+            27
+          ],
+          "end": [
+            471,
+            27
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07ae130cd11db41e86f7",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            215,
+            131
+          ],
+          "end": [
+            224,
+            131
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07af10cb4acde894de2d",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            164,
+            51
+          ],
+          "end": [
+            151,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07e007d06ec3f751ba08",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            591,
+            75
+          ],
+          "end": [
+            604,
+            67
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_07fb3ac254e765673737",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            127
+          ],
+          "end": [
+            576,
+            127
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_080cbfaf4cd9064064d3",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            41,
+            396
+          ],
+          "end": [
+            31,
+            387
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_085ccdd2aab522478401",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            595,
+            127
+          ],
+          "end": [
+            604,
+            119
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_08841863b709bc42cfdb",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            427,
+            395
+          ],
+          "end": [
+            444,
+            399
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_088f25cbc663d6d3b7a4",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            384,
+            367
+          ],
+          "end": [
+            379,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_090a609dee25321d7a17",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            24,
+            259
+          ],
+          "end": [
+            19,
+            259
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_090d026d03e4c895fe2f",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            88,
+            151
+          ],
+          "end": [
+            79,
+            155
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0975974720d7a7ab44f2",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            456,
+            103
+          ],
+          "end": [
+            451,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_09857e406b1f72017408",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            311,
+            251
+          ],
+          "end": [
+            316,
+            247
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_09beaf6f785387326af3",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            144,
+            239
+          ],
+          "end": [
+            127,
+            235
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_09cb99c9abddc7fd396e",
+          "legacy": false,
+          "inclusive_count": 13,
+          "start": [
+            580,
+            231
+          ],
+          "end": [
+            592,
+            231
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_09edbb024af8e2bb536d",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            64,
+            199
+          ],
+          "end": [
+            59,
+            199
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a36c81afd9dafbde939",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            536,
+            47
+          ],
+          "end": [
+            523,
+            39
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a4e21aecf9c9f3a7057",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            28,
+            295
+          ],
+          "end": [
+            19,
+            303
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a876125fd11905b88fc",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            211,
+            195
+          ],
+          "end": [
+            228,
+            199
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0a96510a05956c16451a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            60,
+            291
+          ],
+          "end": [
+            43,
+            295
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0ae6927cb63168de9a09",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            128,
+            175
+          ],
+          "end": [
+            132,
+            175
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0b37330b20cc0a7ce9c9",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            100,
+            7
+          ],
+          "end": [
+            91,
+            15
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0c69ae74af31ab21da75",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            488,
+            97
+          ],
+          "end": [
+            471,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0c74848c713648c23e1f",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            436,
+            31
+          ],
+          "end": [
+            431,
+            35
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0c97bc8d682a1b5e9ce0",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            140,
+            213
+          ],
+          "end": [
+            123,
+            211
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0ca00de1852445b16dcc",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            83,
+            339
+          ],
+          "end": [
+            92,
+            335
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0cbd9840d4ac1034b3bf",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            171,
+            331
+          ],
+          "end": [
+            176,
+            335
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0cf3150abb2be197bdc3",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            104,
+            103
+          ],
+          "end": [
+            95,
+            111
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0d63595f6cd949c1a932",
+          "legacy": false,
+          "inclusive_count": 19,
+          "start": [
+            581,
+            8
+          ],
+          "end": [
+            596,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0d6757c798ece8ef8ef4",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            520,
+            75
+          ],
+          "end": [
+            515,
+            79
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0dab25b86c4a80f558fb",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            583,
+            53
+          ],
+          "end": [
+            596,
+            43
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0dbd53f17d6303f0e39e",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            436,
+            103
+          ],
+          "end": [
+            431,
+            103
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0e03c89fc44cb27c66ab",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            187
+          ],
+          "end": [
+            551,
+            187
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0e1d0458b0d793642356",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            444,
+            79
+          ],
+          "end": [
+            435,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0e316ce78212c7a7aa18",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            96,
+            193
+          ],
+          "end": [
+            79,
+            199
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0eaf7a838d77541f94b1",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            28,
+            163
+          ],
+          "end": [
+            19,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0eec20aa3a5b45e6fa41",
+          "legacy": false,
+          "inclusive_count": 8,
+          "start": [
+            436,
+            49
+          ],
+          "end": [
+            431,
+            51
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0f10462cbb3bfe892933",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            304,
+            387
+          ],
+          "end": [
+            291,
+            391
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0f17f69a0304b7b0be0e",
+          "legacy": false,
+          "inclusive_count": 19,
+          "start": [
+            382,
+            319
+          ],
+          "end": [
+            392,
+            327
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_0f5736599d7acc3ea0a8",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            123
+          ],
+          "end": [
+            551,
+            123
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1021773e205f6254b33f",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            72,
+            31
+          ],
+          "end": [
+            63,
+            39
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_10723a60cc9b706bf1c1",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            584,
+            351
+          ],
+          "end": [
+            579,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_10889819727ae935e66a",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            439,
+            280
+          ],
+          "end": [
+            431,
+            271
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_11a8f5a23fa5db0212cf",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            128,
+            379
+          ],
+          "end": [
+            119,
+            375
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_11ea6749b4a84e4590a4",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            468,
+            43
+          ],
+          "end": [
+            451,
+            47
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_124ad82e5ac8eaa42c0f",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            139,
+            327
+          ],
+          "end": [
+            152,
+            331
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_12b7e28ceac0decd5997",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            112,
+            31
+          ],
+          "end": [
+            91,
+            31
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1339e7469794e57cceef",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            143,
+            353
+          ],
+          "end": [
+            160,
+            347
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_136a2d749c8d7eddcf7e",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            128,
+            147
+          ],
+          "end": [
+            132,
+            147
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_136ff74ff913d769873e",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            580,
+            263
+          ],
+          "end": [
+            584,
+            263
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1375931bdd10c74015a5",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            216,
+            379
+          ],
+          "end": [
+            211,
+            375
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_14ba504102951d122e14",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            24,
+            243
+          ],
+          "end": [
+            19,
+            239
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_150d787e360e62610bbb",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            312,
+            19
+          ],
+          "end": [
+            295,
+            19
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_151318558e48aa217292",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            203
+          ],
+          "end": [
+            551,
+            203
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1549fa7dd8ce7f1d3376",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            243,
+            339
+          ],
+          "end": [
+            227,
+            343
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_16de283f3026f06e031f",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            556,
+            107
+          ],
+          "end": [
+            572,
+            111
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_16ef78d2a7097c01be03",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            528,
+            363
+          ],
+          "end": [
+            519,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_174a5fe09e7fd27dfbba",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            536,
+            91
+          ],
+          "end": [
+            527,
+            99
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_190cf8428ea073484d80",
+          "legacy": false,
+          "inclusive_count": 12,
+          "start": [
+            177,
+            72
+          ],
+          "end": [
+            171,
+            67
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_19964c61275fdbcb2d6a",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            60,
+            155
+          ],
+          "end": [
+            47,
+            147
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_19a08e580d8eca79134f",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            504,
+            39
+          ],
+          "end": [
+            487,
+            43
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1a82971bf4756de9b6e1",
+          "legacy": false,
+          "inclusive_count": 5,
+          "start": [
+            384,
+            367
+          ],
+          "end": [
+            388,
+            367
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1c4c6b34887f12eefac3",
+          "legacy": false,
+          "inclusive_count": 21,
+          "start": [
+            128,
+            135
+          ],
+          "end": [
+            148,
+            135
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_1ea3a9898e39ffe90dff",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            107
+          ],
+          "end": [
+            551,
+            107
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2086070c2f754602b0be",
+          "legacy": false,
+          "inclusive_count": 7,
+          "start": [
+            489,
+            267
+          ],
+          "end": [
+            483,
+            267
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2089d42e9ee8a59ad22d",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            135,
+            76
+          ],
+          "end": [
+            127,
+            67
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2192769697c59dae3b85",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            348,
+            19
+          ],
+          "end": [
+            327,
+            19
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_220f9ac2dcdf86c3e8d0",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            24,
+            335
+          ],
+          "end": [
+            19,
+            339
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_225c40e5664c1cf9ab35",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            32,
+            147
+          ],
+          "end": [
+            23,
+            155
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_25052f4dc79f3d703bac",
+          "legacy": false,
+          "inclusive_count": 20,
+          "start": [
+            36,
+            373
+          ],
+          "end": [
+            19,
+            375
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2552a495926947171721",
+          "legacy": false,
+          "inclusive_count": 14,
+          "start": [
+            108,
+            67
+          ],
+          "end": [
+            99,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_25b653b8d4924f41c50c",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            171
+          ],
+          "end": [
+            551,
+            171
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2678b577b7872468bc34",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            223,
+            211
+          ],
+          "end": [
+            228,
+            215
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_293f0bf6c0c941e6658b",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            242,
+            263
+          ],
+          "end": [
+            231,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2ce7d4a9aa467ee54218",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            24,
+            211
+          ],
+          "end": [
+            19,
+            207
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_2ffc6e44cb591e10f332",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            84,
+            71
+          ],
+          "end": [
+            79,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_3258f8060835e58eb197",
+          "legacy": false,
+          "inclusive_count": 16,
+          "start": [
+            32,
+            313
+          ],
+          "end": [
+            23,
+            319
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_33f41990cacb1dba9034",
+          "legacy": false,
+          "inclusive_count": 7,
+          "start": [
+            382,
+            311
+          ],
+          "end": [
+            388,
+            311
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_39e7fd02f83a59cef59e",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            504,
+            367
+          ],
+          "end": [
+            499,
+            371
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_3c929c46695361d1801a",
+          "legacy": false,
+          "inclusive_count": 4,
+          "start": [
+            361,
+            351
+          ],
+          "end": [
+            364,
+            351
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_41bfb11db98643b33449",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            176,
+            87
+          ],
+          "end": [
+            171,
+            87
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_41d8d12437f0a0253f28",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            599,
+            247
+          ],
+          "end": [
+            604,
+            251
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_51f93c3ba5c26c6ed4d2",
+          "legacy": false,
+          "inclusive_count": 22,
+          "start": [
+            168,
+            379
+          ],
+          "end": [
+            147,
+            379
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_5eb07ccd7c43c8a2a37d",
+          "legacy": false,
+          "inclusive_count": 6,
+          "start": [
+            556,
+            139
+          ],
+          "end": [
+            551,
+            139
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_63a46d00061f6e91bdcc",
+          "legacy": false,
+          "inclusive_count": 18,
+          "start": [
+            196,
+            375
+          ],
+          "end": [
+            183,
+            379
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_939a268ae0351a48d2f8",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            533,
+            287
+          ],
+          "end": [
+            544,
+            275
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_a0f29a931c0e9e317692",
+          "legacy": false,
+          "inclusive_count": 24,
+          "start": [
+            191,
+            317
+          ],
+          "end": [
+            204,
+            307
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_INFILL_ROOM_c2da6dab2de50b0a12bc",
+          "legacy": false,
+          "inclusive_count": 10,
+          "start": [
+            24,
+            195
+          ],
+          "end": [
+            19,
+            191
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_08_3479F08218885852",
+          "legacy": true,
+          "inclusive_count": 12,
+          "start": [
+            136,
+            83
+          ],
+          "end": [
+            147,
+            83
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_09_0BAFE3A7FA93D31C",
+          "legacy": true,
+          "inclusive_count": 16,
+          "start": [
+            180,
+            71
+          ],
+          "end": [
+            195,
+            71
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_10_F83FE72914C9299C",
+          "legacy": true,
+          "inclusive_count": 12,
+          "start": [
+            352,
+            21
+          ],
+          "end": [
+            363,
+            21
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_11_E64745F7462770DD",
+          "legacy": true,
+          "inclusive_count": 20,
+          "start": [
+            560,
+            7
+          ],
+          "end": [
+            579,
+            7
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_12_391D0CF7A4422180",
+          "legacy": true,
+          "inclusive_count": 12,
+          "start": [
+            132,
+            195
+          ],
+          "end": [
+            143,
+            195
+          ],
+          "errors": []
+        },
+        {
+          "room_id": "SV5_PLACE_13_97A1D09E3197EA92",
+          "legacy": true,
+          "inclusive_count": 16,
+          "start": [
+            224,
+            113
+          ],
+          "end": [
+            239,
+            113
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

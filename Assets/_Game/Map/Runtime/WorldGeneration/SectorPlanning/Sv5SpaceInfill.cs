@@ -11,6 +11,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 {
     public sealed class Sv5InfillProfile
     {
+        public const string ConnectionLengthPolicy = "SV5_INFILL_LENGTH_RULE_V2";
+
         public Sv5InfillProfile(bool enabled = true, int target = 256, int minimum = 128,
             int maximum = 384, int minimumSectors = 12, int roomsPerSector = 6, int minimumTiles = 24576)
         {
@@ -27,8 +29,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public int MinimumTiles { get; }
         public int MaximumDepth => 12;
         public int MaximumLink => 24;
-        public string Digest => RmapWorldDefinition.Hash("SV5_ORDINARY_INFILL_V1|1.0.0|"+Enabled+"|"+Target+"|"+Minimum+"|"+Maximum+"|"+
-            MinimumSectors+"|"+RoomsPerSector+"|"+MinimumTiles+"|4|12|24|3|2|1|0.4x0.8");
+        public string Digest => RmapWorldDefinition.Hash("SV5_ORDINARY_INFILL_V1|2.0.0|"+Enabled+"|"+Target+"|"+Minimum+"|"+Maximum+"|"+
+            MinimumSectors+"|"+RoomsPerSector+"|"+MinimumTiles+"|4|12|24|3|2|1|0.4x0.8|"+ConnectionLengthPolicy);
     }
 
     public sealed class Sv5InfillRoom
@@ -60,6 +62,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Room=room; Parent=parent; Host=host; Path=Array.AsReadOnly(path.ToArray()); Faces=Array.AsReadOnly(faces.ToArray());
             Cells=Array.AsReadOnly(cells.ToArray()); Proof=proof;
             HostAccess=Array.AsReadOnly((hostAccess ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray());
+            ConnectionCenterline=Sv5SpaceInfill.ConnectionCenterline(Path,HostAccess);
             var external=new HashSet<RmapSpecialWorldPoint>(Cells.Select(c=>c.World));
             ExternalCenterline=Array.AsReadOnly(HostAccess.Concat(Path).Distinct().Where(external.Contains).ToArray());
         }
@@ -67,13 +70,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string Parent { get; }
         public string Host { get; }
         public IReadOnlyList<RmapSpecialWorldPoint> Path { get; }
+        /// <summary>The authoritative ordered cardinal AIR visits for the ordinary connector.
+        /// A root includes its old-host anchor and removes only the HostAccess/Path join once;
+        /// a child is exactly Path. Visits are never ownership-filtered or de-duplicated.</summary>
+        public IReadOnlyList<RmapSpecialWorldPoint> ConnectionCenterline { get; }
+        public int ConnectionCellCount => ConnectionCenterline.Count;
         public IReadOnlyList<RmapSpecialWorldPoint> ExternalCenterline { get; }
         public IReadOnlyList<RmapSpecialWorldPoint> HostAccess { get; }
         public IReadOnlyList<Sv5SpaceBoundaryFace> Faces { get; }
         public IReadOnlyList<Sv5InfillCell> Cells { get; }
         public Sv5InfillStaticProof Proof { get; }
         public string Token => Room+"|"+Parent+"|"+Host+"|"+string.Join(";",Path)+"|"+string.Join(";",Faces.Select(f=>f.StableToken))+"|"+
-            string.Join(";",Proof.Approach)+"|"+string.Join(";",Proof.Return)+"|"+Proof.Reason+"|"+string.Join(";",HostAccess);
+            string.Join(";",Proof.Approach)+"|"+string.Join(";",Proof.Return)+"|"+Proof.Reason+"|"+string.Join(";",HostAccess)+"|"+
+            Sv5InfillProfile.ConnectionLengthPolicy+"|"+string.Join(";",ConnectionCenterline);
     }
 
     public sealed class Sv5InfillPlan
@@ -194,6 +203,36 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         { yield return P(p.X-1,p.Y); yield return P(p.X+1,p.Y); yield return P(p.X,p.Y-1); yield return P(p.X,p.Y+1); }
         private static IEnumerable<RmapSpecialWorldPoint> Footprint(Sv5SpaceBounds b)
         { for(int y=b.Y;y<b.MaxYExclusive;y++) for(int x=b.X;x<b.MaxXExclusive;x++) yield return P(x,y); }
+
+        /// <summary>Builds the authoritative connector witness without ownership filtering or
+        /// global de-duplication. HostAccess is present only for a root and shares Path[0].</summary>
+        public static IReadOnlyList<RmapSpecialWorldPoint> ConnectionCenterline(
+            IEnumerable<RmapSpecialWorldPoint> path,IEnumerable<RmapSpecialWorldPoint> hostAccess=null)
+        {
+            var route=(path ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray();
+            var access=(hostAccess ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray();
+            return Array.AsReadOnly((access.Length==0 ? route : access.Concat(route.Skip(1))).ToArray());
+        }
+
+        /// <summary>Shared production rule used by candidate acceptance and final payload validation.</summary>
+        public static IReadOnlyList<string> FindConnectionLengthErrors(IEnumerable<RmapSpecialWorldPoint> path,
+            IEnumerable<RmapSpecialWorldPoint> hostAccess,int maximum,bool root)
+        {
+            var route=(path ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray();
+            var access=(hostAccess ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray();
+            var errors=new List<string>();
+            if(route.Length==0) errors.Add("EMPTY_PATH");
+            if(root)
+            {
+                if(access.Length<2) errors.Add("ROOT_ACCESS_TOO_SHORT");
+                if(route.Length>0 && access.Length>0 && !access[access.Length-1].Equals(route[0])) errors.Add("ROOT_JOIN_MISMATCH");
+            }
+            else if(access.Length!=0) errors.Add("CHILD_HAS_HOST_ACCESS");
+            var complete=ConnectionCenterline(route,access);
+            if(complete.Zip(complete.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)).Any(d=>d!=1)) errors.Add("NON_CARDINAL_STEP");
+            if(complete.Count>maximum) errors.Add("OVER_MAXIMUM|"+complete.Count+"/"+maximum);
+            return Array.AsReadOnly(errors.ToArray());
+        }
 
         /// <summary>Expand supported +1 steps into the actual cardinal AIR cells. A diagonal
         /// support-to-support step is TWO graph edges, never a single centerline cell.</summary>
@@ -350,9 +389,23 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 var room=payload.Rooms.SingleOrDefault(r=>r.Id==link.Room);
                 if(room==null || link.Path.Count==0) { errors.Add("LINK_WITHOUT_ROOM_OR_PATH|"+link.Room); continue; }
                 var parent=payload.Rooms.SingleOrDefault(r=>r.Id==room.Parent);
-                if(!room.Legacy && (link.ExternalCenterline.Count>payload.Profile.MaximumLink ||
-                    link.Path.Zip(link.Path.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)).Any(d=>d!=1)))
-                    errors.Add("CONNECTOR_CARDINAL_LENGTH|"+link.Room);
+                if(!room.Legacy)
+                {
+                    bool root=parent==null;
+                    if(!link.Path.Last().Equals(room.Entry)) errors.Add("CONNECTOR_CHILD_ENDPOINT_MISMATCH|"+link.Room);
+                    errors.AddRange(FindConnectionLengthErrors(link.Path,link.HostAccess,payload.Profile.MaximumLink,root)
+                        .Select(error=>"CONNECTOR_"+error+"|"+link.Room));
+                    if(!root)
+                    {
+                        var first=link.Path[0]; var bounds=parent.Bounds;
+                        if(!bounds.Contains(first) || (first.X!=bounds.X && first.X!=bounds.MaxXExclusive-1 &&
+                            first.Y!=bounds.Y && first.Y!=bounds.MaxYExclusive-1))
+                            errors.Add("CONNECTOR_PARENT_BOUNDARY_MISMATCH|"+link.Room);
+                    }
+                    if(link.ConnectionCenterline.Any(p=>!oldPassage.Contains(p) &&
+                        (!cells.TryGetValue(p,out var value) || value!=Sv5InfillCellValue.Air)))
+                        errors.Add("CONNECTOR_CENTERLINE_NOT_AIR|"+link.Room);
+                }
                 if(!room.Legacy && (room.Depth>payload.Profile.MaximumDepth ||
                     room.Depth!=(parent==null ? 1 : parent.Depth+1) || (parent!=null && parent.Host!=room.Host)))
                     errors.Add("PARENT_DEPTH_OR_HOST|"+link.Room);
@@ -446,7 +499,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 if(depth>profile.MaximumDepth) return;
                 foreach(string recipe in Sv5InfillPatterns.Recipes)
-                foreach(int distance in Enumerable.Range(1,profile.MaximumLink+(parentRoom==null ? 0 : 1)))
+                foreach(int distance in Enumerable.Range(1,profile.MaximumLink))
                 {
                     var rb=Sv5InfillPatterns.Bounds(recipe);
                     int doorX=start.X+direction*distance;
@@ -455,7 +508,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     for(int y=(int)Math.Floor((start.Y-distance-3)/4.0)*4;y<=start.Y+distance-3;y+=4)
                     {
                         int delta=y+3-start.Y;
-                        if(Math.Abs(delta)>distance || distance+Math.Abs(delta)-(parentRoom==null ? 0 : 1)+(sidePortal ? 1 : 0)>profile.MaximumLink) continue;
+                        int prefix=parentRoom==null ? (sidePortal ? 2 : 1) : 0;
+                        if(Math.Abs(delta)>distance || 1+distance+Math.Abs(delta)+prefix>profile.MaximumLink) continue;
                         if(x<2 || y<2 || x+rb.Width>622 || y+rb.Height>414) { Reject("CANDIDATE_WORLD_BOUNDS"); continue; }
                         var b=new Sv5SpaceBounds(x,y,rb.Width,rb.Height);
                         if(!BaselineFootprintFree(b)) { Reject("ROOM_RESERVED_FOOTPRINT"); continue; }
@@ -520,9 +574,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 // checked against the actual old reservations and accepted owned cells BEFORE use.
                 // The final whole-cell validator and bidirectional AABB screen remain mandatory.
                 int dx=candidate.Direction, distance=Math.Abs(entry.X-candidate.Start.X);
-                // The destination is a ROOM cell, and a child link starts inside its PARENT room.
-                // They remain in the complete witness but are not external connector cells.
-                int endpointAllowance=1+(candidate.ParentRoom==null ? 0 : 1)-(candidate.SidePortal ? 1 : 0);
+                // The authoritative connector includes both endpoints. A root adds the old-host
+                // access prefix once; a child is exactly the supported path from its parent boundary.
+                int connectionPrefix=candidate.ParentRoom==null ? (candidate.SidePortal ? 2 : 1) : 0;
                 bool ColumnFree(RmapSpecialWorldPoint foot)
                 {
                     if(foot.X<0 || foot.X>=624 || foot.Y<3 || foot.Y+4>=416) return false;
@@ -558,13 +612,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                         if(!ColumnFree(point)) continue;
                         var trial=previous.Value.Concat(new[]{point}).ToList();
                         int cost=CardinalCount(trial);
-                        if(cost+distance-step+Math.Abs(height-entry.Y)>profile.MaximumLink+endpointAllowance) continue;
+                        if(cost+distance-step+Math.Abs(height-entry.Y)+connectionPrefix>profile.MaximumLink) continue;
                         if(!next.TryGetValue(height,out var oldPath) || cost<CardinalCount(oldPath)) next[height]=trial;
                     }
                     paths=next;
                 }
                 var selected=paths.Where(p=>Math.Abs(p.Key-entry.Y)<=1 &&
-                    CardinalCount(p.Value)+1+Math.Abs(p.Key-entry.Y)<=profile.MaximumLink+endpointAllowance)
+                    CardinalCount(p.Value)+1+Math.Abs(p.Key-entry.Y)+connectionPrefix<=profile.MaximumLink)
                     .OrderBy(p=>CardinalCount(p.Value)+Math.Abs(p.Key-entry.Y)).ThenBy(p=>p.Key).FirstOrDefault();
                 if(selected.Value==null) { Reject("NO_SUPPORTED_CONNECTOR_PROFILE"); continue; }
                 var path=selected.Value.Concat(new[]{entry}).ToList();
@@ -595,7 +649,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 var hostAccess=candidate.ParentRoom!=null ? Array.Empty<RmapSpecialWorldPoint>() : candidate.SidePortal ?
                     new[]{candidate.HostAnchor,P(candidate.HostAnchor.X+dx,candidate.HostAnchor.Y),candidate.Start} :
                     new[]{P(candidate.Start.X,candidate.Start.Y+1),candidate.Start};
-                if(hostAccess.Concat(centerline).Distinct().Count(linkCells.ContainsKey)>profile.MaximumLink) { Reject("EXTERNAL_CONNECTOR_LIMIT"); continue; }
+                var connectionErrors=FindConnectionLengthErrors(centerline,hostAccess,profile.MaximumLink,candidate.ParentRoom==null);
+                if(connectionErrors.Count>0)
+                { Reject("CONNECTION_CENTERLINE_LIMIT"); continue; }
                 foreach(var c in linkCells.Values) proposed.Add(c.World,c);
                 var faces=new List<Sv5SpaceBoundaryFace>();
                 if(candidate.SidePortal)

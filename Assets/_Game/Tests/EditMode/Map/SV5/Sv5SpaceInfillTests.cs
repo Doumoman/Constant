@@ -106,7 +106,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 "\n"+string.Join("\n",payload.Diagnostics)+"\n"+string.Join("\n",payload.Rejections.Select(p=>p.Key+"="+p.Value))+
                 "\nplan_errors="+plan.Diagnostics.Count+"\n"+string.Join("\n",plan.Diagnostics.Take(24))+
                 "\nphysical_product="+plan.PhysicalProduct.Success+"\nplan_digest="+plan.Digest;
-            string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_08/_work/density_diagnostic.txt"));
+            string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/density_diagnostic.txt"));
             Directory.CreateDirectory(Path.GetDirectoryName(path)); File.WriteAllText(path,detail);
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(path),"density_rooms.csv"),"id,recipe,x,y,width,height,parent,depth,mirror\n"+
                 string.Join("\n",payload.Rooms.Select(r=>string.Join(",",r.Id,r.Recipe,r.Bounds.X,r.Bounds.Y,r.Bounds.Width,r.Bounds.Height,r.Parent,r.Depth,r.Mirror))));
@@ -194,8 +194,13 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                         Assert.That(cells[new RmapSpecialWorldPoint(foot.X,foot.Y+1)],Is.EqualTo(Sv5InfillCellValue.Air));
                     }
                     if(room.Legacy) continue;
-                    Assert.That(link.ExternalCenterline.Count,Is.InRange(1,24),room.Id);
-                    Assert.That(link.Path.Zip(link.Path.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)),Is.All.EqualTo(1));
+                    Assert.That(link.ConnectionCellCount,Is.InRange(1,24),room.Id);
+                    Assert.That(link.ConnectionCenterline,Is.EqualTo(link.HostAccess.Count==0 ? link.Path :
+                        link.HostAccess.Concat(link.Path.Skip(1))),room.Id+" inclusive endpoints");
+                    Assert.That(link.ConnectionCenterline.First(),Is.EqualTo(parent==null ? link.HostAccess[0] : link.Path[0]),room.Id);
+                    Assert.That(link.ConnectionCenterline.Last(),Is.EqualTo(room.Entry),room.Id);
+                    Assert.That(link.ConnectionCenterline.Zip(link.ConnectionCenterline.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)),Is.All.EqualTo(1));
+                    // ExternalCenterline remains an ownership diagnostic; it is deliberately not the length authority.
                     Assert.That(link.ExternalCenterline,Is.EqualTo(link.HostAccess.Concat(link.Path).Distinct()
                         .Where(p=>link.Cells.Any(c=>c.World.Equals(p)))));
                 }
@@ -271,7 +276,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test, Timeout(1200000)] public void T11_ActualExportsReconstructEveryCellAndMutationsChangeDigestOrFailValidation()
         {
-            string work=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08/_work");
+            string work=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08_FIX01/_work");
             foreach(var pair in Cases())
             {
                 var p=pair.After; var payload=p.Infill;
@@ -302,10 +307,35 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 Assert.That(windowRows.Sum(r=>int.Parse(r[5])),Is.EqualTo(payload.NewOwnedTiles));
                 var validation=JsonUtility.FromJson<ValidationDto>(File.ReadAllText(Path.Combine(first,"infill_validation.json")));
                 Assert.That(validation.plan_digest,Is.EqualTo(p.Digest));
-                Assert.That(validation.CELLS && validation.PATTERNS && validation.STATIC_SCREEN && validation.CONTACT && validation.PHYSICAL_PRODUCT,Is.True);
+                Assert.That(validation.CELLS && validation.PATTERNS && validation.STATIC_SCREEN && validation.CONNECTION_LENGTH && validation.CONTACT && validation.PHYSICAL_PRODUCT,Is.True);
+                Assert.That(validation.length_policy,Is.EqualTo(Sv5InfillProfile.ConnectionLengthPolicy));
+                Assert.That(validation.length_target_count,Is.EqualTo(payload.NewRoomCount));
+                Assert.That(validation.maximum_connection_cell_count,Is.InRange(1,24));
+                Assert.That(validation.over_length_count,Is.Zero);
+                Assert.That(validation.endpoint_error_count,Is.Zero);
+                Assert.That(validation.non_cardinal_count,Is.Zero);
                 Assert.That(validation.COMPOSED || validation.PLAYER,Is.False);
                 Assert.That(validation.fully_known_windows+validation.mixed_pending_windows,Is.EqualTo(254409));
                 Assert.That(validation.mixed_pending_windows,Is.GreaterThan(0));
+                string linkPath=Path.Combine(first,"infill_links.csv");
+                Assert.That(File.ReadLines(linkPath).First(),Is.EqualTo(
+                    "room_id,parent,host,ordered_cardinal_air_path,host_access,external_cardinal_air,external_cell_count,connection_centerline,connection_cell_count,length_policy,length_status,opening_faces,support_cells,approach,return,success,qualification,plan_digest"));
+                var linkRows=ReadCsv(linkPath);
+                Assert.That(linkRows.Length,Is.EqualTo(payload.Links.Count));
+                foreach(var row in linkRows)
+                {
+                    var exportedLink=payload.Links.Single(l=>l.Room==row[0]);
+                    var linkedRoom=payload.Rooms.Single(r=>r.Id==exportedLink.Room);
+                    string expectedPoints="["+string.Join(",",exportedLink.ConnectionCenterline.Select(point=>"["+point.X+","+point.Y+"]"))+"]";
+                    Assert.That(row[7],Is.EqualTo(expectedPoints),exportedLink.Room);
+                    Assert.That(int.Parse(row[8]),Is.EqualTo(exportedLink.ConnectionCellCount),exportedLink.Room);
+                    Assert.That(row[9],Is.EqualTo(Sv5InfillProfile.ConnectionLengthPolicy),exportedLink.Room);
+                    Assert.That(row[10],Is.EqualTo(linkedRoom.Legacy ? "NOT_APPLICABLE_LEGACY_INTERIOR" : "PASS"),exportedLink.Room);
+                    Assert.That(row[17],Is.EqualTo(p.Digest),exportedLink.Room);
+                }
+                string infillJson=File.ReadAllText(Path.Combine(first,"infill.json"));
+                Assert.That(infillJson,Does.Contain("\"length_policy\":\""+Sv5InfillProfile.ConnectionLengthPolicy+"\"")
+                    .And.Contain("\"infill_digest\":\""+payload.Digest+"\"").And.Contain("\"plan_digest\":\""+p.Digest+"\""));
                 var svg=new System.Xml.XmlDocument(); svg.LoadXml(Sv5InfillExport.Preview(p,new Sv5SpaceBounds(0,0,624,416)));
                 Assert.That(svg.GetElementsByTagName("metadata")[0].InnerText,Is.EqualTo(p.Digest));
                 Assert.That(svg.GetElementsByTagName("path").Cast<System.Xml.XmlElement>().Count(n=>n.GetAttribute("fill")=="#111a20" || n.GetAttribute("fill")=="#f5f5e9"),
@@ -331,7 +361,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             }
             // Both immutable integration candidates already passed production validation above.
             // This is the sole final ON export pair, never an export into historical directories.
-            Sv5InfillExport.WriteComparison(Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08"),DefaultOn.Value,RepeatOn.Value);
+            Sv5InfillExport.WriteComparison(Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08_FIX01"),DefaultOn.Value,RepeatOn.Value);
         }
 
         [Test, Timeout(1200000)] public void T12_HistoricalLocksAndEightyTwoTestNamesRemainAndObligationsReflectActualState()
@@ -386,7 +416,12 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Serializable] private sealed class LockDto { public LockEntry[] files; }
         [Serializable] private sealed class LockEntry { public string path,phase,worktree_sha256; public long worktree_bytes; }
         [Serializable] private sealed class ValidationDto
-        { public string plan_digest; public bool CELLS,PATTERNS,STATIC_SCREEN,CONTACT,PHYSICAL_PRODUCT,COMPOSED,PLAYER; public int fully_known_windows,mixed_pending_windows; }
+        {
+            public string plan_digest,length_policy;
+            public bool CELLS,PATTERNS,STATIC_SCREEN,CONNECTION_LENGTH,CONTACT,PHYSICAL_PRODUCT,COMPOSED,PLAYER;
+            public int fully_known_windows,mixed_pending_windows,length_target_count,maximum_connection_cell_count,
+                over_length_count,endpoint_error_count,non_cardinal_count;
+        }
 
         private static void WriteCellPreview(Sv5SpaceGraphPlan plan,string path)
         {

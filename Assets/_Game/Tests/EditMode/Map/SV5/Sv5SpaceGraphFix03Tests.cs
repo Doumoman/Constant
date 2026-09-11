@@ -232,7 +232,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             "SV5_06_FIX03", file);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_08", "_work", "legacy_exports", "sv5_06_fix03");
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_08_FIX01", "_work", "legacy_exports", "sv5_06_fix03");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string Compact(string value) => value.Replace(" ", string.Empty).Replace("\r", string.Empty)
             .Replace("\n", string.Empty).Replace("\t", string.Empty);

@@ -1,0 +1,43 @@
+{
+  "format": "explicit_one_time_contract_change_v1",
+  "patch_id": "SV5_08_FIX01_REG",
+  "target_task": "SV5_08_FIX01",
+  "normal_task_schema_unchanged": "single_task_v1",
+  "authorization": "Current user approval to proceed with the report correction authorizes this exact one-task registration amendment. No standing exception or future-ID registration is created.",
+  "status": {
+    "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+    "before_sha256": "2683746a5c6f5971ba2b235cf63b8a314f39b41bb6725d55f33879d8d316151e",
+    "after_sha256": "dd0787aa4ad3b819bc6a95d0925a57997f035119c42ffcdeb71aebc635cc5469",
+    "inserted_line": "| SV5_08_FIX01 | LOCKED |"
+  },
+  "master": {
+    "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+    "before_sha256": "125463da8dcee31f9b74e3613b2ed4978696a1d111cf2f471fa57ff0ada0ef64",
+    "after_sha256": "d0804d9c9f386e169aeaa97c0ebbefce3fa6d208e36b48521eace3b4c7e525a4",
+    "inserted_line": "| 08.F1 | SV5_08_FIX01 | LOCKED |"
+  },
+  "before": {
+    "rows": 290,
+    "complete": 251,
+    "current": 0,
+    "locked": 39
+  },
+  "after_registration": {
+    "rows": 291,
+    "complete": 251,
+    "current": 0,
+    "locked": 40
+  },
+  "after_apply": {
+    "rows": 291,
+    "complete": 251,
+    "current": 1,
+    "locked": 39
+  },
+  "after_finalize": {
+    "rows": 291,
+    "complete": 252,
+    "current": 0,
+    "locked": 39
+  }
+}

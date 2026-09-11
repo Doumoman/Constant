@@ -1,0 +1,18 @@
+{
+  "schema": "SV5_INFILL_LENGTH_RULE_V2",
+  "version": "2.0.0",
+  "maximum_connection_centerline_cells_inclusive": 24,
+  "unit": "ORDERED_CARDINAL_AIR_CELL_VISITS_INCLUDING_BOTH_ENDPOINTS",
+  "definition": "For a root: require HostAccess[-1] == Path[0], then HostAccess + Path[1:]. For a child: Path. Remove only that concatenation joint; preserve every other visit.",
+  "root_start": "exact old host centerline anchor HostAccess[0]",
+  "child_start": "exact opening/exit on immediate parent room boundary Path[0]",
+  "end": "child room Entry == Path[-1]",
+  "exclude_from_count": [
+    "corridor width/headroom AIR area",
+    "parent room internal Entry-to-exit traversal witness",
+    "legacy six room interior-only screen links"
+  ],
+  "count_policy_for_legacy": "NOT_APPLICABLE_LEGACY_INTERIOR; never silently classify a new connector as legacy",
+  "preserve": "All SV5_08 density/seed/recipes/protection/product requirements except the clarified length definition. Original input files remain immutable.",
+  "compatibility": "ExternalCenterline and external_cell_count may remain ownership diagnostics; neither controls the length cap. Version policy and ON digest; NONE/07 baseline digest remains unchanged."
+}

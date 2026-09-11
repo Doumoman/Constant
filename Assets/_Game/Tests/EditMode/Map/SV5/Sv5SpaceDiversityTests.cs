@@ -186,7 +186,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void V11_ExportsBindActualSelectionsGeometryAndPolicyAndAreByteDeterministic()
         {
             var plans=new[]{DefaultOff.Value,DefaultOn.Value,RepeatOff.Value,RepeatOn.Value};
-            string directory=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08/_work/legacy_exports/sv5_07_v11");
+            string directory=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/legacy_exports/sv5_07_v11");
             Sv5SpaceGraphExport.WriteDiversityComparison(directory,plans);
             var files=new[]{"diversity.json","decisions.csv","pairs.csv","preview/before_after.svg","preview/detail.svg","preview/index.html"}
                 .Concat(Directory.GetFiles(Path.Combine(directory,"default"),"*",SearchOption.AllDirectories))
