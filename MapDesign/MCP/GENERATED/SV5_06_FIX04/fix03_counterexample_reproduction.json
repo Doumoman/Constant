@@ -1,0 +1,170 @@
+{
+  "status": "EXPECTED_FIX03_FAILURES_REPRODUCED",
+  "scope": "EXACT_EXPORTED_PLAN;GLOBAL_CARDINAL_PASSAGE_GRAPH;NOT_UNITY_OR_PLAYER",
+  "local_barrier_coverage": {
+    "conditional_contacts": 225,
+    "supported": 7,
+    "unsupported": 218,
+    "face_supported": 7,
+    "face_unsupported": 157,
+    "shared_supported": 0,
+    "shared_unsupported": 61,
+    "unsupported_examples": [
+      {
+        "contact_id": "FACE_348_296_349_296_3d95e18aee32",
+        "kind": "FACE",
+        "first": [
+          348,
+          296
+        ],
+        "second": [
+          349,
+          296
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_296_349_296_b2de08e63f4d",
+        "kind": "FACE",
+        "first": [
+          348,
+          296
+        ],
+        "second": [
+          349,
+          296
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_297_349_297_3d95e18aee32",
+        "kind": "FACE",
+        "first": [
+          348,
+          297
+        ],
+        "second": [
+          349,
+          297
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_297_349_297_b2de08e63f4d",
+        "kind": "FACE",
+        "first": [
+          348,
+          297
+        ],
+        "second": [
+          349,
+          297
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_298_349_298_3d95e18aee32",
+        "kind": "FACE",
+        "first": [
+          348,
+          298
+        ],
+        "second": [
+          349,
+          298
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_298_349_298_b2de08e63f4d",
+        "kind": "FACE",
+        "first": [
+          348,
+          298
+        ],
+        "second": [
+          349,
+          298
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_299_349_299_3d95e18aee32",
+        "kind": "FACE",
+        "first": [
+          348,
+          299
+        ],
+        "second": [
+          349,
+          299
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      },
+      {
+        "contact_id": "FACE_348_299_349_299_b2de08e63f4d",
+        "kind": "FACE",
+        "first": [
+          348,
+          299
+        ],
+        "second": [
+          349,
+          299
+        ],
+        "boundary_id": "SV5_ROUTE_BOUNDARY_07BBC38EBC2801249FC4",
+        "owner_gate_id": "SV5_GATE_07BBC38EBC2801249FC4"
+      }
+    ]
+  },
+  "deepstar_initial_lock": [
+    {
+      "connection_id": "SV5_CORE_CONN_93f752cf7b8f813c",
+      "condition": "NORMAL_RESOURCE_APPROACH",
+      "without_gates": true,
+      "all_closed_gates": false,
+      "boss_only": true,
+      "forge_only": true,
+      "seal_only": true,
+      "boss_plus_forge": false
+    },
+    {
+      "connection_id": "SV5_CORE_CONN_be0aa26aa7cc3b03",
+      "condition": "NORMAL_RESOURCE_RETURN",
+      "without_gates": true,
+      "all_closed_gates": false,
+      "boss_only": true,
+      "forge_only": true,
+      "seal_only": true,
+      "boss_plus_forge": false
+    }
+  ],
+  "logical_first_order_claim": {
+    "resource_order": "DeepStarYeast>CondensedCoefficientSap>MooncoreOre",
+    "success": true
+  },
+  "optional_collateral_locks": [
+    {
+      "connection_id": "SV5_OPTIONAL_01",
+      "without_gates": true,
+      "all_closed_gates": false
+    },
+    {
+      "connection_id": "SV5_OPTIONAL_RETURN_TO_START",
+      "without_gates": true,
+      "all_closed_gates": false
+    },
+    {
+      "connection_id": "SV5_OPTIONAL_TO_VILLAGE",
+      "without_gates": true,
+      "all_closed_gates": false
+    }
+  ]
+}

@@ -23,6 +23,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(directory, "places.csv"), PlacesCsv(plan));
             Write(Path.Combine(directory, "ports.csv"), PortsCsv(plan));
             Write(Path.Combine(directory, "connections.csv"), ConnectionsCsv(plan));
+            Write(Path.Combine(directory, "segments.json"), SegmentsJson(plan));
             Write(Path.Combine(directory, "reservation_cells.csv"), ReservationCellsCsv(plan));
             Write(Path.Combine(directory, "state_proofs.json"), StateProofsJson(plan));
             Write(Path.Combine(directory, "contact_checks.csv"), ContactChecksCsv(plan));
@@ -30,6 +31,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(directory, "gate_state_checks.json"), GateStateChecksJson(plan));
             Write(Path.Combine(directory, "physical_contact_checks.json"), PhysicalContactChecksJson(plan));
             Write(Path.Combine(directory, "physical_gate_state_checks.json"), PhysicalGateStateChecksJson(plan));
+            Write(Path.Combine(directory, "local_barrier_checks.json"), LocalBarrierChecksJson(plan));
+            Write(Path.Combine(directory, "physical_transition_matrix.json"), PhysicalTransitionMatrixJson(plan));
             Write(Path.Combine(directory, "obligations.csv"), ObligationsCsv(plan));
             Write(Path.Combine(directory, "validation.json"), ValidationJson(plan));
             Write(Path.Combine(preview, "overview.svg"), OverviewSvg(plan));
@@ -42,6 +45,121 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "W02_BOSS_APPROACH_REACHABLE", "W02 - Seal-open Boss approach"));
             Write(Path.Combine(preview, "FIX02_bypass_before_after.svg"), BypassSvg(plan));
             Write(Path.Combine(preview, "index.html"), IndexHtml(plan));
+        }
+
+        public static string SegmentsJson(Sv5SpaceGraphPlan plan)
+        {
+            var text = new StringBuilder("{\n  \"plan_digest\": " + J(plan.Digest) + ",\n  \"segments\": [\n");
+            AppendObjects(text, plan.Segments.Select(s => "    {\"segment_id\":" + J(s.Id) +
+                ",\"connection_id\":" + J(s.ConnectionId) + ",\"kind\":" + J(s.Kind.ToString()) +
+                ",\"scope\":" + J(s.RegionId) + ",\"gate_id\":" + J(s.GateId) + ",\"predicate\":" +
+                J(s.Predicate == null ? "ACTIONLESS" : s.Predicate.StableToken) + ",\"source\":" + Point(s.Source) +
+                ",\"target\":" + Point(s.Target) + ",\"centerline\":[" + string.Join(",",s.Centerline.Select(Point)) +
+                "],\"aperture_cells\":[" + string.Join(",",s.ApertureCells.Select(Point)) + "]}"));
+            return text.Append("  ]\n}\n").ToString();
+        }
+
+        public static string LocalBarrierChecksJson(Sv5SpaceGraphPlan plan)
+        {
+            var text = new StringBuilder("{\n  \"plan_digest\": " + J(plan.Digest) +
+                ",\n  \"product_digest\": " + J(plan.PhysicalProduct.SemanticDigest) + ",\n  \"checks\": [\n");
+            AppendObjects(text, plan.ContactDecisions.Where(c => c.Crossing == Sv5SpaceCrossingKind.ConditionalGate)
+                .Select(c => {
+                    var gate = plan.Gates.Single(g => g.BoundaryId == c.BoundaryId);
+                    var errors = Sv5SpaceGraphValidator.ValidateBarrierFixture(c.Source, gate.BlockingCells, gate.BlockingFaces);
+                    return "    {\"contact_id\":" + J(c.Source.Id) + ",\"kind\":" + J(c.Source.Kind) +
+                        ",\"first\":" + Point(c.Source.FirstWorld) + ",\"second\":" + Point(c.Source.SecondWorld) +
+                        ",\"gate_id\":" + J(gate.Id) + ",\"success\":" + B(errors.Count == 0) +
+                        ",\"errors\":[" + string.Join(",", errors.Select(J)) + "]}";
+                }));
+            return text.Append("  ]\n}\n").ToString();
+        }
+
+        public static string PhysicalTransitionMatrixJson(Sv5SpaceGraphPlan plan)
+        {
+            var text = new StringBuilder("{\n  \"plan_digest\": " + J(plan.Digest) +
+                ",\n  \"product_digest\": " + J(plan.PhysicalProduct.SemanticDigest) + ",\n  \"transitions\": [\n");
+            AppendObjects(text, plan.PhysicalProduct.Matrix.Select(r => "    {\"resource_order\":" + J(r.ResourceOrder) +
+                ",\"fsm_state\":" + J(r.State.StableToken) + ",\"connection_id\":" + J(r.Connection.Id) +
+                ",\"direction\":" + J(r.Reverse ? "REVERSE" : "FORWARD") + ",\"expected_predicate\":" +
+                J(new Sv5SpaceGatePredicate(r.Edge.RequiredResourceMask, r.Edge.RequiresForge, r.Edge.RequiresSeal,
+                    r.Edge.RequiresBossComplete).StableToken) + ",\"expected_open\":" + B(r.ExpectedOpen) +
+                ",\"closed_gate_ids\":[" + string.Join(",",r.ClosedGateIds.Select(J)) + "],\"open_gate_ids\":[" +
+                string.Join(",",r.OpenGateIds.Select(J)) + "],\"physical_reachable\":" + B(r.Reachability.TargetPortReachable) +
+                ",\"witness_id\":" + J(r.WitnessId) + ",\"blocked_reason\":" +
+                J(r.Reachability.TargetPortReachable ? "" : "NO_GLOBAL_CARDINAL_PATH_WITH_CLOSED_GATES") +
+                ",\"success\":" + B(r.Success) + "}"));
+            text.Append("  ],\n  \"witnesses\": [\n");
+            AppendObjects(text, plan.PhysicalProduct.Matrix.Select(r => r.Reachability).GroupBy(r => r.WitnessId)
+                .Select(g => g.First()).OrderBy(r => r.WitnessId).Select(r => "    {\"id\":" + J(r.WitnessId) +
+                    ",\"cells\":[" + string.Join(",",r.Witness.Select(Point)) + "]}"));
+            return text.Append("  ]\n}\n").ToString();
+        }
+
+        public static string RepairDetailSvg(Sv5SpaceGraphPlan plan,
+            IEnumerable<Sv5SpaceConnection> beforeConnections, IEnumerable<Sv5SpaceGate> beforeGates,
+            bool initialDeepStar = false, int beforeLocalErrors = -1)
+        {
+            int minX = initialDeepStar ? 448 : 524, minY = initialDeepStar ? 328 : 306;
+            const int width = 16, height = 22, scale = 24;
+            var svg = new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"920\" height=\"740\" viewBox=\"0 0 920 740\">");
+            svg.Append("<rect width=\"920\" height=\"740\" fill=\"#fff\"/><g font-family=\"sans-serif\" fill=\"#17212b\">")
+                .Append("<text x=\"24\" y=\"28\" font-size=\"18\">FIX04: ").Append(initialDeepStar ? "DeepStar INITIAL collateral cut" : "Forge / Seal corridor detail")
+                .Append(" (not composed terrain)</text>")
+                .Append("<text x=\"24\" y=\"52\" font-size=\"12\">Dark: confirmed SOLID | blue outline: planned passage | white: unplaced | red: closed gate face</text>")
+                .Append("<text x=\"24\" y=\"70\" font-size=\"12\">Thin grid: 1 cell | thick grid: 4 x 4 pattern boundary | green: coordinate-search witness</text>");
+            Panel(24,"BEFORE: exact FIX03",beforeConnections.ToArray(),beforeGates.ToArray());
+            Panel(474,"AFTER: accepted FIX04",plan.Connections.ToArray(),plan.Gates.ToArray());
+            svg.Append("<text x=\"24\" y=\"674\" font-size=\"12\">Viewport x=").Append(minX).Append("..").Append(minX+width-1)
+                .Append(", y=").Append(minY).Append("..").Append(minY+height-1).Append("; S / T = visible planned-corridor entry / end.</text>")
+                .Append("<text x=\"24\" y=\"695\" font-size=\"12\">").Append(initialDeepStar ?
+                    "State INITIAL, all gates closed; local barrier errors before=" + beforeLocalErrors + ", after=" +
+                    Sv5SpaceGraphValidator.FindGateErrors(plan.ContactDecisions,plan.Gates).Count :
+                    "State: resources=7, forge=true, seal=false, boss=false. Offscreen gates still apply globally.").Append("</text>")
+                .Append("<text x=\"24\" y=\"716\" font-size=\"12\">ComposedGeometryReady=false; PlayerVerified=false. No floor/landing/headroom completion is claimed.</text>")
+                .Append("</g><!-- ").Append(plan.Digest).Append(" --></svg>\n");
+            return svg.ToString();
+
+            void Panel(int ox,string label,Sv5SpaceConnection[] connections,Sv5SpaceGate[] gates)
+            {
+                int X(int x) => ox+(x-minX)*scale;
+                int Y(int y) => 120+(minY+height-1-y)*scale;
+                bool Visible(RmapSpecialWorldPoint p) => p.X>=minX && p.X<minX+width && p.Y>=minY && p.Y<minY+height;
+                var passage = new HashSet<RmapSpecialWorldPoint>(connections.SelectMany(c => c.Centerline.Concat(c.ApertureCells)));
+                var solid = new HashSet<RmapSpecialWorldPoint>(plan.Core.CoreCells.Where(c => c.Protection == RmapSpecialProtectionKind.FixedSolid).Select(c => c.World)
+                    .Concat(plan.Core.RouteCells.Where(c => c.RequiredBaseCell == StarNight.Map.WorldGeneration.MicroPatterns.RmapPatternBaseCell.Solid).Select(c => c.World)));
+                var forge = initialDeepStar ? connections.Single(c => c.Id == "SV5_CORE_CONN_93f752cf7b8f813c") :
+                    connections.Single(c => c.Condition == "FORGE_GATED_SEAL_APPROACH");
+                var reach = Sv5SpacePhysicalMovement.Evaluate(plan.Core,connections,gates,forge.Id,
+                    initialDeepStar ? 0UL : 7UL,!initialDeepStar,false,false);
+                svg.Append("<text x=\"").Append(ox).Append("\" y=\"101\" font-size=\"15\">").Append(label).Append("; reachable=").Append(reach.TargetPortReachable).Append("</text>");
+                for(int y=minY;y<minY+height;y++) for(int x=minX;x<minX+width;x++)
+                {
+                    var p = new RmapSpecialWorldPoint(x,y);
+                    svg.Append("<rect x=\"").Append(X(x)).Append("\" y=\"").Append(Y(y)).Append("\" width=\"24\" height=\"24\" fill=\"")
+                        .Append(solid.Contains(p)?"#38434e":"#fff").Append("\" stroke=\"#c7ccd1\" stroke-width=\"0.5\"/>");
+                    if(passage.Contains(p)) svg.Append("<rect x=\"").Append(X(x)+3).Append("\" y=\"").Append(Y(y)+3).Append("\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"#2376bd\" stroke-dasharray=\"3 2\"/>");
+                }
+                for(int x=minX;x<=minX+width;x++) if(x%4==0)
+                    Line(X(x),120,X(x),120+height*scale,"#66717c",1.5);
+                for(int y=minY;y<=minY+height;y++) if(y%4==0)
+                    Line(ox,Y(y)+scale,ox+width*scale,Y(y)+scale,"#66717c",1.5);
+                foreach(var g in gates.Where(g => !g.TypedPredicate.IsOpen(initialDeepStar ? 0UL : 7UL,!initialDeepStar,false,false))) foreach(var f in g.BlockingFaces)
+                    if(Visible(f.First)&&Visible(f.Second))
+                    {
+                        int cx=(X(f.First.X)+X(f.Second.X))/2+12,cy=(Y(f.First.Y)+Y(f.Second.Y))/2+12;
+                        if(f.First.X!=f.Second.X) Line(cx,cy-12,cx,cy+12,"#d32337",4);
+                        else Line(cx-12,cy,cx+12,cy,"#d32337",4);
+                    }
+                for(int i=1;i<reach.Witness.Count;i++) if(Visible(reach.Witness[i-1])&&Visible(reach.Witness[i]))
+                    Line(X(reach.Witness[i-1].X)+12,Y(reach.Witness[i-1].Y)+12,X(reach.Witness[i].X)+12,Y(reach.Witness[i].Y)+12,"#19884a",3);
+                var visible = forge.Centerline.Where(Visible).ToArray();
+                if(visible.Length>0) foreach(var marker in new[] { new { P=visible.First(),Label="S" },new { P=visible.Last(),Label="T" } })
+                    svg.Append("<text x=\"").Append(X(marker.P.X)+5).Append("\" y=\"").Append(Y(marker.P.Y)+18).Append("\" font-size=\"16\" fill=\"#9b3b03\">").Append(marker.Label).Append("</text>");
+                void Line(int x1,int y1,int x2,int y2,string color,double stroke) => svg.Append("<line x1=\"").Append(x1).Append("\" y1=\"").Append(y1)
+                    .Append("\" x2=\"").Append(x2).Append("\" y2=\"").Append(y2).Append("\" stroke=\"").Append(color).Append("\" stroke-width=\"")
+                    .Append(stroke.ToString(CultureInfo.InvariantCulture)).Append("\"/>");
+            }
         }
 
         public static string SpaceGraphJson(Sv5SpaceGraphPlan plan)
@@ -330,6 +448,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"physical_gate_state_checks\": " + N(plan.PhysicalMovement.GateStateChecks.Count) + ",\n" +
                 "  \"physical_movement_digest\": " + J(plan.PhysicalMovement.SemanticDigest) + ",\n" +
                 "  \"physical_movement_pass\": " + B(plan.PhysicalMovement.Success) + ",\n" +
+                "  \"physical_product_digest\": " + J(plan.PhysicalProduct.SemanticDigest) + ",\n" +
+                "  \"physical_product_pass\": " + B(plan.PhysicalProduct.Success) + ",\n" +
+                "  \"physical_product_errors\": " + N(plan.PhysicalProduct.Diagnostics.Count) + ",\n" +
                 "  \"conditional_gates\": " + N(plan.Gates.Count) + ",\n" +
                 "  \"projection_orders\": " + N(plan.ProjectionProofs.Count) + ",\n" +
                 "  \"projection_pass\": " + B(plan.ProjectionProofs.Count == 6 && plan.ProjectionProofs.All(value => value.Success)) + ",\n" +

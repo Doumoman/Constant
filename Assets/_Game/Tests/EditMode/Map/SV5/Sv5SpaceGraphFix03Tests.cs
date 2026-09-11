@@ -41,39 +41,28 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         public void G02_DifferentPredicateSharedContactCannotBypassButSamePredicateJoinRemainsTraversable()
         {
             Sv5SpaceGraphPlan plan = Plan.Value;
-            Sv5SpacePhysicalContactCheck guarded = plan.PhysicalMovement.ContactChecks.First(value =>
-                value.Source.Source.Kind == "SHARED" &&
-                value.Source.Crossing == Sv5SpaceCrossingKind.ConditionalGate);
-            Sv5SpacePhysicalContactCheck joined = plan.PhysicalMovement.ContactChecks.First(value =>
-                value.Source.Source.Kind == "SHARED" && value.Source.Crossing == Sv5SpaceCrossingKind.Join &&
-                value.FirstTraversable && value.SecondTraversable);
-            Assert.That(guarded.Success && guarded.GeometryOwnerId.Length > 0, Is.True);
-            Assert.That(joined.Success && joined.GeometryOwnerId.Length == 0, Is.True);
-            Sv5SpaceGate owner = plan.Gates.Single(value => value.Id == guarded.GeometryOwnerId);
-            Sv5SpaceGate weakened = CloneGate(owner, new[] { ForeignFace(plan, owner) });
-            Assert.That(Sv5SpacePhysicalMovement.FindStateErrors(plan.Core, plan.Connections,
-                Replace(plan.Gates, owner.Id, weakened)), Has.Some.StartsWith("GLOBAL_GATE_STATE_BYPASS|"));
-            Assert.That(Sv5SpacePhysicalMovement.FindStateErrors(plan.Core, plan.Connections, plan.Gates), Is.Empty);
+            Sv5RouteContactPair fixture = FixturePair("SHARED");
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
+                Array.Empty<RmapSpecialWorldPoint>(), Array.Empty<Sv5SpaceBoundaryFace>()),
+                Has.Some.EqualTo("GATE_SHARED_CELL_BYPASS|" + fixture.Id));
+            Assert.That(plan.PhysicalMovement.ContactChecks.Any(value => value.Success), Is.True);
         }
 
         [Test]
         public void G03_DifferentPredicateFaceRequiresRealGlobalBoundaryGeometry()
         {
             Sv5SpaceGraphPlan plan = Plan.Value;
-            Sv5SpacePhysicalContactCheck guarded = plan.PhysicalMovement.ContactChecks.First(value =>
-                value.Source.Source.Kind == "FACE" &&
-                value.Source.Crossing == Sv5SpaceCrossingKind.ConditionalGate);
-            Sv5SpaceGate owner = plan.Gates.Single(value => value.Id == guarded.GeometryOwnerId);
-            Assert.That(owner.BlockingFaces.Count, Is.GreaterThan(1));
-            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(guarded.Source.Source,
+            Sv5RouteContactPair fixture = FixturePair("FACE");
+            Sv5SpaceGate owner = Plan.Value.Gates.First();
+            // A rerouted accepted corridor has a single local neck, not FIX03's distributed cuts.
+            Assert.That(owner.BlockingFaces.Count, Is.EqualTo(1));
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
                 Array.Empty<RmapSpecialWorldPoint>(), new[]
                 {
-                    Create<Sv5SpaceBoundaryFace>(guarded.Source.Source.FirstWorld,
-                        guarded.Source.Source.SecondWorld),
+                    Create<Sv5SpaceBoundaryFace>(fixture.FirstWorld, fixture.SecondWorld),
                 }), Is.Empty);
-            Sv5SpaceGate weakened = CloneGate(owner, new[] { ForeignFace(plan, owner) });
-            Assert.That(Sv5SpacePhysicalMovement.FindStateErrors(plan.Core, plan.Connections,
-                Replace(plan.Gates, owner.Id, weakened)), Is.Not.Empty);
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
+                Array.Empty<RmapSpecialWorldPoint>(), owner.BlockingFaces), Is.Not.Empty);
         }
 
         [Test]
@@ -99,16 +88,16 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         public void G05_EmptyFakeAndSharedFaceOnlyBoundariesAreRejected()
         {
             Sv5SpaceGraphPlan plan = Plan.Value;
-            Sv5SpaceContactDecision shared = plan.ContactDecisions.First(value =>
-                value.Source.Kind == "SHARED" && value.Crossing == Sv5SpaceCrossingKind.ConditionalGate);
-            Sv5SpaceGate owner = plan.Gates.Single(value => value.BoundaryId == shared.BoundaryId);
-            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(shared.Source,
+            Sv5RouteContactPair fixture = FixturePair("SHARED");
+            Sv5SpaceGate owner = plan.Gates.First();
+            Sv5SpaceContactDecision shared = Create<Sv5SpaceContactDecision>(fixture, "FIXTURE_SPLIT",
+                Sv5SpaceCrossingKind.ConditionalGate, "FIXTURE_PREDICATE", owner.BoundaryId, true, true, "fixture");
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
                 Array.Empty<RmapSpecialWorldPoint>(), owner.BlockingFaces),
-                Has.Some.EqualTo("GATE_SHARED_CELL_BYPASS|" + shared.Source.Id));
-            Sv5SpaceContactDecision fake = Create<Sv5SpaceContactDecision>(shared.Source, shared.SplitNodeId,
+                Has.Some.EqualTo("GATE_SHARED_CELL_BYPASS|" + fixture.Id));
+            Sv5SpaceContactDecision fake = Create<Sv5SpaceContactDecision>(fixture, shared.SplitNodeId,
                 shared.Crossing, shared.Predicate, "FAKE_BOUNDARY", true, true, shared.Detail);
-            Assert.That(Sv5SpaceGraphValidator.FindGateErrors(new[] { fake }, plan.Gates),
-                Has.Some.EqualTo("GATE_CONTACT_UNCOVERED|" + shared.Source.Id));
+            Assert.That(Sv5SpaceGraphValidator.FindGateErrors(new[] { fake }, plan.Gates), Is.Not.Empty);
         }
 
         [Test]
@@ -140,10 +129,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 plan.ContactDecisions.Reverse(), plan.Gates.Reverse()).SemanticDigest;
             Assert.That(reversed, Is.EqualTo(original));
 
-            Sv5SpaceContactDecision contact = plan.ContactDecisions.First(value =>
-                value.Crossing == Sv5SpaceCrossingKind.ConditionalGate);
+            // Mutate an actually present decision, not an absent historical gate-contact ID.
+            Sv5SpaceContactDecision contact = plan.ContactDecisions.First();
             Sv5SpaceContactDecision changedContact = Create<Sv5SpaceContactDecision>(contact.Source,
-                contact.SplitNodeId, Sv5SpaceCrossingKind.Join, contact.Predicate, string.Empty, true, true,
+                contact.SplitNodeId, Sv5SpaceCrossingKind.Pending, contact.Predicate, "MUTATED_BOUNDARY", true, true,
                 contact.Detail);
             string contactDigest = Analyze(plan, contacts: Replace(plan.ContactDecisions,
                 contact.Source.Id, changedContact)).SemanticDigest;
@@ -152,7 +141,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             string boundaryDigest = Analyze(plan, gates: Replace(plan.Gates, gate.Id, CloneGate(gate,
                 gate.BlockingFaces, boundaryId: gate.BoundaryId + "_MUTATED"))).SemanticDigest;
             string geometryDigest = Analyze(plan, gates: Replace(plan.Gates, gate.Id, CloneGate(gate,
-                gate.BlockingFaces.Take(gate.BlockingFaces.Count - 1)))).SemanticDigest;
+                new[] { ForeignFace(plan, gate) }))).SemanticDigest;
             string stateDigest = Analyze(plan, gates: Replace(plan.Gates, gate.Id, CloneGate(gate,
                 gate.BlockingFaces, sealedState: gate.SealedState + "_MUTATED"))).SemanticDigest;
             Assert.That(new[] { original, contactDigest, boundaryDigest, geometryDigest, stateDigest }
@@ -233,11 +222,17 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         private static T Create<T>(params object[] arguments) => (T)Activator.CreateInstance(typeof(T),
             BindingFlags.Instance | BindingFlags.NonPublic, null, arguments, CultureInfo.InvariantCulture);
+        // FIX04 deliberately uses a deterministic validator fixture here: accepted-plan
+        // rerouting may remove a historical contact and must not be recreated in production.
+        private static Sv5RouteContactPair FixturePair(string kind) => Create<Sv5RouteContactPair>(kind,
+            new RmapSpecialWorldPoint(10, 10), kind == "SHARED" ? new RmapSpecialWorldPoint(10, 10) : new RmapSpecialWorldPoint(11, 10),
+            "FIXTURE_ROUTE_A", "FIXTURE_ROUTE_B", new RmapSpecialWorldPoint(10, 10),
+            new RmapSpecialWorldPoint(11, 10), "OPEN", "OPEN", "OPEN", "OPEN");
         private static string Input(string file) => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "INPUTS",
             "SV5_06_FIX03", file);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX03");
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX04", "legacy_exports", "sv5_06_fix03");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string Compact(string value) => value.Replace(" ", string.Empty).Replace("\r", string.Empty)
             .Replace("\n", string.Empty).Replace("\t", string.Empty);

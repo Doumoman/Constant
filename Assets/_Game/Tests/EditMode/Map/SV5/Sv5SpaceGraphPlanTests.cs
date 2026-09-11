@@ -170,7 +170,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(plan.ContactDecisions.All(value => value.Crossing != Sv5SpaceCrossingKind.Pending), Is.True);
             Assert.That(plan.ContactDecisions.All(value => value.Crossing == Sv5SpaceCrossingKind.Join ||
                 value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
-            Assert.That(plan.ContactDecisions.Any(value => value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
+            // A legal reroute can remove all cross-route ConditionalGate contacts.
+            // The three actual gates and their nine physical state checks remain mandatory.
+            Assert.That(plan.Gates.Count, Is.EqualTo(3));
+            Assert.That(plan.PhysicalMovement.GateStateChecks.Count, Is.EqualTo(9));
+            Assert.That(plan.PhysicalMovement.GateStateChecks.All(c => c.Success), Is.True);
             Assert.That(plan.Gates.Select(value => value.SourceConnectionId).Distinct().Count(),
                 Is.EqualTo(plan.Gates.Count));
             Assert.That(plan.Gates.All(value => value.SealedState.Contains("GLOBAL_WORLD_FACE_CUT") &&
@@ -252,7 +256,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         }
 
         private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
-            "SV5_06_FIX03", "legacy_exports", "sv5_06_original_t10");
+            "SV5_06_FIX04", "legacy_exports", "sv5_06_original_t10");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {

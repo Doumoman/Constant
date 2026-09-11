@@ -87,8 +87,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             Assert.That(Plan.Value.ContactDecisions.All(value => value.Crossing == Sv5SpaceCrossingKind.Join ||
                 value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
-            Assert.That(Plan.Value.ContactDecisions.Any(value =>
-                value.Crossing == Sv5SpaceCrossingKind.ConditionalGate), Is.True);
+            // FIX04 may reroute all cross-route gated contacts away. Preserve the gate
+            // requirement through the actual three necks and all closed/open witnesses.
+            Assert.That(Plan.Value.Gates.Count, Is.EqualTo(3));
+            Assert.That(Plan.Value.PhysicalMovement.GateStateChecks.Count, Is.EqualTo(9));
             Assert.That(Plan.Value.Gates.All(value => value.BlockingFaces.Count > 0 &&
                 value.SealedState.Contains("GLOBAL_WORLD_FACE_CUT") &&
                 value.OpenState.Contains("GLOBAL_WORLD_FACES")), Is.True);
@@ -212,7 +214,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static int I(string value) => int.Parse(value, CultureInfo.InvariantCulture);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX03", "legacy_exports",
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX04", "legacy_exports",
             "sv5_06_fix01_n08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)

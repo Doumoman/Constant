@@ -111,50 +111,80 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     /// </summary>
     public static class Sv5SpaceGateGeometry
     {
+        /// <summary>Candidate neck edges outside a protected aperture, in ordered corridor order.
+        /// An aperture cell is never a candidate: advance along the corridor until BOTH cells
+        /// are outside every aperture and protected AIR. Clearance is not passage.</summary>
+        public static IReadOnlyList<Sv5SpaceBoundaryFace> PortBoundaryCandidates(
+            IEnumerable<RmapSpecialWorldPoint> orderedCorridor,
+            IEnumerable<RmapSpecialWorldPoint> selectedAperture,
+            IEnumerable<RmapSpecialWorldPoint> allApertures,
+            IEnumerable<RmapSpecialWorldPoint> protectedAir, int maxDistance = 7)
+        {
+            var line = orderedCorridor.ToArray();
+            var aperture = selectedAperture.ToArray();
+            var protectedCells = new HashSet<RmapSpecialWorldPoint>(allApertures.Concat(protectedAir));
+            var result = new List<Sv5SpaceBoundaryFace>();
+            for (int i = 1; i < line.Length; i++)
+            {
+                RmapSpecialWorldPoint a = line[i - 1], b = line[i];
+                if (Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y) != 1 ||
+                    protectedCells.Contains(a) || protectedCells.Contains(b)) continue;
+                if (!aperture.Any(p => Math.Max(Math.Abs(p.X - a.X) + Math.Abs(p.Y - a.Y),
+                    Math.Abs(p.X - b.X) + Math.Abs(p.Y - b.Y)) <= maxDistance)) continue;
+                result.Add(new Sv5SpaceBoundaryFace(a, b));
+            }
+            return new ReadOnlyCollection<Sv5SpaceBoundaryFace>(result.Distinct().ToArray());
+        }
+
         internal static IReadOnlyList<Sv5SpaceGate> Build(Sv5CoreReservationPlan core,
             IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5RouteContactPair> sourceContacts)
         {
-            if (core == null) throw new ArgumentNullException(nameof(core));
-            Sv5SpaceConnection[] connections = (sourceConnections ?? Array.Empty<Sv5SpaceConnection>())
-                .Where(value => value != null).OrderBy(value => value).ToArray();
-            Sv5RouteContactPair[] contacts = (sourceContacts ?? Array.Empty<Sv5RouteContactPair>())
-                .Where(value => value != null).ToArray();
-            var edges = core.RouteSource.Graph.Edges.ToDictionary(value => value.EdgeId, value => value,
-                StringComparer.Ordinal);
-            var globalPassage = new HashSet<RmapSpecialWorldPoint>(connections.SelectMany(value =>
-                value.Centerline.Concat(value.ApertureCells)));
-            var output = new List<Sv5SpaceGate>();
-            foreach (Sv5SpaceConnection connection in connections.Where(value => value.Kind ==
-                         Sv5SpaceConnectionKind.CoreProgression && edges.TryGetValue(value.SourceGraphEdgeId,
-                             out RmapWorldGraphEdge edge) && IsGuarded(edge)))
+            var connections = sourceConnections.OrderBy(c => c).ToArray();
+            var contacts = sourceContacts.ToArray();
+            var edges = core.RouteSource.Graph.Edges.ToDictionary(e => e.EdgeId);
+            var protectedAir = core.CoreCells.Where(c => c.Protection == RmapSpecialProtectionKind.ProtectedAir)
+                .Select(c => c.World).ToArray();
+            var ports = core.Source.Accesses.SelectMany(a => a.OpenCells).ToArray();
+            var gates = new List<Sv5SpaceGate>();
+            foreach (var connection in connections.Where(c => c.Kind == Sv5SpaceConnectionKind.CoreProgression &&
+                IsGuarded(edges[c.SourceGraphEdgeId])).OrderBy(c => edges[c.SourceGraphEdgeId].RequiresBossComplete ? 3 :
+                    edges[c.SourceGraphEdgeId].RequiresSeal ? 2 : 1))
             {
-                RmapWorldGraphEdge edge = edges[connection.SourceGraphEdgeId];
-                GateCut cut = FullWidthCut(core, connection);
-                Sv5SpaceBoundaryFace[] faces = cut.Faces.Where(value => globalPassage.Contains(value.First) &&
-                    globalPassage.Contains(value.Second)).ToArray();
-                if (faces.Length == 0)
-                    throw new InvalidOperationException("A guarded connection needs a traversable global cut: " +
-                        connection.Id);
-                Sv5SpaceGatePredicate predicate = Sv5SpaceGatePredicate.FromEdge(edge);
-                string routeKey = Sv5SpaceGraphPlanner.RouteKey(connection);
-                string boundaryId = "SV5_ROUTE_BOUNDARY_" + RmapWorldDefinition.Hash(connection.Id + "|" +
-                    predicate.StableToken + "|" + string.Join(";", faces.Select(value => value.StableToken)))
-                    .Substring(0, 20).ToUpperInvariant();
-                string[] contactIds = contacts.Where(value => value.RouteA == routeKey || value.RouteB == routeKey)
-                    .Select(value => value.Id).Distinct(StringComparer.Ordinal).OrderBy(value => value,
-                        StringComparer.Ordinal).ToArray();
-                if (contactIds.Length == 0) contactIds = new[] { "ROUTE_SOURCE|" + routeKey };
-                output.Add(new Sv5SpaceGate("SV5_GATE_" + boundaryId.Substring("SV5_ROUTE_BOUNDARY_".Length),
-                    boundaryId, contactIds, Array.Empty<RmapSpecialWorldPoint>(), faces,
-                    cut.SourceAnchor, cut.TargetAnchor,
-                    GeometryDirection(cut.SourceAnchor, cut.TargetAnchor), connection.Flow,
-                    edge.TraversalCondition, predicate, connection.Id, routeKey, connection.FromPortId,
-                    connection.ToPortId, Sv5SpaceCrossingKind.ConditionalGate,
-                    "SEALED_BLOCKS_ROUTE_OWNED_FULL_WIDTH_FACES",
-                    "OPEN_RESTORES_SOURCE_EDGE_DIRECTION"));
+                var edge = edges[connection.SourceGraphEdgeId];
+                var foreignEdges = new HashSet<string>(connections.Where(c => c != connection).SelectMany(c =>
+                    c.Centerline.Zip(c.Centerline.Skip(1), (a,b) => new Sv5SpaceBoundaryFace(a,b).StableToken)));
+                var candidates = new[] { connection.ToPortId, connection.FromPortId }.SelectMany(port =>
+                    PortBoundaryCandidates(connection.Centerline, core.Source.Accesses.Single(a => a.Id == port).OpenCells,
+                        ports, protectedAir)).GroupBy(f => f.StableToken).Select(g => g.First()).ToArray();
+                Sv5SpaceGate accepted = null;
+                foreach (var face in candidates)
+                {
+                    if (foreignEdges.Contains(face.StableToken)) continue;
+                    var predicate = Sv5SpaceGatePredicate.FromEdge(edge);
+                    string token = RmapWorldDefinition.Hash(connection.FromPortId + "|" + connection.ToPortId + "|" +
+                        predicate.StableToken + "|" + face.StableToken).Substring(0,20).ToUpperInvariant();
+                    var ids = contacts.Where(c => Sv5SpaceGraphValidator.ValidateBarrierFixture(c,
+                        Array.Empty<RmapSpecialWorldPoint>(), new[] { face }).Count == 0).Select(c => c.Id).ToArray();
+                    if (ids.Length == 0) ids = new[] { "PORTAL|" + face.StableToken };
+                    var gate = new Sv5SpaceGate("SV5_GATE_" + token, "SV5_ROUTE_BOUNDARY_" + token,
+                        ids, Array.Empty<RmapSpecialWorldPoint>(), new[] { face }, face.First, face.Second,
+                        GeometryDirection(face.First, face.Second), connection.Flow, edge.TraversalCondition,
+                        predicate, connection.Id, Sv5SpaceGraphPlanner.RouteKey(connection), connection.FromPortId,
+                        connection.ToPortId, Sv5SpaceCrossingKind.ConditionalGate,
+                        "SEALED_GLOBAL_WORLD_FACE_CUT_AT_LOCAL_NECK", "OPEN_RESTORES_GLOBAL_WORLD_FACES_AT_LOCAL_NECK");
+                    // A local neck must be a global cut on its own. No inherited/distributed faces.
+                    if (Sv5SpacePhysicalMovement.Explore(core, connections, new[] { gate }, connection,
+                        0, false, false, false, false).TargetPortReachable) continue;
+                    var trial = gates.Concat(new[] { gate }).ToArray();
+                    if (!Sv5SpacePhysicalProduct.PreservesExpectedOpen(core, connections, trial)) continue;
+                    accepted = gate;
+                    break;
+                }
+                if (accepted == null) throw new InvalidOperationException("NO_LEGAL_LOCAL_CORRIDOR_NECK|" +
+                    connection.Id + "|candidates=" + candidates.Length);
+                gates.Add(accepted);
             }
-            return Sv5SpacePhysicalMovement.ExpandGlobalCuts(core, connections,
-                output.OrderBy(value => value).ToArray());
+            return new ReadOnlyCollection<Sv5SpaceGate>(gates.OrderBy(g => g).ToArray());
         }
 
         internal static IReadOnlyList<Sv5SpaceGateStateCheck> BuildChecks(Sv5CoreReservationPlan core,
@@ -239,6 +269,27 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     errors.Add("GATE_FACE_OUTSIDE_GLOBAL_PASSAGE|" + gate.Id);
                 if (gate.BlockingCells.Any(protectedAir.Contains))
                     errors.Add("GATE_PROTECTED_AIR_STATE_CONFLICT|" + gate.Id);
+                var ownEdges = new HashSet<string>(connection.Centerline.Zip(connection.Centerline.Skip(1),
+                    (a,b) => new Sv5SpaceBoundaryFace(a,b).StableToken));
+                var foreignEdges = new HashSet<string>(connections.Where(c => c.Id != connection.Id)
+                    .SelectMany(c => c.Centerline.Zip(c.Centerline.Skip(1),
+                        (a,b) => new Sv5SpaceBoundaryFace(a,b).StableToken)));
+                var apertures = core.Source.Accesses.Where(a => a.Id == connection.FromPortId ||
+                    a.Id == connection.ToPortId).SelectMany(a => a.OpenCells).ToArray();
+                if (gate.BlockingFaces.Count != 1 || gate.BlockingCells.Count != 0)
+                    errors.Add("GATE_REMOTE_CUT_RETAINED|" + gate.Id);
+                foreach (var face in gate.BlockingFaces)
+                {
+                    if (!ownEdges.Contains(face.StableToken)) errors.Add("GATE_FACE_OUTSIDE_PORTAL|" + gate.Id + "|" + face.StableToken);
+                    if (foreignEdges.Contains(face.StableToken)) errors.Add("GATE_FACE_USED_BY_FOREIGN_SEGMENT|" + gate.Id + "|" + face.StableToken);
+                    if (!apertures.Any(p => Math.Max(Math.Abs(p.X-face.First.X)+Math.Abs(p.Y-face.First.Y),
+                        Math.Abs(p.X-face.Second.X)+Math.Abs(p.Y-face.Second.Y)) <= 7))
+                        errors.Add("GATE_REMOTE_CUT_RETAINED|" + gate.Id + "|" + face.StableToken);
+                    if (protectedAir.Contains(face.First) || protectedAir.Contains(face.Second))
+                        errors.Add("GATE_PROTECTED_AIR_STATE_CONFLICT|" + gate.Id + "|" + face.StableToken);
+                    if (gates.Any(g => g != gate && g.BlockingFaces.Any(f => f.StableToken == face.StableToken)))
+                        errors.Add("GATE_FACE_USED_BY_FOREIGN_PORTAL|" + gate.Id + "|" + face.StableToken);
+                }
                 MovementEvidence sealedEvidence = Explore(core, connections, gates, connection, 0, false,
                     false, false, false);
                 MovementEvidence openEvidence = Explore(core, connections, gates, connection,
@@ -275,57 +326,6 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return new MovementEvidence(value.SourceAnchorReachable, value.TargetPortReachable);
         }
 
-        private static GateCut FullWidthCut(Sv5CoreReservationPlan core, Sv5SpaceConnection connection)
-        {
-            var accesses = core.Source.Accesses.ToDictionary(value => value.Id, value => value,
-                StringComparer.Ordinal);
-            var envelope = new HashSet<RmapSpecialWorldPoint>(connection.Envelope);
-            var distance = new Dictionary<RmapSpecialWorldPoint, int>();
-            var queue = new Queue<RmapSpecialWorldPoint>();
-            foreach (RmapSpecialWorldPoint point in accesses[connection.FromPortId].OpenCells.Where(
-                         envelope.Contains))
-            {
-                if (distance.ContainsKey(point)) continue;
-                distance.Add(point, 0);
-                queue.Enqueue(point);
-            }
-            while (queue.Count != 0)
-            {
-                RmapSpecialWorldPoint current = queue.Dequeue();
-                foreach (RmapSpecialWorldPoint next in Neighbors(current).Where(envelope.Contains))
-                {
-                    if (distance.ContainsKey(next)) continue;
-                    distance.Add(next, distance[current] + 1);
-                    queue.Enqueue(next);
-                }
-            }
-            int targetDistance = accesses[connection.ToPortId].OpenCells.Where(distance.ContainsKey)
-                .Select(value => distance[value]).DefaultIfEmpty(-1).Min();
-            if (targetDistance < 1)
-                throw new InvalidOperationException("A guarded connection needs a reachable target port: " +
-                    connection.Id);
-            int threshold = Math.Max(0, targetDistance / 2);
-            var faces = new List<Sv5SpaceBoundaryFace>();
-            RmapSpecialWorldPoint sourceAnchor = default(RmapSpecialWorldPoint);
-            RmapSpecialWorldPoint targetAnchor = default(RmapSpecialWorldPoint);
-            bool hasAnchor = false;
-            foreach (RmapSpecialWorldPoint first in envelope.OrderBy(value => value))
-            foreach (RmapSpecialWorldPoint second in Neighbors(first).Where(envelope.Contains))
-            {
-                if (first.CompareTo(second) >= 0 || !distance.ContainsKey(first) || !distance.ContainsKey(second) ||
-                    (distance[first] <= threshold) == (distance[second] <= threshold)) continue;
-                faces.Add(new Sv5SpaceBoundaryFace(first, second));
-                RmapSpecialWorldPoint source = distance[first] <= threshold ? first : second;
-                RmapSpecialWorldPoint target = source.Equals(first) ? second : first;
-                if (hasAnchor && !connection.Centerline.Contains(source)) continue;
-                sourceAnchor = source;
-                targetAnchor = target;
-                hasAnchor = true;
-            }
-            if (!hasAnchor || faces.Count == 0)
-                throw new InvalidOperationException("A guarded connection needs a full-width cut: " + connection.Id);
-            return new GateCut(faces, sourceAnchor, targetAnchor);
-        }
 
         private static IEnumerable<RmapSpecialWorldPoint> Neighbors(RmapSpecialWorldPoint point)
         {

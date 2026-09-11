@@ -67,7 +67,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 plan.GateStateChecks), Is.Empty);
             Assert.That(plan.GateStateChecks.All(value => value.Success), Is.True);
             Sv5SpaceGate source = plan.Gates.OrderByDescending(value => value.BlockingFaces.Count).First();
-            Assert.That(source.BlockingFaces.Count, Is.GreaterThan(1));
+            // FIX04 reroutes to a single-face neck; replacing that face with a remote
+            // one must still reproduce the side bypass (no distributed-count assumption).
+            Assert.That(source.BlockingFaces.Count, Is.EqualTo(1));
             Sv5SpaceBoundaryFace foreign = plan.Gates.First(value => value.Id != source.Id).BlockingFaces.First();
             Sv5SpaceGate truncated = CloneGate(source, new[] { foreign }, source.TypedPredicate,
                 source.SealedState, source.OpenState);
@@ -264,7 +266,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             .Replace("\n", string.Empty).Replace("\t", string.Empty);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX03", "legacy_exports",
+        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_06_FIX04", "legacy_exports",
             "sv5_06_fix02_g08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)

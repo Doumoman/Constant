@@ -57,6 +57,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach (Sv5SpacePlace place in places.Where(value => value.Kind != Sv5SpacePlaceKind.Core))
                 AddBounds(routingBlocked, place.Bounds, 2);
             BuildOptionalCircuit(core, seed, places, byPort, connections, hardBlocked, routingBlocked, diagnostics);
+            connections = RepairGateCorridors(core, places, byPort, connections, hardBlocked);
 
             List<Sv5RouteContactCell> routeCells = BuildRouteContactCells(core, connections).ToList();
             IReadOnlyList<Sv5RouteContactPair> contactPairs = Sv5RouteStatePolicy.EnumerateContactPairs(routeCells);
@@ -167,6 +168,65 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             }
         }
 
+        private static List<Sv5SpaceConnection> RepairGateCorridors(Sv5CoreReservationPlan core,
+            IReadOnlyList<Sv5SpacePlace> places, IReadOnlyDictionary<string, Sv5SpacePort> ports,
+            IReadOnlyList<Sv5SpaceConnection> source, ISet<RmapSpecialWorldPoint> hardBlocked)
+        {
+            var edges = core.RouteSource.Graph.Edges.ToDictionary(e => e.EdgeId);
+            bool Guarded(Sv5SpaceConnection c) => c.Kind == Sv5SpaceConnectionKind.CoreProgression &&
+                (edges[c.SourceGraphEdgeId].RequiresForge || edges[c.SourceGraphEdgeId].RequiresSeal ||
+                 edges[c.SourceGraphEdgeId].RequiresBossComplete);
+            var guarded = source.Where(Guarded).ToArray();
+            var normalAdapters = new HashSet<RmapSpecialWorldPoint>(Envelope(Envelope(source.Where(c => !Guarded(c))
+                .SelectMany(c => c.ApertureCells))));
+            var result = new List<Sv5SpaceConnection>();
+            // Reserve the Seal and Boss corridors first. Normal traffic routes around their
+            // actual narrow geometry, not around artificial global coordinate partitions.
+            foreach (var c in guarded.Where(c => !edges[c.SourceGraphEdgeId].RequiresForge)
+                .OrderBy(c => edges[c.SourceGraphEdgeId].RequiresSeal ? 0 : 1))
+                AddGuarded(c);
+            var isolated = new HashSet<RmapSpecialWorldPoint>(result.SelectMany(c => c.Centerline.Concat(c.ApertureCells)));
+            bool Reserved(RmapSpecialWorldPoint p) => isolated.Contains(p) || Neighbors(p).Any(isolated.Contains);
+            foreach (var c in source.Where(c => !Guarded(c)).OrderBy(c => c))
+                result.Add(c.Centerline.Concat(c.ApertureCells).Any(Reserved) ? Route(c, Reserved) : c);
+            foreach (var c in guarded.Where(c => edges[c.SourceGraphEdgeId].RequiresForge)) AddGuarded(c);
+
+            void AddGuarded(Sv5SpaceConnection c)
+            {
+                var ownPorts = ports[c.FromPortId].BoundaryCells.Concat(ports[c.ToPortId].BoundaryCells).ToArray();
+                // Forge's source-side corridor may join normal traffic. It may not touch the
+                // other gated corridors except at its declared shared Seal entry aperture.
+                var foreign = new HashSet<RmapSpecialWorldPoint>(result.Where(r =>
+                    !edges[c.SourceGraphEdgeId].RequiresForge || Guarded(r))
+                    .SelectMany(r => r.Centerline.Concat(r.ApertureCells)));
+                bool Forbidden(RmapSpecialWorldPoint p) =>
+                    (!edges[c.SourceGraphEdgeId].RequiresForge && normalAdapters.Contains(p)) ||
+                    (!ownPorts.Any(q => Distance(p,q) <= 3) &&
+                     (foreign.Contains(p) || Neighbors(p).Any(foreign.Contains)));
+                result.Add(Route(c, Forbidden));
+            }
+            return result.OrderBy(c => c).ToList();
+
+            Sv5SpaceConnection Route(Sv5SpaceConnection c, Func<RmapSpecialWorldPoint, bool> forbidden)
+            {
+                var from = ports[c.FromPortId]; var to = ports[c.ToPortId];
+                var own = new HashSet<RmapSpecialWorldPoint>(c.ApertureCells);
+                var blocked = new HashSet<RmapSpecialWorldPoint>(hardBlocked);
+                foreach (var cell in core.CoreCells) if (!own.Contains(cell.World)) blocked.Add(cell.World);
+                foreach (var place in places.Where(p => p.Kind != Sv5SpacePlaceKind.Core &&
+                    p.Id != c.FromPlaceId && p.Id != c.ToPlaceId)) AddBounds(blocked, place.Bounds, 1);
+                var path = FindPath(c.Centerline.First(), c.Centerline.Last(),
+                    p => !blocked.Contains(p) && !forbidden(p) && (c.Kind == Sv5SpaceConnectionKind.CoreProgression ||
+                        own.Contains(p) || Envelope(new[] { p }).All(q => !blocked.Contains(q) || own.Contains(q))));
+                if (path.Count == 0) throw new InvalidOperationException("CORRIDOR_REROUTE_UNAVAILABLE|" + c.Id +
+                    "|seed=" + core.RouteSource.Definition.Request.Seed + "|from=" + c.Centerline.First() + "|to=" + c.Centerline.Last());
+                return new Sv5SpaceConnection(c.Id, c.Kind, c.FromPortId, c.ToPortId, c.FromPlaceId, c.ToPlaceId,
+                    c.Kind == Sv5SpaceConnectionKind.CoreProgression ? c.Direction : Direction(path[0],path[1]),
+                    c.Flow, c.Condition, c.SourceGraphEdgeId, c.SelectionState, path,
+                    Envelope(path.Where(p => !own.Contains(p))).Concat(c.ApertureCells).Concat(path), c.ApertureCells);
+            }
+        }
+
         private static void BuildOptionalCircuit(Sv5CoreReservationPlan core, ulong seed,
             IEnumerable<Sv5SpacePlace> sourcePlaces, IReadOnlyDictionary<string, Sv5SpacePort> ports,
             ICollection<Sv5SpaceConnection> connections, ISet<RmapSpecialWorldPoint> hardBlocked,
@@ -270,11 +330,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5SpaceConnection> sourceConnections)
         {
             var output = new Dictionary<string, Sv5RouteContactCell>(StringComparer.Ordinal);
-            foreach (Sv5CoreRouteCellReservation value in core.RouteCells.Where(value =>
-                         value.Kind == Sv5CoreRouteReservationKind.Passage ||
-                         value.Kind == Sv5CoreRouteReservationKind.Clearance))
-                Add(value.RouteId, value.World, value.Kind == Sv5CoreRouteReservationKind.Passage ?
-                    Sv5RouteContactCellKind.Passage : Sv5RouteContactCellKind.Clearance);
+            // Historical route reservations remain preserved in Core/Reservations, but contacts
+            // describe the current connector geometry, not a union with abandoned centerlines.
             foreach (Sv5SpaceConnection connection in (sourceConnections ?? Array.Empty<Sv5SpaceConnection>())
                          .Where(value => value != null))
             {
@@ -754,15 +811,23 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Where(value => value != null).ToArray();
             Sv5SpaceGate[] gates = (sourceGates ?? Array.Empty<Sv5SpaceGate>()).Where(value => value != null).ToArray();
             var errors = new List<string>();
-            foreach (Sv5SpaceContactDecision contact in contacts.Where(value =>
-                         value.Crossing == Sv5SpaceCrossingKind.ConditionalGate))
+            foreach (Sv5SpaceContactDecision contact in contacts)
             {
+                if (contact.Crossing != Sv5SpaceCrossingKind.ConditionalGate)
+                {
+                    if (contact.Crossing != Sv5SpaceCrossingKind.Join || !string.IsNullOrEmpty(contact.BoundaryId) ||
+                        gates.Any(g => ValidateBarrierFixture(contact.Source,g.BlockingCells,g.BlockingFaces).Count == 0))
+                        errors.Add("CONTACT_LOCAL_BARRIER_DECISION_MISMATCH|" + contact.Source.Id);
+                    continue;
+                }
                 Sv5SpaceGate gate = gates.SingleOrDefault(value => string.Equals(value.BoundaryId,
                     contact.BoundaryId, StringComparison.Ordinal));
                 if (gate == null || !gate.ContactIds.Contains(contact.Source.Id))
                 { errors.Add("GATE_CONTACT_UNCOVERED|" + contact.Source.Id); continue; }
-                if (string.IsNullOrWhiteSpace(contact.BoundaryId) || gate.BlockingFaces.Count == 0)
+                if (string.IsNullOrWhiteSpace(contact.BoundaryId) ||
+                    gate.BlockingFaces.Count + gate.BlockingCells.Count == 0)
                     errors.Add("GATE_GLOBAL_BOUNDARY_MISSING|" + contact.Source.Id);
+                errors.AddRange(ValidateBarrierFixture(contact.Source, gate.BlockingCells, gate.BlockingFaces));
             }
             foreach (Sv5SpaceGate gate in gates)
                 if (!gate.PlannedBarrierVerified) errors.Add("GATE_GEOMETRY_INVALID|" + gate.Id);

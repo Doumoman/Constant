@@ -94,7 +94,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         internal Sv5SpacePhysicalMovementPlan(IEnumerable<Sv5SpacePhysicalContactCheck> sourceContacts,
             IEnumerable<Sv5SpacePhysicalGateStateCheck> sourceStates, IEnumerable<string> sourceDiagnostics,
-            IEnumerable<string> sourceMovementSemantics)
+            IEnumerable<string> sourceMovementSemantics, Sv5SpacePhysicalProductPlan product)
         {
             ContactChecks = new ReadOnlyCollection<Sv5SpacePhysicalContactCheck>((sourceContacts ??
                 Array.Empty<Sv5SpacePhysicalContactCheck>()).OrderBy(value => value).ToArray());
@@ -106,6 +106,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             movementSemantics = new ReadOnlyCollection<string>((sourceMovementSemantics ?? Array.Empty<string>())
                 .Where(value => !string.IsNullOrWhiteSpace(value)).OrderBy(value => value,
                     StringComparer.Ordinal).ToArray());
+            Product = product;
             SemanticDigest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
@@ -113,12 +114,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5SpacePhysicalGateStateCheck> GateStateChecks { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public string SemanticDigest { get; }
+        public Sv5SpacePhysicalProductPlan Product { get; }
         public bool Success => ContactChecks.Count != 0 && ContactChecks.All(value => value.Success) &&
-            GateStateChecks.Count == 9 && GateStateChecks.All(value => value.Success) && Diagnostics.Count == 0;
+            GateStateChecks.Count == 9 && GateStateChecks.All(value => value.Success) && Diagnostics.Count == 0 &&
+            Product.Success;
 
         private IEnumerable<string> CanonicalLines()
         {
-            yield return "SV5_PHYSICAL_MOVEMENT_FIX03_V1";
+            yield return "SV5_PHYSICAL_MOVEMENT_FIX04_V1";
+            yield return "product|" + Product.SemanticDigest;
             foreach (string value in movementSemantics) yield return value;
             foreach (Sv5SpacePhysicalContactCheck value in ContactChecks)
                 yield return "contact|" + value.Source.Source.Kind + "|" + value.Source.Source.FirstWorld + "|" +
@@ -152,12 +156,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             CheckedFaces = checkedFaces;
             Witness = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceWitness ??
                 Array.Empty<RmapSpecialWorldPoint>()).ToArray());
+            WitnessId = RmapWorldDefinition.Hash(string.Join(";", Witness));
         }
         public bool SourceAnchorReachable { get; }
         public bool TargetPortReachable { get; }
         public int CheckedCells { get; }
         public int CheckedFaces { get; }
         public IReadOnlyList<RmapSpecialWorldPoint> Witness { get; }
+        public string WitnessId { get; }
     }
 
     /// <summary>
@@ -183,43 +189,6 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             new StateCase("EXIT_OPEN", "BOSS_GATED_EXIT_APPROACH", 7, true, true, true, true),
         };
 
-        internal static IReadOnlyList<Sv5SpaceGate> ExpandGlobalCuts(Sv5CoreReservationPlan core,
-            IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates)
-        {
-            Sv5SpaceConnection[] connections = Connections(sourceConnections);
-            var gates = (sourceGates ?? Array.Empty<Sv5SpaceGate>()).Where(value => value != null)
-                .OrderBy(value => value).ToList();
-            foreach (StateCase state in ClosedCases)
-            {
-                Sv5SpaceConnection connection = connections.Single(value => value.Condition == state.Condition);
-                Sv5SpaceGate gate = gates.Single(value => value.SourceConnectionId == connection.Id);
-                var iterations = 0;
-                while (true)
-                {
-                    Sv5SpacePhysicalReachability reach = Explore(core, connections, gates, connection,
-                        state.ResourceMask, state.ForgeMade, state.SealOpen, state.BossComplete, null);
-                    if (!reach.TargetPortReachable) break;
-                    if (++iterations > 128)
-                        throw new InvalidOperationException("GLOBAL_GATE_CUT_DID_NOT_CONVERGE|" + gate.Id);
-                    Sv5SpaceBoundaryFace selected = CandidateFaces(reach.Witness, gate)
-                        .FirstOrDefault(candidate => PreservesOpenWitnesses(core, connections, gates, gate, candidate));
-                    if (selected == null)
-                        throw new InvalidOperationException("GLOBAL_GATE_CUT_CONFLICTS_WITH_OPEN_WITNESS|" + gate.Id);
-                    gate = WithAdditionalFace(gate, selected);
-                    int index = gates.FindIndex(value => value.SourceConnectionId == gate.SourceConnectionId);
-                    gates[index] = gate;
-                }
-            }
-            foreach (StateCase state in OpenCases)
-            {
-                Sv5SpaceConnection connection = connections.Single(value => value.Condition == state.Condition);
-                // A non-representative layout may be returned with a failed physical plan so callers can inspect
-                // deterministic diagnostics; Analyze is the authoritative acceptance boundary.
-                Explore(core, connections, gates, connection, state.ResourceMask, state.ForgeMade,
-                    state.SealOpen, state.BossComplete, null);
-            }
-            return new ReadOnlyCollection<Sv5SpaceGate>(gates.OrderBy(value => value).ToArray());
-        }
 
         public static Sv5SpacePhysicalMovementPlan Analyze(Sv5CoreReservationPlan core,
             IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceContactDecision> sourceContacts,
@@ -237,14 +206,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var diagnostics = new List<string>();
             foreach (Sv5SpaceContactDecision contact in contacts)
             {
-                bool samePredicate = SamePredicate(core, connections, contact.Source.RouteA, contact.Source.RouteB);
                 bool first = passage.Contains(contact.Source.FirstWorld);
                 bool second = passage.Contains(contact.Source.SecondWorld);
                 Sv5SpaceGate owner = null;
                 if (!string.IsNullOrEmpty(contact.BoundaryId)) gateByBoundary.TryGetValue(contact.BoundaryId, out owner);
-                bool success = samePredicate ? contact.Crossing == Sv5SpaceCrossingKind.Join && owner == null :
-                    contact.Crossing == Sv5SpaceCrossingKind.ConditionalGate && owner != null &&
-                    owner.ContactIds.Contains(contact.Source.Id);
+                bool success = Sv5SpaceGraphValidator.FindGateErrors(new[] { contact },gates).Count == 0;
                 if (!success) diagnostics.Add("PHYSICAL_CONTACT_DECISION_INVALID|" + contact.Source.Id);
                 contactChecks.Add(new Sv5SpacePhysicalContactCheck(contact, first, second,
                     owner == null ? string.Empty : owner.Id,
@@ -268,7 +234,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 if (!check.Success) diagnostics.Add("PHYSICAL_GATE_STATE_MISMATCH|" + state.Id);
             }
             return new Sv5SpacePhysicalMovementPlan(contactChecks, stateChecks, diagnostics,
-                MovementSemantics(connections, gates, passage));
+                MovementSemantics(connections, gates, passage),
+                Sv5SpacePhysicalProduct.Analyze(core, connections, gates));
         }
 
         public static IReadOnlyList<string> FindStateErrors(Sv5CoreReservationPlan core,
@@ -286,23 +253,25 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     errors.Add((state.ExpectedReachable ? "GLOBAL_GATE_OPEN_PATH_MISSING|" :
                         "GLOBAL_GATE_STATE_BYPASS|") + state.Id);
             }
+            errors.AddRange(Sv5SpacePhysicalProduct.Analyze(core, connections, gates).Diagnostics);
             return new ReadOnlyCollection<string>(errors.OrderBy(value => value, StringComparer.Ordinal).ToArray());
         }
 
         public static Sv5SpacePhysicalReachability Evaluate(Sv5CoreReservationPlan core,
             IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
-            string connectionId, ulong resourceMask, bool forgeMade, bool sealOpen, bool bossComplete)
+            string connectionId, ulong resourceMask, bool forgeMade, bool sealOpen, bool bossComplete,
+            bool reverse = false)
         {
             Sv5SpaceConnection[] connections = Connections(sourceConnections);
             Sv5SpaceConnection connection = connections.Single(value => value.Id == connectionId);
             return Explore(core, connections, sourceGates, connection, resourceMask, forgeMade, sealOpen,
-                bossComplete, null);
+                bossComplete, null, reverse);
         }
 
         internal static Sv5SpacePhysicalReachability Explore(Sv5CoreReservationPlan core,
             IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
             Sv5SpaceConnection connection, ulong resourceMask, bool forgeMade, bool sealOpen, bool bossComplete,
-            bool? targetOpenOverride)
+            bool? targetOpenOverride, bool reverse = false)
         {
             if (core == null) throw new ArgumentNullException(nameof(core));
             Sv5SpaceConnection[] connections = Connections(sourceConnections);
@@ -319,17 +288,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 blockedFaces.UnionWith(gate.BlockingFaces.Select(value => value.StableToken));
             }
             var accesses = core.Source.Accesses.ToDictionary(value => value.Id, value => value, StringComparer.Ordinal);
-            RmapSpecialAccess from = accesses[connection.FromPortId];
-            RmapSpecialAccess to = accesses[connection.ToPortId];
-            Sv5SpaceGate target = gates.Single(value => value.SourceConnectionId == connection.Id);
+            IEnumerable<RmapSpecialWorldPoint> from = accesses.TryGetValue(connection.FromPortId,
+                out RmapSpecialAccess fromAccess) ? fromAccess.OpenCells :
+                new[] { connection.Centerline.First() };
+            IEnumerable<RmapSpecialWorldPoint> to = accesses.TryGetValue(connection.ToPortId,
+                out RmapSpecialAccess toAccess) ? toAccess.OpenCells : new[] { connection.Centerline.Last() };
+            if (reverse) { IEnumerable<RmapSpecialWorldPoint> swap = from; from = to; to = swap; }
             var previous = new Dictionary<RmapSpecialWorldPoint, RmapSpecialWorldPoint>();
             var starts = new HashSet<RmapSpecialWorldPoint>();
             var queue = new Queue<RmapSpecialWorldPoint>();
-            foreach (RmapSpecialWorldPoint value in from.OpenCells.Where(value => passage.Contains(value) &&
-                         !blockedCells.Contains(value)))
+            foreach (RmapSpecialWorldPoint value in from.Where(value => passage.Contains(value) &&
+                         !blockedCells.Contains(value)).OrderBy(value => value))
                 if (starts.Add(value)) queue.Enqueue(value);
             RmapSpecialWorldPoint? reachedGoal = null;
-            var goals = new HashSet<RmapSpecialWorldPoint>(to.OpenCells.Where(passage.Contains));
+            var goals = new HashSet<RmapSpecialWorldPoint>(to.Where(passage.Contains));
             while (queue.Count != 0)
             {
                 RmapSpecialWorldPoint current = queue.Dequeue();
@@ -372,43 +344,6 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             }
         }
 
-        private static bool PreservesOpenWitnesses(Sv5CoreReservationPlan core, Sv5SpaceConnection[] connections,
-            IList<Sv5SpaceGate> gates, Sv5SpaceGate changed, Sv5SpaceBoundaryFace candidate)
-        {
-            Sv5SpaceGate replacement = WithAdditionalFace(changed, candidate);
-            Sv5SpaceGate[] trial = gates.Select(value => value.SourceConnectionId == changed.SourceConnectionId ?
-                replacement : value).ToArray();
-            foreach (StateCase state in OpenCases)
-            {
-                if (changed.TypedPredicate.IsOpen(state.ResourceMask, state.ForgeMade, state.SealOpen,
-                        state.BossComplete)) continue;
-                Sv5SpaceConnection connection = connections.Single(value => value.Condition == state.Condition);
-                if (!Explore(core, connections, trial, connection, state.ResourceMask, state.ForgeMade,
-                        state.SealOpen, state.BossComplete, null).TargetPortReachable) return false;
-            }
-            return true;
-        }
-
-        private static IEnumerable<Sv5SpaceBoundaryFace> CandidateFaces(
-            IReadOnlyList<RmapSpecialWorldPoint> witness, Sv5SpaceGate gate)
-        {
-            return witness.Zip(witness.Skip(1), (first, second) => new Sv5SpaceBoundaryFace(first, second))
-                .GroupBy(value => value.StableToken, StringComparer.Ordinal).Select(value => value.First())
-                .Where(value => !gate.BlockingFaces.Any(item => item.StableToken == value.StableToken))
-                .OrderBy(value => DistanceToGate(value, gate)).ThenBy(value => value.StableToken,
-                    StringComparer.Ordinal);
-        }
-
-        private static Sv5SpaceGate WithAdditionalFace(Sv5SpaceGate gate, Sv5SpaceBoundaryFace face) =>
-            new Sv5SpaceGate(gate.Id, gate.BoundaryId, gate.ContactIds, gate.BlockingCells,
-                gate.BlockingFaces.Concat(new[] { face }), gate.SideAAnchor, gate.SideBAnchor, gate.Direction,
-                gate.Flow, gate.Predicate, gate.TypedPredicate, gate.SourceConnectionId, gate.SourceRouteId,
-                gate.SourcePortId, gate.TargetPortId, gate.Crossing, "SEALED_GLOBAL_WORLD_FACE_CUT",
-                "OPEN_RESTORES_GLOBAL_WORLD_FACES");
-
-        private static int DistanceToGate(Sv5SpaceBoundaryFace face, Sv5SpaceGate gate) =>
-            Math.Abs(face.First.X + face.Second.X - gate.SideAAnchor.X * 2) +
-            Math.Abs(face.First.Y + face.Second.Y - gate.SideAAnchor.Y * 2);
         private static Sv5SpaceConnection[] Connections(IEnumerable<Sv5SpaceConnection> source) =>
             (source ?? Array.Empty<Sv5SpaceConnection>()).Where(value => value != null).OrderBy(value => value).ToArray();
         private static HashSet<RmapSpecialWorldPoint> PassageCells(IEnumerable<Sv5SpaceConnection> source) =>

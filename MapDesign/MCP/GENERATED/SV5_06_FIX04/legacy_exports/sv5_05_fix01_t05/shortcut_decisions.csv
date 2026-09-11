@@ -1,0 +1,4 @@
+candidate_id,logical_allowed,decision_code,detail,counterexample_before,counterexample_after,counterexample_action,counterexample_prefix,geometry_state,player_state
+"CANDIDATE_SET","True","Allowed","All six RMAP13 resource orders retain required actions, goal recovery, and exit reachability.","","","","","Pending","PENDING"
+"FIX01_SAFE_IN","True","Allowed","Logical proposal only; geometry and Player evidence remain pending.","","","","","Pending","PENDING"
+"FIX01_SAFE_OUT","True","Allowed","Logical proposal only; geometry and Player evidence remain pending.","","","","","Pending","PENDING"

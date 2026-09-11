@@ -1,0 +1,225 @@
+{
+  "task": "SV5_06_FIX04",
+  "phase": "FINAL_FOCUSED_VERIFIED",
+  "manifest_sha256": "7ee4edb4e0874c253b1a03384ed3587418c06b7d1ecc35ecd51feda7e5009e03",
+  "predecessor_commit": "a0dc996a11d349927917a60410fb356871df15f2",
+  "read_write_binding": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs",
+      "raw_before_sha256": "2a7811e80eae48de748899c6db9bb2316735f5c17ba5066e0510238740c75e33",
+      "bytes": 22540,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+      "raw_before_sha256": "58e7edb71ce325ee93d8ea99db064bf2bbc5abbfe472fd67ae7447001d38e4da",
+      "bytes": 31847,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+      "raw_before_sha256": "48d84f49572951803153683906fd049f883dfa4b5f48f0c50cebf4bb1d0db090",
+      "bytes": 51461,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+      "raw_before_sha256": "61d1fa97c469f02bae1f5c6ebbf13d7109e7af4acdaaf1a672fc4ba1da4330ad",
+      "bytes": 22437,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+      "raw_before_sha256": "21b54781469297f30e8533e703e376d74ac6d5b631fbd547f400b3e9fa1ab77f",
+      "bytes": 42646,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalMovement.cs",
+      "raw_before_sha256": "7adf53b33b9bd159378b0013f19cede771b51bd4f5e119aed912ba9a4fae932d",
+      "bytes": 29501,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+      "raw_before_sha256": "59c1c728f1fb5cbff1394ed957c0b3f727625179ea378616c412105331d3d53f",
+      "bytes": 15943,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+      "raw_before_sha256": "0956e0a58a962a26fb9879e4db24e3bc304ff1384a483725627d4de6aa82d8ce",
+      "bytes": 18020,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+      "raw_before_sha256": "910c814be416ee0646348dbeea97d904f4d126d42298f35bf8de031c4676c8cd",
+      "bytes": 13761,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+      "raw_before_sha256": "19dda52c0bab8c2b0d142d8ee2913626878e2ea83031dda4d923300f6bc4201c",
+      "bytes": 19026,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "raw_before_sha256": "2efa634bd4927085eae72945b1763285eedc1ee1a3d937de4d583e0b9309039b",
+      "bytes": 18427,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "raw_before_sha256": "5d9bce6060f7fde1b9958d81a82302821b3b1497a8c43202717537d366db98a7",
+      "bytes": 20003,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "raw_before_sha256": "d0e9c47ed3f154c5c7fea83d1a629b4aaadff1335fd9ef30c8bbb34201bdd26a",
+      "bytes": 16258,
+      "write_allowed": true
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "raw_before_sha256": "a21d561c42382bb0dc2a47be51bd5118b59809fcc0eef11d49049dbcd6f4ac28",
+      "bytes": 5801,
+      "write_allowed": true
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "raw_before_sha256": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "bytes": 42730,
+      "write_allowed": false
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "raw_before_sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "bytes": 29731,
+      "write_allowed": false
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_06_FIX04.md",
+      "raw_before_sha256": "aa8640e5cbffb672653a78312acdfad5ec6094d5b81ab9b3fdb930294175188b",
+      "bytes": 5431,
+      "write_allowed": false
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX04/REPAIR_CONTRACT.md",
+      "raw_before_sha256": "ff001f2bc3e2c5edbac6b0eab1cf1ebb5cb2fae2a9de84213b88adb47ef1525d",
+      "bytes": 9275,
+      "write_allowed": false
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX04/REPRODUCE.py",
+      "raw_before_sha256": "44e48a08e224b8a81b17eed7a78d09d4030c4f393934ef3d46e8d8fb15ee468d",
+      "bytes": 8971,
+      "write_allowed": false
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_06_FIX04/REVIEW_FINDINGS.json",
+      "raw_before_sha256": "ee6ba6d65c62aed0f140d4e789a9647d720954c57ce88678be805bc0270012fd",
+      "bytes": 7649,
+      "write_allowed": false
+    }
+  ],
+  "new_source_allowlist": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalProduct.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs"
+  ],
+  "initial_git_status": " M Assets/_Game/Map/Scenes/MoonPalace/VIS01/MoonPalaceGrayboxExample_VIS01.unity\n M Constant.slnx\n M MapDesign/MCP/06_IMPLEMENTATION_STATUS.md\n D MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_catalog_snapshot.json\n D MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_digest_manifest.json\n D MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_generation_result.json\n D MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_manifest.json\n D MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_pattern_candidates_500.json\n D MapDesign/MCP/GENERATED/VIS01/moonpalace_vis01_scene_manifest.json\n D MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_digest_manifest.json\n D MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_dry_run_result.json\n D MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_run_history.csv\n D MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_run_result.json\n D MapDesign/MCP/GENERATED/VIS02/moonpalace_vis02_write_scope_manifest.json\n M MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md\n D MapDesign/MCP/REPORTS/VIS01_BUILD_MOONPALACE_GRAYBOX_EXAMPLE_V1_RESULT.md\n D MapDesign/MCP/REPORTS/VIS02_GENERATOR_WINDOW_ACTUAL_RUN_AND_REGENERATE_SCENE_RESULT.md\n?? Assets/_Game/Editor/MapAuthoring/Tests/EditMode/WorldGeneration/TerrainClusters.meta\n?? Assets/_Game/Editor/MapAuthoring/WorldGeneration/TerrainClusters.meta\n?? Assets/_Game/Tests/PlayMode/Map/WorldGeneration/TerrainClusters.meta\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/CONTRACT.md\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/FILES.json\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/PROTOCOL_APPEND.md\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/REVIEW_FINDINGS.json\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/SOURCE_LOCK.json\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/STAGE.py\n?? CLI/MapDesign/MCP/INPUTS/SV5_06/SV5_06_SPACE_GRAPH.md\n?? MAP17_01_REPAIR_INSTALLED_TASK_BODY_SHA_PRECONDITION.md\n?? MapDesign/MCP/GENERATED/SV5_04/SV5_04_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_05/SV5_05_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_05_FIX01/SV5_05_FIX01_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_05_FIX01_PREFLIGHT/SV5_05_FIX01_REG_CONTEXT.zip\n?? MapDesign/MCP/GENERATED/SV5_06/SV5_06_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_06_FIX01/SV5_06_FIX01_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_06_FIX02/SV5_06_FIX02_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_06_FIX03/SV5_06_FIX03_REVIEW.zip\n?? MapDesign/MCP/GENERATED/SV5_06_FIX03/_REVIEW_MANIFEST.json\n?? MapDesign/MCP/GENERATED/SV5_06_FIX04/fix03_counterexample_reproduction.json\n?? MapDesign/MCP/INPUTS/R11FIX/RMAP12_PREP.md\n?? MapDesign/MCP/INPUTS/R11FIX/RMAP12_SPEC.md\n?? MapDesign/MCP/INPUTS/R11FIX/patch25.csv\n?? MapDesign/MCP/INPUTS/R11FIX/preview500.csv\n?? MapDesign/MCP/INPUTS/R11FIX/review.json\n?? MapDesign/MCP/INPUTS/SV5/PLAN_ORIGIN.json\n?? MapDesign/MCP/INPUTS/SV5/README.md\n?? MapDesign/MCP/INPUTS/SV5/SHA256.json\n?? MapDesign/MCP/INPUTS/SV5/SPACE_V5_MEMORY.md\n?? MapDesign/MCP/INPUTS/SV5/SPACE_V5_RULES.md\n?? MapDesign/MCP/INPUTS/SV5/SPACE_V5_TASKS.md\n?? MapDesign/MCP/INPUTS/SV5/TASKS.csv\n?? MapDesign/MCP/INPUTS/SV5/TASKS.json\n?? MapDesign/MCP/INPUTS/SV5/baseline/BASELINE_SHA.json\n?? MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.pdf\n?? MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.png\n?? MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.zip\n?? MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_DETAIL.png\n?? MapDesign/MCP/INPUTS/SV5/baseline/connections.json\n?? MapDesign/MCP/INPUTS/SV5/baseline/regions.json\n?? MapDesign/MCP/INPUTS/SV5/baseline/validation.json\n?? MapDesign/MCP/INPUTS/SV5/baseline/world_cells.csv\n?? MapDesign/MCP/INPUTS/SV5/reference/reported/RMAP17_WORLD_BAKE_RESULT.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_COVERAGE.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_FILL.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_NETWORK.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_PLACES.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_RAIL.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_RULES.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_SPAWN.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_SPECIALS.md\n?? MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_STAIRS.md\n?? MapDesign/MCP/INPUTS/SV5/tasks/SV5_01_APPROVAL_BASELINE.md\n?? MapDesign/MCP/INPUTS/SV5_02/PROTOCOL_APPEND.md\n?? MapDesign/MCP/INPUTS/SV5_02/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_02/SV5_02_RULES.md\n?? MapDesign/MCP/INPUTS/SV5_02/candidate/03_RULES_V5.md\n?? MapDesign/MCP/INPUTS/SV5_02/candidate/04_RULE_COVERAGE_V5.csv\n?? MapDesign/MCP/INPUTS/SV5_02/candidate/05_RULE_READSET_V5.json\n?? MapDesign/MCP/INPUTS/SV5_02/reference/RULES_SOURCE.md\n?? MapDesign/MCP/INPUTS/SV5_02/reference/SV5_01_RESULT.md\n?? MapDesign/MCP/INPUTS/SV5_02_R2/PROTOCOL_APPEND.md\n?? MapDesign/MCP/INPUTS/SV5_02_R2/REPAIR.md\n?? MapDesign/MCP/INPUTS/SV5_02_R2/REVISION.json\n?? MapDesign/MCP/INPUTS/SV5_02_R2/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_02_R2/SV5_02_RULES.md\n?? MapDesign/MCP/INPUTS/SV5_02_R2/candidate/03_RULES_V5.md\n?? MapDesign/MCP/INPUTS/SV5_02_R2/candidate/04_RULE_COVERAGE_V5.csv\n?? MapDesign/MCP/INPUTS/SV5_02_R2/candidate/05_RULE_READSET_V5.json\n?? MapDesign/MCP/INPUTS/SV5_02_R2/reference/RULES_SOURCE.md\n?? MapDesign/MCP/INPUTS/SV5_02_R2/reference/SV5_01_RESULT.md\n?? MapDesign/MCP/INPUTS/SV5_03/AUDIT_SCOPE.json\n?? MapDesign/MCP/INPUTS/SV5_03/FILES.json\n?? MapDesign/MCP/INPUTS/SV5_03/FILE_FLOW.md\n?? MapDesign/MCP/INPUTS/SV5_03/OUTPUT_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_03/PACKAGE_CHECK.json\n?? MapDesign/MCP/INPUTS/SV5_03/PROTOCOL_APPEND.md\n?? MapDesign/MCP/INPUTS/SV5_03/REFERENCE_SV5_02.md\n?? MapDesign/MCP/INPUTS/SV5_03/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_03/SV5_03_BINDINGS.md\n?? MapDesign/MCP/INPUTS/SV5_03/VERIFY.py\n?? MapDesign/MCP/INPUTS/SV5_04/FILES.json\n?? MapDesign/MCP/INPUTS/SV5_04/OUTPUT_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_04/PACKAGE_CHECK.json\n?? MapDesign/MCP/INPUTS/SV5_04/REFERENCE_SV5_03.md\n?? MapDesign/MCP/INPUTS/SV5_04/RESERVATION_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_04/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_04/SV5_04_CORE_RESERVE.md\n?? MapDesign/MCP/INPUTS/SV5_04/VALIDATION_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_04/VERIFY.py\n?? MapDesign/MCP/INPUTS/SV5_05/FILES.json\n?? MapDesign/MCP/INPUTS/SV5_05/OUTPUT_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_05/PACKAGE_CHECK.json\n?? MapDesign/MCP/INPUTS/SV5_05/REFERENCE_SV5_04.md\n?? MapDesign/MCP/INPUTS/SV5_05/REVIEW_FINDINGS.json\n?? MapDesign/MCP/INPUTS/SV5_05/REVIEW_NOTES.md\n?? MapDesign/MCP/INPUTS/SV5_05/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_05/STATE_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_05/SV5_05_ROUTE_STATE.md\n?? MapDesign/MCP/INPUTS/SV5_05/VALIDATION_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_05/VERIFY.py\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/FILES.json\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/PROTOCOL_APPEND.md\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/REFERENCE_SV5_05.md\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/REPAIR_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW.md\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW_FINDINGS.json\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/SV5_05_FIX01.md\n?? MapDesign/MCP/INPUTS/SV5_05_FIX01/VERIFY.py\n?? MapDesign/MCP/INPUTS/SV5_06/CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_06/FILES.json\n?? MapDesign/MCP/INPUTS/SV5_06/PROTOCOL_APPEND.md\n?? MapDesign/MCP/INPUTS/SV5_06/REVIEW_FINDINGS.json\n?? MapDesign/MCP/INPUTS/SV5_06/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_06/STAGE.py\n?? MapDesign/MCP/INPUTS/SV5_06/SV5_06_SPACE_GRAPH.md\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/FILES.json\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/PRECHECK.py\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/PROTOCOL_APPEND.md\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/REGISTRATION.diff\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/REGISTRATION.json\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/REGISTRATION.md\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/REPAIR_CONTRACT.md\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/REPRODUCE.py\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/REVIEW_FINDINGS.json\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/SOURCE_LOCK.json\n?? MapDesign/MCP/INPUTS/SV5_06_FIX04/SV5_06_FIX04.md\n?? MapDesign/MCP/REPORTS/MAP17_STRUCTURE_OBSERVATION_AUDIT_RESULT.md\n?? MapDesign/MCP/REPORTS/MOONPALACE_LLM_IMPLEMENTATION_HANDOFF.md\n?? MapDesign/MCP/TASKS/SV5_06_FIX04.md\n?? MapDesign/MCP_ARCHIVE/SV5_06_FIX04.md\n?? MapDesign/MCP_INBOX/SHA256SUMS.txt\n?? SV5_02_CHECK.json\n?? SV5_02_FILES.json\n?? SV5_02_R2_CHECK.json\n?? SV5_02_R2_FILES.json\n?? SV5_02_R2_README.md\n?? SV5_02_R2_VERIFY.py\n?? SV5_02_README.md\n?? SV5_02_VERIFY.py\n?? SV5_FILES.json\n?? SV5_LOCAL_CHECK.json\n?? SV5_README.md\n?? SV5_VERIFY.py\n",
+  "native_apply": "PASS",
+  "post_readonly": "PASS",
+  "sv5_07": "LOCKED",
+  "final_verification": {
+    "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_06_FIX04/focused_results.xml --timeout 1800",
+    "start_utc": "2026-09-11 10:36:06Z",
+    "end_utc": "2026-09-11 10:40:06Z",
+    "exit_code": 0,
+    "discovered": 70,
+    "total": 70,
+    "passed": 70,
+    "failed": 0,
+    "skipped": 0,
+    "xml_raw_sha256": "236168155519ce6721f05b874edf15e3ae581383ba49dcf71f93c6b29344447b",
+    "xml_raw_bytes": 75993,
+    "xml_blob_sha256": "5839db7d956ff83c61df119dcbba839ce89bc222ef83a029c85765bf380242b8",
+    "xml_blob_bytes": 75436,
+    "always_pre": 299,
+    "always_post": 299,
+    "fix03_generated_pre": 161,
+    "fix03_generated_post": 161,
+    "lock_mismatches": 0,
+    "predecessor_blobs_verified": 35,
+    "non_output_dirty_paths_pre_post": 198,
+    "non_output_changes": [],
+    "tested_source_hashes": [
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalProduct.cs",
+        "sha": "A6AC5EA533E32CF0B3B870C26950AB95D3ED70C12D1BBB7447F1C428E7EA7EA9"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalProduct.cs.meta",
+        "sha": "979395C22A282497526F7618ACF010150215667EAAE05417E8A7CBE90BD5159C"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+        "sha": "A9FE51F9D02AB278906C5B8434675728FA3C5E59D8556F966666CB8FF27A82A4"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGateGeometry.cs",
+        "sha": "DE4F547B9EF7327949CFD706D1E8987D51C0805235C411D426E253B6A6465C54"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+        "sha": "E0449CFDCB0CE2A842B41EE4AE285275DB9110A185409FC940BFF9FDD5328D31"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+        "sha": "11D5340FB65A71621EDFA3B0A84BB46243414C482570439937FD6447312F3F82"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+        "sha": "A6D2505DF7330F8860C76EE13978EBAA949CBCF889AB42D86A30FBA479919347"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+        "sha": "0FF48DC6D5E5BA4C52105304494413E2A562ACDFB130E331E3B0116D7E9873E0"
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalMovement.cs",
+        "sha": "9844C69086C471891B5698C82A49A2EA2538E3E0CEB8B54B441133B36EB03F6C"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+        "sha": "E84C16F2FEDA1A900C719094E270E3CF2738DBCD7AFE4424DD59922834D42DA7"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+        "sha": "F2A4867A61C9B13A5D9E8226FB2FB1D88836C6AF57EE3309AD1F4FD3A3C405DC"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+        "sha": "B08BF154EE4BC1A5620CC13E81A2BB8624A1797E7D567F3F9DFCA5F485B55BD8"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+        "sha": "DA2A51A401B4A39296EAC620757F76D731A7BD7CCB14650346F958550124BCBA"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+        "sha": "8D0497C6AB1FAEA8AA57B8BF5BA291AA63AD020A40E4106FFE97247FF1274BB1"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+        "sha": "E3D5BCDD3A8D6CB7EAA57D3C69449B33C3E9FFF8C9E360B04077E3DFDBECD8FB"
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+        "sha": "C97D0B54808E1A9A9B542FA0FC6A0D10666243B257B0D091E8E1F9F353275379"
+      }
+    ]
+  }
+}

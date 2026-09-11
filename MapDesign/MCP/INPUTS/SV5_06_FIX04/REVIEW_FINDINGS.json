@@ -1,0 +1,136 @@
+{
+  "schema": "SV5_06_FIX03_INDEPENDENT_REVIEW_V1",
+  "review_status": "FAIL_REPAIR_REQUIRED",
+  "review_scope": "submitted_review_zip_static_and_exported_plan_analysis;not_unity_or_player_execution",
+  "submission": {
+    "zip_sha256": "a9109b70cf0b9ab35f75e529d33e5ad340b19afb0026d52a53f1b5ab59d9a214",
+    "manifest_entries_verified": 315,
+    "manifest_mismatch_count": 0,
+    "reported_task": "SV5_06_FIX03",
+    "reported_status": "PASS",
+    "commit": "a0dc996a11d349927917a60410fb356871df15f2",
+    "parent": "05ff2344263d1cbd46f6c9b21995a06539d02832",
+    "reported_tests": "59/59 passed;0 failed;0 skipped",
+    "reported_final_state": "289 rows;248 COMPLETE;0 CURRENT;41 LOCKED;SV5_07 LOCKED",
+    "accepted_plan_digest": "0d74dabc7c5ad27aec04a4025bca6ac543f504caca2703e60865f210899dbb30",
+    "physical_movement_digest": "50e0a08ffcf5e00a74370993c961a3c5a392010daf2a5815adce8c74d18423f9"
+  },
+  "blocking_findings": [
+    {
+      "id": "SG06F3-R1",
+      "severity": "BLOCKER",
+      "title": "218 of 225 ConditionalGate contacts have no barrier at the contact coordinate",
+      "contract_conflict": "FIX03 C04 requires an exact blocking cell for SHARED or exact cardinal blocking face for FACE; a remote route gate is not physical separation.",
+      "counts": {
+        "conditional_contacts": 225,
+        "supported": 7,
+        "unsupported": 218,
+        "face_total": 164,
+        "face_exactly_blocked": 7,
+        "face_not_blocked_at_contact": 157,
+        "shared_total": 61,
+        "shared_exactly_blocked_by_cell": 0,
+        "shared_without_blocking_cell": 61
+      },
+      "cause": [
+        "StateProjection.SelectBoundaryGate chooses any gate whose source route matches either contact route, regardless of contact coordinate.",
+        "FindGateErrors checks only boundary lookup, contact-id membership and whether the gate has any blocking face somewhere.",
+        "PhysicalMovement.Analyze repeats owner/list membership and does not validate local cell/face geometry.",
+        "All three accepted gates export empty blocking_cells."
+      ],
+      "direct_source_evidence": [
+        "Sv5SpaceGraphPlanner.cs:734-747 contains ValidateBarrierFixture with exact SHARED/FACE checks.",
+        "Sv5SpaceGraphPlanner.cs:750-766 accepts the plan without invoking that validator.",
+        "Sv5SpacePhysicalMovement.cs:238-251 accepts owner.ContactIds membership without local geometry.",
+        "Sv5SpaceGraphStateProjection.cs:162-169 selects a route-owned gate without a coordinate test.",
+        "Sv5SpaceGraphFix03Tests.cs:99-111 proves the accepted SHARED contact fails ValidateBarrierFixture, but does not apply it to the accepted plan."
+      ],
+      "representative_unsupported_contact": {
+        "contact_id": "FACE_348_296_349_296_3d95e18aee32",
+        "contact_face": [[348, 296], [349, 296]],
+        "assigned_gate": "SV5_GATE_07BBC38EBC2801249FC4",
+        "assigned_gate_predicate": "BOSS_GATED_EXIT_APPROACH",
+        "note": "The assigned Boss gate has seven blocking faces, but not this face."
+      }
+    },
+    {
+      "id": "SG06F3-R2",
+      "severity": "BLOCKER",
+      "title": "Simultaneous Boss and Forge cuts hard-lock an unguarded required resource route",
+      "contract_conflict": "FIX03 C05 requires all six resource orders and every reachable state's normal reverse/dead-end properties under the same physical plan.",
+      "state": {
+        "resource_mask": 0,
+        "forge_made": false,
+        "seal_open": false,
+        "boss_complete": false
+      },
+      "failed_required_connections": [
+        {
+          "connection_id": "SV5_CORE_CONN_93f752cf7b8f813c",
+          "condition": "NORMAL_RESOURCE_APPROACH",
+          "path": "Start -> DeepStarYeast entry",
+          "without_gates_reachable": true,
+          "all_closed_gates_reachable": false
+        },
+        {
+          "connection_id": "SV5_CORE_CONN_be0aa26aa7cc3b03",
+          "condition": "NORMAL_RESOURCE_RETURN",
+          "path": "DeepStarYeast exit -> Start",
+          "without_gates_reachable": true,
+          "all_closed_gates_reachable": false
+        }
+      ],
+      "interaction": {
+        "boss_gate_only_reachable": true,
+        "forge_gate_only_reachable": true,
+        "seal_gate_only_reachable": true,
+        "boss_plus_forge_reachable": false
+      },
+      "proof_contradiction": "state_proofs.json marks DeepStarYeast>CondensedCoefficientSap>MooncoreOre successful even though its first physical approach and return are closed before Forge.",
+      "additional_collateral_locks": [
+        "SV5_OPTIONAL_01",
+        "SV5_OPTIONAL_RETURN_TO_START",
+        "SV5_OPTIONAL_TO_VILLAGE"
+      ],
+      "cause": [
+        "ClosedCases/OpenCases cover only six forbidden and three selected open gate endpoints.",
+        "ExpandGlobalCuts preserves only selected open witnesses while adding distributed global faces.",
+        "FindStateErrors checks only those nine cases, not every logically open normal connection in every reachable FSM state.",
+        "Explore line 324 requires a target gate even for normal connections, preventing the public evaluator from directly covering unguarded connectors."
+      ],
+      "direct_source_evidence": [
+        "Sv5SpacePhysicalMovement.cs:170-184 enumerates only nine guarded cases.",
+        "Sv5SpacePhysicalMovement.cs:186-221 expands cuts against those cases.",
+        "Sv5SpacePhysicalMovement.cs:254-289 validates only those cases.",
+        "Sv5SpacePhysicalMovement.cs:302-355 applies all closed faces globally, causing collateral disconnection.",
+        "Sv5SpacePhysicalMovement.cs:375-389 preserves only the three selected open witnesses."
+      ]
+    }
+  ],
+  "preserved_successes": [
+    "Submitted manifest, reported focused XML counts, Finalize state and commit metadata are internally consistent.",
+    "Movement cells are globally coordinate-based and route relabeling no longer changes the selected nine reachability results.",
+    "The original FIX02 six guarded bypass cases are blocked in FIX03.",
+    "W01/W02 and protected AIR evidence are reported as preserved.",
+    "ComposedGeometryReady and PlayerVerified remain false as required."
+  ],
+  "fix04_required_outcome": [
+    "Run the exact local barrier validator, or equivalent production logic, on every accepted ConditionalGate contact.",
+    "Resolve each unsupported contact by reroute, a legitimate global join, permanent solid separation, or an exact typed local boundary; never by remote gate membership.",
+    "Evaluate the physical movement graph crossed with every reachable logical FSM state and every connection whose canonical predicate is open.",
+    "Preserve all six resource orders, required approach/return paths and normal recovery while all closed gates are applied simultaneously.",
+    "Reject candidate global cut faces that break any required currently-open transition; include combined-gate collateral fixtures.",
+    "Export local_barrier_checks.json and physical_transition_matrix.json from the accepted plan."
+  ],
+  "reproduction": {
+    "script": "REPRODUCE.py",
+    "expected_status": "EXPECTED_FIX03_FAILURES_REPRODUCED",
+    "exact_evidence_hashes": {
+      "connections.csv": "6838d9de552b3f8687f05219d2dae2b836c5c49b6ad0e4d268afcc3a5b4ddacb",
+      "ports.csv": "c09b68bc08ee7868ffe9b2f79024de9a83fe3e988560c26c0b1a340b3330eb0b",
+      "contact_checks.csv": "a2b96265678392e8eb2008ff712c6f174e17a0fcb904bd9067d7b548b41c1f1e",
+      "gate_geometry.json": "99f4bab5835490763a1a06aabf687e67ba016ded217425cc34888865a0245953",
+      "state_proofs.json": "4dca6e805f34f09509c3d4517da556eedc64e1b039735e23c116d35895399770"
+    }
+  }
+}

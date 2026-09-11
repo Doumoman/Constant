@@ -420,6 +420,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             PlayerVerified = false;
             InfillPendingTileCount = 624 * 416 - Reservations.Select(value => value.World).Distinct().Count();
             PhysicalMovement = Sv5SpacePhysicalMovement.Analyze(Core, Connections, ContactDecisions, Gates);
+            PhysicalProduct = PhysicalMovement.Product;
+            Segments = Sv5SpacePhysicalProduct.BuildSegments(Connections, Gates);
             Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
@@ -435,6 +437,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5SpaceProjectionOrderProof> ProjectionProofs { get; }
         public IReadOnlyList<Sv5SpaceGateStateCheck> GateStateChecks { get; }
         public Sv5SpacePhysicalMovementPlan PhysicalMovement { get; }
+        public Sv5SpacePhysicalProductPlan PhysicalProduct { get; }
+        public IReadOnlyList<Sv5SpaceSegment> Segments { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
@@ -447,7 +451,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             ContactDecisions.Count != 0 && ContactDecisions.All(value => value.CoverageChecked &&
                 value.LogicalStateTransitionChecked) && Gates.All(value => value.PlannedBarrierVerified) &&
             GateStateChecks.Count >= Gates.Count * 2 && GateStateChecks.All(value => value.Success) &&
-            PhysicalMovement.Success && ProjectionProofs.Count == 6 && ProjectionProofs.All(value => value.Success) &&
+            PhysicalMovement.Success && PhysicalProduct.Success && ProjectionProofs.Count == 6 && ProjectionProofs.All(value => value.Success) &&
             InfillPendingTileCount > 0;
 
         private IEnumerable<string> CanonicalLines()
@@ -496,6 +500,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 value.CheckedCells + "|" + value.CheckedFaces + "|" + L(value.Evidence);
             yield return "physical-movement|" + PhysicalMovement.SemanticDigest + "|" +
                 (PhysicalMovement.Success ? "1" : "0");
+            yield return "physical-product|" + PhysicalProduct.SemanticDigest + "|" +
+                (PhysicalProduct.Success ? "1" : "0");
+            foreach (Sv5SpaceSegment segment in Segments)
+                yield return "segment|" + segment.Id + "|" + segment.ConnectionId + "|" + segment.RegionId + "|" +
+                    segment.Kind + "|" + segment.Source + ">" + segment.Target + "|" + segment.GateId + "|" +
+                    string.Join(";",segment.Centerline) + "|" + string.Join(";",segment.ApertureCells) + "|" +
+                    (segment.Predicate == null ? "ACTIONLESS" : segment.Predicate.StableToken);
         }
 
         private static string L(string value)
