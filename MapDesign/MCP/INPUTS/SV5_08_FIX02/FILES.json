@@ -1,0 +1,64 @@
+{
+  "format": "sv5_08_fix02_package_v1",
+  "task": "SV5_08_FIX02",
+  "native_inbox_file": "MapDesign/MCP_INBOX/SV5_08_FIX02.md",
+  "source_predecessor_commit": "875122b716952827c44c363e8a2b0621905e66f1",
+  "bound_task_sha256": "9cbc7801daf56d604f9313f2ea7935ca86a5285c4ba7bb57f82d316cd70f61db",
+  "files": [
+    {
+      "path": "AUDIT_SPEC.json",
+      "bytes": 1332,
+      "sha256": "56106e87d524a25cb2bc77ef70be75ef653fa505e0db54517e148f004dc2b462"
+    },
+    {
+      "path": "EVIDENCE_CORRECTION.md",
+      "bytes": 1589,
+      "sha256": "9c721897b8ff90827cee1c7c056f96fe5acdd1122ba747d1e6df4936dcc78c17"
+    },
+    {
+      "path": "FIX01_REVIEW_INDEX.json",
+      "bytes": 64188,
+      "sha256": "f56b9719d577e267a67f6bd0322f800c63811eabca5f170633732ef351d2463f"
+    },
+    {
+      "path": "REGISTRATION.diff",
+      "bytes": 695,
+      "sha256": "5b34dfd8aa9868c8e265d895367c190e55a43b47691014b1c59b9ada27f79988"
+    },
+    {
+      "path": "REGISTRATION.json",
+      "bytes": 1529,
+      "sha256": "1f312575bbb4dc395d3c2c9a6157db4696b0f8babc0caba0b6444537305e8ccc"
+    },
+    {
+      "path": "REGISTRATION.md",
+      "bytes": 2093,
+      "sha256": "133ff37b2d3c999b378b6e0673136c17b8e5ea0a4a777ee9d1b95b7fa575d692"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "bytes": 329406,
+      "sha256": "3d86252c7399df48ba1abc96bc0f979013d497d4d2ac4da6c1c5b0145a50b571"
+    },
+    {
+      "path": "SV5_08_FIX02.md",
+      "bytes": 4057,
+      "sha256": "9cbc7801daf56d604f9313f2ea7935ca86a5285c4ba7bb57f82d316cd70f61db"
+    },
+    {
+      "path": "tools/PRECHECK.py",
+      "bytes": 15356,
+      "sha256": "ee748260c325bb77e9553717e00295c1c2e8887654b7088e58996a6121c39c43"
+    },
+    {
+      "path": "tools/audit_finalize.py",
+      "bytes": 7332,
+      "sha256": "786c2f1c33edcc16857aa1aed5341dac2b70a55c2249016808a44d21b9a1e2f3"
+    }
+  ],
+  "self_exclusion": [
+    "FILES.json",
+    "SV5_08_FIX02_PATCH.zip"
+  ],
+  "scope": "AUDIT_ONLY_REPAIR;EXPLICIT_REGISTRATION;NO_GAME_CODE_OR_UNITY_RUN"
+}

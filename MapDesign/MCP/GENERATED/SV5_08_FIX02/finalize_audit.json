@@ -1,0 +1,47 @@
+{
+  "schema": "SV5_08_FIX02_FINALIZE_AUDIT_V1",
+  "status": "PASS_AUDITED_CORRECTION",
+  "task": "SV5_08_FIX02",
+  "prior_task": "SV5_08_FIX01",
+  "prior_commit": "875122b716952827c44c363e8a2b0621905e66f1",
+  "prior_parent": "953b833cb22904721f9e8687283a65d5bae64cb7",
+  "commit_blobs_verified": 149,
+  "prior_result_sha256": "aca0c0e2f726bf928b771ef6ebb5e7d58db6ec5b61b71b4f48c2aaa2136c46bb",
+  "prior_result_modified": false,
+  "present_marker": "TASK_ID: SV5_08_FIX01",
+  "missing_required_marker": "TASK: SV5_08_FIX01",
+  "complete_post_readonly_claim_reproducible": false,
+  "implementation_evidence": {
+    "code_or_test_changed_by_this_task": false,
+    "unity_run_this_task": false,
+    "prior_focused_total": 102,
+    "prior_focused_passed": 102,
+    "prior_xml_raw_sha256": "9a1a7b4ea5325957a272ebc8b4a1eabbab4f316bbb269ee914c0869c591e2b75",
+    "length": [
+      {
+        "case": "default",
+        "new_connections": 217,
+        "maximum": 24,
+        "over": 0
+      },
+      {
+        "case": "repeat",
+        "new_connections": 234,
+        "maximum": 24,
+        "over": 0
+      }
+    ],
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "correction": "FIX01 code/data evidence passes; its COMPLETE-state post-readonly claim is not reproducible. Downstream binds FIX02.",
+  "state": {
+    "phase": "COMPLETE",
+    "counts": {
+      "COMPLETE": 253,
+      "LOCKED": 39
+    },
+    "current": "NONE",
+    "next": "LOCKED"
+  }
+}
