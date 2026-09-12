@@ -1,0 +1,24 @@
+{
+  "schema": "SV5_10_INDEPENDENT_SIDEPATH_NONGRID_V2",
+  "status": "PASS_INDEPENDENT_SIDEPATH",
+  "default": {
+    "endpoints": 1119,
+    "nearby_pairs": 134739,
+    "eligible_pairs": 3655,
+    "generated": 452,
+    "accepted": 12,
+    "returning": 8,
+    "space_groups": 12
+  },
+  "repeat": {
+    "endpoints": 1255,
+    "nearby_pairs": 148648,
+    "eligible_pairs": 4203,
+    "generated": 484,
+    "accepted": 12,
+    "returning": 5,
+    "space_groups": 12
+  },
+  "worker_digest_match": true,
+  "correction_sha_bound": true
+}

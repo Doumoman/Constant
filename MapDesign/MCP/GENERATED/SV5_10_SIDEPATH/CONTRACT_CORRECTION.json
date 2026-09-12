@@ -1,0 +1,27 @@
+{
+  "schema": "SV5_10_CONTRACT_CORRECTION_V1",
+  "task": "SV5_10_SIDEPATH",
+  "original_task_sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+  "original_package_manifest_sha256": "42cd94a2d61f8a274655b3e16aa23e53ee68f115d918928b5b840e40b41e01b8",
+  "correction_applied_before_finalize": true,
+  "retired_clauses": [
+    "48x32 fixed sector",
+    "SectorId/SectorPair",
+    "distinct-sector minimum",
+    "per-sector cap",
+    "sector-based packing/export/checker"
+  ],
+  "replacement": [
+    "world-coordinate endpoint index",
+    "X sliding window",
+    "Manhattan distance <=49",
+    "normalized EndpointId pair",
+    "actual RoomId/SpaceGroupId distribution",
+    "ephemeral worker batch only"
+  ],
+  "original_inputs_bytes_unchanged": true,
+  "production_sector_dependency": false,
+  "original_applied_contract_contained_retired_48x32_sector_clauses": true,
+  "user_correction_superseded_retired_clauses_before_finalize": true,
+  "original_input_bytes_preserved_for_audit": true
+}

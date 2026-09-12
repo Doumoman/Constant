@@ -1,0 +1,152 @@
+{
+  "schema": "SV5_10_SIDEPATH_BINDING_V1",
+  "task": "SV5_10_SIDEPATH",
+  "final_run_id": "SV5_10_SIDEPATH_FINAL_20260912T174335Z",
+  "package_manifest_sha256": "42cd94a2d61f8a274655b3e16aa23e53ee68f115d918928b5b840e40b41e01b8",
+  "bound_task_sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+  "predecessor": {
+    "commit": "f6fef1c4b258b7b45ca17ea9d5ffc1f1be81b76f",
+    "parent": "07b3d33a5c75bda6df83d499fca0dd94faaa5431",
+    "result_sha256": "48d2ca855e3ba25f71e6df0f2c98102039f29b7627736a0c0cf6905a4f38956b",
+    "task_sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb"
+  },
+  "contract_correction": {
+    "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/CONTRACT_CORRECTION.json",
+    "raw_sha256": "b52a407889004d5a4556ce81bafe337e80cc2aadaa54c5524698a22b28fc8933",
+    "raw_bytes": 1014,
+    "original_applied_contract_contained_retired_48x32_sector_clauses": true,
+    "user_correction_superseded_those_clauses_before_finalize": true,
+    "original_inputs_bytes_preserved_for_audit": true,
+    "production_implementation_contains_no_sector_dependency": true,
+    "original_inputs_checker_executed": false,
+    "original_inputs_checker_modified": false,
+    "original_inputs_checker_status": "RETIRED_CONTRACT_CHECKER"
+  },
+  "source_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF, paths sorted ordinal)",
+    "scope": "5 active sidepath/integration runtime C# files plus the 14-case sidepath EditMode test source",
+    "files": 6,
+    "bytes": 163255,
+    "final_tested_source_sha256": "b67cd33dc721d24f5796dc0a65fc82c582c748f1a2a9b0bdafa5af9453f7dabb",
+    "changed_after_focused": false,
+    "active_retired_symbol_matches": 0,
+    "legacy_runtime_dependency_added": false
+  },
+  "export_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF, paths sorted ordinal)",
+    "scope": "default/repeat final export trees plus root comparison and worker determinism evidence",
+    "files": 28,
+    "bytes": 92192507,
+    "final_export_sha256": "0b8b3a8c6b04fe0b5669ac0d6069038ce17a540521740ba3c45a37d7bd6f1e11",
+    "changed_during_focused": false,
+    "regenerated_once_from_final_source": true,
+    "production_workers": 1,
+    "retired_export_files_or_fields": 0
+  },
+  "tests": {
+    "compile": {
+      "command": "dotnet build Game.Map.Tests.EditMode.csproj --nologo --verbosity quiet",
+      "errors": 0,
+      "warnings": 77
+    },
+    "targeted": {
+      "total": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 195.8352966,
+      "raw_sha256": "625e680496e522e74e3a84ea92b03d4252bb4a612e93e1dcfbf205571960b0ed",
+      "raw_bytes": 14615,
+      "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/_work/nonsector_targeted_final.xml",
+      "included_in_commit": false
+    },
+    "final_focused": {
+      "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/focused_results.xml --timeout 2700 --format json",
+      "result": "Passed",
+      "testcasecount": 139,
+      "total": 139,
+      "passed": 139,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1327.1063598,
+      "start_utc": "2026-09-12T17:43:35Z",
+      "end_utc": "2026-09-12T18:05:43Z",
+      "raw_sha256": "f2870fa7f9600795727c3a783ae8311aa2e05b3f0104ff3c929f97cafa48f65b",
+      "raw_bytes": 136216
+    },
+    "independent_sidepath_audit": {
+      "command": "py -X utf8 MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/check_sidepaths_nongrid.py --default MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/default --repeat MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/repeat --correction MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/CONTRACT_CORRECTION.json --worker-determinism MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/worker_determinism.json --output MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/independent_sidepath_audit.json",
+      "console_status": "PASS_INDEPENDENT_SIDEPATH",
+      "status": "PASS_INDEPENDENT_SIDEPATH",
+      "raw_sha256": "dc449ba908eac8e3c0f0bd263dc5c683749a94ee70f495cc90eca6d8b4e32a31",
+      "raw_bytes": 552,
+      "imports_production_csharp": false
+    }
+  },
+  "exports": {
+    "default": {
+      "plan_digest": "03502fb599d4b513036ade56d0eac06e8cbd5ade6a2adbf028d5e2e588a11bcd",
+      "baseline_digest": "a51a5b66818d2195c9dceb3d6ae9c50550802d9bef95db3cb9d03bfe86afd22c",
+      "sidepath_digest": "1e84cd6850c7603f4ac100c3affe1a2c0536335c89d7085262b18e03ccee9457",
+      "endpoints": 1119,
+      "all_endpoint_pairs": 625521,
+      "nearby_normalized_pairs": 134739,
+      "pre_path_search_excluded_percent": 78.460,
+      "eligible_pairs": 3655,
+      "generated": 452,
+      "accepted": 12,
+      "returning": 8,
+      "space_groups": 12,
+      "center_x_range": [65, 611],
+      "center_y_range": [11, 384],
+      "centerline_length_range": [27, 35]
+    },
+    "repeat": {
+      "plan_digest": "c4047b78601928383e81fd84b2ad56c4a065fede00be8b56e40c56760296cd21",
+      "baseline_digest": "ec00522aa6b6e8da780a2d0ae593a8805e80ddf196b16cd60bb5ec124574217b",
+      "sidepath_digest": "34119c5f0dfc2fc649e21acd21e5f0a82b69960a90ef3f1d2fbe1c6198963263",
+      "endpoints": 1255,
+      "all_endpoint_pairs": 786885,
+      "nearby_normalized_pairs": 148648,
+      "pre_path_search_excluded_percent": 81.109,
+      "eligible_pairs": 4203,
+      "generated": 484,
+      "accepted": 12,
+      "returning": 5,
+      "space_groups": 12,
+      "center_x_range": [65, 611],
+      "center_y_range": [11, 392],
+      "centerline_length_range": [27, 31]
+    }
+  },
+  "worker_policy": {
+    "production_default_workers": 1,
+    "approved_targeted_worker_1_candidate_generation_ms": 88.221,
+    "approved_targeted_worker_4_candidate_generation_ms": 162.786,
+    "selection_reason": "parallel overhead exceeded useful work at the approved candidate volume",
+    "worker_1_and_worker_4_digest_match": true,
+    "parallel_speedup_required_for_pass": false,
+    "bounded_parallel_mode_retained_for_determinism_regression_only": true
+  },
+  "lifecycle": {
+    "pre_finalize_post_readonly": "PASS_POST",
+    "pre_finalize_counts": {"COMPLETE": 255, "CURRENT": 1, "LOCKED": 37},
+    "post_finalize_post_readonly": "PASS_POST",
+    "post_finalize_counts": {"COMPLETE": 256, "CURRENT": 0, "LOCKED": 37},
+    "finalize_next_task_opened": false,
+    "push_performed": false
+  },
+  "readiness": {
+    "ComposedGeometryReady": false,
+    "PlayerVerified": false,
+    "SV5_11_HUB_SHELL": "LOCKED"
+  },
+  "work": {
+    "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/_work",
+    "obsolete_sector_preserved_locally": true,
+    "included_in_commit": false,
+    "included_in_review_zip": false
+  }
+}

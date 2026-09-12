@@ -1,0 +1,132 @@
+{
+  "schema": "SV5_10_SIDEPATH_SOURCE_LOCK_V1",
+  "task": "SV5_10_SIDEPATH",
+  "predecessor": {
+    "commit": "f6fef1c4b258b7b45ca17ea9d5ffc1f1be81b76f",
+    "parent": "07b3d33a5c75bda6df83d499fca0dd94faaa5431",
+    "subject": "SV5_09_FIX01: rebuild loop topology evidence",
+    "result_sha256": "48d2ca855e3ba25f71e6df0f2c98102039f29b7627736a0c0cf6905a4f38956b",
+    "task_sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb",
+    "status_sha256": "a47f5891f2540019c83d0be115a617e19154cf4f64f9fc9005a81cab39b27cd6",
+    "master_sha256": "6c4376381fa0d621c85ea5107cabf192f86ea1ccd1c33926eeedcc74e5b2ea23",
+    "commit_entries": [
+      {
+        "path": "MapDesign/MCP/REPORTS/SV5_09_FIX01_RESULT.md",
+        "sha256": "48d2ca855e3ba25f71e6df0f2c98102039f29b7627736a0c0cf6905a4f38956b",
+        "bytes": 3206
+      },
+      {
+        "path": "MapDesign/MCP/TASKS/SV5_09_FIX01.md",
+        "sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb",
+        "bytes": 5680
+      },
+      {
+        "path": "MapDesign/MCP_ARCHIVE/SV5_09_FIX01.md",
+        "sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb",
+        "bytes": 5680
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/BINDING.json",
+        "sha256": "b3139b4fc82793a9e8d8ac64dd5ce5fb3ac28c6f491252f0743892ad38ee457d",
+        "bytes": 4741
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/independent_topology_audit.json",
+        "sha256": "7cacd106e1de0003ff87426a0c3bd910b73311048554ca489c15b6455a08d840",
+        "bytes": 5285
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/focused_results.xml",
+        "sha256": "d886bf0bc0d364d4da99a88176ab6240ff3e6717767cc587dea33e5cb879f4eb",
+        "bytes": 124236
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/default/loop_validation.json",
+        "sha256": "761db79223d9eee4fa3f5fe23b5d39d42120ebd0da128226c4c655b6b75bd5f3",
+        "bytes": 1016
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/repeat/loop_validation.json",
+        "sha256": "21998258a72dbf73b49f48e61faeb4497123b4220ed3db4ee506120c85fe3311",
+        "bytes": 1015
+      },
+      {
+        "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+        "sha256": "a47f5891f2540019c83d0be115a617e19154cf4f64f9fc9005a81cab39b27cd6",
+        "bytes": 102532
+      },
+      {
+        "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+        "sha256": "6c4376381fa0d621c85ea5107cabf192f86ea1ccd1c33926eeedcc74e5b2ea23",
+        "bytes": 36933
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceLoops.cs",
+        "sha256": "bdd4586b45b4eb07144a7317db893fbc5dc950ec5a8ce365ae56d6d4e052cb68",
+        "bytes": 76726
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopTopology.cs",
+        "sha256": "4df4bbbb639db2ee16adf2b3821e974fb7cfbbab722be241e6ab0548a601c8b0",
+        "bytes": 43715
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopExport.cs",
+        "sha256": "a6ad3bd864f43fc8dae8dd64be7785112601c71c3422c6606d6ab2dc8e4ed0d0",
+        "bytes": 23033
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTests.cs",
+        "sha256": "acec21904696da39aed3aa75d61591fa0d33fad39bdd1b938619d527e8d857e6",
+        "bytes": 14878
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTopologyFix01Tests.cs",
+        "sha256": "54a3f5a87de2224ec793ba41f6a1aef5501cedd831ed1a5b0134e10436b5d031",
+        "bytes": 6998
+      }
+    ]
+  },
+  "state_before": {
+    "rows": 293,
+    "counts": {
+      "COMPLETE": 255,
+      "CURRENT": 0,
+      "LOCKED": 38
+    },
+    "current": "NONE",
+    "SV5_09_FIX01": "COMPLETE",
+    "SV5_10_SIDEPATH": "LOCKED",
+    "SV5_11_HUB_SHELL": "LOCKED"
+  },
+  "owned_existing": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalMovement.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceLoops.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopTopology.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopExport.cs",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md"
+  ],
+  "owned_new": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceSidepaths.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceSidepaths.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SidepathSpatialIndex.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SidepathSpatialIndex.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SidepathExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SidepathExport.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceSidepathTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceSidepathTests.cs.meta",
+    "MapDesign/MCP/SV5/18_SIDEPATHS_V5.md",
+    "MapDesign/MCP/REPORTS/SV5_10_SIDEPATH_RESULT.md",
+    "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH"
+  ],
+  "read_only_roots": [
+    "MapDesign/MCP/GENERATED/SV5_09_FIX01",
+    "MapDesign/MCP/TASKS/SV5_09_FIX01.md",
+    "MapDesign/MCP_ARCHIVE/SV5_09_FIX01.md",
+    "MapDesign/MCP/REPORTS/SV5_09_FIX01_RESULT.md"
+  ]
+}

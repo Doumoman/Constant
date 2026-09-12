@@ -1,0 +1,47 @@
+{
+  "schema": "SV5_10_SIDEPATH_PACKAGE_V1",
+  "task": "SV5_10_SIDEPATH",
+  "bound_task_sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "559ddd9c1c773b7ed860fe6de5d5ff6e82b34000829724bf8c7d204f1de48306",
+      "bytes": 4261
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "sha256": "eb3329412483d03c2ba8dcc8edc2d445993a3f7c6bef008ce433ef21aea10535",
+      "bytes": 498
+    },
+    {
+      "path": "README.md",
+      "sha256": "7f37592b6d9cec226bcd194b5f038febabcb8898995c9a358dcb179cfe89bf63",
+      "bytes": 417
+    },
+    {
+      "path": "SIDEPATH_PROFILE.json",
+      "sha256": "d5c63b5ab4a56c506fe6d46f516444fdcb9c311da5112887d0ab77467d41cc43",
+      "bytes": 1689
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "4c8f166aee23c7f828d1e89cdd6da083e92667243e441869ca71dbf49341ba64",
+      "bytes": 5737
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "721f18d12ae8f3152cba97395a2fed882349fdb9d69470beb278a02e8426a2aa",
+      "bytes": 6960
+    },
+    {
+      "path": "SV5_10_SIDEPATH.md",
+      "sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+      "bytes": 5489
+    },
+    {
+      "path": "tools/check_sidepaths.py",
+      "sha256": "ba2bb5663ec8cb5bf7117418c2c6de293c4e43121b5b76b093db2629e7e03f1e",
+      "bytes": 6071
+    }
+  ]
+}

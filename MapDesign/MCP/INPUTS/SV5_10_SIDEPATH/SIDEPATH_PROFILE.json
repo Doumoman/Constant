@@ -1,0 +1,56 @@
+{
+  "schema": "SV5_SIDEPATH_PROFILE_V1",
+  "world": {
+    "width": 624,
+    "height": 416
+  },
+  "sector": {
+    "width": 48,
+    "height": 32,
+    "columns": 13,
+    "rows": 13
+  },
+  "centerline_metric": "COUNT_DISTINCT_ORDERED_TRAVERSABLE_AIR_CELLS_ENDPOINTS_INCLUDED",
+  "centerline_cells": {
+    "minimum": 20,
+    "maximum": 50
+  },
+  "passage": {
+    "ordinary_clearance_cells": 2,
+    "local_low_side_clearance_at_rise_or_turn": 3,
+    "requires_supported_foot": true,
+    "maximum_step_rise": 1,
+    "long_pure_vertical_tube_allowed": false
+  },
+  "irregularity": {
+    "minimum_direction_changes": 2,
+    "minimum_distinct_run_lengths": 2,
+    "reject_repeating_one_cell_sawtooth": true,
+    "self_intersection_requires_explicit_junction": true
+  },
+  "production": {
+    "target": 12,
+    "hard_minimum": 8,
+    "minimum_returning": 5,
+    "minimum_distinct_sectors": 6,
+    "maximum_per_home_sector": 2,
+    "minimum_newly_carved_air": 8,
+    "minimum_newly_carved_ratio": 0.4,
+    "note": "Operational implementation baseline selected by the design agent; not a user-specified spawn percentage."
+  },
+  "candidate_index": {
+    "method": "SECTOR_AABB_LOWER_BOUND",
+    "maximum_endpoint_manhattan": 49,
+    "reason": "50 inclusive AIR centerline cells contain at most 49 cardinal moves",
+    "compare_each_normalized_sector_pair_once": true,
+    "whole_world_copy_per_candidate": 0,
+    "whole_world_bfs_per_candidate": 0,
+    "global_product_runs_after_final_batch": 1
+  },
+  "classification": {
+    "returning": "SIDE_PATH_RETURNING",
+    "dead_end": "SIDE_PATH_DEAD_END",
+    "shortcut_only_when_final_cost_strictly_less": true,
+    "random_shortcut_required": false
+  }
+}

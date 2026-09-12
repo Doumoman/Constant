@@ -55,6 +55,31 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 baseline.Diversity.Profile, baseline.Diversity.Decisions, baseline.Infill, payload);
         }
 
+        public static Sv5SpaceGraphPlan PlanWithSidepaths(Sv5CoreReservationPlan core, ulong seed,
+            Sv5SpaceGraphAuthoringProfile profile = null, Sv5DiversityProfile diversity = null,
+            Sv5InfillProfile infill = null, Sv5LoopProfile loops = null, Sv5SidepathProfile sidepaths = null)
+        {
+            var baseline = PlanWithLoops(core, seed, profile, diversity, infill, loops);
+            sidepaths = sidepaths ?? new Sv5SidepathProfile();
+            if (!sidepaths.Enabled) return baseline;
+            return AttachSidepaths(baseline, Sv5SpaceSidepaths.Build(baseline, sidepaths));
+        }
+
+        public static Sv5SpaceGraphPlan AttachSidepaths(Sv5SpaceGraphPlan baseline, Sv5SidepathPlan payload)
+        {
+            if (baseline == null) throw new ArgumentNullException(nameof(baseline));
+            if (payload == null) throw new ArgumentNullException(nameof(payload));
+            if (baseline.Loops == null || !baseline.Loops.Success)
+                throw new ArgumentException("A passing PlanWithLoops result is required.", nameof(baseline));
+            if (baseline.Digest != payload.BaselineDigest)
+                throw new ArgumentException("Sidepath baseline digest mismatch.", nameof(payload));
+            var diagnostics = baseline.Diagnostics.Concat(Sv5SpaceSidepaths.ValidatePayload(baseline, payload));
+            return new Sv5SpaceGraphPlan(baseline.Core, baseline.Seed, baseline.Profile, baseline.Places,
+                baseline.Ports, baseline.Connections, baseline.Gates, baseline.Reservations,
+                baseline.ContactDecisions, baseline.ProjectionProofs, baseline.GateStateChecks, diagnostics,
+                baseline.Diversity.Profile, baseline.Diversity.Decisions, baseline.Infill, baseline.Loops, payload);
+        }
+
         public static Sv5SpaceGraphPlan AttachInfill(Sv5SpaceGraphPlan baseline, Sv5InfillPlan payload)
             => AttachInfill(baseline,Sv5SpaceInfill.Capture(baseline),payload);
 

@@ -1,0 +1,10 @@
+{
+  "schema":"SV5_SIDEPATH_VALIDATION_NONGRID_V2",
+  "status":"PASS",
+  "metrics":{"accepted":12,"returning":5,"space_groups":12,"bypass":0,"protected_violations":0,"type0_violations":0},
+  "midpoint_world_range":{"min_x":65,"max_x":611,"min_y":11,"max_y":392},
+  "space_group_distribution":{ "SV5_OPTIONAL_00":1,"SV5_OPTIONAL_01":1,"SV5_OPTIONAL_02":1,"SV5_OPTIONAL_03":1,"SV5_OPTIONAL_04":1,"SV5_OPTIONAL_06":1,"SV5_OPTIONAL_07":1,"SV5_OPTIONAL_08":1,"SV5_OPTIONAL_09":1,"SV5_OPTIONAL_10":1,"SV5_OPTIONAL_11":1,"SV5_OPTIONAL_12":1 },
+  "diagnostics":[],
+  "composed_geometry_ready":false,
+  "player_verified":false
+}
