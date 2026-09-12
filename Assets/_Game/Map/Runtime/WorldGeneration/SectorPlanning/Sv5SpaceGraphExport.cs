@@ -331,6 +331,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append(plan.Infill == null ? "" : ",\"digest\":"+J(plan.Infill.Digest)+",\"owned_cells\":"+N(plan.Infill.Cells.Count))
                 .Append(",\"tile_count\":")
                 .Append(plan.InfillPendingTileCount.ToString(CultureInfo.InvariantCulture)).Append("},\n")
+                .Append("  \"loops\": {\"owner\":\"SV5_09_LOOPS\",\"state\":")
+                .Append(J(plan.Loops == null ? "LOOP_PENDING" : plan.Loops.Success ? "ACTUAL_TILE_LOOPS_STATIC_SCREEN" : "LOOPS_FAILED"))
+                .Append(plan.Loops == null ? "" : ",\"digest\":"+J(plan.Loops.Digest)+",\"accepted\":"+N(plan.Loops.AcceptedCount)+
+                    ",\"distinct_48x32_sectors\":"+N(plan.Loops.DistinctSectorCount)).Append("},\n")
                 .Append("  \"places\": [\n");
             AppendObjects(text, plan.Places.Select(value => "    {\"id\":" + J(value.Id) + ",\"family\":" +
                 J(value.Family) + ",\"formation_id\":"+J(value.FormationId)+",\"family_key\":"+J(plan.Diversity.Profile.FamilyKey(value.Family))+

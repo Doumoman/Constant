@@ -30,6 +30,31 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return AttachInfill(baseline,source,payload);
         }
 
+        public static Sv5SpaceGraphPlan PlanWithLoops(Sv5CoreReservationPlan core, ulong seed,
+            Sv5SpaceGraphAuthoringProfile profile = null, Sv5DiversityProfile diversity = null,
+            Sv5InfillProfile infill = null, Sv5LoopProfile loops = null)
+        {
+            var baseline = PlanWithInfill(core, seed, profile, diversity, infill);
+            loops = loops ?? new Sv5LoopProfile();
+            if (!loops.Enabled) return baseline;
+            return AttachLoops(baseline, Sv5SpaceLoops.Build(baseline, loops));
+        }
+
+        public static Sv5SpaceGraphPlan AttachLoops(Sv5SpaceGraphPlan baseline, Sv5LoopPlan payload)
+        {
+            if (baseline == null) throw new ArgumentNullException(nameof(baseline));
+            if (payload == null) throw new ArgumentNullException(nameof(payload));
+            if (baseline.Infill == null || !baseline.Infill.Success)
+                throw new ArgumentException("A passing PlanWithInfill result is required.", nameof(baseline));
+            if (baseline.Digest != payload.BaselineDigest)
+                throw new ArgumentException("Loop baseline digest mismatch.", nameof(payload));
+            var diagnostics = baseline.Diagnostics.Concat(Sv5SpaceLoops.ValidatePayload(baseline, payload));
+            return new Sv5SpaceGraphPlan(baseline.Core, baseline.Seed, baseline.Profile, baseline.Places,
+                baseline.Ports, baseline.Connections, baseline.Gates, baseline.Reservations,
+                baseline.ContactDecisions, baseline.ProjectionProofs, baseline.GateStateChecks, diagnostics,
+                baseline.Diversity.Profile, baseline.Diversity.Decisions, baseline.Infill, payload);
+        }
+
         public static Sv5SpaceGraphPlan AttachInfill(Sv5SpaceGraphPlan baseline, Sv5InfillPlan payload)
             => AttachInfill(baseline,Sv5SpaceInfill.Capture(baseline),payload);
 

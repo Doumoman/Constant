@@ -194,6 +194,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Sv5SpaceGraphExport.WriteAll(repeat,Path.Combine(directory,"repeat"));
             string historicalRoot=Path.GetFullPath(Path.Combine(directory,"..","SV5_08"));
             string historicalComparisonPath=Path.Combine(historicalRoot,"comparison.json");
+            if(!File.Exists(historicalComparisonPath))
+            {
+                var ancestor=new DirectoryInfo(Path.GetFullPath(directory));
+                while(ancestor!=null && !string.Equals(ancestor.Name,"GENERATED",StringComparison.OrdinalIgnoreCase)) ancestor=ancestor.Parent;
+                if(ancestor!=null)
+                {
+                    string canonical=Path.Combine(ancestor.FullName,"SV5_08");
+                    if(File.Exists(Path.Combine(canonical,"comparison.json")))
+                    { historicalRoot=canonical; historicalComparisonPath=Path.Combine(historicalRoot,"comparison.json"); }
+                }
+            }
             if(!File.Exists(historicalComparisonPath)) throw new FileNotFoundException("Historical SV5_08 comparison is required read-only evidence.",historicalComparisonPath);
             string historicalComparison=File.ReadAllText(historicalComparisonPath,Encoding.UTF8).Trim();
             var historicalDefault=ReadCells(Path.Combine(historicalRoot,"default","infill_cells.csv"));

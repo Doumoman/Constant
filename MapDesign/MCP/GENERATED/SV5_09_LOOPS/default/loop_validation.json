@@ -1,0 +1,9 @@
+{
+  "schema":"SV5_LOOP_VALIDATION_V1",
+  "status":"PASS",
+  "checks":{"L01_WORLD_TILE_PATTERN_CHUNK":true,"L02_ACTUAL_CELL_PAYLOAD":true,"L03_TWO_AIR_AND_SUPPORT":true,"L04_BASIC_MOVEMENT_ONLY":true,"L05_ENDPOINT_INCLUSIVE_LENGTH":true,"L06_DISTINCT_NON_DIRECT_ENDPOINTS":true,"L07_BASELINE_ALTERNATE_PATH":true,"L08_CYCLE_DELTA_ONE":true,"L09_APERTURE_OVERRIDE_PROVENANCE":true,"L10_PROTECTED_CLEAR":true,"L11_FSM_AND_SIX_ORDERS":true,"L12_ACTUAL_CARDINAL_COST":true,"L13_STRICT_SHORTCUT_CLASSIFICATION":true,"L14_DETERMINISTIC":true,"L15_PROFILE_DENSITY":true,"L16_HARD_MINIMUM":true,"L17_PATTERN_CONTOURS":true,"L18_DEFERRED_SCOPE_HELD":true},
+  "metrics":{"accepted":18,"distinct_sectors":14,"maximum_length":24,"dangling":0,"duplicate":0,"illegal_bypass":0,"cycle_delta":18,"patterns":58,"instances":112},
+  "evidence":{"links":"loop_links.csv","cells":"loop_cells.csv","patterns":"loop_patterns.csv","physical":"physical_transition_matrix.json"},
+  "composed_geometry_ready":false,
+  "player_verified":false
+}

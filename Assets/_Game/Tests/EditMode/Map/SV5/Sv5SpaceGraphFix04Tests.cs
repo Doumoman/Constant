@@ -180,7 +180,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var plan = Plan.Value;
             var files = Directory.GetFiles(Historical(""),"*",SearchOption.AllDirectories).OrderBy(f => f).ToArray();
             var before = files.Select(Hash).ToArray();
-            string directory = Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/legacy_exports/sv5_06_fix04"));
+            string directory = Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/legacy_exports/sv5_06_fix04"));
             Sv5SpaceGraphExport.WriteAll(plan,directory);
             string comparison = Sv5SpaceGraphExport.RepairDetailSvg(plan,HistoricalConnections(),HistoricalGates());
             new System.Xml.XmlDocument().LoadXml(comparison);

@@ -106,7 +106,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 "\n"+string.Join("\n",payload.Diagnostics)+"\n"+string.Join("\n",payload.Rejections.Select(p=>p.Key+"="+p.Value))+
                 "\nplan_errors="+plan.Diagnostics.Count+"\n"+string.Join("\n",plan.Diagnostics.Take(24))+
                 "\nphysical_product="+plan.PhysicalProduct.Success+"\nplan_digest="+plan.Digest;
-            string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/density_diagnostic.txt"));
+            string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/density_diagnostic.txt"));
             Directory.CreateDirectory(Path.GetDirectoryName(path)); File.WriteAllText(path,detail);
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(path),"density_rooms.csv"),"id,recipe,x,y,width,height,parent,depth,mirror\n"+
                 string.Join("\n",payload.Rooms.Select(r=>string.Join(",",r.Id,r.Recipe,r.Bounds.X,r.Bounds.Y,r.Bounds.Width,r.Bounds.Height,r.Parent,r.Depth,r.Mirror))));
@@ -276,7 +276,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test, Timeout(1200000)] public void T11_ActualExportsReconstructEveryCellAndMutationsChangeDigestOrFailValidation()
         {
-            string work=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08_FIX01/_work");
+            string work=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/infill");
             foreach(var pair in Cases())
             {
                 var p=pair.After; var payload=p.Infill;
@@ -361,7 +361,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             }
             // Both immutable integration candidates already passed production validation above.
             // This is the sole final ON export pair, never an export into historical directories.
-            Sv5InfillExport.WriteComparison(Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08_FIX01"),DefaultOn.Value,RepeatOn.Value);
+            Sv5InfillExport.WriteComparison(Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/legacy_exports/sv5_08_fix01"),DefaultOn.Value,RepeatOn.Value);
         }
 
         [Test, Timeout(1200000)] public void T12_HistoricalLocksAndEightyTwoTestNamesRemainAndObligationsReflectActualState()

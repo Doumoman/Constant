@@ -1,0 +1,24 @@
+{
+  "format": "sv5_loop_profile_v1",
+  "world": { "width": 624, "height": 416, "tile": 1, "pattern": [4, 4], "microchunk": [12, 8], "sector": [48, 32] },
+  "path": {
+    "endpoint_inclusive_min": 4,
+    "endpoint_inclusive_max": 24,
+    "body_air_height": 2,
+    "support_depth": 1,
+    "max_supported_step_up": 1,
+    "jump_grab_step_up_allowed": false,
+    "diagonal_teleport_allowed": false
+  },
+  "selection": {
+    "stable_hash_eligibility_percent": 30,
+    "target_accepted": 32,
+    "hard_minimum_accepted": 16,
+    "maximum_accepted": 48,
+    "minimum_distinct_sectors": 12,
+    "maximum_per_sector": 3
+  },
+  "classification": { "shortcut_requires_strict_cost_reduction": true, "significant_reduction_percent": 20 },
+  "forbidden": ["FIXED_CORE", "TYPE0", "GATE_BARRIER", "GATE_APERTURE", "PORT_ACCESS", "RESERVATION", "WORLD_OUTSIDE"],
+  "deferred": { "sidepath_length": [20, 50], "sidepath_task": "SV5_10_SIDEPATH", "player_verification": false }
+}

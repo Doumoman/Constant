@@ -1,0 +1,38 @@
+{
+  "format": "sv5_09_independent_loop_audit_v1",
+  "status": "PASS",
+  "default": {
+    "accepted": 18,
+    "candidate_count": 259,
+    "distinct_sectors": 14,
+    "max_length": 24,
+    "type_counts": {
+      "LOOP": 18
+    },
+    "bypass_count": 0,
+    "file_sha256": {
+      "loop_links.csv": "051cbbeb130516b15ee65081708253fbe5418a0bba23ba82cccb28d4c2f37300",
+      "loop_cells.csv": "cbab94356c01a0f33c728e252d57fc4dd57c6ce01eeed0fe4ea1806e2f45f633",
+      "loop_candidates.csv": "a3ef0917045b76bc7ff4eebd57f48c0dc67ca4c0776e6376c2cdd01040977a21",
+      "loops.json": "61df39e6e696494db332837f40b3c26e0758d20faf3c740d39285fb7cc3ee86a",
+      "loop_validation.json": "5aef272e93f6c51efcc2a395fc32ba4fab029030be9422f335752a76f9581c39"
+    }
+  },
+  "repeat": {
+    "accepted": 17,
+    "candidate_count": 429,
+    "distinct_sectors": 13,
+    "max_length": 24,
+    "type_counts": {
+      "LOOP": 17
+    },
+    "bypass_count": 0,
+    "file_sha256": {
+      "loop_links.csv": "37a3faf8db9a10735165888f27b6bb770aff9a931f8aa9fb4eeb5a0228e6bb8b",
+      "loop_cells.csv": "35919cc549627f5767b6bb498860fd06a628ca3c053259e466fdd4f441dc765e",
+      "loop_candidates.csv": "98f21499c9f640ed2d6b12a4e829add750028f73e75d5b88836535813958994a",
+      "loops.json": "8d8598aaa6a221abe25523e22cbe4f1af49e659ca4227c1c79a39f0882dda3fa",
+      "loop_validation.json": "53ac1a68bb7cc40ca26f50b5dad372aa6b918994d3526ed744d089bbf64947e5"
+    }
+  }
+}

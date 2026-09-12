@@ -1,0 +1,51 @@
+{
+  "format": "sv5_09_loops_package_v1",
+  "task": "SV5_09_LOOPS",
+  "native_inbox_file": "MapDesign/MCP_INBOX/SV5_09_LOOPS.md",
+  "predecessor_result_sha256": "91d75b8a00c14a971cd24783b8eee01c00ff1896d495b0cb962cfdd53dae37d2",
+  "predecessor_finalize_commit": "DISCOVER_FROM_EXACT_COMMIT_EVIDENCE_AT_STAGE",
+  "implementation_baseline_commit": "875122b716952827c44c363e8a2b0621905e66f1",
+  "bound_task_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "bytes": 5685,
+      "sha256": "485aa68bfc6b15a6aa5cdd9fb86e82494a5fc79cb473f0c2d70ce43813c4cef7"
+    },
+    {
+      "path": "LOOP_PROFILE.json",
+      "bytes": 960,
+      "sha256": "ea433cf4011a45d35c638544c36e0e2f176daacb63e7690c08cddc4dd2824f82"
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "bytes": 734,
+      "sha256": "741b803daa7b40dea0a1e66e5e44aa8f150148783f54e24b4f3ca29f115c0326"
+    },
+    {
+      "path": "REVIEW_REQUIREMENTS.md",
+      "bytes": 882,
+      "sha256": "3f6ffe9554429ebd4aa85afb58d30b56837b95419ac35d4ba0d67f6b8171c18b"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "bytes": 332980,
+      "sha256": "1e1ecc22490ef0eb87e9a885740168365eb32f51201fbe5cba9feb64ab9233f2"
+    },
+    {
+      "path": "STAGE.py",
+      "bytes": 13477,
+      "sha256": "dab1d79ea55b96e1b1f966566cab6cac7eabc3d1cf522023a942cb013c191880"
+    },
+    {
+      "path": "SV5_09_LOOPS.md",
+      "bytes": 5137,
+      "sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea"
+    },
+    {
+      "path": "tools/check_loops.py",
+      "bytes": 5388,
+      "sha256": "af8f5d59f47af0ddcaab076b4b0b5fd15b4fa1a08c59468f4650368966042095"
+    }
+  ]
+}

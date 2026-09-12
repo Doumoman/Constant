@@ -1,0 +1,121 @@
+{
+  "schema": "SV5_09_LOOPS_BINDING_V1",
+  "task": "SV5_09_LOOPS",
+  "package_manifest_sha256": "681d191f7ba438c0c37813fdb78bec44e51fc8553dd2b422a4c6212f01edba63",
+  "bound_task_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+  "bound_task_bytes": 5137,
+  "git": {
+    "predecessor_finalize_commit": "483fb4b56ec46ae764d5634f17e39eb19b3e8cfa",
+    "implementation_baseline_commit": "875122b716952827c44c363e8a2b0621905e66f1",
+    "implementation_baseline_parent": "953b833cb22904721f9e8687283a65d5bae64cb7",
+    "implementation_commit_blobs_verified": 149,
+    "post_commit_binding": "Actual final commit and parent are recorded in _REVIEW_MANIFEST.json and the final CLI report; the immutable pre-commit Result is not amended for a self-reference."
+  },
+  "native_lifecycle": {
+    "package": "PASS_PACKAGE_ONLY",
+    "stage": "PASS_STAGED_ONLY",
+    "apply": "CURRENT",
+    "recovery_readonly_checks": {
+      "task_row_exactly_one_current": true,
+      "current_block_exactly_bare_task_id": true,
+      "installed_archive_bound_byte_identical": true,
+      "status_other_content_matches_locked_baseline": true,
+      "master_matches_locked_baseline": true
+    },
+    "recovery_edit": "Only Current Task block SV5_09_LOOPS -> TASKS/SV5_09_LOOPS.md",
+    "pre_finalize_post_readonly": {
+      "status": "PASS_READONLY_LOCAL_AND_GIT",
+      "phase": "CURRENT",
+      "worktree_files_checked": 911,
+      "commit_blobs_checked": 149,
+      "counts": {"COMPLETE": 253, "CURRENT": 1, "LOCKED": 38}
+    }
+  },
+  "commands": {
+    "focused": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_09_LOOPS/focused_results.xml --timeout 1800 --format json",
+    "independent": "py -X utf8 MapDesign/MCP/INPUTS/SV5_09_LOOPS/tools/check_loops.py --default MapDesign/MCP/GENERATED/SV5_09_LOOPS/default --repeat MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat --output MapDesign/MCP/GENERATED/SV5_09_LOOPS/independent_loop_audit.json",
+    "post_readonly": "py -X utf8 MapDesign/MCP/INPUTS/SV5_09_LOOPS/STAGE.py --mode post-readonly --expected-manifest-sha 681d191f7ba438c0c37813fdb78bec44e51fc8553dd2b422a4c6212f01edba63 --project-root ."
+  },
+  "source_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF in listed order)",
+    "final_tested_source_sha256": "70a4f2e15f0ed6f3425080ab11639443af47badecb6d8194c6949800d28934be",
+    "code_or_generated_changed_after_focused": false,
+    "legacy_runtime_dependency_added": false,
+    "historical_generated_usage": "Read-only regression comparison evidence only"
+  },
+  "tests": {
+    "final_focused": {
+      "result": "Passed",
+      "testcasecount": 116,
+      "total": 116,
+      "passed": 116,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "predecessor_tests": 102,
+      "new_tests": 14,
+      "duration_seconds": 1483.8076675,
+      "start_utc": "2026-09-12T06:25:18Z",
+      "end_utc": "2026-09-12T06:50:01Z",
+      "raw_sha256": "dd0df8e3da04bf4cdeb645e12061c721d45b0eef8207ac6aef896cb8cd0d763d",
+      "raw_bytes": 117753,
+      "raw_crlf_count": 888,
+      "git_lf_sha256": "ad902f85cba9241e5421c4fa20e2bb8577084a5706700cd37ec1b5b245336d0e",
+      "git_lf_bytes": 116865,
+      "git_blob_oid": "25d40b2346906105b17720e232d1bc9426e116cd"
+    },
+    "independent_loop_audit": {
+      "status": "PASS",
+      "raw_sha256": "dbe083b47b1e3d24329f6dd4aa224e7da45a04006e6817de9c3bb43a5db4f9be",
+      "raw_bytes": 1428
+    }
+  },
+  "exports": {
+    "default": {
+      "plan_digest": "208044b6478412daf2bad89002ce662f66af6b2f7a9c907a0071786d735e4e4d",
+      "loop_digest": "a2c2aba25e18f03f8e9948f0e2956a191f5ff1fe726447e9285264f6b475258f",
+      "candidates": 259,
+      "eligible": 79,
+      "accepted": 18,
+      "rejected": 241,
+      "distinct_sectors": 14,
+      "maximum_length": 24,
+      "loop": 18,
+      "random_shortcut": 0,
+      "cycle_delta": 18,
+      "illegal_bypass": 0,
+      "dangling": 0,
+      "duplicate": 0
+    },
+    "repeat": {
+      "plan_digest": "1e6b72cdd899037faa6eca523eb247245b83a2238d7e72a8406e27f2fad5c603",
+      "loop_digest": "f8678f45677a5e4ee41863fd7528af0d64484d92b5fc0e8aef80e0cbd170f826",
+      "candidates": 429,
+      "eligible": 140,
+      "accepted": 17,
+      "rejected": 412,
+      "distinct_sectors": 13,
+      "maximum_length": 24,
+      "loop": 17,
+      "random_shortcut": 0,
+      "cycle_delta": 17,
+      "illegal_bypass": 0,
+      "dangling": 0,
+      "duplicate": 0
+    },
+    "files_before_binding": 109,
+    "bytes_before_binding": 150221437
+  },
+  "readiness": {
+    "ComposedGeometryReady": false,
+    "PlayerVerified": false,
+    "SV5_10_SIDEPATH": "LOCKED",
+    "push_performed": false
+  },
+  "work": {
+    "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work",
+    "included_in_commit": false,
+    "included_in_review_zip": false,
+    "cleanup_attempt": "No files changed; local execution policy rejected removal, so the regenerable directory remains untracked and excluded."
+  }
+}

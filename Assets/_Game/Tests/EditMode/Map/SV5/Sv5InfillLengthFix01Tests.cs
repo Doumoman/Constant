@@ -109,7 +109,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test, Timeout(1200000)] public void F06_ExportsBindAuthoritativeLengthPolicyCountsAndPlanDigest()
         {
             var plan=ActualPlan("DefaultOn"); var payload=plan.Infill;
-            string directory=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_08_FIX01/_work/fix01_f06/default");
+            string directory=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/fix01_f06/default");
             Sv5InfillExport.WriteCase(plan,directory);
             string links=File.ReadAllText(Path.Combine(directory,"infill_links.csv"));
             string infill=File.ReadAllText(Path.Combine(directory,"infill.json"));
