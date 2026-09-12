@@ -1,0 +1,881 @@
+{
+  "format": "sv5_09_fix01_source_lock_v1",
+  "all_paths_relative_to": "UNITY_PROJECT_ROOT",
+  "predecessor": {
+    "task": "SV5_09_LOOPS",
+    "commit": "07b3d33a5c75bda6df83d499fca0dd94faaa5431",
+    "parent": "483fb4b56ec46ae764d5634f17e39eb19b3e8cfa",
+    "result_sha256": "971c18397c54cd707bae47a4f8bbf7810ed045d2ce8d459a7b061ff114288582",
+    "result_bytes": 4366,
+    "task_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+    "task_bytes": 5137,
+    "review_zip_sha256": "529b62f04a8fe63e6387e2351e90261a6e66dfbd79f2550341ffba07914d8e20"
+  },
+  "status_before_registration_sha256": "3c464849d7f9da8f63bf64063e8842c08db0359d19e3989510fe694721e578d8",
+  "status_after_registration_sha256": "59e8423ecc3697bfe3a085127a33059ffbb1f7e87e22b78a12abb42440a7a192",
+  "master_before_registration_sha256": "c2516c8cb8cdb2ed9840a06c1c99414a29029552af2647b1f0769e4a54d7b08c",
+  "master_after_registration_sha256": "6c4376381fa0d621c85ea5107cabf192f86ea1ccd1c33926eeedcc74e5b2ea23",
+  "protocol_before_sha256": "622bd5dc8d2cbaa3133a51d02714be92f4b78d6d347622532b04b3650ba8fbd1",
+  "commit_blobs": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs",
+      "git_blob_oid": "99fabe74745235c928cbb20352e5dd63dbac0aff",
+      "blob_sha256": "edea47060fe2d96552ff68ef6cd08ae1a6a86ef20e2f6b7a8514693d80f8a631",
+      "blob_bytes": 26313
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopExport.cs",
+      "git_blob_oid": "62101b309c2cb099ccfc88ca858eaf18dae88789",
+      "blob_sha256": "2d7d634498f703a338be8bab746543404ea4a8a3f935508783544748f96b5030",
+      "blob_bytes": 16852
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopExport.cs.meta",
+      "git_blob_oid": "90e986b66cf6e95a8d42739e5e1d39a3390942be",
+      "blob_sha256": "a4e3acd473649f9c0207a343742b5ea0f3f1a5bd0c61c8f269648cbd99024758",
+      "blob_bytes": 60
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+      "git_blob_oid": "c9314e953f0b94f1c8e984bece30156a0875c08c",
+      "blob_sha256": "f21419b9d47ec857aaf085cf14ac176184c53a78ab5b66b1764e126f0585f1d5",
+      "blob_bytes": 69274
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+      "git_blob_oid": "7e25594e490d13e483d66d8e827c4e8c8094aed7",
+      "blob_sha256": "23ef92a27e6e569fa34279cb1255ce6fd9f954eed68c59d9bb54fe51c0e90195",
+      "blob_bytes": 37076
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+      "git_blob_oid": "615a7731df42e31dd826f815614a6a45b04da690",
+      "blob_sha256": "21b6cb0496f6a4301f407690707c386b75e983c4ab615c81cbf38bd405776443",
+      "blob_bytes": 61984
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceLoops.cs",
+      "git_blob_oid": "44dd7ba946e357b1cb9a15e96b4489c24cc36233",
+      "blob_sha256": "de4e276ff3eb0ddd2e419ab54c308fa15b95bc7592609de0c2fe99f67a88d742",
+      "blob_bytes": 34709
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceLoops.cs.meta",
+      "git_blob_oid": "3785be05d49c4bb69498678e0fc3416925caecf4",
+      "blob_sha256": "dd6db944ab142e34c48c5c68ddffd3b38ca4580b090c14c8518e503aa11d8170",
+      "blob_bytes": 60
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillLengthFix01Tests.cs",
+      "git_blob_oid": "6fadfa192cb2431cacd8a6f634d31c43d23e6871",
+      "blob_sha256": "b65a79c03325a44cf633e9f9a31f9cdc760f53eea9b804bc64b29a7289d6943b",
+      "blob_bytes": 9938
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs",
+      "git_blob_oid": "d26c0746568e239f09c5c21347a06553557298bc",
+      "blob_sha256": "7e60e9ecd870767981217f122f5c43ac2104ca37a2c54f948228fcde44507808",
+      "blob_bytes": 21267
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+      "git_blob_oid": "83b629056c4ff6aa18e6b5367fdb2ac718503852",
+      "blob_sha256": "9d27670e1c5f3a103fbd36e10a3d412714ab7fcdd88e6668f26c6949811a97ab",
+      "blob_bytes": 18013
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceInfillTests.cs",
+      "git_blob_oid": "7c38e4f57c0077588a4f163b04944c7351fc87a9",
+      "blob_sha256": "7da8713eb4db9fbc440db97bf4d5fb37a2f10d537201b879a14fd95dc8b83597",
+      "blob_bytes": 34889
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTests.cs",
+      "git_blob_oid": "9882f4b0fa9077fa76c421a6dd909f3140bdc4c1",
+      "blob_sha256": "3899a85e1e4e8264b61389c0d4aac4f9ff4b5d04eb87375070c64bcedc87669e",
+      "blob_bytes": 13199
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTests.cs.meta",
+      "git_blob_oid": "4cb2d5f6741b0bebfdd7e64ebd98f20ef28c9f9c",
+      "blob_sha256": "131f06a84dc0c7ff15228c4d6f044ea75cc15029eb68bcb9f3b740684b4591c9",
+      "blob_bytes": 60
+    },
+    {
+      "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+      "git_blob_oid": "0452306bf3e9a76e8856ecaa8d9a083d3ecd0463",
+      "blob_sha256": "3c464849d7f9da8f63bf64063e8842c08db0359d19e3989510fe694721e578d8",
+      "blob_bytes": 102504
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/BINDING.json",
+      "git_blob_oid": "4c92dc8abfebc4cbb4a64bf919ee2e7052c26779",
+      "blob_sha256": "368865eeb2333677503db9b91dafa07334fa716f9debba90daed12abafdbb750",
+      "blob_bytes": 5010
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/connections.csv",
+      "git_blob_oid": "3a4a69c2fbd5b0c64679fca472f416cf50d7bc04",
+      "blob_sha256": "12a5b1bf05f06749c25b18e1eeb2ffa1a54bd901e65c311d94d155d87651d234",
+      "blob_bytes": 554139
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/contact_checks.csv",
+      "git_blob_oid": "5cd0e5cedc77ab293544dadd3b0975265b4700e5",
+      "blob_sha256": "d4f78e1ef647df25142f1f7b63b03b0aaab0f4779a6fa8f799139692e62776f6",
+      "blob_bytes": 7449192
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/gate_geometry.json",
+      "git_blob_oid": "30b08374c0fd4731e12bc4eafff6b587cc8c2945",
+      "blob_sha256": "de35494c3e3cb71f0140c93bfc0781203d4caa271ee73327dbddd7510f56ca3a",
+      "blob_bytes": 2817
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/gate_state_checks.json",
+      "git_blob_oid": "5404f6db9a853e020d212d1d2720bf573e9378e0",
+      "blob_sha256": "c32b9a61f1b6be78ebc441ccd1618185ec7fa5c3351c83805124f6147a7df4c3",
+      "blob_bytes": 5582
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill.json",
+      "git_blob_oid": "1c66c9679916e406ab9003122f014ecc9bdef3e3",
+      "blob_sha256": "3b2bbac3c6735f6fde56fb19cecbd27ee613928dfff7d9bc5795f370f5e57393",
+      "blob_bytes": 11787388
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_cells.csv",
+      "git_blob_oid": "99e3648b45dce9cc615de1027fd9eee62caff630",
+      "blob_sha256": "6af32edf996fe6b1e111e4bb3eba7c9c630342a265e8a6dca5e070a697466e18",
+      "blob_bytes": 13507723
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_instances.csv",
+      "git_blob_oid": "46153987f79738f8cd6ed7b312da4d9e9a5b9aae",
+      "blob_sha256": "4efafae42a8e795309674d3963b617e7d6e0adc130235dbe8f201017bfc0db6a",
+      "blob_bytes": 1331074
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_links.csv",
+      "git_blob_oid": "8658aa4afa2fd1aa51bf70b03844e1891518f900",
+      "blob_sha256": "d0499ce3c32249788cad752cf823972a5c2c2f924d786df257ea7f8e5e6ce84a",
+      "blob_bytes": 377218
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_patterns.csv",
+      "git_blob_oid": "d4427c027ac3868cfdf44387fd23e43282b7d9b8",
+      "blob_sha256": "0e423f5583258f19ae4e8e5f37bf80c558f671dae18de86e394875bed89614c5",
+      "blob_bytes": 40116
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_rooms.csv",
+      "git_blob_oid": "8b235fb30f2edda827949180b04ab076bd6d3298",
+      "blob_sha256": "a6a2bd46066b659b59d7e7dff8f20be17f50e656dfabab88098c357994ecdf2d",
+      "blob_bytes": 53408
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_validation.json",
+      "git_blob_oid": "7ca8678c3c1a4311a3f64634a53e159dc7d87f37",
+      "blob_sha256": "aa08da687fbbea9cdb3d733104a91b43ffbd393ae319782ac0cb292fea6647d3",
+      "blob_bytes": 926
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/infill_windows.csv",
+      "git_blob_oid": "77f8601bcf0b3af8074ca263dc11acc1d79854c3",
+      "blob_sha256": "7b2adeeb8958f343fa88e5c8562822f09646d1d7a99248c6ecc1c91f5df9ec27",
+      "blob_bytes": 19439
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/local_barrier_checks.json",
+      "git_blob_oid": "3f0c04f337786415ca4c447e6fd4f8be73d38a29",
+      "blob_sha256": "afdb9ae3a40699463ff7d448d550c783560b1c072eec9ea93c00152e72114a27",
+      "blob_bytes": 196
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loop_candidates.csv",
+      "git_blob_oid": "c1a3611ebb777e681ee3f91b0aad4c3d534ca72b",
+      "blob_sha256": "a3ef0917045b76bc7ff4eebd57f48c0dc67ca4c0776e6376c2cdd01040977a21",
+      "blob_bytes": 123087
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loop_cells.csv",
+      "git_blob_oid": "7380db77258caa5da879c47cc0680813fbba1053",
+      "blob_sha256": "cbab94356c01a0f33c728e252d57fc4dd57c6ce01eeed0fe4ea1806e2f45f633",
+      "blob_bytes": 205681
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loop_instances.csv",
+      "git_blob_oid": "16bd255948a9d48476b833166f7d5d09d5e7be23",
+      "blob_sha256": "70ec50d4ec4b5e028dddae64c3753084289acbbc3a061f85ce333ea98594f135",
+      "blob_bytes": 33510
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loop_links.csv",
+      "git_blob_oid": "3527200819da72e55befe7bbfdd2c08a7036ff50",
+      "blob_sha256": "051cbbeb130516b15ee65081708253fbe5418a0bba23ba82cccb28d4c2f37300",
+      "blob_bytes": 7300
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loop_patterns.csv",
+      "git_blob_oid": "29435524861b0eeb3d3b4187168b734e51a5e732",
+      "blob_sha256": "69e96edf962612aaf726a5b520ad0606369453e2c698fa1132a481c1fde8b535",
+      "blob_bytes": 23652
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loop_validation.json",
+      "git_blob_oid": "03f19ce4b4702c46794dc2924df6ab048887f36b",
+      "blob_sha256": "5aef272e93f6c51efcc2a395fc32ba4fab029030be9422f335752a76f9581c39",
+      "blob_bytes": 1016
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/loops.json",
+      "git_blob_oid": "a26660e66295b13d4001ce8a963dacbc9acd50e5",
+      "blob_sha256": "61df39e6e696494db332837f40b3c26e0758d20faf3c740d39285fb7cc3ee86a",
+      "blob_bytes": 7845
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/obligations.csv",
+      "git_blob_oid": "0880a13af6fa82f3c33047d4e49fc3e8a8acc68d",
+      "blob_sha256": "f5dc72652691ea70a5776f4bc822512b73d660fa01b4765827c19fbb9bbc4ad2",
+      "blob_bytes": 2477
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/physical_contact_checks.json",
+      "git_blob_oid": "0d0a10c819c7d255893c95f0381567ddc471b8d9",
+      "blob_sha256": "060fec977f7cd9dcdfef4661695227f28d51e63ad4a29d28d4e67d15aa15366c",
+      "blob_bytes": 6095181
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/physical_gate_state_checks.json",
+      "git_blob_oid": "5820782d47c7b02bf4cc2e2132e59a02376d6e3c",
+      "blob_sha256": "ebba57aa2cac820bc83e59175fea976b085ca1c692ba65d40acb711711fe90cd",
+      "blob_bytes": 10700
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/physical_transition_matrix.json",
+      "git_blob_oid": "89620b32f0270db985382892ee643a6fda4a2d6a",
+      "blob_sha256": "9b2a67eedc3c14280f54146338819a67f08436f89e562990acdc3cf6cbcbe1df",
+      "blob_bytes": 16822747
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/places.csv",
+      "git_blob_oid": "c3eef419414e767d716fd9e9546043366de4db1c",
+      "blob_sha256": "0b43d5f573075504e073ae13bea7bfb9ce30597254f2a8db2bc6526a68e009b1",
+      "blob_bytes": 4003
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/ports.csv",
+      "git_blob_oid": "d141713efb02d33acf7c1a61711c4985edfb14ed",
+      "blob_sha256": "1e3c2b4a0229adbf3c0e8f32691ec1cd2c1f8c2bc5a65ea96b5f8b4939745c23",
+      "blob_bytes": 11507
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/A1.svg",
+      "git_blob_oid": "b7384604bfccdd0ebdcc926102505cd6f703a8b9",
+      "blob_sha256": "a6673f9ab2824332edaaa08c9aa7c50eed38ccc25b14bc6bd12c62e40b0abcb8",
+      "blob_bytes": 218614
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/A2.svg",
+      "git_blob_oid": "4d1f69d645e20b8163b179461dd252f367c5cd54",
+      "blob_sha256": "dca9695e537bc528126c40a8c9481a3944cdcb1197095d102130611dd0c4407e",
+      "blob_bytes": 183167
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/A3.svg",
+      "git_blob_oid": "51b6e3b615720bd79154712326b110deb90c4c3c",
+      "blob_sha256": "177aa8a283c0eb51ea2f0f06075ea5f0b15035ec767528e28cfed6fbf2473a85",
+      "blob_bytes": 179886
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/A4.svg",
+      "git_blob_oid": "b18623c4d54fe61482c83013deb03d36de9b6465",
+      "blob_sha256": "c53929f915d20956aa8131ddaff9e079b243656a7b45a164b9ca26b3b8a1bc77",
+      "blob_bytes": 145788
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/B1.svg",
+      "git_blob_oid": "19137152136c6bcac374aae6f282d51dfd3e5654",
+      "blob_sha256": "28a5de69475db8ffd4a4b3805fbd23b0aff2cfb0d86fb04a49c5977865166b1a",
+      "blob_bytes": 257218
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/B2.svg",
+      "git_blob_oid": "9174f81c16fcc146332827d6724851b425a6d163",
+      "blob_sha256": "743ce10957925d573da032af3c69d1c47dc3cc03ac3fce9d2ee27949f4f1f207",
+      "blob_bytes": 140116
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/B3.svg",
+      "git_blob_oid": "fa18c62e453aa55ab5b75a8a3604273e109c58bc",
+      "blob_sha256": "f842e0d7b04f09db484f34f8be2a38f615a8eb3a4f700e7ffb79ffeadb3faa70",
+      "blob_bytes": 23535
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/B4.svg",
+      "git_blob_oid": "a4810995a8d28c16b801faae4e60975dc85e951c",
+      "blob_sha256": "5e66228f02f6974ef43aa39e35c1b8eb64c84673f0f3f496bb8c74fe5e84f009",
+      "blob_bytes": 87361
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/C1.svg",
+      "git_blob_oid": "6a3f8c6382115bc7636ab2668111ac58cbf23600",
+      "blob_sha256": "530330abba0491705bfda7b5342c00c4b06102727e3e1d124036f1e6207ee5fd",
+      "blob_bytes": 305543
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/C2.svg",
+      "git_blob_oid": "ba144b9037681ee0ed9ef27d4c810ff0083a217b",
+      "blob_sha256": "1d3e3d136c2fa82a3804bb0e9893d3cdafcfd76e2df3fb1fb8d661c51f3e0c9a",
+      "blob_bytes": 155476
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/C3.svg",
+      "git_blob_oid": "29c4093ab485a427df1575ae65845d01f9880a3f",
+      "blob_sha256": "cd92048a2ba57bfc76d2054d98bd28f20144687e9c518de24b1893360fcf82a8",
+      "blob_bytes": 19705
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/C4.svg",
+      "git_blob_oid": "aded165dd972fe8d0dec37cd35e56138d674b9e8",
+      "blob_sha256": "e4fa8cfbf60166569b5da40badee3f719506f3968996aed63778433507dc7639",
+      "blob_bytes": 123874
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/D1.svg",
+      "git_blob_oid": "240b1032a53b498f06fe5a379ff72d33472bd082",
+      "blob_sha256": "9d2152f1707d30089ad7e727b1024becdfca2f35507dc17a09c110f0e875686a",
+      "blob_bytes": 294640
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/D2.svg",
+      "git_blob_oid": "00b363383aa759f4767c01f38a4c04f2961de815",
+      "blob_sha256": "c0c6bfd8a1316f1d93355d58259e2b05610e69efb12e570c2eabfb1bcdb82620",
+      "blob_bytes": 168527
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/D3.svg",
+      "git_blob_oid": "108735f9d470a3b62b6c6d280ba30d6d25e54b0e",
+      "blob_sha256": "7eea0ab92e5f3455f2ed798e55102288c88d1a7cea5f20f97e960d4fe974020c",
+      "blob_bytes": 103771
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/D4.svg",
+      "git_blob_oid": "530c19b2c081a21f5c144fcbe5ce44655bbf23f9",
+      "blob_sha256": "393e8ad74d256e181397ae2362af9ef6b01b5bb1aa10c7b5e33da6e82d12e706",
+      "blob_bytes": 270750
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/FIX02_bypass_before_after.svg",
+      "git_blob_oid": "0e2269ab29716ed57c7bf6aeea46401a66584858",
+      "blob_sha256": "9fc36efdf18a39e9e80de951b34da883cf75fd7980e6cc0ee4701bb6559ee15e",
+      "blob_bytes": 1783
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/W01_before_after.svg",
+      "git_blob_oid": "f687ee388459eb8e9e234b35095cf5b3f46a5fcd",
+      "blob_sha256": "6033cdfb6e918c23d7cc23a681f018a39e9db1678bcf85c889d01e6d3c2721bb",
+      "blob_bytes": 1156
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/W02_before_after.svg",
+      "git_blob_oid": "de1f8e737ddc554ab1f66c7bd069bd0d44388f2f",
+      "blob_sha256": "c3ddf5de26c82efe11d383e6348103d0c900b0b28ccac855fe3d9550d48ffaca",
+      "blob_bytes": 1154
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/detail.svg",
+      "git_blob_oid": "243e23f38553364bce0435d3587b1483403460f7",
+      "blob_sha256": "f4047734fe6250d36d52cb829df668fd969e294ac7a61ce9140b42b0f5efac1d",
+      "blob_bytes": 43826
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/index.html",
+      "git_blob_oid": "4d404376480e13c16aecd46b9553abf093eab17f",
+      "blob_sha256": "160d2cfd91485bed84ef29ec5a172a980e15f3235813f4ee8e695e658aa7b00c",
+      "blob_bytes": 860
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/preview/overview.svg",
+      "git_blob_oid": "5f48f5eb6d537f76c30873bbe59aa1d6be0e8822",
+      "blob_sha256": "536465820608c95731790edd443db884f22095526864af4106e903eb765935f8",
+      "blob_bytes": 2751306
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/reservation_cells.csv",
+      "git_blob_oid": "5d7bf060e43f707326b447c5f5ce26231748f4b6",
+      "blob_sha256": "c1d051a9a99e1787fbe25cd9c018aed2636f661a356e49892711be90124367b2",
+      "blob_bytes": 7678369
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/segments.json",
+      "git_blob_oid": "5cd64526d39498f280a01632c5377d49eb8caf61",
+      "blob_sha256": "c83a5a08496249bfff72211f851c61690100d938bb3db2336a5d9507dea9c5c4",
+      "blob_bytes": 108322
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/space_graph.json",
+      "git_blob_oid": "b99aa2fe676eeda58ced169be986dfd7982bb2fd",
+      "blob_sha256": "25788f16cf7cf3e60aeaa17a82a8d76aca23f7e26c72157e1d688f2817eb8f66",
+      "blob_bytes": 724513
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/state_proofs.json",
+      "git_blob_oid": "8380da45529487b1b1a458101dc94627f65c503c",
+      "blob_sha256": "39ae7e5c65abbcca39f8580bcafb6dc50ebdc4424a53090f64c640b2e44d909f",
+      "blob_bytes": 7817
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/default/validation.json",
+      "git_blob_oid": "9ad744480a2cbf4f6b07c09d2d76fe490bbebff0",
+      "blob_sha256": "5332dd73e0e4c5a9450defcbdca020bccebe2efffea9e00a49e84a330dba3e18",
+      "blob_bytes": 1382
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/focused_results.xml",
+      "git_blob_oid": "25d40b2346906105b17720e232d1bc9426e116cd",
+      "blob_sha256": "ad902f85cba9241e5421c4fa20e2bb8577084a5706700cd37ec1b5b245336d0e",
+      "blob_bytes": 116865
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/independent_loop_audit.json",
+      "git_blob_oid": "c39fb63048c0181a41c7faf39a0c27d3e77a8b3e",
+      "blob_sha256": "dbe083b47b1e3d24329f6dd4aa224e7da45a04006e6817de9c3bb43a5db4f9be",
+      "blob_bytes": 1428
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/loop_comparison.json",
+      "git_blob_oid": "1acb2617606d840fd9d06d4abd1e953347aadbf8",
+      "blob_sha256": "cff60c5cdc3355107712b09788be856c009e3d23cf9aa28956dfeed627cb2862",
+      "blob_bytes": 674
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/connections.csv",
+      "git_blob_oid": "4cb23ac8288e95bd09601ffd1be7b6380f93c318",
+      "blob_sha256": "35f23a14640b3a8516bf344c858e9a84cf9f323b0569de4863336ecdf4f316f0",
+      "blob_bytes": 589172
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/contact_checks.csv",
+      "git_blob_oid": "61c002da1ba8672f51575df4a72fcbcdeb4ca124",
+      "blob_sha256": "8f77eeb18582db5e57841bddb2c4dfae2d9f87ccb10aefbed4d9df64889cd0c7",
+      "blob_bytes": 6785145
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/gate_geometry.json",
+      "git_blob_oid": "2f8a2fdb5013ff34dfcf8f20fa9a02105394d618",
+      "blob_sha256": "f54857540d62a7af834ef7622c667f6cb88fe295c612b714516ef09d95c66c14",
+      "blob_bytes": 2817
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/gate_state_checks.json",
+      "git_blob_oid": "40e987b3acda56945536c5d652aaa5bf3f3c417b",
+      "blob_sha256": "2b1d6f045e40954ffa755d090e8af7035d97f3daf11e25c2cec5cb7c09e73ab7",
+      "blob_bytes": 5582
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill.json",
+      "git_blob_oid": "a9ff493cd8e5f3e94d9ddc8c64e2a10e3cef9e8d",
+      "blob_sha256": "c4702567f02920313ec81e0b84f45cf9dcfd81f94a516063c0aae256e7657831",
+      "blob_bytes": 12632551
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_cells.csv",
+      "git_blob_oid": "53b4db431a5a66b8c513a079a402974a38a80ad6",
+      "blob_sha256": "e8d2fed1ffe5ebb4e06d6afc4c42c914715aa807deb63735f194cc710d9aeda3",
+      "blob_bytes": 14485723
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_instances.csv",
+      "git_blob_oid": "57c925890d3a2f94cf018c7302e2b4a270e30572",
+      "blob_sha256": "40ac38a10dee64c47c7ef3059768c58669af2f9610ec3e161c780a3375c3be10",
+      "blob_bytes": 1435183
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_links.csv",
+      "git_blob_oid": "3440d1a77e2c9dff193d73308e96821cfbfa7526",
+      "blob_sha256": "5f12f56cde3c809cd1ff0c5cf474d0729859da956e5a7c32d88305248e75b97b",
+      "blob_bytes": 403859
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_patterns.csv",
+      "git_blob_oid": "ff5bb7a5a4d821decb30b08afa9a596ae436510f",
+      "blob_sha256": "4bb425862cacf9d0296e20ce709bfee229a36580fbc3e59d8b39f482b88a3744",
+      "blob_bytes": 41390
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_rooms.csv",
+      "git_blob_oid": "c11a5fbcada38865ec80316c16f3845300ae795a",
+      "blob_sha256": "e0864759683403d46b7d645e1a4b3f27fd2db0cfcdf4abc7c24641b07c8b8909",
+      "blob_bytes": 57320
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_validation.json",
+      "git_blob_oid": "9b9d91ee6a62cbeba44814cc11554349b0b5f70f",
+      "blob_sha256": "fee4b92cada4146eea8997c883013c2965a18a2a016c6521c219d9743f31c6ad",
+      "blob_bytes": 926
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/infill_windows.csv",
+      "git_blob_oid": "67e9d962f971c432608f983a96eca57b7fc4319e",
+      "blob_sha256": "b67f7f4f9f826c0d705d4d58ff652b2e92281bd1bc2dbfb7558fc5807b0da658",
+      "blob_bytes": 19490
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/local_barrier_checks.json",
+      "git_blob_oid": "d5d8d8b03e4a090dd122f3a2aec57c59c5087c9b",
+      "blob_sha256": "1224356e66bfdf1cc541c2c8ba346041deeaff274bc5e4a0ec680f79318aa677",
+      "blob_bytes": 196
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loop_candidates.csv",
+      "git_blob_oid": "446aca2c54822a679a21a30ddcdb99f04641956e",
+      "blob_sha256": "98f21499c9f640ed2d6b12a4e829add750028f73e75d5b88836535813958994a",
+      "blob_bytes": 205476
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loop_cells.csv",
+      "git_blob_oid": "18b02c0257ed4aecd9d08f93425a311eba8cc653",
+      "blob_sha256": "35919cc549627f5767b6bb498860fd06a628ca3c053259e466fdd4f441dc765e",
+      "blob_bytes": 186967
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loop_instances.csv",
+      "git_blob_oid": "75db828634935530c5d8bc62d332814a5c443afd",
+      "blob_sha256": "6ec262e970ea1fd01aa68d69025a194bbf0dc8b0cdb0150be8032127477e5879",
+      "blob_bytes": 31123
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loop_links.csv",
+      "git_blob_oid": "09a63dab06a65016f1c2e591afd78ad2a638009f",
+      "blob_sha256": "37a3faf8db9a10735165888f27b6bb770aff9a931f8aa9fb4eeb5a0228e6bb8b",
+      "blob_bytes": 6822
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loop_patterns.csv",
+      "git_blob_oid": "bd1217bc46d250cc311e4c435ad7ed963b17b1d8",
+      "blob_sha256": "cdece464b7d133fa1bca412da000822a93ef2e92c0872368fc7e5da7d98e439a",
+      "blob_bytes": 20075
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loop_validation.json",
+      "git_blob_oid": "e6bc0ebeb905bf41607cfa769dd83f42b568d342",
+      "blob_sha256": "53ac1a68bb7cc40ca26f50b5dad372aa6b918994d3526ed744d089bbf64947e5",
+      "blob_bytes": 1016
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/loops.json",
+      "git_blob_oid": "6d4c4aa0912112bf1028adc797f8c049e7880e50",
+      "blob_sha256": "8d8598aaa6a221abe25523e22cbe4f1af49e659ca4227c1c79a39f0882dda3fa",
+      "blob_bytes": 7386
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/obligations.csv",
+      "git_blob_oid": "36249d90708d34712db9319afc489d900d7c8b6f",
+      "blob_sha256": "c2910a4dad0f9af75eb7f37f9428020e0cde9bbb0faceb8ed066823ad60d75c4",
+      "blob_bytes": 2537
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/physical_contact_checks.json",
+      "git_blob_oid": "048bf801989acc7951f61eaec02d1a7c4a288615",
+      "blob_sha256": "db6fe8bedefa64bb1c8f92eaf6985e6928bc47e3e3bc448f19dac2b51755d08a",
+      "blob_bytes": 5450908
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/physical_gate_state_checks.json",
+      "git_blob_oid": "5e6deedde60b8e89b0ca628211927c26daaac3cf",
+      "blob_sha256": "43721ea9b91561d5d27fb2572bff4b6d0086c61345b8e616b1f4b22a79f48ee9",
+      "blob_bytes": 10700
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/physical_transition_matrix.json",
+      "git_blob_oid": "7892c7a7dd39ef1aafb7545d91be23a741da2e6c",
+      "blob_sha256": "bd2a78e6476b165d0ebc2ce85addde2dedd013dc088b46ecd8b7597f5fdde090",
+      "blob_bytes": 19999265
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/places.csv",
+      "git_blob_oid": "033854ccc2cfc80ab459dfe60b08998eeb7ddf36",
+      "blob_sha256": "84928b6e7ad614b142f6818fe3ed42ddc1eb54e2429f43bbe271342afacbcf93",
+      "blob_bytes": 4326
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/ports.csv",
+      "git_blob_oid": "db2b2d4d79570e4ac0ca62a6cd40aa10cc840650",
+      "blob_sha256": "b84c9fbcb28de8b10f6c9fa0023c931edd1a4cf2a3656227c942a5f09ab4d9bb",
+      "blob_bytes": 12447
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/A1.svg",
+      "git_blob_oid": "651fba1f1683d14c516f5a4970913210e9d2a91e",
+      "blob_sha256": "d66d3ca81305f9b45c066e18823ce1f9f161e6ab771fdd80126a78e7adf13927",
+      "blob_bytes": 264883
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/A2.svg",
+      "git_blob_oid": "dfc195d549411812af2e07fdc1b117174679bf0b",
+      "blob_sha256": "fc74eee84c6358caafc786df483ed1b182d8d23935b5d1754fe59183c73daa6f",
+      "blob_bytes": 288333
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/A3.svg",
+      "git_blob_oid": "51f5ada4220c34fcc7693adf42ad3b94516fbf09",
+      "blob_sha256": "82a7985969548c32c17dcd17d61ce00e287a0d945ca7d61994a4357f10a79647",
+      "blob_bytes": 208805
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/A4.svg",
+      "git_blob_oid": "3a5bb2f7ea9ae73590011a2cac3b536c8285a15b",
+      "blob_sha256": "45ec5e6fb46d635933ae4bf6fadfbcdc43038225faa2f350bf325a33f1941529",
+      "blob_bytes": 143260
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/B1.svg",
+      "git_blob_oid": "aad3f44181fad75894081fd74ada05bfb623b62f",
+      "blob_sha256": "2a0e209500034974985034c87d6400159ae8247f904770a100aaa6c24e32b7f6",
+      "blob_bytes": 234685
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/B2.svg",
+      "git_blob_oid": "a06081bee91ad7635568924512e082ab0c7571e2",
+      "blob_sha256": "a306defb50d8c99337100c47d09cee30cde085c8e2f0a8d01700365703655d11",
+      "blob_bytes": 111189
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/B3.svg",
+      "git_blob_oid": "fc9ac6dcf7fe0e05a5aaeaf21afec184cdeba0a0",
+      "blob_sha256": "f9f10a4c7d6df80e0141976ec2983688b22f0418510cb01bd72c4ab2dbe30acd",
+      "blob_bytes": 71609
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/B4.svg",
+      "git_blob_oid": "7de01cfd926bbe968f6e99b7f85bdd8e72036324",
+      "blob_sha256": "b2218f696aad004a5263baac44e3746a5479c665a2ba104f5cfc444081c47169",
+      "blob_bytes": 87361
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/C1.svg",
+      "git_blob_oid": "f1de670a8875551711ad65942a4d9d12785c1abb",
+      "blob_sha256": "df372c901734015de3c0c57e7a93f98a546f029d069ea5db999d5c32de15b119",
+      "blob_bytes": 325015
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/C2.svg",
+      "git_blob_oid": "04d90d6496e8b5f01a27c2e0849f5e62483c225e",
+      "blob_sha256": "22875fe942b86e0f743c6c6d4d2d78949df426f2de4f26bf89a77ee92e7e554d",
+      "blob_bytes": 155476
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/C3.svg",
+      "git_blob_oid": "aabd80d596fb51ed808106e7c7be0119eb6979f2",
+      "blob_sha256": "057db8582b62fa3b63f38b74814b64fcaa3506605edae6b781b6bb656636f52a",
+      "blob_bytes": 19705
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/C4.svg",
+      "git_blob_oid": "b49fce6a4ca33ab07a341897069d8d4bcd0836c4",
+      "blob_sha256": "8b1b3384fa1786769b8c6cea69bdbff5a199e6341b071cdcadf32dbabd27c492",
+      "blob_bytes": 123874
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/D1.svg",
+      "git_blob_oid": "123a3ea68f59c52db46212d75600c02180f318c4",
+      "blob_sha256": "f6495949be900ee913ae38a55fc6bdbc43f62cebd7fd49f07067cf17abdd79f5",
+      "blob_bytes": 294640
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/D2.svg",
+      "git_blob_oid": "74cd9fe65f4e22bdfc96b81d741afa3c552c3c7f",
+      "blob_sha256": "bbe4a992d174ceef2aa13db66693ab38258b01c12b5cd5fc85becc84f00684c5",
+      "blob_bytes": 168527
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/D3.svg",
+      "git_blob_oid": "4d72a2d00a9b85f884bd65cb37c5f1f902c11aaf",
+      "blob_sha256": "e9a4af9579e7824b174a7a7bce43b1599c646e703216d74a296aee59f4bb8db3",
+      "blob_bytes": 103771
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/D4.svg",
+      "git_blob_oid": "724146b1e8ef6246eecd52aefbafcd04bcced8aa",
+      "blob_sha256": "3bcb3a154a978be08b0c4409a543a5ed9be5d3864dbf69a38022ea72b16d5316",
+      "blob_bytes": 270750
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/FIX02_bypass_before_after.svg",
+      "git_blob_oid": "6a997396a476a3ea5003b94db80cb6a3b9e4857d",
+      "blob_sha256": "e27cf19319a6362f0bec257843139cca565bf3b8092896c69da52cfe623c9fde",
+      "blob_bytes": 1783
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/W01_before_after.svg",
+      "git_blob_oid": "11d30a81b323727b83d46cc12cf983cec31ff677",
+      "blob_sha256": "20d383beb8d3ce3c257d4fc85ae09377036037deb97089648df7df22c64b92a7",
+      "blob_bytes": 1156
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/W02_before_after.svg",
+      "git_blob_oid": "2a7545f53c02dbdf7ac93bede041931bde25e772",
+      "blob_sha256": "f35d73a360bd9dddf356055e9a349ed852e73bc794283c1cd2ecb4d33b7ec8a1",
+      "blob_bytes": 1154
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/detail.svg",
+      "git_blob_oid": "ff5793c233ca2f776445285143fef875efb5b5d1",
+      "blob_sha256": "cc39c677f2bc9ea3fb1b2390d015196c7dbace242b36ff12d82b91a244a914c6",
+      "blob_bytes": 43826
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/index.html",
+      "git_blob_oid": "87115b0364ce3d750307de72eefc036c84ba0e8b",
+      "blob_sha256": "574bd2b3cb8e8296739a0cf1cd786a93927cf5ef9e37fc9b0ab081f9d3585381",
+      "blob_bytes": 860
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/preview/overview.svg",
+      "git_blob_oid": "a3b03b7b7bc3a2c4b5e9230e41d1702162b75c54",
+      "blob_sha256": "349fe5afa0289f518f2a624afecb68bd6bec9bbe3b4ba156d706317a2d8e6f19",
+      "blob_bytes": 2949442
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/reservation_cells.csv",
+      "git_blob_oid": "caa049c00022ee08b4cc35a2171335f2057d4e17",
+      "blob_sha256": "cf172235eddbc860992f323bbc25c176becd0065b4c20ca74bc6ad1e6a7b5b49",
+      "blob_bytes": 8462641
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/segments.json",
+      "git_blob_oid": "c1635a554275dd251501c7fc115727889d03deb0",
+      "blob_sha256": "8e1452f5b520c8db81aa94e8ce917b5f57987fa982abdef488e8a67a46e5843e",
+      "blob_bytes": 114759
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/space_graph.json",
+      "git_blob_oid": "ae507e21c3373cf3e5d2d2598bea4d7ef52b361e",
+      "blob_sha256": "afe20a6d348ed5da0f5af00fdd51dd59e213eb02801359b1e75c0ecd1c8a1108",
+      "blob_bytes": 770093
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/state_proofs.json",
+      "git_blob_oid": "38f2bd5ffcfb4e9095e58d86805fd235b625efe5",
+      "blob_sha256": "0c8d66bf4204e430c7888c4dbea68b659e34c95b779f55f9c9baf1deeb3bea87",
+      "blob_bytes": 7817
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_09_LOOPS/repeat/validation.json",
+      "git_blob_oid": "2bf72db3872611041420f358645baf726298bcea",
+      "blob_sha256": "271bb408213e6d1c27cba83dea6999b995588e404a81d475cb42324eb42b541e",
+      "blob_bytes": 1383
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/CONTRACT.md",
+      "git_blob_oid": "230e2e42e74373975c5d270e45aba5c5dcb585e2",
+      "blob_sha256": "485aa68bfc6b15a6aa5cdd9fb86e82494a5fc79cb473f0c2d70ce43813c4cef7",
+      "blob_bytes": 5685
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/FILES.json",
+      "git_blob_oid": "83aa07d3c0a8c7006c67fa18867ce88fa0d34bed",
+      "blob_sha256": "681d191f7ba438c0c37813fdb78bec44e51fc8553dd2b422a4c6212f01edba63",
+      "blob_bytes": 1705
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/LOOP_PROFILE.json",
+      "git_blob_oid": "8a6fd5895877be6530f43c03b46f97fdd8ae57c4",
+      "blob_sha256": "ea433cf4011a45d35c638544c36e0e2f176daacb63e7690c08cddc4dd2824f82",
+      "blob_bytes": 960
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/PROTOCOL_APPEND.md",
+      "git_blob_oid": "5d5c4f5e82c37f2999168a3741390a84862c18bf",
+      "blob_sha256": "741b803daa7b40dea0a1e66e5e44aa8f150148783f54e24b4f3ca29f115c0326",
+      "blob_bytes": 734
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/REVIEW_REQUIREMENTS.md",
+      "git_blob_oid": "c1135f3be315a4adeea130eda0df68430ae20e03",
+      "blob_sha256": "3f6ffe9554429ebd4aa85afb58d30b56837b95419ac35d4ba0d67f6b8171c18b",
+      "blob_bytes": 882
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/SOURCE_LOCK.json",
+      "git_blob_oid": "ee4826639c6aee59ff2c28f25620b8c5d4db0e69",
+      "blob_sha256": "1e1ecc22490ef0eb87e9a885740168365eb32f51201fbe5cba9feb64ab9233f2",
+      "blob_bytes": 332980
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/STAGE.py",
+      "git_blob_oid": "5f45847bd6613273b92ec1d51e182ab7fab816d7",
+      "blob_sha256": "dab1d79ea55b96e1b1f966566cab6cac7eabc3d1cf522023a942cb013c191880",
+      "blob_bytes": 13477
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/SV5_09_LOOPS.md",
+      "git_blob_oid": "4fbca13751a6c88761b79c51eb75bb99faf527e8",
+      "blob_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+      "blob_bytes": 5137
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_09_LOOPS/tools/check_loops.py",
+      "git_blob_oid": "82e7ff1d5122695a2f93efbd4388bf04ed718502",
+      "blob_sha256": "af8f5d59f47af0ddcaab076b4b0b5fd15b4fa1a08c59468f4650368966042095",
+      "blob_bytes": 5388
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_09_LOOPS_RESULT.md",
+      "git_blob_oid": "12620be0f7f44d74b6aa36c52ddf3acc4579d20d",
+      "blob_sha256": "971c18397c54cd707bae47a4f8bbf7810ed045d2ce8d459a7b061ff114288582",
+      "blob_bytes": 4366
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "git_blob_oid": "63c58378fbbce2285ea51bb1cac27e5edfe7c0fa",
+      "blob_sha256": "622bd5dc8d2cbaa3133a51d02714be92f4b78d6d347622532b04b3650ba8fbd1",
+      "blob_bytes": 10823
+    },
+    {
+      "path": "MapDesign/MCP/SV5/17_LOOPS_V5.md",
+      "git_blob_oid": "1ce0c1f715b2b9bedab4fa18ddc73187d5ca8213",
+      "blob_sha256": "00d36f2d3880f8812ebbe71132d5f6a6dd1964a7f2e03ad0552fd9e5f331b0da",
+      "blob_bytes": 2176
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_09_LOOPS.md",
+      "git_blob_oid": "4fbca13751a6c88761b79c51eb75bb99faf527e8",
+      "blob_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+      "blob_bytes": 5137
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_09_LOOPS.md",
+      "git_blob_oid": "4fbca13751a6c88761b79c51eb75bb99faf527e8",
+      "blob_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+      "blob_bytes": 5137
+    }
+  ],
+  "owned_existing": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceLoops.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5InfillLengthFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceInfillTests.cs",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md"
+  ],
+  "owned_new": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopTopology.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5LoopTopology.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTopologyFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceLoopTopologyFix01Tests.cs.meta",
+    "MapDesign/MCP/SV5/17_LOOPS_FIX01.md",
+    "MapDesign/MCP/GENERATED/SV5_09_FIX01/BINDING.json"
+  ],
+  "owned_new_roots": [
+    "MapDesign/MCP/GENERATED/SV5_09_FIX01"
+  ],
+  "result_path": "MapDesign/MCP/REPORTS/SV5_09_FIX01_RESULT.md"
+}

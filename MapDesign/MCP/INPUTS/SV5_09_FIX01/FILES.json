@@ -1,0 +1,66 @@
+{
+  "format": "sv5_09_fix01_package_v1",
+  "task": "SV5_09_FIX01",
+  "native_inbox_file": "MapDesign/MCP_INBOX/SV5_09_FIX01.md",
+  "predecessor_commit": "07b3d33a5c75bda6df83d499fca0dd94faaa5431",
+  "predecessor_review_zip_sha256": "529b62f04a8fe63e6387e2351e90261a6e66dfbd79f2550341ffba07914d8e20",
+  "bound_task_sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb",
+  "files": [
+    {
+      "path": "CORRECTION_CONTRACT.md",
+      "bytes": 3084,
+      "sha256": "0fcc9e50277e540d327bd617bce9516576563e938024a941e1d8b95f0c1bd7a9"
+    },
+    {
+      "path": "PRE_FIX_EVIDENCE.json",
+      "bytes": 1595,
+      "sha256": "e404b1962982a7938816b350b9c675bff838280080d42c6ad231c1d4f437bf9f"
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "bytes": 705,
+      "sha256": "d13cd5013a41d454cbb161d2f8f1d489a8b4b462ea8f06b108509a7a0bafe2fd"
+    },
+    {
+      "path": "REGISTRATION.diff",
+      "bytes": 400,
+      "sha256": "f3f74e3a352b9b9ff78db1d952442926e7f0dbd4a4df9946ac3a6db856a159db"
+    },
+    {
+      "path": "REGISTRATION.json",
+      "bytes": 886,
+      "sha256": "f2bbe370a8fc1b1554079c937714053c68d36f946031c5fbb27c432a4b5eee67"
+    },
+    {
+      "path": "REGISTRATION.md",
+      "bytes": 857,
+      "sha256": "05841ca5f45ac73414f39e60c6d8e8b955203d03a6b3eb4bd9c35adc99b8f9a5"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "bytes": 40535,
+      "sha256": "69b853e7237f6f73af5e66bcbbcdff32b68ca6ac73f4b8e50b1e9a9c5daf2c07"
+    },
+    {
+      "path": "STAGE.py",
+      "bytes": 11406,
+      "sha256": "2fe8be73d3b2017a5a971dff9c5aeb71527f661f3a486386c7615f908f54aff6"
+    },
+    {
+      "path": "SV5_09_FIX01.md",
+      "bytes": 5680,
+      "sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb"
+    },
+    {
+      "path": "SV5_09_REVIEW_INDEX.json",
+      "bytes": 38199,
+      "sha256": "0594b2fb8dfeed2b181d91c03ea8cb121365a20b72582740041f7444611dd510"
+    },
+    {
+      "path": "tools/check_topology.py",
+      "bytes": 7461,
+      "sha256": "26de25695b4994124d9ea98b796406472c89d106b805b2bd6f16a8f702c45c17"
+    }
+  ],
+  "scope": "REGISTERED_TOPOLOGY_EVIDENCE_CORRECTION;SV5_10_LOCKED;NO_PUSH"
+}

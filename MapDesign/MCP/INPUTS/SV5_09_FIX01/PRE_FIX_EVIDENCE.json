@@ -1,0 +1,50 @@
+{
+  "schema": "SV5_09_PRE_FIX_EVIDENCE_V1",
+  "verdict": "FORMAL_PASS_BUT_TOPOLOGY_PROOF_NOT_COMPUTED",
+  "source": {
+    "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceLoops.cs",
+    "sha256": "de4e276ff3eb0ddd2e419ab54c308fa15b95bc7592609de0c2fe99f67a88d742"
+  },
+  "metrics": {
+    "default": {
+      "accepted": 18,
+      "baseline_equals_new": 18,
+      "strict_shortcuts": 0,
+      "reported_cycle_delta_sum": 18
+    },
+    "repeat": {
+      "accepted": 17,
+      "baseline_equals_new": 17,
+      "strict_shortcuts": 0,
+      "reported_cycle_delta_sum": 17
+    }
+  },
+  "source_witnesses": [
+    {
+      "line": 171,
+      "text": "BaselineCycleRank=baselineCycleRank; FinalCycleRank=baselineCycleRank+Links.Count;",
+      "issue": "cycle rank arithmetic, no graph computation"
+    },
+    {
+      "line": 172,
+      "text": "BaselineBridgeCount=baselineBridgeCount; FinalBridgeCount=Math.Max(0,baselineBridgeCount-Links.Count);",
+      "issue": "bridge count arithmetic, no bridge algorithm"
+    },
+    {
+      "line": 293,
+      "text": "new Sv5LoopPlan(...,0,baseBridges)",
+      "issue": "baseline cycle rank fixed to zero"
+    },
+    {
+      "line": 308,
+      "text": "...,contour,true,1,0,6,9)",
+      "issue": "alternate path and cycle delta fixed to true/1"
+    },
+    {
+      "line": 348,
+      "text": "ApplyPhysicalCells groups additions by Host and widens that connection",
+      "issue": "does not itself create a room-to-room topology edge"
+    }
+  ],
+  "review_manifest_sha256": "83c5665ac6b699ab7af6aae1474dc27394d9c8eeb7059f9def16300ceb91f011"
+}

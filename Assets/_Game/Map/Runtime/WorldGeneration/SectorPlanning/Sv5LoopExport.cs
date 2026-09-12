@@ -39,6 +39,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(directory,"loop_patterns.csv"),PatternsCsv(plan));
             Write(Path.Combine(directory,"loop_instances.csv"),InstancesCsv(plan));
             Write(Path.Combine(directory,"loop_validation.json"),ValidationJson(plan));
+            Write(Path.Combine(directory,"baseline_occupancy.csv"),OccupancyCsv(plan.Loops.Topology.BaselineOccupancy));
+            Write(Path.Combine(directory,"final_occupancy.csv"),OccupancyCsv(plan.Loops.Topology.FinalOccupancy));
+            Write(Path.Combine(directory,"baseline_foot_nodes.csv"),FootNodesCsv(plan.Loops.Topology.BaselineFootNodes));
+            Write(Path.Combine(directory,"final_foot_nodes.csv"),FootNodesCsv(plan.Loops.Topology.FinalFootNodes));
+            Write(Path.Combine(directory,"baseline_topology_edges.csv"),TopologyEdgesCsv(plan.Loops.Topology.BaselineEdges));
+            Write(Path.Combine(directory,"final_topology_edges.csv"),TopologyEdgesCsv(plan.Loops.Topology.FinalEdges));
+            Write(Path.Combine(directory,"loop_topology_proofs.csv"),TopologyProofsCsv(plan));
+            Write(Path.Combine(directory,"topology_validation.json"),TopologyValidationJson(plan));
             string preview=Path.Combine(directory,"preview"); Directory.CreateDirectory(preview);
             Write(Path.Combine(preview,"overview.svg"),Preview(plan,new Sv5SpaceBounds(0,0,624,416),true));
             for(int row=0;row<4;row++) for(int column=0;column<4;column++)
@@ -70,21 +78,33 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"state_preservation\":{\"legal_states_per_link\":9,\"resource_orders_per_link\":6,\"illegal_bypass\":0,\"physical_product\":"+
                 B(plan.PhysicalProduct.Success)+"},\n  \"rejections\":{"+string.Join(",",p.Rejections.Select(v=>J(v.Key)+":"+v.Value))+"},\n"+
                 "  \"links\":["+string.Join(",",p.Links.Select(l=>"{\"id\":"+J(l.Id)+",\"type\":"+J(Kind(l.Kind))+
-                    ",\"from\":"+J(l.FromOwner)+",\"to\":"+J(l.ToOwner)+",\"host\":"+J(l.Host)+",\"sector\":"+J(l.SectorId)+
-                    ",\"centerline\":["+string.Join(",",l.Centerline.Select(Point))+"],\"contour_variant\":"+J(l.ContourVariant)+"}"))+"],\n"+
+                    ",\"from_room_id\":"+J(l.FromRoomId)+",\"to_room_id\":"+J(l.ToRoomId)+
+                    ",\"from_aperture_owner\":"+J(l.FromApertureOwner)+",\"to_aperture_owner\":"+J(l.ToApertureOwner)+
+                    ",\"host\":"+J(l.Host)+",\"sector\":"+J(l.SectorId)+
+                    ",\"ordered_foot_path\":["+string.Join(",",l.FootPath.Select(Point))+
+                    "],\"from_approach\":["+string.Join(",",l.FromApproach.Select(Point))+
+                    "],\"to_approach\":["+string.Join(",",l.ToApproach.Select(Point))+
+                    "],\"centerline\":["+string.Join(",",l.Centerline.Select(Point))+"],\"contour_variant\":"+J(l.ContourVariant)+"}"))+"],\n"+
                 "  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
         }
 
         public static string CandidatesCsv(Sv5SpaceGraphPlan plan) => Csv(
-            "candidate_id,stable_rank,stable_hash,status,reason,eligible,from_room,to_room,host,sector_id,baseline_cost,new_cost,ordered_path,plan_digest",
-            plan.Loops.Candidates.Select(c=>Row(c.Id,c.StableRank,c.StableHash,c.Status,c.Reason,c.Eligible,c.FromOwner,
-                c.ToOwner,c.Host,c.SectorId,c.BaselineCost,c.NewCost,string.Join("|",c.Centerline),plan.Digest)));
+            "candidate_id,stable_rank,stable_hash,status,reason,eligible,from_room,to_room,from_aperture_owner,to_aperture_owner,host,sector_id,baseline_cost,new_cost,ordered_foot_path,from_approach,to_approach,plan_digest",
+            plan.Loops.Candidates.Select(c=>Row(c.Id,c.StableRank,c.StableHash,c.Status,c.Reason,c.Eligible,c.FromRoomId,
+                c.ToRoomId,c.FromApertureOwner,c.ToApertureOwner,c.Host,c.SectorId,c.BaselineCost,c.NewCost,
+                string.Join("|",c.FootPath.Select(p=>p.X+":"+p.Y)),string.Join("|",c.FromApproach.Select(p=>p.X+":"+p.Y)),
+                string.Join("|",c.ToApproach.Select(p=>p.X+":"+p.Y)),plan.Digest)));
 
         public static string LinksCsv(Sv5SpaceGraphPlan plan) => Csv(
-            "loop_id,type,sector_id,from_room,to_room,host,length,baseline_cost,new_cost,reduction,reduction_percent,significant,alternate_path_exists,cycle_delta,bypass_count,resource_orders,legal_states,contour_variant,ordered_centerline,plan_digest",
-            plan.Loops.Links.Select(l=>Row(l.Id,Kind(l.Kind),l.SectorId,l.FromOwner,l.ToOwner,l.Host,l.Centerline.Count,
+            "loop_id,type,sector_id,from_room,to_room,from_aperture_owner,to_aperture_owner,from_x,from_y,to_x,to_y,host,length,baseline_cost,new_cost,reduction,reduction_percent,significant,alternate_path_exists,cycle_delta,bypass_count,resource_orders,legal_states,contour_variant,ordered_foot_path,from_approach,to_approach,ordered_centerline,plan_digest",
+            plan.Loops.Links.Select(l=>Row(l.Id,Kind(l.Kind),l.SectorId,l.FromRoomId,l.ToRoomId,
+                l.FromApertureOwner,l.ToApertureOwner,l.FootPath.First().X,l.FootPath.First().Y,l.FootPath.Last().X,
+                l.FootPath.Last().Y,l.Host,l.FootPath.Count,
                 l.BaselineCost,l.NewCost,l.Reduction,l.ReductionPercent,l.Significant,l.AlternatePathExists,l.CycleDelta,
-                l.BypassCount,l.ResourceOrdersChecked,l.LegalStatesChecked,l.ContourVariant,string.Join("|",l.Centerline),plan.Digest)));
+                l.BypassCount,l.ResourceOrdersChecked,l.LegalStatesChecked,l.ContourVariant,
+                string.Join("|",l.FootPath.Select(p=>p.X+":"+p.Y)),
+                string.Join("|",l.FromApproach.Select(p=>p.X+":"+p.Y)),
+                string.Join("|",l.ToApproach.Select(p=>p.X+":"+p.Y)),string.Join("|",l.Centerline),plan.Digest)));
 
         public static string CellsCsv(Sv5SpaceGraphPlan plan)
         {
@@ -92,19 +112,18 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach(var link in plan.Loops.Links)
             {
                 var byWorld=link.Cells.ToDictionary(c=>c.World,c=>c);
-                for(int i=0;i<link.Centerline.Count;i++)
-                {
-                    var p=link.Centerline[i]; byWorld.TryGetValue(p,out Sv5LoopCell cell);
-                    rows.Add(Row(link.Id,i,p.X,p.Y,"CENTERLINE",cell?.Role.ToString().ToUpperInvariant() ?? "AIR",
-                        cell?.SourceValue.ToString().ToUpperInvariant() ?? "UNKNOWN","AIR",true,true,true,false,true,
-                        cell?.SourceOwner ?? string.Empty,link.ContourVariant,plan.Digest));
-                }
+                var ordered=new Dictionary<RmapSpecialWorldPoint,int>();
+                for(int i=0;i<link.Centerline.Count;i++) if(!ordered.ContainsKey(link.Centerline[i])) ordered.Add(link.Centerline[i],i);
                 foreach(var cell in link.Cells)
-                    rows.Add(Row(link.Id,-1,cell.World.X,cell.World.Y,cell.Role.ToString().ToUpperInvariant(),
+                {
+                    bool center=ordered.TryGetValue(cell.World,out int order);
+                    rows.Add(Row(link.Id,center ? order : -1,cell.World.X,cell.World.Y,center ? "CENTERLINE" :
+                        cell.Role.ToString().ToUpperInvariant(),
                         cell.Role.ToString().ToUpperInvariant(),cell.SourceValue.ToString().ToUpperInvariant(),
                         cell.FinalValue.ToString().ToUpperInvariant(),cell.FinalValue==Sv5InfillCellValue.Air,
                         cell.FinalValue==Sv5InfillCellValue.Air,cell.FinalValue==Sv5InfillCellValue.Solid,false,true,
                         cell.SourceOwner,link.ContourVariant,plan.Digest));
+                }
             }
             return Csv("loop_id,order,x,y,role,cell_role,source_value,final_value,body_air,head_air,support_solid,protected,world_inside,source_owner,contour_variant,plan_digest",rows);
         }
@@ -140,6 +159,57 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 ",\"maximum_length\":"+max+",\"dangling\":0,\"duplicate\":0,\"illegal_bypass\":0,\"cycle_delta\":"+
                 p.Links.Sum(l=>l.CycleDelta)+",\"patterns\":"+p.Patterns.Count+",\"instances\":"+p.Instances.Count+"},\n"+
                 "  \"evidence\":{\"links\":\"loop_links.csv\",\"cells\":\"loop_cells.csv\",\"patterns\":\"loop_patterns.csv\",\"physical\":\"physical_transition_matrix.json\"},\n"+
+                "  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
+        }
+
+        public static string OccupancyCsv(IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy)
+        {
+            var rows=new List<string>(Sv5SpaceGraphPlanner.WorldWidth*Sv5SpaceGraphPlanner.WorldHeight);
+            for(int y=0;y<Sv5SpaceGraphPlanner.WorldHeight;y++) for(int x=0;x<Sv5SpaceGraphPlanner.WorldWidth;x++)
+            {
+                var p=new RmapSpecialWorldPoint(x,y); occupancy.TryGetValue(p,out Sv5LoopOccupancyCell cell);
+                rows.Add(Row(x,y,(cell?.Value ?? Sv5InfillCellValue.Unknown).ToString().ToUpperInvariant(),
+                    cell?.Provenance ?? "UNKNOWN",cell?.Owner ?? string.Empty));
+            }
+            return Csv("x,y,value,provenance,owner",rows);
+        }
+
+        public static string FootNodesCsv(IEnumerable<RmapSpecialWorldPoint> source) => Csv("x,y",
+            (source ?? Array.Empty<RmapSpecialWorldPoint>()).OrderBy(v=>v).Select(p=>Row(p.X,p.Y)));
+
+        public static string TopologyEdgesCsv(IEnumerable<Sv5LoopTopologyEdge> source) => Csv(
+            "edge_id,from_vertex,to_vertex,kind,loop_id",(source ?? Array.Empty<Sv5LoopTopologyEdge>())
+                .OrderBy(v=>v).Select(v=>Row(v.Id,v.FromVertex,v.ToVertex,v.Kind,v.LoopId)));
+
+        public static string TopologyProofsCsv(Sv5SpaceGraphPlan plan) => Csv(
+            "loop_id,baseline_cost,final_cost,vertices_before,edges_before,components_before,rank_before,bridges_before,vertices_after,edges_after,components_after,rank_after,bridges_after,baseline_contacts,newly_carved_air,baseline_alternate_path,edge_removal_alternate_path,cycle_delta,baseline_bridge_ids,final_bridge_ids,plan_digest",
+            plan.Loops.Topology.Proofs.Select(p=>Row(p.LoopId,p.BaselineCost,p.FinalCost,p.Before.Vertices,p.Before.Edges,
+                p.Before.Components,p.Before.CycleRank,p.Before.Bridges.Count,p.After.Vertices,p.After.Edges,
+                p.After.Components,p.After.CycleRank,p.After.Bridges.Count,p.BaselineContacts,p.NewlyCarvedAir,
+                p.BaselineAlternatePath,p.EdgeRemovalAlternatePath,p.CycleDelta,string.Join("|",p.Before.Bridges),
+                string.Join("|",p.After.Bridges),plan.Digest)));
+
+        public static string TopologyValidationJson(Sv5SpaceGraphPlan plan)
+        {
+            var t=plan.Loops.Topology;
+            return "{\n  \"schema\":\"SV5_LOOP_TOPOLOGY_FIX01_V1\",\n  \"status\":"+J(t.Success ? "PASS" : "FAIL")+",\n"+
+                "  \"occupancy\":{\"width\":624,\"height\":416,\"baseline_known\":"+t.BaselineOccupancy.Count+
+                ",\"final_known\":"+t.FinalOccupancy.Count+",\"baseline_foot_nodes\":"+t.BaselineFootNodes.Count+
+                ",\"final_foot_nodes\":"+t.FinalFootNodes.Count+"},\n"+
+                "  \"before\":{\"vertices\":"+t.Before.Vertices+",\"edges\":"+t.Before.Edges+",\"components\":"+
+                t.Before.Components+",\"cycle_rank\":"+t.Before.CycleRank+",\"bridges\":"+t.Before.Bridges.Count+
+                ",\"bridge_ids\": ["+string.Join(",",t.Before.Bridges.Select(J))+"]},\n"+
+                "  \"after\":{\"vertices\":"+t.After.Vertices+",\"edges\":"+t.After.Edges+",\"components\":"+
+                t.After.Components+",\"cycle_rank\":"+t.After.CycleRank+",\"bridges\":"+t.After.Bridges.Count+
+                ",\"bridge_ids\": ["+string.Join(",",t.After.Bridges.Select(J))+"]},\n"+
+                "  \"checks\":{\"actual_occupancy\":"+B(t.BaselineOccupancy.Count>0)+",\"supported_foot_nodes\":"+
+                B(t.BaselineFootNodes.Count>0)+",\"actual_room_graph\":"+B(t.BaselineEdges.Count>0)+
+                ",\"per_loop_bfs\":"+B(t.Proofs.All(p=>p.BaselineCost>0 && p.FinalCost>0))+
+                ",\"two_contacts\":"+B(t.Proofs.All(p=>p.BaselineContacts==2))+
+                ",\"newly_carved_air\":"+B(t.Proofs.All(p=>p.NewlyCarvedAir>=2))+
+                ",\"edge_removal_alternate\":"+B(t.Proofs.All(p=>p.EdgeRemovalAlternatePath))+
+                ",\"cycle_delta\":"+B(t.After.CycleRank-t.Before.CycleRank==plan.Loops.AcceptedCount)+"},\n"+
+                "  \"diagnostics\":["+string.Join(",",t.Diagnostics.Select(J))+"],\n"+
                 "  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
         }
 

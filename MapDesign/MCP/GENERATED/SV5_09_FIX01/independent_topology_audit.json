@@ -1,0 +1,214 @@
+{
+  "schema": "SV5_09_FIX01_INDEPENDENT_TOPOLOGY_V1",
+  "status": "PASS",
+  "default": {
+    "accepted": 16,
+    "rank_before": 0,
+    "rank_after": 16,
+    "bridges_before": 223,
+    "bridges_after": 193,
+    "proofs": [
+      {
+        "loop_id": "SV5_LOOP_06fc027033fc57bcac46",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_123419daedcf7f24c5e3",
+        "baseline_cost": 13,
+        "final_cost": 13,
+        "newly_carved_air": 10
+      },
+      {
+        "loop_id": "SV5_LOOP_1281c3906dc018977fba",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_37aa0a8b0a8bb032caab",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_3fe1045da779334f44ca",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 4
+      },
+      {
+        "loop_id": "SV5_LOOP_4c04d12617aa1a8f3175",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_58dc2747530fe8ca6ce9",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_6929a82a67d46d6c056d",
+        "baseline_cost": 13,
+        "final_cost": 13,
+        "newly_carved_air": 3
+      },
+      {
+        "loop_id": "SV5_LOOP_7f418ee6fc496dbbba70",
+        "baseline_cost": 18,
+        "final_cost": 18,
+        "newly_carved_air": 6
+      },
+      {
+        "loop_id": "SV5_LOOP_80b17b5cc39800ee6af9",
+        "baseline_cost": 8,
+        "final_cost": 8,
+        "newly_carved_air": 6
+      },
+      {
+        "loop_id": "SV5_LOOP_9492f4349c7e4bd51f26",
+        "baseline_cost": 15,
+        "final_cost": 15,
+        "newly_carved_air": 12
+      },
+      {
+        "loop_id": "SV5_LOOP_ab5d9d9cf6ac6b1b9b52",
+        "baseline_cost": 12,
+        "final_cost": 12,
+        "newly_carved_air": 7
+      },
+      {
+        "loop_id": "SV5_LOOP_b17964bd145f9fce1631",
+        "baseline_cost": 10,
+        "final_cost": 10,
+        "newly_carved_air": 5
+      },
+      {
+        "loop_id": "SV5_LOOP_b4b4db43d0dd5ecac4e0",
+        "baseline_cost": 7,
+        "final_cost": 7,
+        "newly_carved_air": 3
+      },
+      {
+        "loop_id": "SV5_LOOP_dd87637e87b681b3955e",
+        "baseline_cost": 15,
+        "final_cost": 15,
+        "newly_carved_air": 10
+      },
+      {
+        "loop_id": "SV5_LOOP_dfe99021151b44591328",
+        "baseline_cost": 7,
+        "final_cost": 7,
+        "newly_carved_air": 5
+      }
+    ]
+  },
+  "repeat": {
+    "accepted": 16,
+    "rank_before": 0,
+    "rank_after": 16,
+    "bridges_before": 240,
+    "bridges_after": 208,
+    "proofs": [
+      {
+        "loop_id": "SV5_LOOP_06fc027033fc57bcac46",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_123419daedcf7f24c5e3",
+        "baseline_cost": 13,
+        "final_cost": 13,
+        "newly_carved_air": 10
+      },
+      {
+        "loop_id": "SV5_LOOP_1281c3906dc018977fba",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_15b12e0598a00bda5c3a",
+        "baseline_cost": 8,
+        "final_cost": 8,
+        "newly_carved_air": 6
+      },
+      {
+        "loop_id": "SV5_LOOP_37aa0a8b0a8bb032caab",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_3fe1045da779334f44ca",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 4
+      },
+      {
+        "loop_id": "SV5_LOOP_474fe2f08ca9c07027ea",
+        "baseline_cost": 8,
+        "final_cost": 8,
+        "newly_carved_air": 6
+      },
+      {
+        "loop_id": "SV5_LOOP_4b27c8b056ed499c41ff",
+        "baseline_cost": 8,
+        "final_cost": 8,
+        "newly_carved_air": 6
+      },
+      {
+        "loop_id": "SV5_LOOP_4c04d12617aa1a8f3175",
+        "baseline_cost": 6,
+        "final_cost": 6,
+        "newly_carved_air": 2
+      },
+      {
+        "loop_id": "SV5_LOOP_6929a82a67d46d6c056d",
+        "baseline_cost": 13,
+        "final_cost": 13,
+        "newly_carved_air": 3
+      },
+      {
+        "loop_id": "SV5_LOOP_80b17b5cc39800ee6af9",
+        "baseline_cost": 8,
+        "final_cost": 8,
+        "newly_carved_air": 6
+      },
+      {
+        "loop_id": "SV5_LOOP_9492f4349c7e4bd51f26",
+        "baseline_cost": 15,
+        "final_cost": 15,
+        "newly_carved_air": 12
+      },
+      {
+        "loop_id": "SV5_LOOP_ab5d9d9cf6ac6b1b9b52",
+        "baseline_cost": 12,
+        "final_cost": 12,
+        "newly_carved_air": 7
+      },
+      {
+        "loop_id": "SV5_LOOP_b17964bd145f9fce1631",
+        "baseline_cost": 10,
+        "final_cost": 10,
+        "newly_carved_air": 5
+      },
+      {
+        "loop_id": "SV5_LOOP_b3601cfa83c8816bdce6",
+        "baseline_cost": 10,
+        "final_cost": 10,
+        "newly_carved_air": 7
+      },
+      {
+        "loop_id": "SV5_LOOP_dfe99021151b44591328",
+        "baseline_cost": 7,
+        "final_cost": 7,
+        "newly_carved_air": 5
+      }
+    ]
+  }
+}

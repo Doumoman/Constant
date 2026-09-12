@@ -1,0 +1,9 @@
+{
+  "schema":"SV5_LOOP_COMPARISON_V1",
+  "default":{"plan_digest":"a51a5b66818d2195c9dceb3d6ae9c50550802d9bef95db3cb9d03bfe86afd22c","loop_digest":"e535b7c559fe916b5f4abfe39a0423ccdd1fbabec013c077b4b6d88db5bdf666","accepted":16,"sectors":15,"maximum_length":24,"loop":16,"random_shortcut":0},
+  "repeat":{"plan_digest":"ec00522aa6b6e8da780a2d0ae593a8805e80ddf196b16cd60bb5ec124574217b","loop_digest":"2f99462cb1380ffa150a51e252cac38951ed9e08b28596c9a4f7d3d37173fe63","accepted":16,"sectors":16,"maximum_length":24,"loop":16,"random_shortcut":0},
+  "same_seed_distinct_profile":true,
+  "distinct_payloads":true,
+  "composed_geometry_ready":false,
+  "player_verified":false
+}

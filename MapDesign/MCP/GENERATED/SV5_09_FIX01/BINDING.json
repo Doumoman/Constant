@@ -1,0 +1,121 @@
+{
+  "schema": "SV5_09_FIX01_BINDING_V1",
+  "task": "SV5_09_FIX01",
+  "final_run_id": "SV5_09_FIX01_FINAL_20260912T151537Z",
+  "package_manifest_sha256": "714fb63a130e0f950a72826d1c4278e4fba70bf6c2e9d0400e24c4a1a34ae755",
+  "bound_task_sha256": "1497392f93d1d3bdce56ab63166d3ff2855b77d869cb2e5cb914249d26bb97fb",
+  "predecessor": {
+    "commit": "07b3d33a5c75bda6df83d499fca0dd94faaa5431",
+    "parent": "483fb4b56ec46ae764d5634f17e39eb19b3e8cfa",
+    "result_sha256": "971c18397c54cd707bae47a4f8bbf7810ed045d2ce8d459a7b061ff114288582",
+    "task_sha256": "2deb027691645b8090267de1f9ea3fb66c75dd9e322236f2f895f8490a6a34ea",
+    "commit_blobs_verified": 139
+  },
+  "source_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF, paths sorted ordinal)",
+    "scope": "7 SV5 runtime files plus all 14 discovered SV5 EditMode test source files",
+    "files": 21,
+    "bytes": 571923,
+    "final_tested_source_sha256": "8746e1babcf43d810a8e13b7ac1cf6bd65a941de845c3e293b8f705c32e69b4c",
+    "changed_after_focused": false,
+    "legacy_runtime_dependency_added": false
+  },
+  "export_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF, paths sorted ordinal)",
+    "scope": "default and repeat final export trees",
+    "files": 122,
+    "bytes": 224097220,
+    "final_export_sha256": "6d7f294e381af990595626a8fbe28219f8b0bf232f177644041a219904f51e4b",
+    "changed_during_focused": false,
+    "regenerated_from_final_source": true
+  },
+  "tests": {
+    "compile": {
+      "command": "dotnet build Constant.slnx --nologo",
+      "errors": 0,
+      "warnings": 269
+    },
+    "discovery": {
+      "namespace": "StarNight.Map.Tests.EditMode.Sv5",
+      "testcasecount": 125,
+      "temporary_t00_present": false
+    },
+    "targeted_after_self_edge_fix": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 171.5914612,
+      "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/_work/targeted_self_edge_fix.xml",
+      "superseded_by_final_focused": true
+    },
+    "final_focused": {
+      "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_09_FIX01/focused_results.xml --timeout 1800 --format json",
+      "result": "Passed",
+      "testcasecount": 125,
+      "total": 125,
+      "passed": 125,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1386.897944,
+      "start_utc": "2026-09-12T15:15:37Z",
+      "end_utc": "2026-09-12T15:38:44Z",
+      "raw_sha256": "df7ec4713b96d8d9ae1656f351b9bd3a69649c672b4428e882d2477d9da84237",
+      "raw_bytes": 125181,
+      "raw_crlf_count": 945,
+      "git_lf_sha256": "d886bf0bc0d364d4da99a88176ab6240ff3e6717767cc587dea33e5cb879f4eb",
+      "git_lf_bytes": 124236,
+      "git_blob_oid": "0f8c80f94a279d0adb721d5dcb53e9e1fb2628a1"
+    },
+    "independent_topology_audit": {
+      "command": "py -X utf8 MapDesign/MCP/INPUTS/SV5_09_FIX01/tools/check_topology.py --default MapDesign/MCP/GENERATED/SV5_09_FIX01/default --repeat MapDesign/MCP/GENERATED/SV5_09_FIX01/repeat --output MapDesign/MCP/GENERATED/SV5_09_FIX01/independent_topology_audit.json",
+      "console_status": "PASS_INDEPENDENT_TOPOLOGY",
+      "status": "PASS",
+      "raw_sha256": "7cacd106e1de0003ff87426a0c3bd910b73311048554ca489c15b6455a08d840",
+      "raw_bytes": 5285
+    }
+  },
+  "exports": {
+    "default": {
+      "plan_digest": "a51a5b66818d2195c9dceb3d6ae9c50550802d9bef95db3cb9d03bfe86afd22c",
+      "loop_digest": "e535b7c559fe916b5f4abfe39a0423ccdd1fbabec013c077b4b6d88db5bdf666",
+      "candidates": 19260,
+      "accepted": 16,
+      "distinct_sectors": 15,
+      "maximum_length": 24,
+      "cycle_rank_before": 0,
+      "cycle_rank_after": 16,
+      "bridges_before": 223,
+      "bridges_after": 193
+    },
+    "repeat": {
+      "plan_digest": "ec00522aa6b6e8da780a2d0ae593a8805e80ddf196b16cd60bb5ec124574217b",
+      "loop_digest": "2f99462cb1380ffa150a51e252cac38951ed9e08b28596c9a4f7d3d37173fe63",
+      "candidates": 22507,
+      "accepted": 16,
+      "distinct_sectors": 16,
+      "maximum_length": 24,
+      "cycle_rank_before": 0,
+      "cycle_rank_after": 16,
+      "bridges_before": 240,
+      "bridges_after": 208
+    }
+  },
+  "lifecycle": {
+    "pre_finalize_post_readonly": "PASS_READONLY_LOCAL_AND_GIT",
+    "pre_finalize_counts": {"COMPLETE": 254, "CURRENT": 1, "LOCKED": 38},
+    "finalize_next_task_opened": false,
+    "push_performed": false
+  },
+  "readiness": {
+    "ComposedGeometryReady": false,
+    "PlayerVerified": false,
+    "SV5_10_SIDEPATH": "LOCKED"
+  },
+  "work": {
+    "path": "MapDesign/MCP/GENERATED/SV5_09_FIX01/_work",
+    "included_in_commit": false,
+    "included_in_review_zip": false
+  }
+}

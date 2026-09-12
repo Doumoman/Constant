@@ -17,10 +17,17 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpaceGraphPlanner.PlanWithLoops(Sv5RouteStatePolicyTests.RepresentativePlanForFix01,1304,
                 Sv5SpaceDiversity.RepeatProfile()));
         private static string Root=>Path.GetFullPath(Path.Combine(Application.dataPath,".."));
+        internal static Sv5SpaceGraphPlan DefaultPlan=>Default.Value;
+        internal static Sv5SpaceGraphPlan RepeatPlan=>Repeat.Value;
 
         [Test,Timeout(1200000)] public void T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread()
         {
             var p=Default.Value; string detail=Detail(p);
+            string debug=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_FIX01/_work/debug"); Directory.CreateDirectory(debug);
+            File.WriteAllText(Path.Combine(debug,"baseline_occupancy.csv"),Sv5LoopExport.OccupancyCsv(p.Loops.Topology.BaselineOccupancy));
+            File.WriteAllText(Path.Combine(debug,"loop_candidates.csv"),Sv5LoopExport.CandidatesCsv(p));
+            File.WriteAllText(Path.Combine(debug,"loop_links.csv"),Sv5LoopExport.LinksCsv(p));
+            File.WriteAllText(Path.Combine(debug,"loop_cells.csv"),Sv5LoopExport.CellsCsv(p));
             Assert.That(p.Success,Is.True,detail); Assert.That(p.Loops.Success,Is.True,detail);
             Assert.That(p.Loops.AcceptedCount,Is.InRange(16,48)); Assert.That(p.Loops.DistinctSectorCount,Is.GreaterThanOrEqualTo(12));
             Assert.That(p.Loops.Links.GroupBy(l=>l.SectorId).Max(g=>g.Count()),Is.LessThanOrEqualTo(3));
@@ -87,11 +94,14 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var p=Default.Value; var rooms=p.Infill.Rooms.ToDictionary(r=>r.Id,r=>r);
             foreach(var link in p.Loops.Links)
             {
-                string a=Base(link.FromOwner),b=Base(link.ToOwner);
+                string a=link.FromRoomId,b=link.ToRoomId;
                 Assert.That(a,Is.Not.EqualTo(b)); Assert.That(rooms[a].Parent,Is.Not.EqualTo(b)); Assert.That(rooms[b].Parent,Is.Not.EqualTo(a));
                 Assert.That(rooms[a].Host,Is.EqualTo(rooms[b].Host));
-                Assert.That(p.Infill.Cells.Single(c=>c.World.Equals(link.Centerline.First())).Value,Is.EqualTo(Sv5InfillCellValue.Air));
-                Assert.That(p.Infill.Cells.Single(c=>c.World.Equals(link.Centerline.Last())).Value,Is.EqualTo(Sv5InfillCellValue.Air));
+                var from=p.Infill.Cells.Single(c=>c.World.Equals(link.FootPath.First()));
+                var to=p.Infill.Cells.Single(c=>c.World.Equals(link.FootPath.Last()));
+                Assert.That(from.Value,Is.EqualTo(Sv5InfillCellValue.Air)); Assert.That(to.Value,Is.EqualTo(Sv5InfillCellValue.Air));
+                Assert.That(from.Owner,Is.EqualTo(link.FromApertureOwner)); Assert.That(to.Owner,Is.EqualTo(link.ToApertureOwner));
+                Assert.That(Base(from.Owner),Is.EqualTo(a)); Assert.That(Base(to.Owner),Is.EqualTo(b));
             }
             var child=rooms.Values.First(r=>rooms.ContainsKey(r.Parent));
             Assert.That(Sv5SpaceLoops.PairExclusionReason(rooms[child.Parent],child,rooms[child.Parent].Id,child.Id),Is.EqualTo("DIRECT_PARENT_CHILD"));
@@ -114,7 +124,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var p=Default.Value;
             Assert.That(p.Loops.Links,Is.All.Matches<Sv5LoopLink>(l=>l.AlternatePathExists && l.CycleDelta==1));
             Assert.That(p.Loops.FinalCycleRank-p.Loops.BaselineCycleRank,Is.EqualTo(p.Loops.AcceptedCount));
-            Assert.That(p.Loops.Links.Select(l=>string.Join("|",new[]{l.FromOwner,l.ToOwner}.OrderBy(v=>v))).Distinct().Count(),Is.EqualTo(p.Loops.AcceptedCount));
+            Assert.That(p.Loops.Links.Select(l=>string.Join("|",new[]{l.FootPath.First().ToString(),l.FootPath.Last().ToString()}
+                .OrderBy(v=>v))).Distinct().Count(),Is.EqualTo(p.Loops.AcceptedCount));
             Assert.That(p.Loops.Cells.GroupBy(c=>c.World).Any(g=>g.Select(c=>c.LoopId).Distinct().Count()>1),Is.False);
         }
 
@@ -152,7 +163,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test,Timeout(1200000)] public void T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence()
         {
-            string work=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/export");
+            string work=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_FIX01/_work/export");
             string first=Path.Combine(work,"a"),second=Path.Combine(work,"b");
             Sv5LoopExport.WriteCase(Default.Value,first); Sv5LoopExport.WriteCase(Default.Value,second);
             foreach(string file in Directory.GetFiles(first,"*",SearchOption.AllDirectories))
@@ -160,9 +171,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 string relative=file.Substring(first.Length+1); string counterpart=Path.Combine(second,relative);
                 Assert.That(File.ReadAllBytes(counterpart),Is.EqualTo(File.ReadAllBytes(file)),relative);
             }
-            string final=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS");
+            string final=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_FIX01");
             Sv5LoopExport.WriteComparison(final,Default.Value,Repeat.Value);
-            foreach(string variant in new[]{"default","repeat"}) foreach(string required in new[]{"space_graph.json","loops.json","loop_candidates.csv","loop_links.csv","loop_cells.csv","loop_patterns.csv","loop_instances.csv","loop_validation.json","preview/overview.svg","preview/detail.svg","preview/index.html"})
+            foreach(string variant in new[]{"default","repeat"}) foreach(string required in new[]{"space_graph.json","loops.json","loop_candidates.csv","loop_links.csv","loop_cells.csv","loop_patterns.csv","loop_instances.csv","loop_validation.json","baseline_occupancy.csv","final_occupancy.csv","baseline_foot_nodes.csv","final_foot_nodes.csv","baseline_topology_edges.csv","final_topology_edges.csv","loop_topology_proofs.csv","topology_validation.json","preview/overview.svg","preview/detail.svg","preview/index.html"})
                 Assert.That(File.Exists(Path.Combine(final,variant,required)),Is.True,variant+"/"+required);
         }
 
@@ -183,6 +194,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static string Base(string owner)=>owner.EndsWith("_LINK",StringComparison.Ordinal) ? owner.Substring(0,owner.Length-5) : owner;
         private static string Detail(Sv5SpaceGraphPlan p)=>"accepted="+p.Loops.AcceptedCount+" sectors="+p.Loops.DistinctSectorCount+
             " candidates="+p.Loops.Candidates.Count+" eligible="+p.Loops.Candidates.Count(c=>c.Eligible)+"\n"+
+            "candidate_pairs="+p.Loops.Candidates.Select(c=>c.PairKey).Distinct().Count()+" candidate_sectors="+
+            p.Loops.Candidates.Select(c=>c.SectorId).Distinct().Count()+"\n"+
+            "baseline_occupancy="+p.Loops.Topology.BaselineOccupancy.Count+" baseline_feet="+p.Loops.Topology.BaselineFootNodes.Count+
+            " host_support="+p.Loops.Topology.BaselineOccupancy.Values.Count(c=>c.Provenance=="HOST_CORRIDOR_SUPPORT")+"\n"+
             string.Join("\n",p.Loops.Diagnostics)+"\n"+string.Join("\n",p.Diagnostics)+"\n"+
             string.Join("\n",p.Loops.Rejections.Select(r=>r.Key+"="+r.Value));
     }
