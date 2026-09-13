@@ -192,6 +192,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(preview, "FIX02_bypass_before_after.svg"), BypassSvg(plan));
             Write(Path.Combine(preview, "index.html"), IndexHtml(plan));
             if (plan.Infill != null) Sv5InfillExport.WriteCase(plan,directory);
+            if (plan.HubShell != null) Sv5HubShellExport.WriteCase(plan,directory);
         }
 
         public static string SegmentsJson(Sv5SpaceGraphPlan plan)
@@ -335,6 +336,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append(J(plan.Loops == null ? "LOOP_PENDING" : plan.Loops.Success ? "ACTUAL_TILE_LOOPS_STATIC_SCREEN" : "LOOPS_FAILED"))
                 .Append(plan.Loops == null ? "" : ",\"digest\":"+J(plan.Loops.Digest)+",\"accepted\":"+N(plan.Loops.AcceptedCount)+
                     ",\"distinct_48x32_sectors\":"+N(plan.Loops.DistinctSectorCount)).Append("},\n")
+                .Append("  \"sidepaths\": {\"owner\":\"SV5_10_SIDEPATH\",\"state\":")
+                .Append(J(plan.Sidepaths == null ? "SIDEPATH_PENDING" : plan.Sidepaths.Success ? "ACTUAL_TILE_SIDEPATH_STATIC_SCREEN" : "SIDEPATH_FAILED"))
+                .Append(plan.Sidepaths == null ? "" : ",\"digest\":"+J(plan.Sidepaths.Digest)+",\"accepted\":"+N(plan.Sidepaths.AcceptedCount)).Append("},\n")
+                .Append("  \"hub_shell\": {\"owner\":\"SV5_11_HUB_SHELL\",\"state\":")
+                .Append(J(plan.HubShell == null ? "HUB_PENDING" : plan.HubShell.Success ? "ACTUAL_TILE_HUB_STATIC_SCREEN" : "HUB_FAILED"))
+                .Append(plan.HubShell == null ? "" : ",\"digest\":"+J(plan.HubShell.Digest)+",\"hub_id\":"+J(plan.HubShell.HubId)+
+                    ",\"active_ports\":"+N(plan.HubShell.Ports.Count)+",\"tree_grab_geometry_ready\":false")
+                .Append("},\n")
                 .Append("  \"places\": [\n");
             AppendObjects(text, plan.Places.Select(value => "    {\"id\":" + J(value.Id) + ",\"family\":" +
                 J(value.Family) + ",\"formation_id\":"+J(value.FormationId)+",\"family_key\":"+J(plan.Diversity.Profile.FamilyKey(value.Family))+

@@ -1,0 +1,55 @@
+{
+  "schema": "SV5_HUB_SHELL_PROFILE_V1",
+  "world": {
+    "width": 624,
+    "height": 416,
+    "cell_unit": "ACTUAL_1X1_TILE"
+  },
+  "hub": {
+    "production_target": 1,
+    "inner_width_cells": 12,
+    "inner_height_cells": 30,
+    "initial_footprint_width_cells": 24,
+    "initial_footprint_height_cells": 40,
+    "micro_pattern_width_cells": 4,
+    "micro_pattern_height_cells": 4
+  },
+  "sockets": {
+    "left": 3,
+    "right": 3,
+    "vertical_tiers": 3,
+    "aperture_height_cells_minimum": 6,
+    "aperture_height_cells_maximum": 7,
+    "mirror_symmetry_required": false
+  },
+  "connections": {
+    "target": 6,
+    "minimum": 4,
+    "maximum": 6,
+    "distinct_external_space_required": true,
+    "unused_socket_counts_as_connection": false,
+    "reject_candidate_below_minimum": true
+  },
+  "tree_slot": {
+    "reserve_only": true,
+    "actual_grab_geometry_task": "SV5_12_TREE_GRAB",
+    "background_counts_as_grab_surface": false
+  },
+  "sidepath_predecessor_interpretation": {
+    "forward_completion_required": true,
+    "reverse_completion_required": false,
+    "dead_end_rejoins_may_be_false": true,
+    "dead_end_returnable_may_be_false": true
+  },
+  "performance": {
+    "fixed_sector_grid_allowed": false,
+    "whole_world_copy_per_candidate": 0,
+    "whole_world_bfs_per_candidate": 0,
+    "global_product_runs_after_final_batch": 1
+  },
+  "readiness": {
+    "TreeGrabGeometryReady": false,
+    "ComposedGeometryReady": false,
+    "PlayerVerified": false
+  }
+}

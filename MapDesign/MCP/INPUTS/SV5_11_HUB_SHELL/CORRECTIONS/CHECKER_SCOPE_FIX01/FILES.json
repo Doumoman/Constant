@@ -1,0 +1,27 @@
+{
+  "schema": "SV5_11_CHECKER_SCOPE_FIX_PACKAGE_V1",
+  "task": "SV5_11_HUB_SHELL",
+  "correction_id": "CHECKER_SCOPE_FIX01",
+  "files": [
+    {
+      "path": "CORRECTION.json",
+      "sha256": "81ab9da3c5cf90ca8aa26e83e71fe7cd48380be904584f6b67c296f921b8835d",
+      "bytes": 1329
+    },
+    {
+      "path": "README.md",
+      "sha256": "8e6e2b5395b39a779f526b2bab19f2065cd786e07ec1c91b5b120d0b3f0d0789",
+      "bytes": 603
+    },
+    {
+      "path": "VERIFY.py",
+      "sha256": "b960813f0908d13a37275bc545b020b51ce6d2482fcce4c781d7f0a00fa51224",
+      "bytes": 4068
+    },
+    {
+      "path": "check_hub_shell.py",
+      "sha256": "f888065191268b63e5464244fd82ce7665f5b326d49e77247dd84e971ba15b16",
+      "bytes": 10925
+    }
+  ]
+}

@@ -146,3 +146,13 @@ This preference does not open SV5_09 locally or authorize future Task execution/
 - loop의 내부 중심선은 baseline supported path와 분리되고 양 endpoint 두 곳에서만 접촉하며 최소 2개의 새 AIR 셀을 조각한다.
 - shortcut 비용은 같은 endpoint의 baseline/final supported foot graph BFS로 비교한다. centerline 길이를 양쪽 비용으로 대입하지 않는다.
 - 독립 검사는 occupancy와 edge CSV를 읽어 graph를 재구성해야 하며 production export의 판정 boolean을 신뢰하지 않는다.
+
+## SV5_11 hub-shell rule
+
+SV5_11 reserves and writes one six-way hub shell in actual 1×1 world cells. The hub has six sockets,
+three per side across three height bands, and accepts four to six connections to distinct external spaces.
+An unused socket is not a connection. A candidate with fewer than four real external connections is rejected.
+
+The central tree is a reservation only; SV5_12 owns actual Grab surfaces and traversal. No 48×32 Sector,
+SectorId, sector packing, or sector-derived RNG may return. SV5_10 dead-end sidepaths require forward traversal
+only and may remain non-returnable.

@@ -1,0 +1,47 @@
+{
+  "schema": "SV5_11_HUB_SHELL_PACKAGE_V1",
+  "task": "SV5_11_HUB_SHELL",
+  "bound_task_sha256": "491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "6a0b0948bb6fe2d8070dd62e233b4be061fe7a8f64eed03e9a363c05d6c059ee",
+      "bytes": 4616
+    },
+    {
+      "path": "HUB_PROFILE.json",
+      "sha256": "781c909f97189a9da1d86bfdd359ff55985755b45852e03b40cac526c8fbcbb8",
+      "bytes": 1481
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "sha256": "89d1f94aad40a27ab721f8cf532ca11ea7d177f871dbddfbebb7db8262937aee",
+      "bytes": 600
+    },
+    {
+      "path": "README.md",
+      "sha256": "527c92785553a618081c048693d0b95107abbafa8c1e2356acfcc16459bdaeae",
+      "bytes": 936
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "8961f48a590d18f0576d158662ce7592aba0d836921d402e3bc027149e91943c",
+      "bytes": 5932
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "c1c040ae2d7359e71cfea72f6165b9194cfb4cdb37dd6154985bb3dc43687eeb",
+      "bytes": 8553
+    },
+    {
+      "path": "SV5_11_HUB_SHELL.md",
+      "sha256": "491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b",
+      "bytes": 6026
+    },
+    {
+      "path": "tools/check_hub_shell.py",
+      "sha256": "5319076e860df0414bef587cbd6739da03b7f1916af09bbc8e6989fdf20b0d83",
+      "bytes": 8075
+    }
+  ]
+}

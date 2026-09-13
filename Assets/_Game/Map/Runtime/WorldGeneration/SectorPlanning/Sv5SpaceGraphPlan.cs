@@ -449,11 +449,24 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<string> sourceDiagnostics, Sv5DiversityProfile diversityProfile,
             IEnumerable<Sv5DiversityDecision> diversityDecisions, Sv5InfillPlan infill, Sv5LoopPlan loops,
             Sv5SidepathPlan sidepaths)
+            : this(core, seed, profile, sourcePlaces, sourcePorts, sourceConnections, sourceGates,
+                sourceReservations, sourceContacts, sourceProofs, sourceGateStateChecks, sourceDiagnostics,
+                diversityProfile, diversityDecisions, infill, loops, sidepaths, null) { }
+
+        internal Sv5SpaceGraphPlan(Sv5CoreReservationPlan core, ulong seed, Sv5SpaceGraphAuthoringProfile profile,
+            IEnumerable<Sv5SpacePlace> sourcePlaces, IEnumerable<Sv5SpacePort> sourcePorts,
+            IEnumerable<Sv5SpaceConnection> sourceConnections, IEnumerable<Sv5SpaceGate> sourceGates,
+            IEnumerable<Sv5SpaceReservationCell> sourceReservations, IEnumerable<Sv5SpaceContactDecision> sourceContacts,
+            IEnumerable<Sv5SpaceProjectionOrderProof> sourceProofs, IEnumerable<Sv5SpaceGateStateCheck> sourceGateStateChecks,
+            IEnumerable<string> sourceDiagnostics, Sv5DiversityProfile diversityProfile,
+            IEnumerable<Sv5DiversityDecision> diversityDecisions, Sv5InfillPlan infill, Sv5LoopPlan loops,
+            Sv5SidepathPlan sidepaths, Sv5HubShellPlan hubShell)
         {
             Core = core ?? throw new ArgumentNullException(nameof(core));
             Infill = infill;
             Loops = loops;
             Sidepaths = sidepaths;
+            HubShell = hubShell;
             Seed = seed;
             Profile = profile ?? throw new ArgumentNullException(nameof(profile));
             Places = Freeze(sourcePlaces);
@@ -472,7 +485,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             InfillPendingTileCount = 624 * 416 - Reservations.Select(value => value.World)
                 .Concat(Infill == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Infill.Cells.Select(c => c.World))
                 .Concat(Loops == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Loops.Cells.Select(c => c.World))
-                .Concat(Sidepaths == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Sidepaths.Cells.Select(c => c.World)).Distinct().Count();
+                .Concat(Sidepaths == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Sidepaths.Cells.Select(c => c.World))
+                .Concat(HubShell == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : HubShell.Cells.Select(c => c.World)).Distinct().Count();
             var movementConnections = Loops == null ? Connections : Sv5SpaceLoops.ApplyPhysicalCells(Connections, Loops);
             if (Sidepaths != null) movementConnections = Sv5SpaceSidepaths.ApplyPhysicalCells(movementConnections, Sidepaths);
             PhysicalMovement = Sv5SpacePhysicalMovement.Analyze(Core, movementConnections, ContactDecisions, Gates);
@@ -500,13 +514,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public Sv5InfillPlan Infill { get; }
         public Sv5LoopPlan Loops { get; }
         public Sv5SidepathPlan Sidepaths { get; }
+        public Sv5HubShellPlan HubShell { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public bool GeometryStateReady { get; }
         public bool PlayerVerified { get; }
         public int InfillPendingTileCount { get; }
         public string Digest { get; }
         public bool Success => (Infill == null || Infill.Success) && (Loops == null || Loops.Success) &&
-            (Sidepaths == null || Sidepaths.Success) && Diagnostics.Count == 0 && Places.Count(value => value.Kind == Sv5SpacePlaceKind.Core) == 8 &&
+            (Sidepaths == null || Sidepaths.Success) && (HubShell == null || HubShell.Success) && Diagnostics.Count == 0 && Places.Count(value => value.Kind == Sv5SpacePlaceKind.Core) == 8 &&
             Places.Count(value => value.Kind == Sv5SpacePlaceKind.Large) >= 4 &&
             Places.Count(value => value.Kind == Sv5SpacePlaceKind.Ordinary) >= 4 &&
             Core.Sites.Count == 8 && Core.CoreCells.Count == 2432 &&
@@ -528,6 +543,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (Infill != null) yield return "infill|" + Infill.Digest;
             if (Loops != null) yield return "loops|" + Loops.Digest;
             if (Sidepaths != null) yield return "sidepaths|" + Sidepaths.Digest;
+            if (HubShell != null) yield return "hub-shell|" + HubShell.Digest;
             foreach (Sv5SpacePlace value in Places) yield return "place|" + L(value.Id) + L(value.Family) +
                 value.Kind + "|" + value.Bounds + "|" + L(value.CoreSiteId) + L(value.FutureOwner) + value.DistributionSector;
             foreach (Sv5SpacePort value in Ports) yield return "port|" + L(value.Id) + L(value.PlaceId) +

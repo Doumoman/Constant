@@ -1,0 +1,27 @@
+{
+  "schema": "SV5_11_HUB_SHELL_CHECKER_CORRECTION_V2",
+  "task": "SV5_11_HUB_SHELL",
+  "correction_id": "CHECKER_SCOPE_FIX02",
+  "predecessor_commit": "3408a0ce540f0c9c947b5f2661f68122e06137c3",
+  "supersedes": "CHECKER_SCOPE_FIX01",
+  "fix01_manifest_sha256": "82a6af754d1d305696f93c80c4cbf5b9e2bd3d553c09c67ab5f0fd58755d19cd",
+  "fix01_checker_sha256": "f888065191268b63e5464244fd82ce7665f5b326d49e77247dd84e971ba15b16",
+  "defect": "FIX01 scanned policy documentation and treated a prohibition sentence containing SectorId as an active dependency.",
+  "replacement_scope": {
+    "policy_documents": "excluded from token scan; exact append and hashes remain mandatory evidence",
+    "new_owned_csharp": "scan executable identifiers after removing comments and literals",
+    "existing_integration_csharp": "scan executable identifiers in added lines relative to predecessor",
+    "runtime_export_literals": "scan forbidden export file names",
+    "generated_exports": "scan file names, CSV headers, and JSON keys",
+    "unowned_legacy_source": "excluded",
+    "fake_source_root_allowed": false
+  },
+  "validation_field": {
+    "replacement": "retired_grid_symbol_matches",
+    "required_value": 0
+  },
+  "original_inputs_modified": false,
+  "fix01_modified": false,
+  "status_or_task_registration_changed": false,
+  "implementation_contract_changed": false
+}

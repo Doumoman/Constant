@@ -1,0 +1,143 @@
+{
+  "schema": "SV5_11_HUB_SHELL_BINDING_V1",
+  "task": "SV5_11_HUB_SHELL",
+  "final_run_id": "SV5_11_HUB_SHELL_FINAL_20260913T054700Z",
+  "package_manifest_sha256": "ab9a99b7e3d3e924908bcfff062a4b1c764ecf2fa88058d6e50ee208a4adac1b",
+  "checker_corrections": [
+    {
+      "id": "CHECKER_SCOPE_FIX01",
+      "manifest_sha256": "82a6af754d1d305696f93c80c4cbf5b9e2bd3d553c09c67ab5f0fd58755d19cd",
+      "superseded_by": "CHECKER_SCOPE_FIX02"
+    },
+    {
+      "id": "CHECKER_SCOPE_FIX02",
+      "manifest_sha256": "6358f177a22e40d6bc00fff0a0bdb60d49708e1efca6fd29ceff683e86883e3e",
+      "generated_checker_sha256": "751d5626447cadb2c55f4a72508427fa992ca12cfbe4454a07e19ae83c7043ce",
+      "generated_checker_matches_correction": true
+    }
+  ],
+  "bound_task_sha256": "491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b",
+  "predecessor": {
+    "commit": "3408a0ce540f0c9c947b5f2661f68122e06137c3",
+    "parent": "f6fef1c4b258b7b45ca17ea9d5ffc1f1be81b76f",
+    "result_sha256": "13d2f388a33090a1367a714d19c3316b40714cf7a1f466718a2dd54c25e4ef81",
+    "task_sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300"
+  },
+  "source_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF, paths sorted ordinal)",
+    "scope": "five active hub-shell/integration runtime C# files plus the 16-case hub-shell EditMode test source",
+    "files": 6,
+    "bytes": 220527,
+    "final_tested_source_sha256": "650506d58903c6b734c5ae61dd58053867e6079f7efa1a3f040c0c5135dd8528",
+    "changed_after_focused": false,
+    "active_retired_grid_identifier_matches": 0
+  },
+  "export_binding": {
+    "algorithm": "sha256(path + NUL + raw_sha256 joined by LF, paths sorted ordinal)",
+    "scope": "default/repeat final export trees plus root comparison",
+    "files": 17,
+    "bytes": 1358829,
+    "final_export_sha256": "351ded83a3ba431f5e34edc95b25663ea252bb8e829389697a8d628cdb90c5d4",
+    "regenerated_by_final_focused_export_test": true,
+    "semantic_payload_stable": true,
+    "rechecked_after_focused": true,
+    "retired_export_files_or_fields": 0
+  },
+  "tests": {
+    "compile": {
+      "command": "dotnet build Game.Map.Tests.EditMode.csproj --nologo --verbosity quiet",
+      "errors": 0,
+      "warnings": 77
+    },
+    "targeted": {
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 213.8665364,
+      "raw_sha256": "79ee2522823a5741a55a5998a35a64ad598fd099187299e3a9e0ac242b622b1b",
+      "raw_bytes": 16172,
+      "path": "MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/_work/hub_targeted_final.xml",
+      "included_in_commit": false
+    },
+    "final_focused": {
+      "command": "unity test . --mode EditMode --filter StarNight.Map.Tests.EditMode.Sv5 --output MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/focused_results.xml --timeout 2700 --format json",
+      "executions": 1,
+      "result": "Passed",
+      "testcasecount": 155,
+      "total": 155,
+      "passed": 155,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "predecessor_test_names": 139,
+      "missing_predecessor_test_names": 0,
+      "duration_seconds": 1230.6790154,
+      "start_utc": "2026-09-13T05:47:00Z",
+      "end_utc": "2026-09-13T06:07:31Z",
+      "raw_sha256": "b7d409692bcc2c96ebc94f590ef8a0573ea6060658b2103fa8a61eb9f412e9cd",
+      "raw_bytes": 148789
+    },
+    "independent_hub_shell_audit": {
+      "command": "python -X utf8 MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/check_hub_shell.py --default MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/default --repeat MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/repeat --source-root . --output MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/independent_hub_shell_audit.json",
+      "console_status": "PASS_INDEPENDENT_HUB_SHELL",
+      "status": "PASS_INDEPENDENT_HUB_SHELL",
+      "raw_sha256": "bdfa26d9e370bf57a594e51dcae102f3525dab68b02b062bfb7ec3712ab69c53",
+      "raw_bytes": 725,
+      "imports_production_csharp": false
+    }
+  },
+  "exports": {
+    "default": {
+      "hub_id": "SV5_HUB_0949d931bfb252f66eb3",
+      "footprint": [272, 264, 24, 40],
+      "candidates": 3220,
+      "accepted": 1,
+      "cells": 960,
+      "sockets": 6,
+      "ports": 5,
+      "distinct_external_rooms": 5,
+      "distinct_external_space_groups": 5,
+      "total_build_ms": 3422.247
+    },
+    "repeat": {
+      "hub_id": "SV5_HUB_7f53c12e20096748c0c6",
+      "footprint": [272, 208, 24, 40],
+      "candidates": 3220,
+      "accepted": 1,
+      "cells": 960,
+      "sockets": 6,
+      "ports": 5,
+      "distinct_external_rooms": 5,
+      "distinct_external_space_groups": 5,
+      "total_build_ms": 2363.884
+    }
+  },
+  "performance": {
+    "whole_world_copy_per_candidate": 0,
+    "whole_world_bfs_per_candidate": 0,
+    "global_product_runs_per_profile": 1,
+    "legal_states": 9,
+    "resource_orders": 6
+  },
+  "lifecycle": {
+    "pre_finalize_post_readonly": "PASS_POST",
+    "pre_finalize_counts": {"COMPLETE": 256, "CURRENT": 1, "LOCKED": 36},
+    "post_finalize_post_readonly": "PASS_POST",
+    "post_finalize_counts": {"COMPLETE": 257, "CURRENT": 0, "LOCKED": 36},
+    "finalize_next_task_opened": false,
+    "push_performed": false
+  },
+  "readiness": {
+    "TreeGrabGeometryReady": false,
+    "ComposedGeometryReady": false,
+    "PlayerVerified": false,
+    "SV5_12_TREE_GRAB": "LOCKED"
+  },
+  "work": {
+    "path": "MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/_work",
+    "included_in_commit": false,
+    "included_in_review_zip": false
+  }
+}

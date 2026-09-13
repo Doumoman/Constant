@@ -1,0 +1,141 @@
+{
+  "schema": "SV5_11_HUB_SHELL_SOURCE_LOCK_V1",
+  "task": "SV5_11_HUB_SHELL",
+  "predecessor": {
+    "commit": "3408a0ce540f0c9c947b5f2661f68122e06137c3",
+    "parent": "f6fef1c4b258b7b45ca17ea9d5ffc1f1be81b76f",
+    "result_sha256": "13d2f388a33090a1367a714d19c3316b40714cf7a1f466718a2dd54c25e4ef81",
+    "task_sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+    "binding_sha256": "a801426ca6621634dd383b72e5755dbeb3df08db9906382c8d2074ee3a5679bb",
+    "review_zip_sha256": "8ea106668f50d3e83179279249ea6a7a9558ccd9aca35095cd25225748435cc1",
+    "commit_entries": [
+      {
+        "path": "MapDesign/MCP/REPORTS/SV5_10_SIDEPATH_RESULT.md",
+        "sha256": "13d2f388a33090a1367a714d19c3316b40714cf7a1f466718a2dd54c25e4ef81",
+        "bytes": 4619
+      },
+      {
+        "path": "MapDesign/MCP/TASKS/SV5_10_SIDEPATH.md",
+        "sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+        "bytes": 5489
+      },
+      {
+        "path": "MapDesign/MCP_ARCHIVE/SV5_10_SIDEPATH.md",
+        "sha256": "d3e266c6e6bfe55d6ce2e7a1f4e832da90e416fb4587b98ec1986db717b66300",
+        "bytes": 5489
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/BINDING.json",
+        "sha256": "a801426ca6621634dd383b72e5755dbeb3df08db9906382c8d2074ee3a5679bb",
+        "bytes": 6731
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/CONTRACT_CORRECTION.json",
+        "sha256": "b52a407889004d5a4556ce81bafe337e80cc2aadaa54c5524698a22b28fc8933",
+        "bytes": 1014
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/default/sidepaths.json",
+        "sha256": "b9536d6a12e5644850b6fd0be5e58c2e6a1af5bde8cdd067b264a2eee63d3b24",
+        "bytes": 645
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/default/sidepath_validation.json",
+        "sha256": "11886071e81cd3063ba2c60f008a56edd2f0b9ad8279634e0c4e4c686beb27f7",
+        "bytes": 619
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/repeat/sidepaths.json",
+        "sha256": "397db4b630d4d1ae6306dc95d4286c89cfafc6f4a4c7ae405b2fb0e54a90d28e",
+        "bytes": 645
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/repeat/sidepath_validation.json",
+        "sha256": "1b2182ec0c1a99fd4eedd14ff566da2eb9dbed0d1d2c0846827948d191ac9211",
+        "bytes": 619
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH/independent_sidepath_audit.json",
+        "sha256": "66674facf44728eae91c6fc0bfa2e31582291bcdeb98552832022017f1966349",
+        "bytes": 528
+      },
+      {
+        "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+        "sha256": "2186e56cd4c6a9037152d858fc5c8e0f1a2946db7316e13f1614902226fddbf7",
+        "bytes": 102534
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+        "sha256": "33272f2e87153da15a65e6d1e1168d7c19d25637b13209a9ebd7d790043b1864",
+        "bytes": 38631
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+        "sha256": "c049d178c4e3a276200264d4d1e739eb859fe6cd4869dede732bdbeecd2a1096",
+        "bytes": 63779
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceSidepaths.cs",
+        "sha256": "8cbd07320f39d968bb27dbc17eb37afa6dfdba8845fa5abd60246dcae18b4d13",
+        "bytes": 28889
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SidepathEndpointIndex.cs",
+        "sha256": "2674a97e54099d3249869f0d7b9cfd3b49cf63d8a6ab004c05d5f53cf0d188ff",
+        "bytes": 8463
+      },
+      {
+        "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SidepathExport.cs",
+        "sha256": "40e43cded493109c6734730531525ab36332e778ada85ccbcb86594929a35567",
+        "bytes": 13758
+      },
+      {
+        "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceSidepathTests.cs",
+        "sha256": "31ead21c7b5e34b29afc7886f20f3d56b9ebec2ad2a7d0e5d3d9e016d299e00c",
+        "bytes": 9735
+      },
+      {
+        "path": "MapDesign/MCP/SV5/18_SIDEPATHS_V5.md",
+        "sha256": "3313e5ac72f8fdfe7db4a28476dbd142d14e54582f7ccf0a22149d13c6438ff7",
+        "bytes": 1804
+      }
+    ]
+  },
+  "state_before": {
+    "rows": 293,
+    "counts": {
+      "COMPLETE": 256,
+      "CURRENT": 0,
+      "LOCKED": 37
+    },
+    "current": "NONE",
+    "SV5_10_SIDEPATH": "COMPLETE",
+    "SV5_11_HUB_SHELL": "LOCKED",
+    "SV5_12_TREE_GRAB": "LOCKED"
+  },
+  "owned_existing": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5InfillExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpacePhysicalMovement.cs",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md"
+  ],
+  "owned_new": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShell.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShell.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShellExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShellExport.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5HubShellTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5HubShellTests.cs.meta",
+    "MapDesign/MCP/SV5/19_HUB_SHELL_V5.md",
+    "MapDesign/MCP/REPORTS/SV5_11_HUB_SHELL_RESULT.md",
+    "MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL"
+  ],
+  "read_only_roots": [
+    "MapDesign/MCP/GENERATED/SV5_10_SIDEPATH",
+    "MapDesign/MCP/TASKS/SV5_10_SIDEPATH.md",
+    "MapDesign/MCP_ARCHIVE/SV5_10_SIDEPATH.md",
+    "MapDesign/MCP/REPORTS/SV5_10_SIDEPATH_RESULT.md"
+  ]
+}

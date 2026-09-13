@@ -1,0 +1,22 @@
+{
+  "schema":"SV5_HUB_VALIDATION_V1",
+  "status":"PASS",
+  "hub_id":"SV5_HUB_7f53c12e20096748c0c6",
+  "candidates":3220,
+  "indexed_endpoints":1255,
+  "sockets":6,
+  "active_ports":5,
+  "distinct_external_rooms":5,
+  "distinct_external_space_groups":5,
+  "retired_grid_symbol_matches":0,
+  "whole_world_copy_per_candidate":0,
+  "whole_world_bfs_per_candidate":0,
+  "global_product_runs":1,
+  "legal_states_checked":9,
+  "resource_orders_checked":6,
+  "timings_ms":{"accepted_overlay_ms":0.576,"candidate_evaluation_ms":2340.379,"source_index_ms":9.064,"total_build_ms":2363.884},
+  "diagnostics":[],
+  "tree_grab_geometry_ready":false,
+  "composed_geometry_ready":false,
+  "player_verified":false
+}
