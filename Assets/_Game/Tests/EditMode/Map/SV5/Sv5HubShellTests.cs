@@ -23,6 +23,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static readonly Lazy<Sv5SpaceGraphPlan> Repeat=new Lazy<Sv5SpaceGraphPlan>(()=>
             Sv5SpaceGraphPlanner.AttachHubShell(RepeatBaseline.Value,Sv5HubShell.Build(RepeatBaseline.Value)));
         private static string Root=>Path.GetFullPath(Path.Combine(Application.dataPath,".."));
+        internal static Sv5SpaceGraphPlan DefaultBaselineForFix01=>DefaultBaseline.Value;
+        internal static Sv5SpaceGraphPlan RepeatBaselineForFix01=>RepeatBaseline.Value;
+        internal static Sv5SpaceGraphPlan DefaultForFix01=>Default.Value;
+        internal static Sv5SpaceGraphPlan RepeatForFix01=>Repeat.Value;
 
         [Test,Timeout(600000)] public void H01_DefaultBuildAcceptsOneActualHubShell()
         {var p=Default.Value;Assert.That(p.Success,Is.True,Detail(p));Assert.That(p.HubShell.Success,Is.True,Detail(p));Assert.That(p.HubShell.HubId,Is.Not.Empty);}
@@ -77,7 +81,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void H09_EachPortHasCardinalEvidenceToItsExternalAnchor()
         {
             foreach(var c in Default.Value.HubShell.Connections)
-            {Assert.That(c.Centerline.Last(),Is.EqualTo(c.ExternalAnchor));Assert.That(c.Centerline.Zip(c.Centerline.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)).All(v=>v==1),Is.True);}
+            {Assert.That(c.Centerline.First(),Is.EqualTo(c.PortAnchor));Assert.That(c.Centerline.Last(),Is.EqualTo(c.ExternalAnchor));
+                Assert.That(c.Centerline.Zip(c.Centerline.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)).All(v=>v==1),Is.True);
+                Assert.That(c.RouteVerified,Is.True);Assert.That(c.MovementWitness,Is.Not.Empty);}
         }
 
         [Test] public void H10_AllActivePortAnchorsShareOnePassableShellComponent()
@@ -97,14 +103,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void H12_ProtectedTypeZeroAndProgressionEvidenceRemainClear()
         {
-            var baseline=DefaultBaseline.Value;var h=Default.Value.HubShell;
-            var protectedCells=new HashSet<RmapSpecialWorldPoint>(Sv5SpaceSidepaths.ProtectedCells(baseline));
-            protectedCells.UnionWith(baseline.Reservations.Select(v=>v.World));
-            protectedCells.UnionWith(baseline.Infill.Cells.Select(v=>v.World));
-            protectedCells.UnionWith(baseline.Loops.Cells.Select(v=>v.World));
-            protectedCells.UnionWith(baseline.Sidepaths.Cells.Select(v=>v.World));
+            var h=Default.Value.HubShell;
+            var protectedCells=new HashSet<RmapSpecialWorldPoint>(h.ConstraintSets.SelectMany(set=>set.Cells));
             Assert.That(h.Cells.All(v=>!protectedCells.Contains(v.World)),Is.True);
-            Assert.That(h.Connections.All(v=>!v.ProtectedOverlap&&!v.Type0Overlap&&!v.ProgressionBypass),Is.True);
+            Assert.That(h.Connections.All(v=>!Sv5HubConnectionRouter.BodyIntersects(v.Centerline,protectedCells)&&
+                !v.ProtectedOverlap&&!v.Type0Overlap&&!v.ProgressionBypass),Is.True);
             Assert.That(h.Diagnostics,Is.Empty);Assert.That(Default.Value.PhysicalProduct.Success,Is.True);
         }
 
@@ -118,17 +121,19 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             var h=Default.Value.HubShell;Assert.That(h.Performance.WholeWorldCopyPerCandidate,Is.Zero);Assert.That(h.Performance.WholeWorldBfsPerCandidate,Is.Zero);
             Assert.That(h.Performance.GlobalProductRuns,Is.EqualTo(1));Assert.That(Default.Value.ProjectionProofs.Count,Is.EqualTo(6));
-            Assert.That(Default.Value.PhysicalProduct.SemanticDigest,Is.EqualTo(DefaultBaseline.Value.PhysicalProduct.SemanticDigest));
+            Assert.That(Default.Value.PhysicalMovement.SemanticDigest,Is.Not.EqualTo(DefaultBaseline.Value.PhysicalMovement.SemanticDigest));
+            Assert.That(Default.Value.PhysicalProduct.Success,Is.True);Assert.That(Default.Value.PhysicalProduct.Proofs.Count,Is.EqualTo(6));
         }
 
         [Test,Timeout(600000)] public void H15_FinalDefaultRepeatExportsAreByteStableAndComplete()
         {
-            string output=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL");
+            string output=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_11_FIX01");
             Sv5HubShellExport.WriteComparison(output,Default.Value,Repeat.Value);
             string first=Sv5HubShellExport.HubShellJson(Default.Value);string second=Sv5HubShellExport.HubShellJson(Default.Value);
             Assert.That(second,Is.EqualTo(first));
             foreach(string profile in new[]{"default","repeat"})foreach(string file in new[]{"hub_shell.json","hub_candidates.csv","hub_cells.csv",
-                "hub_sockets.csv","hub_ports.csv","hub_connections.csv","hub_validation.json","preview/hub_shell.svg"})
+                "hub_sockets.csv","hub_ports.csv","hub_connections.csv","hub_connection_cells.csv","hub_connection_checks.csv",
+                "constraint_sources.json","hub_validation.json","preview/hub_shell.svg","preview/hub_connection_fix.svg"})
                 Assert.That(File.Exists(Path.Combine(output,profile,file)),Is.True,profile+"/"+file);
             Assert.That(File.Exists(Path.Combine(output,"hub_comparison.json")),Is.True);
         }
@@ -136,11 +141,13 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void H16_HubModelsAndExportsContainNoRetiredGridIdentifiers()
         {
             var types=new[]{typeof(Sv5HubShellPlan),typeof(Sv5HubCandidate),typeof(Sv5HubCell),typeof(Sv5HubSocket),
-                typeof(Sv5HubPort),typeof(Sv5HubConnection),typeof(Sv5HubPerformance)};
+                typeof(Sv5HubPort),typeof(Sv5HubConnection),typeof(Sv5HubConnectionCell),typeof(Sv5HubConnectionRoute),
+                typeof(Sv5HubConstraintSet),typeof(Sv5HubPerformance)};
             Assert.That(types.SelectMany(v=>v.GetProperties()).All(v=>v.Name.IndexOf("SectorId",StringComparison.Ordinal)<0),Is.True);
             var payloads=new[]{Sv5HubShellExport.HubShellJson(Default.Value),Sv5HubShellExport.CandidatesCsv(Default.Value),
                 Sv5HubShellExport.CellsCsv(Default.Value),Sv5HubShellExport.SocketsCsv(Default.Value),
                 Sv5HubShellExport.PortsCsv(Default.Value),Sv5HubShellExport.ConnectionsCsv(Default.Value),
+                Sv5HubShellExport.ConnectionCellsCsv(Default.Value),Sv5HubShellExport.ConnectionChecksCsv(Default.Value),
                 Sv5HubShellExport.ValidationJson(Default.Value)};
             Assert.That(payloads.All(v=>v.IndexOf("sector_id",StringComparison.OrdinalIgnoreCase)<0 &&
                 v.IndexOf("sector_index",StringComparison.OrdinalIgnoreCase)<0),Is.True);
@@ -148,7 +155,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         private static string Detail(Sv5SpaceGraphPlan plan)=>"diagnostics="+string.Join(";",plan.HubShell.Diagnostics)+
             " candidates="+plan.HubShell.Performance.CandidateCount+" ports="+plan.HubShell.Ports.Count+
-            " cells="+plan.HubShell.Cells.Count;
+            " cells="+plan.HubShell.Cells.Count+" attempts="+plan.HubShell.Performance.LocalRouteAttempts+
+            " targets="+plan.HubShell.Performance.IndexedEndpointCount+
+            " rejections="+string.Join(",",plan.HubShell.Performance.RejectionHistogram.Select(pair=>pair.Key+":"+pair.Value))+
+            " constraints="+string.Join(",",plan.HubShell.ConstraintSets.Select(set=>set.Category+":"+set.Cells.Count));
     }
 }
 #endif

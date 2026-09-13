@@ -1,0 +1,131 @@
+{
+  "schema": "SV5_11_FIX01_BINDING/v1",
+  "task": "SV5_11_FIX01",
+  "base": {
+    "commit": "0ab603362b93047a45c6f30bac8e28d57ac57f93",
+    "parent": "3408a0ce540f0c9c947b5f2661f68122e06137c3",
+    "subject": "SV5_11_HUB_SHELL: implement actual-cell hub shell"
+  },
+  "registration": {
+    "package_manifest_sha256": "e52a0e75636c09c6c11e63f75d69433b880bc856a78df7a05d4aaaa71af1ca00",
+    "record_sha256": "b4d9f31292a669f4c2123790e5f26c489ec3035dd18c2430f046ce23f91e43b8",
+    "receipt_sha256": "8395a6be4fc627d8da6c96f77a2c4dd89776940abd70a1b79def0953ab686382",
+    "verify_staged": "PASS_STAGED_REGISTRATION",
+    "verify_task_inputs": "PASS_TASK_INPUTS"
+  },
+  "task_binding": {
+    "installed_task_sha256": "73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4",
+    "archive_task_sha256": "73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_11_HUB_SHELL",
+    "task_sha256": "491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b",
+    "archive_sha256": "491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b",
+    "result_sha256": "c384e61a259508e396b370742b677b2751ef6f48210193b74c6bf6f3f0480fdd",
+    "binding_sha256": "0efc40e77803a73029318cef27111491d5c40f56f10a4ba0748d2dcb50eb13cd"
+  },
+  "before_implementation": {
+    "status_sha256": "73402bb19f700a345958aa90a1f8c86ded8116e081cc6fa6510a5bfe5efc6172",
+    "master_sha256": "e54fc70378799f1c383b841ddae3728be27ac35d997c622d629776f7b4196a24",
+    "counts": {
+      "COMPLETE": 257,
+      "CURRENT": 1,
+      "LOCKED": 36
+    },
+    "current_task": "SV5_11_FIX01",
+    "SV5_12_TREE_GRAB": "LOCKED"
+  },
+  "verification": {
+    "targeted": {
+      "status": "PASS",
+      "tests": 30,
+      "passed": 30,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 310.987297,
+      "xml": "MapDesign/MCP/GENERATED/SV5_11_FIX01/targeted_results.xml",
+      "xml_sha256": "b777e1f29a3360214d39c929ae1f609339ccaf2a1cd311a744aa0a648c9daac7"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_HUB_CONNECTIONS",
+      "final_executions": 2,
+      "first_pass_before_full_regression": true,
+      "final_pass_after_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_11_FIX01/independent_hub_connection_audit.json",
+      "audit_sha256": "4f2b940173fb45e973e0577e38af3ca605e7a0f2d4898612579e3cd9451ba9e8"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "executions": 1,
+      "tests": 169,
+      "passed": 169,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 1312.552318,
+      "start_utc": "2026-09-13T09:11:21Z",
+      "end_utc": "2026-09-13T09:33:14Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_11_FIX01/focused_results.xml",
+      "xml_sha256": "b5e3ac1c8bf50d8f0465ae058a75fd3b5451db286c054e03cdfbb6e501e3bc6a"
+    },
+    "post_readonly_before_finalize": "PASS_POST_READONLY",
+    "full_regression_started_only_after_targeted_and_checker_passed": true
+  },
+  "profiles": {
+    "default": {
+      "plan_digest": "fafb12050a991883150238dd1cec129cf63fabc44d16196040f2d45148a533a8",
+      "hub_id": "SV5_HUB_227c239e347700d8a4b0",
+      "hub_digest": "190c6126585c81e92f183cd1ff0a3b5acd805e1f9d482633745fa60284ff240e",
+      "connections": 4,
+      "centerline_cells": 230,
+      "changed_connection_cells": 329,
+      "distinct_external_rooms": 4,
+      "distinct_external_space_groups": 4,
+      "local_route_attempts": 4096,
+      "whole_world_copy_per_candidate": 0,
+      "whole_world_bfs_per_candidate": 0,
+      "global_product_runs": 1,
+      "legal_states": 9,
+      "resource_orders": 6,
+      "physical_movement_digest": "df4a61963e265ec4af02b7bdbad6fcf072a64054e95c0a5134bd8b4148b18391",
+      "physical_product_digest": "e9ad57c416c9a5c64a5e25938e8ebd6c431515f1942e66819e05d7ba0fc230ed",
+      "total_build_ms": 23680.927
+    },
+    "repeat": {
+      "plan_digest": "8b4e71be724a084e25699799da11596206b2fc4c84299bd84f1e8e0dc68a0baa",
+      "hub_id": "SV5_HUB_28af5221504bbe547fe5",
+      "hub_digest": "658f6805a3715cc792a0a281dded25c81c27eaf51fd6b903c1486b2c56e2d39d",
+      "connections": 5,
+      "centerline_cells": 231,
+      "changed_connection_cells": 370,
+      "distinct_external_rooms": 5,
+      "distinct_external_space_groups": 5,
+      "local_route_attempts": 4096,
+      "whole_world_copy_per_candidate": 0,
+      "whole_world_bfs_per_candidate": 0,
+      "global_product_runs": 1,
+      "legal_states": 9,
+      "resource_orders": 6,
+      "physical_movement_digest": "cf7141bcda32aa5b152c1f638622ba1da1538248cf02110f5c1bbb816fd3d648",
+      "physical_product_digest": "341614d0c7df330629f9d66776dd307c592f713e50a2b3b96ba152a52ad3255c",
+      "total_build_ms": 21320.795
+    }
+  },
+  "artifacts": {
+    "source_tree_sha256": "9667673ac489e93eec26dc56836bc5c041e87ee487e4a4b36f6c128344b66e7f",
+    "source_tree_algorithm": "SHA256 of sorted '<file-sha256>  <repo-relative-path>\\n' records for FIX01 runtime, tests, metas, and design document",
+    "evidence_tree_sha256": "ae66ad5f0fe0aa99aa7f74476dcd9d0124f2ce7c01d28c53e33f46f15a72c9a6",
+    "evidence_tree_algorithm": "SHA256 of sorted '<file-sha256>  <repo-relative-path>\\n' records below GENERATED/SV5_11_FIX01 excluding BINDING.json and _work",
+    "default_hub_shell_sha256": "5fd51d7f2bb7442d289393b4ed34493b611f4a60239ac3f61720ad271b9396e0",
+    "repeat_hub_shell_sha256": "e1cd28126862ef2b28356690c7e27c75f1f82e76669119532ae2be57e5c40b50",
+    "default_validation_sha256": "a0ed256de12b57a78f6ca59702b1c2535cf29488f1b8231bcc203d589ce9245a",
+    "repeat_validation_sha256": "bc60c269d6965dd7f8f19937dade6009613d2dbadabb4ed6d8268a0d0cacec9b"
+  },
+  "readiness": {
+    "tree_grab_geometry_ready": false,
+    "composed_geometry_ready": false,
+    "player_verified": false,
+    "sv5_12_tree_grab": "LOCKED",
+    "push_performed": false
+  }
+}

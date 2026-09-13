@@ -1,0 +1,28 @@
+{
+  "schema": "SV5_11_FIX01_HUB_CONNECTION_PROFILE/v1",
+  "world_width": 624,
+  "world_height": 416,
+  "shell_width": 24,
+  "shell_height": 40,
+  "inner_width": 12,
+  "inner_height": 30,
+  "socket_count": 6,
+  "minimum_connections": 4,
+  "maximum_connections": 6,
+  "corridor_clearance_cells": 2,
+  "maximum_connection_centerline_cells": 120,
+  "maximum_local_route_attempts": 512,
+  "maximum_local_search_width": 160,
+  "maximum_local_search_height": 96,
+  "minimum_new_tests": 10,
+  "minimum_total_focused_tests": 165,
+  "full_regression_runs_after_targeted_pass": 1,
+  "reverse_traversal_required": false,
+  "whole_world_copy_per_candidate": 0,
+  "whole_world_bfs_per_candidate": 0,
+  "global_product_runs_per_profile": 1,
+  "forbidden_identifiers": ["SectorId", "sector_id", "sector_index"],
+  "next_task": "SV5_12_TREE_GRAB",
+  "next_task_must_remain": "LOCKED"
+}
+

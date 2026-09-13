@@ -1,0 +1,15 @@
+{
+  "schema": "SV5_11_FIX01_REG_FILES/v1",
+  "task": "SV5_11_FIX01",
+  "base_commit": "0ab603362b93047a45c6f30bac8e28d57ac57f93",
+  "files": [
+    {"path":"CONTRACT.md","sha256":"141d79433c6a543862eecbe3b05d24ca92b3f1033eab491c0a6f2e20fd8113f7","bytes":5616},
+    {"path":"HUB_CONNECTION_PROFILE.json","sha256":"2487c9af808b7fa2f3b2726604bcb34378a02f45c48e61c84e08138c29585691","bytes":870},
+    {"path":"README.md","sha256":"9d144fc666a94bf4f4c5651f8376c62421fc66f0b00d42dd44851e5bc0e7c650","bytes":1294},
+    {"path":"REGISTER.py","sha256":"0390556ebc8b7d9ee4538a57a3f2c29b1dbb5ba7517090388a594e1285b43c9b","bytes":17204},
+    {"path":"REGISTRATION.md","sha256":"b4d9f31292a669f4c2123790e5f26c489ec3035dd18c2430f046ce23f91e43b8","bytes":1480},
+    {"path":"SOURCE_LOCK.json","sha256":"2871ac11522bd40013df0c78b8b3e7764bce7cfd95900479e62abb3d00a9c977","bytes":5741},
+    {"path":"SV5_11_FIX01.md","sha256":"73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4","bytes":5836},
+    {"path":"tools/check_hub_connection_fix.py","sha256":"63f08d0a5545696bd1290c1f6fc557e73b236219b6c6842b13544da1b28988cc","bytes":17091}
+  ]
+}

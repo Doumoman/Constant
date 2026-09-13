@@ -1,0 +1,25 @@
+{
+  "schema": "SV5_11_FIX01_REG_RECEIPT/v1",
+  "patch_id": "SV5_11_FIX01_REG",
+  "status": "REGISTERED_LOCKED_TASK_NOT_APPLIED",
+  "base_commit": "0ab603362b93047a45c6f30bac8e28d57ac57f93",
+  "package_manifest_sha256": "e52a0e75636c09c6c11e63f75d69433b880bc856a78df7a05d4aaaa71af1ca00",
+  "bound_task_sha256": "73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4",
+  "status_before_sha256": "fa9856d77469a6c57809344898ca0f03a5f10dcf43265cc167e3722cfe96ce87",
+  "status_after_sha256": "3ff2cc033b06d4d812413162a9c3615ae12d27403373de67d7c5ab77c6a0d9d8",
+  "master_before_sha256": "6c4376381fa0d621c85ea5107cabf192f86ea1ccd1c33926eeedcc74e5b2ea23",
+  "master_after_sha256": "e54fc70378799f1c383b841ddae3728be27ac35d997c622d629776f7b4196a24",
+  "state_before": {
+    "COMPLETE": 257,
+    "CURRENT": 0,
+    "LOCKED": 36
+  },
+  "state_after": {
+    "COMPLETE": 257,
+    "CURRENT": 0,
+    "LOCKED": 37
+  },
+  "current_task": "NONE",
+  "inbox_candidate": "MapDesign/MCP_INBOX/SV5_11_FIX01.md",
+  "native_apply_execution_finalize_commit": "NOT_RUN_BY_REGISTRATION_HELPER"
+}

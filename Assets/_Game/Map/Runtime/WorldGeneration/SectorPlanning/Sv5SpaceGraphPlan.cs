@@ -489,9 +489,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Concat(HubShell == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : HubShell.Cells.Select(c => c.World)).Distinct().Count();
             var movementConnections = Loops == null ? Connections : Sv5SpaceLoops.ApplyPhysicalCells(Connections, Loops);
             if (Sidepaths != null) movementConnections = Sv5SpaceSidepaths.ApplyPhysicalCells(movementConnections, Sidepaths);
+            if (HubShell != null) movementConnections = Sv5HubShell.ApplyPhysicalCells(movementConnections, HubShell);
             PhysicalMovement = Sv5SpacePhysicalMovement.Analyze(Core, movementConnections, ContactDecisions, Gates);
             PhysicalProduct = PhysicalMovement.Product;
-            Segments = Sv5SpacePhysicalProduct.BuildSegments(Connections, Gates);
+            Segments = Sv5SpacePhysicalProduct.BuildSegments(movementConnections, Gates);
             Diversity = new Sv5DiversityPlan(seed, diversityProfile ?? new Sv5DiversityProfile(), Places, diversityDecisions);
             Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }

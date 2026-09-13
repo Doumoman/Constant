@@ -1,0 +1,30 @@
+{
+  "schema": "SV5_11_FIX01_SOURCE_LOCK/v1",
+  "base_commit": "0ab603362b93047a45c6f30bac8e28d57ac57f93",
+  "base_parent": "3408a0ce540f0c9c947b5f2661f68122e06137c3",
+  "base_subject": "SV5_11_HUB_SHELL: implement actual-cell hub shell",
+  "registration_context_sha256": "171a31ae737fb1e5cf01e8477bdfa8da2229cbde81d8c519b5d9b132fd49cf20",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"41aa1eec3431fe431d65f01b364b65b674ac96c3","sha256":"fa9856d77469a6c57809344898ca0f03a5f10dcf43265cc167e3722cfe96ce87","bytes":102536,"role":"MUTATE_REGISTRATION_AND_LIFECYCLE"},
+    {"path":"MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md","git_blob_oid":"cf5cde06ef16178b1157b63fe18b25156ab90faa","sha256":"6c4376381fa0d621c85ea5107cabf192f86ea1ccd1c33926eeedcc74e5b2ea23","bytes":36933,"role":"MUTATE_REGISTRATION_ONLY"},
+    {"path":"MapDesign/MCP/TASKS/SV5_11_HUB_SHELL.md","git_blob_oid":"1791a329b9379c5115d9cfe2554a983c781b5a30","sha256":"491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b","bytes":6026,"role":"IMMUTABLE_PREDECESSOR"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_11_HUB_SHELL.md","git_blob_oid":"1791a329b9379c5115d9cfe2554a983c781b5a30","sha256":"491f9b9df0b498bc6351efe1c9ff60415fa2bdb91b7e559cc20af558e5f8b97b","bytes":6026,"role":"IMMUTABLE_PREDECESSOR"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_11_HUB_SHELL_RESULT.md","git_blob_oid":"01bc8e1623657713afa37ef6629b217f100ab3e0","sha256":"c384e61a259508e396b370742b677b2751ef6f48210193b74c6bf6f3f0480fdd","bytes":3129,"role":"IMMUTABLE_PREDECESSOR"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/BINDING.json","git_blob_oid":"9ec7200df8cd31eaadd83b4b18ae87ddb08469f8","sha256":"0efc40e77803a73029318cef27111491d5c40f56f10a4ba0748d2dcb50eb13cd","bytes":5498,"role":"IMMUTABLE_PREDECESSOR"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShell.cs","git_blob_oid":"0c36bec973fad5f5f1e22cffff602f1466de7755","sha256":"a28d211c5895ef69f753f7d428943c4b3817e0b24a76185c9ff69ff92f4fd822","bytes":24265,"role":"FIX01_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShellExport.cs","git_blob_oid":"257a17a3458b6b913cc760a2b419ac003268f807","sha256":"393c2914701489d66ef82599e6ba9532ddd161a4d2e40c810f183ff144ffff42","bytes":9673,"role":"FIX01_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs","git_blob_oid":"fe308d1ca83d34ca386f72a165ac1b13ad5a0b91","sha256":"bf27cfbd4ca1446af23f87a326408a081ddf96131305ad67a2cf445e5ac503d8","bytes":40075,"role":"FIX01_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs","git_blob_oid":"f354948a01ae07f7a33799b1f26b1e76cf07a384","sha256":"80c3cf246b755c3816a3cb737ceae4c2a6a71f5b0567ca3668cd5d6bab1874dc","bytes":65605,"role":"FIX01_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs","git_blob_oid":"5b4a8cad0262a74efa2a919a76e62ccc9f938641","sha256":"331be50dcaea55d3f07777c998584ce23bd5edad4231a34eb863e86e55dfbcf8","bytes":70257,"role":"FIX01_WRITE_OPTIONAL"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5HubShellTests.cs","git_blob_oid":"a3df5fbbca688503161ff577c6276034b0ec226f","sha256":"be4ce211f8c424f92179a3a90bfa5b271fa2a775aae082930a5c3f05184750e0","bytes":10652,"role":"FIX01_WRITE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/check_hub_shell.py","git_blob_oid":"360c0a01b86a95f2155e703f2b559f93b1dc2562","sha256":"751d5626447cadb2c55f4a72508427fa992ca12cfbe4454a07e19ae83c7043ce","bytes":14343,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/default/hub_shell.json","git_blob_oid":"f8c58170201c74b215af5a33aa181ef18eef6d60","sha256":"8408dbe93341b32374b27aec4e74323108f9ae626c3fde198f56aa1daf204501","bytes":739,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/default/hub_connections.csv","git_blob_oid":"b1f1a87a6582c8bcb11eeb3a0948d54394ed389f","sha256":"4a4fddc0b8abd628ee898f566a908da1cb74e306e8e2c6365e0730bd30eb994b","bytes":5657,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/default/hub_validation.json","git_blob_oid":"6ba16aa27f3f672d18c21d156b2ca358fff2e3cb","sha256":"eb0cdbfa32b79284b68e815142604af61c72c73f3c132af9e2aa35efe4ad0951","bytes":699,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/repeat/hub_shell.json","git_blob_oid":"62cd8fd87108875505700ec05c60fb10c9f015a6","sha256":"4cb5fb8124572aec6521966ef38e4d74f7b3400311dfa57ed32741a1b6dcfcd1","bytes":739,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/repeat/hub_connections.csv","git_blob_oid":"ba41ada09b2d3d1abed49b0106b2b8d5727868fe","sha256":"ccd5662350cd919ff1ca5a88544c6b5df0809983eb64069b1ce9cbbf2dd3dd29","bytes":4220,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/repeat/hub_validation.json","git_blob_oid":"b2bbdb961f8a002d0f096483e6c8788629979cd3","sha256":"cf7dba8ed6ed0a83bc6df39d2809d419ab20b64e7644991cba76e8d0d89ef1e4","bytes":699,"role":"IMMUTABLE_DEFECT_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/focused_results.xml","git_blob_oid":"d6bf17c2cee323c0df4481815f88d31dcd87e772","sha256":"0f5677e71fc35e1474da0d25ac489ca0c27445a09ad72c8ae87764ddb8d492e5","bytes":147648,"role":"IMMUTABLE_PREDECESSOR"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_HUB_SHELL/independent_hub_shell_audit.json","git_blob_oid":"87d20d98b50b13c7a95695c972fc8c269aa75289","sha256":"bdfa26d9e370bf57a594e51dcae102f3525dab68b02b062bfb7ec3712ab69c53","bytes":725,"role":"IMMUTABLE_PREDECESSOR"}
+  ]
+}

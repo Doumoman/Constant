@@ -1,0 +1,29 @@
+{
+  "schema": "SV5_11_FIX01_INDEPENDENT_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_HUB_CONNECTIONS",
+  "profiles": [
+    {
+      "profile": "default",
+      "status": "PASS",
+      "connections": 4,
+      "centerline_cells": 230,
+      "changed_cells": 329,
+      "constraint_cells": 71672,
+      "constraint_sources": 8,
+      "plan_digest": "fafb12050a991883150238dd1cec129cf63fabc44d16196040f2d45148a533a8",
+      "errors": []
+    },
+    {
+      "profile": "repeat",
+      "status": "PASS",
+      "connections": 5,
+      "centerline_cells": 231,
+      "changed_cells": 370,
+      "constraint_cells": 76428,
+      "constraint_sources": 8,
+      "plan_digest": "8b4e71be724a084e25699799da11596206b2fc4c84299bd84f1e8e0dc68a0baa",
+      "errors": []
+    }
+  ],
+  "errors": []
+}
