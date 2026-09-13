@@ -1,0 +1,47 @@
+{
+  "schema": "SV5_12_FIX01_REG_FILES/v1",
+  "task": "SV5_12_FIX01",
+  "base_commit": "3f05858cb80d6437e89123fb6b6dd30a395996fc",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "8b3a7c1a44cc22537e101253598340ef8e23d707a5d26536249a7045850c6692",
+      "bytes": 8029
+    },
+    {
+      "path": "README.md",
+      "sha256": "885fa90a647ee6e6ff4d21383b8ed51c591b397efcb5750d5c99d4768a323f52",
+      "bytes": 1402
+    },
+    {
+      "path": "REGISTER.py",
+      "sha256": "c1e5bed9b222192613c35d4b7cc68555dc3cb7a44996393712e4db047bd206f5",
+      "bytes": 17226
+    },
+    {
+      "path": "REGISTRATION.md",
+      "sha256": "2aacb3dcfae073c1d551336243620e0fbef8975d607acea49bcf686a8e1299bc",
+      "bytes": 1519
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "c77fac500fee4f5daaa74a547e0fc160e331677b1ec08992efd46a1d00ce2428",
+      "bytes": 17465
+    },
+    {
+      "path": "SV5_12_FIX01.md",
+      "sha256": "3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0",
+      "bytes": 6327
+    },
+    {
+      "path": "TREE_CANOPY_PROFILE.json",
+      "sha256": "59dfaeda2d06908aa73850066b3fae21043c9f5e331aa42b28b865966d8d7c0d",
+      "bytes": 1671
+    },
+    {
+      "path": "tools/check_tree_canopy_fix.py",
+      "sha256": "aafcf7c013b5378ab0e09ca3c90dee3975e95ed3aa01039d65d538ff8d6b0a80",
+      "bytes": 25912
+    }
+  ]
+}

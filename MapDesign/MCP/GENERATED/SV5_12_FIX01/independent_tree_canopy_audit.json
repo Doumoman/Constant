@@ -1,0 +1,69 @@
+{
+  "schema": "SV5_12_FIX01_TREE_CANOPY_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_TREE_CANOPY_FIX",
+  "profiles": [
+    {
+      "profile": "default",
+      "status": "PASS",
+      "envelope": {
+        "x": 543,
+        "y": 240,
+        "width": 10,
+        "height": 24
+      },
+      "root_axis_x": 547,
+      "root_width": 5,
+      "lower_middle_upper_max_stem_width_average": [
+        4.75,
+        3.125,
+        3.125
+      ],
+      "limb_horizontal_span": 10,
+      "limb_vertical_span": 24,
+      "left_reach": 4,
+      "right_reach": 5,
+      "substantial_forks": 4,
+      "second_generation_forks": 3,
+      "climb_endpoints": 5,
+      "longest_straight_limb_run": 4,
+      "branch_platforms": 9,
+      "itemless_routes": 2,
+      "recovery_routes": 3,
+      "geometry_digest": "8c740081c1a3f6b3bb2feabfd767406e364bb5bcc33dcb621b40f4681c52c17d",
+      "overview_sha256": "0b971289ccc907dacbd24f35b32cdd5d1eb792cbb9f750c17a74ddee9e94546a",
+      "errors": []
+    },
+    {
+      "profile": "repeat",
+      "status": "PASS",
+      "envelope": {
+        "x": 559,
+        "y": 240,
+        "width": 10,
+        "height": 24
+      },
+      "root_axis_x": 564,
+      "root_width": 5,
+      "lower_middle_upper_max_stem_width_average": [
+        4.75,
+        3.125,
+        3.125
+      ],
+      "limb_horizontal_span": 10,
+      "limb_vertical_span": 24,
+      "left_reach": 5,
+      "right_reach": 4,
+      "substantial_forks": 4,
+      "second_generation_forks": 3,
+      "climb_endpoints": 5,
+      "longest_straight_limb_run": 4,
+      "branch_platforms": 9,
+      "itemless_routes": 2,
+      "recovery_routes": 3,
+      "geometry_digest": "6d59a22d57a8c116a3bda0aaa2d268e74f2102f5e89c8e12bbdb66b6b249bdc8",
+      "overview_sha256": "852fb432ee7f4870813ae404d68cf1ad8b5e275949764893a799f89c4e01d6e2",
+      "errors": []
+    }
+  ],
+  "errors": []
+}

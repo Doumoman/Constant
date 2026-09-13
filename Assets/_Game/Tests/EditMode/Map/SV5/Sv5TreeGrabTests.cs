@@ -222,11 +222,12 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test,Timeout(600000)] public void T28_DefaultAndRepeatExportsIncludeCollisionAndVisualEvidence()
         {
             string root=Path.GetFullPath(Path.Combine(Application.dataPath,".."));
-            string output=Path.Combine(root,"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB");
+            string output=Path.Combine(root,"MapDesign/MCP/GENERATED/SV5_12_FIX01");
             Sv5TreeGrabExport.WriteComparison(output,Default.Value,Repeat.Value);
             foreach(string profile in new[]{"default","repeat"})foreach(string file in new[]{"hub_connections.csv",
-                "hub_connection_cells.csv","hub_connection_movement.csv","tree_grab.json","tree_cells.csv",
-                "tree_surfaces.csv","tree_movement_witness.csv","tree_recovery_witness.csv","tree_climb_network.csv",
+                "hub_connection_cells.csv","hub_connection_movement.csv","tree_canopy.json","tree_grab.json","tree_cells.csv",
+                "tree_limbs.csv","tree_forks.csv","tree_platforms.csv","tree_surfaces.csv",
+                "tree_movement_witness.csv","tree_recovery_witness.csv","tree_climb_network.csv",
                 "tree_validation.json","preview/tree_grab.svg","preview/tree_grab_overview.svg",
                 "preview/tree_collision_overlay.svg"})Assert.That(File.Exists(Path.Combine(output,profile,file)),Is.True,profile+"/"+file);
             string validation=File.ReadAllText(Path.Combine(output,"default/tree_validation.json"));

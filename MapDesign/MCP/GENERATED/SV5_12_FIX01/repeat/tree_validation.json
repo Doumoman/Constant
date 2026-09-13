@@ -1,0 +1,22 @@
+{
+  "schema":"SV5_12_FIX01_TREE_VALIDATION/v1",
+  "status":"PASS",
+  "success":true,
+  "distinct_physical_external_anchors":4,
+  "tree_route_count":2,
+  "tree_recovery_route_count":3,
+  "tree_canopy_fix_ready":true,
+  "tree_grab_geometry_ready":true,
+  "composed_geometry_ready":false,
+  "player_verified":false,
+  "physical_product_success":true,
+  "physical_state_count":9,
+  "resource_order_count":6,
+  "global_product_runs":1,
+  "whole_world_copy_per_candidate":0,
+  "whole_world_bfs_per_candidate":0,
+  "branch_grab_count":0,
+  "required_entrances_reachable":true,
+  "required_exits_reachable":true,
+  "diagnostics":[]
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "SV5_12_FIX01_TREE_CANOPY_BINDING/v1",
+  "task": "SV5_12_FIX01",
+  "base": {
+    "commit": "3f05858cb80d6437e89123fb6b6dd30a395996fc",
+    "parent": "aeedc340670843d0bbeb43d3aad853a7953ba3b9",
+    "subject": "SV5_12_TREE_GRAB: build branching climbable central tree"
+  },
+  "package": {
+    "zip_sha256": "da5ea8ad8041291752c9d417505341721bee46e8d63815f01d02b46ee992b6cb",
+    "manifest_sha256": "4e105776c43e7172cce825ea0d1edf439c620f63567135a9a883c41360b65a5f",
+    "source_lock_sha256": "c77fac500fee4f5daaa74a547e0fc160e331677b1ec08992efd46a1d00ce2428",
+    "registration_check": "PASS_REGISTRATION_PREFLIGHT_READONLY",
+    "verify_staged": "PASS_STAGED_REGISTRATION",
+    "verify_task_inputs": "PASS_TASK_INPUTS",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0",
+    "archive_task_sha256": "3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_12_TREE_GRAB",
+    "task_sha256": "87f54b58c555632f0a11e2495b7351c8ac69b8ebb37240e1d56c97dd4b149204",
+    "archive_sha256": "87f54b58c555632f0a11e2495b7351c8ac69b8ebb37240e1d56c97dd4b149204",
+    "result_sha256": "dd2191974d3b5f4e1b897d691daa666e2f0b8b163e3c014fae1167189d32cc73",
+    "binding_sha256": "83970910d0a2087d11090a33c0c3cf639dd64ccae43a7655ff5ba0d213e91ba6"
+  },
+  "before_implementation": {
+    "status_sha256": "5569c7d1ea9e816e09eb67dab11caa67b94211bceebe2633310f79209871bd03",
+    "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+    "counts": {"COMPLETE": 259, "CURRENT": 1, "LOCKED": 35},
+    "current_task": "SV5_12_FIX01",
+    "SV5_13_JUMP_CONTRACT": "LOCKED"
+  },
+  "verification": {
+    "compile": {"status": "PASS", "runner": "Unity EditMode targeted compile/test path"},
+    "targeted": {
+      "status": "PASS",
+      "tests": 72,
+      "passed": 72,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 371.1566952,
+      "start_utc": "2026-09-13T16:42:55Z",
+      "end_utc": "2026-09-13T16:49:06Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_12_FIX01/targeted_results.xml",
+      "xml_sha256": "513495ed28e74ed5c0ea219ae591f4e8b2363752eb7aa9ff3496642b69eeb808"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_TREE_CANOPY_FIX",
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_12_FIX01/independent_tree_canopy_audit.json",
+      "audit_sha256": "53b3ddd45b827249509dd396dab2ae6f8505fac0ede7825b7ae901c5829f8aa4"
+    },
+    "visual_export": {
+      "status": "PASS_VISUAL_EXPORT",
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_12_FIX01/visual_export_audit.json",
+      "audit_sha256": "8455ae36d0b2d128ff7dda1456ec831317107099a05e8a77b67315cff770532d"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "executions": 1,
+      "tests": 211,
+      "passed": 211,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1338.2590791,
+      "start_utc": "2026-09-13T16:51:24Z",
+      "end_utc": "2026-09-13T17:13:43Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_12_FIX01/focused_results.xml",
+      "xml_sha256": "147389507b438d73c2e7b405bdec8bf5f162bdd23c7cf42733e6a5d833b96d53"
+    },
+    "ordered_gates": [
+      "COMPILE",
+      "TARGETED_HUB_TREE_FIX01",
+      "INDEPENDENT_CHECKER",
+      "VISUAL_RENDER_AND_INSPECTION",
+      "FULL_SV5_REGRESSION_ONCE",
+      "POST_READONLY"
+    ]
+  },
+  "profiles": {
+    "default": {
+      "plan_digest": "ae2fed5ef829d8354eddf66bd4b319bd2213e535e14332b77df4ce05203270a3",
+      "tree_digest": "da9ab4b88670fe0595d1117f6a91e72abb567e0f862d88aa39ea86102f1d3f0f",
+      "envelope": "10x24",
+      "root_width": 5,
+      "lower_middle_upper_band_average": [4.75, 3.125, 3.125],
+      "limb_span": 10,
+      "left_reach": 4,
+      "right_reach": 5,
+      "substantial_forks": 4,
+      "second_generation_forks": 3,
+      "climb_endpoints": 5,
+      "branch_platforms": 9,
+      "branch_grabs": 0,
+      "itemless_routes": 2,
+      "recovery_routes": 3,
+      "generation_milliseconds": 4,
+      "total_build_milliseconds": 33113.737,
+      "legal_states": 9,
+      "resource_orders": 6,
+      "physical_product_digest": "e9ad57c416c9a5c64a5e25938e8ebd6c431515f1942e66819e05d7ba0fc230ed"
+    },
+    "repeat": {
+      "plan_digest": "37ed7780209b0737e197d116ab313609544c48465e400be55da67a89566cb1b2",
+      "tree_digest": "dbc105d08e6ebc58f2c83c34c7a9ae8dde0f91ba6b18c2c568c8919fab14e0ec",
+      "envelope": "10x24",
+      "root_width": 5,
+      "lower_middle_upper_band_average": [4.75, 3.125, 3.125],
+      "limb_span": 10,
+      "left_reach": 5,
+      "right_reach": 4,
+      "substantial_forks": 4,
+      "second_generation_forks": 3,
+      "climb_endpoints": 5,
+      "branch_platforms": 9,
+      "branch_grabs": 0,
+      "itemless_routes": 2,
+      "recovery_routes": 3,
+      "generation_milliseconds": 5,
+      "total_build_milliseconds": 36859.300,
+      "legal_states": 9,
+      "resource_orders": 6,
+      "physical_product_digest": "ac860be64e35c539fc5d991660c7cc99709ed6f04b260e965d19a0452ba4a111"
+    }
+  },
+  "artifacts": {
+    "source_tree_sha256": "33717da8d1f77e259ce120ae42fe0f8ba2102e014d76f5fe9e10ae5ca9f32598",
+    "source_tree_members": 6,
+    "evidence_tree_sha256": "7afaec2f4b65e478a6bcea5b7374d42ec2e66e86bca9e5161ff91ff90266f79f",
+    "evidence_tree_members": 76,
+    "tree_algorithm": "SHA256 of sorted '<file-sha256>  <repo-relative-path>\\n' UTF-8 records; evidence excludes BINDING.json, _work, and ZIP files",
+    "default_tree_canopy_sha256": "4585a7defc65a13db44e0c00d1f333643f6729dcca860a749441ab4e1c8a3727",
+    "repeat_tree_canopy_sha256": "c47af6b8cfd209b6510170b29dd7610a210467da6cb154801ee6be39d3f6758a"
+  },
+  "readiness": {
+    "tree_canopy_fix_ready": true,
+    "tree_grab_geometry_ready": true,
+    "composed_geometry_ready": false,
+    "player_verified": false,
+    "sv5_13_jump_contract": "LOCKED",
+    "push_performed": false
+  }
+}

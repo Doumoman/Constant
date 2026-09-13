@@ -1,0 +1,31 @@
+{
+  "schema": "SV5_12_FIX01_VISUAL_EXPORT_AUDIT/v1",
+  "status": "PASS_VISUAL_EXPORT",
+  "renderer": "Microsoft Edge headless",
+  "render_size_pixels": "576x960",
+  "tile_scale_pixels": 12,
+  "profiles": {
+    "default": {
+      "overview_svg_sha256": "0b971289ccc907dacbd24f35b32cdd5d1eb792cbb9f750c17a74ddee9e94546a",
+      "collision_overlay_svg_sha256": "44200c28cc591846061f2a513e7719e01069d2d2c0aa7765a59cba2812958c3f",
+      "rendered_overview_sha256": "f1a84498fcb09d66ea2be722b0caef59841b54b6833033e62fe5879a08d6285c",
+      "rendered_collision_overlay_sha256": "3c503521e878b12472f62ada436bbcab2149de6b7b6248d2c7a24231010faec4"
+    },
+    "repeat": {
+      "overview_svg_sha256": "852fb432ee7f4870813ae404d68cf1ad8b5e275949764893a799f89c4e01d6e2",
+      "collision_overlay_svg_sha256": "b65d74637be318cc58f744d0debb148c17c6db9b3939c01a395e3949bd2e6cd8",
+      "rendered_overview_sha256": "3b8c23ab3a8c475878bdc895a76da091346ebf0f0ca74d8826f6ba11fcdaff62",
+      "rendered_collision_overlay_sha256": "e1eea80dece97107099dc83af7e6b07815d14dbb3a88ed2749a8ea0f5baec76d"
+    }
+  },
+  "inspection": {
+    "rooted_branching_tree_not_pillar_or_cactus": true,
+    "thick_lower_root_visible": true,
+    "multi_stem_canopy_visible": true,
+    "asymmetric_default_repeat_forms_visible": true,
+    "hub_inner_and_envelope_visible": true,
+    "root_axis_and_limb_ids_visible": true,
+    "required_ports_routes_and_recoveries_visible": true,
+    "branch_platform_landing_only_no_grab_legend_visible": true
+  }
+}
