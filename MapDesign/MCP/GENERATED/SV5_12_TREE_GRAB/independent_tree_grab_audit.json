@@ -1,0 +1,31 @@
+{
+  "schema": "SV5_12_TREE_GRAB_INDEPENDENT_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_TREE_GRAB",
+  "profiles": [
+    {
+      "profile": "default",
+      "status": "PASS",
+      "logical_connections": 4,
+      "physical_external_anchors": 4,
+      "connection_movement_witnesses": 4,
+      "tree_routes": 2,
+      "recovery_routes": 3,
+      "tree_cells": 169,
+      "grabbable_surfaces": 39,
+      "errors": []
+    },
+    {
+      "profile": "repeat",
+      "status": "PASS",
+      "logical_connections": 4,
+      "physical_external_anchors": 4,
+      "connection_movement_witnesses": 4,
+      "tree_routes": 2,
+      "recovery_routes": 3,
+      "tree_cells": 169,
+      "grabbable_surfaces": 39,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

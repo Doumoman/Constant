@@ -36,6 +36,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Write(Path.Combine(directory,"hub_ports.csv"),PortsCsv(plan));
             Write(Path.Combine(directory,"hub_connections.csv"),ConnectionsCsv(plan));
             Write(Path.Combine(directory,"hub_connection_cells.csv"),ConnectionCellsCsv(plan));
+            Write(Path.Combine(directory,"hub_connection_movement.csv"),ConnectionMovementCsv(plan));
             Write(Path.Combine(directory,"hub_connection_checks.csv"),ConnectionChecksCsv(plan));
             WriteConstraintSources(plan,directory);
             Write(Path.Combine(directory,"hub_validation.json"),ValidationJson(plan));
@@ -55,7 +56,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"physical_movement_digest\":"+J(plan.PhysicalMovement.SemanticDigest)+",\n"+
                 "  \"physical_product_digest\":"+J(plan.PhysicalProduct.SemanticDigest)+",\n"+
                 "  \"connection_count\":"+hub.Connections.Count+",\n"+
-                "  \"tree_grab_geometry_ready\":false,\n  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
+                "  \"tree_grab_geometry_ready\":"+B(plan.TreeGrab?.TreeGrabGeometryReady==true)+",\n"+
+                "  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
         }
         public static string CandidatesCsv(Sv5SpaceGraphPlan plan)=>Csv(
             "candidate_id,x,y,width,height,available_connections,path_cells,status,reason,hub_digest",
@@ -81,7 +83,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             "connection_id,cell_role,sequence,x,y,before_value,final_value,head_value,support_value,changed,ownership,plan_digest",
             plan.HubShell.Connections.SelectMany(v=>v.Cells).Select(v=>Row(v.ConnectionId,v.ExportRole,v.Sequence,
                 v.World.X,v.World.Y,Value(v.BeforeValue),Value(v.FinalValue),Value(v.HeadValue),Value(v.SupportValue),
-                v.Changed,v.Ownership,plan.Digest)));
+                 v.Changed,v.Ownership,plan.Digest)));
+        public static string ConnectionMovementCsv(Sv5SpaceGraphPlan plan)=>Csv(
+            "connection_id,sequence,from_x,from_y,to_x,to_y,move_type,body_clear,head_clear,contact_x,contact_y,plan_digest",
+            plan.HubShell.Connections.SelectMany(connection=>connection.MovementWitness.Select(edge=>Row(connection.Id,
+                edge.Sequence,edge.From.X,edge.From.Y,edge.To.X,edge.To.Y,edge.ExportMoveType,edge.BodyClear,
+                edge.HeadClear,edge.Contact.HasValue?(object)edge.Contact.Value.X:string.Empty,
+                edge.Contact.HasValue?(object)edge.Contact.Value.Y:string.Empty,plan.Digest))));
         public static string ConnectionChecksCsv(Sv5SpaceGraphPlan plan)=>Csv(
             "connection_id,check_id,status,detail,plan_digest",plan.HubShell.Connections.SelectMany(connection=>
                 Checks(connection).Select(check=>Row(connection.Id,check.Key,check.Value?"PASS":"FAIL",CheckDetail(connection,check.Key),plan.Digest))));
@@ -109,7 +117,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"timings_ms\":{"+string.Join(",",hub.Performance.TimingsMilliseconds.Select(v=>J(v.Key)+":"+
                     v.Value.ToString("0.000",CultureInfo.InvariantCulture)))+"},\n"+
                 "  \"diagnostics\":["+string.Join(",",hub.Diagnostics.Select(J))+"],\n"+
-                "  \"tree_grab_geometry_ready\":false,\n  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
+                "  \"tree_grab_geometry_ready\":"+B(plan.TreeGrab?.TreeGrabGeometryReady==true)+",\n"+
+                "  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
         }
         public static string Preview(Sv5SpaceGraphPlan plan)
         {
@@ -153,7 +162,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             yield return new KeyValuePair<string,bool>("CARDINAL_CENTERLINE",connection.Centerline.Distinct().Count()==connection.Centerline.Count&&
                 connection.Centerline.Zip(connection.Centerline.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)).All(v=>v==1));
             yield return new KeyValuePair<string,bool>("HEAD_CLEARANCE",connection.Cells.Where(v=>v.Role==Sv5HubConnectionCellRole.Centerline).All(v=>v.HeadValue==Sv5InfillCellValue.Air));
-            yield return new KeyValuePair<string,bool>("MOVEMENT_WITNESS",connection.RouteVerified&&connection.MovementWitness.Count>=2);
+            yield return new KeyValuePair<string,bool>("MOVEMENT_WITNESS",connection.RouteVerified&&connection.MovementWitness.Count>=1&&
+                connection.MovementWitness.All(edge=>edge.BodyClear&&edge.HeadClear));
             yield return new KeyValuePair<string,bool>("NO_PROTECTED_BODY",!connection.ProtectedOverlap);
             yield return new KeyValuePair<string,bool>("NO_TYPE0",!connection.Type0Overlap);
             yield return new KeyValuePair<string,bool>("NO_PROGRESSION_BYPASS",!connection.ProgressionBypass);

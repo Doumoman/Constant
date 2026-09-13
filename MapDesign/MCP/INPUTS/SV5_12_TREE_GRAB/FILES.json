@@ -1,0 +1,14 @@
+{
+  "schema": "SV5_12_TREE_GRAB_FILES/v1",
+  "task": "SV5_12_TREE_GRAB",
+  "base_commit": "aeedc340670843d0bbeb43d3aad853a7953ba3b9",
+  "files": [
+    {"path":"CONTRACT.md","sha256":"2590da69cdce47ed9921a64e41b059f5b2a305c6ce4ed911e121efa7697ba127","bytes":5915},
+    {"path":"README.md","sha256":"4e89a1ec3d06d18f4ada93b85ddffef2ef8dacce6c433ae43237ab4289b087dd","bytes":1367},
+    {"path":"SOURCE_LOCK.json","sha256":"a525d7d68be8ec86ba2caa1315e32320aeff24aea443e8c1821b2507d28ae161","bytes":4596},
+    {"path":"STAGE.py","sha256":"4474ae2b7d95dd59a9ff9dc906135582e4ac1dc33ec22fc052d90afca8e01e75","bytes":12476},
+    {"path":"SV5_12_TREE_GRAB.md","sha256":"87f54b58c555632f0a11e2495b7351c8ac69b8ebb37240e1d56c97dd4b149204","bytes":4589},
+    {"path":"TREE_GRAB_PROFILE.json","sha256":"32d45df15070e1948550251bdecf3ca58f31403eb42f1ff7438768a60916e407","bytes":1228},
+    {"path":"tools/check_tree_grab.py","sha256":"18d7a4f6eb229cebd651f69ababd7014c54c7ae29759c10d544390ec45650b2f","bytes":13177}
+  ]
+}

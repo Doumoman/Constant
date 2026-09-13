@@ -92,7 +92,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5HubConnection : IComparable<Sv5HubConnection>
     {
         private readonly ReadOnlyCollection<RmapSpecialWorldPoint> centerline;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> movementWitness;
+        private readonly ReadOnlyCollection<Sv5MovementEdge> movementWitness;
         private readonly ReadOnlyCollection<Sv5HubConnectionCell> cells;
         internal Sv5HubConnection(string id, string portId, string socketId, string externalRoomId,
             string externalSpaceGroupId, RmapSpecialWorldPoint portAnchor, RmapSpecialWorldPoint externalAnchor,
@@ -117,7 +117,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public RmapSpecialWorldPoint PortAnchor { get; }
         public RmapSpecialWorldPoint ExternalAnchor { get; }
         public IReadOnlyList<RmapSpecialWorldPoint> Centerline => centerline;
-        public IReadOnlyList<RmapSpecialWorldPoint> MovementWitness => movementWitness;
+        public IReadOnlyList<Sv5MovementEdge> MovementWitness => movementWitness;
         public IReadOnlyList<Sv5HubConnectionCell> Cells => cells;
         public string Direction { get; }
         public bool RouteVerified { get; }
@@ -128,6 +128,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string DigestToken => Id+"|"+PortId+"|"+ExternalRoomId+"|"+ExternalSpaceGroupId+"|"+
             PortAnchor+"|"+ExternalAnchor+"|"+Direction+"|"+RouteVerified+"|"+ProtectedOverlap+"|"+
             Type0Overlap+"|"+ProgressionBypass+"|"+string.Join(";",Centerline)+"|"+
+            string.Join(";",MovementWitness.Select(edge=>edge.DigestToken))+"|"+
             string.Join(";",Cells.Select(cell=>cell.ExportRole+":"+cell.Sequence+":"+cell.World+":"+
                 cell.BeforeValue+">"+cell.FinalValue+":"+cell.Ownership));
         public int CompareTo(Sv5HubConnection other) => other == null ? 1 : string.Compare(Id,other.Id,StringComparison.Ordinal);
@@ -225,6 +226,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public bool Success => Diagnostics.Count==0 && HubId.Length!=0 && Sockets.Count==6 && Ports.Count>=4 && Ports.Count<=6 &&
             Connections.Count==Ports.Count && Connections.Select(v=>v.ExternalRoomId).Distinct(StringComparer.Ordinal).Count()==Connections.Count &&
             Connections.Select(v=>v.ExternalSpaceGroupId).Distinct(StringComparer.Ordinal).Count()==Connections.Count &&
+            Connections.Select(v=>v.ExternalAnchor).Distinct().Count()==Connections.Count &&
             Connections.All(v=>v.RouteVerified&&!v.ProtectedOverlap&&!v.Type0Overlap&&!v.ProgressionBypass&&v.ChangedCellCount>0);
     }
 
@@ -322,7 +324,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var cells=Time("accepted_overlay_ms",()=>BuildCells(hubId,chosen.Candidate.Bounds,sockets,baseline));
             var final=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(baseline);
             foreach(var cell in cells) final[cell.World]=new Sv5LoopOccupancyCell(cell.World,cell.FinalValue,"HUB_SHELL_ACTUAL",cell.MicroPatternOwner);
-            foreach(var cell in connections.SelectMany(connection=>connection.Cells).Where(cell=>cell.Changed))
+            foreach(var cell in connections.SelectMany(connection=>connection.Cells).Where(cell=>cell.Changed||
+                cell.Role==Sv5HubConnectionCellRole.Support))
                 final[cell.World]=new Sv5LoopOccupancyCell(cell.World,cell.FinalValue,"HUB_CONNECTION_ACTUAL","HUB_CONNECTION_ACTUAL");
             if(!ConnectedPorts(cells,ports))diagnostics.Add("HUB_PORT_COMPONENT_SPLIT");
             if(cells.Any(v=>constraints.FootprintBlocked.Contains(v.World)))diagnostics.Add("HUB_PROTECTED_OVERLAP");
@@ -361,7 +364,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 {Reject("TARGET_SHORTFALL");output.Add(new Attempt{Candidate=new Sv5HubCandidate(id,bounds,potentialGroups,0,
                     "REJECTED","TARGET_SHORTFALL"),Assignments=Array.Empty<Assignment>()});continue;}
                 void Search(int optionIndex,List<Assignment> current,HashSet<string> rooms,HashSet<string> groups,
-                    HashSet<RmapSpecialWorldPoint> reserved,int? component)
+                    HashSet<RmapSpecialWorldPoint> anchors,HashSet<RmapSpecialWorldPoint> reserved,int? component)
                 {
                     if(current.Count>assignments.Count)assignments=current.ToList();
                     if(assignments.Count>=profile.TargetConnections||optionIndex>=socketOptions.Length||
@@ -372,7 +375,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     var spec=option.Spec;
                     foreach(var endpoint in option.Endpoints)
                     {
-                        if(rooms.Contains(endpoint.RoomId)||groups.Contains(endpoint.SpaceGroupId))continue;
+                        if(rooms.Contains(endpoint.RoomId)||groups.Contains(endpoint.SpaceGroupId)||
+                            anchors.Contains(endpoint.World))continue;
                         if(!closedComponents.TryGetValue(endpoint.World,out int endpointComponent))
                         {lastReason="EXTERNAL_ANCHOR_OUTSIDE_MOVEMENT";Reject(lastReason);continue;}
                         if(component.HasValue&&component.Value!=endpointComponent)
@@ -387,18 +391,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                             reserved,out Sv5HubConnectionRoute route,out string reason))
                         {lastReason=reason;Reject(reason);continue;}
                         var selected=new Assignment{Socket=spec,Endpoint=endpoint,Route=route};
-                        var owned=selected.Route.Cells.Where(cell=>cell.Changed).Select(cell=>cell.World).ToArray();
-                        current.Add(selected);rooms.Add(endpoint.RoomId);groups.Add(endpoint.SpaceGroupId);reserved.UnionWith(owned);
-                        Search(optionIndex+1,current,rooms,groups,reserved,component??endpointComponent);
-                        reserved.ExceptWith(owned);groups.Remove(endpoint.SpaceGroupId);rooms.Remove(endpoint.RoomId);
+                        var occupied=selected.Route.Cells.Select(cell=>cell.World).Where(cell=>!bounds.Contains(cell)&&
+                            !cell.Equals(endpoint.World)).Distinct().ToArray();
+                        current.Add(selected);rooms.Add(endpoint.RoomId);groups.Add(endpoint.SpaceGroupId);
+                        anchors.Add(endpoint.World);reserved.UnionWith(occupied);
+                        Search(optionIndex+1,current,rooms,groups,anchors,reserved,component??endpointComponent);
+                        reserved.ExceptWith(occupied);anchors.Remove(endpoint.World);
+                        groups.Remove(endpoint.SpaceGroupId);rooms.Remove(endpoint.RoomId);
                         current.RemoveAt(current.Count-1);
                         if(assignments.Count>=profile.TargetConnections||routeAttempts>=profile.MaximumLocalRouteAttempts||
                             candidateRouteAttempts>=profile.MaximumRouteAttemptsPerCandidate)break;
                     }
-                    Search(optionIndex+1,current,rooms,groups,reserved,component);
+                    Search(optionIndex+1,current,rooms,groups,anchors,reserved,component);
                 }
                 Search(0,new List<Assignment>(),new HashSet<string>(StringComparer.Ordinal),
-                    new HashSet<string>(StringComparer.Ordinal),new HashSet<RmapSpecialWorldPoint>(),null);
+                    new HashSet<string>(StringComparer.Ordinal),new HashSet<RmapSpecialWorldPoint>(),
+                    new HashSet<RmapSpecialWorldPoint>(),null);
                 assignments=assignments.OrderBy(v=>v.Socket.Side).ThenBy(v=>v.Socket.Tier).Take(profile.TargetConnections).ToList();
                 int pathCells=assignments.SelectMany(v=>v.Route.Centerline).Distinct().Count();
                 string status=assignments.Count>=profile.MinimumConnections?"ELIGIBLE":"REJECTED";
@@ -429,14 +437,32 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             int Score(ExternalTarget endpoint)=>Math.Abs(endpoint.World.Y-spec.Anchor.Y)*4+
                 Math.Abs(endpoint.World.X-spec.Anchor.X);
-            return endpoints.Where(endpoint=>!bounds.Contains(endpoint.World))
+            int Fallback(ExternalTarget endpoint)=>endpoint.Id.StartsWith("COMPONENT_",StringComparison.Ordinal)?1:0;
+            var groups=endpoints.Where(endpoint=>!bounds.Contains(endpoint.World))
+                .Where(endpoint=>!endpoint.SpaceGroupId.EndsWith("RETURN_TO_START",StringComparison.Ordinal))
                 .Where(endpoint=>Math.Abs(endpoint.World.X-spec.Anchor.X)+Math.Abs(endpoint.World.Y-spec.Anchor.Y)+1<=
                     Sv5HubConnectionRouter.MaximumCenterlineCells)
                 .GroupBy(endpoint=>endpoint.SpaceGroupId,StringComparer.Ordinal)
-                .SelectMany(group=>group.OrderBy(Score).ThenBy(endpoint=>endpoint.RoomId,StringComparer.Ordinal)
-                    .ThenBy(endpoint=>endpoint.Id,StringComparer.Ordinal).Take(4))
-                .OrderBy(Score).ThenBy(endpoint=>endpoint.RoomId,StringComparer.Ordinal)
-                .ThenBy(endpoint=>endpoint.Id,StringComparer.Ordinal);
+                .Select(group=>new
+                {
+                    Id=group.Key,
+                    Endpoints=group.OrderBy(Fallback).ThenBy(Score)
+                        .ThenBy(endpoint=>endpoint.World).ThenBy(endpoint=>endpoint.RoomId,StringComparer.Ordinal)
+                        .ThenBy(endpoint=>endpoint.Id,StringComparer.Ordinal).ToArray()
+                })
+                .OrderBy(group=>group.Endpoints.Length==0?int.MaxValue:Score(group.Endpoints[0]))
+                .ThenBy(group=>group.Id,StringComparer.Ordinal).ToArray();
+            var result=new List<ExternalTarget>();var usedWorlds=new HashSet<RmapSpecialWorldPoint>();
+            for(int round=0;round<4;round++)
+            {
+                foreach(var group in groups)
+                {
+                    var endpoint=group.Endpoints.Skip(round).FirstOrDefault(value=>!usedWorlds.Contains(value.World));
+                    if(endpoint==null)continue;
+                    result.Add(endpoint);usedWorlds.Add(endpoint.World);
+                }
+            }
+            return result;
         }
 
         private static ExternalTarget[] Targets(Sv5SpaceGraphPlan plan,ConstraintIndex constraints,

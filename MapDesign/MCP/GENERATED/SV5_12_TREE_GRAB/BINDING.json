@@ -1,0 +1,181 @@
+{
+  "schema": "SV5_12_TREE_GRAB_BINDING/v2",
+  "task": "SV5_12_TREE_GRAB",
+  "base": {
+    "commit": "aeedc340670843d0bbeb43d3aad853a7953ba3b9",
+    "parent": "0ab603362b93047a45c6f30bac8e28d57ac57f93",
+    "subject": "SV5_11_FIX01: replace synthetic Hub lines with actual-cell routes"
+  },
+  "package": {
+    "manifest_sha256": "18c3549d8e494174962c3a1fef9126394ffc71a83f83100d6e7ee6313f88fc32",
+    "check": "PASS_CHECK",
+    "stage": "PASS_STAGE",
+    "verify_staged": "PASS_STAGED",
+    "verify_applied": "PASS_APPLIED",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "87f54b58c555632f0a11e2495b7351c8ac69b8ebb37240e1d56c97dd4b149204",
+    "archive_task_sha256": "87f54b58c555632f0a11e2495b7351c8ac69b8ebb37240e1d56c97dd4b149204",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_11_FIX01",
+    "task_sha256": "73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4",
+    "archive_sha256": "73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4",
+    "result_sha256": "ab98863018e478999665010e1c61d77b9c9d84215be8887942f8c2da240a4949",
+    "binding_sha256": "b1ba39cd5b0b26d3ac003630561c650b8deaaadd31579df22ac8eab824989520"
+  },
+  "before_implementation": {
+    "status_sha256": "5705e82d2d4b2f236ca3024237bc2d34c466a0c056bbb070cbd15a22f5a9e981",
+    "master_sha256": "e54fc70378799f1c383b841ddae3728be27ac35d997c622d629776f7b4196a24",
+    "counts": {
+      "COMPLETE": 258,
+      "CURRENT": 1,
+      "LOCKED": 35
+    },
+    "current_task": "SV5_12_TREE_GRAB",
+    "SV5_13_JUMP_CONTRACT": "LOCKED"
+  },
+  "owner_clarification": {
+    "trunk_role": "TRUNK_CLIMB",
+    "trunk_vertical_traversal": "CONTINUOUS_AFTER_INITIAL_CAPTURE",
+    "branch_role": "BRANCH_PLATFORM",
+    "branch_collision": "TOP_ONLY",
+    "branch_grab_allowed": false,
+    "decorative_branch_collision": false,
+    "leaf_decoration_collision": false,
+    "initial_jump_grab_cap_cells": 2,
+    "per_terrain_settings_ui": "DEFERRED_TO_SEPARATE_CONTRACT"
+  },
+  "verification": {
+    "compile": {
+      "status": "PASS",
+      "runner": "Unity EditMode compile probe"
+    },
+    "targeted": {
+      "status": "PASS",
+      "tests": 60,
+      "passed": 60,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 385.0989456,
+      "start_utc": "2026-09-13T14:09:09Z",
+      "end_utc": "2026-09-13T14:15:34Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/targeted_results.xml",
+      "xml_sha256": "662177a72db659e1f55ddfae193ac7afe18bd2938850d032c546ca56fa516351"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_TREE_GRAB",
+      "executions": 1,
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/independent_tree_grab_audit.json",
+      "audit_sha256": "f15bb18326a696fb80bd32d6973fb69f228483f02f349cb2c495c8a6ddd7a3dc"
+    },
+    "visual_export": {
+      "status": "PASS_VISUAL_EXPORT",
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/visual_export_audit.json",
+      "audit_sha256": "82ffc05b0adb0c48863a36aad681d26d07d08b465b37dbf4bf66e795561c094d",
+      "overview_sha256": "c3be92572a6d4dab01756815a399de48bf1ffe50cc3ddfb012e7844eaefe50fb",
+      "collision_overlay_sha256": "e7814b3aade399fb4a804654e51ecc205968a436ca0a593034de739e4a32300e"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "executions": 1,
+      "tests": 199,
+      "passed": 199,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1406.9994335,
+      "start_utc": "2026-09-13T14:18:52Z",
+      "end_utc": "2026-09-13T14:42:19Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/focused_results.xml",
+      "xml_sha256": "3039f8076ad28f90087aca903fa874a44cb9433620c9da664ee0fa33f4f32a38"
+    },
+    "ordered_gates": [
+      "COMPILE",
+      "TARGETED_HUB_TREE",
+      "INDEPENDENT_CHECKER",
+      "VISUAL_EXPORT",
+      "FULL_SV5_REGRESSION_ONCE",
+      "POST_READONLY"
+    ]
+  },
+  "profiles": {
+    "default": {
+      "plan_digest": "ad466bbfcba88aa015c47f35871656d2dc90a10b4453c948ef34a10f3e3af919",
+      "tree_digest": "a3db03bf70f01d500804f695d7796cb9e30ccf884a77e2732e8e1ecacc86907a",
+      "connections": 4,
+      "distinct_physical_external_anchors": 4,
+      "connection_direction": "HUB_TO_EXTERNAL",
+      "changed_connection_cells": 289,
+      "lower_trunk_average_width": 3.5,
+      "middle_trunk_average_width": 2.375,
+      "upper_trunk_average_width": 1.4,
+      "major_branch_points": 4,
+      "climb_endpoints": 3,
+      "branch_platforms": 7,
+      "branch_grab_count": 0,
+      "tree_cells": 169,
+      "solid_tree_cells": 93,
+      "tree_routes": 2,
+      "recovery_routes": 3,
+      "required_entrances_reachable": true,
+      "required_exits_reachable": true,
+      "generation_milliseconds": 23,
+      "total_build_ms": 36176.852,
+      "global_product_runs": 1,
+      "legal_states": 9,
+      "resource_orders": 6,
+      "physical_product_digest": "e9ad57c416c9a5c64a5e25938e8ebd6c431515f1942e66819e05d7ba0fc230ed"
+    },
+    "repeat": {
+      "plan_digest": "228848555fbd11a4b3dc75ce7a21199f7662b295b334b73babe78f4ab1a21380",
+      "tree_digest": "de7c22b2798dc77bbd5e98abe02c7626ecbe3225b488fb92943287671a87b540",
+      "connections": 4,
+      "distinct_physical_external_anchors": 4,
+      "connection_direction": "HUB_TO_EXTERNAL",
+      "changed_connection_cells": 143,
+      "lower_trunk_average_width": 3.5,
+      "middle_trunk_average_width": 2.375,
+      "upper_trunk_average_width": 1.4,
+      "major_branch_points": 4,
+      "climb_endpoints": 3,
+      "branch_platforms": 7,
+      "branch_grab_count": 0,
+      "tree_cells": 169,
+      "solid_tree_cells": 93,
+      "tree_routes": 2,
+      "recovery_routes": 3,
+      "required_entrances_reachable": true,
+      "required_exits_reachable": true,
+      "generation_milliseconds": 5,
+      "total_build_ms": 39786.487,
+      "global_product_runs": 1,
+      "legal_states": 9,
+      "resource_orders": 6,
+      "physical_product_digest": "ac860be64e35c539fc5d991660c7cc99709ed6f04b260e965d19a0452ba4a111"
+    }
+  },
+  "artifacts": {
+    "source_tree_sha256": "714e8978b3744fce04177d9ee3df88c5f5aa5ab1d781c015e17107cfccad1d6e",
+    "source_tree_members": 13,
+    "source_tree_algorithm": "SHA256 of sorted '<file-sha256>  <repo-relative-path>\\n' records for SV5_12 runtime, tests, metas, and design document",
+    "evidence_tree_sha256": "1c196117e8c062bddea59f5d4694ab9dcf37a8646ce48f077692a7fcdd66c2f5",
+    "evidence_tree_members": 68,
+    "evidence_tree_algorithm": "SHA256 of sorted '<file-sha256>  <repo-relative-path>\\n' records below GENERATED/SV5_12_TREE_GRAB excluding BINDING.json and _work",
+    "default_tree_json_sha256": "dd85893e828704e471b23c9ddd638a098c7f2f35a00577329159d322964921e6",
+    "repeat_tree_json_sha256": "1b35a5e812c5f26f21ef552fb1eeafd2d6246f9e7e50d13c805c35de5dbaac82",
+    "default_tree_validation_sha256": "1d2d114c3da05c6d8c0effe5c540a6e6f5224294261276ba727f78387c5f2491",
+    "repeat_tree_validation_sha256": "1d2d114c3da05c6d8c0effe5c540a6e6f5224294261276ba727f78387c5f2491"
+  },
+  "readiness": {
+    "tree_grab_geometry_ready": true,
+    "composed_geometry_ready": false,
+    "player_verified": false,
+    "sv5_13_jump_contract": "LOCKED",
+    "push_performed": false
+  }
+}

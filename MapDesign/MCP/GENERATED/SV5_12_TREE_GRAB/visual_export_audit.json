@@ -1,0 +1,38 @@
+{
+  "schema": "SV5_12_TREE_VISUAL_EXPORT_AUDIT/v1",
+  "status": "PASS_VISUAL_EXPORT",
+  "method": [
+    "XML parse and required legend token audit",
+    "Edge headless rasterization at the declared SVG viewBox",
+    "visual inspection of silhouette, collision roles, routes, entry, and exit"
+  ],
+  "required_legend_tokens_present": true,
+  "branch_platform_legend": "landing only; no grab",
+  "default": {
+    "lower_trunk_average_width": 3.500,
+    "middle_trunk_average_width": 2.375,
+    "upper_trunk_average_width": 1.400,
+    "major_branch_point_count": 4,
+    "climb_endpoint_count": 3,
+    "branch_platform_count": 7,
+    "branch_grab_count": 0,
+    "generation_milliseconds": 21,
+    "tree_grab_overview_sha256": "c3be92572a6d4dab01756815a399de48bf1ffe50cc3ddfb012e7844eaefe50fb",
+    "tree_collision_overlay_sha256": "e7814b3aade399fb4a804654e51ecc205968a436ca0a593034de739e4a32300e"
+  },
+  "repeat": {
+    "lower_trunk_average_width": 3.500,
+    "middle_trunk_average_width": 2.375,
+    "upper_trunk_average_width": 1.400,
+    "major_branch_point_count": 4,
+    "climb_endpoint_count": 3,
+    "branch_platform_count": 7,
+    "branch_grab_count": 0,
+    "generation_milliseconds": 6,
+    "tree_grab_overview_sha256": "c3be92572a6d4dab01756815a399de48bf1ffe50cc3ddfb012e7844eaefe50fb",
+    "tree_collision_overlay_sha256": "e7814b3aade399fb4a804654e51ecc205968a436ca0a593034de739e4a32300e"
+  },
+  "targeted_results_sha256": "662177a72db659e1f55ddfae193ac7afe18bd2938850d032c546ca56fa516351",
+  "independent_audit_sha256": "f15bb18326a696fb80bd32d6973fb69f228483f02f349cb2c495c8a6ddd7a3dc",
+  "errors": []
+}

@@ -1,0 +1,14 @@
+{
+  "schema":"SV5_11_FIX01_CONSTRAINT_SOURCES/v1",
+  "profile":"default",
+  "sources":[
+    {"category":"CORE","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/core.csv","sha256":"2ce5be06717dc63174c5c2a5af6abccbdd2c1cfdd8fc728414d72b75883ed94d","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"INFILL","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/infill.csv","sha256":"35ed7735df69c8ee4b828d98e8d1ff5cab816a5b9257e5f38fc669343a784175","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"LOOP","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/loop.csv","sha256":"2993929c99e4aefa72bc31d71b84dce14986c3b12e61072872a2d3160cec9e9d","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"PROGRESSION_GATE","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/progression_gate.csv","sha256":"3abbb8063783bda1d3dd1118106787c70afb22610947c62e71ceae6a55e5a2c0","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"PROTECTED","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/protected.csv","sha256":"447dc990c3039d24e474f9cf1784bef91200e1b1a0e06abde22aa0481a337317","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"RESERVATION","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/reservation.csv","sha256":"1d39c264d4602bcd262e22fe9575961e52ad112a146c2ad4838b3524a421e20d","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"SIDEPATH","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/sidepath.csv","sha256":"10bb22905a4f0c3eaa84da8552d859369058919fe5d5e196ddac9e3f13971a5d","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"},
+    {"category":"TYPE0","path":"MapDesign/MCP/GENERATED/SV5_12_TREE_GRAB/default/constraints/type0.csv","sha256":"f43e74b130114d65659d2730bccb9b3c88180ab6bb8ae32432de409a88620e30","source_kind":"TESTED_BASELINE_SNAPSHOT","x_column":"x","y_column":"y"}
+  ]
+}

@@ -64,7 +64,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void F07_EachConnectionStoresOneValidDirectionalWitness()
         {
             Assert.That(Plan.HubShell.Connections.All(v=>v.Direction=="HUB_TO_EXTERNAL"&&v.RouteVerified&&
-                v.MovementWitness.SequenceEqual(v.Centerline)),Is.True);
+                v.MovementWitness.Count>0&&v.MovementWitness.First().From.Equals(v.PortAnchor)&&
+                v.MovementWitness.Last().To.Equals(v.ExternalAnchor)&&
+                v.MovementWitness.Zip(v.MovementWitness.Skip(1),(a,b)=>a.To.Equals(b.From)).All(ok=>ok)&&
+                v.MovementWitness.All(edge=>edge.BodyClear&&edge.HeadClear)),Is.True);
         }
 
         [Test] public void F08_PostHubMovementAndNineBySixProductAreRebuilt()
@@ -133,6 +136,20 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(connections.SelectMany(v=>v.Cells.Where(c=>c.Changed).Select(c=>c.World)).GroupBy(v=>v).All(g=>g.Count()==1),Is.True);
         }
 
+        [Test] public void F15_ExternalAnchorsArePhysicallyDistinct()
+        {
+            var connections=Plan.HubShell.Connections;
+            Assert.That(connections.Select(v=>v.ExternalAnchor).Distinct().Count(),Is.EqualTo(connections.Count));
+        }
+
+        [Test] public void F16_MovementWitnessIsNotAnAirOnlyCenterlineAlias()
+        {
+            Assert.That(Plan.HubShell.Connections.All(v=>v.MovementWitness.Count!=v.Centerline.Count&&
+                v.MovementWitness.All(edge=>edge.MoveType==Sv5PlatformerMoveType.Walk||
+                    edge.MoveType==Sv5PlatformerMoveType.StepUp||edge.MoveType==Sv5PlatformerMoveType.StepDown||
+                    edge.MoveType==Sv5PlatformerMoveType.Jump)),Is.True);
+        }
+
         private static bool Route(RmapSpecialWorldPoint start,RmapSpecialWorldPoint end,
             ISet<RmapSpecialWorldPoint> protectedBody,ISet<RmapSpecialWorldPoint> type0,
             ISet<RmapSpecialWorldPoint> progression,ISet<RmapSpecialWorldPoint> endpointForbidden,
@@ -141,7 +158,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var baseline=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>
             {
                 {end,new Sv5LoopOccupancyCell(end,Sv5InfillCellValue.Air,"FOREIGN","ROOM")},
-                {P(end.X,end.Y+1),new Sv5LoopOccupancyCell(P(end.X,end.Y+1),Sv5InfillCellValue.Air,"FOREIGN","ROOM")}
+                {P(end.X,end.Y+1),new Sv5LoopOccupancyCell(P(end.X,end.Y+1),Sv5InfillCellValue.Air,"FOREIGN","ROOM")},
+                {P(end.X,end.Y-1),new Sv5LoopOccupancyCell(P(end.X,end.Y-1),Sv5InfillCellValue.Solid,"FOREIGN","ROOM")}
             };
             return Sv5HubConnectionRouter.TryRoute(start,end,new Sv5SpaceBounds(start.X,start.Y,1,1),baseline,
                 protectedBody,type0,progression,endpointForbidden,new HashSet<RmapSpecialWorldPoint>(),out route,out reason);

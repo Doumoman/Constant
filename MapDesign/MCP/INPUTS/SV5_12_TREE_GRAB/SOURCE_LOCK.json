@@ -1,0 +1,32 @@
+{
+  "schema": "SV5_12_TREE_GRAB_SOURCE_LOCK/v1",
+  "base_commit": "aeedc340670843d0bbeb43d3aad853a7953ba3b9",
+  "base_parent": "0ab603362b93047a45c6f30bac8e28d57ac57f93",
+  "base_subject": "SV5_11_FIX01: replace synthetic Hub lines with actual-cell routes",
+  "review_zip_sha256": "f2190d1b17cf057f3d72e9ba9b24ccbd1409aa47d49259e2a2215932e6369f55",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"dbd36e3c8c2971e793544d2e146f6de514096828","sha256":"c1cec9f309ea896af4cc3dfa19d243176ea657de97913d8c3e0f9db610234a97","bytes":102564,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md","git_blob_oid":"16d1faf7393e279f8d343b24352e583d1b8a321d","sha256":"e54fc70378799f1c383b841ddae3728be27ac35d997c622d629776f7b4196a24","bytes":36967,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_11_FIX01.md","git_blob_oid":"e1e791e953023370d1a4dda9278d227a070147da","sha256":"73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4","bytes":5836,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_11_FIX01.md","git_blob_oid":"e1e791e953023370d1a4dda9278d227a070147da","sha256":"73b3259eb68bd24884006a097c12bd4da58d03d63f5e06db64a48ba249b8b1a4","bytes":5836,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_11_FIX01_RESULT.md","git_blob_oid":"23fa2e3fb9f1da327d8cb92c4a8f86e4fc87a65d","sha256":"ab98863018e478999665010e1c61d77b9c9d84215be8887942f8c2da240a4949","bytes":4114,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_FIX01/BINDING.json","git_blob_oid":"f7ccbd14ebf74544c79e79f29cc8cffff54500a8","sha256":"b1ba39cd5b0b26d3ac003630561c650b8deaaadd31579df22ac8eab824989520","bytes":5891,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubConnectionRouter.cs","git_blob_oid":"1a1479470810df1a365cf87972c0ed1f83afb478","sha256":"5fc232f27a4a3f8c7b7dea94689895a083c31b5945e6d9bbd481fa0df20844d3","bytes":13927,"role":"SV5_12_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShell.cs","git_blob_oid":"dac70f98969f4032e003fafa517ac1a38ac50cde","sha256":"f819c0b153b768ef9c09eb371dd385499bc8181c56022729836bc5f7a2035af7","bytes":44719,"role":"SV5_12_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5HubShellExport.cs","git_blob_oid":"6b6bef1beaa80d8e57653a10416193217bb1101c","sha256":"55bff66d77394c68565c112a8dfc2001e1e368bac41c074a65bd84715e095f9e","bytes":17383,"role":"SV5_12_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs","git_blob_oid":"05fe7e6aab4d0086cbfc66913799c9c63ca22d5d","sha256":"cd4c2488c560b9230d0bc805eeabf2f0649f1dca9654c3e871fe7137bb1d50d3","bytes":40202,"role":"SV5_12_WRITE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs","git_blob_oid":"f354948a01ae07f7a33799b1f26b1e76cf07a384","sha256":"80c3cf246b755c3816a3cb737ceae4c2a6a71f5b0567ca3668cd5d6bab1874dc","bytes":65605,"role":"SV5_12_WRITE"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5HubShellFix01Tests.cs","git_blob_oid":"e9b2871608b48bb070b28028775d1e44da551caf","sha256":"f8f125a2f1190fe58d2fa55019615351b6e09538a4c039dae7cb5d62ea156f6c","bytes":8728,"role":"SV5_12_WRITE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_FIX01/default/hub_connections.csv","git_blob_oid":"f0cff65d6b270e815a2156f49955187fe9024202","sha256":"5679e0c3815f15626f1afb2b780ee2bfd6396a727b4c5e1d276155ffa27d8e11","bytes":3253,"role":"IMMUTABLE_REVIEW_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_FIX01/repeat/hub_connections.csv","git_blob_oid":"7d4dd724d3bc4d5153a2860aa141c178dc72fa8e","sha256":"b77f14022f9c347cc890440be71e2c556320f2e7930a0a3e66ac127fec4a92af","bytes":3556,"role":"IMMUTABLE_REVIEW_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_FIX01/focused_results.xml","git_blob_oid":"4357d8978a1b840b4e9fd4da38f773e88fe42901","sha256":"03daa54bb0cd9f553259e0c733e0bc8b33acb459f5b5c452ee20cec952dd05bc","bytes":158507,"role":"IMMUTABLE_REVIEW_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_11_FIX01/independent_hub_connection_audit.json","git_blob_oid":"34f5789b7ed3bf963a8f22f2b774c930fd5e9eff","sha256":"4f2b940173fb45e973e0577e38af3ca605e7a0f2d4898612579e3cd9451ba9e8","bytes":775,"role":"IMMUTABLE_REVIEW_EVIDENCE"}
+  ],
+  "review_findings": {
+    "default_logical_connections": 4,
+    "default_distinct_physical_anchors": 1,
+    "repeat_logical_connections": 5,
+    "repeat_distinct_physical_anchors": 3,
+    "movement_witness_issue": "AIR_AND_HEAD_CONTINUITY_ONLY"
+  }
+}
