@@ -1,0 +1,11 @@
+support_id,kind,x,y,width,height,top_y,top_x_min,top_x_max,active_route,decorative_only,required_route
+JS00_ENTRY_SOLID,SOLID,0,1,3,1,2,0,2,true,false,true
+JS01_ONE_WAY,ONE_WAY,6,2,3,1,3,6,8,true,false,true
+JS02_SOLID,SOLID,12,3,3,1,4,12,14,true,false,true
+JS03_ONE_WAY,ONE_WAY,18,4,3,1,5,18,20,true,false,true
+JS04_SOLID,SOLID,14,5,2,1,6,14,15,true,false,true
+JS05_ONE_WAY,ONE_WAY,9,6,3,1,7,9,11,true,false,true
+JS06_SOLID,SOLID,4,7,3,1,8,4,6,true,false,true
+JS07_ONE_WAY,ONE_WAY,0,8,2,1,9,0,1,true,false,true
+JS08_SOLID,SOLID,3,9,2,1,10,3,4,true,false,true
+JS09_EXIT_ONE_WAY,ONE_WAY,7,10,3,1,11,7,9,true,false,true

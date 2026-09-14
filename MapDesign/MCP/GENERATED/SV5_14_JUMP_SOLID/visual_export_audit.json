@@ -1,0 +1,22 @@
+{
+  "schema": "SV5_14_JUMP_SOLID_VISUAL_AUDIT/v1",
+  "status": "PASS_VISUAL_INSPECTION",
+  "fixture_digest": "8f693abdb50dd4d31c9a69840f379936e2a28faf646681698e05adb725fc3d6e",
+  "source_svg": "MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/preview/jump_solid.svg",
+  "source_svg_sha256": "2bd1cc9031dbe816704df337edaa5f1268ba4bf1a316fbb78a2d98c052dc834d",
+  "rendered_png": "MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/preview/jump_solid.png",
+  "rendered_png_sha256": "545529c4bfbc3f1d4960276a31f48d0c3f26713ecd38319109be714d082d1e55",
+  "renderer": "Google Chrome headless",
+  "render_size": {"width": 820, "height": 790},
+  "inspection": {
+    "full_24x32_boundary_visible": true,
+    "solid_cells_distinguishable": true,
+    "one_way_cells_distinguishable": true,
+    "ordered_route_visible": true,
+    "takeoff_and_landing_visible": true,
+    "entry_and_exit_visible": true,
+    "grab_deferred_legend_visible": true,
+    "labels_clipped_or_overlapping": false
+  },
+  "errors": []
+}

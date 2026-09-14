@@ -1,0 +1,158 @@
+{
+  "schema": "SV5_14_JUMP_SOLID_BINDING/v1",
+  "task": "SV5_14_JUMP_SOLID",
+  "base": {
+    "commit": "33a635905345ff2a42facc3add5c6609eea9357c",
+    "parent": "5e09c37146c21e16bb165ebdd47745205e5a0381",
+    "subject": "SV5_13_JUMP_CONTRACT: define exact jump support contract"
+  },
+  "package": {
+    "zip_sha256": "fbcb2844402026d33535212254526a11e788c49260d32848346f240dc5eaee86",
+    "manifest_sha256": "ba726c6e68121d6f68cd0ac8da13b3d80740a6c25fa97f6a2e2a1357d959e8a8",
+    "source_lock_sha256": "eab14757a79914a6c9146a957b20475792d16892172f820164900b6faed072cb",
+    "contract_sha256": "fe222247a7c633cfa933aec5157ada59fbb0f5e4f24ac66de9b0ee5d659eba78",
+    "profile_sha256": "45487e1a701c718e496a4b25fc4dac74d8af4ac32f5110ce0644877b901aff47",
+    "stage_preflight": "PASS_STAGE_PREFLIGHT_READONLY",
+    "stage": "PASS_STAGED_SINGLE_TASK",
+    "verify_staged": "PASS_STAGED_SINGLE_TASK",
+    "verify_applied": "PASS_NATIVE_APPLY",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "3cb140ff326f5bfb5458435d465f6128d1b624eb3fdb881fd1e36c3966cc9a58",
+    "archive_task_sha256": "3cb140ff326f5bfb5458435d465f6128d1b624eb3fdb881fd1e36c3966cc9a58",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_13_JUMP_CONTRACT",
+    "commit": "33a635905345ff2a42facc3add5c6609eea9357c",
+    "task_sha256": "3fe70921236563d0e4f9d361f31b172551ddf712d1a7668921c0fc9dcd7a412c",
+    "archive_sha256": "3fe70921236563d0e4f9d361f31b172551ddf712d1a7668921c0fc9dcd7a412c",
+    "result_sha256": "0379706ace7944389c56cb91c8c1999a8a4c4cea7b8a90e0226ba4a63c8a36df",
+    "binding_sha256": "a56f348f5ea3e75450b6948a4c92fb2d63fcb10813e8524e649e36bd6abf43e4",
+    "immutable_paths_modified": false
+  },
+  "before_implementation": {
+    "status_sha256": "53e4d61e55437dee89e1282dbebaf6c95949e9bebaa673e0131c26fd38970a9d",
+    "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+    "counts": {"COMPLETE": 261, "CURRENT": 1, "LOCKED": 33},
+    "current_task": "SV5_14_JUMP_SOLID",
+    "SV5_15_JUMP_GRAB": "LOCKED"
+  },
+  "implementation": {
+    "geometry_source_sha256": "95c5ab80ea308b3a0fb04cc2f4e8ba27d30b74ce2809dd69f60bbae5a130edd3",
+    "export_source_sha256": "93805bed7fb92332f6b98a985769c57efa6f9262e072376968dcbff5ca75f8f6",
+    "tests_sha256": "287a5b06cf206083df802ac31425f4ec539cd0d57fbc7260c004bad2b7e7f33d",
+    "integration_document_sha256": "477fdec5a4edb444bccc4df0234a77101b285962c0200c2873b3ad842e17a61e",
+    "consumes_sv5_jump_contract_measure": true,
+    "redefines_sv5_13_formulas_or_enums": false
+  },
+  "canonical_fixture": {
+    "digest": "8f693abdb50dd4d31c9a69840f379936e2a28faf646681698e05adb725fc3d6e",
+    "coordinate_scope": "24x32_LOCAL_JUMP_ROOM_NOT_SECTOR",
+    "support_count": 10,
+    "support_cell_count": 27,
+    "active_required_solid_count": 5,
+    "active_required_one_way_count": 5,
+    "required_route_support_count": 10,
+    "required_route_link_count": 9,
+    "route_vertical_span": 9,
+    "gap_air_range": [1, 3],
+    "rise_range": [1, 1],
+    "counted_solid_use_count": 5,
+    "clearance_count": 10,
+    "clearance_pass_count": 10,
+    "solid_6x6_windows": 0,
+    "grab_edge_count": 0,
+    "reverse_completion_required": false,
+    "whole_world_builds_in_new_targeted_tests": 0,
+    "whole_world_searches_in_new_targeted_tests": 0
+  },
+  "verification": {
+    "compile": {
+      "status": "PASS",
+      "editor": "Unity 6000.3.8f1",
+      "compile_errors": 0,
+      "runner": "Unity EditMode targeted import/compile/test path"
+    },
+    "targeted": {
+      "status": "PASS",
+      "tests": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 0.9403321,
+      "start_utc": "2026-09-14T06:20:02Z",
+      "end_utc": "2026-09-14T06:20:03Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/targeted_results.xml",
+      "xml_sha256": "d978b94b10d162bdad2523ff53b79a79887277bf41b35eaf5f495c4862d6b521"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_JUMP_SOLID",
+      "passed_after_targeted": true,
+      "passed_before_visual_and_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/independent_jump_solid_audit.json",
+      "audit_sha256": "ab41f1fd729087c22ea4f3b5557c6bc54680569c807eec8fbbbf3a3c2707d152"
+    },
+    "visual_inspection": {
+      "status": "PASS_VISUAL_INSPECTION",
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/visual_export_audit.json",
+      "audit_sha256": "947f9f2ddd4deeb976096f26dd1bb759cec686573bca33da6e9d9f753f687e5b",
+      "svg_sha256": "2bd1cc9031dbe816704df337edaa5f1268ba4bf1a316fbb78a2d98c052dc834d",
+      "rendered_png_sha256": "545529c4bfbc3f1d4960276a31f48d0c3f26713ecd38319109be714d082d1e55"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "executions": 1,
+      "tests": 252,
+      "passed": 252,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1430.6319121,
+      "start_utc": "2026-09-14T06:22:18Z",
+      "end_utc": "2026-09-14T06:46:08Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/focused_results.xml",
+      "xml_sha256": "73061f5a5ac2a231ee9b86f91c209d54a83d776141fa2e7e8a4627a19044f00e"
+    },
+    "ordered_gates": [
+      "COMPILE_AND_TARGETED_LOCAL_FIXTURES",
+      "INDEPENDENT_CHECKER",
+      "SVG_RENDER_AND_VISUAL_INSPECTION",
+      "FULL_SV5_REGRESSION_ONCE",
+      "POST_READONLY"
+    ]
+  },
+  "artifacts": {
+    "jump_solid_sha256": "83465927882d2063f4ab7b1157bff1896f91aa6ce0f5c01b40629d5cc295f6cc",
+    "supports_csv_sha256": "77bb8cd10074ba221e1869805914b3b2219d74e145f4867cb6f4524054df0ef2",
+    "support_cells_csv_sha256": "6825abc50309b14174c32497f86bfd47751049cea8384c025cd2ae08664528c0",
+    "route_support_sequence_csv_sha256": "a63ec7b7228ce029adcd40b48639456f583c9f7ad9843bd13a155939199b1fcf",
+    "route_links_csv_sha256": "0264cf6ecd3501ac6464a5c304db5f2926066158803bca27c986d4c473291ae3",
+    "support_clearance_csv_sha256": "491e4cc777cc3483f03518585f2662eff705268ce1922153a38ab658b8335a2e",
+    "solid_use_csv_sha256": "aa28011bf1633d74aeb944a17821805dd3dbb78b0af0e39a515991fd7d3cf9a0",
+    "validation_sha256": "4c3d677c00c1e8dec2d77cab5b97f33c035cf9b6e52a19ed8042969b584569fe"
+  },
+  "scope": {
+    "unrelated_dirty_paths_observed": 1385,
+    "unrelated_dirty_paths_modified_or_staged_by_task": 0,
+    "world_placement_changed": false,
+    "player_runtime_or_tuning_changed": false,
+    "sv5_13_source_or_evidence_changed": false,
+    "tree_or_hub_source_changed": false,
+    "scene_or_prefab_changed": false,
+    "packages_or_project_settings_changed": false,
+    "master_changed": false
+  },
+  "readiness": {
+    "jump_contract_ready": true,
+    "jump_solid_geometry_ready": true,
+    "jump_grab_geometry_ready": false,
+    "composed_geometry_ready": false,
+    "player_verified": false,
+    "SV5_15_JUMP_GRAB": "LOCKED",
+    "push_performed": false
+  }
+}

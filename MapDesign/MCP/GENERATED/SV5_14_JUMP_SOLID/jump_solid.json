@@ -1,0 +1,35 @@
+{
+  "schema": "SV5_14_JUMP_SOLID/v1",
+  "fixture_digest": "8f693abdb50dd4d31c9a69840f379936e2a28faf646681698e05adb725fc3d6e",
+  "coordinate_scope": "LOCAL_JUMP_ROOM_NOT_WORLD_PLACEMENT",
+  "canvas": {"width": 24, "height": 32},
+  "illustrative_world_origin": {"x": 360, "y": 224, "authoritative": false},
+  "entry_support_id": "JS00_ENTRY_SOLID",
+  "exit_support_id": "JS09_EXIT_ONE_WAY",
+  "entry_socket": {"socket_id":"ENTRY","support_id":"JS00_ENTRY_SOLID","foot":{"x":0,"y":2}},
+  "exit_socket": {"socket_id":"EXIT","support_id":"JS09_EXIT_ONE_WAY","foot":{"x":9,"y":11}},
+  "support_count": 10,
+  "support_cell_count": 27,
+  "solid_support_count": 5,
+  "one_way_support_count": 5,
+  "required_route_support_count": 10,
+  "required_route_link_count": 9,
+  "route_vertical_span": 9,
+  "gap_air_range": [1, 3],
+  "rise_range": [1, 1],
+  "grab_edges_created": 0,
+  "reverse_completion_required": false,
+  "validation_states": {"supports": "STATIC_SCREEN", "links": "PLANNED", "player_verified_count": 0},
+  "readiness": {
+    "jump_contract_ready": true,
+    "jump_solid_geometry_ready": true,
+    "jump_grab_geometry_ready": false,
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "performance": {
+    "fixture_scope": "24x32_LOCAL_INTEGER_CELLS",
+    "whole_world_builds_in_new_targeted_tests": 0,
+    "whole_world_searches_in_new_targeted_tests": 0
+  }
+}
