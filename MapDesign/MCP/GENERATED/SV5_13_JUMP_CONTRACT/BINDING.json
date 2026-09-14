@@ -1,0 +1,176 @@
+{
+  "schema": "SV5_13_JUMP_CONTRACT_BINDING/v1",
+  "task": "SV5_13_JUMP_CONTRACT",
+  "base": {
+    "commit": "5e09c37146c21e16bb165ebdd47745205e5a0381",
+    "parent": "3f05858cb80d6437e89123fb6b6dd30a395996fc",
+    "subject": "SV5_12_FIX01: expand tree envelope into multi-stem canopy"
+  },
+  "package": {
+    "zip_sha256": "6669b7b39f46a1f5e04b371aa0058917611c1f030209240c793bb6d0272d262d",
+    "manifest_sha256": "1e2e9b5952976f6380b5db23742b905e8168f9e4a18b1cba886f99d5f1ae7cdf",
+    "source_lock_sha256": "7db34cda66f53e63e4ddc1ef93e8480e1159fa03c7d17e39267c64d6448b7c4f",
+    "contract_sha256": "944c4baec2dd366060a2ceda06134ffaee4d81bd88ecd4b0a1fee917f251d834",
+    "profile_sha256": "e68782dd6f9a7490aab5a8bfc35ecfe019408bbd8869c02fdeb254dd8167e261",
+    "stage_preflight": "PASS_STAGE_PREFLIGHT_READONLY",
+    "stage": "PASS_STAGED_SINGLE_TASK",
+    "verify_staged": "PASS_STAGED_SINGLE_TASK",
+    "verify_applied": "PASS_NATIVE_APPLY",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "3fe70921236563d0e4f9d361f31b172551ddf712d1a7668921c0fc9dcd7a412c",
+    "archive_task_sha256": "3fe70921236563d0e4f9d361f31b172551ddf712d1a7668921c0fc9dcd7a412c",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_12_FIX01",
+    "commit": "5e09c37146c21e16bb165ebdd47745205e5a0381",
+    "task_sha256": "3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0",
+    "archive_sha256": "3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0",
+    "result_sha256": "62a3050904c258537b276c153ee7cc0878333cee1930e9efacdc4182eace240b",
+    "binding_sha256": "fd9e95c3ec352f56b1a865fc4f91beaeb76846b5057d72d2edfa1a57a9c05e10"
+  },
+  "before_implementation": {
+    "status_sha256": "d1b04ed78da4f84a51db94fa112d8cec8f77be5c2121c9682e85dcabb6df999d",
+    "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+    "counts": {
+      "COMPLETE": 260,
+      "CURRENT": 1,
+      "LOCKED": 34
+    },
+    "current_task": "SV5_13_JUMP_CONTRACT",
+    "SV5_14_JUMP_SOLID": "LOCKED"
+  },
+  "player_contract_observed_readonly": {
+    "sv5_fixture_body_width_tiles": 0.4,
+    "sv5_fixture_body_height_tiles": 0.8,
+    "foot_pivot": true,
+    "live_walk_speed": 2.8,
+    "live_run_speed": 5.5,
+    "live_air_acceleration": 40.0,
+    "live_max_air_speed": 5.5,
+    "live_jump_velocity": 7.2,
+    "live_rise_gravity": 20.0,
+    "live_fall_gravity": 26.0,
+    "live_max_fall_speed": 20.0,
+    "live_coyote_time": 0.08,
+    "live_jump_buffer_time": 0.10,
+    "live_release_cut_multiplier": 0.42,
+    "grab_probe_distance": 0.35,
+    "grab_vertical_window": 0.45,
+    "grab_side_offset": 0.21,
+    "grab_hang_offset": 0.62,
+    "grab_reentry_delay": 0.12,
+    "grab_max_upward_velocity": 0.01,
+    "grab_safe_surface_kinds": [
+      "StaticSafe",
+      "DestructibleSafe",
+      "MovingSafe"
+    ],
+    "one_way_grab_allowed": false,
+    "normal_rise_cap_cells": 1,
+    "jump_grab_rise_cap_cells": 2,
+    "prior_physical_measurement_reference_only": {
+      "held_jump_height_tiles": 1.237,
+      "run_distance_tiles": 3.425
+    },
+    "source_sha256": {
+      "live_movement_settings": "c96fafa4d67186eaa2f105cba27a6634f443f1472b9aae2f4861663083ad0654",
+      "grab_surface": "2063a45e59fcaea7a3c8f2746da6991d54c7132a4e67be78d0e1dd77bbd5ed0e",
+      "one_way_platform": "7aa3789330ed7c4bb2c749cef81b3c2a1c45782d59005a8055ff5bee4caa5c77",
+      "core_capsule_baseline": "af30ac340ce4973faebad96d93901697cff92e6e72dae05b488ed119eff2dc38",
+      "rmap02_physical_fixture": "76c21a6fed3e1a1cfffb584abfc2a3060632b4a7b1c0e2d01b00f72dd581d0b5"
+    },
+    "source_files_modified": false
+  },
+  "verification": {
+    "compile": {
+      "status": "PASS",
+      "runner": "Unity 6000.3.8f1 EditMode targeted import/compile/test path"
+    },
+    "targeted": {
+      "status": "PASS",
+      "tests": 20,
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 0.8849065,
+      "start_utc": "2026-09-14T04:52:54Z",
+      "end_utc": "2026-09-14T04:52:55Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_13_JUMP_CONTRACT/targeted_results.xml",
+      "xml_sha256": "ca400162d65cf1ea136a6d6c9a8b02cd0b402a9848494dc9cb9b0bdc5c851423",
+      "whole_world_builds": 0
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_JUMP_CONTRACT",
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_13_JUMP_CONTRACT/independent_jump_contract_audit.json",
+      "audit_sha256": "d4565aa84218fcac27efccd5e67fca91605809efb72df3b71ffe828ad6b36da6"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "executions": 1,
+      "tests": 231,
+      "passed": 231,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1379.470369,
+      "start_utc": "2026-09-14T04:53:56Z",
+      "end_utc": "2026-09-14T05:16:55Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_13_JUMP_CONTRACT/focused_results.xml",
+      "xml_sha256": "46949de4f0b6f39502ab8f08455c97e44d63fa32bb11277a06204f406421baa8"
+    },
+    "ordered_gates": [
+      "COMPILE",
+      "TARGETED_LOCAL_FIXTURES",
+      "INDEPENDENT_CHECKER",
+      "FULL_SV5_REGRESSION_ONCE",
+      "POST_READONLY"
+    ]
+  },
+  "canonical_fixture": {
+    "digest": "4f45bcf9464eac2c34df6943adb0d1a27c926dcdd22e89489f1983adcc78d330",
+    "links": {
+      "J1": {"gap_air": 3, "rise": 1, "mode": "JUMP"},
+      "J2": {"gap_air": 4, "rise": 1, "mode": "JUMP"},
+      "J3": {"gap_air": 2, "rise": 2, "mode": "JUMP_GRAB", "target_kind": "SOLID"}
+    },
+    "support_count": 6,
+    "solid_support_count": 3,
+    "one_way_support_count": 3,
+    "grab_edge_count": 1,
+    "validation_state_count": 10,
+    "planned_count": 3,
+    "static_screen_count": 7,
+    "player_verified_count": 0,
+    "whole_world_builds_in_new_targeted_tests": 0
+  },
+  "artifacts": {
+    "jump_contract_sha256": "61877b54627b26b7859af8fa5bba9807138e571283c4ad8229feeb5f603f07df",
+    "supports_csv_sha256": "d2d25de9559426fd475621aea94f3bec933589edd034bd6c3200c65ea1601a4e",
+    "grab_edges_csv_sha256": "3e5840700b5fc25cfcb6b6b05d87456f7249c325b9e35e44db33ea26d3820bc4",
+    "links_csv_sha256": "839ccd9e0fdb662dd683720de543c5557139a4a29d60677ec8a288f28d32a1c7",
+    "measurement_proofs_csv_sha256": "c1a52536d99d1e8bbc83442006c34f93ec67ec39a8c2aee6d8e8067b762fcc75",
+    "validation_states_csv_sha256": "192c4c3eaccbd01e5219ecb9143acdc0be1bcf7b283d13642b06683d6599e12d",
+    "contract_validation_sha256": "388d11310fc617bd22560ebe2f5119dfdcf632db5275506e9e02328f0e88851e",
+    "preview_svg_sha256": "6ad49efd86f686151829d8e37dba7c5682c8881add99206e07d9cec4770818e7"
+  },
+  "implementation": {
+    "contract_source_sha256": "18f2381c684d2d763d2cbf44b2767220e67ddacdac96a47e091a2251ada1f109",
+    "export_source_sha256": "d9ea2999196f6957dbae2a8f0697c627885a1654f5c8771f5acb6e7407874864",
+    "tests_sha256": "2c8254e031ffe0da54918380cff44b757be6324ea94050e507d216184e87b774",
+    "integration_document_sha256": "92a5204e72c06797a14d70ea9de13eeb3bfbf39a7970dcf96eb03f808ab38678"
+  },
+  "readiness": {
+    "jump_contract_ready": true,
+    "jump_solid_geometry_ready": false,
+    "jump_grab_geometry_ready": false,
+    "composed_geometry_ready": false,
+    "player_verified": false,
+    "sv5_14_jump_solid": "LOCKED",
+    "push_performed": false
+  }
+}

@@ -1,0 +1,4 @@
+link_id,source_support_id,target_support_id,mode,direction,takeoff_x,takeoff_y,landing_x,landing_y,gap_air,rise,grab_edge_id,validation_state
+J1,J1_SOURCE_SOLID,J1_TARGET_ONE_WAY,JUMP,LEFT_TO_RIGHT,1,1,5,2,3,1,,PLANNED
+J2,J2_SOURCE_ONE_WAY,J2_TARGET_SOLID,JUMP,RIGHT_TO_LEFT,14,1,9,2,4,1,,PLANNED
+J3,J3_SOURCE_ONE_WAY,J3_TARGET_SOLID,JUMP_GRAB,LEFT_TO_RIGHT,21,1,24,3,2,2,J3_TARGET_LEFT_EXPOSED,PLANNED

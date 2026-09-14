@@ -1,0 +1,7 @@
+support_id,kind,x,y,width,height,top_y,top_x_min,top_x_max,active_route,decorative_only,validation_state
+J1_SOURCE_SOLID,SOLID,0,0,2,1,1,0,1,true,false,STATIC_SCREEN
+J1_TARGET_ONE_WAY,ONE_WAY,5,1,2,1,2,5,6,true,false,STATIC_SCREEN
+J2_SOURCE_ONE_WAY,ONE_WAY,14,0,2,1,1,14,15,true,false,STATIC_SCREEN
+J2_TARGET_SOLID,SOLID,8,1,2,1,2,8,9,true,false,STATIC_SCREEN
+J3_SOURCE_ONE_WAY,ONE_WAY,20,0,2,1,1,20,21,true,false,STATIC_SCREEN
+J3_TARGET_SOLID,SOLID,24,1,2,2,3,24,25,true,false,STATIC_SCREEN

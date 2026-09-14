@@ -1,0 +1,51 @@
+{
+  "schema": "SV5_13_JUMP_CONTRACT/v1",
+  "contract_digest": "4f45bcf9464eac2c34df6943adb0d1a27c926dcdd22e89489f1983adcc78d330",
+  "canonical_link_ids": ["J1", "J2", "J3"],
+  "supports": [
+    {"support_id":"J1_SOURCE_SOLID","kind":"SOLID","x":0,"y":0,"width":2,"height":1,"top_y":1,"top_x_min":0,"top_x_max":1,"active_route":true,"decorative_only":false,"validation_state":"STATIC_SCREEN"},
+    {"support_id":"J1_TARGET_ONE_WAY","kind":"ONE_WAY","x":5,"y":1,"width":2,"height":1,"top_y":2,"top_x_min":5,"top_x_max":6,"active_route":true,"decorative_only":false,"validation_state":"STATIC_SCREEN"},
+    {"support_id":"J2_SOURCE_ONE_WAY","kind":"ONE_WAY","x":14,"y":0,"width":2,"height":1,"top_y":1,"top_x_min":14,"top_x_max":15,"active_route":true,"decorative_only":false,"validation_state":"STATIC_SCREEN"},
+    {"support_id":"J2_TARGET_SOLID","kind":"SOLID","x":8,"y":1,"width":2,"height":1,"top_y":2,"top_x_min":8,"top_x_max":9,"active_route":true,"decorative_only":false,"validation_state":"STATIC_SCREEN"},
+    {"support_id":"J3_SOURCE_ONE_WAY","kind":"ONE_WAY","x":20,"y":0,"width":2,"height":1,"top_y":1,"top_x_min":20,"top_x_max":21,"active_route":true,"decorative_only":false,"validation_state":"STATIC_SCREEN"},
+    {"support_id":"J3_TARGET_SOLID","kind":"SOLID","x":24,"y":1,"width":2,"height":2,"top_y":3,"top_x_min":24,"top_x_max":25,"active_route":true,"decorative_only":false,"validation_state":"STATIC_SCREEN"}
+  ],
+  "grab_edges": [
+    {"grab_edge_id":"J3_TARGET_LEFT_EXPOSED","support_id":"J3_TARGET_SOLID","contact":{"x":24,"y":2},"face":"LEFT","approach_direction":"LEFT_TO_RIGHT","hang_body":{"x":23,"y":2},"pull_up":{"x":24,"y":3},"exposed":true,"hang_body_clear":true,"pull_up_clear":true,"safe":true}
+  ],
+  "links": [
+    {"link_id":"J1","source_support_id":"J1_SOURCE_SOLID","target_support_id":"J1_TARGET_ONE_WAY","direction":"LEFT_TO_RIGHT","takeoff":{"x":1,"y":1},"landing":{"x":5,"y":2},"gap_air":3,"rise":1,"mode":"JUMP","grab_edge_id":"","validation_state":"PLANNED"},
+    {"link_id":"J2","source_support_id":"J2_SOURCE_ONE_WAY","target_support_id":"J2_TARGET_SOLID","direction":"RIGHT_TO_LEFT","takeoff":{"x":14,"y":1},"landing":{"x":9,"y":2},"gap_air":4,"rise":1,"mode":"JUMP","grab_edge_id":"","validation_state":"PLANNED"},
+    {"link_id":"J3","source_support_id":"J3_SOURCE_ONE_WAY","target_support_id":"J3_TARGET_SOLID","direction":"LEFT_TO_RIGHT","takeoff":{"x":21,"y":1},"landing":{"x":24,"y":3},"gap_air":2,"rise":2,"mode":"JUMP_GRAB","grab_edge_id":"J3_TARGET_LEFT_EXPOSED","validation_state":"PLANNED"}
+  ],
+  "measurement_proofs": [
+    {"link_id":"J1","source_near_face_x":1,"target_near_face_x":5,"computed_gap_air":3,"source_top_y":1,"target_top_y":2,"computed_rise":1,"formula_pass":true},
+    {"link_id":"J2","source_near_face_x":14,"target_near_face_x":9,"computed_gap_air":4,"source_top_y":1,"target_top_y":2,"computed_rise":1,"formula_pass":true},
+    {"link_id":"J3","source_near_face_x":21,"target_near_face_x":24,"computed_gap_air":2,"source_top_y":1,"target_top_y":3,"computed_rise":2,"formula_pass":true}
+  ],
+  "validation_states": [
+    {"object_id":"J1","object_kind":"LINK","state":"PLANNED","player_run_id":"","player_result":""},
+    {"object_id":"J1_SOURCE_SOLID","object_kind":"SUPPORT","state":"STATIC_SCREEN","player_run_id":"","player_result":""},
+    {"object_id":"J1_TARGET_ONE_WAY","object_kind":"SUPPORT","state":"STATIC_SCREEN","player_run_id":"","player_result":""},
+    {"object_id":"J2","object_kind":"LINK","state":"PLANNED","player_run_id":"","player_result":""},
+    {"object_id":"J2_SOURCE_ONE_WAY","object_kind":"SUPPORT","state":"STATIC_SCREEN","player_run_id":"","player_result":""},
+    {"object_id":"J2_TARGET_SOLID","object_kind":"SUPPORT","state":"STATIC_SCREEN","player_run_id":"","player_result":""},
+    {"object_id":"J3","object_kind":"LINK","state":"PLANNED","player_run_id":"","player_result":""},
+    {"object_id":"J3_SOURCE_ONE_WAY","object_kind":"SUPPORT","state":"STATIC_SCREEN","player_run_id":"","player_result":""},
+    {"object_id":"J3_TARGET_LEFT_EXPOSED","object_kind":"GRAB_EDGE","state":"STATIC_SCREEN","player_run_id":"","player_result":""},
+    {"object_id":"J3_TARGET_SOLID","object_kind":"SUPPORT","state":"STATIC_SCREEN","player_run_id":"","player_result":""}
+  ],
+  "one_way_route_semantics": {"reverse_completion_required": false},
+  "readiness": {
+    "jump_contract_ready": true,
+    "jump_solid_geometry_ready": false,
+    "jump_grab_geometry_ready": false,
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "performance": {
+    "fixture_scope": "LOCAL_INTEGER_CELLS",
+    "whole_world_builds_in_new_targeted_tests": 0,
+    "whole_world_searches_in_new_targeted_tests": 0
+  }
+}

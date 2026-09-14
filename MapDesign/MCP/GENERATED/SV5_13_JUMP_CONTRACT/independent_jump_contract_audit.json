@@ -1,0 +1,27 @@
+{
+  "schema": "SV5_13_JUMP_CONTRACT_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_JUMP_CONTRACT",
+  "canonical_links": {
+    "J1": {
+      "gap_air": 3,
+      "rise": 1,
+      "mode": "JUMP"
+    },
+    "J2": {
+      "gap_air": 4,
+      "rise": 1,
+      "mode": "JUMP"
+    },
+    "J3": {
+      "gap_air": 2,
+      "rise": 2,
+      "mode": "JUMP_GRAB"
+    }
+  },
+  "support_count": 6,
+  "grab_edge_count": 1,
+  "validation_state_count": 10,
+  "player_verified_count": 0,
+  "whole_world_builds_in_new_targeted_tests": 0,
+  "errors": []
+}
