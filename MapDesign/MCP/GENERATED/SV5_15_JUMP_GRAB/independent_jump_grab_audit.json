@@ -1,0 +1,25 @@
+{
+  "schema": "SV5_15_JUMP_GRAB_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_JUMP_GRAB",
+  "canvas": {
+    "width": 24,
+    "height": 32
+  },
+  "support_count": 10,
+  "support_cell_count": 27,
+  "route_link_count": 9,
+  "jump_grab_link_count": 1,
+  "grab_edge_count": 1,
+  "grab_link_id": "JS_LINK_03",
+  "gap_air_range": [
+    1,
+    3
+  ],
+  "rise_range": [
+    0,
+    2
+  ],
+  "whole_world_builds_in_new_targeted_tests": 0,
+  "whole_world_searches_in_new_targeted_tests": 0,
+  "errors": []
+}

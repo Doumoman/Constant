@@ -1,0 +1,183 @@
+{
+  "schema": "SV5_15_JUMP_GRAB_BINDING/v1",
+  "task": "SV5_15_JUMP_GRAB",
+  "base": {
+    "commit": "ad952b3929259c1968ffd62ef60c3b99b9bed42e",
+    "parent": "33a635905345ff2a42facc3add5c6609eea9357c",
+    "subject": "SV5_14_JUMP_SOLID: build mixed-support local ascent route"
+  },
+  "package": {
+    "zip_sha256": "28a7d30a381c729b1b087564c6f98827f41fb344b30678991603c62687f3544b",
+    "manifest_sha256": "033dd6665e5ac6b54ce80f2af6afc6fe37cd50458524f7ad59cea3d789fbe979",
+    "source_lock_sha256": "e3e718810eb2cbc6226aa82ee8af4e9dad9b696ae579a7fbceeee524b4e9feed",
+    "contract_sha256": "0a828a868ec0f0d1e8d6ae94ed7f7e87789df8b44f042a082bbb4e8a342c3756",
+    "profile_sha256": "96057c1d54271f128d14f40cda9815cd263454d77fbd610ba19f366d18434f42",
+    "checker_sha256": "33f1e98432a2556dc2b1c38b180e7cd73e9d9adb5d22e1daab9d552792acc184",
+    "stage_preflight": "PASS_STAGE_PREFLIGHT_READONLY",
+    "stage": "PASS_STAGED_SINGLE_TASK",
+    "verify_staged": "PASS_STAGED_SINGLE_TASK",
+    "verify_applied": "PASS_NATIVE_APPLY",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "0cfad31cee048e6961500712fa2d2305a854323c073f10accdc3d6ad25f55547",
+    "archive_task_sha256": "0cfad31cee048e6961500712fa2d2305a854323c073f10accdc3d6ad25f55547",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_14_JUMP_SOLID",
+    "commit": "ad952b3929259c1968ffd62ef60c3b99b9bed42e",
+    "task_sha256": "3cb140ff326f5bfb5458435d465f6128d1b624eb3fdb881fd1e36c3966cc9a58",
+    "archive_sha256": "3cb140ff326f5bfb5458435d465f6128d1b624eb3fdb881fd1e36c3966cc9a58",
+    "result_sha256": "356d1ce122a95b98e671710fc6bcf694371f02edc9e5800470472aee309d48d2",
+    "binding_sha256": "d77472d93714b0e3bc63d74b83c4cd63a2719fb6fddb74aa1786814d532fab83",
+    "fixture_digest": "8f693abdb50dd4d31c9a69840f379936e2a28faf646681698e05adb725fc3d6e",
+    "immutable_paths_modified": false
+  },
+  "before_implementation": {
+    "status_sha256": "170e23a9bb2b44b0b787c2a38ba19cee6cd0c4fe198a5c3e59b779039497108d",
+    "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+    "counts": {"COMPLETE": 262, "CURRENT": 1, "LOCKED": 32},
+    "current_task": "SV5_15_JUMP_GRAB",
+    "SV5_16_JUMP_OUTLINE": "LOCKED",
+    "observed_dirty_path_count_including_apply_and_untracked_inputs": 1429
+  },
+  "implementation": {
+    "geometry_source_sha256": "a43a5660fed3e64d36647a5af620faa1d8a24829f31e7f06f1b2f7a455a1e63d",
+    "export_source_sha256": "17d3cef9c226a724b2d253ee624aa974b76d327e6ed3e88d2f1ab7a6ba2e674f",
+    "tests_sha256": "c8afa6fc39fcffd68da574ab52ebb20c23225643fa9adc320672c86d838035b3",
+    "integration_document_sha256": "d8c352b9bb2dfa001bf8f79bc827bb7e0cfd69bed6b96ece2d1463fc68cf5e9e",
+    "consumes_sv5_jump_contract_measure": true,
+    "derives_sv5_14_fixture": true,
+    "redefines_sv5_13_formulas_or_enums": false
+  },
+  "canonical_fixture": {
+    "digest": "99c00ddaee7b1c0e7967d10560ddfad9b0f01dbc597f969466e3a03c16c760db",
+    "base_fixture_digest": "8f693abdb50dd4d31c9a69840f379936e2a28faf646681698e05adb725fc3d6e",
+    "coordinate_scope": "24x32_LOCAL_JUMP_ROOM_NOT_SECTOR",
+    "support_count": 10,
+    "support_cell_count": 27,
+    "required_route_link_count": 9,
+    "jump_grab_link_count": 1,
+    "grab_edge_count": 1,
+    "grab_link": {
+      "link_id": "JS_LINK_03",
+      "source": "JS03_ONE_WAY",
+      "target": "JS04_SOLID",
+      "direction": "RIGHT_TO_LEFT",
+      "takeoff": [18, 5],
+      "landing": [15, 7],
+      "gap_air": 2,
+      "rise": 2,
+      "grab_edge_id": "JS04_RIGHT_GRAB"
+    },
+    "grab_edge": {
+      "target_support": "JS04_SOLID",
+      "contact": [15, 6],
+      "face": "RIGHT",
+      "hang_body": [16, 6],
+      "hang_head": [16, 7],
+      "pull_up_foot": [15, 7],
+      "pull_up_head": [15, 8]
+    },
+    "action_sequence": ["TAKEOFF", "CONTACT_HANG", "PULL_UP", "LAND"],
+    "gap_air_range": [1, 3],
+    "rise_range": [0, 2],
+    "supports_validation_state": "STATIC_SCREEN",
+    "links_validation_state": "PLANNED",
+    "player_verified_count": 0,
+    "reverse_completion_required": false,
+    "ladder_logic_created": false,
+    "one_way_grab_allowed": false,
+    "whole_world_builds_in_new_targeted_tests": 0,
+    "whole_world_searches_in_new_targeted_tests": 0
+  },
+  "verification": {
+    "compile": {
+      "status": "PASS",
+      "editor": "Unity 6000.3.8f1",
+      "compile_errors": 0,
+      "runner": "connected Unity Editor Pipeline local API"
+    },
+    "targeted": {
+      "status": "PASS",
+      "tests": 26,
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 6.51,
+      "start_utc": "2026-09-14T08:07:52Z",
+      "end_utc": "2026-09-14T08:07:59Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_15_JUMP_GRAB/targeted_results.xml",
+      "xml_sha256": "50656503c8f59f1484dfb015d84223dc41637ca7887b7a1bea3780bd756f200a"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_JUMP_GRAB",
+      "passed_after_targeted": true,
+      "passed_before_visual_and_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_15_JUMP_GRAB/independent_jump_grab_audit.json",
+      "audit_sha256": "e414e0e6c4a5d8d1901156256a6b94a4e946368ea63dc357f727595ca91a994f"
+    },
+    "visual_inspection": {
+      "status": "PASS_VISUAL_INSPECTION",
+      "passed_before_full_regression": true,
+      "audit": "MapDesign/MCP/GENERATED/SV5_15_JUMP_GRAB/visual_export_audit.json",
+      "audit_sha256": "e1dbcbc36e07dd35e0120ab045b2df3a085c69302a2c21da9e9adf1a1be4ec54",
+      "svg_sha256": "0a8eb8807fdd137be22536510c95c38b4fd5e231f6ea6f5f28bde2b10d450a2e",
+      "rendered_png_sha256": "ee8ca7820ad1013338710ad57144ef0b33c67107e4d1ba49a1b6acd1c610021c"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "executions": 1,
+      "tests": 278,
+      "passed": 278,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1707.86,
+      "start_utc": "2026-09-14T08:08:53Z",
+      "end_utc": "2026-09-14T08:37:21Z",
+      "xml": "MapDesign/MCP/GENERATED/SV5_15_JUMP_GRAB/focused_results.xml",
+      "xml_sha256": "5903e10fdda3d14d8dc6adac42e546d2cc7e2b5602ff648a9505f8989a2a71a1"
+    },
+    "ordered_gates": [
+      "COMPILE_AND_TARGETED_LOCAL_FIXTURES",
+      "INDEPENDENT_CHECKER",
+      "SVG_RENDER_AND_VISUAL_INSPECTION",
+      "FULL_SV5_REGRESSION_ONCE",
+      "POST_READONLY"
+    ]
+  },
+  "artifacts": {
+    "jump_grab_sha256": "8eb8f26d147257b583a8d1e870b6a1d0e99b561126af17d5cc6169e1ff87df28",
+    "supports_csv_sha256": "7cbddd68a22f24428478b197c332eabb01e3de948d7e44d9906f38f2d90ce779",
+    "support_cells_csv_sha256": "5aba6c065c38f110a00ef983e2c8eab4722b2258a11570f7da02fb7232e65095",
+    "route_links_csv_sha256": "d53ea2244d318357b33dd940862a09b5df78ec2f44f1e6c568aade805d7aaeaa",
+    "grab_edges_csv_sha256": "17a2119499f2a5f811378e16deaf7425f56a00e08ff21c9e20084819cb26cf03",
+    "grab_clearance_csv_sha256": "a7370b76947844cb086cdfcc557be0458fd3fba7aec771c408d851aefddd1b8c",
+    "grab_action_sequence_csv_sha256": "ab1a69d104632fc7da16acd1cbbd409e27d79fe4a6356dd088a3ee7a8e4f7d9d",
+    "validation_sha256": "e03b4ca4d5975628363337bbac0e55369a4b1fad71ea3ad8852f613ec0f9d155"
+  },
+  "scope": {
+    "observed_dirty_paths_including_apply_and_untracked_inputs": 1429,
+    "current_dirty_paths_before_finalize": 1451,
+    "unrelated_dirty_paths_modified_or_staged_by_task": 0,
+    "world_placement_changed": false,
+    "player_runtime_or_tuning_changed": false,
+    "sv5_13_or_sv5_14_source_or_evidence_changed": false,
+    "tree_or_hub_source_changed": false,
+    "scene_or_prefab_changed": false,
+    "packages_or_project_settings_changed": false,
+    "master_changed": false
+  },
+  "readiness": {
+    "jump_contract_ready": true,
+    "jump_solid_geometry_ready": true,
+    "jump_grab_geometry_ready": true,
+    "composed_geometry_ready": false,
+    "player_verified": false,
+    "SV5_16_JUMP_OUTLINE": "LOCKED",
+    "push_performed": false
+  }
+}

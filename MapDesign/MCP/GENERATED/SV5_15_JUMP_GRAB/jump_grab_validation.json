@@ -1,0 +1,19 @@
+{
+  "schema": "SV5_15_JUMP_GRAB_VALIDATION/v1",
+  "status": "PASS",
+  "errors": [],
+  "fixture_digest": "99c00ddaee7b1c0e7967d10560ddfad9b0f01dbc597f969466e3a03c16c760db",
+  "base_fixture_digest": "8f693abdb50dd4d31c9a69840f379936e2a28faf646681698e05adb725fc3d6e",
+  "support_count": 10,
+  "support_cell_count": 27,
+  "route_link_count": 9,
+  "jump_grab_link_count": 1,
+  "grab_edge_count": 1,
+  "grab_clearance_count": 1,
+  "action_count": 4,
+  "jump_contract_ready": true,
+  "jump_solid_geometry_ready": true,
+  "jump_grab_geometry_ready": true,
+  "composed_geometry_ready": false,
+  "player_verified": false
+}

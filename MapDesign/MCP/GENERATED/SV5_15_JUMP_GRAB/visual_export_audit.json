@@ -1,0 +1,25 @@
+{
+  "schema": "SV5_15_JUMP_GRAB_VISUAL_AUDIT/v1",
+  "status": "PASS_VISUAL_INSPECTION",
+  "fixture_digest": "99c00ddaee7b1c0e7967d10560ddfad9b0f01dbc597f969466e3a03c16c760db",
+  "source_svg": "MapDesign/MCP/GENERATED/SV5_15_JUMP_GRAB/preview/jump_grab.svg",
+  "source_svg_sha256": "0a8eb8807fdd137be22536510c95c38b4fd5e231f6ea6f5f28bde2b10d450a2e",
+  "rendered_png": "MapDesign/MCP/GENERATED/SV5_15_JUMP_GRAB/preview/jump_grab.png",
+  "rendered_png_sha256": "ee8ca7820ad1013338710ad57144ef0b33c67107e4d1ba49a1b6acd1c610021c",
+  "renderer": "Google Chrome headless",
+  "render_size": {"width": 930, "height": 760},
+  "inspection": {
+    "full_24x32_boundary_visible": true,
+    "solid_cells_distinguishable": true,
+    "one_way_cells_distinguishable": true,
+    "ordered_route_visible": true,
+    "single_jump_grab_segment_visible": true,
+    "js04_right_exposed_face_visible": true,
+    "takeoff_contact_hang_pull_up_land_visible": true,
+    "hang_and_pull_up_clearance_visible": true,
+    "entry_and_exit_visible": true,
+    "player_verification_deferred_legend_visible": true,
+    "labels_clipped_or_overlapping": false
+  },
+  "errors": []
+}
