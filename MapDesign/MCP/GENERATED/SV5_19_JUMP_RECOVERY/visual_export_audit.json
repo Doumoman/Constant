@@ -1,0 +1,23 @@
+{
+  "schema": "SV5_19_JUMP_RECOVERY_VISUAL_AUDIT/v1",
+  "task": "SV5_19_JUMP_RECOVERY",
+  "status": "PASS_VISUAL_INSPECTION",
+  "renderer": "Google Chrome headless",
+  "viewport": {"width": 880, "height": 640},
+  "svg_sha256": "11d933aba1a528b25a483bca40cb47bc769a49728a834e6b7a625b9ecdd15857",
+  "rendered_png_sha256": "8c0ce455fafe956e4d0ff18e2063cf2209f912eb20ca5d8f92d4e055dc988df8",
+  "checks": {
+    "both_24x32_recipe_panels_visible": true,
+    "mirror_x_layout_visible": true,
+    "base_solid_and_top_only_distinct": true,
+    "three_recovery_catch_runs_per_recipe_visible": true,
+    "eighteen_vertical_miss_rays_visible": true,
+    "linked_recovery_routes_visible": true,
+    "rejoin_checkpoints_visible": true,
+    "already_at_checkpoint_zero_link_note_visible": true,
+    "legend_and_readiness_boundary_visible": true,
+    "clipping_or_panel_overlap_observed": false
+  },
+  "recovery_digest": "f8b2e69686dbd9b7a29b82e4e4a8ca2c46c6183a005a5373e986e04b21f4288b",
+  "inspection_order": "AFTER_TARGETED_AND_INDEPENDENT_BEFORE_FULL_REGRESSION"
+}

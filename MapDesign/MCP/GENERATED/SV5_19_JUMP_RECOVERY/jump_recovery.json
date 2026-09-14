@@ -1,0 +1,32 @@
+{
+  "schema": "SV5_19_JUMP_RECOVERY/v1",
+  "task": "SV5_19_JUMP_RECOVERY",
+  "status": "PASS",
+  "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+  "input_clearance_digest": "48c3754b8109aa0601760567010b9aece67c5305907dfb76c7b155b3d4c37f13",
+  "recovery_digest": "f8b2e69686dbd9b7a29b82e4e4a8ca2c46c6183a005a5373e986e04b21f4288b",
+  "recipe_count": 2,
+  "overlay_cell_count": 16,
+  "overlay_group_count": 6,
+  "probe_count": 18,
+  "passed_probe_count": 18,
+  "route_count": 18,
+  "passed_route_count": 18,
+  "linked_route_count": 10,
+  "already_at_checkpoint_count": 8,
+  "recovery_link_count": 10,
+  "recovery_trace_state_count": 34,
+  "checkpoint_orders": [0,1,2,3,6],
+  "reverse_required": false,
+  "items_used": false,
+  "readiness": {
+    "JumpRecipeReady": true,
+    "ComposedGeometryReady": true,
+    "SweptClearanceReady": true,
+    "RecoveryReady": true,
+    "PlayerVerified": false
+  },
+  "whole_world_builds": 0,
+  "whole_world_searches": 0,
+  "global_endpoint_comparisons": 0
+}

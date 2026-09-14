@@ -1,0 +1,19 @@
+{
+  "schema": "SV5_19_INDEPENDENT_JUMP_RECOVERY_AUDIT/v1",
+  "task": "SV5_19_JUMP_RECOVERY",
+  "status": "PASS",
+  "recipe_count": 2,
+  "overlay_cells": 16,
+  "overlay_groups": 6,
+  "probe_count": 18,
+  "route_count": 18,
+  "recovery_link_count": 10,
+  "recovery_trace_state_count": 34,
+  "whole_world_builds": 0,
+  "whole_world_searches": 0,
+  "global_endpoint_comparisons": 0,
+  "overlay_sha256": "5888bbd111a4546cb13d1e7ccc3d8534a6b6166c6231cd49f405145d7744685b",
+  "probes_sha256": "1efc6aa9cc8fb08db3d5711b0f361dac7f5f9e05bf2e2ea51be767fb3c186124",
+  "routes_sha256": "46a5747897341cd5959e7d375b7cc5d920a952e4d2fbb154d9f81eb14efe34b2",
+  "errors": []
+}

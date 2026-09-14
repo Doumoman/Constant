@@ -1,0 +1,534 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.8f1 (1c7db571dde0) revision 1867189'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-user" at "2026-09-14T18:16:46.6711581Z"
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'ko' Physical Memory: 31961 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-14T18:16:46Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2022.3.22f1\6000.3.8f1\Editor\Unity.exe
+-batchmode
+-projectPath
+C:\Users\user\Documents\GitHub\Optimal-Selection\Constant
+-runTests
+-testPlatform
+EditMode
+-testFilter
+^StarNight\.Map\.Tests\.EditMode\.Sv5\.
+-testResults
+C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\MapDesign\MCP\GENERATED\SV5_19_JUMP_RECOVERY\focused_results.xml
+-logFile
+C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\MapDesign\MCP\GENERATED\SV5_19_JUMP_RECOVERY\full_regression_batchmode.log
+Successfully changed project path to: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant
+C:/Users/user/Documents/GitHub/Optimal-Selection/Constant
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [36200]  Target information:
+
+Player connection [36200]  * "[IP] 59.6.153.37 [Port] 55504 [Flags] 2 [Guid] 2318865969 [EditorId] 2318865969 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-SJJEF92) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [36200]  * "[IP] 25.13.99.225 [Port] 55504 [Flags] 2 [Guid] 2318865969 [EditorId] 2318865969 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-SJJEF92) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [36200] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [36200] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-14476" after 0.3 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              7beb2ef238aa4471b6f41e6ed2e7fa4a
+  Correlation Id:          26e5e3e3d2cc02b1f7d603f3eb0476e3
+  External correlation Id: 4051826935738580695
+  Machine Id:              lL5L6QNYJOIJWsLCcdVcdsab/B0=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-user" (connect: 0.00s, validation: 0.00s, handshake: 1.54s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-user-notifications" at "2026-09-14T18:16:48.2123305Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 14569297465514-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Module] Licensing Background thread has ended after 1.55s
+[Licensing::Module] Licensing is initialized (took 0.98s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 3.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.8f1 (1c7db571dde0)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 SUPER (ID=0x2783)
+    Vendor:   NVIDIA
+    VRAM:     11997 MB
+    Driver:   32.0.15.9186
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56476
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity 2022.3.22f1/6000.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.016334 seconds.
+- Loaded All Assemblies, in  0.582 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2444 ms
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.899 seconds
+Domain Reload Profiling: 3465ms
+	BeginReloadAssembly (205ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (82ms)
+	LoadAllAssembliesAndSetupDomain (231ms)
+		LoadAssemblies (182ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (225ms)
+			TypeCache.Refresh (223ms)
+				TypeCache.ScanAssembly (209ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2899ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2861ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2581ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (79ms)
+			ProcessInitializeOnLoadAttributes (132ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 74 packages:
+  Packages from [https://package.openupm.com]:
+    dev.yarnspinner.unity@3.2.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\dev.yarnspinner.unity@cc0f3c283413)
+  Packages from [https://packages.unity.com]:
+    com.unity.2d.animation@13.0.4 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.animation@7396d8477ca9)
+    com.unity.2d.aseprite@3.0.1 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.aseprite@809e3a168ff7)
+    com.unity.2d.psdimporter@12.0.1 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.psdimporter@9abe0f7cac7e)
+    com.unity.2d.spriteshape@13.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.spriteshape@0738bab11647)
+    com.unity.2d.tilemap.extras@6.0.1 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.tilemap.extras@3dde84bf3867)
+    com.unity.2d.tooling@1.0.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.tooling@249995156768)
+    com.unity.ai.assistant@2.9.0-pre.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.ai.assistant@bde8e124bc72)
+    com.unity.collab-proxy@2.11.3 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.collab-proxy@e566cd3e7623)
+    com.unity.ide.rider@3.0.39 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.ide.rider@4504839d03f7)
+    com.unity.ide.visualstudio@2.0.26 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.ide.visualstudio@a99d56dec63f)
+    com.unity.inputsystem@1.18.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.inputsystem@57d0e36f6123)
+    com.unity.postprocessing@3.5.4 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.postprocessing@141166b789e3)
+    com.unity.recorder@5.1.5 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.recorder@544ed421bd22)
+    com.unity.timeline@1.8.10 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.timeline@7f8b2fb101b6)
+    com.unity.visualscripting@1.9.9 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.visualscripting@191c0d7e3b69)
+    com.unity.pipeline@0.5.0-exp.1 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.pipeline@24975d51528a)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64)
+    com.unity.collections@2.6.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.collections@aea9d3bd5e19)
+    com.unity.bindings.openimageio@1.0.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.bindings.openimageio@94e2abc0bc65)
+    com.unity.mathematics@1.3.3 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.mathematics@19a9377c4ffa)
+    com.unity.cloud.gltfast@6.14.1 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.cloud.gltfast@0847aee0f6da)
+    com.unity.2d.common@12.0.2 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.common@800085e896ad)
+    com.unity.searcher@4.9.4 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.searcher@d45a78918735)
+    com.unity.burst@1.8.27 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.burst@973857688024)
+    com.unity.test-framework.performance@3.2.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.test-framework.performance@0840f58e4562)
+  Built-in packages:
+    com.unity.2d.sprite@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.sprite@08e067ec1643)
+    com.unity.2d.tilemap@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.2d.tilemap@2394479dc113)
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.render-pipelines.universal@17.3.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.render-pipelines.universal@a6e30d1f59f5)
+    com.unity.test-framework@1.6.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.test-framework@0b7a23ab2e1d)
+    com.unity.ugui@2.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.ugui@bb329a87fcdc)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.ext.nunit@d8c07649098d)
+    com.unity.render-pipelines.core@17.3.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.render-pipelines.core@d6dfd1e235d5)
+    com.unity.shadergraph@17.3.0 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.shadergraph@d44b48771ebb)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d)
+  Git packages:
+    com.coplaydev.unity-mcp@https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#efaf786e8772a8591940fdb341524588470469ed (location: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Library\PackageCache\com.coplaydev.unity-mcp@efaf786e8772)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.03 seconds
+Duplicate assembly 'Microsoft.CodeAnalysis.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'Microsoft.CodeAnalysis.CSharp.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Assembly for Assembly Definition File 'Assets/_Legacy/_Game/WorldObjects/Runtime/Game.WorldObjects.Runtime.asmdef' will not be compiled, because it has no scripts associated with it.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogWarningFormat (string,object[])
+UnityEditor.Scripting.ScriptCompilation.EditorCompilation:WarnIfThereAreAssembliesWithoutAnyScripts (UnityEditor.Scripting.ScriptCompilation.ScriptAssemblySettings,UnityEditor.Scripting.ScriptCompilation.ScriptAssembly[])
+UnityEditor.Scripting.ScriptCompilation.EditorCompilation:CompileScriptsWithSettings (UnityEditor.Scripting.ScriptCompilation.ScriptAssemblySettings)
+UnityEditor.Scripting.ScriptCompilation.EditorCompilation:CompileScripts (UnityEditor.Scripting.ScriptCompilation.EditorScriptCompilationOptions,UnityEditor.BuildTarget,int,string[])
+UnityEditor.Scripting.ScriptCompilation.EditorCompilationInterface/<>c__DisplayClass21_0:<CompileScripts>b__0 ()
+UnityEditor.Scripting.ScriptCompilation.EditorCompilationInterface:EmitExceptionAsError<UnityEditor.Scripting.ScriptCompilation.EditorCompilation/CompileStatus> (System.Func`1<UnityEditor.Scripting.ScriptCompilation.EditorCompilation/CompileStatus>,UnityEditor.Scripting.ScriptCompilation.EditorCompilation/CompileStatus)
+UnityEditor.Scripting.ScriptCompilation.EditorCompilationInterface:CompileScripts (UnityEditor.Scripting.ScriptCompilation.EditorScriptCompilationOptions,UnityEditor.BuildTarget,int,string[])
+
+Refreshing native plugins compatible for Editor in 11.30 ms, found 8 plugins.
+Starting: C:\Program Files\Unity 2022.3.22f1\6000.3.8f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/user/Documents/GitHub/Optimal-Selection/Constant
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s965ms
+[1669/2243  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.90 seconds), 1 items updated, 2243 evaluated
+AssetDatabase: script compilation time: 1.682143s
+Begin MonoManager ReloadAssembly
+Duplicate assembly 'Microsoft.CodeAnalysis.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'Microsoft.CodeAnalysis.CSharp.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  2.263 seconds
+Refreshing native plugins compatible for Editor in 11.32 ms, found 8 plugins.
+Native extension for Android target not found
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Duplicate assembly 'Microsoft.CodeAnalysis.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=10.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'Microsoft.CodeAnalysis.CSharp.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.ai.assistant/Plugins/Shared/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'Microsoft.CodeAnalysis.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.dll, AssemblyName=Microsoft.CodeAnalysis, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Reflection.Metadata.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Reflection.Metadata.dll, AssemblyName=System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Collections.Immutable.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Collections.Immutable.dll, AssemblyName=System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'Microsoft.CodeAnalysis.CSharp.dll' with different versions detected, using 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/Microsoft.CodeAnalysis.CSharp.dll, AssemblyName=Microsoft.CodeAnalysis.CSharp, Version=3.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/com.unity.pipeline/Runtime/Plugins/CodeAnalysis/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Packages/com.unity.collections/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Packages/dev.yarnspinner.unity/Editor/Analysis/DLLs/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Start HTTP server: port:7800
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 10.068 seconds
+Domain Reload Profiling: 12293ms
+	BeginReloadAssembly (376ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (176ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (98ms)
+	LoadAllAssembliesAndSetupDomain (1701ms)
+		LoadAssemblies (1189ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (666ms)
+			TypeCache.Refresh (509ms)
+				TypeCache.ScanAssembly (487ms)
+			BuildScriptInfoCaches (139ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (10068ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (9838ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (48ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (321ms)
+			ProcessInitializeOnLoadAttributes (8504ms)
+			ProcessInitializeOnLoadMethodAttributes (923ms)
+			AfterProcessingInitializeOnLoad (34ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (17ms)
+Asset Pipeline Refresh (id=294d6d32a0580bc4da551cc1aa568d2f): Total: 15.865 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=11484 ms
+		Asset DB Callback time: managed=165 ms, native=38 ms
+		Scripting: domain reloads=1, domain reload time=2264 ms, compile time=1684 ms, other=229 ms
+		Project Asset Count: scripts=3022, non-scripts=6075
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 42.636ms
+	ApplyChangesToAssetFolders: 0.852ms
+	Scan: 512.546ms
+	OnSourceAssetsModified: 0.004ms
+	CategorizeAssetsWithTransientArtifact: 147.971ms
+	ProcessAssetsWithTransientArtifactChanges: 154.687ms
+	CategorizeAssets: 111.074ms
+	ImportOutOfDateAssets: 10108.244ms (8421.649ms without children)
+		CompileScripts: 1683.697ms
+		ReloadNativeAssets: 0.025ms
+		UnloadImportedAssets: 1.141ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 1.255ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.476ms
+	PostProcessAllAssets: 165.149ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.001ms
+	UnloadStreamsBegin: 3.080ms
+	PersistCurrentRevisions: 0.187ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 5.609ms
+	Untracked: 4618.350ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Scanning for USB devices : 9.633ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-별을 물어오는 밤
+Unloading 38 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 12258 unused Assets / (9.3 MB). Loaded Objects now: 13108.
+Memory consumption went from 286.1 MB to 276.8 MB.
+Total: 23.667600 ms (FindLiveObjects: 1.229300 ms CreateObjectMapping: 0.921900 ms MarkObjects: 17.750900 ms  DeleteObjects: 3.764600 ms)
+
+[Project] Loading completed in 25.980 seconds
+	Project init time: 				22.866 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		1.266 seconds
+		Asset Database init time: 		0.391 seconds
+		Global illumination init time: 	0.010 seconds
+		Assemblies load time: 			3.519 seconds
+		Unity extensions init time: 	0.019 seconds
+		Asset Database refresh time: 	15.865 seconds
+	Scene opening time: 			2.870 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1789409832632,"processId":14476,"projectLoad":25.9799939,"projectInit":22.8663621,"templateInit":0.0,"packageManagerInit":1.2658363,"assetDatabaseInit":0.3910206,"globalIlluminationInit":0.0099566,"assembliesLoad":3.5190421,"unityExtensionsInit":0.0188974,"assetDatabaseRefresh":15.8649748,"sceneOpening":2.8697607}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1789409832633,"processId":14476,"editorVersion":"6000.3.8f1 (1c7db571dde0)","branch":"6000.3/staging","buildType":"Release","platform":"Windows"}
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+Asset Pipeline Refresh (id=078b3a4e00e39ee42a1658b79261997e): Total: 0.088 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Running tests for ExecutionSettings with details:
+targetPlatform = 
+playerHeartbeatTimeout = 600
+filters[0] = 
+   Filter with settings:
+   testMode = EditMode
+   targetPlatform = 
+   testNames = null
+   groupNames = ^StarNight\.Map\.Tests\.EditMode\.Sv5\.
+   categoryNames = null
+   assemblyNames = null
+ignoreTests = {}
+featureFlags = null
+
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:InitializeAndExecuteRun (string[]) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/CommandLineTest/Executer.cs:53)
+UnityEditor.TestTools.TestRunner.CommandLineTest.TestStarter:InitializeAndExecuteRun () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/CommandLineTest/TestStarter.cs:64)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/CommandLineTest/Executer.cs Line: 53)
+
+Start Indexing on Editor startup
+[Indexing] Starting Initial Indexing for Assets
+[UnityConnectServicesConfig] config is NOT valid, switching to default
+Created GICache directory at C:/Users/user/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.057s, timestamps: [25.992 - 26.049]
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (44.4 KB). Loaded Objects now: 13160.
+Memory consumption went from 241.2 MB to 241.1 MB.
+Total: 87.706100 ms (FindLiveObjects: 0.713700 ms CreateObjectMapping: 0.547600 ms MarkObjects: 86.414500 ms  DeleteObjects: 0.029200 ms)
+
+Executing IPrebuildSetup for: Unity.PerformanceTesting.Editor.TestRunBuilder.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.TestRun.Tasks.BuildActionTaskBase`1/<ExecuteMethods>d__8<UnityEngine.TestTools.IPrebuildSetup>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/BuildActionTaskBase.cs:48)
+UnityEditor.TestTools.TestRunner.TestRun.Tasks.BuildActionTaskBase`1/<Execute>d__7<UnityEngine.TestTools.IPrebuildSetup>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/BuildActionTaskBase.cs:34)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteStep () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:173)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteCallback () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:108)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/BuildActionTaskBase.cs Line: 48)
+
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Applied No Throttling for test run.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MCPForUnity.Editor.Helpers.McpLog:Info (string,bool) (at ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Helpers/McpLog.cs:40)
+MCPForUnity.Editor.Services.TestRunnerNoThrottle:ApplyNoThrottling () (at ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Services/TestRunnerNoThrottle.cs:101)
+MCPForUnity.Editor.Services.TestRunnerNoThrottle/TestCallbacks:RunStarted (UnityEditor.TestTools.TestRunner.Api.ITestAdaptor) (at ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Services/TestRunnerNoThrottle.cs:138)
+UnityEditor.TestTools.TestRunner.Api.CallbacksDelegator/<>c__DisplayClass7_0:<RunStarted>b__0 (UnityEditor.TestTools.TestRunner.Api.ICallbacks) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/Api/CallbacksDelegator.cs:42)
+UnityEditor.TestTools.TestRunner.Api.CallbacksDelegator:TryInvokeAllCallbacks (System.Action`1<UnityEditor.TestTools.TestRunner.Api.ICallbacks>) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/Api/CallbacksDelegator.cs:135)
+UnityEditor.TestTools.TestRunner.Api.CallbacksDelegator:RunStarted (NUnit.Framework.Interfaces.ITest) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/Api/CallbacksDelegator.cs:42)
+UnityEngine.Events.InvokableCall`1<NUnit.Framework.Interfaces.ITest>:Invoke (NUnit.Framework.Interfaces.ITest)
+UnityEngine.Events.UnityEvent`1<NUnit.Framework.Interfaces.ITest>:Invoke (NUnit.Framework.Interfaces.ITest)
+UnityEditor.TestTools.TestRunner.TestRun.Tasks.Events.RunStartedInvocationEvent/<Execute>d__0:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/Events/RunStartedInvocationEvent.cs:15)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteStep () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:173)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteCallback () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:108)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Helpers/McpLog.cs Line: 40)
+
+[SV5_09_FIX01_PERFORMANCE] {   "schema":"SV5_09_FIX01_PERFORMANCE_DIAGNOSTIC_V1",   "seed":1304,   "profile":{"minimum":16,"minimum_sectors":12,"target":32},   "timings_ms":{"accepted_candidate_evaluation_ms":1428.737,"baseline_foot_adjacency_room_graph_bridge_ms":40.526,"baseline_occupancy_ms":1743.449,"eligibility_and_packing_ms":2.489,"eligibility_and_packing_prepare_ms":68.94,"endpoint_and_candidate_generation_ms":20057.173,"final_9_states_x_6_resource_orders_ms":5088.182,"final_topology_and_tarjan_bridge_ms":391.683,"total_build_ms":29403.334},   "rejection_histogram":{"BASELINE_INTERIOR_OVERLAP":49065,"COST_UNREACHABLE":0,"DUPLICATE_PAIR":78325,"ENDPOINT_NOT_ACTUAL_ROOM":16027,"NEWLY_CARVED_LT_2":1092,"PACKING_CONFLICT":6439,"PATH_NOT_TRIMMED":42256,"PROTECTED":0,"SECTOR_CAP":0,"TOPOLOGY_NO_ALTERNATE":0,"UNSUPPORTED_FOOT":144940},   "survivors":{"actual_room_endpoints":124555,"baseline_interior_clear":124555,"boundary_exit_endpoints":5520,"cost_reachable":6516,"eligibility_budget":5778,"eligible_aperture_pairs":25,"eligible_endpoint_pairs":663,"eligible_sectors":19,"eligible_shortlist":6516,"endpoint_coordinate_pairs_evaluated":1298,"generated_candidates":19260,"newly_carved_at_least_two":19260,"packing_search_nodes":15,"packing_selected":16,"protected_clear":20352,"raw_paths":215876,"supported_geometry":124555,"topology_alternate":6516,"trimmed_paths":124555,"viable_aperture_pairs":25,"viable_before_packing":6516,"viable_endpoint_pairs":663,"viable_room_pairs":16,"viable_sectors":19},   "details":{"empty_room_pair_rejections":"SV5_INFILL_ROOM_0038cd07afe0acfefffa|SV5_INFILL_ROOM_0058509cbbf5ecd5a28e|min_cost=23|endpoint_pairs=5|BASELINE_INTERIOR_OVERLAP=61,PATH_NOT_TRIMMED=1005,UNSUPPORTED_FOOT=224|raw=BASELINE_INTERIOR_OVERLAP=61,NO_PATH=224,PATH_NOT_TRIMMED=1005;SV5_INFILL_ROOM_009ef3f64388d61dce55|SV5_INFILL_ROOM_018765724e6a988ed29c|min_cost=23|endpoint_pairs=4|BASELINE_INTERIOR_OVERLAP=10,DUPLICATE_PAIR=24,PATH_NOT_TRIMMED=812,UNSUPPORTED_FOOT=186|raw=BASELINE_INTERIOR_OVERLAP=10,DUPLICATE_PAIR=24,NO_PATH=174,PATH_NOT_TRIMMED=812,SUPPORT_NOT_SOLID=12;SV5_INFILL_ROOM_068c7c9992134cb31e50|SV5_INFILL_ROOM_0721ca040a4fb03db0b5|min_cost=23|endpoint_pairs=5|BASELINE_INTERIOR_OVERLAP=61,PATH_NOT_TRIMMED=1005,UNSUPPORTED_FOOT=224|raw=BASELINE_INTERIOR_OVERLAP=61,NO_PATH=224,PATH_NOT_TRIMMED=1005;SV5_INFILL_ROOM_088b52ae78584124831f|SV5_INFILL_ROOM_182a17cb890b879d85a4|min_cost=24|endpoint_pairs=2|BASELINE_INTERIOR_OVERLAP=22,DUPLICATE_PAIR=3,PATH_NOT_TRIMMED=391,UNSUPPORTED_FOOT=100|raw=BASELINE_INTERIOR_OVERLAP=22,DUPLICATE_PAIR=3,FOREIGN_SOLID_OPENING=2,NO_PATH=98,PATH_NOT_TRIMMED=391;SV5_INFILL_ROOM_0c69ae74af31ab21da75|SV5_INFILL_ROOM_0dbd53f17d6303f0e39e|min_cost=22|endpoint_pairs=6|BASELINE_INTERIOR_OVERLAP=102,DUPLICATE_PAIR=4,PATH_NOT_TRIMMED=1167,UNSUPPORTED_FOOT=275|raw=BASELINE_INTERIOR_OVERLAP=102,DUPLICATE_PAIR=4,NO_PATH=274,PATH_NOT_TRIMMED=1167,SUPPORT_NOT_SOLID=1","generated_aperture_pairs":"SV5_INFILL_ROOM_002b1fdb38d3b5d62912_LINK|SV5_INFILL_ROOM_04b3ee2d2f798b163c8e_LINK;SV5_INFILL_ROOM_0033f24aa202678fd527_LINK|SV5_INFILL_ROOM_0555f7159cc5807eccd0_LINK;SV5_INFILL_ROOM_005a04bda9ede05b1190_LINK|SV5_INFILL_ROOM_1c4c6b34887f12eefac3_LINK;SV5_INFILL_ROOM_0097a6b558d6e61e58f5_LINK|SV5_INFILL_ROOM_0f17f69a0304b7b0be0e_LINK;SV5_INFILL_ROOM_00b4a4fe56b192880b8c_LINK|SV5_INFILL_ROOM_06221a856d3548df6440;SV5_INFILL_ROOM_00b4a4fe56b192880b8c_LINK|SV5_INFILL_ROOM_06221a856d3548df6440_LINK;SV5_INFILL_ROOM_00d2b967a3d3b2f6b4b1_LINK|SV5_INFILL_ROOM_01ab4f357f1a1a51e05d_LINK;SV5_INFILL_ROOM_00e5c1799c48f53348c3_LINK|SV5_INFILL_ROOM_00fe6dfb4eef486a889c_LINK;SV5_INFILL_ROOM_00e5c1799c48f53348c3|SV5_INFILL_ROOM_00fe6dfb4eef486a889c_LINK;SV5_INFILL_ROOM_0172fae7eed3ae487f8f_LINK|SV5_INFILL_ROOM_01ba3c3a3c17419084a1;SV5_INFILL_ROOM_0172fae7eed3ae487f8f_LINK|SV5_INFILL_ROOM_01ba3c3a3c17419084a1_LINK;SV5_INFILL_ROOM_0211dda6690845617294_LINK|SV5_INFILL_ROOM_03bff8d63e21cbc62be9;SV5_INFILL_ROOM_0211dda6690845617294_LINK|SV5_INFILL_ROOM_03bff8d63e21cbc62be9_LINK;SV5_INFILL_ROOM_02284733d117494c6d27_LINK|SV5_INFILL_ROOM_030a02d7aa5a692e4bf7_LINK;SV5_INFILL_ROOM_02284733d117494c6d27|SV5_INFILL_ROOM_030a02d7aa5a692e4bf7_LINK;SV5_INFILL_ROOM_033878718f1e33807663_LINK|SV5_INFILL_ROOM_03b08efc4624bc79bd40_LINK;SV5_INFILL_ROOM_033878718f1e33807663|SV5_INFILL_ROOM_03b08efc4624bc79bd40_LINK;SV5_INFILL_ROOM_04458846b0c9a081817d_LINK|SV5_INFILL_ROOM_41bfb11db98643b33449_LINK;SV5_INFILL_ROOM_05ca1ce41aa5fccf5e3e_LINK|SV5_INFILL_ROOM_2089d42e9ee8a59ad22d_LINK;SV5_INFILL_ROOM_07fb3ac254e765673737_LINK|SV5_INFILL_ROOM_0f5736599d7acc3ea0a8;SV5_INFILL_ROOM_07fb3ac254e765673737_LINK|SV5_INFILL_ROOM_0f5736599d7acc3ea0a8_LINK;SV5_INFILL_ROOM_088f25cbc663d6d3b7a4_LINK|SV5_INFILL_ROOM_1a82971bf4756de9b6e1;SV5_INFILL_ROOM_088f25cbc663d6d3b7a4_LINK|SV5_INFILL_ROOM_1a82971bf4756de9b6e1_LINK;SV5_INFILL_ROOM_16de283f3026f06e031f_LINK|SV5_INFILL_ROOM_1ea3a9898e39ffe90dff;SV5_INFILL_ROOM_16de283f3026f06e031f_LINK|SV5_INFILL_ROOM_1ea3a9898e39ffe90dff_LINK","packing_selected_endpoint_pairs":"129,160|124,163;135,75|126,82;167,204|174,210;174,87|179,87;218,23|223,23;218,51|223,51;377,318|389,324;38,371|43,371;381,367|386,367;49,371|35,374;547,123|558,127;55,351|38,355;552,107|558,107;553,23|559,23;557,88|543,91;558,43|546,47"},   "counts":{"candidates":19260,"accepted":16,"sectors":15,"baseline_shortest_cache_entries":663} } 
+[SV5_09_FIX01_PERFORMANCE] {   "schema":"SV5_09_FIX01_PERFORMANCE_DIAGNOSTIC_V1",   "seed":1304,   "profile":{"minimum":16,"minimum_sectors":12,"target":32},   "timings_ms":{"accepted_candidate_evaluation_ms":1276.432,"baseline_foot_adjacency_room_graph_bridge_ms":30.708,"baseline_occupancy_ms":1599.651,"eligibility_and_packing_ms":2.81,"eligibility_and_packing_prepare_ms":56.028,"endpoint_and_candidate_generation_ms":18582.366,"final_9_states_x_6_resource_orders_ms":3791.795,"final_topology_and_tarjan_bridge_ms":370.548,"total_build_ms":26365.864},   "rejection_histogram":{"BASELINE_INTERIOR_OVERLAP":51427,"COST_UNREACHABLE":0,"DUPLICATE_PAIR":80959,"ENDPOINT_NOT_ACTUAL_ROOM":17321,"NEWLY_CARVED_LT_2":1269,"PACKING_CONFLICT":7548,"PATH_NOT_TRIMMED":43749,"PROTECTED":0,"SECTOR_CAP":0,"TOPOLOGY_NO_ALTERNATE":0,"UNSUPPORTED_FOOT":149729},   "survivors":{"actual_room_endpoints":129663,"baseline_interior_clear":129663,"boundary_exit_endpoints":5911,"cost_reachable":7622,"eligibility_budget":6753,"eligible_aperture_pairs":27,"eligible_endpoint_pairs":730,"eligible_sectors":21,"eligible_shortlist":7622,"endpoint_coordinate_pairs_evaluated":1355,"generated_candidates":22507,"newly_carved_at_least_two":22507,"packing_search_nodes":15,"packing_selected":16,"protected_clear":23776,"raw_paths":224839,"supported_geometry":129663,"topology_alternate":7622,"trimmed_paths":129663,"viable_aperture_pairs":27,"viable_before_packing":7622,"viable_endpoint_pairs":730,"viable_room_pairs":19,"viable_sectors":21},   "details":{"empty_room_pair_rejections":"SV5_INFILL_ROOM_002d3e65ad37c08fccde|SV5_INFILL_ROOM_0e316ce78212c7a7aa18|min_cost=24|endpoint_pairs=2|BASELINE_INTERIOR_OVERLAP=22,DUPLICATE_PAIR=3,PATH_NOT_TRIMMED=391,UNSUPPORTED_FOOT=100|raw=BASELINE_INTERIOR_OVERLAP=22,DUPLICATE_PAIR=3,FOREIGN_SOLID_OPENING=2,NO_PATH=98,PATH_NOT_TRIMMED=391;SV5_INFILL_ROOM_0038cd07afe0acfefffa|SV5_INFILL_ROOM_0058509cbbf5ecd5a28e|min_cost=23|endpoint_pairs=5|BASELINE_INTERIOR_OVERLAP=61,PATH_NOT_TRIMMED=1005,UNSUPPORTED_FOOT=224|raw=BASELINE_INTERIOR_OVERLAP=61,NO_PATH=224,PATH_NOT_TRIMMED=1005;SV5_INFILL_ROOM_009ef3f64388d61dce55|SV5_INFILL_ROOM_018765724e6a988ed29c|min_cost=23|endpoint_pairs=4|BASELINE_INTERIOR_OVERLAP=10,DUPLICATE_PAIR=24,PATH_NOT_TRIMMED=812,UNSUPPORTED_FOOT=186|raw=BASELINE_INTERIOR_OVERLAP=10,DUPLICATE_PAIR=24,NO_PATH=174,PATH_NOT_TRIMMED=812,SUPPORT_NOT_SOLID=12;SV5_INFILL_ROOM_0c69ae74af31ab21da75|SV5_INFILL_ROOM_0dbd53f17d6303f0e39e|min_cost=22|endpoint_pairs=6|BASELINE_INTERIOR_OVERLAP=102,DUPLICATE_PAIR=4,PATH_NOT_TRIMMED=1167,UNSUPPORTED_FOOT=275|raw=BASELINE_INTERIOR_OVERLAP=102,DUPLICATE_PAIR=4,NO_PATH=274,PATH_NOT_TRIMMED=1167,SUPPORT_NOT_SOLID=1","generated_aperture_pairs":"SV5_INFILL_ROOM_0009256b2ee54633b586_LINK|SV5_INFILL_ROOM_0093829c5033366c54f2_LINK;SV5_INFILL_ROOM_002b1fdb38d3b5d62912_LINK|SV5_INFILL_ROOM_04b3ee2d2f798b163c8e_LINK;SV5_INFILL_ROOM_0033f24aa202678fd527_LINK|SV5_INFILL_ROOM_0555f7159cc5807eccd0_LINK;SV5_INFILL_ROOM_005a04bda9ede05b1190_LINK|SV5_INFILL_ROOM_1c4c6b34887f12eefac3_LINK;SV5_INFILL_ROOM_0097a6b558d6e61e58f5_LINK|SV5_INFILL_ROOM_0f17f69a0304b7b0be0e_LINK;SV5_INFILL_ROOM_00b4a4fe56b192880b8c_LINK|SV5_INFILL_ROOM_06221a856d3548df6440;SV5_INFILL_ROOM_00b4a4fe56b192880b8c_LINK|SV5_INFILL_ROOM_06221a856d3548df6440_LINK;SV5_INFILL_ROOM_00d2455ea8bdf900b553_LINK|SV5_INFILL_ROOM_04258432ab0f33139931_LINK;SV5_INFILL_ROOM_00d2b967a3d3b2f6b4b1_LINK|SV5_INFILL_ROOM_01ab4f357f1a1a51e05d_LINK;SV5_INFILL_ROOM_00e5c1799c48f53348c3_LINK|SV5_INFILL_ROOM_00fe6dfb4eef486a889c_LINK;SV5_INFILL_ROOM_00e5c1799c48f53348c3|SV5_INFILL_ROOM_00fe6dfb4eef486a889c_LINK;SV5_INFILL_ROOM_0172fae7eed3ae487f8f_LINK|SV5_INFILL_ROOM_01ba3c3a3c17419084a1;SV5_INFILL_ROOM_0172fae7eed3ae487f8f_LINK|SV5_INFILL_ROOM_01ba3c3a3c17419084a1_LINK;SV5_INFILL_ROOM_0211dda6690845617294_LINK|SV5_INFILL_ROOM_03bff8d63e21cbc62be9;SV5_INFILL_ROOM_0211dda6690845617294_LINK|SV5_INFILL_ROOM_03bff8d63e21cbc62be9_LINK;SV5_INFILL_ROOM_02eb000c5def9fe17f6c_LINK|SV5_INFILL_ROOM_0302951adf56016fc5e5;SV5_INFILL_ROOM_02eb000c5def9fe17f6c_LINK|SV5_INFILL_ROOM_0302951adf56016fc5e5_LINK;SV5_INFILL_ROOM_032723ec76224555dc3f_LINK|SV5_INFILL_ROOM_3c929c46695361d1801a;SV5_INFILL_ROOM_0336ae99bc580abe01f7_LINK|SV5_INFILL_ROOM_0496c8692f6450167db1_LINK;SV5_INFILL_ROOM_04458846b0c9a081817d_LINK|SV5_INFILL_ROOM_41bfb11db98643b33449_LINK;SV5_INFILL_ROOM_05ca1ce41aa5fccf5e3e_LINK|SV5_INFILL_ROOM_2089d42e9ee8a59ad22d_LINK;SV5_INFILL_ROOM_07fb3ac254e765673737_LINK|SV5_INFILL_ROOM_0f5736599d7acc3ea0a8;SV5_INFILL_ROOM_07fb3ac254e765673737_LINK|SV5_INFILL_ROOM_0f5736599d7acc3ea0a8_LINK;SV5_INFILL_ROOM_088f25cbc663d6d3b7a4_LINK|SV5_INFILL_ROOM_1a82971bf4756de9b6e1;SV5_INFILL_ROOM_088f25cbc663d6d3b7a4_LINK|SV5_INFILL_ROOM_1a82971bf4756de9b6e1_LINK;SV5_INFILL_ROOM_16de283f3026f06e031f_LINK|SV5_INFILL_ROOM_1ea3a9898e39ffe90dff;SV5_INFILL_ROOM_16de283f3026f06e031f_LINK|SV5_INFILL_ROOM_1ea3a9898e39ffe90dff_LINK","packing_selected_endpoint_pairs":"129,160|124,163;135,75|126,82;167,204|174,210;174,87|179,87;218,23|223,23;218,51|223,51;243,356|250,362;360,348|369,351;377,318|389,324;381,367|386,367;547,123|558,127;553,23|559,23;557,88|543,91;558,43|546,47;56,305|63,311;56,359|63,359"},   "counts":{"candidates":22507,"accepted":16,"sectors":16,"baseline_shortest_cache_entries":730} } 
+TrimDiskCacheJob: Current cache size 0mb
+[SV5_09_FIX01_PERFORMANCE] {   "schema":"SV5_09_FIX01_PERFORMANCE_DIAGNOSTIC_V1",   "seed":1304,   "profile":{"minimum":16,"minimum_sectors":12,"target":32},   "timings_ms":{"accepted_candidate_evaluation_ms":963.581,"baseline_foot_adjacency_room_graph_bridge_ms":24.846,"baseline_occupancy_ms":1206.036,"eligibility_and_packing_ms":0.592,"eligibility_and_packing_prepare_ms":101.234,"endpoint_and_candidate_generation_ms":19491.595,"final_9_states_x_6_resource_orders_ms":3786.762,"final_topology_and_tarjan_bridge_ms":543.861,"total_build_ms":26631.774},   "rejection_histogram":{"BASELINE_INTERIOR_OVERLAP":49065,"COST_UNREACHABLE":0,"DUPLICATE_PAIR":78325,"ENDPOINT_NOT_ACTUAL_ROOM":16027,"NEWLY_CARVED_LT_2":1092,"PACKING_CONFLICT":6439,"PATH_NOT_TRIMMED":42256,"PROTECTED":0,"SECTOR_CAP":0,"TOPOLOGY_NO_ALTERNATE":0,"UNSUPPORTED_FOOT":144940},   "survivors":{"actual_room_endpoints":124555,"baseline_interior_clear":124555,"boundary_exit_endpoints":5520,"cost_reachable":6516,"eligibility_budget":5778,"eligible_aperture_pairs":25,"eligible_endpoint_pairs":663,"eligible_sectors":19,"eligible_shortlist":6516,"endpoint_coordinate_pairs_evaluated":1298,"generated_candidates":19260,"newly_carved_at_least_two":19260,"packing_search_nodes":15,"packing_selected":16,"protected_clear":20352,"raw_paths":215876,"supported_geometry":124555,"topology_alternate":6516,"trimmed_paths":124555,"viable_aperture_pairs":25,"viable_before_packing":6516,"viable_endpoint_pairs":663,"viable_room_pairs":16,"viable_sectors":19},   "details":{"empty_room_pair_rejections":"SV5_INFILL_ROOM_0038cd07afe0acfefffa|SV5_INFILL_ROOM_0058509cbbf5ecd5a28e|min_cost=23|endpoint_pairs=5|BASELINE_INTERIOR_OVERLAP=61,PATH_NOT_TRIMMED=1005,UNSUPPORTED_FOOT=224|raw=BASELINE_INTERIOR_OVERLAP=61,NO_PATH=224,PATH_NOT_TRIMMED=1005;SV5_INFILL_ROOM_009ef3f64388d61dce55|SV5_INFILL_ROOM_018765724e6a988ed29c|min_cost=23|endpoint_pairs=4|BASELINE_INTERIOR_OVERLAP=10,DUPLICATE_PAIR=24,PATH_NOT_TRIMMED=812,UNSUPPORTED_FOOT=186|raw=BASELINE_INTERIOR_OVERLAP=10,DUPLICATE_PAIR=24,NO_PATH=174,PATH_NOT_TRIMMED=812,SUPPORT_NOT_SOLID=12;SV5_INFILL_ROOM_068c7c9992134cb31e50|SV5_INFILL_ROOM_0721ca040a4fb03db0b5|min_cost=23|endpoint_pairs=5|BASELINE_INTERIOR_OVERLAP=61,PATH_NOT_TRIMMED=1005,UNSUPPORTED_FOOT=224|raw=BASELINE_INTERIOR_OVERLAP=61,NO_PATH=224,PATH_NOT_TRIMMED=1005;SV5_INFILL_ROOM_088b52ae78584124831f|SV5_INFILL_ROOM_182a17cb890b879d85a4|min_cost=24|endpoint_pairs=2|BASELINE_INTERIOR_OVERLAP=22,DUPLICATE_PAIR=3,PATH_NOT_TRIMMED=391,UNSUPPORTED_FOOT=100|raw=BASELINE_INTERIOR_OVERLAP=22,DUPLICATE_PAIR=3,FOREIGN_SOLID_OPENING=2,NO_PATH=98,PATH_NOT_TRIMMED=391;SV5_INFILL_ROOM_0c69ae74af31ab21da75|SV5_INFILL_ROOM_0dbd53f17d6303f0e39e|min_cost=22|endpoint_pairs=6|BASELINE_INTERIOR_OVERLAP=102,DUPLICATE_PAIR=4,PATH_NOT_TRIMMED=1167,UNSUPPORTED_FOOT=275|raw=BASELINE_INTERIOR_OVERLAP=102,DUPLICATE_PAIR=4,NO_PATH=274,PATH_NOT_TRIMMED=1167,SUPPORT_NOT_SOLID=1","generated_aperture_pairs":"SV5_INFILL_ROOM_002b1fdb38d3b5d62912_LINK|SV5_INFILL_ROOM_04b3ee2d2f798b163c8e_LINK;SV5_INFILL_ROOM_0033f24aa202678fd527_LINK|SV5_INFILL_ROOM_0555f7159cc5807eccd0_LINK;SV5_INFILL_ROOM_005a04bda9ede05b1190_LINK|SV5_INFILL_ROOM_1c4c6b34887f12eefac3_LINK;SV5_INFILL_ROOM_0097a6b558d6e61e58f5_LINK|SV5_INFILL_ROOM_0f17f69a0304b7b0be0e_LINK;SV5_INFILL_ROOM_00b4a4fe56b192880b8c_LINK|SV5_INFILL_ROOM_06221a856d3548df6440;SV5_INFILL_ROOM_00b4a4fe56b192880b8c_LINK|SV5_INFILL_ROOM_06221a856d3548df6440_LINK;SV5_INFILL_ROOM_00d2b967a3d3b2f6b4b1_LINK|SV5_INFILL_ROOM_01ab4f357f1a1a51e05d_LINK;SV5_INFILL_ROOM_00e5c1799c48f53348c3_LINK|SV5_INFILL_ROOM_00fe6dfb4eef486a889c_LINK;SV5_INFILL_ROOM_00e5c1799c48f53348c3|SV5_INFILL_ROOM_00fe6dfb4eef486a889c_LINK;SV5_INFILL_ROOM_0172fae7eed3ae487f8f_LINK|SV5_INFILL_ROOM_01ba3c3a3c17419084a1;SV5_INFILL_ROOM_0172fae7eed3ae487f8f_LINK|SV5_INFILL_ROOM_01ba3c3a3c17419084a1_LINK;SV5_INFILL_ROOM_0211dda6690845617294_LINK|SV5_INFILL_ROOM_03bff8d63e21cbc62be9;SV5_INFILL_ROOM_0211dda6690845617294_LINK|SV5_INFILL_ROOM_03bff8d63e21cbc62be9_LINK;SV5_INFILL_ROOM_02284733d117494c6d27_LINK|SV5_INFILL_ROOM_030a02d7aa5a692e4bf7_LINK;SV5_INFILL_ROOM_02284733d117494c6d27|SV5_INFILL_ROOM_030a02d7aa5a692e4bf7_LINK;SV5_INFILL_ROOM_033878718f1e33807663_LINK|SV5_INFILL_ROOM_03b08efc4624bc79bd40_LINK;SV5_INFILL_ROOM_033878718f1e33807663|SV5_INFILL_ROOM_03b08efc4624bc79bd40_LINK;SV5_INFILL_ROOM_04458846b0c9a081817d_LINK|SV5_INFILL_ROOM_41bfb11db98643b33449_LINK;SV5_INFILL_ROOM_05ca1ce41aa5fccf5e3e_LINK|SV5_INFILL_ROOM_2089d42e9ee8a59ad22d_LINK;SV5_INFILL_ROOM_07fb3ac254e765673737_LINK|SV5_INFILL_ROOM_0f5736599d7acc3ea0a8;SV5_INFILL_ROOM_07fb3ac254e765673737_LINK|SV5_INFILL_ROOM_0f5736599d7acc3ea0a8_LINK;SV5_INFILL_ROOM_088f25cbc663d6d3b7a4_LINK|SV5_INFILL_ROOM_1a82971bf4756de9b6e1;SV5_INFILL_ROOM_088f25cbc663d6d3b7a4_LINK|SV5_INFILL_ROOM_1a82971bf4756de9b6e1_LINK;SV5_INFILL_ROOM_16de283f3026f06e031f_LINK|SV5_INFILL_ROOM_1ea3a9898e39ffe90dff;SV5_INFILL_ROOM_16de283f3026f06e031f_LINK|SV5_INFILL_ROOM_1ea3a9898e39ffe90dff_LINK","packing_selected_endpoint_pairs":"129,160|124,163;135,75|126,82;167,204|174,210;174,87|179,87;218,23|223,23;218,51|223,51;377,318|389,324;38,371|43,371;381,367|386,367;49,371|35,374;547,123|558,127;55,351|38,355;552,107|558,107;553,23|559,23;557,88|543,91;558,43|546,47"},   "counts":{"candidates":19260,"accepted":16,"sectors":15,"baseline_shortest_cache_entries":663} } 
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MCPForUnity.Editor.Helpers.McpLog:Info (string,bool) (at ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Helpers/McpLog.cs:40)
+MCPForUnity.Editor.Services.TestRunnerNoThrottle:RestoreThrottling () (at ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Services/TestRunnerNoThrottle.cs:114)
+MCPForUnity.Editor.Services.TestRunnerNoThrottle/TestCallbacks:RunFinished (UnityEditor.TestTools.TestRunner.Api.ITestResultAdaptor) (at ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Services/TestRunnerNoThrottle.cs:143)
+UnityEditor.TestTools.TestRunner.Api.CallbacksDelegator/<>c__DisplayClass9_0:<RunFinished>b__0 (UnityEditor.TestTools.TestRunner.Api.ICallbacks) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/Api/CallbacksDelegator.cs:55)
+UnityEditor.TestTools.TestRunner.Api.CallbacksDelegator:TryInvokeAllCallbacks (System.Action`1<UnityEditor.TestTools.TestRunner.Api.ICallbacks>) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/Api/CallbacksDelegator.cs:135)
+UnityEditor.TestTools.TestRunner.Api.CallbacksDelegator:RunFinished (NUnit.Framework.Interfaces.ITestResult) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/Api/CallbacksDelegator.cs:55)
+UnityEngine.Events.InvokableCall`1<NUnit.Framework.Interfaces.ITestResult>:Invoke (NUnit.Framework.Interfaces.ITestResult)
+UnityEngine.Events.UnityEvent`1<NUnit.Framework.Interfaces.ITestResult>:Invoke (NUnit.Framework.Interfaces.ITestResult)
+UnityEditor.TestTools.TestRunner.TestRun.Tasks.Events.RunFinishedInvocationEvent/<Execute>d__0:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/Events/RunFinishedInvocationEvent.cs:24)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteStep () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:173)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteCallback () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:108)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.coplaydev.unity-mcp@efaf786e8772/Editor/Helpers/McpLog.cs Line: 40)
+
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+Saving results to: C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\MapDesign\MCP\GENERATED\SV5_19_JUMP_RECOVERY\focused_results.xml
+Executing IPostBuildCleanup for: Unity.PerformanceTesting.Editor.TestRunBuilder.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.TestRun.Tasks.BuildActionTaskBase`1/<ExecuteMethods>d__8<UnityEngine.TestTools.IPostBuildCleanup>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/BuildActionTaskBase.cs:48)
+UnityEditor.TestTools.TestRunner.TestRun.Tasks.BuildActionTaskBase`1/<Execute>d__7<UnityEngine.TestTools.IPostBuildCleanup>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/BuildActionTaskBase.cs:34)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteStep () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:173)
+UnityEditor.TestTools.TestRunner.TestRun.TestJobRunner:ExecuteCallback () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/TestJobRunner.cs:108)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/TestRun/Tasks/BuildActionTaskBase.cs Line: 48)
+
+Asset Pipeline Refresh (id=7d7d26b2acd1804498b29601e1707d92): Total: 0.018 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (0 B). Loaded Objects now: 13161.
+Memory consumption went from 239.5 MB to 239.5 MB.
+Total: 1103.184000 ms (FindLiveObjects: 0.458200 ms CreateObjectMapping: 0.168000 ms MarkObjects: 1102.538000 ms  DeleteObjects: 0.018600 ms)
+
+DisplayProgressbar: Undo
+Test run completed. Exiting with code 0 (Ok). Run completed.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:ExitApplication (UnityEditor.TestTools.TestRunner.CommandLineTest.Executer/ReturnCodes,string) (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/CommandLineTest/Executer.cs:81)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:ExitIfRunIsCompleted () (at ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/CommandLineTest/Executer.cs:74)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@0b7a23ab2e1d/UnityEditor.TestRunner/CommandLineTest/Executer.cs Line: 81)
+
+Pipeline Server stopped
+Killing ADB server in 0.0540045 seconds.
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-user-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-user channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1789411503047,"processId":14476,"allocatedMemory":23757503,"memoryLabels":[{"Default":14409},{"Permanent":15236},{"NewDelete":68043},{"Thread":4230344},{"Manager":37437},{"VertexData":8},{"Geometry":816},{"Texture":296},{"Shader":80533},{"Material":24},{"GfxDevice":55257},{"Animation":392},{"Audio":3040},{"FreeType":8},{"FontEngine":736},{"Physics":2090},{"Physics2D":16},{"Serialization":464},{"Input":14984},{"JobScheduler":33024},{"TextLib":216},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1620400},{"Resource":1336},{"Renderer":3000},{"Transform":4685},{"File":1016},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":14482},{"DynamicArray":145125},{"HashMap":4099201},{"Utility":2661766},{"Curl":2498},{"PoolAlloc":2296},{"AI":80},{"TypeTree":5341},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7792},{"Director":8240},{"CloudService":288},{"WebRequest":808},{"VR":47994},{"SceneManager":504},{"Video":208},{"LazyScriptCache":32},{"Camera":17},{"Secure":2113},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":256},{"Hierarchy":608},{"CoreStats":13032},{"Identifiers":12960},{"Gui":96},{"EditorUtility":141051},{"VersionControl":4},{"Undo":947},{"AssetDatabase":9840600},{"EditorGi":328},{"UnityConnect":29232},{"Upm":1896},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":210},{"ProfilerEditor":9746},{"CoreBusinessMetrics":2584},{"Licensing":664},{"AssetReference":32},{"IPCStream":32}]}
