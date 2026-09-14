@@ -1,0 +1,24 @@
+{
+  "schema": "SV5_17_JUMP_RECIPE_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_JUMP_RECIPES",
+  "recipes": 2,
+  "segments_per_recipe": 4,
+  "supports_per_recipe": 10,
+  "occupancy_per_recipe": 44,
+  "route_links_per_recipe": 9,
+  "movement_mixture_per_recipe": {
+    "plus_one_jump": 7,
+    "plus_two_jump_grab": 1,
+    "level_jump": 1
+  },
+  "explicit_grab_edges_per_recipe": 1,
+  "reference_before_sha256": "9cf9f0de9e144951ccc63c4264dfb4ddfa4f1f611ff293e8df15dc28eefad02c",
+  "reference_draft_after_sha256": "36c4f5a585b15505e8a91d59bd519a212cb02ae2faa8b9cca493e7722e43f7e1",
+  "reference_changed_cells": 141,
+  "production_equivalence_claimed": false,
+  "player_verified": false,
+  "local_test_attributes": 46,
+  "whole_world_builds_in_new_targeted_tests": 0,
+  "whole_world_searches_in_new_targeted_tests": 0,
+  "errors": []
+}

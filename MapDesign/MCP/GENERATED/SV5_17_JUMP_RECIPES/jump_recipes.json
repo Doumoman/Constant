@@ -1,0 +1,58 @@
+{
+  "schema": "SV5_17_JUMP_RECIPES/v1",
+  "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+  "base_fixture": "SV5_16_JUMP_OUTLINE_CANONICAL",
+  "base_fixture_digest": "0ac93bf0ddc1a203baa47517096516c2df98d67978d3c80131a13edcedd5df9c",
+  "catalog_digest": "19b4b3c37a1b1b11856eb1c946ce8ea64cbc16517dbfe9ace2ae66e4a5504022",
+  "recipe_count": 2,
+  "catalog_supports": 20,
+  "catalog_occupancy_cells": 88,
+  "catalog_route_links": 18,
+  "catalog_grab_edges": 2,
+  "reference_012_changed_cells": 141,
+  "recipes": [
+    {
+      "recipe_id": "JUMP012_MIXED_MX",
+      "transform": "MIRROR_X",
+      "digest": "9a2cd100798f52e5d216a5ec42b29b0191e00752ba59c2f9276b4eeb53da4874",
+      "supports": 10,
+      "final_occupancy_cells": 44,
+      "route_links": 9,
+      "explicit_grab_edges": 1,
+      "static_recipe_only": true,
+      "production_equivalence_to_reference_012": false,
+      "player_verified": false
+    },
+    {
+      "recipe_id": "JUMP012_MIXED_R0",
+      "transform": "R0",
+      "digest": "74b495a0d33209e0455787e55307433f8480e419021629918d859f431665e687",
+      "supports": 10,
+      "final_occupancy_cells": 44,
+      "route_links": 9,
+      "explicit_grab_edges": 1,
+      "static_recipe_only": true,
+      "production_equivalence_to_reference_012": false,
+      "player_verified": false
+    }
+  ],
+  "reference_012": {
+    "runtime_role": "REFERENCE_ONLY_NOT_RUNTIME_GEOMETRY",
+    "before_sha256": "9cf9f0de9e144951ccc63c4264dfb4ddfa4f1f611ff293e8df15dc28eefad02c",
+    "draft_after_sha256": "36c4f5a585b15505e8a91d59bd519a212cb02ae2faa8b9cca493e7722e43f7e1",
+    "changed_cells": 141,
+    "production_equivalence_claimed": false,
+    "player_verified": false
+  },
+  "readiness": {
+    "jump_recipe_ready": true,
+    "composed_geometry_ready": true,
+    "swept_clearance_ready": false,
+    "recovery_ready": false,
+    "player_verified": false
+  },
+  "performance": {
+    "whole_world_builds_in_new_targeted_tests": 0,
+    "whole_world_searches_in_new_targeted_tests": 0
+  }
+}

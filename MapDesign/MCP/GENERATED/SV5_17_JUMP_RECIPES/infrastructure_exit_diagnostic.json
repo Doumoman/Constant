@@ -1,0 +1,277 @@
+{
+  "schema": "SV5_17_INFRASTRUCTURE_EXIT_DIAGNOSTIC_V1",
+  "diagnostic_generated_utc": "2026-09-14T13:23:00Z",
+  "mode": "READ_ONLY_INFRASTRUCTURE_DIAGNOSIS_WITH_SINGLE_AUTHORIZED_REPORT_FILE",
+  "task_state": {
+    "SV5_17_JUMP_RECIPES": "CURRENT",
+    "SV5_18_JUMP_CLEARANCE": "LOCKED",
+    "git_head": "b99f9b9214583d653c273efaa53e69ec0e4abbe4",
+    "git_branch": "main",
+    "staged_file_count": 0,
+    "third_full_regression_executed": false,
+    "implementation_modified_by_diagnosis": false,
+    "finalize_executed": false,
+    "commit_created": false,
+    "review_zip_created": false,
+    "push_executed": false
+  },
+  "ROOT_CAUSE": {
+    "certainty": "MOST_LIKELY_NOT_CONFIRMED",
+    "category": "EXTERNAL_MANUAL_TERMINATION",
+    "summary": "PID 7044 received an orderly GUI Editor quit request while the second asynchronous MCP test job was still running. The Editor performed a graceful shutdown sequence, but neither Editor.log nor Windows process-audit data records the identity of the requester. External/manual close or an external WM_CLOSE-equivalent request is therefore the most likely classification. A Unity crash, OOM, test timeout, MCP/API wrapper timeout, and wrapper child-process kill are not supported by the evidence.",
+    "termination_mechanics": "ORDERLY_UNITY_EDITOR_SHUTDOWN_WITHOUT_TEST_RUN_FINISH",
+    "requester_identity": "NOT_RECORDED",
+    "not_normal_test_completion": true
+  },
+  "second_full_regression": {
+    "job_id": "0d104fcc6f7045c59d9b603e9bc67030",
+    "editor_pid": 7044,
+    "exact_command_source": "const names=load(\"authorized_sv5_names\");\nif(!Array.isArray(names)||names.length!==356){text(\"inventory unavailable; run not started\");exit();}\nconst r=await tools.mcp__unityMCP__run_tests({mode:\"EditMode\",test_names:names,include_details:false,include_failed_tests:true,init_timeout:120000});\ntext(r);",
+    "resolved_mcp_arguments": {
+      "mode": "EditMode",
+      "test_names_source": "356 sorted unique fullname attributes read from MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/focused_results_infrastructure_contaminated.xml",
+      "test_names_count": 356,
+      "test_names_source_sha256": "056db56768100799053347a80a6f5a879e50adc37b7ec0eee2f3b771ee52c593",
+      "include_details": false,
+      "include_failed_tests": true,
+      "init_timeout_ms": 120000
+    },
+    "command_record": {
+      "session_jsonl": "C:/Users/user/.codex/sessions/2026/09/14/rollout-2026-09-14T13-36-54-01a09e34-2cab-7d21-aae4-00cf33a50abd.jsonl",
+      "request_source_ordinal": 6418,
+      "resolved_tool_call_ordinal": 6420,
+      "resolved_tool_call_contains_all_356_names": true
+    },
+    "start_utc": "2026-09-14T12:46:11.482Z",
+    "start_kst": "2026-09-14T21:46:11.482+09:00",
+    "start_call_completed_utc": "2026-09-14T12:46:12.796Z",
+    "start_call_duration_seconds": 1.3131396,
+    "start_call_status": "COMPLETED_SUCCESS_JOB_RUNNING",
+    "start_call_response": "Test job started.",
+    "unity_shutdown_sequence_began_no_later_than_utc": "2026-09-14T12:59:09.796Z",
+    "unity_final_log_utc": "2026-09-14T12:59:15.014Z",
+    "unity_final_log_kst": "2026-09-14T21:59:15.014+09:00",
+    "elapsed_start_to_final_log_seconds": 783.532,
+    "monitor_last_alive_utc": "2026-09-14T12:59:09.5030094Z",
+    "monitor_first_dead_utc": "2026-09-14T12:59:54.5275944Z",
+    "full_run_return_code": null,
+    "full_run_termination_status": "NO_VERDICT_EDITOR_EXITED_BEFORE_RUNFINISHED",
+    "pid_7044_exit_code": null,
+    "pid_7044_exit_code_status": "UNAVAILABLE_NOT_RETAINED",
+    "pid_7044_exit_code_reason": "The MCP call attached to an already-running GUI Editor launched by Unity Hub and returned asynchronously. It did not own or wait a process handle. Windows process termination auditing and Sysmon were unavailable, and Editor.log did not print a return code for this exit.",
+    "official_output_xml": "C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤/TestResults.xml",
+    "official_output_xml_after_exit": {
+      "last_write_utc": "2026-09-14T12:20:31.9038750Z",
+      "sha256": "0fc6b3e247f3547301284ea84cd2d3c6c556645bdb4cb74ea14a9e7161d01c88",
+      "content": "UNCHANGED_PRIOR_ISOLATED_F06_1_OF_1_PASS",
+      "second_run_result_written": false
+    },
+    "focused_results_xml_after_exit": {
+      "sha256": "056db56768100799053347a80a6f5a879e50adc37b7ec0eee2f3b771ee52c593",
+      "content": "UNCHANGED_FIRST_INFRASTRUCTURE_CONTAMINATED_RUN_355_OF_356_PASS"
+    }
+  },
+  "timeouts_and_waits": {
+    "unity_mcp_init_timeout_ms": {
+      "value": 120000,
+      "scope": "INITIALIZATION_ONLY_UNTIL_TOTAL_TESTS_IS_NON_NULL",
+      "full_run_limit": false,
+      "reached": false
+    },
+    "unity_mcp_full_execution_timeout": {
+      "value": null,
+      "scope": "NONE_FOUND_IN_RUNTESTS_TESTJOBMANAGER_OR_TESTRUNNERSERVICE",
+      "full_run_limit": false
+    },
+    "nunit_per_test_timeout_ms": {
+      "value": 1200000,
+      "scope": "SELECT_HEAVY_TEST_METHODS_ONLY_NOT_THE_356_TEST_RUN",
+      "full_run_limit": false,
+      "reached": false
+    },
+    "codex_unity_mcp_startup_timeout_seconds": {
+      "value": 60,
+      "scope": "MCP_SERVER_STARTUP_ONLY",
+      "full_run_limit": false,
+      "reached": false
+    },
+    "unity_mcp_stdio_frame_timeout_ms": {
+      "value": 30000,
+      "scope": "INDIVIDUAL_TRANSPORT_FRAME_OR_COMMAND_RESPONSE",
+      "full_run_limit": false,
+      "reached_by_start_call": false
+    },
+    "unity_mcp_websocket_default_command_timeout_seconds": {
+      "value": 30,
+      "scope": "INDIVIDUAL_WEBSOCKET_COMMAND",
+      "full_run_limit": false
+    },
+    "functions_exec_default_yield_ms": {
+      "value": 30000,
+      "scope": "OUTPUT_YIELD_ONLY_NOT_TERMINATION",
+      "full_run_limit": false
+    },
+    "external_process_monitor_limit_seconds": {
+      "value": 2400,
+      "scope": "READ_ONLY_POLLING_DEADLINE",
+      "full_run_limit": false,
+      "reached": false,
+      "kills_editor_on_expiry": false
+    },
+    "relay_shutdown_delay_seconds": {
+      "value": 180,
+      "scope": "RELAY_PROCESS_AFTER_DEDICATED_CLIENT_DISCONNECT_NOT_UNITY_EDITOR",
+      "fired_utc": "2026-09-14T11:48:07.725Z",
+      "relation_to_second_run": "FIRED_58_MINUTES_BEFORE_SECOND_RUN_START_AND_DID_NOT_TERMINATE_EDITOR"
+    },
+    "global_full_regression_timeout_seconds": null,
+    "timeout_assessment": "No global full-regression execution limit below 1800 seconds was configured. The only wait spanning the run was the 2400-second read-only monitor, which was not reached. Values below 1800 seconds were initialization, transport, relay, or per-test limits and did not cap total suite duration. A future global limit below 1800 seconds would be inadequate because prior complete runs took 1545.1287735 and 1690.6510323 seconds."
+  },
+  "duration_comparison": {
+    "SV5_17_first_full_regression_seconds": 1545.1287735,
+    "SV5_16_full_regression_seconds": 1690.6510323,
+    "maximum_observed_complete_seconds": 1690.6510323,
+    "second_run_until_editor_exit_seconds": 783.532,
+    "minimum_acceptable_global_limit_seconds": 1800,
+    "recommended_safe_global_limit_seconds": 3600,
+    "recommendation_basis": "3600 seconds is more than twice the slower complete run and leaves headroom for asset refresh, result writing, and shutdown without treating normal long tests as hung."
+  },
+  "editor_log_evidence": {
+    "path": "C:/Users/user/AppData/Local/Unity/Editor/Editor.log",
+    "sha256_at_diagnosis": "359dded2a80892f5092fc48ea2347c3f837f2706ce1812c2d49ba01d4d9950b0",
+    "last_write_utc": "2026-09-14T12:59:15.0139191Z",
+    "second_run_segment_lines_1_based": [6976, 7021],
+    "run_started_marker": {
+      "line": 6976,
+      "text": "[TestRunnerNoThrottle] Applied No Throttling for test run."
+    },
+    "last_normal_test_execution_marker": {
+      "line": 6998,
+      "text_prefix": "[SV5_09_FIX01_PERFORMANCE]",
+      "associated_test": "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread"
+    },
+    "shutdown_sequence": [
+      {"line": 6999, "event": "project layout save began"},
+      {"line": 7000, "event": "global layout save began"},
+      {"line": 7001, "event": "Pipeline Server stopped"},
+      {"line": 7004, "event": "Input System ShutdownInProgress"},
+      {"line": 7007, "event": "Physics backend cleanup"},
+      {"line": 7009, "event": "licensing notification channel disconnected successfully"},
+      {"line": 7010, "event": "licensing client channel disconnected successfully"},
+      {"line": 7012, "event": "Cleanup mono"},
+      {"line": 7013, "event": "abort_threads failed for one thread"},
+      {"line": 7015, "event": "abort_threads repeated for the same thread"},
+      {"line": 7019, "event": "no leaked weak pointers"},
+      {"line": 7020, "event": "Package Manager server shutdown"},
+      {"line": 7021, "event": "final Unity memory-leak telemetry for process 7044, allocatedMemory 433990895 bytes, timestamp 1789390755014"}
+    ],
+    "required_string_scan_in_second_run_segment": {
+      "timeout": 0,
+      "killed": 0,
+      "terminated": 0,
+      "crash": 0,
+      "fatal": 0,
+      "out of memory": 0,
+      "disposed": 0,
+      "exiting batchmode": 0,
+      "test run finished": 0,
+      "RunFinished": 0,
+      "result writer": 0,
+      "Saving results to": 0,
+      "Saving result file failed": 0,
+      "abort_threads": 2
+    },
+    "interpretation": "The absence of RunFinished/result-writer markers proves that the test run did not complete. The ordered cleanup, successful service disconnects, layout save, package-manager shutdown, and final memory telemetry are inconsistent with an abrupt crash, OOM kill, or TerminateProcess-style wrapper kill."
+  },
+  "last_test_position": {
+    "individual_test_start_finish_names_logged": false,
+    "last_provably_started_test": "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence",
+    "last_provably_completed_test": "StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T12_AllLegalFsmStatesAndSixResourceOrdersRemainPhysicallyValid",
+    "T13_completion_status": "NOT_PROVABLE_FROM_CALLBACK_LOG",
+    "T13_last_observed_action": "Sv5LoopExport.WriteComparison wrote MapDesign/MCP/GENERATED/SV5_09_FIX01/loop_comparison.json",
+    "T13_last_observed_action_utc": "2026-09-14T12:59:09.0773905Z",
+    "T13_last_observed_artifact_sha256": "c628b8e2a13edccef415d5e047fe7381274f7094128708193db096e2ad4273a7",
+    "reason_for_conservative_completed_name": "Reaching T13 proves all preceding ordered cases through T12 completed. T13 reached its final export write, but the Editor quit before any per-test completion or RunFinished callback was persisted."
+  },
+  "wrapper_and_process_ownership": {
+    "editor_launch_mode": "GUI_NON_BATCHMODE",
+    "editor_startup_log": "BatchMode: 0, IsHumanControllingUs: 1",
+    "editor_launcher": "Unity Hub",
+    "editor_command_line_contains_hub_session": true,
+    "mcp_server_process": "C:/Program Files/WindowsApps/UnityTechnologies.UnityCLI_1.0.0.20009_x64__2vrhnee42bhxm/app/unity.exe mcp",
+    "mcp_server_process_was_editor_parent": false,
+    "run_tests_spawned_editor_child": false,
+    "automation_calls_between_start_and_exit": "run_tests followed only by read-only write_stdin/wait polling; no ManageEditor quit, Stop-Process, taskkill, Process.Kill, or WM_CLOSE action",
+    "wrapper_kill_assessment": "RULED_OUT_BY_PROCESS_OWNERSHIP_AND_CALL_HISTORY"
+  },
+  "other_log_checks": {
+    "mcp_trace": {
+      "path": "C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Logs/traces.jsonl",
+      "sha256_at_diagnosis": "2e1f6433abe7fe2b8078dbe59d1f1759bf9f610f80a5fbd527e826afa6a6b9b8",
+      "last_events": [
+        "2026-09-14T12:59:09.796Z Deleted discovery files",
+        "2026-09-14T12:59:09.807Z UnityMCPBridge stopped"
+      ],
+      "timeout_kill_or_crash_event": false
+    },
+    "relay_log": {
+      "path": "C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Logs/relay.txt",
+      "relevant_event": "2026-09-14T11:48:07.725Z relay auto-shutdown after 180 seconds of dedicated-client inactivity",
+      "editor_effect": "Relay stopped; PID 7044 continued running for more than one hour and ran the second regression, so this was not the Editor exit cause."
+    },
+    "windows_application_events": "No Application Error, Windows Error Reporting, .NET Runtime, or Unity crash events in 2026-09-14T12:40:00Z..13:05:00Z",
+    "windows_system_events": "No Kernel-Power, User32 shutdown, or Resource-Exhaustion-Detector events in 2026-09-14T12:40:00Z..13:05:00Z",
+    "windows_process_audit": "Security 4688/4689 events unavailable; Sysmon operational log not installed",
+    "crash_artifacts": "No matching Unity dump, CrashHandler record, WER ReportArchive/ReportQueue entry, or project Temp crash file in the exit window",
+    "test_wrapper_log": "No separate Unity test-wrapper or NUnit log modified in the exit window; the authoritative available records are Editor.log, Codex session JSONL, Logs/traces.jsonl, and the unchanged TestResults.xml",
+    "temporary_result_or_nunit_writer_error": "None found; no test/result/NUnit XML or log was modified in the exit window, and Editor.log contains no result-writer error"
+  },
+  "code_and_git_integrity": {
+    "read_only_git_checks_performed": true,
+    "current_status_entry_count": 1477,
+    "current_tracked_modified_or_deleted_count": 148,
+    "current_untracked_count": 1329,
+    "current_staged_count": 0,
+    "preexisting_dirty_state_preserved": true,
+    "code_scene_or_binary_files_written_during_second_run": 0,
+    "test_generated_artifacts_written_during_second_run": 795,
+    "generated_writes_interpretation": "Expected SV5 regression evidence regeneration, not product or test code changes.",
+    "SV5_17_source_hashes": {
+      "Sv5JumpRecipeCatalog.cs": "39a3a73596e6f67d53e0a5585238db4932ebbd9e788a683c2c1201820a90e9bb",
+      "Sv5JumpRecipeExport.cs": "f4623481705a7839029e5e7944f0af5a674c117157eeac2fd18399d5a4a552fd",
+      "Sv5JumpRecipeTests.cs": "deeea6f0a2f84abbecf578e6e0f6eb773c067dd443806a56d5d987c37206cd48"
+    },
+    "SV5_17_source_last_write_utc": {
+      "Sv5JumpRecipeCatalog.cs": "2026-09-14T11:39:35.8526472Z",
+      "Sv5JumpRecipeExport.cs": "2026-09-14T11:49:13.1192848Z",
+      "Sv5JumpRecipeTests.cs": "2026-09-14T11:45:56.7503516Z"
+    },
+    "packages_manifest_last_write_utc": "2026-08-26T17:48:31.3188051Z",
+    "player_example_scene_last_write_utc": "2026-09-14T07:21:19.4398614Z",
+    "integrity_conclusion": "No product code, SV5_17 test code, Packages file, Player example scene, or other code/scene/binary file was written during 12:46:11.482Z..12:59:15.014Z. The automation transcript also contains no file-edit action in that interval."
+  },
+  "classification_matrix": {
+    "Unity normal test completion": "NO",
+    "Unity orderly application shutdown": "YES",
+    "Unity crash": "RULED_OUT",
+    "OOM or OS termination": "RULED_OUT",
+    "test runner or watchdog timeout": "RULED_OUT",
+    "MCP or API wrapper killed child process": "RULED_OUT",
+    "external manual termination": "MOST_LIKELY",
+    "cause unknown": "RESIDUAL_UNCERTAINTY_ONLY_FOR_REQUESTER_IDENTITY"
+  },
+  "before_any_third_run": {
+    "required_execution_setting_changes": [
+      "Do not use an asynchronously attached GUI Editor as the final acceptance process if its exit code and ownership must be auditable.",
+      "Use one dedicated process-owned batchmode/EditMode invocation that writes focused_results.xml directly and returns a retained process exit code.",
+      "Set the global process and wrapper wait limit to at least 3600 seconds; never below 1800 seconds.",
+      "Keep the MCP initialization timeout separate from the full-run timeout; 120000 ms remains an initialization-only value.",
+      "Prevent GUI close, Unity Hub project close, sleep/logoff, MCP reconnect, and test-status polling for the entire run and result-writer shutdown window.",
+      "Preserve the existing contaminated and isolated-recheck XML files exactly as they are."
+    ],
+    "additional_product_or_test_code_change_required": false,
+    "safe_expected_limit_seconds": 3600,
+    "safe_expected_limit_human": "60 minutes",
+    "third_run_authorized_by_this_diagnostic": false
+  }
+}

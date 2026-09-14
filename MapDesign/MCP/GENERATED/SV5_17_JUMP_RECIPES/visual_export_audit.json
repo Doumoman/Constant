@@ -1,0 +1,24 @@
+{
+  "schema": "SV5_17_JUMP_RECIPES_VISUAL_AUDIT/v1",
+  "status": "PASS_VISUAL_INSPECTION",
+  "source_svg": "MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/preview/jump_recipes.svg",
+  "source_svg_sha256": "04bec806eb4b6605c99b304644824dc9cfe399de5ced004938652e72ad313684",
+  "rendered_png": "MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/preview/jump_recipes.png",
+  "rendered_png_sha256": "3206d398df16ff903b0df1ef463260fd17c81b6452a442201cf5c0febab7b80c",
+  "renderer": "Google Chrome headless",
+  "render_size": {"width": 880, "height": 700},
+  "inspection": {
+    "both_full_24x32_boundaries_visible": true,
+    "r0_and_mirror_x_side_by_side": true,
+    "solid_one_way_and_outline_distinguishable": true,
+    "all_nine_links_visible_per_recipe": true,
+    "single_explicit_grab_visible_per_recipe": true,
+    "mirror_paths_directions_and_grab_face_visibly_flip": true,
+    "movement_mixture_label_visible": true,
+    "reference_before_and_draft_panels_visible": true,
+    "reference_only_141_cells_not_production_label_visible": true,
+    "not_player_verified_label_visible": true,
+    "labels_clipped_or_overlapping": false
+  },
+  "errors": []
+}

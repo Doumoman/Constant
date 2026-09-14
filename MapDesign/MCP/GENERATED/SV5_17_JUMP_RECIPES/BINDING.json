@@ -1,0 +1,190 @@
+{
+  "schema": "SV5_17_JUMP_RECIPES_BINDING/v1",
+  "task": "SV5_17_JUMP_RECIPES",
+  "base": {
+    "commit": "b99f9b9214583d653c273efaa53e69ec0e4abbe4",
+    "parent": "289015d201186fe79da733a5fe99fdb6844047fb",
+    "subject": "SV5_16_JUMP_OUTLINE: add exact irregular solid backing"
+  },
+  "package": {
+    "zip_sha256": "4fe75545e617fd3ad59c160a73edb9e2f154b8a2dce70b1ec8836890dfc0076d",
+    "manifest_sha256": "592499ea0fd081ef0c51577fac53997e0b9c1dd76eee7dd19eb1f3ace844d01f",
+    "source_lock_sha256": "88bfa317790f385b9c942d85a0d63c8310ee9436bdc421cac540fbeaecf09d42",
+    "contract_sha256": "8c285126c4c481679d315c295e312ebdb089af7b3a9b1e6a35f579472e7ac324",
+    "profile_sha256": "dfad73670899950e72a2d372806c4b165388a7e14abd8c0bce9d7dbf88298646",
+    "reference_profile_sha256": "f9a421a6afa7d937598e10525d8c5a15f9cede48e636a70f7b5f336938f6c932",
+    "checker_sha256": "dadc783745acd14fcc215062c18c2fb1464d40e74e0b8f80746182e14e3fd38e",
+    "stage_preflight": "PASS_STAGE_PREFLIGHT_READONLY",
+    "stage": "PASS_STAGED_SINGLE_TASK",
+    "verify_staged": "PASS_STAGED_SINGLE_TASK",
+    "verify_applied": "PASS_NATIVE_APPLY",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "63b74bfd3ebd30929a0b377e03ca3379929d77012027d0e0285bae1ff1ec0a18",
+    "archive_task_sha256": "63b74bfd3ebd30929a0b377e03ca3379929d77012027d0e0285bae1ff1ec0a18",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_16_JUMP_OUTLINE",
+    "commit": "b99f9b9214583d653c273efaa53e69ec0e4abbe4",
+    "task_sha256": "282a3f2483f6a1e8ed0b2de1a34833747b4d06536954147a8250df7e374a325c",
+    "result_sha256": "ae060794bcde7aad625d5c2a401d74f649a4d1cdb2676cff0546fbddfee95fe6",
+    "binding_sha256": "8bc08547e10cbdf202a248f21ce2704145194e301ec8d1af16f4fd845197e68c",
+    "fixture_digest": "0ac93bf0ddc1a203baa47517096516c2df98d67978d3c80131a13edcedd5df9c",
+    "immutable_paths_modified": false
+  },
+  "before_finalize": {
+    "status_sha256": "5b1951456b8975d94fd6055252ca17fd94fcf78bd150ff78d38c34dae97eef0e",
+    "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+    "counts": {
+      "COMPLETE": 264,
+      "CURRENT": 1,
+      "LOCKED": 30
+    },
+    "current_task": "SV5_17_JUMP_RECIPES",
+    "SV5_18_JUMP_CLEARANCE": "LOCKED"
+  },
+  "after_finalize": {
+    "status_sha256": "f26de1d0a9cf9324905bb85e9d812c0b85d3d9919f3db929fdee87968c6433af",
+    "counts": {
+      "COMPLETE": 265,
+      "CURRENT": 0,
+      "LOCKED": 30
+    },
+    "current_task": "NONE",
+    "SV5_17_JUMP_RECIPES": "COMPLETE",
+    "SV5_18_JUMP_CLEARANCE": "LOCKED"
+  },
+  "implementation": {
+    "catalog_source_sha256": "39a3a73596e6f67d53e0a5585238db4932ebbd9e788a683c2c1201820a90e9bb",
+    "catalog_meta_sha256": "5a4591b6b51389dd8424bfcb37777932e9e517ad36207e43569fd1fac6927a47",
+    "export_source_sha256": "f4623481705a7839029e5e7944f0af5a674c117157eeac2fd18399d5a4a552fd",
+    "export_meta_sha256": "ebbc3d399d72562e2fbb8583347f514fe4e98dad4e75e89f4724392125f0d548",
+    "tests_sha256": "deeea6f0a2f84abbecf578e6e0f6eb773c067dd443806a56d5d987c37206cd48",
+    "tests_meta_sha256": "e1f783169265641618f9201331be2ff2235c7a9e6a59b8a5a73173a6d8db30bd",
+    "integration_document_sha256": "ebd5a68b9ace8fd86be8957e69d05dd170eee4b5d50350ffe03365e4c439d264",
+    "production_source": "Sv5JumpOutlineGeometry.CreateCanonicalLocalFixture()",
+    "modifies_sv5_13_through_sv5_16": false,
+    "creates_sector_or_world_geometry": false
+  },
+  "catalog": {
+    "coordinate_scope": "24x32_LOCAL_JUMP_ROOM_NOT_SECTOR",
+    "base_fixture_digest": "0ac93bf0ddc1a203baa47517096516c2df98d67978d3c80131a13edcedd5df9c",
+    "catalog_digest": "19b4b3c37a1b1b11856eb1c946ce8ea64cbc16517dbfe9ace2ae66e4a5504022",
+    "recipe_count": 2,
+    "catalog_supports": 20,
+    "catalog_occupancy_cells": 88,
+    "catalog_route_links": 18,
+    "catalog_grab_edges": 2,
+    "recipes": {
+      "JUMP012_MIXED_R0": {
+        "transform": "R0",
+        "digest": "74b495a0d33209e0455787e55307433f8480e419021629918d859f431665e687",
+        "supports": 10,
+        "occupied_cells": 44,
+        "links": 9,
+        "segments": 4,
+        "explicit_grab_edges": 1
+      },
+      "JUMP012_MIXED_MX": {
+        "transform": "MIRROR_X",
+        "digest": "9a2cd100798f52e5d216a5ec42b29b0191e00752ba59c2f9276b4eeb53da4874",
+        "supports": 10,
+        "occupied_cells": 44,
+        "links": 9,
+        "segments": 4,
+        "explicit_grab_edges": 1
+      }
+    },
+    "movement_mixture_per_recipe": {
+      "plus_one_jump": 7,
+      "plus_two_jump_grab": 1,
+      "level_jump": 1
+    },
+    "segment_partition": {
+      "SEG_ASCENT_A": "JS_LINK_00..02",
+      "SEG_GRAB_TURN": "JS_LINK_03..04",
+      "SEG_ASCENT_B": "JS_LINK_05..06",
+      "SEG_ASCENT_C": "JS_LINK_07..08"
+    }
+  },
+  "reference_012": {
+    "runtime_role": "REFERENCE_ONLY_NOT_RUNTIME_GEOMETRY",
+    "before_sha256": "9cf9f0de9e144951ccc63c4264dfb4ddfa4f1f611ff293e8df15dc28eefad02c",
+    "draft_after_sha256": "36c4f5a585b15505e8a91d59bd519a212cb02ae2faa8b9cca493e7722e43f7e1",
+    "changed_cells": 141,
+    "production_equivalence_claimed": false,
+    "player_verified": false
+  },
+  "verification": {
+    "compile": {
+      "status": "PASS",
+      "editor": "Unity 6000.3.8f1",
+      "compile_errors": 0
+    },
+    "targeted": {
+      "status": "PASS",
+      "tests": 46,
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1.379779,
+      "xml_sha256": "58dcb1008f9cc1216220b696c8d9983cf526ec52acd8327cfe6a58437ce0f343"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_JUMP_RECIPES",
+      "audit_sha256": "f108b99124fb7b9d3174cedec2b2e2a8698e6e7b611813abd3d208e4429e32f3"
+    },
+    "visual_inspection": {
+      "status": "PASS_VISUAL_INSPECTION",
+      "audit_sha256": "3aac3509a08becb3421bc4104fa5e0def29a686e7f2d2fa222d3acc07288809d",
+      "svg_sha256": "04bec806eb4b6605c99b304644824dc9cfe399de5ced004938652e72ad313684",
+      "png_sha256": "3206d398df16ff903b0df1ef463260fd17c81b6452a442201cf5c0febab7b80c"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "physical_full_regression_runs": 3,
+      "accepted_full_regression_runs": 1,
+      "accepted_classification": "DEDICATED_BATCHMODE_ACCEPTED",
+      "editor_exit_code": 0,
+      "tests": 356,
+      "passed": 356,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1670.9500318,
+      "xml_sha256": "e4c3284ec5048e74e8f8553e82e4025b6114662abd2f93244087c3d359b89378",
+      "log_sha256": "0bd5334e99dbc2e6ff4fe0aaeaa92816193aee01fe80ccac6a0aad0762ac1529",
+      "fullname_set_exact_match": true,
+      "fullname_set_canonical_sha256": "9718cfa489d4ffdc2373f3b601e93f1cac87762c0edfb1d4b783569461434242",
+      "exception_audit_sha256": "588c694fb0de61c59f30185e82d5277be71ab2e1c61d33a939a80351ca48e378"
+    },
+    "ordered_gates": [
+      "COMPILE_AND_TARGETED_LOCAL_FIXTURES",
+      "INDEPENDENT_CHECKER",
+      "SVG_RENDER_AND_VISUAL_INSPECTION",
+      "FULL_SV5_REGRESSION_ACCEPTED",
+      "POST_READONLY"
+    ]
+  },
+  "scope": {
+    "world_placement_changed": false,
+    "player_runtime_or_tuning_changed": false,
+    "sv5_13_through_sv5_16_source_or_evidence_changed": false,
+    "tree_or_hub_source_changed": false,
+    "scene_or_prefab_changed": false,
+    "packages_or_project_settings_changed": false,
+    "master_changed": false,
+    "push_performed": false
+  },
+  "readiness": {
+    "jump_recipe_ready": true,
+    "composed_geometry_ready": true,
+    "swept_clearance_ready": false,
+    "recovery_ready": false,
+    "player_verified": false,
+    "SV5_18_JUMP_CLEARANCE": "LOCKED"
+  }
+}
