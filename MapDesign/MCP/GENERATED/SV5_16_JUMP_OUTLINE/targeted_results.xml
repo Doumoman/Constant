@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="0" testcasecount="32" total="32" passed="32" failed="0" skipped="0" inconclusive="0" result="Passed" duration="7.35" start-time="2026-09-14T09:33:45.7025481Z" end-time="2026-09-14T09:33:53.1468857Z">
+  <test-suite type="TestSuite" name="Sv5JumpOutlineTests" result="Passed">
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O01_CanonicalFixturePassesExactCounts" result="Passed" duration="0.0059191" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O02_ExactDepthTableIncludesZeroDepthColumn" result="Passed" duration="0.0052969" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O03_OutlineCellsAreExactDownwardProfile" result="Passed" duration="0.0054835" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O04_FinalOccupancyIsDisjointBasePlusOutlineUnion" result="Passed" duration="0.0050896" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O05_AllTenSv5FifteenSupportsRemainExact" result="Passed" duration="0.0056961" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O06_AllNineOrderedRouteLinksRemainByteEquivalentOnExport" result="Passed" duration="0.0062681" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O07_OnlyExistingGrabEdgeAndCoordinatesRemain" result="Passed" duration="0.0063296" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O08_AllTenRouteBodyAndHeadCellsRemainAir" result="Passed" duration="0.0058081" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O09_AcceptedGrabHangAndPullUpCellsRemainAir" result="Passed" duration="0.0064691" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O10_MissingDepthColumnIsRejected" result="Passed" duration="0.0106452" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O11_ExtraDepthColumnIsRejected" result="Passed" duration="0.0095721" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O12_WrongDepthIsRejected" result="Passed" duration="0.0096459" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O13_DuplicateDepthColumnIsRejected" result="Passed" duration="0.0099248" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O14_MissingOutlineCellIsRejected" result="Passed" duration="0.0115433" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O15_ExtraOutlineCellIsRejected" result="Passed" duration="0.0119695" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O16_DuplicateOutlineCoordinateIsRejected" result="Passed" duration="0.0133937" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O17_OutlineOverlapWithBaseCellIsRejected" result="Passed" duration="0.0105134" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O18_OutOfBoundsOutlineCellIsRejected" result="Passed" duration="0.0094264" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O19_OneWayBackingOwnerIsRejected" result="Passed" duration="0.0113171" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O20_IsolatedOutlineCellIsRejected" result="Passed" duration="0.0096551" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O21_SupportMutationIsRejected" result="Passed" duration="0.0093717" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O22_RouteLinkMutationIsRejected" result="Passed" duration="0.0099049" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O23_BlockedRouteBodyIsRejected" result="Passed" duration="0.0094987" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O24_BlockedRouteHeadIsRejected" result="Passed" duration="0.0122554" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O25_BlockedAcceptedGrabAirIsRejected" result="Passed" duration="0.00987" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O26_NewAutomaticGrabEdgeIsRejected" result="Passed" duration="0.0093402" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O27_FilledSixBySixSolidWindowIsRejected" result="Passed" duration="0.0250502" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O28_RectangularRoomShellIsRejected" result="Passed" duration="0.0222304" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O29_CanonicalFixtureAndArtifactsAreDeterministic" result="Passed" duration="0.0456139" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O30_ExportWritesAllArtifactsAndRequiredSvgLabels" result="Passed" duration="0.0588517" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O31_ReadinessStopsBeforeCompositionAndPlayerVerification" result="Passed" duration="0.0075501" />
+    <test-case fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpOutlineTests.O32_LocalFixtureDoesNoWorldWorkAndKeepsOneWayAsymmetric" result="Passed" duration="0.0058849" />
+  </test-suite>
+</test-run>

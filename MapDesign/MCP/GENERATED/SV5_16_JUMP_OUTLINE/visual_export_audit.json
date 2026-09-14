@@ -1,0 +1,24 @@
+{
+  "schema": "SV5_16_JUMP_OUTLINE_VISUAL_AUDIT/v1",
+  "status": "PASS_VISUAL_INSPECTION",
+  "source_svg": "MapDesign/MCP/GENERATED/SV5_16_JUMP_OUTLINE/preview/jump_outline.svg",
+  "source_svg_sha256": "72fb03f995569e6c8c273d04f35047be32ce4ad223cb1e7202ac0705c5f0b3e6",
+  "rendered_png": "MapDesign/MCP/GENERATED/SV5_16_JUMP_OUTLINE/preview/jump_outline.png",
+  "rendered_png_sha256": "912d7bb5c8ef6149be2be336f9d0cfdc304e123bfe0816184996beb748a38d82",
+  "renderer": "Google Chrome headless",
+  "render_size": {"width": 980, "height": 760},
+  "inspection": {
+    "full_24x32_boundary_visible": true,
+    "base_solid_cells_distinguishable": true,
+    "one_way_cells_distinguishable": true,
+    "outline_solid_cells_distinguishable": true,
+    "ordered_nine_link_route_visible": true,
+    "single_existing_jump_grab_visible": true,
+    "irregular_downward_backing_visible": true,
+    "one_way_unchanged_label_visible": true,
+    "no_rectangular_shell_label_visible": true,
+    "player_verification_deferred_label_visible": true,
+    "labels_clipped_or_overlapping": false
+  },
+  "errors": []
+}

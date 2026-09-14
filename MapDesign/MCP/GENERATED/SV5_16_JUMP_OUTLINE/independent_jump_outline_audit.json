@@ -1,0 +1,19 @@
+{
+  "schema": "SV5_16_JUMP_OUTLINE_AUDIT/v1",
+  "status": "PASS_INDEPENDENT_JUMP_OUTLINE",
+  "canvas": {
+    "width": 24,
+    "height": 32
+  },
+  "base_support_cells": 27,
+  "outline_cells": 17,
+  "final_occupancy_cells": 44,
+  "backed_solid_supports": 5,
+  "one_way_backing_cells": 0,
+  "filled_solid_6x6_windows": 0,
+  "route_clearance_pass": 10,
+  "grab_air_blocked": [],
+  "whole_world_builds_in_new_targeted_tests": 0,
+  "whole_world_searches_in_new_targeted_tests": 0,
+  "errors": []
+}

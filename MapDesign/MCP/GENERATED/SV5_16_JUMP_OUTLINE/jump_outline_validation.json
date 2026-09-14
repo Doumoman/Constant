@@ -1,0 +1,19 @@
+{
+  "schema": "SV5_16_JUMP_OUTLINE_VALIDATION/v1",
+  "status": "PASS",
+  "errors": [],
+  "fixture_digest": "0ac93bf0ddc1a203baa47517096516c2df98d67978d3c80131a13edcedd5df9c",
+  "base_fixture_digest": "99c00ddaee7b1c0e7967d10560ddfad9b0f01dbc597f969466e3a03c16c760db",
+  "base_support_cells": 27,
+  "outline_cells": 17,
+  "final_occupancy_cells": 44,
+  "route_clearance_pass": 10,
+  "grab_edge_count": 1,
+  "filled_solid_6x6_windows": 0,
+  "jump_contract_ready": true,
+  "jump_solid_geometry_ready": true,
+  "jump_grab_geometry_ready": true,
+  "jump_outline_ready": true,
+  "composed_geometry_ready": false,
+  "player_verified": false
+}

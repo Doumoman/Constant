@@ -1,0 +1,5 @@
+order,action,player_x,player_y,contact_x,contact_y,support_id
+0,TAKEOFF,18,5,-1,-1,JS03_ONE_WAY
+1,CONTACT_HANG,16,6,15,6,JS04_SOLID
+2,PULL_UP,15,7,15,6,JS04_SOLID
+3,LAND,15,7,-1,-1,JS04_SOLID

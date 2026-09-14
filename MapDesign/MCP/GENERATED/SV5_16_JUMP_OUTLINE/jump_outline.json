@@ -1,0 +1,31 @@
+{
+  "schema": "SV5_16_JUMP_OUTLINE/v1",
+  "fixture_digest": "0ac93bf0ddc1a203baa47517096516c2df98d67978d3c80131a13edcedd5df9c",
+  "base_fixture_digest": "99c00ddaee7b1c0e7967d10560ddfad9b0f01dbc597f969466e3a03c16c760db",
+  "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+  "canvas": {"width": 24, "height": 32, "scope": "LOCAL_JUMP_ROOM_NOT_SECTOR"},
+  "base_support_cells": 27,
+  "outline_cells": 17,
+  "final_occupancy_cells": 44,
+  "backed_solid_supports": 5,
+  "one_way_backing_cells": 0,
+  "route_link_count": 9,
+  "grab_edge_count": 1,
+  "filled_solid_6x6_windows": 0,
+  "rectangular_room_shell_created": false,
+  "outline_faces_automatically_grabbable": false,
+  "reverse_completion_required": false,
+  "validation_states": {"supports": "STATIC_SCREEN", "links": "PLANNED", "player_verified_count": 0},
+  "readiness": {
+    "jump_contract_ready": true,
+    "jump_solid_geometry_ready": true,
+    "jump_grab_geometry_ready": true,
+    "jump_outline_ready": true,
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "performance": {
+    "whole_world_builds_in_new_targeted_tests": 0,
+    "whole_world_searches_in_new_targeted_tests": 0
+  }
+}
