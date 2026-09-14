@@ -1,0 +1,426 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="620" viewBox="0 0 880 620">
+<rect width="880" height="620" fill="#0e1520"/>
+<style>text{font-family:Consolas,monospace;fill:#eef6ff}.title{font-size:19px;font-weight:bold}.label{font-size:11px}.muted{fill:#9db0c5}.grid{stroke:#2a394b;stroke-width:.45}.trace{fill:#69e6b6;stroke:#10222a;stroke-width:.7}.head{fill:none;stroke:#8ecbff;stroke-width:1}.grab{fill:#ff5d8f;stroke:#fff;stroke-width:1.2}.adjusted{fill:#ffd166;stroke:#fff;stroke-width:1}</style>
+<text x="24" y="29" class="title">SV5_18 local body/head swept-clearance proof</text>
+<text x="24" y="52" class="label muted">two 24x32 recipes | 18 links | Endpoint Fix01 x4 | RecoveryReady=false | PlayerVerified=false</text>
+<text x="24" y="66" class="title">JUMP012_MIXED_R0</text>
+<rect x="24" y="78" width="312" height="416" fill="#17202c" stroke="#71839a"/>
+<rect x="24" y="481" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="24" y="468" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="24" y="377" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="37" y="481" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="37" y="468" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="37" y="377" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="50" y="468" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="63" y="390" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="63" y="377" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="63" y="364" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="76" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="76" y="403" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="76" y="390" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="76" y="377" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="76" y="364" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="89" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="89" y="403" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="89" y="390" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="102" y="455" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="102" y="403" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="102" y="390" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="115" y="455" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="115" y="351" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="128" y="455" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="128" y="351" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="141" y="403" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="141" y="351" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="154" y="403" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="167" y="403" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="180" y="455" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="180" y="442" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="193" y="468" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="193" y="455" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="193" y="442" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="206" y="455" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="206" y="442" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="206" y="429" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="206" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="206" y="403" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="219" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="219" y="403" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="258" y="429" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="271" y="429" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="284" y="429" width="13" height="13" fill="#2f8f83" class="grid"/>
+<polyline points="56,461 69,448 82,448 95,448 108,448" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="52" y="444" width="9" height="9" class="head"/>
+<circle cx="56" cy="461" r="3.1" class="trace"/>
+<rect x="65" y="431" width="9" height="9" class="head"/>
+<circle cx="69" cy="448" r="3.1" class="trace"/>
+<rect x="78" y="431" width="9" height="9" class="head"/>
+<circle cx="82" cy="448" r="3.1" class="trace"/>
+<rect x="91" y="431" width="9" height="9" class="head"/>
+<circle cx="95" cy="448" r="3.1" class="trace"/>
+<rect x="104" y="431" width="9" height="9" class="head"/>
+<circle cx="108" cy="448" r="3.1" class="trace"/>
+<polyline points="134,448 147,435 160,435 173,435 186,435" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="130" y="431" width="9" height="9" class="head"/>
+<circle cx="134" cy="448" r="3.1" class="trace"/>
+<rect x="143" y="418" width="9" height="9" class="head"/>
+<circle cx="147" cy="435" r="3.1" class="trace"/>
+<rect x="156" y="418" width="9" height="9" class="head"/>
+<circle cx="160" cy="435" r="3.1" class="trace"/>
+<rect x="169" y="418" width="9" height="9" class="head"/>
+<circle cx="173" cy="435" r="3.1" class="trace"/>
+<rect x="182" y="418" width="9" height="9" class="head"/>
+<circle cx="186" cy="435" r="3.1" class="trace"/>
+<polyline points="199,435 199,422 199,409 199,396 212,383 225,383 238,396 251,409 264,422" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="195" y="418" width="9" height="9" class="head"/>
+<circle cx="199" cy="435" r="3.1" class="trace"/>
+<rect x="195" y="405" width="9" height="9" class="head"/>
+<circle cx="199" cy="422" r="3.1" class="trace"/>
+<rect x="195" y="392" width="9" height="9" class="head"/>
+<circle cx="199" cy="409" r="3.1" class="trace"/>
+<rect x="195" y="379" width="9" height="9" class="head"/>
+<circle cx="199" cy="396" r="3.1" class="trace"/>
+<rect x="208" y="366" width="9" height="9" class="head"/>
+<circle cx="212" cy="383" r="3.1" class="trace"/>
+<rect x="221" y="366" width="9" height="9" class="head"/>
+<circle cx="225" cy="383" r="3.1" class="trace"/>
+<rect x="234" y="379" width="9" height="9" class="head"/>
+<circle cx="238" cy="396" r="3.1" class="trace"/>
+<rect x="247" y="392" width="9" height="9" class="head"/>
+<circle cx="251" cy="409" r="3.1" class="trace"/>
+<rect x="260" y="405" width="9" height="9" class="head"/>
+<circle cx="264" cy="422" r="3.1" class="trace"/>
+<circle cx="199" cy="435" r="5" class="adjusted"/>
+<polyline points="264,422 251,409 238,409 225,396" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="260" y="405" width="9" height="9" class="head"/>
+<circle cx="264" cy="422" r="3.1" class="trace"/>
+<rect x="247" y="392" width="9" height="9" class="head"/>
+<circle cx="251" cy="409" r="3.1" class="trace"/>
+<rect x="234" y="392" width="9" height="9" class="head"/>
+<circle cx="238" cy="409" r="3.1" class="trace"/>
+<rect x="221" y="379" width="9" height="9" class="head"/>
+<circle cx="225" cy="396" r="3.1" class="trace"/>
+<polyline points="212,396 199,383 186,383 173,396" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="208" y="379" width="9" height="9" class="head"/>
+<circle cx="212" cy="396" r="3.1" class="trace"/>
+<rect x="195" y="366" width="9" height="9" class="head"/>
+<circle cx="199" cy="383" r="3.1" class="trace"/>
+<rect x="182" y="366" width="9" height="9" class="head"/>
+<circle cx="186" cy="383" r="3.1" class="trace"/>
+<rect x="169" y="379" width="9" height="9" class="head"/>
+<circle cx="173" cy="396" r="3.1" class="trace"/>
+<polyline points="147,396 134,383 121,383 108,383" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="143" y="379" width="9" height="9" class="head"/>
+<circle cx="147" cy="396" r="3.1" class="trace"/>
+<rect x="130" y="366" width="9" height="9" class="head"/>
+<circle cx="134" cy="383" r="3.1" class="trace"/>
+<rect x="117" y="366" width="9" height="9" class="head"/>
+<circle cx="121" cy="383" r="3.1" class="trace"/>
+<rect x="104" y="366" width="9" height="9" class="head"/>
+<circle cx="108" cy="383" r="3.1" class="trace"/>
+<polyline points="95,383 95,370 95,357 82,344 69,344 56,357 43,370" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="91" y="366" width="9" height="9" class="head"/>
+<circle cx="95" cy="383" r="3.1" class="trace"/>
+<rect x="91" y="353" width="9" height="9" class="head"/>
+<circle cx="95" cy="370" r="3.1" class="trace"/>
+<rect x="91" y="340" width="9" height="9" class="head"/>
+<circle cx="95" cy="357" r="3.1" class="trace"/>
+<rect x="78" y="327" width="9" height="9" class="head"/>
+<circle cx="82" cy="344" r="3.1" class="trace"/>
+<rect x="65" y="327" width="9" height="9" class="head"/>
+<circle cx="69" cy="344" r="3.1" class="trace"/>
+<rect x="52" y="340" width="9" height="9" class="head"/>
+<circle cx="56" cy="357" r="3.1" class="trace"/>
+<rect x="39" y="353" width="9" height="9" class="head"/>
+<circle cx="43" cy="370" r="3.1" class="trace"/>
+<circle cx="95" cy="383" r="5" class="adjusted"/>
+<polyline points="43,370 56,357 69,357" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="39" y="353" width="9" height="9" class="head"/>
+<circle cx="43" cy="370" r="3.1" class="trace"/>
+<rect x="52" y="340" width="9" height="9" class="head"/>
+<circle cx="56" cy="357" r="3.1" class="trace"/>
+<rect x="65" y="340" width="9" height="9" class="head"/>
+<circle cx="69" cy="357" r="3.1" class="trace"/>
+<polyline points="82,357 95,344 108,331 121,344" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="78" y="340" width="9" height="9" class="head"/>
+<circle cx="82" cy="357" r="3.1" class="trace"/>
+<rect x="91" y="327" width="9" height="9" class="head"/>
+<circle cx="95" cy="344" r="3.1" class="trace"/>
+<rect x="104" y="314" width="9" height="9" class="head"/>
+<circle cx="108" cy="331" r="3.1" class="trace"/>
+<rect x="117" y="327" width="9" height="9" class="head"/>
+<circle cx="121" cy="344" r="3.1" class="trace"/>
+<circle cx="225" cy="409" r="5" class="grab"/>
+<line x1="24" y1="78" x2="24" y2="494" class="grid"/>
+<line x1="37" y1="78" x2="37" y2="494" class="grid"/>
+<line x1="50" y1="78" x2="50" y2="494" class="grid"/>
+<line x1="63" y1="78" x2="63" y2="494" class="grid"/>
+<line x1="76" y1="78" x2="76" y2="494" class="grid"/>
+<line x1="89" y1="78" x2="89" y2="494" class="grid"/>
+<line x1="102" y1="78" x2="102" y2="494" class="grid"/>
+<line x1="115" y1="78" x2="115" y2="494" class="grid"/>
+<line x1="128" y1="78" x2="128" y2="494" class="grid"/>
+<line x1="141" y1="78" x2="141" y2="494" class="grid"/>
+<line x1="154" y1="78" x2="154" y2="494" class="grid"/>
+<line x1="167" y1="78" x2="167" y2="494" class="grid"/>
+<line x1="180" y1="78" x2="180" y2="494" class="grid"/>
+<line x1="193" y1="78" x2="193" y2="494" class="grid"/>
+<line x1="206" y1="78" x2="206" y2="494" class="grid"/>
+<line x1="219" y1="78" x2="219" y2="494" class="grid"/>
+<line x1="232" y1="78" x2="232" y2="494" class="grid"/>
+<line x1="245" y1="78" x2="245" y2="494" class="grid"/>
+<line x1="258" y1="78" x2="258" y2="494" class="grid"/>
+<line x1="271" y1="78" x2="271" y2="494" class="grid"/>
+<line x1="284" y1="78" x2="284" y2="494" class="grid"/>
+<line x1="297" y1="78" x2="297" y2="494" class="grid"/>
+<line x1="310" y1="78" x2="310" y2="494" class="grid"/>
+<line x1="323" y1="78" x2="323" y2="494" class="grid"/>
+<line x1="336" y1="78" x2="336" y2="494" class="grid"/>
+<line x1="24" y1="78" x2="336" y2="78" class="grid"/>
+<line x1="24" y1="91" x2="336" y2="91" class="grid"/>
+<line x1="24" y1="104" x2="336" y2="104" class="grid"/>
+<line x1="24" y1="117" x2="336" y2="117" class="grid"/>
+<line x1="24" y1="130" x2="336" y2="130" class="grid"/>
+<line x1="24" y1="143" x2="336" y2="143" class="grid"/>
+<line x1="24" y1="156" x2="336" y2="156" class="grid"/>
+<line x1="24" y1="169" x2="336" y2="169" class="grid"/>
+<line x1="24" y1="182" x2="336" y2="182" class="grid"/>
+<line x1="24" y1="195" x2="336" y2="195" class="grid"/>
+<line x1="24" y1="208" x2="336" y2="208" class="grid"/>
+<line x1="24" y1="221" x2="336" y2="221" class="grid"/>
+<line x1="24" y1="234" x2="336" y2="234" class="grid"/>
+<line x1="24" y1="247" x2="336" y2="247" class="grid"/>
+<line x1="24" y1="260" x2="336" y2="260" class="grid"/>
+<line x1="24" y1="273" x2="336" y2="273" class="grid"/>
+<line x1="24" y1="286" x2="336" y2="286" class="grid"/>
+<line x1="24" y1="299" x2="336" y2="299" class="grid"/>
+<line x1="24" y1="312" x2="336" y2="312" class="grid"/>
+<line x1="24" y1="325" x2="336" y2="325" class="grid"/>
+<line x1="24" y1="338" x2="336" y2="338" class="grid"/>
+<line x1="24" y1="351" x2="336" y2="351" class="grid"/>
+<line x1="24" y1="364" x2="336" y2="364" class="grid"/>
+<line x1="24" y1="377" x2="336" y2="377" class="grid"/>
+<line x1="24" y1="390" x2="336" y2="390" class="grid"/>
+<line x1="24" y1="403" x2="336" y2="403" class="grid"/>
+<line x1="24" y1="416" x2="336" y2="416" class="grid"/>
+<line x1="24" y1="429" x2="336" y2="429" class="grid"/>
+<line x1="24" y1="442" x2="336" y2="442" class="grid"/>
+<line x1="24" y1="455" x2="336" y2="455" class="grid"/>
+<line x1="24" y1="468" x2="336" y2="468" class="grid"/>
+<line x1="24" y1="481" x2="336" y2="481" class="grid"/>
+<line x1="24" y1="494" x2="336" y2="494" class="grid"/>
+<text x="448" y="66" class="title">JUMP012_MIXED_MX</text>
+<rect x="448" y="78" width="312" height="416" fill="#17202c" stroke="#71839a"/>
+<rect x="487" y="429" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="500" y="429" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="513" y="429" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="552" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="552" y="403" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="565" y="455" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="565" y="442" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="565" y="429" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="565" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="565" y="403" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="578" y="468" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="578" y="455" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="578" y="442" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="591" y="455" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="591" y="442" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="604" y="403" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="617" y="403" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="630" y="403" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="630" y="351" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="643" y="455" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="643" y="351" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="656" y="455" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="656" y="351" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="669" y="455" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="669" y="403" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="669" y="390" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="682" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="682" y="403" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="682" y="390" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="695" y="416" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="695" y="403" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="695" y="390" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="695" y="377" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="695" y="364" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="708" y="390" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="708" y="377" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="708" y="364" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="721" y="468" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="734" y="481" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="734" y="468" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="734" y="377" width="13" height="13" fill="#2f8f83" class="grid"/>
+<rect x="747" y="481" width="13" height="13" fill="#334155" class="grid"/>
+<rect x="747" y="468" width="13" height="13" fill="#53677d" class="grid"/>
+<rect x="747" y="377" width="13" height="13" fill="#2f8f83" class="grid"/>
+<polyline points="727,461 714,448 701,448 688,448 675,448" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="723" y="444" width="9" height="9" class="head"/>
+<circle cx="727" cy="461" r="3.1" class="trace"/>
+<rect x="710" y="431" width="9" height="9" class="head"/>
+<circle cx="714" cy="448" r="3.1" class="trace"/>
+<rect x="697" y="431" width="9" height="9" class="head"/>
+<circle cx="701" cy="448" r="3.1" class="trace"/>
+<rect x="684" y="431" width="9" height="9" class="head"/>
+<circle cx="688" cy="448" r="3.1" class="trace"/>
+<rect x="671" y="431" width="9" height="9" class="head"/>
+<circle cx="675" cy="448" r="3.1" class="trace"/>
+<polyline points="649,448 636,435 623,435 610,435 597,435" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="645" y="431" width="9" height="9" class="head"/>
+<circle cx="649" cy="448" r="3.1" class="trace"/>
+<rect x="632" y="418" width="9" height="9" class="head"/>
+<circle cx="636" cy="435" r="3.1" class="trace"/>
+<rect x="619" y="418" width="9" height="9" class="head"/>
+<circle cx="623" cy="435" r="3.1" class="trace"/>
+<rect x="606" y="418" width="9" height="9" class="head"/>
+<circle cx="610" cy="435" r="3.1" class="trace"/>
+<rect x="593" y="418" width="9" height="9" class="head"/>
+<circle cx="597" cy="435" r="3.1" class="trace"/>
+<polyline points="584,435 584,422 584,409 584,396 571,383 558,383 545,396 532,409 519,422" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="580" y="418" width="9" height="9" class="head"/>
+<circle cx="584" cy="435" r="3.1" class="trace"/>
+<rect x="580" y="405" width="9" height="9" class="head"/>
+<circle cx="584" cy="422" r="3.1" class="trace"/>
+<rect x="580" y="392" width="9" height="9" class="head"/>
+<circle cx="584" cy="409" r="3.1" class="trace"/>
+<rect x="580" y="379" width="9" height="9" class="head"/>
+<circle cx="584" cy="396" r="3.1" class="trace"/>
+<rect x="567" y="366" width="9" height="9" class="head"/>
+<circle cx="571" cy="383" r="3.1" class="trace"/>
+<rect x="554" y="366" width="9" height="9" class="head"/>
+<circle cx="558" cy="383" r="3.1" class="trace"/>
+<rect x="541" y="379" width="9" height="9" class="head"/>
+<circle cx="545" cy="396" r="3.1" class="trace"/>
+<rect x="528" y="392" width="9" height="9" class="head"/>
+<circle cx="532" cy="409" r="3.1" class="trace"/>
+<rect x="515" y="405" width="9" height="9" class="head"/>
+<circle cx="519" cy="422" r="3.1" class="trace"/>
+<circle cx="584" cy="435" r="5" class="adjusted"/>
+<polyline points="519,422 532,409 545,409 558,396" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="515" y="405" width="9" height="9" class="head"/>
+<circle cx="519" cy="422" r="3.1" class="trace"/>
+<rect x="528" y="392" width="9" height="9" class="head"/>
+<circle cx="532" cy="409" r="3.1" class="trace"/>
+<rect x="541" y="392" width="9" height="9" class="head"/>
+<circle cx="545" cy="409" r="3.1" class="trace"/>
+<rect x="554" y="379" width="9" height="9" class="head"/>
+<circle cx="558" cy="396" r="3.1" class="trace"/>
+<polyline points="571,396 584,383 597,383 610,396" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="567" y="379" width="9" height="9" class="head"/>
+<circle cx="571" cy="396" r="3.1" class="trace"/>
+<rect x="580" y="366" width="9" height="9" class="head"/>
+<circle cx="584" cy="383" r="3.1" class="trace"/>
+<rect x="593" y="366" width="9" height="9" class="head"/>
+<circle cx="597" cy="383" r="3.1" class="trace"/>
+<rect x="606" y="379" width="9" height="9" class="head"/>
+<circle cx="610" cy="396" r="3.1" class="trace"/>
+<polyline points="636,396 649,383 662,383 675,383" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="632" y="379" width="9" height="9" class="head"/>
+<circle cx="636" cy="396" r="3.1" class="trace"/>
+<rect x="645" y="366" width="9" height="9" class="head"/>
+<circle cx="649" cy="383" r="3.1" class="trace"/>
+<rect x="658" y="366" width="9" height="9" class="head"/>
+<circle cx="662" cy="383" r="3.1" class="trace"/>
+<rect x="671" y="366" width="9" height="9" class="head"/>
+<circle cx="675" cy="383" r="3.1" class="trace"/>
+<polyline points="688,383 688,370 688,357 701,344 714,344 727,357 740,370" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="684" y="366" width="9" height="9" class="head"/>
+<circle cx="688" cy="383" r="3.1" class="trace"/>
+<rect x="684" y="353" width="9" height="9" class="head"/>
+<circle cx="688" cy="370" r="3.1" class="trace"/>
+<rect x="684" y="340" width="9" height="9" class="head"/>
+<circle cx="688" cy="357" r="3.1" class="trace"/>
+<rect x="697" y="327" width="9" height="9" class="head"/>
+<circle cx="701" cy="344" r="3.1" class="trace"/>
+<rect x="710" y="327" width="9" height="9" class="head"/>
+<circle cx="714" cy="344" r="3.1" class="trace"/>
+<rect x="723" y="340" width="9" height="9" class="head"/>
+<circle cx="727" cy="357" r="3.1" class="trace"/>
+<rect x="736" y="353" width="9" height="9" class="head"/>
+<circle cx="740" cy="370" r="3.1" class="trace"/>
+<circle cx="688" cy="383" r="5" class="adjusted"/>
+<polyline points="740,370 727,357 714,357" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="736" y="353" width="9" height="9" class="head"/>
+<circle cx="740" cy="370" r="3.1" class="trace"/>
+<rect x="723" y="340" width="9" height="9" class="head"/>
+<circle cx="727" cy="357" r="3.1" class="trace"/>
+<rect x="710" y="340" width="9" height="9" class="head"/>
+<circle cx="714" cy="357" r="3.1" class="trace"/>
+<polyline points="701,357 688,344 675,331 662,344" fill="none" stroke="#69e6b6" stroke-width="1.5" opacity=".8"/>
+<rect x="697" y="340" width="9" height="9" class="head"/>
+<circle cx="701" cy="357" r="3.1" class="trace"/>
+<rect x="684" y="327" width="9" height="9" class="head"/>
+<circle cx="688" cy="344" r="3.1" class="trace"/>
+<rect x="671" y="314" width="9" height="9" class="head"/>
+<circle cx="675" cy="331" r="3.1" class="trace"/>
+<rect x="658" y="327" width="9" height="9" class="head"/>
+<circle cx="662" cy="344" r="3.1" class="trace"/>
+<circle cx="558" cy="409" r="5" class="grab"/>
+<line x1="448" y1="78" x2="448" y2="494" class="grid"/>
+<line x1="461" y1="78" x2="461" y2="494" class="grid"/>
+<line x1="474" y1="78" x2="474" y2="494" class="grid"/>
+<line x1="487" y1="78" x2="487" y2="494" class="grid"/>
+<line x1="500" y1="78" x2="500" y2="494" class="grid"/>
+<line x1="513" y1="78" x2="513" y2="494" class="grid"/>
+<line x1="526" y1="78" x2="526" y2="494" class="grid"/>
+<line x1="539" y1="78" x2="539" y2="494" class="grid"/>
+<line x1="552" y1="78" x2="552" y2="494" class="grid"/>
+<line x1="565" y1="78" x2="565" y2="494" class="grid"/>
+<line x1="578" y1="78" x2="578" y2="494" class="grid"/>
+<line x1="591" y1="78" x2="591" y2="494" class="grid"/>
+<line x1="604" y1="78" x2="604" y2="494" class="grid"/>
+<line x1="617" y1="78" x2="617" y2="494" class="grid"/>
+<line x1="630" y1="78" x2="630" y2="494" class="grid"/>
+<line x1="643" y1="78" x2="643" y2="494" class="grid"/>
+<line x1="656" y1="78" x2="656" y2="494" class="grid"/>
+<line x1="669" y1="78" x2="669" y2="494" class="grid"/>
+<line x1="682" y1="78" x2="682" y2="494" class="grid"/>
+<line x1="695" y1="78" x2="695" y2="494" class="grid"/>
+<line x1="708" y1="78" x2="708" y2="494" class="grid"/>
+<line x1="721" y1="78" x2="721" y2="494" class="grid"/>
+<line x1="734" y1="78" x2="734" y2="494" class="grid"/>
+<line x1="747" y1="78" x2="747" y2="494" class="grid"/>
+<line x1="760" y1="78" x2="760" y2="494" class="grid"/>
+<line x1="448" y1="78" x2="760" y2="78" class="grid"/>
+<line x1="448" y1="91" x2="760" y2="91" class="grid"/>
+<line x1="448" y1="104" x2="760" y2="104" class="grid"/>
+<line x1="448" y1="117" x2="760" y2="117" class="grid"/>
+<line x1="448" y1="130" x2="760" y2="130" class="grid"/>
+<line x1="448" y1="143" x2="760" y2="143" class="grid"/>
+<line x1="448" y1="156" x2="760" y2="156" class="grid"/>
+<line x1="448" y1="169" x2="760" y2="169" class="grid"/>
+<line x1="448" y1="182" x2="760" y2="182" class="grid"/>
+<line x1="448" y1="195" x2="760" y2="195" class="grid"/>
+<line x1="448" y1="208" x2="760" y2="208" class="grid"/>
+<line x1="448" y1="221" x2="760" y2="221" class="grid"/>
+<line x1="448" y1="234" x2="760" y2="234" class="grid"/>
+<line x1="448" y1="247" x2="760" y2="247" class="grid"/>
+<line x1="448" y1="260" x2="760" y2="260" class="grid"/>
+<line x1="448" y1="273" x2="760" y2="273" class="grid"/>
+<line x1="448" y1="286" x2="760" y2="286" class="grid"/>
+<line x1="448" y1="299" x2="760" y2="299" class="grid"/>
+<line x1="448" y1="312" x2="760" y2="312" class="grid"/>
+<line x1="448" y1="325" x2="760" y2="325" class="grid"/>
+<line x1="448" y1="338" x2="760" y2="338" class="grid"/>
+<line x1="448" y1="351" x2="760" y2="351" class="grid"/>
+<line x1="448" y1="364" x2="760" y2="364" class="grid"/>
+<line x1="448" y1="377" x2="760" y2="377" class="grid"/>
+<line x1="448" y1="390" x2="760" y2="390" class="grid"/>
+<line x1="448" y1="403" x2="760" y2="403" class="grid"/>
+<line x1="448" y1="416" x2="760" y2="416" class="grid"/>
+<line x1="448" y1="429" x2="760" y2="429" class="grid"/>
+<line x1="448" y1="442" x2="760" y2="442" class="grid"/>
+<line x1="448" y1="455" x2="760" y2="455" class="grid"/>
+<line x1="448" y1="468" x2="760" y2="468" class="grid"/>
+<line x1="448" y1="481" x2="760" y2="481" class="grid"/>
+<line x1="448" y1="494" x2="760" y2="494" class="grid"/>
+<rect x="24" y="522" width="11" height="11" fill="#53677d"/><text x="41" y="532" class="label">SOLID</text>
+<rect x="108" y="522" width="11" height="11" fill="#2f8f83"/><text x="125" y="532" class="label">ONE_WAY</text>
+<circle cx="227" cy="527" r="5" class="trace"/><text x="239" y="532" class="label">body/foot trace</text>
+<rect x="366" y="521" width="11" height="11" class="head"/><text x="383" y="532" class="label">head cell</text>
+<circle cx="490" cy="527" r="5" class="adjusted"/><text x="502" y="532" class="label">effective takeoff</text>
+<circle cx="655" cy="527" r="5" class="grab"/><text x="667" y="532" class="label">SOLID Grab contact</text>
+<text x="24" y="566" class="label">JS_LINK_03: TAKEOFF → AIR → HANG → PULL_UP; only the exact contact corner is exempt.</text>
+<text x="24" y="590" class="label muted">Discrete occupancy evidence only; no live motor, recovery, or Player verification claim.</text>
+</svg>

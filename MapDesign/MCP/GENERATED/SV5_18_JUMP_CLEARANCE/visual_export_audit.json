@@ -1,0 +1,25 @@
+{
+  "schema": "SV5_18_JUMP_CLEARANCE_VISUAL_AUDIT/v1",
+  "status": "PASS_VISUAL_INSPECTION",
+  "source_svg": "MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/preview/jump_clearance.svg",
+  "source_svg_sha256": "f49e19ab5606dd43bc746881bed250c1bf9f897e1e6c62a9c6bc95933c5e9d5c",
+  "rendered_png": "MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/preview/jump_clearance.png",
+  "rendered_png_sha256": "48fd0dee685198457f6602a3de7cf8fd2030a0faba518dde6d9f312dff69895d",
+  "renderer": "Google Chrome headless",
+  "render_size": {"width": 880, "height": 620},
+  "inspection": {
+    "both_full_local_recipe_boundaries_visible": true,
+    "r0_and_mirror_x_side_by_side": true,
+    "solid_and_one_way_tiles_distinguishable": true,
+    "all_eighteen_ordered_link_traces_visible": true,
+    "body_foot_samples_visible": true,
+    "head_cells_visible": true,
+    "four_effective_takeoffs_distinct": true,
+    "single_solid_grab_contact_per_recipe_distinct": true,
+    "grab_sequence_and_contact_corner_exception_label_visible": true,
+    "mirror_geometry_and_traces_visibly_match": true,
+    "recovery_and_player_false_labels_visible": true,
+    "labels_clipped_or_overlapping": false
+  },
+  "errors": []
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "SV5_18_JUMP_CLEARANCE_BINDING/v1",
+  "task": "SV5_18_JUMP_CLEARANCE",
+  "base": {
+    "commit": "7c8281c1527f55c2d9a1f7d4c5c03f424cf8663b",
+    "parent": "b99f9b9214583d653c273efaa53e69ec0e4abbe4",
+    "subject": "SV5_17_JUMP_RECIPES: add mirrored mixed jump recipes"
+  },
+  "package": {
+    "original_zip_sha256": "adc0dc281c6f15bd7bb7b9ab68012186a68f67afa6a1b3fdc70ec65aea8b2f11",
+    "correction_zip_sha256": "15ecfdccc52772b52ac85463dcfcdd885c51fd0506f96887124bedb2ee6a3f4d",
+    "manifest_sha256": "2ac6bf07f7b9b6cf8d03deaa5572497828ed3b3ab1abc5440321eeede6786521",
+    "source_lock_sha256": "43fc8b266393bde23fea5bab98785aab16b7a163ee10fa1cf7c6f9394f8043c1",
+    "contract_sha256": "5d4a0b3ac51b2354f62d3b3c6bd7ef7374b77085eb94488fa8ce99af6f8749f8",
+    "profile_sha256": "d67bb24bb48f8ac15750b7355ae15e3560e61227890b8e6f5845d02e58739838",
+    "checker_sha256": "2fccc3e12d54040c7b133cd68ec523c4f9a6de3cc9ac6e3ac50e10b7b9b3e4bd",
+    "verify_applied": "PASS_NATIVE_APPLY",
+    "post_readonly_before_finalize": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "4d855ec8f5272a91729f0800d2c7d20da3060405f0074f4f231475556b0bee68",
+    "archive_task_sha256": "4d855ec8f5272a91729f0800d2c7d20da3060405f0074f4f231475556b0bee68",
+    "installed_archive_byte_identical": true
+  },
+  "predecessor": {
+    "task": "SV5_17_JUMP_RECIPES",
+    "commit": "7c8281c1527f55c2d9a1f7d4c5c03f424cf8663b",
+    "catalog_digest": "19b4b3c37a1b1b11856eb1c946ce8ea64cbc16517dbfe9ace2ae66e4a5504022",
+    "immutable_source_or_evidence_modified": false
+  },
+  "correction": {
+    "correction_id": "SV5_18_ENDPOINT_FIX01",
+    "correction_document_sha256": "e2e04494817ce35866600a5315cd455a75e1847322caa4201a9de88aeda32f39",
+    "correction_json_sha256": "e9a337f51bc537ed7ffe1d6487dcd024ccc42fab8e088c17af6969642797e8a5",
+    "effective_link_endpoint_digest": "9ca58b3070662afece14b812aff892ec8e31bac09938a7445a667f3b2aa8db78",
+    "effective_takeoff_count": 4,
+    "source_and_effective_takeoffs_separate": true,
+    "predecessor_modified": false,
+    "grab_pull_up_supercover_exception": "EXACT_EXPORTED_SOLID_GRAB_CONTACT_ONLY"
+  },
+  "before_finalize": {
+    "status_sha256": "3ef0ac308b767bdd30586dccf811f246a16ed5e77d023c18ed203e022b87cc61",
+    "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+    "counts": {"COMPLETE": 265, "CURRENT": 1, "LOCKED": 29},
+    "current_task": "SV5_18_JUMP_CLEARANCE",
+    "SV5_19_JUMP_RECOVERY": "LOCKED"
+  },
+  "after_finalize": {
+    "status_sha256": "967b9e634ae4671789df24caa2e505410fb9efd975cf36465c53ed281344a543",
+    "counts": {"COMPLETE": 266, "CURRENT": 0, "LOCKED": 29},
+    "current_task": "NONE",
+    "SV5_18_JUMP_CLEARANCE": "COMPLETE",
+    "SV5_19_JUMP_RECOVERY": "LOCKED"
+  },
+  "implementation": {
+    "clearance_source_sha256": "bf9aa50c39da40e3d128a25de076eb07bfe3f461a118856a3d4d26191d597fa7",
+    "clearance_meta_sha256": "4d4aab7e360bd4c299c2aed54bc951acaf4e0b5baf79180c71296ba19b61d94a",
+    "export_source_sha256": "057d9fcc7faa0462ad91c4ec45c80a0fd64dc586f779257a657c9ea8fe074186",
+    "export_meta_sha256": "59b00b10fa9ebc798148dae70a72473cad70faef86a41ed33ebd69084af286d7",
+    "tests_sha256": "1fdb4b03b2b60d0eaff7f47f32349ad430f411f6cd2f48c7f4c6dee4599f0870",
+    "tests_meta_sha256": "dcd0ff8828096c435a932abe1010aa9993ef12921f85d06d2fecc2efbc71745a",
+    "creates_world_geometry": false,
+    "modifies_player_or_predecessor": false
+  },
+  "clearance": {
+    "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+    "clearance_digest": "48c3754b8109aa0601760567010b9aece67c5305907dfb76c7b155b3d4c37f13",
+    "recipe_count": 2,
+    "link_count": 18,
+    "passed_link_count": 18,
+    "trace_state_count": 90,
+    "grab_contact_count": 2,
+    "endpoint_correction_count": 4,
+    "mirror_sample_exact": true,
+    "body_head_clear": true,
+    "ordinary_diagonal_supercover_clear": true,
+    "grab_sequence_exact": true
+  },
+  "verification": {
+    "compile": {"status": "PASS", "editor": "Unity 6000.3.8f1", "compile_errors": 0},
+    "targeted": {
+      "status": "PASS",
+      "physical_attempts": 2,
+      "accepted_attempts": 1,
+      "tests": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1.234342,
+      "wrapper_elapsed_seconds": 55.278,
+      "xml_sha256": "6213985ba21c171a23ae80495b98eeabaafa2a42151492ff17dffeeb5340d1a5"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_JUMP_CLEARANCE",
+      "audit_sha256": "048614fa30d70a68f60bbecac7110a241e24373ce45f42320c42b6633e589683"
+    },
+    "visual_inspection": {
+      "status": "PASS_VISUAL_INSPECTION",
+      "audit_sha256": "d97f9a9fd102bf99b3533a4d6e162c295e2e8ddd25f2408473d99d2dc364a006",
+      "svg_sha256": "f49e19ab5606dd43bc746881bed250c1bf9f897e1e6c62a9c6bc95933c5e9d5c",
+      "png_sha256": "48fd0dee685198457f6602a3de7cf8fd2030a0faba518dde6d9f312dff69895d"
+    },
+    "full_regression": {
+      "status": "PASS",
+      "physical_full_regression_runs": 1,
+      "accepted_full_regression_runs": 1,
+      "editor_exit_code": 0,
+      "tests": 393,
+      "passed": 393,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0,
+      "duration_seconds": 1753.3477866,
+      "wrapper_elapsed_seconds": 1808.417,
+      "xml_sha256": "659b778c152688d9e0461ba2104bb18224deb03edb01c0a15c1373e92519bbb0",
+      "log_sha256": "6dd67b93e75a853beb26bd036001b32f6c9c6f14903c3cc9efacea4781abf4d2",
+      "run_finished_logged": true,
+      "focused_result_save_logged": true,
+      "fullname_count": 393,
+      "prior_fullname_set_preserved": true,
+      "added_fullnames_are_exact_sv5_18_tests": true,
+      "fullname_set_sha256": "99ba3229875cf37e158b45185dc681dcde50942f77c173e16c77fc128a5bc790"
+    },
+    "ordered_gates": [
+      "TARGETED_LOCAL_CLEARANCE",
+      "INDEPENDENT_CHECKER",
+      "SVG_RENDER_AND_VISUAL_INSPECTION",
+      "FULL_SV5_REGRESSION",
+      "POST_READONLY"
+    ]
+  },
+  "scope": {
+    "world_placement_changed": false,
+    "player_runtime_or_tuning_changed": false,
+    "sv5_13_through_sv5_17_source_or_evidence_changed": false,
+    "scene_or_prefab_changed": false,
+    "packages_or_project_settings_changed": false,
+    "master_changed": false,
+    "push_performed": false
+  },
+  "readiness": {
+    "JumpRecipeReady": true,
+    "ComposedGeometryReady": true,
+    "SweptClearanceReady": true,
+    "RecoveryReady": false,
+    "PlayerVerified": false,
+    "SV5_19_JUMP_RECOVERY": "LOCKED"
+  }
+}

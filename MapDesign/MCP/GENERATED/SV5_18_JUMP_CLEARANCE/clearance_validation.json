@@ -1,0 +1,14 @@
+{
+  "schema": "SV5_18_JUMP_CLEARANCE_VALIDATION/v1",
+  "status": "PASS",
+  "input_catalog_digest": "19b4b3c37a1b1b11856eb1c946ce8ea64cbc16517dbfe9ace2ae66e4a5504022",
+  "clearance_digest": "48c3754b8109aa0601760567010b9aece67c5305907dfb76c7b155b3d4c37f13",
+  "endpoint_correction_id": "SV5_18_ENDPOINT_FIX01",
+  "endpoint_correction_count": 4,
+  "effective_link_endpoint_digest": "9ca58b3070662afece14b812aff892ec8e31bac09938a7445a667f3b2aa8db78",
+  "grab_pull_up_contact_corner_exception_count": 2,
+  "link_count": 18,
+  "passed_link_count": 18,
+  "errors": [
+  ]
+}

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="37" result="Passed" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-14 16:44:34Z" end-time="2026-09-14 16:44:36Z" duration="1.234342">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="27082" result="Passed" start-time="2026-09-14 16:44:34Z" end-time="2026-09-14 16:44:36Z" duration="1.234342" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="25152" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="23062" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="1.041517" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="36840" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="25153" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="23062" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.879306" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="25161" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22846" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.730636" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="25165" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22787" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.579370" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="25174" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="8105" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.311626" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="25190" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="393" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.233431" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24678" name="Sv5JumpClearanceTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" testcasecount="37" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.225732" total="37" passed="37" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="24679" name="C01_CanonicalLocalProofPassesWithoutDiagnostics" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C01_CanonicalLocalProofPassesWithoutDiagnostics" methodname="C01_CanonicalLocalProofPassesWithoutDiagnostics" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1030423643" result="Passed" start-time="2026-09-14 16:44:35Z" end-time="2026-09-14 16:44:36Z" duration="0.106524" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24680" name="C02_CanonicalProofContainsExactlyTwoRecipesAndEighteenLinks" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C02_CanonicalProofContainsExactlyTwoRecipesAndEighteenLinks" methodname="C02_CanonicalProofContainsExactlyTwoRecipesAndEighteenLinks" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1640854541" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.004032" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24681" name="C03_AllSixteenNormalJumpLinksPassIndependently" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C03_AllSixteenNormalJumpLinksPassIndependently" methodname="C03_AllSixteenNormalJumpLinksPassIndependently" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1560042870" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001477" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24682" name="C04_BothJumpGrabLinksPassIndependently" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C04_BothJumpGrabLinksPassIndependently" methodname="C04_BothJumpGrabLinksPassIndependently" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1641509179" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001260" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24683" name="C05_SourceAndEffectiveTakeoffsRemainDistinctOnlyForFix01Rows" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C05_SourceAndEffectiveTakeoffsRemainDistinctOnlyForFix01Rows" methodname="C05_SourceAndEffectiveTakeoffsRemainDistinctOnlyForFix01Rows" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1765975941" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003349" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24684" name="C06_Fix01EffectiveTakeoffPairsAreExact" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C06_Fix01EffectiveTakeoffPairsAreExact" methodname="C06_Fix01EffectiveTakeoffPairsAreExact" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="680557101" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001939" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24685" name="C07_EffectiveEndpointDigestMatchesApprovedCorrection" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C07_EffectiveEndpointDigestMatchesApprovedCorrection" methodname="C07_EffectiveEndpointDigestMatchesApprovedCorrection" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1599909272" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.000094" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24686" name="C08_EveryTraceBeginsAtEffectiveTakeoffAndEndsAtSourceLanding" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C08_EveryTraceBeginsAtEffectiveTakeoffAndEndsAtSourceLanding" methodname="C08_EveryTraceBeginsAtEffectiveTakeoffAndEndsAtSourceLanding" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1349952903" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002976" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24687" name="C09_EveryBodyAndHeadCellIsClearAndInLocalBounds" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C09_EveryBodyAndHeadCellIsClearAndInLocalBounds" methodname="C09_EveryBodyAndHeadCellIsClearAndInLocalBounds" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="2010743458" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003512" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24688" name="C10_EveryTraceUsesAtMostSixteenStatesAndThreeCellApexMargin" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C10_EveryTraceUsesAtMostSixteenStatesAndThreeCellApexMargin" methodname="C10_EveryTraceUsesAtMostSixteenStatesAndThreeCellApexMargin" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1393435678" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002553" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24689" name="C11_TraceStepsAreLocalUniqueAndDirectionMonotonic" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C11_TraceStepsAreLocalUniqueAndDirectionMonotonic" methodname="C11_TraceStepsAreLocalUniqueAndDirectionMonotonic" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1302315789" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002027" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24690" name="C12_MirrorTraceIsExactForEveryLinkAndSample" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C12_MirrorTraceIsExactForEveryLinkAndSample" methodname="C12_MirrorTraceIsExactForEveryLinkAndSample" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1959522640" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001637" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24691" name="C13_GrabSequenceIsTakeoffAirHangPullUp" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C13_GrabSequenceIsTakeoffAirHangPullUp" methodname="C13_GrabSequenceIsTakeoffAirHangPullUp" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="115272284" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002251" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24692" name="C14_GrabContactHangAndPullUpCellsRemainExact" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C14_GrabContactHangAndPullUpCellsRemainExact" methodname="C14_GrabContactHangAndPullUpCellsRemainExact" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="477117939" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002075" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24693" name="C15_GrabContactsAreActualSolidCellsWithExactFaces" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C15_GrabContactsAreActualSolidCellsWithExactFaces" methodname="C15_GrabContactsAreActualSolidCellsWithExactFaces" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="147132708" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002107" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24694" name="C16_ReadinessStopsBeforeRecoveryAndPlayerVerification" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C16_ReadinessStopsBeforeRecoveryAndPlayerVerification" methodname="C16_ReadinessStopsBeforeRecoveryAndPlayerVerification" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="2026882120" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001091" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24695" name="C17_LocalWorkCountersRemainZero" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C17_LocalWorkCountersRemainZero" methodname="C17_LocalWorkCountersRemainZero" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1591339511" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001141" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24696" name="C18_CanonicalProofAndExportsAreDeterministic" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C18_CanonicalProofAndExportsAreDeterministic" methodname="C18_CanonicalProofAndExportsAreDeterministic" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1963270672" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.012681" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24697" name="C19_ExportWritesRequiredCanonicalDataAndSvg" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C19_ExportWritesRequiredCanonicalDataAndSvg" methodname="C19_ExportWritesRequiredCanonicalDataAndSvg" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1931655225" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.009461" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24698" name="C20_ExportCarriesCorrectionColumnsAndReadinessBoundary" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C20_ExportCarriesCorrectionColumnsAndReadinessBoundary" methodname="C20_ExportCarriesCorrectionColumnsAndReadinessBoundary" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="176098503" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002216" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24699" name="C21_ValidationExportReportsPassAndNoErrors" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C21_ValidationExportReportsPassAndNoErrors" methodname="C21_ValidationExportReportsPassAndNoErrors" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1632797833" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001568" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24700" name="C22_SvgShowsBothRecipesFootprintsCorrectionAndGrab" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C22_SvgShowsBothRecipesFootprintsCorrectionAndGrab" methodname="C22_SvgShowsBothRecipesFootprintsCorrectionAndGrab" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="646530516" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003816" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24701" name="C23_BlockedBodyFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C23_BlockedBodyFailureIsReproduced" methodname="C23_BlockedBodyFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="567438270" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003284" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24702" name="C24_BlockedHeadFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C24_BlockedHeadFailureIsReproduced" methodname="C24_BlockedHeadFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="747563681" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001832" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24703" name="C25_DiagonalCornerClippingFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C25_DiagonalCornerClippingFailureIsReproduced" methodname="C25_DiagonalCornerClippingFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="563604216" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002413" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24704" name="C26_WrongEndpointFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C26_WrongEndpointFailureIsReproduced" methodname="C26_WrongEndpointFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="340416680" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002030" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24705" name="C27_HorizontalReversalFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C27_HorizontalReversalFailureIsReproduced" methodname="C27_HorizontalReversalFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1410539913" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003641" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24706" name="C28_OverlongTraceFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C28_OverlongTraceFailureIsReproduced" methodname="C28_OverlongTraceFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="411063512" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003034" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24707" name="C29_ExcessiveApexFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C29_ExcessiveApexFailureIsReproduced" methodname="C29_ExcessiveApexFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="136103317" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001834" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24708" name="C30_MissingGrabContactFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C30_MissingGrabContactFailureIsReproduced" methodname="C30_MissingGrabContactFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="464546455" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002623" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24709" name="C31_WrongGrabFaceFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C31_WrongGrabFaceFailureIsReproduced" methodname="C31_WrongGrabFaceFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1000241619" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002779" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24710" name="C32_MissingHangPullUpFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C32_MissingHangPullUpFailureIsReproduced" methodname="C32_MissingHangPullUpFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="143507530" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003323" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24711" name="C33_BadMirrorFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C33_BadMirrorFailureIsReproduced" methodname="C33_BadMirrorFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1215170456" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.003086" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24712" name="C34_FalseRecoveryReadinessFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C34_FalseRecoveryReadinessFailureIsReproduced" methodname="C34_FalseRecoveryReadinessFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="1217701363" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002888" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24713" name="C35_FalsePlayerReadinessFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C35_FalsePlayerReadinessFailureIsReproduced" methodname="C35_FalsePlayerReadinessFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="504370578" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001979" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24714" name="C36_WrongEffectiveTakeoffFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C36_WrongEffectiveTakeoffFailureIsReproduced" methodname="C36_WrongEffectiveTakeoffFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="373161628" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.001860" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24715" name="C37_WrongCatalogFailureIsReproduced" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests.C37_WrongCatalogFailureIsReproduced" methodname="C37_WrongCatalogFailureIsReproduced" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5JumpClearanceTests" runstate="Runnable" seed="798227329" result="Passed" start-time="2026-09-14 16:44:36Z" end-time="2026-09-14 16:44:36Z" duration="0.002003" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
