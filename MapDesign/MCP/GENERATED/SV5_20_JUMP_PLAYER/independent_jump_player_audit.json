@@ -1,0 +1,20 @@
+{
+  "schema": "SV5_20_INDEPENDENT_JUMP_PLAYER_AUDIT/v2",
+  "task": "SV5_20_JUMP_PLAYER",
+  "status": "PASS_INDEPENDENT_JUMP_PLAYER",
+  "main_link_cases": 18,
+  "full_route_cases": 2,
+  "recovery_cases": 18,
+  "trace_states": 2912,
+  "player_binding_files": 6,
+  "player_binding_amendment": "SV5_20_FIX04_PLAYER_BINDING",
+  "approved_driver_sha256": "77ac90e6c65f4dc83a104deb1db6c02177b1c50c2797426c6e3b07aeedc0d8f8",
+  "binding_amendment_sha256": "f6baffa1b14d9434e8676ac2f7ff0c3b813ded659a70cf7c25ea30853c077a1d",
+  "whole_world_builds": 0,
+  "whole_world_searches": 0,
+  "global_endpoint_comparisons": 0,
+  "sector_partitions": 0,
+  "cases_sha256": "0949ac5e8cb40cd3e93d10f995feb5affa2f40a84f90f0eeb161ec60c46cb719",
+  "trace_sha256": "12d87ed54422038bbcbc87c161be15ad20d8937ecc7cb158a4387b4ceee131e8",
+  "errors": []
+}

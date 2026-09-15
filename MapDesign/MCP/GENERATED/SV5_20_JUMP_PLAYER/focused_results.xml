@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.4881713">
+  <test-suite type="TestSuite" id="1139" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="86" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.488171" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1127" name="Game.Map.Tests.PlayMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.PlayMode.dll" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.481319" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="4248" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1128" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.480312" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1129" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.479431" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1130" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.478640" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1131" name="PlayMode" fullname="StarNight.Map.Tests.PlayMode" runstate="Runnable" testcasecount="27" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.477870" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="1135" name="SV5" fullname="StarNight.Map.Tests.PlayMode.SV5" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.476749" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="1105" name="Sv5JumpPlayerPlayModeTests" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:35:03Z" duration="18.475214" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5" />
+                    <property name="Category" value="SV5_20_JUMP_PLAYER" />
+                    <property name="Category" value="SV5_20_PLAYMODE" />
+                    <property name="ParallelScope" value="None" />
+                  </properties>
+                  <test-case id="1124" name="F00_Full_R0_WatchdogScope" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests.F00_Full_R0_WatchdogScope" methodname="F00_Full_R0_WatchdogScope" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" seed="851407033" result="Passed" start-time="2026-09-15 15:34:44Z" end-time="2026-09-15 15:34:54Z" duration="9.238963" asserts="0">
+                    <properties>
+                      <property name="_JOINTYPE" value="UnityCombinatorial" />
+                      <property name="Category" value="SV5_20_FULL_WATCHDOG_FOCUSED" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1125" name="F01_Full_MX_WatchdogScope" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests.F01_Full_MX_WatchdogScope" methodname="F01_Full_MX_WatchdogScope" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" seed="2099062300" result="Passed" start-time="2026-09-15 15:34:54Z" end-time="2026-09-15 15:35:03Z" duration="9.223768" asserts="0">
+                    <properties>
+                      <property name="_JOINTYPE" value="UnityCombinatorial" />
+                      <property name="Category" value="SV5_20_FULL_WATCHDOG_FOCUSED" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

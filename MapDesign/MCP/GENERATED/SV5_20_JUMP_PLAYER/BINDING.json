@@ -1,0 +1,157 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_BINDING/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "base": {
+    "commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+    "parent": "47ffdcf930a6a0c2fbaf6a3edce369a138cfc339",
+    "subject": "SV5_19_JUMP_RECOVERY: add local missed-jump recovery"
+  },
+  "package": {
+    "files_manifest_sha256": "6d43bf1b93864d37627102b6786b97fca113807e57c74b32bfb5e2eea0efdc11",
+    "source_lock_sha256": "58d4684677db4d09fbc71b59938dba1de45e4cc1ad15675413d40b3bb49611f9",
+    "contract_sha256": "90fabda050eaab72cebc3481f772df5bb5730bbb6dea64fad4a7c54325cb25d0",
+    "player_profile_sha256": "a207db4841794b78768324ba452d4b6f9a74c7f77312854dcdd494aa0c29afbb",
+    "checker_sha256": "253e373fd2ac238bc67e0dfa1aed92627534671deff41f82b2cd665a26175f54",
+    "fix04_amendment_sha256": "f6baffa1b14d9434e8676ac2f7ff0c3b813ded659a70cf7c25ea30853c077a1d",
+    "fix05_amendment_sha256": "2c037e9ad8538071f3524874a29b39b8017324e11b64301a7dbc219a85bb7da4",
+    "post_readonly": "PASS_POST_READONLY"
+  },
+  "task_binding": {
+    "installed_task_sha256": "d300ce5685af05676398f7db0a33ae28206b876613b129e1b73ffc236da14517",
+    "archive_task_sha256": "d300ce5685af05676398f7db0a33ae28206b876613b129e1b73ffc236da14517",
+    "installed_archive_byte_identical": true,
+    "result_sha256": "24301fbdffe4d187304993b5253e831ac0f966316002960cc18016c5edf1e086"
+  },
+  "lifecycle": {
+    "before_finalize": {
+      "status_sha256": "1c9e92103e626a393d0ce726ce3b7528a31017c795568001e5f8f2bd4fca43b9",
+      "master_sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+      "counts": {"COMPLETE": 267, "CURRENT": 1, "LOCKED": 27},
+      "current_task": "SV5_20_JUMP_PLAYER",
+      "SV5_21_LIBRARY": "LOCKED"
+    },
+    "after_finalize": {
+      "expected_status_sha256": "88527b5e880ead21d77595f63538dbd22f3589ec38957e6c5f0a6d4e78c7e2b8",
+      "counts": {"COMPLETE": 268, "CURRENT": 0, "LOCKED": 27},
+      "current_task": "NONE",
+      "SV5_20_JUMP_PLAYER": "COMPLETE",
+      "SV5_21_LIBRARY": "LOCKED"
+    }
+  },
+  "player_binding": {
+    "player_bindings_sha256": "e60d4d2aadaae567c6097361d8da9908b59ea8dacb78c267b8e18c93fb016ac6",
+    "binding_amendment_sha256": "f6baffa1b14d9434e8676ac2f7ff0c3b813ded659a70cf7c25ea30853c077a1d",
+    "approved_driver_sha256": "77ac90e6c65f4dc83a104deb1db6c02177b1c50c2797426c6e3b07aeedc0d8f8",
+    "approved_driver_bytes": 39703,
+    "fixed_delta_time": 0.02,
+    "capsule_width": 0.72,
+    "capsule_height": 0.9,
+    "jump_velocity": 7.2,
+    "run_speed": 5.5,
+    "walk_speed": 2.8,
+    "grab_probe": 0.35,
+    "grab_vertical_window": 0.45,
+    "movement_constants_retuned": false,
+    "post_start_position_or_velocity_corrections": 0
+  },
+  "implementation": {
+    "verification_source_sha256": "995ce99c52c143653af9fedfcfd3bfd2380d85bb2d986a3cfa25360fe9df177c",
+    "export_source_sha256": "d3e23f4a8fdf70bd0c5908d7e625439e62cd6b161185bf7be17b49ab5e45f198",
+    "editmode_tests_sha256": "c789d68ed9c761c3b6ae208898fd936fe5031b2c702df13a193a2775b9777e53",
+    "playmode_tests_sha256": "1b466b8a889951f847f55e00e0f991bd5f86c3162d04ac03f6c4f2d4f53cd761",
+    "rmap02_lifecycle_tests_sha256": "ce59d9dc5ef5737072c2be79b9d94520384bdb6a638a87a7e716b483ba6d030e",
+    "rmap03_fixture_tests_sha256": "432db211fd3d2ec70bbd143b4b9f7dff2d176b4d2d6749a37fb9f5cd0bac1c13",
+    "integration_document_sha256": "d3acc5fc601c3d809ff9d5206f43daf29035474d935fc19060fe12f2a7a8b2fe",
+    "creates_world_geometry": false,
+    "modifies_player_tuning": false
+  },
+  "verification": {
+    "compile": {"status": "PASS", "editor": "Unity 6000.3.8f1"},
+    "targeted_editmode": {
+      "status": "PASS",
+      "tests": 32,
+      "passed": 32,
+      "xml_sha256": "e60954ca85bf997ec643bfa37ce96c02b0873668aa8e1c89aa1f440ff668c0be"
+    },
+    "targeted_playmode": {
+      "status": "PASS",
+      "tests": 38,
+      "passed": 38,
+      "grab": "4/4",
+      "one_way_landings": 36,
+      "deterministic_terminal_delta_steps": 0,
+      "xml_sha256": "89e690b032377e35253f88a5f34efc766af3c96bdb8b84b8536dc0db6dafaba0"
+    },
+    "focused_full_routes": {
+      "status": "PASS",
+      "tests": 2,
+      "passed": 2,
+      "xml_sha256": "33e635e7570f7f1deb8016c82fdb30358b5b3b46557404d473d167e1461bb44a"
+    },
+    "independent_checker": {
+      "status": "PASS_INDEPENDENT_JUMP_PLAYER",
+      "audit_sha256": "afead90ba740043191edf4edf988199dbe48cde29d9764f2cf56365f8ac80643"
+    },
+    "visual_export_audit": {
+      "status": "PASS_VISUAL_EXPORT_AUDIT",
+      "audit_sha256": "e9d39ef3cc60e954cb933e5690d664831090500dfaf9b9e16e6269a5fa97f484",
+      "svg_sha256": "3df7e5211c29c5e22caf43c7e9d537e83bf55820714d3a9dda03489c45795b90"
+    },
+    "direct_player_regression": {
+      "status": "PASS",
+      "tests": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "rmap02": 5,
+      "rmap03": 10,
+      "rmap04": 6,
+      "duration_seconds": 17.178512,
+      "xml_sha256": "945fd76500922790b405702655e31e151203dacd2e85cc29631634aec71b79e7"
+    },
+    "full_sv5_editmode_regression": {
+      "status": "PASS",
+      "tests": 443,
+      "passed": 443,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 1509.85393,
+      "xml_sha256": "10c480636d84a5c04c57f81d1475bf31c6021fd1943e02940b323132cbea0412"
+    },
+    "execution_audit": {
+      "extra_targeted_editmode_run": true,
+      "audit_only": true,
+      "tests": 32,
+      "passed": 32,
+      "duration_seconds": 1.7120725,
+      "transient_xml_sha256": "170a2b112ea906ac2209013e6b7ce9cde7202fb494fc586e26089ed67d58b36a",
+      "canonical_evidence_replaced": false
+    }
+  },
+  "artifacts": {
+    "jump_player_sha256": "ef0b39ce53d6d9d3e1e60cdd5ef433e27081006c4cfb6943cfcdcdb1ea93a666",
+    "measurements_sha256": "c65db366f6f612618cbe8317ab0387f6b143f6a01fee1fb408a51914f406f7be",
+    "cases_sha256": "0949ac5e8cb40cd3e93d10f995feb5affa2f40a84f90f0eeb161ec60c46cb719",
+    "trace_sha256": "12d87ed54422038bbcbc87c161be15ad20d8937ecc7cb158a4387b4ceee131e8",
+    "validation_sha256": "236593821863ddb5eb3bbd59ce2a30db6979b91c08185dc3e97dfff1eed3ab6d"
+  },
+  "scope": {
+    "whole_world_builds": 0,
+    "whole_world_searches": 0,
+    "global_endpoint_comparisons": 0,
+    "sector_partitions": 0,
+    "sv5_17_through_sv5_19_changed": false,
+    "scene_or_prefab_changed": false,
+    "packages_or_project_settings_changed": false,
+    "master_changed": false,
+    "push_performed": false
+  },
+  "readiness": {
+    "JumpRecipeReady": true,
+    "ComposedGeometryReady": true,
+    "SweptClearanceReady": true,
+    "RecoveryReady": true,
+    "PlayerVerified": true,
+    "SV5_21_LIBRARY": "LOCKED"
+  }
+}

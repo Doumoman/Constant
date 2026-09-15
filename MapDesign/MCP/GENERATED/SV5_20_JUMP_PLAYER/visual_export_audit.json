@@ -1,0 +1,37 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_VISUAL_EXPORT_AUDIT/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "status": "PASS_VISUAL_EXPORT_AUDIT",
+  "source_svg": "MapDesign/MCP/GENERATED/SV5_20_JUMP_PLAYER/preview/jump_player.svg",
+  "source_svg_sha256": "3df7e5211c29c5e22caf43c7e9d537e83bf55820714d3a9dda03489c45795b90",
+  "rendered_png": "Logs/SV5_20_CURRENT_GATES/jump_player_visual_audit.png",
+  "rendered_png_sha256": "c7a54c73a9d413ddcb36584d8fce040e74565448a548247f38627d1183e343f1",
+  "renderer": "Microsoft Edge headless",
+  "render_size": {"width": 760, "height": 540},
+  "export_sha256": {
+    "player_geometry_patch.csv": "c9ffce00aacf33c23aaf5153d54569ff9b6b329cce4af9a98cf57c4498b6f0be",
+    "player_composed_occupancy.csv": "02c2f88b33d9d2cbec238d7a1b2387e9d0f884e353a57bef49e34e98cbc5fa13",
+    "player_effective_links.csv": "c0351f2320f50b264b7b44dc63643668763f2f307ca14a947ae08925578fa0a3",
+    "player_trace.csv": "12d87ed54422038bbcbc87c161be15ad20d8937ecc7cb158a4387b4ceee131e8",
+    "jump_player.json": "ef0b39ce53d6d9d3e1e60cdd5ef433e27081006c4cfb6943cfcdcdb1ea93a666",
+    "player_measurements.json": "c65db366f6f612618cbe8317ab0387f6b143f6a01fee1fb408a51914f406f7be"
+  },
+  "inspection": {
+    "r0_and_mirror_x_panels_visible": true,
+    "solid_and_top_only_tiles_distinguishable": true,
+    "main_full_and_recovery_traces_visible": true,
+    "js_link_02_air_corridor_present": true,
+    "js_link_03_solid_grab_structure_present": true,
+    "js_link_04_top_only_support_present": true,
+    "r0_mx_occupancy_mirror_exact": true,
+    "eighteen_link_endpoints_directions_and_terminals_match": true,
+    "top_only_excluded_from_grab_surfaces": true,
+    "actual_capsule_width": 0.72,
+    "actual_capsule_height": 0.9,
+    "actual_capsule_clearance_verified": true,
+    "post_start_position_or_velocity_corrections": 0,
+    "determinism_terminal_delta_steps": 0,
+    "all_thirty_eight_terminal_events_present": true
+  },
+  "errors": []
+}

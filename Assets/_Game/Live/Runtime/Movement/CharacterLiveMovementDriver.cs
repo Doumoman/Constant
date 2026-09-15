@@ -43,7 +43,12 @@ namespace StarNight.Character.Live.Movement
         private bool isGrabbing;
         private CharacterLiveGrabSurface grabbedSurface;
         private Collider2D grabbedCollider;
+        private Transform grabAnchorTransform;
+        private Transform grabbedColliderTransform;
+        private Rigidbody2D grabbedAttachedRigidbody;
+        private Collider2D grabJumpEscapeCollider;
         private Vector2 grabAnchorLocal;
+        private float grabRequiredSideDistance;
         private int grabSide;
         private double grabReentryAllowedAt;
         private bool isClimbing;
@@ -157,7 +162,12 @@ namespace StarNight.Character.Live.Movement
             isGrabbing = false;
             grabbedSurface = null;
             grabbedCollider = null;
+            grabAnchorTransform = null;
+            grabbedColliderTransform = null;
+            grabbedAttachedRigidbody = null;
+            ClearGrabJumpEscape();
             grabAnchorLocal = Vector2.zero;
+            grabRequiredSideDistance = 0f;
             grabSide = 0;
             grabReentryAllowedAt = 0d;
             isClimbing = false;
@@ -255,6 +265,7 @@ namespace StarNight.Character.Live.Movement
             // collision queries instead use the capsule centre, matching the
             // real CapsuleCollider2D's local offset and dimensions.
             Vector2 center = rig.Body.position + capsuleOffset;
+            ClearGrabJumpEscapeIfSeparated(center);
 
             if (isClimbing)
             {
@@ -381,13 +392,28 @@ namespace StarNight.Character.Live.Movement
                 velocity.x = 0f;
             }
 
+            ClearGrabJumpEscapeIfSeparated(center);
+            Collider2D upwardGrabEscape = delta.y > 0f ? grabJumpEscapeCollider : null;
             float moveY = SweepAxis(center, new Vector2(
                 0f, Mathf.Sign(delta.y)), Mathf.Abs(delta.y),
-                requireHorizontalNormal: false, out bool blockedY);
+                requireHorizontalNormal: false, out bool blockedY, upwardGrabEscape);
             center.y += moveY * Mathf.Sign(delta.y);
             if (blockedY)
             {
                 velocity.y = 0f;
+            }
+
+            if (upwardGrabEscape != null && blockedY)
+            {
+                ClearGrabJumpEscape();
+            }
+            else
+            {
+                ClearGrabJumpEscapeIfSeparated(center);
+                if (grabJumpEscapeCollider != null && velocity.y <= 0f)
+                {
+                    ClearGrabJumpEscape();
+                }
             }
 
             rig.Body.MovePosition(center - capsuleOffset);
@@ -408,7 +434,12 @@ namespace StarNight.Character.Live.Movement
         private bool UpdateGrab(in CharacterInputSnapshot input)
         {
             if (grabbedSurface == null || grabbedCollider == null ||
-                !grabbedCollider.enabled || !grabbedSurface.IsGrabAllowed)
+                grabAnchorTransform == null || !grabbedCollider.isActiveAndEnabled ||
+                grabbedCollider.transform != grabbedColliderTransform ||
+                grabbedCollider.attachedRigidbody != grabbedAttachedRigidbody ||
+                ResolveGrabAnchorTransform(grabbedCollider) != grabAnchorTransform ||
+                grabbedCollider.GetComponentInParent<CharacterLiveGrabSurface>() != grabbedSurface ||
+                !grabbedSurface.IsGrabAllowed)
             {
                 EndGrab(drop: true);
                 return false;
@@ -422,7 +453,15 @@ namespace StarNight.Character.Live.Movement
 
             if (input.Jump.PressedThisFrame)
             {
+                // Preserve only the collider that supplied this Grab.  It is
+                // filtered solely from the upward escape sweep while the
+                // actual prefab capsule is still overlapping its side.
+                Collider2D releasedCollider = grabbedCollider;
                 EndGrab(drop: false);
+                Vector2 center = rig.Body.position + capsuleOffset;
+                grabJumpEscapeCollider = CapsuleBoundsOverlap(center, releasedCollider)
+                    ? releasedCollider
+                    : null;
                 velocity.y = settings.JumpVelocity;
                 return false;
             }
@@ -642,10 +681,25 @@ namespace StarNight.Character.Live.Movement
 
         private bool TryBeginGrabOnSide(int side, Vector2 center)
         {
-            Vector2 origin = center + new Vector2(side * (capsule.Width * 0.5f - Skin), 0f);
-            RaycastHit2D hit = Physics2D.Raycast(origin, new Vector2(side, 0f),
+            Vector2 origin = center + new Vector2(side * (capsule.Width * 0.5f + Skin), 0f);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(origin, new Vector2(side, 0f),
                 settings.GrabProbeDistance, settings.SolidLayers);
-            if (hit.collider == null || hit.collider == rig.BodyCollider || hit.collider.isTrigger)
+            System.Array.Sort(hits, CompareGrabProbeHits);
+
+            RaycastHit2D hit = default;
+            foreach (RaycastHit2D candidate in hits)
+            {
+                if (candidate.collider == null || candidate.collider == rig.BodyCollider ||
+                    candidate.collider.isTrigger)
+                {
+                    continue;
+                }
+
+                hit = candidate;
+                break;
+            }
+
+            if (hit.collider == null)
             {
                 return false;
             }
@@ -659,8 +713,12 @@ namespace StarNight.Character.Live.Movement
 
             Bounds bounds = hit.collider.bounds;
             Vector2 corner = new Vector2(side > 0 ? bounds.min.x : bounds.max.x, bounds.max.y);
+            float actualHalfWidth = rig.BodyCollider.bounds.extents.x;
+            float requiredClearance = Physics2D.defaultContactOffset + Skin;
+            float requiredSideDistance = Mathf.Max(settings.GrabSideOffset,
+                actualHalfWidth + requiredClearance);
             Vector2 desiredFeet = corner + new Vector2(
-                -side * settings.GrabSideOffset, -settings.GrabHangOffset);
+                -side * requiredSideDistance, -settings.GrabHangOffset);
             if (Mathf.Abs(rig.Body.position.x - desiredFeet.x) > settings.GrabProbeDistance ||
                 Mathf.Abs(rig.Body.position.y - desiredFeet.y) > settings.GrabVerticalWindow)
             {
@@ -679,7 +737,20 @@ namespace StarNight.Character.Live.Movement
 
             grabbedSurface = surface;
             grabbedCollider = hit.collider;
-            grabAnchorLocal = surface.transform.InverseTransformPoint(corner);
+            grabAnchorTransform = ResolveGrabAnchorTransform(hit.collider);
+            grabbedColliderTransform = hit.collider.transform;
+            grabbedAttachedRigidbody = hit.collider.attachedRigidbody;
+            if (grabAnchorTransform == null)
+            {
+                grabbedSurface = null;
+                grabbedCollider = null;
+                grabbedColliderTransform = null;
+                grabbedAttachedRigidbody = null;
+                return false;
+            }
+
+            grabAnchorLocal = grabAnchorTransform.InverseTransformPoint(corner);
+            grabRequiredSideDistance = requiredSideDistance;
             grabSide = side;
             isGrabbing = true;
             ResetFallTrackingForTraversal(CharacterLiveFallResetKind.Grab, desiredFeet.y);
@@ -690,9 +761,15 @@ namespace StarNight.Character.Live.Movement
 
         private void HoldGrabAtAnchor()
         {
-            Vector2 anchor = grabbedSurface.transform.TransformPoint(grabAnchorLocal);
+            if (grabAnchorTransform == null)
+            {
+                EndGrab(drop: true);
+                return;
+            }
+
+            Vector2 anchor = grabAnchorTransform.TransformPoint(grabAnchorLocal);
             Vector2 feet = anchor + new Vector2(
-                -grabSide * settings.GrabSideOffset, -settings.GrabHangOffset);
+                -grabSide * grabRequiredSideDistance, -settings.GrabHangOffset);
             rig.Body.MovePosition(feet);
             velocity = Vector2.zero;
             SetFallBaseline(feet.y);
@@ -706,6 +783,10 @@ namespace StarNight.Character.Live.Movement
             isGrabbing = false;
             grabbedSurface = null;
             grabbedCollider = null;
+            grabAnchorTransform = null;
+            grabbedColliderTransform = null;
+            grabbedAttachedRigidbody = null;
+            grabRequiredSideDistance = 0f;
             grabSide = 0;
             grabReentryAllowedAt = physicsTime + settings.GrabReentryDelay;
             if (drop)
@@ -714,6 +795,71 @@ namespace StarNight.Character.Live.Movement
             }
 
             BeginFallTracking(GetCurrentFeetY());
+        }
+
+        private void ClearGrabJumpEscapeIfSeparated(Vector2 center)
+        {
+            if (grabJumpEscapeCollider == null)
+            {
+                return;
+            }
+
+            if (!grabJumpEscapeCollider.enabled)
+            {
+                ClearGrabJumpEscape();
+                return;
+            }
+
+            if (!CapsuleBoundsOverlap(center, grabJumpEscapeCollider))
+            {
+                ClearGrabJumpEscape();
+            }
+        }
+
+        private static Transform ResolveGrabAnchorTransform(Collider2D collider)
+        {
+            if (collider == null)
+            {
+                return null;
+            }
+
+            return collider.attachedRigidbody != null
+                ? collider.attachedRigidbody.transform
+                : collider.transform;
+        }
+
+        private static int CompareGrabProbeHits(RaycastHit2D left, RaycastHit2D right)
+        {
+            int distanceOrder = left.distance.CompareTo(right.distance);
+            if (distanceOrder != 0)
+            {
+                return distanceOrder;
+            }
+
+            int leftId = left.collider != null ? left.collider.GetInstanceID() : int.MaxValue;
+            int rightId = right.collider != null ? right.collider.GetInstanceID() : int.MaxValue;
+            return leftId.CompareTo(rightId);
+        }
+
+        private bool CapsuleBoundsOverlap(Vector2 center, Collider2D collider)
+        {
+            if (collider == null)
+            {
+                return false;
+            }
+
+            Bounds other = collider.bounds;
+            float halfWidth = capsule.Width * 0.5f;
+            float halfHeight = capsule.Height * 0.5f;
+            return center.x + halfWidth > other.min.x &&
+                center.x - halfWidth < other.max.x &&
+                center.y + halfHeight > other.min.y &&
+                center.y - halfHeight < other.max.y;
+        }
+
+        private void ClearGrabJumpEscape()
+        {
+            grabJumpEscapeCollider = null;
         }
 
         private void EnsureFallDamageState()
@@ -839,7 +985,8 @@ namespace StarNight.Character.Live.Movement
             Vector2 direction,
             float distance,
             bool requireHorizontalNormal,
-            out bool blocked)
+            out bool blocked,
+            Collider2D upwardGrabEscape = null)
         {
             blocked = false;
 
@@ -848,7 +995,8 @@ namespace StarNight.Character.Live.Movement
                 return 0f;
             }
 
-            RaycastHit2D hit = FindBlockingSweepHit(center, direction, distance + Skin);
+            RaycastHit2D hit = FindBlockingSweepHit(
+                center, direction, distance + Skin, upwardGrabEscape);
             if (hit.collider == null || hit.distance >= distance + Skin)
             {
                 return distance;
@@ -864,7 +1012,11 @@ namespace StarNight.Character.Live.Movement
             return Mathf.Max(0f, hit.distance - Skin);
         }
 
-        private RaycastHit2D FindBlockingSweepHit(Vector2 center, Vector2 direction, float distance)
+        private RaycastHit2D FindBlockingSweepHit(
+            Vector2 center,
+            Vector2 direction,
+            float distance,
+            Collider2D upwardGrabEscape)
         {
             RaycastHit2D[] hits = Physics2D.CapsuleCastAll(
                 center, capsule.Size, CapsuleDirection2D.Vertical, 0f, direction, distance,
@@ -872,6 +1024,11 @@ namespace StarNight.Character.Live.Movement
             foreach (RaycastHit2D hit in hits)
             {
                 if (hit.collider == null || hit.collider == rig.BodyCollider || hit.collider.isTrigger)
+                {
+                    continue;
+                }
+
+                if (direction.y > 0.01f && hit.collider == upwardGrabEscape)
                 {
                     continue;
                 }
@@ -918,6 +1075,7 @@ namespace StarNight.Character.Live.Movement
         private void OnDisable()
         {
             ClearOneWayIgnore();
+            ClearGrabJumpEscape();
         }
     }
 }

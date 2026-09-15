@@ -1,0 +1,28 @@
+{
+  "schema": "SV5_20_PLAYER_BINDING_AMENDMENT/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "amendment": "SV5_20_FIX04_PLAYER_BINDING",
+  "reason": "ACTUAL_CAPSULE_GRAB_CORRECTION",
+  "base_commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs",
+  "base_git_blob_oid": "8eda20b5a2b1e854cf13c062adea411ca8798411",
+  "base_sha256": "df58bb6edca4179cefb3d149baf032f03724f2aac4f5afafb8cc10a66b40a836",
+  "base_bytes": 33883,
+  "approved_sha256": "77ac90e6c65f4dc83a104deb1db6c02177b1c50c2797426c6e3b07aeedc0d8f8",
+  "approved_bytes": 39703,
+  "approved_role": "APPROVED_FIX04_RUNTIME_CORRECTION",
+  "movement_constants_retuned": false,
+  "allowed_behavior": [
+    "actual_capsule_outside_grab_probe",
+    "nearest_external_physical_surface_filter",
+    "actual_capsule_contact_offset_grab_spacing",
+    "attached_rigidbody_grab_anchor_ownership",
+    "released_collider_upward_escape_only",
+    "separation_bounded_collision_restore"
+  ],
+  "evidence": {
+    "targeted_editmode_sha256": "e60954ca85bf997ec643bfa37ce96c02b0873668aa8e1c89aa1f440ff668c0be",
+    "physical_38_case_sha256": "89e690b032377e35253f88a5f34efc766af3c96bdb8b84b8536dc0db6dafaba0",
+    "rmap03_sha256": "17989038f1387d93e754367cc21b71c8d38a1b5023d9a6fc4405c7ca84659ff4"
+  }
+}

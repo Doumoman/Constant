@@ -1,0 +1,21 @@
+{
+  "schema": "SV5_20_PLAYER_SCHEDULER_AUDIT/v2",
+  "task": "SV5_20_JUMP_PLAYER",
+  "status": "PASS",
+  "policy_id": "WALKABLE_FRONTIER_AND_GRAB_EXIT_V2",
+  "grounded_trigger_required": true,
+  "walkable_frontier_uses_contiguous_support": true,
+  "body_head_clearance_required": true,
+  "internal_cell_boundary_rejected": true,
+  "grab_space_exit_verified": true,
+  "hardcoded_step_used": false,
+  "per_link_magic_frame_used": false,
+  "coyote_required_for_pass": false,
+  "post_start_teleport_used": false,
+  "player_tuning_changed": false,
+  "all_main_links_diagnosed": true,
+  "formerly_failed_gate": "6/6 PASS",
+  "main_link_diagnostic": "18/18 PASS",
+  "maximum_steps_per_case": 240,
+  "minimum_body_y": -2
+}

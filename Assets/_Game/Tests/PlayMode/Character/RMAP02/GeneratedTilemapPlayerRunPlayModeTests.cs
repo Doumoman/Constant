@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using StarNight.Character.Live.Cameras;
 using StarNight.Character.Live.Input;
@@ -22,10 +23,51 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             "Assets/_Game/Map/Scenes/MoonPalace/RMAP02/MoonPalacePlayerTilemapRun_RMAP02.unity";
 
         private Keyboard keyboard;
+        private readonly List<GameObject> testOwnedRoots = new List<GameObject>();
+        private readonly List<Scene> testOwnedScenes = new List<Scene>();
+        private readonly List<AsyncOperation> pendingSceneUnloads = new List<AsyncOperation>();
 
         public override void Setup()
         {
             base.Setup();
+        }
+
+        [UnityTearDown]
+        public IEnumerator DestroyTestOwnedFixturesAndScenes()
+        {
+            foreach (GameObject root in testOwnedRoots)
+            {
+                if (root != null)
+                {
+                    Object.Destroy(root);
+                }
+            }
+
+            foreach (AsyncOperation operation in pendingSceneUnloads)
+            {
+                if (operation != null && !operation.isDone)
+                {
+                    yield return operation;
+                }
+            }
+
+            foreach (Scene scene in testOwnedScenes)
+            {
+                if (scene.IsValid() && scene.isLoaded)
+                {
+                    AsyncOperation operation = SceneManager.UnloadSceneAsync(scene);
+                    if (operation != null)
+                    {
+                        yield return operation;
+                    }
+                }
+            }
+
+            yield return null;
+            Physics2D.SyncTransforms();
+            testOwnedRoots.Clear();
+            testOwnedScenes.Clear();
+            pendingSceneUnloads.Clear();
         }
 
         [UnityTest]
@@ -34,6 +76,8 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             PhysicalRun run = CreatePhysicalRun();
             CharacterLivePlayerRig player = run.Player;
             CharacterLiveMovementDriver movement = run.Movement;
+            try
+            {
             yield return new WaitForFixedUpdate();
             yield return new WaitForFixedUpdate();
 
@@ -110,15 +154,24 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             Assert.AreEqual(1.5f, camera.pixelRect.width / camera.pixelRect.height,
                 0.01f, "The effective Game viewport remains exactly 12:8.");
 
-            Object.Destroy(run.Root);
+            }
+            finally
+            {
+                ScheduleFixtureDestroy(run.Root);
+            }
+
+            yield return FinishFixtureDestroy(run.Root);
         }
 
         [UnityTest]
         public IEnumerator RMAP02_ActualPlayer_UsesCoyoteAndJumpBufferOnPhysicalGap()
         {
-            GameObject fixture = new GameObject("RMAP02_CoyoteBuffer_PhysicalFixture",
-                typeof(Grid));
-            fixture.transform.position = new Vector3(0f, 10f, 0f);
+            GameObject fixture = RegisterTestOwnedRoot(new GameObject(
+                "RMAP02_CoyoteBuffer_PhysicalFixture", typeof(Grid)));
+            GameObject playerHost = null;
+            try
+            {
+                fixture.transform.position = new Vector3(0f, 10f, 0f);
             GameObject terrainObject = new GameObject("Terrain", typeof(Tilemap));
             terrainObject.transform.SetParent(fixture.transform, false);
             Tilemap terrain = terrainObject.GetComponent<Tilemap>();
@@ -140,7 +193,8 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             terrainCollider.compositeOperation = Collider2D.CompositeOperation.Merge;
             Physics2D.SyncTransforms();
 
-            GameObject playerHost = new GameObject("RMAP02_CoyoteBuffer_PlayerHost");
+            playerHost = RegisterTestOwnedRoot(new GameObject(
+                "RMAP02_CoyoteBuffer_PlayerHost"));
             playerHost.SetActive(false);
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
                 "Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab");
@@ -180,10 +234,11 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             Assert.Greater(player.Body.position.y, 11.15f,
                 "A jump pressed within 0.08s of the physical ledge uses coyote time.");
 
-            Object.Destroy(playerHost);
-            yield return null;
+            ScheduleFixtureDestroy(playerHost);
+            yield return FinishFixtureDestroy(playerHost);
+            playerHost = null;
 
-            playerHost = new GameObject("RMAP02_Buffer_PlayerHost");
+            playerHost = RegisterTestOwnedRoot(new GameObject("RMAP02_Buffer_PlayerHost"));
             playerHost.SetActive(false);
             playerObject = Object.Instantiate(prefab, playerHost.transform);
             playerObject.transform.position = new Vector3(3.5f, 11f, 0f);
@@ -217,34 +272,68 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             Assert.Greater(player.Body.position.y, 11.05f,
                 "A 0.10s buffered jump starts on the physical landing frame.");
 
-            Object.Destroy(playerHost);
-            Object.Destroy(fixture);
+            }
+            finally
+            {
+                ScheduleFixtureDestroy(playerHost);
+                ScheduleFixtureDestroy(fixture);
+            }
+
+            yield return FinishFixtureDestroy(playerHost, fixture);
         }
 
         [UnityTest]
         public IEnumerator RMAP02_SavedScene_UsesPlayerTilemapAndCameraComponents()
         {
-            EditorSceneManager.LoadSceneInPlayMode(ScenePath,
-                new LoadSceneParameters(LoadSceneMode.Single));
-            yield return null;
-            yield return new WaitForFixedUpdate();
-            yield return new WaitForFixedUpdate();
+            Scene previousActiveScene = SceneManager.GetActiveScene();
+            Scene loadedScene = default;
+            AsyncOperation unloadOperation = null;
+            try
+            {
+                AsyncOperation loadOperation = EditorSceneManager.LoadSceneAsyncInPlayMode(
+                    ScenePath, new LoadSceneParameters(LoadSceneMode.Additive));
+                yield return loadOperation;
+                loadedScene = SceneManager.GetSceneByPath(ScenePath);
+                Assert.IsTrue(loadedScene.IsValid() && loadedScene.isLoaded,
+                    "RMAP02 SavedScene must load additively.");
+                testOwnedScenes.Add(loadedScene);
+                Assert.IsTrue(SceneManager.SetActiveScene(loadedScene));
+                yield return null;
+                yield return new WaitForFixedUpdate();
+                yield return new WaitForFixedUpdate();
 
-            CharacterLiveMapRunBootstrap bootstrap = Object.FindFirstObjectByType<
-                CharacterLiveMapRunBootstrap>();
-            CharacterLivePlayerRig player = Object.FindFirstObjectByType<
-                CharacterLivePlayerRig>();
-            TilemapCollider2D terrainCollider = Object.FindFirstObjectByType<TilemapCollider2D>();
-            CharacterLiveCameraFollowDriver follow = Object.FindFirstObjectByType<
-                CharacterLiveCameraFollowDriver>();
+                CharacterLiveMapRunBootstrap bootstrap = FindFirstInScene<
+                    CharacterLiveMapRunBootstrap>(loadedScene);
+                CharacterLivePlayerRig player = FindFirstInScene<CharacterLivePlayerRig>(
+                    loadedScene);
+                TilemapCollider2D terrainCollider = FindFirstInScene<TilemapCollider2D>(
+                    loadedScene);
+                CharacterLiveCameraFollowDriver follow = FindFirstInScene<
+                    CharacterLiveCameraFollowDriver>(loadedScene);
 
-            Assert.IsTrue(bootstrap.HasSpawned);
-            Assert.AreEqual(new Vector2(0.4f, 0.8f), player.BodyCollider.size);
-            Assert.AreEqual(new Vector2(0f, 0.4f), player.BodyCollider.offset);
-            Assert.IsNotNull(terrainCollider.GetComponent<CompositeCollider2D>());
-            Assert.IsNotNull(terrainCollider.GetComponent<Tilemap>().GetTile(
-                new Vector3Int(12, 1, 0)));
-            Assert.AreEqual(new Vector2(12f, 8f), follow.VisibleWorldSize);
+                Assert.IsNotNull(bootstrap);
+                Assert.IsNotNull(player);
+                Assert.IsNotNull(terrainCollider);
+                Assert.IsNotNull(follow);
+                Assert.IsTrue(bootstrap.HasSpawned);
+                Assert.AreEqual(new Vector2(0.4f, 0.8f), player.BodyCollider.size);
+                Assert.AreEqual(new Vector2(0f, 0.4f), player.BodyCollider.offset);
+                Assert.IsNotNull(terrainCollider.GetComponent<CompositeCollider2D>());
+                Assert.IsNotNull(terrainCollider.GetComponent<Tilemap>().GetTile(
+                    new Vector3Int(12, 1, 0)));
+                Assert.AreEqual(new Vector2(12f, 8f), follow.VisibleWorldSize);
+            }
+            finally
+            {
+                if (previousActiveScene.IsValid() && previousActiveScene.isLoaded)
+                {
+                    SceneManager.SetActiveScene(previousActiveScene);
+                }
+
+                unloadOperation = BeginSceneUnload(loadedScene);
+            }
+
+            yield return FinishSceneUnload(loadedScene, unloadOperation);
         }
 
         [UnityTest]
@@ -254,7 +343,8 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             Camera camera = run.Follow.GetComponent<Camera>();
             int previousWidth = Screen.width;
             int previousHeight = Screen.height;
-
+            try
+            {
             foreach (Vector2Int resolution in new[]
                      {
                          new Vector2Int(1500, 1000),
@@ -280,14 +370,22 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
             Assert.AreEqual(6f, camera.transform.position.x, 0.001f);
             Assert.AreEqual(4f, camera.transform.position.y, 0.001f);
 
-            Screen.SetResolution(previousWidth, previousHeight, FullScreenMode.Windowed);
-            Object.Destroy(run.Root);
+            }
+            finally
+            {
+                Screen.SetResolution(previousWidth, previousHeight, FullScreenMode.Windowed);
+                ScheduleFixtureDestroy(run.Root);
+            }
+
+            yield return FinishFixtureDestroy(run.Root);
         }
 
         [UnityTest]
         public IEnumerator RMAP02_PhysicalJump_MeasuresHeightRunAndReleaseCut()
         {
             PhysicalRun run = CreatePhysicalRun();
+            try
+            {
             yield return new WaitForFixedUpdate();
             yield return new WaitForFixedUpdate();
             run.Player.InputSource.enabled = false;
@@ -333,13 +431,20 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
                 "Releasing Jump applies the RMAP02 variable-height cut on the real motor.");
             Debug.Log($"RMAP02 P02/P03 physical measure: fullHeight={fullHeight:F3}, " +
                 $"runDistance={runDistance:F3}, releaseCutHeight={cutHeight:F3}");
-            Object.Destroy(run.Root);
+            }
+            finally
+            {
+                ScheduleFixtureDestroy(run.Root);
+            }
+
+            yield return FinishFixtureDestroy(run.Root);
         }
 
-        private static PhysicalRun CreatePhysicalRun()
+        private PhysicalRun CreatePhysicalRun()
         {
             var run = new PhysicalRun();
-            run.Root = new GameObject("RMAP02_ActualPhysicsRun", typeof(Grid));
+            run.Root = RegisterTestOwnedRoot(new GameObject(
+                "RMAP02_ActualPhysicsRun", typeof(Grid)));
             GameObject terrainObject = new GameObject("Terrain", typeof(Tilemap));
             terrainObject.transform.SetParent(run.Root.transform, false);
             Tilemap terrain = terrainObject.GetComponent<Tilemap>();
@@ -399,6 +504,73 @@ namespace StarNight.Character.Tests.PlayMode.Rmap02
                 new Rect(0f, 0f, 60f, 40f), 12f, 8f, 0.08f);
             Physics2D.SyncTransforms();
             return run;
+        }
+
+        private GameObject RegisterTestOwnedRoot(GameObject root)
+        {
+            testOwnedRoots.Add(root);
+            return root;
+        }
+
+        private static void ScheduleFixtureDestroy(GameObject root)
+        {
+            if (root != null)
+            {
+                Object.Destroy(root);
+            }
+        }
+
+        private IEnumerator FinishFixtureDestroy(params GameObject[] roots)
+        {
+            yield return null;
+            Physics2D.SyncTransforms();
+            foreach (GameObject root in roots)
+            {
+                testOwnedRoots.Remove(root);
+            }
+        }
+
+        private AsyncOperation BeginSceneUnload(Scene scene)
+        {
+            if (!scene.IsValid() || !scene.isLoaded)
+            {
+                return null;
+            }
+
+            AsyncOperation operation = SceneManager.UnloadSceneAsync(scene);
+            if (operation != null)
+            {
+                pendingSceneUnloads.Add(operation);
+            }
+
+            return operation;
+        }
+
+        private IEnumerator FinishSceneUnload(Scene scene, AsyncOperation operation)
+        {
+            if (operation != null && !operation.isDone)
+            {
+                yield return operation;
+            }
+
+            yield return null;
+            Physics2D.SyncTransforms();
+            pendingSceneUnloads.Remove(operation);
+            testOwnedScenes.Remove(scene);
+        }
+
+        private static T FindFirstInScene<T>(Scene scene) where T : Component
+        {
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                T component = root.GetComponentInChildren<T>(true);
+                if (component != null)
+                {
+                    return component;
+                }
+            }
+
+            return null;
         }
 
         private sealed class PhysicalRun

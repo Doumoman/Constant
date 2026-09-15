@@ -1,0 +1,12 @@
+{
+  "schema": "SV5_20_PLAYER_BINDINGS/v1",
+  "base_commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "files": [
+    {"path":"Assets/_Game/Character/Runtime/Input/CharacterInputSnapshot.cs","git_blob_oid":"309f522f8a7d54403aaec482e4c0e58624e28e56","sha256":"6df246bd74fccf394c72ef590db04013b70a4ce568adb1dbd30788387aa30e0f","bytes":4832,"role":"READ_ONLY"},
+    {"path":"Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab","git_blob_oid":"db0e6f93fa441de2f9ed1bf76c1309aa781f6627","sha256":"760a418c951f904ec982e227fae1319d0df3d99daf7229e0e45636c6f4614025","bytes":6961,"role":"READ_ONLY"},
+    {"path":"Assets/_Game/Live/Runtime/Movement/CharacterLiveGrabSurface.cs","git_blob_oid":"67ecf54917e594731082e0a5a67ec15546c8eb09","sha256":"2063a45e59fcaea7a3c8f2746da6991d54c7132a4e67be78d0e1dd77bbd5ed0e","bytes":1596,"role":"READ_ONLY"},
+    {"path":"Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs","git_blob_oid":"8eda20b5a2b1e854cf13c062adea411ca8798411","sha256":"df58bb6edca4179cefb3d149baf032f03724f2aac4f5afafb8cc10a66b40a836","bytes":33883,"role":"READ_ONLY"},
+    {"path":"Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs","git_blob_oid":"0af95f89b5d549aafc6a7d96737002485fe0b942","sha256":"e719bda4fe9514a12dfa923ebe3ea0c2b5af6c050899c27a208500dc14c09c03","bytes":8327,"role":"READ_ONLY"},
+    {"path":"Assets/_Game/Live/Runtime/Movement/CharacterLiveOneWayPlatform.cs","git_blob_oid":"a483f3959c86134a5b6aaf11049e23c6e3b20f7d","sha256":"7aa3789330ed7c4bb2c749cef81b3c2a1c45782d59005a8055ff5bee4caa5c77","bytes":1803,"role":"READ_ONLY"}
+  ]
+}

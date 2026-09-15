@@ -1,0 +1,16 @@
+{
+  "schema": "SV5_20_PLAYER_MEASUREMENTS/v1",
+  "source": "ACTUAL_BASE_COMMIT_PLAYER_COMPONENTS",
+  "retuned": false,
+  "observed_player": {
+    "fixed_delta_time": 0.02,
+    "capsule_width": 0.72,
+    "capsule_height": 0.9,
+    "jump_velocity": 7.2,
+    "run_speed": 5.5,
+    "walk_speed": 2.8,
+    "grab_probe": 0.35,
+    "grab_vertical_window": 0.45
+  },
+  "determinism": {"repeat_count": 2, "terminal_delta_steps": 0, "tolerance_steps": 2}
+}
