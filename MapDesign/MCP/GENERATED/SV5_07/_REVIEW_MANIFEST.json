@@ -1,0 +1,1069 @@
+{
+  "task": "SV5_07_DIVERSITY",
+  "status": "PASS_REVIEW",
+  "commit": "ab82efcfb3d183c995d0184db9d3dc55f2f3acc9",
+  "parent": "c96f76b8097c0baaa7e5d5e7a92465e38124ad2a",
+  "raw_and_blob_hashes_are_separate": true,
+  "excluded": [
+    "self",
+    "zip",
+    "_work",
+    "legacy exports",
+    "unrelated dirty"
+  ],
+  "files": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceDiversity.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 14312,
+      "raw_sha256": "c2d845a3fd94d170a6e7c241b1d8e7e0a6cf0536e2c2c05948c36f7561dbe2f4",
+      "git_blob_bytes": 14312,
+      "git_blob_sha256": "c2d845a3fd94d170a6e7c241b1d8e7e0a6cf0536e2c2c05948c36f7561dbe2f4",
+      "git_blob_oid": "c7bd54ce5b61df88d47f6b866bc0560c8e427559"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceDiversity.cs.meta",
+      "role": "TASK_OWNED",
+      "raw_bytes": 60,
+      "raw_sha256": "96e1fd1038b0fecb1717bfb65d4dea5a1bb5a5f360db9a00b68614ad8752d0b1",
+      "git_blob_bytes": 60,
+      "git_blob_sha256": "96e1fd1038b0fecb1717bfb65d4dea5a1bb5a5f360db9a00b68614ad8752d0b1",
+      "git_blob_oid": "de0eb069789d2364d9f5632385c3aa566cd9be26"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 67891,
+      "raw_sha256": "c0aef258ca40f846dcc9913961ddfaff9af836db37723330879308c5ffce578d",
+      "git_blob_bytes": 67891,
+      "git_blob_sha256": "c0aef258ca40f846dcc9913961ddfaff9af836db37723330879308c5ffce578d",
+      "git_blob_oid": "ecb9666bd028e9c0518f237e0b65aa1ff8951687"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 34309,
+      "raw_sha256": "e9dfe1fdfc734d9b0ac7548def117e00e3b0f4de1cd4df95830a51c7e22cd861",
+      "git_blob_bytes": 34309,
+      "git_blob_sha256": "e9dfe1fdfc734d9b0ac7548def117e00e3b0f4de1cd4df95830a51c7e22cd861",
+      "git_blob_oid": "e416b729c7d8014ebb29da1fd2abc8f8b4557343"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 56561,
+      "raw_sha256": "0c6ad926d5f06f2f484bcd71d34cdef6ef3e5c0052061354eb8dcd3e012803f2",
+      "git_blob_bytes": 56561,
+      "git_blob_sha256": "0c6ad926d5f06f2f484bcd71d34cdef6ef3e5c0052061354eb8dcd3e012803f2",
+      "git_blob_oid": "ba52508b877c40e4fac2134e356b100166918fcf"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 16261,
+      "raw_sha256": "bde10b01efa79485d970f59d4aaa8ddc801e3aada1c7790ff2d17a071358eb75",
+      "git_blob_bytes": 16261,
+      "git_blob_sha256": "bde10b01efa79485d970f59d4aaa8ddc801e3aada1c7790ff2d17a071358eb75",
+      "git_blob_oid": "249ecaa028be7013d80ca8a87dda01c02eff47df"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 18430,
+      "raw_sha256": "76a4cdd0d6b78a0ef5aaf8385ccb2eb239435c8e00ca95ecae4c3d5956154141",
+      "git_blob_bytes": 18430,
+      "git_blob_sha256": "76a4cdd0d6b78a0ef5aaf8385ccb2eb239435c8e00ca95ecae4c3d5956154141",
+      "git_blob_oid": "f79b501eb5d451dd5e9bc87515d63cfea1d40771"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 20006,
+      "raw_sha256": "7a97f085511c23c52016013bac85c1d04fd2adffc72ef90f7e93dec2caee2fe3",
+      "git_blob_bytes": 20006,
+      "git_blob_sha256": "7a97f085511c23c52016013bac85c1d04fd2adffc72ef90f7e93dec2caee2fe3",
+      "git_blob_oid": "50066c3a061b6e089db76f0bc37b416422b37bfd"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 21229,
+      "raw_sha256": "85566d9b007db00cfb061d213205cac18331a92cf618bd6b8b3b91bb5c3d565c",
+      "git_blob_bytes": 21229,
+      "git_blob_sha256": "85566d9b007db00cfb061d213205cac18331a92cf618bd6b8b3b91bb5c3d565c",
+      "git_blob_oid": "39fa132d3ad9c96e53df51d53a7926759a191b53"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceDiversityTests.cs.meta",
+      "role": "TASK_OWNED",
+      "raw_bytes": 60,
+      "raw_sha256": "3c421494dcddee3f3c3b26dee3687b598695f703dc3f63fcab2f312a32026a9e",
+      "git_blob_bytes": 60,
+      "git_blob_sha256": "3c421494dcddee3f3c3b26dee3687b598695f703dc3f63fcab2f312a32026a9e",
+      "git_blob_oid": "5bbac4f852094b4ce9acb14fc48d9fe8acc07136"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix01Tests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 13948,
+      "raw_sha256": "7441019becedc59d30399ea9f14620e95593759107186267bc8da919b364660d",
+      "git_blob_bytes": 13948,
+      "git_blob_sha256": "7441019becedc59d30399ea9f14620e95593759107186267bc8da919b364660d",
+      "git_blob_oid": "b562bebb047a4eca70eb7f0094918dabd02aa2d1"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix02Tests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 18197,
+      "raw_sha256": "cb6c135119ef09c99f10262cbb9dd1be56e69554eac30fcd31f8156d7e01ad1b",
+      "git_blob_bytes": 18197,
+      "git_blob_sha256": "cb6c135119ef09c99f10262cbb9dd1be56e69554eac30fcd31f8156d7e01ad1b",
+      "git_blob_oid": "1f7d55bfdbcedfdbe9f87c761800a325408667bb"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix03Tests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 15478,
+      "raw_sha256": "21bf03526c7ec04c118b48b48c62c3f7dd091fcc67692ce986005da89dba052c",
+      "git_blob_bytes": 15478,
+      "git_blob_sha256": "21bf03526c7ec04c118b48b48c62c3f7dd091fcc67692ce986005da89dba052c",
+      "git_blob_oid": "9dd2a89935d553e1a80149158211e5d9767add4a"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphFix04Tests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 18007,
+      "raw_sha256": "d32348d5779f635cdbb4c158a97162fd0935401e71cca7a5db09728a23b1cd6d",
+      "git_blob_bytes": 18007,
+      "git_blob_sha256": "d32348d5779f635cdbb4c158a97162fd0935401e71cca7a5db09728a23b1cd6d",
+      "git_blob_oid": "e497fbfc4562b785bb4a73a5c25d96d15eba5ffb"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+      "role": "TASK_OWNED",
+      "raw_bytes": 19316,
+      "raw_sha256": "4c36969b25b7314a373a54246205f9352c7d047263ebc6a0c122201d77e86de1",
+      "git_blob_bytes": 19316,
+      "git_blob_sha256": "4c36969b25b7314a373a54246205f9352c7d047263ebc6a0c122201d77e86de1",
+      "git_blob_oid": "e26da6e21d3f07a38ba405a28571df7b3b987e90"
+    },
+    {
+      "path": "MapDesign/MCP/00_MCP_ENTRYPOINT.md",
+      "role": "READ_REFERENCE",
+      "raw_bytes": 4938,
+      "raw_sha256": "cd2a70cdaf886a363756e9abd781807d8f6aef2c457f493268bab0bcdb283402",
+      "git_blob_bytes": 4938,
+      "git_blob_sha256": "cd2a70cdaf886a363756e9abd781807d8f6aef2c457f493268bab0bcdb283402",
+      "git_blob_oid": "440a41766100899887f1c6b910683f9b97c5eeb3"
+    },
+    {
+      "path": "MapDesign/MCP/05_CHANGE_CONTROL_RULES.md",
+      "role": "READ_REFERENCE",
+      "raw_bytes": 3355,
+      "raw_sha256": "45bb7fd6e5981fe8f89bf5d34887086ecceb1db8410543564ef1338981302ba3",
+      "git_blob_bytes": 3355,
+      "git_blob_sha256": "45bb7fd6e5981fe8f89bf5d34887086ecceb1db8410543564ef1338981302ba3",
+      "git_blob_oid": "657808ba2c6815426e2555551b2e12a950ea6a40"
+    },
+    {
+      "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 102444,
+      "raw_sha256": "5f8b0577328a59324850101f093ff1c8e48eabf31b7d642e37d4c61049928ace",
+      "git_blob_bytes": 102444,
+      "git_blob_sha256": "5f8b0577328a59324850101f093ff1c8e48eabf31b7d642e37d4c61049928ace",
+      "git_blob_oid": "ecceeb643bafb068201927cb50d9a53ebfee230c"
+    },
+    {
+      "path": "MapDesign/MCP/08_STATUS_FINALIZE_RULES.md",
+      "role": "READ_REFERENCE",
+      "raw_bytes": 2244,
+      "raw_sha256": "e121a60b78eb28d0e12e38ddba8b56ac825435a130fc707ad5f0de29df92e169",
+      "git_blob_bytes": 2104,
+      "git_blob_sha256": "fb0a599dd6840a4243fb109b697d8b9d7dd7f6f11d0bcc76819460b96f91bba1",
+      "git_blob_oid": "4d78ec4615d2b92f36d43830d54b7e61353f319b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/BINDING.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 89305,
+      "raw_sha256": "4bd6a262d74075234f5c7c72a2bdfd70649be5fc044d5151a7c2a2a50e3f39f2",
+      "git_blob_bytes": 89305,
+      "git_blob_sha256": "4bd6a262d74075234f5c7c72a2bdfd70649be5fc044d5151a7c2a2a50e3f39f2",
+      "git_blob_oid": "3b3348359441bf23357254e17f6deb3724861bfb"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/decisions.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 30135,
+      "raw_sha256": "b0464e74da18539693858a390c95a01fad148094414bd515d2a3fe8533f3354b",
+      "git_blob_bytes": 30135,
+      "git_blob_sha256": "b0464e74da18539693858a390c95a01fad148094414bd515d2a3fe8533f3354b",
+      "git_blob_oid": "d8a34be869cad71a42aaea5a81f70816a9ebc0ca"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/connections.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 208024,
+      "raw_sha256": "3f980c686b338a237ede5258b2cc3699e173de23db7710ff85006283ac306610",
+      "git_blob_bytes": 208024,
+      "git_blob_sha256": "3f980c686b338a237ede5258b2cc3699e173de23db7710ff85006283ac306610",
+      "git_blob_oid": "127f3e77bf67f5cd1a4009ef4369a32280bdf06a"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/contact_checks.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7221264,
+      "raw_sha256": "adc2ca09a913f59a5d56e6e26d70afaff6c6cecf8846613813d3b4ecdbdf7a55",
+      "git_blob_bytes": 7221264,
+      "git_blob_sha256": "adc2ca09a913f59a5d56e6e26d70afaff6c6cecf8846613813d3b4ecdbdf7a55",
+      "git_blob_oid": "1498d3653e168147d732a1fd6cec98076a55622c"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/gate_geometry.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2817,
+      "raw_sha256": "d2f4cc77fed306a2c6a00b3451a48b0b68788cd0211057f6d4af126f32692c11",
+      "git_blob_bytes": 2817,
+      "git_blob_sha256": "d2f4cc77fed306a2c6a00b3451a48b0b68788cd0211057f6d4af126f32692c11",
+      "git_blob_oid": "35ec51e370e3766287ab237b5977166b18b68735"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/gate_state_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 5582,
+      "raw_sha256": "47c3d4684ce5bbaaf3d7a70d210bddf56ca10f331b444c234a0a9802fb6034b4",
+      "git_blob_bytes": 5582,
+      "git_blob_sha256": "47c3d4684ce5bbaaf3d7a70d210bddf56ca10f331b444c234a0a9802fb6034b4",
+      "git_blob_oid": "73514fc113ef351938e65363bd7c6f54383f3108"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/local_barrier_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 196,
+      "raw_sha256": "a5650dc27a983b45ca27c169126457f3293984f35668b16578d6c0695d9b2e20",
+      "git_blob_bytes": 196,
+      "git_blob_sha256": "a5650dc27a983b45ca27c169126457f3293984f35668b16578d6c0695d9b2e20",
+      "git_blob_oid": "a03943b2ea4af0d1259826655d55684939f8f3a5"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/obligations.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2377,
+      "raw_sha256": "b4757449d2669405b61fd7af9e17ddc04f3b29897721a826e667c1eee040a98e",
+      "git_blob_bytes": 2377,
+      "git_blob_sha256": "b4757449d2669405b61fd7af9e17ddc04f3b29897721a826e667c1eee040a98e",
+      "git_blob_oid": "dd7de812e2073308f51db3f4cacfdda7e631ce22"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/physical_contact_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 5866161,
+      "raw_sha256": "26f2d03ab8d906e5de76b083e736fdb3e64d910a5ce94aeec70a5167b38df59b",
+      "git_blob_bytes": 5866161,
+      "git_blob_sha256": "26f2d03ab8d906e5de76b083e736fdb3e64d910a5ce94aeec70a5167b38df59b",
+      "git_blob_oid": "726788d07bd505be6d72db68382ee6dfd924b33c"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/physical_gate_state_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 10698,
+      "raw_sha256": "8f79260f95e722c515bce9a6e54ae6f2385e6b4d6bf6de4e5943e078b993ae43",
+      "git_blob_bytes": 10698,
+      "git_blob_sha256": "8f79260f95e722c515bce9a6e54ae6f2385e6b4d6bf6de4e5943e078b993ae43",
+      "git_blob_oid": "6bc2716b7eee989b29a68a4bd6f62216929744f7"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/physical_transition_matrix.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 16823629,
+      "raw_sha256": "2c661f007cad5be1fa597b5665653682da3dcd98be1b44afe6b0708b6cac3daa",
+      "git_blob_bytes": 16823629,
+      "git_blob_sha256": "2c661f007cad5be1fa597b5665653682da3dcd98be1b44afe6b0708b6cac3daa",
+      "git_blob_oid": "67930bf42c14b13eea1694bc2108d102558c9829"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/places.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 4003,
+      "raw_sha256": "14f4cb9fcbdc2445f9deec9a9e4b627e01dc8362858afce1b2e74145d64b5981",
+      "git_blob_bytes": 4003,
+      "git_blob_sha256": "14f4cb9fcbdc2445f9deec9a9e4b627e01dc8362858afce1b2e74145d64b5981",
+      "git_blob_oid": "aa90484a7af64fc941c4b7b9ef0cd093d63b4154"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/ports.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 11507,
+      "raw_sha256": "936acbe5c890035f5c5ad7c42c01cdac4f68c2b4b2190a18c33b15d0f0edda38",
+      "git_blob_bytes": 11507,
+      "git_blob_sha256": "936acbe5c890035f5c5ad7c42c01cdac4f68c2b4b2190a18c33b15d0f0edda38",
+      "git_blob_oid": "4a7565be208db8725b4f5f0f40d6a4a0153c916a"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/A1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61308,
+      "raw_sha256": "7d84448bc4eac7fc2f25b924c23d488ecf51ee948c3275adc02c12ddb0c8361e",
+      "git_blob_bytes": 61308,
+      "git_blob_sha256": "7d84448bc4eac7fc2f25b924c23d488ecf51ee948c3275adc02c12ddb0c8361e",
+      "git_blob_oid": "5239d741f9c804624df3a8280020ccafbeb660f4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/A2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61309,
+      "raw_sha256": "5e550bf3fe4f352c9954d408c7a1f3d0aadb9b4b2bae7c43836e9ace986ca14f",
+      "git_blob_bytes": 61309,
+      "git_blob_sha256": "5e550bf3fe4f352c9954d408c7a1f3d0aadb9b4b2bae7c43836e9ace986ca14f",
+      "git_blob_oid": "b27e27665d21f6eaa530a881de0b9125eabb8f0e"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/A3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61404,
+      "raw_sha256": "d226623a2136eeb32817498c8eec40866bf8cb89200993d068687f998fcdef2b",
+      "git_blob_bytes": 61404,
+      "git_blob_sha256": "d226623a2136eeb32817498c8eec40866bf8cb89200993d068687f998fcdef2b",
+      "git_blob_oid": "1d7f5f6b2733bdc352e8129202c4a5deb210746c"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/A4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61518,
+      "raw_sha256": "95af9bccb51e51d59f99420c6cd9b39e703191ce855c5371d339f0a3d27b459b",
+      "git_blob_bytes": 61518,
+      "git_blob_sha256": "95af9bccb51e51d59f99420c6cd9b39e703191ce855c5371d339f0a3d27b459b",
+      "git_blob_oid": "ed010543f69aa451743c0bf3cb107cbdf3f1a32b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/B1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61308,
+      "raw_sha256": "89f2ae4cdd5c10b4426c3d3f3862831f99db059a40a19e1803f73ec512bc96c6",
+      "git_blob_bytes": 61308,
+      "git_blob_sha256": "89f2ae4cdd5c10b4426c3d3f3862831f99db059a40a19e1803f73ec512bc96c6",
+      "git_blob_oid": "9e1e0d0155f12ba5f028b66cbb51366f69d14cde"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/B2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61315,
+      "raw_sha256": "9b4d62ef150d4464f1724bc64fe70ed4b79255d7b703998dadabd3f82aba61e6",
+      "git_blob_bytes": 61315,
+      "git_blob_sha256": "9b4d62ef150d4464f1724bc64fe70ed4b79255d7b703998dadabd3f82aba61e6",
+      "git_blob_oid": "c8de74637092b91438f1292a9114b9b90b7e77f1"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/B3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61407,
+      "raw_sha256": "090b6e2d2ff87f0870cb360876ea7116c07a3a8b816095b84076ae151761e1ab",
+      "git_blob_bytes": 61407,
+      "git_blob_sha256": "090b6e2d2ff87f0870cb360876ea7116c07a3a8b816095b84076ae151761e1ab",
+      "git_blob_oid": "bee20098557668bba26d5e26136356907c0c47c9"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/B4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61512,
+      "raw_sha256": "9ce5200629f7724986fd70cfc68ecc51095bc35670eb4e5307cf0a6d2b67d95c",
+      "git_blob_bytes": 61512,
+      "git_blob_sha256": "9ce5200629f7724986fd70cfc68ecc51095bc35670eb4e5307cf0a6d2b67d95c",
+      "git_blob_oid": "aef8ddd73b8ed562b0e15b801850f97cc49fbfa5"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/C1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61315,
+      "raw_sha256": "61dade33260d5c18e5e8a40ac8d8cc0b1d86e6080242b090c75934df9317107b",
+      "git_blob_bytes": 61315,
+      "git_blob_sha256": "61dade33260d5c18e5e8a40ac8d8cc0b1d86e6080242b090c75934df9317107b",
+      "git_blob_oid": "1d98c0cbc9c5e4c63249ab13e5192a4f556b64d4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/C2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61418,
+      "raw_sha256": "fe50406c497b607eacfe9812909f09c4fd8618266e75fd5d43e5446ca01d4837",
+      "git_blob_bytes": 61418,
+      "git_blob_sha256": "fe50406c497b607eacfe9812909f09c4fd8618266e75fd5d43e5446ca01d4837",
+      "git_blob_oid": "8203e970e1460e3b4be83171295d75c028f2cae6"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/C3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61219,
+      "raw_sha256": "cab1c8f69d916f747c7d2d808d1157bafd1ca47d32ed3eb6d7f26e4ee4601f8c",
+      "git_blob_bytes": 61219,
+      "git_blob_sha256": "cab1c8f69d916f747c7d2d808d1157bafd1ca47d32ed3eb6d7f26e4ee4601f8c",
+      "git_blob_oid": "e404248051e4cca93cad62ff65911fade4141e3b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/C4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61313,
+      "raw_sha256": "8b41afaff0cb0691099507b97b71c07eb575ed10966ba65f26bf1cac7049436b",
+      "git_blob_bytes": 61313,
+      "git_blob_sha256": "8b41afaff0cb0691099507b97b71c07eb575ed10966ba65f26bf1cac7049436b",
+      "git_blob_oid": "4ded3106f5db1fdda8908be1a593a5d82f31467c"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/D1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61315,
+      "raw_sha256": "b57db3078de6888f36738c71142b02919a0e4e966901b0a2b265bc27dc3f69e3",
+      "git_blob_bytes": 61315,
+      "git_blob_sha256": "b57db3078de6888f36738c71142b02919a0e4e966901b0a2b265bc27dc3f69e3",
+      "git_blob_oid": "94365d3440546f44dddd6eff8298141c686276e0"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/D2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61422,
+      "raw_sha256": "5d86b8deff655a0324e656bd86efeb3b297a91915559b0a39eaa464033ca8ec0",
+      "git_blob_bytes": 61422,
+      "git_blob_sha256": "5d86b8deff655a0324e656bd86efeb3b297a91915559b0a39eaa464033ca8ec0",
+      "git_blob_oid": "27f5907534c79ba924ffd3dbcf9c021bc5d50293"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/D3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61317,
+      "raw_sha256": "21b4e6fc1679f728de33979581aece8fa0a25290f14a7c52f719d786bd23b6e8",
+      "git_blob_bytes": 61317,
+      "git_blob_sha256": "21b4e6fc1679f728de33979581aece8fa0a25290f14a7c52f719d786bd23b6e8",
+      "git_blob_oid": "658d163487e73c91b1cfd9c892ef601cc5f87097"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/D4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 61317,
+      "raw_sha256": "979eeb78cddfa2dd894f196d85d9c6efc952859ee553a876fff047971fca8f83",
+      "git_blob_bytes": 61317,
+      "git_blob_sha256": "979eeb78cddfa2dd894f196d85d9c6efc952859ee553a876fff047971fca8f83",
+      "git_blob_oid": "6d2a7fa143da888a43346fbfa694173cb730f32b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/FIX02_bypass_before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1783,
+      "raw_sha256": "79ff3b7d85fc3f66a74f3d63b9defe63002339fe1250fb5de3c1b3aaa8abe1b5",
+      "git_blob_bytes": 1783,
+      "git_blob_sha256": "79ff3b7d85fc3f66a74f3d63b9defe63002339fe1250fb5de3c1b3aaa8abe1b5",
+      "git_blob_oid": "4cd5cc2d20fba6200e554944629eff84e47d03aa"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/W01_before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1156,
+      "raw_sha256": "7474c65d7f90d75fd0ba1df31761a8b964661eda2ad358a17220be317472eef4",
+      "git_blob_bytes": 1156,
+      "git_blob_sha256": "7474c65d7f90d75fd0ba1df31761a8b964661eda2ad358a17220be317472eef4",
+      "git_blob_oid": "eec31d74a16ac1febb4adf296c80101b18e167f4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/W02_before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1154,
+      "raw_sha256": "ffaa090e267d79a6d9d483e10821e92beff8fc541c4110e4b48271418642b8cc",
+      "git_blob_bytes": 1154,
+      "git_blob_sha256": "ffaa090e267d79a6d9d483e10821e92beff8fc541c4110e4b48271418642b8cc",
+      "git_blob_oid": "b0e30e3964f69bf7884aba6382fa96b81eaa163f"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/index.html",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2629,
+      "raw_sha256": "9a797b18a2ba82cf97bda7027b1cdece91f6fe28440abb56b876436ca291e4d3",
+      "git_blob_bytes": 2629,
+      "git_blob_sha256": "9a797b18a2ba82cf97bda7027b1cdece91f6fe28440abb56b876436ca291e4d3",
+      "git_blob_oid": "2493e112836866c2b86c14c9ab5becc51a23d65d"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/preview/overview.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 62792,
+      "raw_sha256": "6e9cd49e935a10d1dd33787edde55fd0be49ab2ff3ca2f41d5e1344aef1f0742",
+      "git_blob_bytes": 62792,
+      "git_blob_sha256": "6e9cd49e935a10d1dd33787edde55fd0be49ab2ff3ca2f41d5e1344aef1f0742",
+      "git_blob_oid": "f67405f5df01e9280c6b8478dd77254c24cdae0b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/reservation_cells.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 4449175,
+      "raw_sha256": "ec7f4557c9a2f2ee27a8315b38ec73fc269002cffc9763401f0408f66af5eea4",
+      "git_blob_bytes": 4449175,
+      "git_blob_sha256": "ec7f4557c9a2f2ee27a8315b38ec73fc269002cffc9763401f0408f66af5eea4",
+      "git_blob_oid": "f1b7ff836a0c8545bdae57a35a871fed3fb429df"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/segments.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 77628,
+      "raw_sha256": "fb7066ec69be7133e5601e46c23c0564babae32fcb699a40b89d25c69c2320e9",
+      "git_blob_bytes": 77628,
+      "git_blob_sha256": "fb7066ec69be7133e5601e46c23c0564babae32fcb699a40b89d25c69c2320e9",
+      "git_blob_oid": "c376e01b0b14401e55ce7b4fa7f020c89159b36f"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/space_graph.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 285168,
+      "raw_sha256": "79ab6d4fb51bc3a6c8036fd14a9710a5659b3b97406eafae2276aad895a1c627",
+      "git_blob_bytes": 285168,
+      "git_blob_sha256": "79ab6d4fb51bc3a6c8036fd14a9710a5659b3b97406eafae2276aad895a1c627",
+      "git_blob_oid": "2824bc85a257eb91ef155cb151886d5f0f721e42"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/state_proofs.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7817,
+      "raw_sha256": "e366dfe37d7cb3c8a766c415466032583af830ee2efe279097007b24d32727d4",
+      "git_blob_bytes": 7817,
+      "git_blob_sha256": "e366dfe37d7cb3c8a766c415466032583af830ee2efe279097007b24d32727d4",
+      "git_blob_oid": "fb9fce9a1167074144a829008d70560e88dd4ec2"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/default/validation.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1382,
+      "raw_sha256": "86d3fb596ecd3564ef41098cc05f7ab1f6e5239cb6dcd423d7aca6ac1ce973bb",
+      "git_blob_bytes": 1382,
+      "git_blob_sha256": "86d3fb596ecd3564ef41098cc05f7ab1f6e5239cb6dcd423d7aca6ac1ce973bb",
+      "git_blob_oid": "50f69fc5eb935e40bcbc416900e13c484aa2f44e"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/diversity.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1178586,
+      "raw_sha256": "d1d0d7f8b65e618ae40d2c786bcb5ee6838973677b3d634179c3ec803985f437",
+      "git_blob_bytes": 1178586,
+      "git_blob_sha256": "d1d0d7f8b65e618ae40d2c786bcb5ee6838973677b3d634179c3ec803985f437",
+      "git_blob_oid": "fb98534e2cc60bc0cef37bc3aa81d9016c80868a"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/focused_results.xml",
+      "role": "TASK_OWNED",
+      "raw_bytes": 86909,
+      "raw_sha256": "f032d5ca73fde2a83150758704ce5381a7c7b804626eb6a20f0ad9e8d19c4ade",
+      "git_blob_bytes": 86264,
+      "git_blob_sha256": "fcf004fc01785d675d24c0f75087795c966fa86448cba9023f65c4b55d4b8037",
+      "git_blob_oid": "541c20bf5b640f136cfbd7098ff0d980ac369d5f"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/pairs.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 19142,
+      "raw_sha256": "7743f8af0f4b779cba09dd91bff3e5019debd23d589c74e8ade6c9d276c0d5f0",
+      "git_blob_bytes": 19142,
+      "git_blob_sha256": "7743f8af0f4b779cba09dd91bff3e5019debd23d589c74e8ade6c9d276c0d5f0",
+      "git_blob_oid": "060f2b05cd85b7531de401b2e789d2927af35310"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/preview/before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 186303,
+      "raw_sha256": "0e6bb9f4cd6867d98f0d489664b97098e8275c07072c63e6802c052d733702bc",
+      "git_blob_bytes": 186303,
+      "git_blob_sha256": "0e6bb9f4cd6867d98f0d489664b97098e8275c07072c63e6802c052d733702bc",
+      "git_blob_oid": "8b4b93dbfa598da4c67243994610f36f8787f0c8"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/preview/detail.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 219683,
+      "raw_sha256": "bffbea789985aa1d3d5700f3437996126e53940cb55642b563b34bbcf76ab605",
+      "git_blob_bytes": 219683,
+      "git_blob_sha256": "bffbea789985aa1d3d5700f3437996126e53940cb55642b563b34bbcf76ab605",
+      "git_blob_oid": "579a90cae8d19a8435a6c4292ab6fd7e197a29e2"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/preview/index.html",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1221,
+      "raw_sha256": "e5b24b79db85f02ba96fff6eb36069d1516c1eb5ce36f78088f34286c3a6747a",
+      "git_blob_bytes": 1221,
+      "git_blob_sha256": "e5b24b79db85f02ba96fff6eb36069d1516c1eb5ce36f78088f34286c3a6747a",
+      "git_blob_oid": "0af861d58a9e0d96b1f95748eefefd775f34050d"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/connections.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 213633,
+      "raw_sha256": "5fa20aec36d4ad0cfad7fa06ed6230942d937129a269fcc73b251263f576f24e",
+      "git_blob_bytes": 213633,
+      "git_blob_sha256": "5fa20aec36d4ad0cfad7fa06ed6230942d937129a269fcc73b251263f576f24e",
+      "git_blob_oid": "6415cf13e8e18e8d9a18fe751ef2b64dfe491982"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/contact_checks.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 6557225,
+      "raw_sha256": "b0b0b37c9605c815286637bbcb91ed125240382dc63fa5e776a9471f8c3c3a60",
+      "git_blob_bytes": 6557225,
+      "git_blob_sha256": "b0b0b37c9605c815286637bbcb91ed125240382dc63fa5e776a9471f8c3c3a60",
+      "git_blob_oid": "cf70149c2c7e4df21e038195f4a2a6df08c2adec"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/gate_geometry.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2817,
+      "raw_sha256": "df615b66a67d59158db757e6e8612ddf78cfc690fc8f32187e4465b99282591e",
+      "git_blob_bytes": 2817,
+      "git_blob_sha256": "df615b66a67d59158db757e6e8612ddf78cfc690fc8f32187e4465b99282591e",
+      "git_blob_oid": "e9c03f89aab711ed49570b8f536d7d4e8652e7ef"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/gate_state_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 5582,
+      "raw_sha256": "849d9446698e7e84300387ec088b3c00f5ac266639f2aeca449fa48ddef167a1",
+      "git_blob_bytes": 5582,
+      "git_blob_sha256": "849d9446698e7e84300387ec088b3c00f5ac266639f2aeca449fa48ddef167a1",
+      "git_blob_oid": "df5933da98a5d8f77c1cdf0a78dadb65bbaed228"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/local_barrier_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 196,
+      "raw_sha256": "5d569f8739d3c1e2ae3a5338f65ff21a224c6c8cf92a15ff514aed3b2ad82c21",
+      "git_blob_bytes": 196,
+      "git_blob_sha256": "5d569f8739d3c1e2ae3a5338f65ff21a224c6c8cf92a15ff514aed3b2ad82c21",
+      "git_blob_oid": "26521c9262cc55193d196d2e461e330f2014b80e"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/obligations.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2437,
+      "raw_sha256": "7016b130e8fbf9c73949a1a35d1a3a411c11514b1f035f017071d5f1740b17b6",
+      "git_blob_bytes": 2437,
+      "git_blob_sha256": "7016b130e8fbf9c73949a1a35d1a3a411c11514b1f035f017071d5f1740b17b6",
+      "git_blob_oid": "7ed143ccf580467867adb2ebcaada65eb347dc96"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/physical_contact_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 5221898,
+      "raw_sha256": "d0537e51e8724bfeb2abc83893e45f77d972792ba9339425b084d7166ce3d5aa",
+      "git_blob_bytes": 5221898,
+      "git_blob_sha256": "d0537e51e8724bfeb2abc83893e45f77d972792ba9339425b084d7166ce3d5aa",
+      "git_blob_oid": "d27e499b6c40fdb8fc871270348fba14979aa5bc"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/physical_gate_state_checks.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 10698,
+      "raw_sha256": "4460326aac2296614ad22a09b666ed458b6670fd2238a03bd0d7de28ab35bb79",
+      "git_blob_bytes": 10698,
+      "git_blob_sha256": "4460326aac2296614ad22a09b666ed458b6670fd2238a03bd0d7de28ab35bb79",
+      "git_blob_oid": "6ee200172312814d3ae028b8c1c8361184e85c0d"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/physical_transition_matrix.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 20000147,
+      "raw_sha256": "f3d795e9cd3fbd985a5649824254cbe85ed7f7d8c75317510911fd9498a63d93",
+      "git_blob_bytes": 20000147,
+      "git_blob_sha256": "f3d795e9cd3fbd985a5649824254cbe85ed7f7d8c75317510911fd9498a63d93",
+      "git_blob_oid": "25dea6edf3480e4134ba42c9143c042861ed1c5b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/places.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 4326,
+      "raw_sha256": "713b2b250f9084a4bc1986f1b1b080145219dfc524ee1b71b3bca99a18b9fb70",
+      "git_blob_bytes": 4326,
+      "git_blob_sha256": "713b2b250f9084a4bc1986f1b1b080145219dfc524ee1b71b3bca99a18b9fb70",
+      "git_blob_oid": "718776302034bf21514a33a27324fa5c3b46b151"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/ports.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 12447,
+      "raw_sha256": "fb34f9c230dff5a0388cad02b3fbfac51fd2581a1504238d234fe6ed3259b41a",
+      "git_blob_bytes": 12447,
+      "git_blob_sha256": "fb34f9c230dff5a0388cad02b3fbfac51fd2581a1504238d234fe6ed3259b41a",
+      "git_blob_oid": "63c33f6cdb8c2bc14869458dab87bf38399c02bd"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/A1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63642,
+      "raw_sha256": "2635aba248f195e32ab28831f9caa008ceece55f74882c833df92c722c90fae8",
+      "git_blob_bytes": 63642,
+      "git_blob_sha256": "2635aba248f195e32ab28831f9caa008ceece55f74882c833df92c722c90fae8",
+      "git_blob_oid": "5f6d4406e048a7d90f9fc393b9ff69b1539d899a"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/A2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63643,
+      "raw_sha256": "cb5317555a62c3f5d4ecb78dab8e5d1ee51fb21e884c9ffc59a6753922df99c6",
+      "git_blob_bytes": 63643,
+      "git_blob_sha256": "cb5317555a62c3f5d4ecb78dab8e5d1ee51fb21e884c9ffc59a6753922df99c6",
+      "git_blob_oid": "97d002d61f244f0d47e5092e86abd2ef31d92d79"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/A3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63738,
+      "raw_sha256": "b1908ce3ed4488ba49405c159ab75f32cf9dc74dea80bd2e45e48128a9cd1201",
+      "git_blob_bytes": 63738,
+      "git_blob_sha256": "b1908ce3ed4488ba49405c159ab75f32cf9dc74dea80bd2e45e48128a9cd1201",
+      "git_blob_oid": "450cdab767f9a08eb9e03e0dd2fa03003efaca9b"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/A4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63852,
+      "raw_sha256": "5007f11aa9e58caa0b81d025d8fb9a1c52f2ea48ae522e56e469a6caed6cae83",
+      "git_blob_bytes": 63852,
+      "git_blob_sha256": "5007f11aa9e58caa0b81d025d8fb9a1c52f2ea48ae522e56e469a6caed6cae83",
+      "git_blob_oid": "22d33a72f0d09b55085adae10433eee8d4569c55"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/B1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63733,
+      "raw_sha256": "6facdcb1a96296c1d6bb9493472752feb86bedfd4f92d9832998781a1eba58ef",
+      "git_blob_bytes": 63733,
+      "git_blob_sha256": "6facdcb1a96296c1d6bb9493472752feb86bedfd4f92d9832998781a1eba58ef",
+      "git_blob_oid": "b233d04ef0902f6ce7af9300ac739c1a26733e91"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/B2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63741,
+      "raw_sha256": "93635f691f5e97e20f4a2a4e9265d960a0e39904f07a69d993b028b6a21c254a",
+      "git_blob_bytes": 63741,
+      "git_blob_sha256": "93635f691f5e97e20f4a2a4e9265d960a0e39904f07a69d993b028b6a21c254a",
+      "git_blob_oid": "de9607ff190d7ca0612a2a3bf41bac3174f93e99"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/B3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63741,
+      "raw_sha256": "232520a4db2bd59ceba6ffd6d0491f650e98212290263bcca4795eb0b7d7faf7",
+      "git_blob_bytes": 63741,
+      "git_blob_sha256": "232520a4db2bd59ceba6ffd6d0491f650e98212290263bcca4795eb0b7d7faf7",
+      "git_blob_oid": "5c92e10231bd67a1f11e8e229f987746be5d7f33"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/B4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63846,
+      "raw_sha256": "984dddbbae17f7d222fb079512b19812fdaf0f291d8569d092ec4a49afe68c30",
+      "git_blob_bytes": 63846,
+      "git_blob_sha256": "984dddbbae17f7d222fb079512b19812fdaf0f291d8569d092ec4a49afe68c30",
+      "git_blob_oid": "543705ba09dcb8538f8483012ce2a55517f7efaf"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/C1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63649,
+      "raw_sha256": "cc1b62f7d6b27778240a8148f19ab6c49513ac782ec9eb63a32a4f405b7681b6",
+      "git_blob_bytes": 63649,
+      "git_blob_sha256": "cc1b62f7d6b27778240a8148f19ab6c49513ac782ec9eb63a32a4f405b7681b6",
+      "git_blob_oid": "049754900d6aa5302301b7ca0f64e9a3ce72ec71"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/C2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63752,
+      "raw_sha256": "174d93e0e165cda04d1b23049fdeffab324a5235edde2d70884d623a655926ce",
+      "git_blob_bytes": 63752,
+      "git_blob_sha256": "174d93e0e165cda04d1b23049fdeffab324a5235edde2d70884d623a655926ce",
+      "git_blob_oid": "6a2cb7bc654c723186dd7dc756d79b425c09e195"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/C3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63553,
+      "raw_sha256": "1b5e6e7929ade48c033e988d243d96adb5dcb3deb12b0d69a760ed347482849e",
+      "git_blob_bytes": 63553,
+      "git_blob_sha256": "1b5e6e7929ade48c033e988d243d96adb5dcb3deb12b0d69a760ed347482849e",
+      "git_blob_oid": "bf74a77ec5eb851b79a664199316700a35c76337"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/C4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63647,
+      "raw_sha256": "a8ce283d406fe4863fc6412d72098d88e7b4dcc137de99b5b1477045d55cfbd5",
+      "git_blob_bytes": 63647,
+      "git_blob_sha256": "a8ce283d406fe4863fc6412d72098d88e7b4dcc137de99b5b1477045d55cfbd5",
+      "git_blob_oid": "c02da5ca0b8a886b7c9b1223eca887be2bbf7628"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/D1.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63649,
+      "raw_sha256": "30ecc42ae06f947cd6970e0543eaf43173e8e7f6fe0ee31dcf35ab47219d13d5",
+      "git_blob_bytes": 63649,
+      "git_blob_sha256": "30ecc42ae06f947cd6970e0543eaf43173e8e7f6fe0ee31dcf35ab47219d13d5",
+      "git_blob_oid": "147d0d9423db3d548cee20985c022b0fa5e73590"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/D2.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63756,
+      "raw_sha256": "17ee6168ac1a440b39075b244e32f60b2addb2a8d2d980ce4b0e5573953d366f",
+      "git_blob_bytes": 63756,
+      "git_blob_sha256": "17ee6168ac1a440b39075b244e32f60b2addb2a8d2d980ce4b0e5573953d366f",
+      "git_blob_oid": "15e3d4b45f3b3e645aad222ab3b404726e4ffab2"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/D3.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63651,
+      "raw_sha256": "562884d0e72faee2b88ea63dd5cb79093ef74120c4b14c463f0ad0c384ae387c",
+      "git_blob_bytes": 63651,
+      "git_blob_sha256": "562884d0e72faee2b88ea63dd5cb79093ef74120c4b14c463f0ad0c384ae387c",
+      "git_blob_oid": "b02faeff86793151249247684b2a2c800ac4ef4e"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/D4.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 63651,
+      "raw_sha256": "a4db9f5a245372679a2874cacbcb63c815513ca13f4e5f8547b00f1666b44437",
+      "git_blob_bytes": 63651,
+      "git_blob_sha256": "a4db9f5a245372679a2874cacbcb63c815513ca13f4e5f8547b00f1666b44437",
+      "git_blob_oid": "0e757dff5f0bd4a4bc0cad8bdb66362e6354f7c1"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/FIX02_bypass_before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1783,
+      "raw_sha256": "2eba1406ac241d591ef7d4be7dfa0b07dd7493c8fcaf8a7a0c397aabe3740ec5",
+      "git_blob_bytes": 1783,
+      "git_blob_sha256": "2eba1406ac241d591ef7d4be7dfa0b07dd7493c8fcaf8a7a0c397aabe3740ec5",
+      "git_blob_oid": "bd8a2512c97262cdbd70366dd8e87a04f649cd01"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/W01_before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1156,
+      "raw_sha256": "3a48734a74c0d736767f4f9900c855910fbd9de818b7c8e38235ba0ee1d8eeef",
+      "git_blob_bytes": 1156,
+      "git_blob_sha256": "3a48734a74c0d736767f4f9900c855910fbd9de818b7c8e38235ba0ee1d8eeef",
+      "git_blob_oid": "c60d160a0b56f29a6880f46821402e325998dbdc"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/W02_before_after.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1154,
+      "raw_sha256": "ad0f8ef18ce2e19b821502f4e5d5f554eacb7f18850fe24fe96e7603de68c0b0",
+      "git_blob_bytes": 1154,
+      "git_blob_sha256": "ad0f8ef18ce2e19b821502f4e5d5f554eacb7f18850fe24fe96e7603de68c0b0",
+      "git_blob_oid": "5f6c3774ab3b38e00489b9410c2bf2a32efb4754"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/index.html",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2629,
+      "raw_sha256": "467cbf3888cd4c245a0af7dbfe0bc0567b06a9ef4e17c7a70a270bfb4345edc8",
+      "git_blob_bytes": 2629,
+      "git_blob_sha256": "467cbf3888cd4c245a0af7dbfe0bc0567b06a9ef4e17c7a70a270bfb4345edc8",
+      "git_blob_oid": "8cc75240acbf9ebab5b39360d19a8a2b1f84b4bb"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/preview/overview.svg",
+      "role": "TASK_OWNED",
+      "raw_bytes": 65122,
+      "raw_sha256": "d40b19a42d23d27bbfb12aae6ce7faff7cc4832a7a74300cac92a20966447699",
+      "git_blob_bytes": 65122,
+      "git_blob_sha256": "d40b19a42d23d27bbfb12aae6ce7faff7cc4832a7a74300cac92a20966447699",
+      "git_blob_oid": "554db2fb68fc43658cc8c0b71d47707ef4d0ef6d"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/reservation_cells.csv",
+      "role": "TASK_OWNED",
+      "raw_bytes": 4988514,
+      "raw_sha256": "c88519ea6a00feb43df612aece817debfe802185e720cd940f69307fe99ab021",
+      "git_blob_bytes": 4988514,
+      "git_blob_sha256": "c88519ea6a00feb43df612aece817debfe802185e720cd940f69307fe99ab021",
+      "git_blob_oid": "2d3701e536859d8c236dce9ef8acaca57c18c6fa"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/segments.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 80452,
+      "raw_sha256": "dbf1fb71402dfd4116727ca3361501bac9e27a4cc60dc40a60fcfd1cdbe866b9",
+      "git_blob_bytes": 80452,
+      "git_blob_sha256": "dbf1fb71402dfd4116727ca3361501bac9e27a4cc60dc40a60fcfd1cdbe866b9",
+      "git_blob_oid": "0a8ea9e2f00f8400fee9d2485bd04fdedc51de8a"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/space_graph.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 293893,
+      "raw_sha256": "c6117556f39a88b24f2699890cba641a1e9f320b29d9e8173f2d58a83b1e7a92",
+      "git_blob_bytes": 293893,
+      "git_blob_sha256": "c6117556f39a88b24f2699890cba641a1e9f320b29d9e8173f2d58a83b1e7a92",
+      "git_blob_oid": "2777a4bd03066eb66d756642a8b330328e5e0429"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/state_proofs.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7817,
+      "raw_sha256": "0979edc815223d0aee1171f24a4b7722cfe0d174ab540ae32e5864b284f75955",
+      "git_blob_bytes": 7817,
+      "git_blob_sha256": "0979edc815223d0aee1171f24a4b7722cfe0d174ab540ae32e5864b284f75955",
+      "git_blob_oid": "0ba01f31bb37596afc4d1d68d6bf845ca70206a4"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_07/repeat/validation.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1383,
+      "raw_sha256": "b785ca6f70c4812c4b542dacab19bb923261c6f63496989bd425110fc7fcce29",
+      "git_blob_bytes": 1383,
+      "git_blob_sha256": "b785ca6f70c4812c4b542dacab19bb923261c6f63496989bd425110fc7fcce29",
+      "git_blob_oid": "cbe762b63211a9b2d68a108b6104c77ca382aa40"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/CONTRACT.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 17025,
+      "raw_sha256": "828036c70ac31cb542aa594dd579d357ee7457fda74c0a493a6dc9b936dc8d20",
+      "git_blob_bytes": 17025,
+      "git_blob_sha256": "828036c70ac31cb542aa594dd579d357ee7457fda74c0a493a6dc9b936dc8d20",
+      "git_blob_oid": "662de777d41bc64ab6e7af752fc61a1fe50e7df3"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/DIVERSITY_PROFILE.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2930,
+      "raw_sha256": "c83b66e3bf66f854fda67fb93aeb88331f0925b38e45214419dbece37105a844",
+      "git_blob_bytes": 2930,
+      "git_blob_sha256": "c83b66e3bf66f854fda67fb93aeb88331f0925b38e45214419dbece37105a844",
+      "git_blob_oid": "5e4bb9734cec8b052cd05072037c98fe6387e34e"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/FILES.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 1359,
+      "raw_sha256": "c560a05ea06588043c3bce4875838de778de21cc21a09638fecdd1a79fdfd14a",
+      "git_blob_bytes": 1359,
+      "git_blob_sha256": "c560a05ea06588043c3bce4875838de778de21cc21a09638fecdd1a79fdfd14a",
+      "git_blob_oid": "88884d2e62091dfd4a2ae16492f816fa16de08a1"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/PROTOCOL_APPEND.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 824,
+      "raw_sha256": "b9a09f22bda37b913a01958a20afcbf41c48873d04bc013bcfce768e4c815012",
+      "git_blob_bytes": 824,
+      "git_blob_sha256": "b9a09f22bda37b913a01958a20afcbf41c48873d04bc013bcfce768e4c815012",
+      "git_blob_oid": "9c10678708b98512087ccc53ddffb0ec4a76fdb8"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/SOURCE_LOCK.json",
+      "role": "TASK_OWNED",
+      "raw_bytes": 185918,
+      "raw_sha256": "d2115258bd275cd18efa6da15c932934033075b3506aea50206794868da0ba2d",
+      "git_blob_bytes": 185918,
+      "git_blob_sha256": "d2115258bd275cd18efa6da15c932934033075b3506aea50206794868da0ba2d",
+      "git_blob_oid": "05d50d576de80a2cb9d4b944f3915bb3d30dfa54"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/STAGE.py",
+      "role": "TASK_OWNED",
+      "raw_bytes": 13151,
+      "raw_sha256": "2d31bda1814429e8d8daab3d32ecae669a3d161c22e43664330104312c5d337c",
+      "git_blob_bytes": 13151,
+      "git_blob_sha256": "2d31bda1814429e8d8daab3d32ecae669a3d161c22e43664330104312c5d337c",
+      "git_blob_oid": "55abfc09e5ba619ffeeb882efc364bc19518ba4e"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/SV5_07_DIVERSITY.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7262,
+      "raw_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+      "git_blob_bytes": 7262,
+      "git_blob_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+      "git_blob_oid": "db4d73617387e1eb48d1efa30ec83c64f317c030"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/tools/audit.py",
+      "role": "TASK_OWNED",
+      "raw_bytes": 2141,
+      "raw_sha256": "d44cd237383a41cd43124cf0892832ac5528eb87bef668318e3a1181e2a07371",
+      "git_blob_bytes": 2141,
+      "git_blob_sha256": "d44cd237383a41cd43124cf0892832ac5528eb87bef668318e3a1181e2a07371",
+      "git_blob_oid": "54116ece421a66e3723cbce7e0011d24be51492f"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/tools/review.py",
+      "role": "TASK_OWNED",
+      "raw_bytes": 4043,
+      "raw_sha256": "3d79745331b3b49436cf2ff3286203c3990a4b92586acf837ad356ff61216515",
+      "git_blob_bytes": 4043,
+      "git_blob_sha256": "3d79745331b3b49436cf2ff3286203c3990a4b92586acf837ad356ff61216515",
+      "git_blob_oid": "13cbc2b18a87db75fcc959a79fc88d5586424aeb"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_07/tools/verify_outputs.py",
+      "role": "TASK_OWNED",
+      "raw_bytes": 5392,
+      "raw_sha256": "1cd9055b0384edb04bf11db32918c55c249f6f8f411d612f64b827e6da8f2247",
+      "git_blob_bytes": 5392,
+      "git_blob_sha256": "1cd9055b0384edb04bf11db32918c55c249f6f8f411d612f64b827e6da8f2247",
+      "git_blob_oid": "a903d8d9b1d4700ebf18976ed5fb407d1ed6d9fa"
+    },
+    {
+      "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+      "role": "READ_REFERENCE",
+      "raw_bytes": 36831,
+      "raw_sha256": "125463da8dcee31f9b74e3613b2ed4978696a1d111cf2f471fa57ff0ada0ef64",
+      "git_blob_bytes": 36831,
+      "git_blob_sha256": "125463da8dcee31f9b74e3613b2ed4978696a1d111cf2f471fa57ff0ada0ef64",
+      "git_blob_oid": "2cf7e434c0d4700e1513f481bc36b16ba105d801"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_07_DIVERSITY_RESULT.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 10953,
+      "raw_sha256": "2dcf0fa8a0da9d342c5c6ee9577feced6299bec15ffe7f716428e44128983810",
+      "git_blob_bytes": 10953,
+      "git_blob_sha256": "2dcf0fa8a0da9d342c5c6ee9577feced6299bec15ffe7f716428e44128983810",
+      "git_blob_oid": "eaa8a2aa4ece44808a5f197d325c13045382b14a"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7623,
+      "raw_sha256": "ee0ff8547e614126642273cf324769761501ce92ad25f996c5f9bd2a147ad47b",
+      "git_blob_bytes": 7623,
+      "git_blob_sha256": "ee0ff8547e614126642273cf324769761501ce92ad25f996c5f9bd2a147ad47b",
+      "git_blob_oid": "8e38099d373b3b4b3a3a852bd100feaf461adbe8"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/15_DIVERSITY_V5.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 3289,
+      "raw_sha256": "daf9479b4b39500e7f21221d3238830f58fc8acdf8b49f72aebe24b238bafbe8",
+      "git_blob_bytes": 3289,
+      "git_blob_sha256": "daf9479b4b39500e7f21221d3238830f58fc8acdf8b49f72aebe24b238bafbe8",
+      "git_blob_oid": "ee3e15013654ab8be37413e42ffd64758e56b24c"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_07_DIVERSITY.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7262,
+      "raw_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+      "git_blob_bytes": 7262,
+      "git_blob_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+      "git_blob_oid": "db4d73617387e1eb48d1efa30ec83c64f317c030"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_07_DIVERSITY.md",
+      "role": "TASK_OWNED",
+      "raw_bytes": 7262,
+      "raw_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+      "git_blob_bytes": 7262,
+      "git_blob_sha256": "bd7940748dd4e25234f724db118cb7226bf13177488176e194a185045ee5ffcd",
+      "git_blob_oid": "db4d73617387e1eb48d1efa30ec83c64f317c030"
+    }
+  ]
+}

@@ -30,17 +30,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public int MaximumPerSpaceGroup { get; }
         public int MinimumLength => 20;
         public int MaximumLength => 50;
-        public string Digest => RmapWorldDefinition.Hash("SV5_SIDEPATH_PROFILE_NONGRID_V2|624|416|20|50|2|"+
+        public string Digest => Sv5WorldDefinition.Hash("SV5_SIDEPATH_PROFILE_NONGRID_V2|624|416|20|50|2|"+
             Target+"|"+Minimum+"|"+MinimumReturning+"|"+MinimumSpaceGroups+"|"+MaximumPerSpaceGroup+"|8|0.4");
     }
 
     public sealed class Sv5SidepathCell : IComparable<Sv5SidepathCell>
     {
-        internal Sv5SidepathCell(string id,RmapSpecialWorldPoint world,Sv5SidepathCellRole role,
+        internal Sv5SidepathCell(string id,Sv5SpecialWorldPoint world,Sv5SidepathCellRole role,
             Sv5InfillCellValue source,Sv5InfillCellValue final)
         { SidepathId=id;World=world;Role=role;SourceValue=source;FinalValue=final; }
         public string SidepathId { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5SidepathCellRole Role { get; }
         public Sv5InfillCellValue SourceValue { get; }
         public Sv5InfillCellValue FinalValue { get; }
@@ -52,7 +52,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5SidepathCandidate : IComparable<Sv5SidepathCandidate>
     {
         internal Sv5SidepathCandidate(string id,string stableHash,Sv5SidepathKind kind,Sv5SidepathEndpoint from,
-            Sv5SidepathEndpoint to,IEnumerable<RmapSpecialWorldPoint> path,IEnumerable<Sv5SidepathCell> cells,
+            Sv5SidepathEndpoint to,IEnumerable<Sv5SpecialWorldPoint> path,IEnumerable<Sv5SidepathCell> cells,
             int directionChanges,int newlyCarved,int score,string status,string reason)
         {
             Id=id;StableHash=stableHash;Kind=kind;From=from;To=to;
@@ -64,7 +64,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public Sv5SidepathKind Kind { get; }
         public Sv5SidepathEndpoint From { get; }
         public Sv5SidepathEndpoint To { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> Centerline { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> Centerline { get; }
         public IReadOnlyList<Sv5SidepathCell> Cells { get; }
         public int DirectionChanges { get; }
         public int NewlyCarvedAir { get; }
@@ -97,7 +97,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string ToEndpointId { get; }
         public string SpaceGroupId { get; }
         public string Host { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> Centerline { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> Centerline { get; }
         public IReadOnlyList<Sv5SidepathCell> Cells { get; }
         public int DirectionChanges { get; }
         public int NewlyCarvedAir { get; }
@@ -109,7 +109,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public int BypassCount => 0;
         public int LegalStatesChecked => 9;
         public int ResourceOrdersChecked => 6;
-        public RmapSpecialWorldPoint Midpoint => Centerline[Centerline.Count/2];
+        public Sv5SpecialWorldPoint Midpoint => Centerline[Centerline.Count/2];
         public string Token => Id+"|"+Kind+"|"+FromRoomId+"|"+ToRoomId+"|"+FromEndpointId+"|"+ToEndpointId+"|"+
             SpaceGroupId+"|"+Host+"|"+DirectionChanges+"|"+NewlyCarvedAir+"|"+RandomShortcut+"|"+
             BaselineCost+"|"+FinalCost+"|"+string.Join(";",Centerline)+"|"+string.Join(";",Cells.Select(v=>v.Token));
@@ -151,8 +151,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         internal Sv5SidepathPlan(string baseline,Sv5SidepathProfile profile,Sv5SidepathEndpointPlan index,
             IEnumerable<Sv5SidepathCandidate> candidates,IEnumerable<Sv5SidepathLink> links,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> baselineOccupancy,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> finalOccupancy,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> baselineOccupancy,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> finalOccupancy,
             IEnumerable<string> diagnostics,IDictionary<string,int> rejections,Sv5SidepathPerformance performance,
             IEnumerable<Sv5SidepathSearchRecord> searches)
         {
@@ -163,7 +163,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Diagnostics=Array.AsReadOnly((diagnostics ?? Array.Empty<string>()).Distinct().OrderBy(v=>v,StringComparer.Ordinal).ToArray());
             Rejections=new ReadOnlyDictionary<string,int>(new SortedDictionary<string,int>(rejections,StringComparer.Ordinal));
             Performance=performance;Searches=Array.AsReadOnly(searches.OrderBy(v=>v.EndpointId,StringComparer.Ordinal).ToArray());
-            Digest=RmapWorldDefinition.Hash("SV5_ACTUAL_TILE_SIDEPATH_NONGRID_V2\n"+baseline+"\n"+profile.Digest+"\n"+
+            Digest=Sv5WorldDefinition.Hash("SV5_ACTUAL_TILE_SIDEPATH_NONGRID_V2\n"+baseline+"\n"+profile.Digest+"\n"+
                 index.Digest+"\n"+string.Join("\n",Candidates.Select(v=>v.Token))+"\n"+
                 string.Join("\n",Links.Select(v=>v.Token))+"\n"+string.Join("\n",Diagnostics));
         }
@@ -173,8 +173,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5SidepathCandidate> Candidates { get; }
         public IReadOnlyList<Sv5SidepathLink> Links { get; }
         public IReadOnlyList<Sv5SidepathCell> Cells { get; }
-        public IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> BaselineOccupancy { get; }
-        public IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> FinalOccupancy { get; }
+        public IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> BaselineOccupancy { get; }
+        public IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> FinalOccupancy { get; }
         public IReadOnlyList<string> Diagnostics { get; }
         public IReadOnlyDictionary<string,int> Rejections { get; }
         public Sv5SidepathPerformance Performance { get; }
@@ -205,7 +205,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             void TimeAction(string key,Action action){var w=Stopwatch.StartNew();try{action();}finally{w.Stop();timing[key]=Ms(w);}}
             var occupancy=plan.Loops.Topology.FinalOccupancy;var feet=plan.Loops.Topology.FinalFootNodes;
             var index=Time("endpoint_index_ms",()=>Sv5SidepathEndpointIndex.Build(plan,occupancy,feet));
-            var protectedCells=new HashSet<RmapSpecialWorldPoint>(ProtectedCells(plan));Attempt[] returning=null,deadEnds=null;
+            var protectedCells=new HashSet<Sv5SpecialWorldPoint>(ProtectedCells(plan));Attempt[] returning=null,deadEnds=null;
             TimeAction("candidate_generation_ms",()=>
             {
                 returning=index.Pairs.Where(v=>v.Eligible).AsParallel().AsOrdered().WithDegreeOfParallelism(workers)
@@ -220,7 +220,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var candidates=attempts.Where(v=>v.Candidate!=null).Select(v=>v.Candidate).GroupBy(v=>v.Id,StringComparer.Ordinal).Select(v=>v.First())
                 .OrderBy(v=>v.SpaceGroupId,StringComparer.Ordinal).ThenBy(v=>v.From.RoomId,StringComparer.Ordinal)
                 .ThenBy(v=>v.From.EndpointId,StringComparer.Ordinal).ThenBy(v=>v.CandidateScore).ThenBy(v=>v.Id,StringComparer.Ordinal).ToList();
-            var packed=new List<Sv5SidepathCandidate>();var usedCells=new HashSet<RmapSpecialWorldPoint>();
+            var packed=new List<Sv5SidepathCandidate>();var usedCells=new HashSet<Sv5SpecialWorldPoint>();
             var usedPairs=new HashSet<string>(StringComparer.Ordinal);var groups=new Dictionary<string,int>(StringComparer.Ordinal);
             bool Add(Sv5SidepathCandidate candidate)
             {
@@ -246,24 +246,24 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if(links.Count(v=>v.Kind==Sv5SidepathKind.Returning)<profile.MinimumReturning)diagnostics.Add("SIDEPATH_RETURNING|"+links.Count(v=>v.Kind==Sv5SidepathKind.Returning)+"/"+profile.MinimumReturning);
             if(links.Select(v=>v.SpaceGroupId).Distinct().Count()<profile.MinimumSpaceGroups)diagnostics.Add("SIDEPATH_SPACE_GROUPS|"+links.Select(v=>v.SpaceGroupId).Distinct().Count()+"/"+profile.MinimumSpaceGroups);
             total.Stop();timing["total_build_ms"]=Ms(total);
-            int affected=links.SelectMany(v=>v.Cells).SelectMany(v=>new[]{new RmapSpecialWorldPoint(v.World.X,v.World.Y-1),v.World,new RmapSpecialWorldPoint(v.World.X,v.World.Y+1)}).Distinct().Count();
+            int affected=links.SelectMany(v=>v.Cells).SelectMany(v=>new[]{new Sv5SpecialWorldPoint(v.World.X,v.World.Y-1),v.World,new Sv5SpecialWorldPoint(v.World.X,v.World.Y+1)}).Distinct().Count();
             var perf=new Sv5SidepathPerformance(timing,workers,index.Endpoints.Count,index.Pairs.Count,candidates.Count,affected,deadEnds.Sum(v=>v.Expansions));
             var searches=deadEnds.Select(v=>new Sv5SidepathSearchRecord(v.EndpointId,v.Expansions,v.Candidate==null?v.Reason:"GENERATED"));
             return new Sv5SidepathPlan(plan.Digest,profile,index,candidates,links,occupancy,final,diagnostics,rejection,perf,searches);
         }
 
         private static Attempt EvaluateReturning(Sv5SpaceGraphPlan plan,Sv5SidepathEndpointPair pair,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,ISet<RmapSpecialWorldPoint> protectedCells)
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,ISet<Sv5SpecialWorldPoint> protectedCells)
         {return Evaluate(plan,Sv5SidepathKind.Returning,pair.From,pair.To,IrregularPath(pair.From.World,pair.To.World,pair.From.StableHash+pair.To.StableHash),occupancy,protectedCells,0);}
         private static Attempt EvaluateDeadEnd(Sv5SpaceGraphPlan plan,Sv5SidepathEndpoint from,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,ISet<RmapSpecialWorldPoint> protectedCells)
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,ISet<Sv5SpecialWorldPoint> protectedCells)
         {int expansions;var path=DeadEndPath(from,out expansions);return Evaluate(plan,Sv5SidepathKind.DeadEnd,from,null,path,occupancy,protectedCells,expansions);}
         private static Attempt Evaluate(Sv5SpaceGraphPlan plan,Sv5SidepathKind kind,Sv5SidepathEndpoint from,Sv5SidepathEndpoint to,
-            IReadOnlyList<RmapSpecialWorldPoint> path,IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
-            ISet<RmapSpecialWorldPoint> protectedCells,int expansions)
+            IReadOnlyList<Sv5SpecialWorldPoint> path,IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
+            ISet<Sv5SpecialWorldPoint> protectedCells,int expansions)
         {
             var result=new Attempt{EndpointId=from.EndpointId,Expansions=expansions};if(path.Count<20||path.Count>50){result.Reason="LENGTH";return result;}
-            string identity=from.EndpointId+"|"+(to?.EndpointId??"DEAD_END");string hash=RmapWorldDefinition.Hash("SV5_SIDE_CANDIDATE_V2|"+plan.Seed+"|"+kind+"|"+identity+"|"+string.Join(";",path));
+            string identity=from.EndpointId+"|"+(to?.EndpointId??"DEAD_END");string hash=Sv5WorldDefinition.Hash("SV5_SIDE_CANDIDATE_V2|"+plan.Seed+"|"+kind+"|"+identity+"|"+string.Join(";",path));
             string id="SV5_SIDE_"+hash.Substring(0,20);if(!TryCells(id,from,to,path,occupancy,protectedCells,out Sv5SidepathCell[] cells,out int newly,out int changes,out string reason)){result.Reason=reason;return result;}
             int score=path.Count*100-newly*4+changes;result.Candidate=new Sv5SidepathCandidate(id,hash,kind,from,to,path,cells,changes,newly,score,"ELIGIBLE",string.Empty);return result;
         }
@@ -281,49 +281,49 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 var owned=links.Where(v=>v.Host==connection.Id).ToArray();if(owned.Length==0)return connection;
                 var air=owned.SelectMany(v=>v.Cells.Where(c=>c.FinalValue==Sv5InfillCellValue.Air).Select(c=>c.World)).Concat(owned.SelectMany(v=>v.Centerline)).Distinct().ToArray();
-                var solid=new HashSet<RmapSpecialWorldPoint>(owned.SelectMany(v=>v.Cells.Where(c=>c.FinalValue==Sv5InfillCellValue.Solid).Select(c=>c.World)));
+                var solid=new HashSet<Sv5SpecialWorldPoint>(owned.SelectMany(v=>v.Cells.Where(c=>c.FinalValue==Sv5InfillCellValue.Solid).Select(c=>c.World)));
                 return new Sv5SpaceConnection(connection.Id,connection.Kind,connection.FromPortId,connection.ToPortId,connection.FromPlaceId,connection.ToPlaceId,
                     connection.Direction,connection.Flow,connection.Condition,connection.SourceGraphEdgeId,connection.SelectionState,connection.Centerline,
                     connection.Envelope.Concat(air),connection.ApertureCells.Where(v=>!solid.Contains(v)).Concat(air));
             }).ToArray());
         }
-        public static Sv5SidepathMovementRole MovementRole(IReadOnlyList<RmapSpecialWorldPoint> path,int index)
+        public static Sv5SidepathMovementRole MovementRole(IReadOnlyList<Sv5SpecialWorldPoint> path,int index)
         {bool transition=index>0&&path[index-1].Y!=path[index].Y||index+1<path.Count&&path[index+1].Y!=path[index].Y;return transition?Sv5SidepathMovementRole.StepTransition:Sv5SidepathMovementRole.SupportedFoot;}
-        public static int DirectionChanges(IReadOnlyList<RmapSpecialWorldPoint> path)
-        {var directions=path.Zip(path.Skip(1),(a,b)=>new RmapSpecialWorldPoint(b.X-a.X,b.Y-a.Y)).ToArray();return directions.Zip(directions.Skip(1),(a,b)=>a.Equals(b)?0:1).Sum();}
-        private static IReadOnlyList<RmapSpecialWorldPoint> IrregularPath(RmapSpecialWorldPoint start,RmapSpecialWorldPoint goal,string token)
+        public static int DirectionChanges(IReadOnlyList<Sv5SpecialWorldPoint> path)
+        {var directions=path.Zip(path.Skip(1),(a,b)=>new Sv5SpecialWorldPoint(b.X-a.X,b.Y-a.Y)).ToArray();return directions.Zip(directions.Skip(1),(a,b)=>a.Equals(b)?0:1).Sum();}
+        private static IReadOnlyList<Sv5SpecialWorldPoint> IrregularPath(Sv5SpecialWorldPoint start,Sv5SpecialWorldPoint goal,string token)
         {
-            int dx=goal.X-start.X,dy=goal.Y-start.Y;if(dx<1)return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());int pairs=1;
-            while(dx+Math.Abs(dy)+pairs*2+1<20)pairs++;int events=Math.Abs(dy)+pairs*2;if(dx<events*2+2||dx+events+1>50)return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            int dx=goal.X-start.X,dy=goal.Y-start.Y;if(dx<1)return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());int pairs=1;
+            while(dx+Math.Abs(dy)+pairs*2+1<20)pairs++;int events=Math.Abs(dy)+pairs*2;if(dx<events*2+2||dx+events+1>50)return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             int detour=(Convert.ToInt32(token.Substring(0,2),16)&1)==0?1:-1;if(start.Y<4)detour=1;if(start.Y>411)detour=-1;
             var deltas=new List<int>();for(int i=0;i<pairs;i++){deltas.Add(detour);deltas.Add(-detour);}for(int i=0;i<Math.Abs(dy);i++)deltas.Insert(Math.Min(deltas.Count,1+i*2),Math.Sign(dy));
-            var positions=new List<int>();int previous=0;for(int i=0;i<deltas.Count;i++){int position=1+(i+1)*(dx-1)/(deltas.Count+1);position=Math.Max(previous+2,position);if(position>=dx)return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());positions.Add(position);previous=position;}
-            var result=new List<RmapSpecialWorldPoint>{start};int y=start.Y,eventIndex=0;for(int column=1;column<=dx;column++){result.Add(new RmapSpecialWorldPoint(start.X+column,y));if(eventIndex<positions.Count&&positions[eventIndex]==column){y+=deltas[eventIndex++];result.Add(new RmapSpecialWorldPoint(start.X+column,y));}}
-            if(y!=goal.Y||!result.Last().Equals(goal))return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());return Array.AsReadOnly(result.ToArray());
+            var positions=new List<int>();int previous=0;for(int i=0;i<deltas.Count;i++){int position=1+(i+1)*(dx-1)/(deltas.Count+1);position=Math.Max(previous+2,position);if(position>=dx)return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());positions.Add(position);previous=position;}
+            var result=new List<Sv5SpecialWorldPoint>{start};int y=start.Y,eventIndex=0;for(int column=1;column<=dx;column++){result.Add(new Sv5SpecialWorldPoint(start.X+column,y));if(eventIndex<positions.Count&&positions[eventIndex]==column){y+=deltas[eventIndex++];result.Add(new Sv5SpecialWorldPoint(start.X+column,y));}}
+            if(y!=goal.Y||!result.Last().Equals(goal))return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());return Array.AsReadOnly(result.ToArray());
         }
-        private static IReadOnlyList<RmapSpecialWorldPoint> DeadEndPath(Sv5SidepathEndpoint from,out int expansions)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> DeadEndPath(Sv5SidepathEndpoint from,out int expansions)
         {
-            var result=new List<RmapSpecialWorldPoint>{from.World};int x=from.World.X,y=from.World.Y,direction=from.ExitX;
+            var result=new List<Sv5SpecialWorldPoint>{from.World};int x=from.World.X,y=from.World.Y,direction=from.ExitX;
             int lift=(Convert.ToInt32(from.StableHash.Substring(0,2),16)&1)==0?1:-1;if(y<4)lift=1;if(y>411)lift=-1;expansions=0;
-            for(int step=1;step<=22;step++){x+=direction;expansions++;if(x<1||x>622)return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());result.Add(new RmapSpecialWorldPoint(x,y));if(step==6||step==15){y+=lift;expansions++;result.Add(new RmapSpecialWorldPoint(x,y));}if(step==10||step==19){y-=lift;expansions++;result.Add(new RmapSpecialWorldPoint(x,y));}}
+            for(int step=1;step<=22;step++){x+=direction;expansions++;if(x<1||x>622)return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());result.Add(new Sv5SpecialWorldPoint(x,y));if(step==6||step==15){y+=lift;expansions++;result.Add(new Sv5SpecialWorldPoint(x,y));}if(step==10||step==19){y-=lift;expansions++;result.Add(new Sv5SpecialWorldPoint(x,y));}}
             return Array.AsReadOnly(result.ToArray());
         }
-        private static bool TryCells(string id,Sv5SidepathEndpoint from,Sv5SidepathEndpoint to,IReadOnlyList<RmapSpecialWorldPoint> path,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,ISet<RmapSpecialWorldPoint> protectedCells,
+        private static bool TryCells(string id,Sv5SidepathEndpoint from,Sv5SidepathEndpoint to,IReadOnlyList<Sv5SpecialWorldPoint> path,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,ISet<Sv5SpecialWorldPoint> protectedCells,
             out Sv5SidepathCell[] output,out int newly,out int changes,out string error)
         {
             output=Array.Empty<Sv5SidepathCell>();newly=0;changes=DirectionChanges(path);error=string.Empty;
             if(path.Distinct().Count()!=path.Count){error="SELF_INTERSECTION";return false;}if(path.Zip(path.Skip(1),(a,b)=>Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y)).Any(v=>v!=1)){error="NON_CARDINAL";return false;}if(changes<2){error="IRREGULARITY";return false;}
-            var desired=new Dictionary<RmapSpecialWorldPoint,Desired>();bool Add(RmapSpecialWorldPoint point,Sv5InfillCellValue value,Sv5SidepathCellRole role){if(desired.TryGetValue(point,out Desired old)){if(old.Value!=value)return false;if(role==Sv5SidepathCellRole.ChamberClearance)old.Role=role;return true;}desired[point]=new Desired{Value=value,Role=role};return true;}
-            for(int i=0;i<path.Count;i++){var point=path[i];var movement=MovementRole(path,i);if(!Add(point,Sv5InfillCellValue.Air,Sv5SidepathCellRole.Air)||!Add(new RmapSpecialWorldPoint(point.X,point.Y+1),Sv5InfillCellValue.Air,Sv5SidepathCellRole.Headroom)){error="CELL_CONFLICT";return false;}if(movement==Sv5SidepathMovementRole.SupportedFoot&&!Add(new RmapSpecialWorldPoint(point.X,point.Y-1),Sv5InfillCellValue.Solid,Sv5SidepathCellRole.SolidSupport)){error="CELL_CONFLICT";return false;}if(movement==Sv5SidepathMovementRole.StepTransition&&!Add(new RmapSpecialWorldPoint(point.X,point.Y+2),Sv5InfillCellValue.Air,Sv5SidepathCellRole.ChamberClearance)){error="CELL_CONFLICT";return false;}}
-            var middle=path[path.Count/2];for(int dx=-1;dx<=1;dx++)if(!Add(new RmapSpecialWorldPoint(middle.X+dx,middle.Y+2),Sv5InfillCellValue.Air,Sv5SidepathCellRole.ChamberClearance)){error="CELL_CONFLICT";return false;}
+            var desired=new Dictionary<Sv5SpecialWorldPoint,Desired>();bool Add(Sv5SpecialWorldPoint point,Sv5InfillCellValue value,Sv5SidepathCellRole role){if(desired.TryGetValue(point,out Desired old)){if(old.Value!=value)return false;if(role==Sv5SidepathCellRole.ChamberClearance)old.Role=role;return true;}desired[point]=new Desired{Value=value,Role=role};return true;}
+            for(int i=0;i<path.Count;i++){var point=path[i];var movement=MovementRole(path,i);if(!Add(point,Sv5InfillCellValue.Air,Sv5SidepathCellRole.Air)||!Add(new Sv5SpecialWorldPoint(point.X,point.Y+1),Sv5InfillCellValue.Air,Sv5SidepathCellRole.Headroom)){error="CELL_CONFLICT";return false;}if(movement==Sv5SidepathMovementRole.SupportedFoot&&!Add(new Sv5SpecialWorldPoint(point.X,point.Y-1),Sv5InfillCellValue.Solid,Sv5SidepathCellRole.SolidSupport)){error="CELL_CONFLICT";return false;}if(movement==Sv5SidepathMovementRole.StepTransition&&!Add(new Sv5SpecialWorldPoint(point.X,point.Y+2),Sv5InfillCellValue.Air,Sv5SidepathCellRole.ChamberClearance)){error="CELL_CONFLICT";return false;}}
+            var middle=path[path.Count/2];for(int dx=-1;dx<=1;dx++)if(!Add(new Sv5SpecialWorldPoint(middle.X+dx,middle.Y+2),Sv5InfillCellValue.Air,Sv5SidepathCellRole.ChamberClearance)){error="CELL_CONFLICT";return false;}
             var changed=new List<Sv5SidepathCell>();foreach(var pair in desired.OrderBy(v=>v.Key)){var point=pair.Key;if(point.X<0||point.X>=624||point.Y<0||point.Y>=416){error="WORLD_OUTSIDE";return false;}var source=Sv5LoopTopology.ValueAt(occupancy,point);if(protectedCells.Contains(point)&&source!=pair.Value.Value){error="PROTECTED";return false;}if(pair.Value.Value==Sv5InfillCellValue.Solid&&source==Sv5InfillCellValue.Air){error="FILLS_EXISTING_AIR";return false;}if(source!=pair.Value.Value)changed.Add(new Sv5SidepathCell(id,point,pair.Value.Role,source,pair.Value.Value));}
             newly=path.Count(point=>Sv5LoopTopology.ValueAt(occupancy,point)!=Sv5InfillCellValue.Air);if(newly<8||newly*5<path.Count*2){error="NEWLY_CARVED";return false;}output=changed.ToArray();return true;
         }
-        private static IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> FinalOccupancy(IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> baseline,IEnumerable<Sv5SidepathLink> links)
-        {var final=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(baseline);foreach(var cell in links.SelectMany(v=>v.Cells))final[cell.World]=new Sv5LoopOccupancyCell(cell.World,cell.FinalValue,"SIDEPATH_ACTUAL",cell.SidepathId);return new ReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(final);}
-        public static IReadOnlyCollection<RmapSpecialWorldPoint> ProtectedCells(Sv5SpaceGraphPlan plan)
-        {var result=new HashSet<RmapSpecialWorldPoint>(plan.Core.CoreCells.Select(v=>v.World));result.UnionWith(plan.Core.RouteCells.Select(v=>v.World));result.UnionWith(plan.Core.RouteSource.Secrets.SelectMany(v=>v.Chunks).SelectMany(chunk=>Enumerable.Range(0,8).SelectMany(y=>Enumerable.Range(0,12).Select(x=>new RmapSpecialWorldPoint(chunk.X*12+x,chunk.Y*8+y)))));result.UnionWith(plan.Gates.SelectMany(v=>v.BlockingCells));result.UnionWith(plan.Gates.SelectMany(v=>v.BlockingFaces).SelectMany(v=>new[]{v.First,v.Second}));result.UnionWith(plan.Ports.SelectMany(v=>v.BoundaryCells.Concat(new[]{v.Anchor})));return result;}
+        private static IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> FinalOccupancy(IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> baseline,IEnumerable<Sv5SidepathLink> links)
+        {var final=new Dictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(baseline);foreach(var cell in links.SelectMany(v=>v.Cells))final[cell.World]=new Sv5LoopOccupancyCell(cell.World,cell.FinalValue,"SIDEPATH_ACTUAL",cell.SidepathId);return new ReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(final);}
+        public static IReadOnlyCollection<Sv5SpecialWorldPoint> ProtectedCells(Sv5SpaceGraphPlan plan)
+        {var result=new HashSet<Sv5SpecialWorldPoint>(plan.Core.CoreCells.Select(v=>v.World));result.UnionWith(plan.Core.RouteCells.Select(v=>v.World));result.UnionWith(plan.Core.RouteSource.Secrets.SelectMany(v=>v.Chunks).SelectMany(chunk=>Enumerable.Range(0,8).SelectMany(y=>Enumerable.Range(0,12).Select(x=>new Sv5SpecialWorldPoint(chunk.X*12+x,chunk.Y*8+y)))));result.UnionWith(plan.Gates.SelectMany(v=>v.BlockingCells));result.UnionWith(plan.Gates.SelectMany(v=>v.BlockingFaces).SelectMany(v=>new[]{v.First,v.Second}));result.UnionWith(plan.Ports.SelectMany(v=>v.BoundaryCells.Concat(new[]{v.Anchor})));return result;}
         private static double Ms(Stopwatch watch)=>watch.ElapsedTicks*1000.0/Stopwatch.Frequency;
     }
 }

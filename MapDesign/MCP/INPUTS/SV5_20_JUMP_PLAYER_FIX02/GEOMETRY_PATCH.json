@@ -1,0 +1,37 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FIX02_GEOMETRY_PATCH/v1",
+  "patch_id": "SV5_20_FIX02_LINK02_CLEARANCE",
+  "task": "SV5_20_JUMP_PLAYER",
+  "supersedes": "SV5_20_FIX01_LINK02_CLEARANCE",
+  "input_recovery_digest": "f8b2e69686dbd9b7a29b82e4e4a8ca2c46c6183a005a5373e986e04b21f4288b",
+  "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+  "operations": [
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":14,"y":4,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX02_LINK02_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":14,"y":5,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX02_LINK02_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":9,"y":4,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX02_LINK02_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":9,"y":5,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX02_LINK02_CLEARANCE"}
+  ],
+  "borrowed_existing_supports": [
+    {"recipe_id":"JUMP012_MIXED_R0","x":17,"y":4,"collision":"TOP_ONLY","source_layer":"SV5_19_RECOVERY","owner_id":"RG_GRAB_CATCH","newly_added":false},
+    {"recipe_id":"JUMP012_MIXED_MX","x":6,"y":4,"collision":"TOP_ONLY","source_layer":"SV5_19_RECOVERY","owner_id":"RG_GRAB_CATCH","newly_added":false}
+  ],
+  "effective_link_overrides": [
+    {"recipe_id":"JUMP012_MIXED_R0","order":2,"source_link_id":"JS_LINK_02","takeoff_x":13,"takeoff_y":4,"landing_x":17,"landing_y":5,"walk_to_next_takeoff_x":18,"walk_to_next_takeoff_y":5},
+    {"recipe_id":"JUMP012_MIXED_MX","order":2,"source_link_id":"JS_LINK_02","takeoff_x":10,"takeoff_y":4,"landing_x":6,"landing_y":5,"walk_to_next_takeoff_x":5,"walk_to_next_takeoff_y":5}
+  ],
+  "preserve_cells": [
+    {"recipe_id":"JUMP012_MIXED_R0","x":14,"y":6,"collision":"SOLID"},
+    {"recipe_id":"JUMP012_MIXED_MX","x":9,"y":6,"collision":"SOLID"}
+  ],
+  "changed_cell_count": 4,
+  "removed_cell_count": 4,
+  "added_cell_count": 0,
+  "borrowed_support_count": 2,
+  "exact_mirror_x": true,
+  "player_tuning_changed": false,
+  "predecessor_files_changed": false,
+  "reverse_required": false,
+  "items_used": false,
+  "whole_world_work": false
+}
+

@@ -1,0 +1,166 @@
+{
+  "format": "sv5_input_manifest_v1",
+  "task": "SV5_01_APPROVAL_BASELINE",
+  "files": [
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/PLAN_ORIGIN.json",
+      "sha256": "b0e13c0b9d37ee2c05a6105ac1bc183b287160cc441fcc7acae9d78f42005ee2",
+      "bytes": 254
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/README.md",
+      "sha256": "458dcec7b5b6f9082ff3411b7851a9ca9afa453eb1a498f0131d5b47ce4fabaa",
+      "bytes": 1287
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SHA256.json",
+      "sha256": "153ad42818ea6f2273a9051d6f8129b1978f9967a85ba1f41d76e0f94701c84b",
+      "bytes": 2260
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha256": "8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85",
+      "bytes": 1949
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "bytes": 9715
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha256": "6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc",
+      "bytes": 12957
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/TASKS.csv",
+      "sha256": "aac3c738f4f16fd69ce6ee71abb897420cf3b239d470e097e82311b304804052",
+      "bytes": 10872
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/TASKS.json",
+      "sha256": "7932de9ac46a82cf27046599a0ede47bf5a35f35c29edb374df178feeb70b367",
+      "bytes": 15707
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/BASELINE_SHA.json",
+      "sha256": "e7f77144bafae687f960cfbf6be5096958c197c593d22479e4a1ded24ec5d70c",
+      "bytes": 1425
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.pdf",
+      "sha256": "b1850daed1afd2779deb5ab7bccb7a1f1f70a0594c467ee0a3703440cbcaf011",
+      "bytes": 5410543
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.png",
+      "sha256": "033b25d58d1d6be81126c35c232658f7f8e6e2a1db671840fec633055ab1207b",
+      "bytes": 814488
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_624x416.zip",
+      "sha256": "ee7eef7d818ee99acb62aea4d6ed24772d3948ad581eb6f12e06f29af11abd5e",
+      "bytes": 9783657
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/SPACE_EXAMPLE_DETAIL.png",
+      "sha256": "84c295a26a36ef1ecc314f1460517e5349bfe6fd9db39029810f432e84b4f0d5",
+      "bytes": 156504
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/connections.json",
+      "sha256": "e4cf9bb03e0740ce4393ddf4a0db37afafa19dc5e114a7d337384428d22356bd",
+      "bytes": 301914
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/regions.json",
+      "sha256": "17d3bfcc1b60839796805c52dabb8ab65a723aca82bcb8eb470b7b1d5f1abccd",
+      "bytes": 312595
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/validation.json",
+      "sha256": "52ccb91f40832f71235481683535df1c4ff5ff14d0615d1c7ca73eb01901a8f4",
+      "bytes": 1784
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/world_cells.csv",
+      "sha256": "3504bb66f506463223b5775a71e8fcfe323e67865cd0791b92aa102683c30538",
+      "bytes": 3329329
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/reported/RMAP17_WORLD_BAKE_RESULT.md",
+      "sha256": "53109e3b24e3df8191e634d7ec2e3f06087108965e5f9bc2af937f030a563c6b",
+      "bytes": 4572
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_COVERAGE.md",
+      "sha256": "859d592584d22238b116f212aa6f13085b373502eb385413383a3eaa2605354b",
+      "bytes": 1546
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_FILL.md",
+      "sha256": "34bd4d366582454aa57f2005639177c64b326ce191b2c142b9b6849be6a2b6f1",
+      "bytes": 3580
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+      "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761",
+      "bytes": 3490
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_NETWORK.md",
+      "sha256": "815637f2df4f18f1be37a8a499d016a200dbc8bb5759a340cfc90f43493e1706",
+      "bytes": 4787
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_PLACES.md",
+      "sha256": "96d240d783501072bb547ccc5da781013964916aa5e83af396776a62626b3e20",
+      "bytes": 7429
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_RAIL.md",
+      "sha256": "8e3219243af72b3a1412ae7d911d91d3384044bdf0221a6e90d609e85d9ed6fb",
+      "bytes": 4403
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+      "sha256": "39acc95088558121b9ca08fb1cecca07bd3b966e58ad6d6dd64af8099196b554",
+      "bytes": 9634
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_RULES.md",
+      "sha256": "ab5d9efdad350e8123a0ff7b05a812a9752e455e8f47fd600e91e4fef2553aa5",
+      "bytes": 3949
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_SPAWN.md",
+      "sha256": "1bda912a84d38a1177ce5db166a6c49c0ce1f945e475d6c4f4251399f517bc0a",
+      "bytes": 4230
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_SPECIALS.md",
+      "sha256": "a88298cfa97f90ed8454a9fae072f460b63e81e15f98b855b30cd270907b30b1",
+      "bytes": 3683
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/reference/v4/SPACE_STAIRS.md",
+      "sha256": "a53a524c281d4672a6d3a5c6fbfb3ef732206b7f03b111640dec9389820cd134",
+      "bytes": 3613
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/tasks/SV5_01_APPROVAL_BASELINE.md",
+      "sha256": "4a4f6a1c9dcb74ae63e4ee30269551f133aabdf256caff5ee4374276d385dcdf",
+      "bytes": 7058
+    },
+    {
+      "path": "MapDesign/MCP_INBOX/SV5_START.md",
+      "sha256": "9f440662458d69a74127fa81c4af89e35649dd06426ea19071285f1fd0ddbbef",
+      "bytes": 3841
+    },
+    {
+      "path": "SV5_VERIFY.py",
+      "sha256": "8fc072c3d17514ffde54fc9d10a893594c12e3032c9eca0ef504af29d107c87f",
+      "bytes": 5703
+    }
+  ]
+}

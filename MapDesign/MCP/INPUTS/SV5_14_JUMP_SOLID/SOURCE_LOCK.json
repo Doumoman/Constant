@@ -1,0 +1,21 @@
+{
+  "schema": "SV5_14_JUMP_SOLID_SOURCE_LOCK/v1",
+  "base_commit": "33a635905345ff2a42facc3add5c6609eea9357c",
+  "base_parent": "5e09c37146c21e16bb165ebdd47745205e5a0381",
+  "base_subject": "SV5_13_JUMP_CONTRACT: define exact jump support contract",
+  "review_zip_sha256": "a62d384f95014dfeab267ba8d620127f790452234d750a35a636b32634a9d6fb",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"858b8f92b150aef6672c88d4e7e1f19e541116d9","sha256":"2dfd98a66c1e54e82add98c6f403a58f79c6f38158f95bf9741d6b3f65451338","bytes":102596,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md","git_blob_oid":"c6709977ad95f9121b6894185faeb990cf9bc093","sha256":"69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c","bytes":37001,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_13_JUMP_CONTRACT.md","git_blob_oid":"92b78a767725803fa449b382ce7e99d6972a51ab","sha256":"3fe70921236563d0e4f9d361f31b172551ddf712d1a7668921c0fc9dcd7a412c","bytes":3680,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_13_JUMP_CONTRACT.md","git_blob_oid":"92b78a767725803fa449b382ce7e99d6972a51ab","sha256":"3fe70921236563d0e4f9d361f31b172551ddf712d1a7668921c0fc9dcd7a412c","bytes":3680,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_13_JUMP_CONTRACT_RESULT.md","git_blob_oid":"83d3bbe68cd07dfb1327710a75e5ced4ae16503f","sha256":"0379706ace7944389c56cb91c8c1999a8a4c4cea7b8a90e0226ba4a63c8a36df","bytes":5192,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_13_JUMP_CONTRACT/BINDING.json","git_blob_oid":"d4dffe6a339397e631240805f49dcf1969372ad0","sha256":"a56f348f5ea3e75450b6948a4c92fb2d63fcb10813e8524e649e36bd6abf43e4","bytes":7374,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpContract.cs","git_blob_oid":"2ce92078ceaf772a39fff0ad2db6b74a60657e1b","sha256":"18f2381c684d2d763d2cbf44b2767220e67ddacdac96a47e091a2251ada1f109","bytes":28536,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpContractExport.cs","git_blob_oid":"5c70b540473aa3a7ac6ec414801d9131132fab2b","sha256":"d9ea2999196f6957dbae2a8f0697c627885a1654f5c8771f5acb6e7407874864","bytes":19887,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5JumpContractTests.cs","git_blob_oid":"6ed954ec82c46013c0e004137f088a0cb3684de2","sha256":"2c8254e031ffe0da54918380cff44b757be6324ea94050e507d216184e87b774","bytes":15195,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/SV5/21_JUMP_CONTRACT_V5.md","git_blob_oid":"f415d0f8cbe111e806f3ad43d997efb9fc7b4878","sha256":"92a5204e72c06797a14d70ea9de13eeb3bfbf39a7970dcf96eb03f808ab38678","bytes":3928,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_13_JUMP_CONTRACT/jump_contract.json","git_blob_oid":"6ebc2abb34e94f50826cd8aa2602538d289ce28b","sha256":"61877b54627b26b7859af8fa5bba9807138e571283c4ad8229feeb5f603f07df","bytes":4719,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_13_JUMP_CONTRACT/contract_validation.json","git_blob_oid":"0244959de2b55f2cfdef3abfc0cbab499ae10600","sha256":"388d11310fc617bd22560ebe2f5119dfdcf632db5275506e9e02328f0e88851e","bytes":640,"role":"IMMUTABLE"}
+  ]
+}

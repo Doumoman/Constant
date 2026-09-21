@@ -1,0 +1,45 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FIX03_GEOMETRY_PATCH/v1",
+  "patch_id": "SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE",
+  "task": "SV5_20_JUMP_PLAYER",
+  "supersedes": "SV5_20_FIX02_LINK02_CLEARANCE",
+  "input_recovery_digest": "f8b2e69686dbd9b7a29b82e4e4a8ca2c46c6183a005a5373e986e04b21f4288b",
+  "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+  "operations": [
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":14,"y":4,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK02_BODY_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":14,"y":5,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK02_HEAD_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":14,"y":6,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK02_ASCENT_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":3,"y":7,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK06_PASS_THROUGH"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":3,"y":8,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK06_PASS_THROUGH"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"REMOVE","x":4,"y":8,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK06_PASS_THROUGH"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"CONVERT","x":3,"y":9,"old_collision":"SOLID","new_collision":"TOP_ONLY","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_JS08_PASS_THROUGH","reason":"PRESERVE_LINK07_08_SUPPORT"},
+    {"recipe_id":"JUMP012_MIXED_R0","op":"CONVERT","x":4,"y":9,"old_collision":"SOLID","new_collision":"TOP_ONLY","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_JS08_PASS_THROUGH","reason":"PRESERVE_LINK07_08_SUPPORT"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":9,"y":4,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK02_BODY_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":9,"y":5,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK02_HEAD_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":9,"y":6,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS04_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK02_ASCENT_CLEARANCE"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":20,"y":7,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK06_PASS_THROUGH"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":20,"y":8,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK06_PASS_THROUGH"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"REMOVE","x":19,"y":8,"old_collision":"SOLID","new_collision":"AIR","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_LOCAL_PHYSICAL_CLEARANCE","reason":"LINK06_PASS_THROUGH"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"CONVERT","x":20,"y":9,"old_collision":"SOLID","new_collision":"TOP_ONLY","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_JS08_PASS_THROUGH","reason":"PRESERVE_LINK07_08_SUPPORT"},
+    {"recipe_id":"JUMP012_MIXED_MX","op":"CONVERT","x":19,"y":9,"old_collision":"SOLID","new_collision":"TOP_ONLY","old_owner_id":"JS08_SOLID","new_owner_id":"SV5_20_FIX03_JS08_PASS_THROUGH","reason":"PRESERVE_LINK07_08_SUPPORT"}
+  ],
+  "effective_link_overrides": [
+    {"recipe_id":"JUMP012_MIXED_R0","order":2,"source_link_id":"JS_LINK_02","takeoff_x":13,"takeoff_y":4,"landing_x":17,"landing_y":5,"walk_to_next_takeoff_x":18,"walk_to_next_takeoff_y":5},
+    {"recipe_id":"JUMP012_MIXED_MX","order":2,"source_link_id":"JS_LINK_02","takeoff_x":10,"takeoff_y":4,"landing_x":6,"landing_y":5,"walk_to_next_takeoff_x":5,"walk_to_next_takeoff_y":5}
+  ],
+  "js08_preserved_link_coordinates": [
+    {"recipe_id":"JUMP012_MIXED_R0","link07_landing_x":3,"link07_landing_y":10,"link08_takeoff_x":4,"link08_takeoff_y":10},
+    {"recipe_id":"JUMP012_MIXED_MX","link07_landing_x":20,"link07_landing_y":10,"link08_takeoff_x":19,"link08_takeoff_y":10}
+  ],
+  "changed_cell_count": 16,
+  "removed_cell_count": 12,
+  "converted_cell_count": 4,
+  "added_cell_count": 0,
+  "exact_mirror_x": true,
+  "top_only_grabbable": false,
+  "player_tuning_changed": false,
+  "predecessor_files_changed": false,
+  "reverse_required": false,
+  "items_used": false,
+  "whole_world_work": false
+}

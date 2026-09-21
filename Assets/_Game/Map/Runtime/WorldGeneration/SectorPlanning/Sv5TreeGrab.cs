@@ -22,14 +22,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5TreeCell : IComparable<Sv5TreeCell>
     {
-        internal Sv5TreeCell(RmapSpecialWorldPoint world,Sv5TreeCellRole role,
+        internal Sv5TreeCell(Sv5SpecialWorldPoint world,Sv5TreeCellRole role,
             Sv5InfillCellValue beforeValue,Sv5InfillCellValue finalValue,Sv5InfillCellValue supportValue)
         {
             World=world;Role=role;BeforeValue=beforeValue;FinalValue=finalValue;SupportValue=supportValue;
             Owner=beforeValue==finalValue?string.Empty:(IsVisualOnly?"TREE_VISUAL_ACTUAL":"TREE_GRAB_ACTUAL");
         }
 
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5TreeCellRole Role { get; }
         public Sv5InfillCellValue BeforeValue { get; }
         public Sv5InfillCellValue FinalValue { get; }
@@ -52,16 +52,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5TreeSurface : IComparable<Sv5TreeSurface>
     {
-        internal Sv5TreeSurface(string id,RmapSpecialWorldPoint world,Sv5TreeGrabFace face)
+        internal Sv5TreeSurface(string id,Sv5SpecialWorldPoint world,Sv5TreeGrabFace face)
         {
             Id=id??string.Empty;World=world;Face=face;
-            HangAir=new RmapSpecialWorldPoint(world.X+(face==Sv5TreeGrabFace.Left?-1:1),world.Y);
+            HangAir=new Sv5SpecialWorldPoint(world.X+(face==Sv5TreeGrabFace.Left?-1:1),world.Y);
         }
 
         public string Id { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5TreeGrabFace Face { get; }
-        public RmapSpecialWorldPoint HangAir { get; }
+        public Sv5SpecialWorldPoint HangAir { get; }
         public string AnchorType=>"TRUNK_CLIMB_FACE";
         public string ExportFace=>Face.ToString().ToUpperInvariant();
         public string DigestToken=>Id+"|"+World+"|"+ExportFace+"|"+HangAir;
@@ -70,22 +70,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5TreeLimb : IComparable<Sv5TreeLimb>
     {
-        internal Sv5TreeLimb(string id,string parentId,int generation,IEnumerable<RmapSpecialWorldPoint> path,
+        internal Sv5TreeLimb(string id,string parentId,int generation,IEnumerable<Sv5SpecialWorldPoint> path,
             bool leadsToFork,bool terminal)
         {
             Id=id??string.Empty;ParentId=parentId??string.Empty;Generation=generation;
-            Path=Array.AsReadOnly((path??Array.Empty<RmapSpecialWorldPoint>()).ToArray());
+            Path=Array.AsReadOnly((path??Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
             LeadsToFork=leadsToFork;Terminal=terminal;
         }
         public string Id { get; }
         public string ParentId { get; }
         public int Generation { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> Path { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> Path { get; }
         public bool LeadsToFork { get; }
         public bool Terminal { get; }
         public int ProgressCells=>Math.Max(0,Path.Count-1);
-        public RmapSpecialWorldPoint Start=>Path.First();
-        public RmapSpecialWorldPoint End=>Path.Last();
+        public Sv5SpecialWorldPoint Start=>Path.First();
+        public Sv5SpecialWorldPoint End=>Path.Last();
         public string DigestToken=>Id+"|"+ParentId+"|"+Generation+"|"+LeadsToFork+"|"+Terminal+"|"+
             string.Join(";",Path);
         public int CompareTo(Sv5TreeLimb other)=>other==null?1:string.Compare(Id,other.Id,StringComparison.Ordinal);
@@ -93,7 +93,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5TreeFork : IComparable<Sv5TreeFork>
     {
-        internal Sv5TreeFork(string id,string parentLimbId,int generation,RmapSpecialWorldPoint world,
+        internal Sv5TreeFork(string id,string parentLimbId,int generation,Sv5SpecialWorldPoint world,
             IEnumerable<string> childLimbIds,bool substantial)
         {
             Id=id??string.Empty;ParentLimbId=parentLimbId??string.Empty;Generation=generation;World=world;
@@ -102,7 +102,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string Id { get; }
         public string ParentLimbId { get; }
         public int Generation { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public IReadOnlyList<string> ChildLimbIds { get; }
         public bool Substantial { get; }
         public string DigestToken=>Id+"|"+ParentLimbId+"|"+Generation+"|"+World+"|"+
@@ -142,7 +142,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5TreeCell> cells,IEnumerable<Sv5TreeSurface> surfaces,IEnumerable<Sv5TreeLimb> limbs,
             IEnumerable<Sv5TreeFork> forks,IEnumerable<Sv5TreePlatform> platforms,
             IEnumerable<Sv5TreeRoute> routes,IEnumerable<Sv5TreeRoute> recoveryRoutes,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> finalOccupancy,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> finalOccupancy,
             IEnumerable<int> requiredLevels,double lowerWidth,double middleWidth,double upperWidth,
             int longestStraightRun,long generationMilliseconds,IEnumerable<string> diagnostics)
         {
@@ -160,7 +160,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             LongestStraightMainRun=longestStraightRun;GenerationMilliseconds=generationMilliseconds;
             Diagnostics=Array.AsReadOnly((diagnostics??Array.Empty<string>()).Distinct(StringComparer.Ordinal)
                 .OrderBy(value=>value,StringComparer.Ordinal).ToArray());
-            Digest=RmapWorldDefinition.Hash("SV5_12_FIX01_TREE_CANOPY_V1\n"+BaselineDigest+"\n"+ReservedVolume+"\n"+
+            Digest=Sv5WorldDefinition.Hash("SV5_12_FIX01_TREE_CANOPY_V1\n"+BaselineDigest+"\n"+ReservedVolume+"\n"+
                 RootAxisX+"\n"+string.Join("\n",Cells.Select(cell=>cell.DigestToken))+"\n"+
                 string.Join("\n",Surfaces.Select(surface=>surface.DigestToken))+"\n"+
                 string.Join("\n",Limbs.Select(limb=>limb.DigestToken))+"\n"+
@@ -183,12 +183,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public IReadOnlyList<Sv5TreePlatform> Platforms { get; }
         public IReadOnlyList<Sv5TreeRoute> Routes { get; }
         public IReadOnlyList<Sv5TreeRoute> RecoveryRoutes { get; }
-        public IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> FinalOccupancy { get; }
+        public IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> FinalOccupancy { get; }
         public IReadOnlyList<int> RequiredLevels { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> MajorBranchPoints=>Forks.Select(fork=>fork.World).ToArray();
-        public IReadOnlyList<RmapSpecialWorldPoint> ClimbEndpoints=>Limbs.Where(limb=>limb.Terminal).Select(limb=>limb.End).Distinct().ToArray();
-        public IReadOnlyList<RmapSpecialWorldPoint> RequiredEntrances=>Routes.Select(route=>route.Edges.First().From).ToArray();
-        public IReadOnlyList<RmapSpecialWorldPoint> RequiredExits=>Routes.Select(route=>route.Edges.Last().To).ToArray();
+        public IReadOnlyList<Sv5SpecialWorldPoint> MajorBranchPoints=>Forks.Select(fork=>fork.World).ToArray();
+        public IReadOnlyList<Sv5SpecialWorldPoint> ClimbEndpoints=>Limbs.Where(limb=>limb.Terminal).Select(limb=>limb.End).Distinct().ToArray();
+        public IReadOnlyList<Sv5SpecialWorldPoint> RequiredEntrances=>Routes.Select(route=>route.Edges.First().From).ToArray();
+        public IReadOnlyList<Sv5SpecialWorldPoint> RequiredExits=>Routes.Select(route=>route.Edges.Last().To).ToArray();
         public double LowerTrunkWidth { get; }
         public double MiddleTrunkWidth { get; }
         public double UpperTrunkWidth { get; }
@@ -236,14 +236,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var reserved=new Sv5SpaceBounds(bounds.X+7,bounds.Y+8,10,24);
             var inner=new Sv5SpaceBounds(bounds.X+6,bounds.Y+5,12,30);
             var owned=new Sv5SpaceBounds(reserved.X-2,reserved.Y-2,reserved.Width+4,reserved.Height+4);
-            var desired=new Dictionary<RmapSpecialWorldPoint,Desired>();var diagnostics=new List<string>();
+            var desired=new Dictionary<Sv5SpecialWorldPoint,Desired>();var diagnostics=new List<string>();
             int variant=(bounds.X/16)&1;
-            RmapSpecialWorldPoint P(int x,int y)=>new RmapSpecialWorldPoint(
+            Sv5SpecialWorldPoint P(int x,int y)=>new Sv5SpecialWorldPoint(
                 reserved.X+(variant==0?x:reserved.Width-1-x),reserved.Y+y);
             Sv5TreeGrabFace Face(Sv5TreeGrabFace face)=>variant==0?face:
                 (face==Sv5TreeGrabFace.Left?Sv5TreeGrabFace.Right:Sv5TreeGrabFace.Left);
 
-            void Put(RmapSpecialWorldPoint point,Sv5TreeCellRole role,Sv5InfillCellValue value)
+            void Put(Sv5SpecialWorldPoint point,Sv5TreeCellRole role,Sv5InfillCellValue value)
             {
                 if(!owned.Contains(point)){diagnostics.Add("TREE_OWNED_AABB_ESCAPE|"+point);return;}
                 if(desired.TryGetValue(point,out Desired existing))
@@ -263,9 +263,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     Sv5LoopTopology.ValueAt(hub.FinalOccupancy,point)==Sv5InfillCellValue.Air)
                     Put(point,role,Sv5InfillCellValue.Air);
             }
-            IReadOnlyList<RmapSpecialWorldPoint> Path(params int[] coordinates)
+            IReadOnlyList<Sv5SpecialWorldPoint> Path(params int[] coordinates)
             {
-                var result=new List<RmapSpecialWorldPoint>();
+                var result=new List<Sv5SpecialWorldPoint>();
                 for(int index=0;index<coordinates.Length;index+=2)result.Add(P(coordinates[index],coordinates[index+1]));
                 return result;
             }
@@ -325,20 +325,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 if(((x*3+y*5+variant*2)%7)<=1&&(y>=18||x==0||x==9))Visual(x,y,Sv5TreeCellRole.LeafDecoration);
 
             if(!inner.Contains(P(0,0))||!inner.Contains(P(9,23)))diagnostics.Add("TREE_ENVELOPE_OUTSIDE_HUB_INNER");
-            var collisionSolid=new HashSet<RmapSpecialWorldPoint>(desired.Where(pair=>pair.Value.Value==Sv5InfillCellValue.Solid)
+            var collisionSolid=new HashSet<Sv5SpecialWorldPoint>(desired.Where(pair=>pair.Value.Value==Sv5InfillCellValue.Solid)
                 .Select(pair=>pair.Key));
-            var trunk=new HashSet<RmapSpecialWorldPoint>(desired.Where(pair=>pair.Value.Role==Sv5TreeCellRole.TrunkClimb)
+            var trunk=new HashSet<Sv5SpecialWorldPoint>(desired.Where(pair=>pair.Value.Role==Sv5TreeCellRole.TrunkClimb)
                 .Select(pair=>pair.Key));
             var surfaces=BuildSurfaces(trunk,collisionSolid).ToArray();
             var surfaceIndex=surfaces.ToDictionary(surface=>surface.World+"|"+surface.ExportFace,StringComparer.Ordinal);
-            Sv5TreeSurface FindSurface(RmapSpecialWorldPoint contact,Sv5TreeGrabFace face)
+            Sv5TreeSurface FindSurface(Sv5SpecialWorldPoint contact,Sv5TreeGrabFace face)
             {
                 surfaceIndex.TryGetValue(contact+"|"+face.ToString().ToUpperInvariant(),out Sv5TreeSurface surface);
                 return surface;
             }
 
             var routes=new List<Sv5TreeRoute>();
-            void Route(string id,IReadOnlyList<ContactSpec> specs,RmapSpecialWorldPoint exit)
+            void Route(string id,IReadOnlyList<ContactSpec> specs,Sv5SpecialWorldPoint exit)
             {
                 var selected=new List<Sv5TreeSurface>();
                 foreach(var spec in specs)
@@ -349,7 +349,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 }
                 if(selected.Count!=specs.Count)return;
                 var edges=new List<Sv5MovementEdge>();
-                var start=new RmapSpecialWorldPoint(selected[0].HangAir.X,selected[0].HangAir.Y-1);
+                var start=new Sv5SpecialWorldPoint(selected[0].HangAir.X,selected[0].HangAir.Y-1);
                 edges.Add(new Sv5MovementEdge(0,start,selected[0].HangAir,Sv5PlatformerMoveType.JumpGrab,true,true,
                     selected[0].World,"BRANCH_TO_TRUNK"));
                 for(int index=1;index<selected.Count;index++)edges.Add(new Sv5MovementEdge(edges.Count,
@@ -375,7 +375,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 new ContactSpec(9,22,Sv5TreeGrabFace.Right),new ContactSpec(9,23,Sv5TreeGrabFace.Right)},P(8,24));
 
             var recovery=new List<Sv5TreeRoute>();var requiredLevels=new List<int>();
-            void Recovery(string id,RmapSpecialWorldPoint from,RmapSpecialWorldPoint to)
+            void Recovery(string id,Sv5SpecialWorldPoint from,Sv5SpecialWorldPoint to)
             {
                 requiredLevels.Add(from.Y);recovery.Add(new Sv5TreeRoute(id,new[]{new Sv5MovementEdge(0,from,to,
                     Sv5PlatformerMoveType.Drop,true,true,null,"DROP_RECOVERY")},true));
@@ -385,30 +385,30 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Recovery("TREE_RECOVERY_03",P(5,24),P(5,22));
 
             var movementPoints=routes.Concat(recovery).SelectMany(route=>route.Edges).SelectMany(edge=>new[]{edge.From,edge.To,
-                new RmapSpecialWorldPoint(edge.From.X,edge.From.Y+1),new RmapSpecialWorldPoint(edge.To.X,edge.To.Y+1)}).Distinct().ToArray();
+                new Sv5SpecialWorldPoint(edge.From.X,edge.From.Y+1),new Sv5SpecialWorldPoint(edge.To.X,edge.To.Y+1)}).Distinct().ToArray();
             foreach(var point in movementPoints)
             {
                 if(collisionSolid.Contains(point)){diagnostics.Add("TREE_MOVEMENT_CLEARANCE_BLOCKED|"+point);continue;}
                 if(!desired.ContainsKey(point))Put(point,Sv5TreeCellRole.MovementClearance,Sv5InfillCellValue.Air);
             }
 
-            var hubMovementOpen=new HashSet<RmapSpecialWorldPoint>(hub.Connections.SelectMany(connection=>connection.MovementWitness)
-                .SelectMany(edge=>new[]{edge.From,edge.To,new RmapSpecialWorldPoint(edge.From.X,edge.From.Y+1),
-                    new RmapSpecialWorldPoint(edge.To.X,edge.To.Y+1)}));
+            var hubMovementOpen=new HashSet<Sv5SpecialWorldPoint>(hub.Connections.SelectMany(connection=>connection.MovementWitness)
+                .SelectMany(edge=>new[]{edge.From,edge.To,new Sv5SpecialWorldPoint(edge.From.X,edge.From.Y+1),
+                    new Sv5SpecialWorldPoint(edge.To.X,edge.To.Y+1)}));
             foreach(var port in hub.Ports)
-            {hubMovementOpen.Add(port.Anchor);hubMovementOpen.Add(new RmapSpecialWorldPoint(port.Anchor.X,port.Anchor.Y+1));}
+            {hubMovementOpen.Add(port.Anchor);hubMovementOpen.Add(new Sv5SpecialWorldPoint(port.Anchor.X,port.Anchor.Y+1));}
             if(collisionSolid.Any(hubMovementOpen.Contains))diagnostics.Add("TREE_REQUIRED_ENTRY_EXIT_BLOCKED");
 
-            var final=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(hub.FinalOccupancy);
+            var final=new Dictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(hub.FinalOccupancy);
             foreach(var pair in desired)final[pair.Key]=new Sv5LoopOccupancyCell(pair.Key,pair.Value.Value,
                 pair.Value.Role==Sv5TreeCellRole.TrunkClimb?"TREE_TRUNK_CLIMB":
                 pair.Value.Role==Sv5TreeCellRole.BranchPlatform?"TREE_BRANCH_PLATFORM":"TREE_VISUAL_OR_CLEARANCE",
                 pair.Value.Role.ToString().ToUpperInvariant());
             var cells=desired.OrderBy(pair=>pair.Key).Select(pair=>new Sv5TreeCell(pair.Key,pair.Value.Role,
                 Sv5LoopTopology.ValueAt(hub.FinalOccupancy,pair.Key),pair.Value.Value,
-                Sv5LoopTopology.ValueAt(final,new RmapSpecialWorldPoint(pair.Key.X,pair.Key.Y-1)))).ToArray();
+                Sv5LoopTopology.ValueAt(final,new Sv5SpecialWorldPoint(pair.Key.X,pair.Key.Y-1)))).ToArray();
             foreach(var cell in cells)cell.HeadClear=Sv5LoopTopology.ValueAt(final,
-                new RmapSpecialWorldPoint(cell.World.X,cell.World.Y+1))==Sv5InfillCellValue.Air;
+                new Sv5SpecialWorldPoint(cell.World.X,cell.World.Y+1))==Sv5InfillCellValue.Air;
 
             int rootWidth=trunk.Count(point=>point.Y==reserved.Y);
             double lowerAverage=BandAverage(trunk,reserved,0),middleAverage=BandAverage(trunk,reserved,1),
@@ -436,7 +436,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if(limbs.Any(limb=>limb.Path.Distinct().Count()!=limb.Path.Count||
                 limb.Path.Zip(limb.Path.Skip(1),(first,second)=>Math.Abs(first.X-second.X)+Math.Abs(first.Y-second.Y)).Any(delta=>delta!=1)))
                 diagnostics.Add("TREE_LIMB_PATH_INVALID");
-            var surfacePoints=new HashSet<RmapSpecialWorldPoint>(surfaces.Select(surface=>surface.World));
+            var surfacePoints=new HashSet<Sv5SpecialWorldPoint>(surfaces.Select(surface=>surface.World));
             foreach(var route in routes)
             {
                 if(route.Edges.Count(edge=>edge.MoveType==Sv5PlatformerMoveType.JumpGrab)!=1)
@@ -450,7 +450,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 var edge=route.Edges.Single();
                 if(!ValidateMovementEdge(edge,collisionSolid,surfacePoints)||Sv5LoopTopology.ValueAt(final,
-                    new RmapSpecialWorldPoint(edge.To.X,edge.To.Y-1))!=Sv5InfillCellValue.Solid)
+                    new Sv5SpecialWorldPoint(edge.To.X,edge.To.Y-1))!=Sv5InfillCellValue.Solid)
                     diagnostics.Add("TREE_RECOVERY_INVALID|"+route.Id);
             }
             if(!AnchorsDistinct(hub.Connections.Select(connection=>connection.ExternalAnchor)))
@@ -458,12 +458,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if(!ConnectionBodiesDisjoint(hub.Connections,hub.Footprint))diagnostics.Add("TREE_CONNECTION_BODY_MERGE");
             timer.Stop();if(timer.ElapsedMilliseconds>100)diagnostics.Add("TREE_GENERATION_TIME_EXCEEDED|"+timer.ElapsedMilliseconds);
             return new Sv5TreeGrabPlan(baseline.Digest,reserved,rootAxis,cells,surfaces,limbs,forks,platforms,
-                routes,recovery,new ReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(final),requiredLevels,
+                routes,recovery,new ReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(final),requiredLevels,
                 lowerAverage,middleAverage,upperAverage,straightRun,timer.ElapsedMilliseconds,diagnostics);
         }
 
-        public static bool ValidateMovementEdge(Sv5MovementEdge edge,ISet<RmapSpecialWorldPoint> solid,
-            ISet<RmapSpecialWorldPoint> surfacePoints)
+        public static bool ValidateMovementEdge(Sv5MovementEdge edge,ISet<Sv5SpecialWorldPoint> solid,
+            ISet<Sv5SpecialWorldPoint> surfacePoints)
         {
             if(edge==null||!edge.BodyClear||!edge.HeadClear)return false;
             int dx=edge.To.X-edge.From.X,dy=edge.To.Y-edge.From.Y;
@@ -480,11 +480,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return solid!=null&&surfacePoints!=null&&solid.Contains(edge.Contact.Value)&&surfacePoints.Contains(edge.Contact.Value);
         }
 
-        public static bool HasSolidRectangle(ISet<RmapSpecialWorldPoint> solid,int width,int height)
+        public static bool HasSolidRectangle(ISet<Sv5SpecialWorldPoint> solid,int width,int height)
         {
             if(solid==null||width<=0||height<=0)return false;
             return solid.Any(origin=>Enumerable.Range(0,width).All(dx=>Enumerable.Range(0,height)
-                .All(dy=>solid.Contains(new RmapSpecialWorldPoint(origin.X+dx,origin.Y+dy)))));
+                .All(dy=>solid.Contains(new Sv5SpecialWorldPoint(origin.X+dx,origin.Y+dy)))));
         }
 
         public static bool ConnectionBodiesDisjoint(IEnumerable<Sv5HubConnection> source,Sv5SpaceBounds hubBounds)
@@ -494,14 +494,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 !hubBounds.Contains(point)&&!point.Equals(connection.ExternalAnchor))));
         }
 
-        public static bool AnchorsDistinct(IEnumerable<RmapSpecialWorldPoint> anchors)
-        {var values=(anchors??Array.Empty<RmapSpecialWorldPoint>()).ToArray();return values.Distinct().Count()==values.Length;}
+        public static bool AnchorsDistinct(IEnumerable<Sv5SpecialWorldPoint> anchors)
+        {var values=(anchors??Array.Empty<Sv5SpecialWorldPoint>()).ToArray();return values.Distinct().Count()==values.Length;}
 
-        public static bool PointSetsDisjoint(IEnumerable<IEnumerable<RmapSpecialWorldPoint>> source)
+        public static bool PointSetsDisjoint(IEnumerable<IEnumerable<Sv5SpecialWorldPoint>> source)
         {
-            var seen=new HashSet<RmapSpecialWorldPoint>();
-            foreach(var points in source??Array.Empty<IEnumerable<RmapSpecialWorldPoint>>())
-                foreach(var point in (points??Array.Empty<RmapSpecialWorldPoint>()).Distinct())if(!seen.Add(point))return false;
+            var seen=new HashSet<Sv5SpecialWorldPoint>();
+            foreach(var points in source??Array.Empty<IEnumerable<Sv5SpecialWorldPoint>>())
+                foreach(var point in (points??Array.Empty<Sv5SpecialWorldPoint>()).Distinct())if(!seen.Add(point))return false;
             return true;
         }
 
@@ -515,19 +515,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return (requiredLevels??Array.Empty<int>()).All(sources.Contains);
         }
 
-        public static bool Connected(ISet<RmapSpecialWorldPoint> cells)
+        public static bool Connected(ISet<Sv5SpecialWorldPoint> cells)
         {
             if(cells==null||cells.Count==0)return false;
-            var visited=new HashSet<RmapSpecialWorldPoint>();var queue=new Queue<RmapSpecialWorldPoint>();
+            var visited=new HashSet<Sv5SpecialWorldPoint>();var queue=new Queue<Sv5SpecialWorldPoint>();
             var first=cells.OrderBy(point=>point).First();visited.Add(first);queue.Enqueue(first);
             while(queue.Count>0)foreach(var next in Cardinal(queue.Dequeue()))if(cells.Contains(next)&&visited.Add(next))queue.Enqueue(next);
             return visited.Count==cells.Count;
         }
 
-        public static bool Symmetric(IEnumerable<RmapSpecialWorldPoint> cells,int centerX)
+        public static bool Symmetric(IEnumerable<Sv5SpecialWorldPoint> cells,int centerX)
         {
-            var set=new HashSet<RmapSpecialWorldPoint>(cells??Array.Empty<RmapSpecialWorldPoint>());
-            return set.Count>0&&set.All(point=>set.Contains(new RmapSpecialWorldPoint(centerX*2-point.X,point.Y)));
+            var set=new HashSet<Sv5SpecialWorldPoint>(cells??Array.Empty<Sv5SpecialWorldPoint>());
+            return set.Count>0&&set.All(point=>set.Contains(new Sv5SpecialWorldPoint(centerX*2-point.X,point.Y)));
         }
 
         public static int LongestStraightRun(IEnumerable<Sv5TreeLimb> source)
@@ -546,29 +546,29 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return best;
         }
 
-        private static IEnumerable<Sv5TreeSurface> BuildSurfaces(ISet<RmapSpecialWorldPoint> trunk,
-            ISet<RmapSpecialWorldPoint> collisionSolid)
+        private static IEnumerable<Sv5TreeSurface> BuildSurfaces(ISet<Sv5SpecialWorldPoint> trunk,
+            ISet<Sv5SpecialWorldPoint> collisionSolid)
         {
             int index=0;
             foreach(var point in trunk.OrderBy(value=>value))
             {
                 foreach(var face in new[]{Sv5TreeGrabFace.Left,Sv5TreeGrabFace.Right})
                 {
-                    var hang=new RmapSpecialWorldPoint(point.X+(face==Sv5TreeGrabFace.Left?-1:1),point.Y);
-                    var head=new RmapSpecialWorldPoint(hang.X,hang.Y+1);
+                    var hang=new Sv5SpecialWorldPoint(point.X+(face==Sv5TreeGrabFace.Left?-1:1),point.Y);
+                    var head=new Sv5SpecialWorldPoint(hang.X,hang.Y+1);
                     if(collisionSolid.Contains(hang)||collisionSolid.Contains(head))continue;
                     yield return new Sv5TreeSurface("TREE_CLIMB_"+(++index).ToString("000",CultureInfo.InvariantCulture),point,face);
                 }
             }
         }
 
-        private static IEnumerable<RmapSpecialWorldPoint> Cardinal(RmapSpecialWorldPoint point)
+        private static IEnumerable<Sv5SpecialWorldPoint> Cardinal(Sv5SpecialWorldPoint point)
         {
-            yield return new RmapSpecialWorldPoint(point.X-1,point.Y);yield return new RmapSpecialWorldPoint(point.X+1,point.Y);
-            yield return new RmapSpecialWorldPoint(point.X,point.Y-1);yield return new RmapSpecialWorldPoint(point.X,point.Y+1);
+            yield return new Sv5SpecialWorldPoint(point.X-1,point.Y);yield return new Sv5SpecialWorldPoint(point.X+1,point.Y);
+            yield return new Sv5SpecialWorldPoint(point.X,point.Y-1);yield return new Sv5SpecialWorldPoint(point.X,point.Y+1);
         }
 
-        private static double BandAverage(ISet<RmapSpecialWorldPoint> trunk,Sv5SpaceBounds volume,int band)
+        private static double BandAverage(ISet<Sv5SpecialWorldPoint> trunk,Sv5SpaceBounds volume,int band)
         {
             int start=volume.Y+(volume.Height*band)/3,end=volume.Y+(volume.Height*(band+1))/3;
             var widths=new List<int>();

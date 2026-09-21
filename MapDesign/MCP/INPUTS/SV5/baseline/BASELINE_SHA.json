@@ -1,0 +1,43 @@
+{
+  "approved": "spatial composition of 624x416 static example",
+  "source_seed": 40921,
+  "unity_play_verified": false,
+  "new_changes": [
+    "Jump-map actual solid/grab supports",
+    "Local outline offsets 1-2 tiles"
+  ],
+  "artifacts": {
+    "SPACE_EXAMPLE_624x416.pdf": {
+      "sha256": "b1850daed1afd2779deb5ab7bccb7a1f1f70a0594c467ee0a3703440cbcaf011",
+      "bytes": 5410543
+    },
+    "SPACE_EXAMPLE_624x416.png": {
+      "sha256": "033b25d58d1d6be81126c35c232658f7f8e6e2a1db671840fec633055ab1207b",
+      "bytes": 814488
+    },
+    "SPACE_EXAMPLE_DETAIL.png": {
+      "sha256": "84c295a26a36ef1ecc314f1460517e5349bfe6fd9db39029810f432e84b4f0d5",
+      "bytes": 156504
+    },
+    "SPACE_EXAMPLE_624x416.zip": {
+      "sha256": "ee7eef7d818ee99acb62aea4d6ed24772d3948ad581eb6f12e06f29af11abd5e",
+      "bytes": 9783657
+    },
+    "baseline/world_cells.csv": {
+      "sha256": "3504bb66f506463223b5775a71e8fcfe323e67865cd0791b92aa102683c30538",
+      "bytes": 3329329
+    },
+    "baseline/regions.json": {
+      "sha256": "17d3bfcc1b60839796805c52dabb8ab65a723aca82bcb8eb470b7b1d5f1abccd",
+      "bytes": 312595
+    },
+    "baseline/connections.json": {
+      "sha256": "e4cf9bb03e0740ce4393ddf4a0db37afafa19dc5e114a7d337384428d22356bd",
+      "bytes": 301914
+    },
+    "baseline/validation.json": {
+      "sha256": "52ccb91f40832f71235481683535df1c4ff5ff14d0615d1c7ca73eb01901a8f4",
+      "bytes": 1784
+    }
+  }
+}

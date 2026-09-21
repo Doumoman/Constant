@@ -106,7 +106,7 @@ namespace StarNight.Character.Live.Movement
         }
 
         /// <summary>
-        /// RMAP05 착지 결과의 단일 소유자. 거리는 반올림하지 않고 연속 구간으로
+        /// SV5 착지 결과의 단일 소유자. 거리는 반올림하지 않고 연속 구간으로
         /// 비교한다. 체력 적용은 live fall state가 기존 Survival 계약으로 위임한다.
         /// </summary>
         public CharacterLiveFallLandingResult EvaluateFallLanding(float fallDistance)
@@ -142,8 +142,8 @@ namespace StarNight.Character.Live.Movement
                 : new CharacterLiveFallLandingResult(0, false, false);
         }
 
-        /// <summary>RMAP05 fixture가 RMAP02 이동 수치와 분리해 설정하는 낙하 표.</summary>
-        public void ConfigureRmap05Fall()
+        /// <summary>SV5 fixture가 SV5 이동 수치와 분리해 설정하는 낙하 표.</summary>
+        public void ConfigureSv505Fall()
         {
             fallMaxHealth = 5;
             fallStunDuration = 0.5f;
@@ -151,8 +151,8 @@ namespace StarNight.Character.Live.Movement
             fallFatalThreshold = 30f;
         }
 
-        /// <summary>RMAP02 fixture의 Default 레이어와 P01~P03 기준값을 명시한다.</summary>
-        public void ConfigureRmap02(int solidLayerMask)
+        /// <summary>SV5 fixture의 Default 레이어와 P01~P03 기준값을 명시한다.</summary>
+        public void ConfigureSv502(int solidLayerMask)
         {
             solidLayers = solidLayerMask;
             alwaysRun = true;
@@ -180,7 +180,7 @@ namespace StarNight.Character.Live.Movement
             climbDownSpeed = 5f;
             climbReentryDelay = 0.12f;
             oneWayDropThroughDuration = 0.18f;
-            ConfigureRmap05Fall();
+            ConfigureSv505Fall();
         }
     }
 

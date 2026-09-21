@@ -63,7 +63,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             }
             finally { UnityEngine.Random.state=state; }
             var blocked=Reverse(baseline,Enumerable.Range(0,416).SelectMany(y=>Enumerable.Range(0,624).Select(x=>
-                Construct<Sv5SpaceReservationCell>(new RmapSpecialWorldPoint(x,y),Sv5SpaceReservationKind.CorridorClearance,
+                Construct<Sv5SpaceReservationCell>(new Sv5SpecialWorldPoint(x,y),Sv5SpaceReservationKind.CorridorClearance,
                     "EXHAUSTION_FIXTURE","EXPLICIT_NON_WRITABLE_TEST_RESERVATION"))));
             var empty=Sv5SpaceInfill.Build(blocked);
             Assert.That(empty.NewRoomCount,Is.Zero);
@@ -77,14 +77,14 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             var p=Baseline.Value;
             var host=p.Connections.First(c=>c.Kind==Sv5SpaceConnectionKind.OptionalBranch && c.Flow=="BIDIRECTIONAL");
-            string[] Check(RmapSpecialWorldPoint point,Sv5InfillCellValue value,string legacy="") =>
+            string[] Check(Sv5SpecialWorldPoint point,Sv5InfillCellValue value) =>
                 Sv5SpaceInfill.ValidateCandidate(p,new[]{new Sv5InfillCell(point,value,"T05","FIXTURE",host:host.Id)},
-                    Array.Empty<Sv5SpaceBoundaryFace>(),host.Id,legacy).ToArray();
+                    Array.Empty<Sv5SpaceBoundaryFace>(),host.Id).ToArray();
             Assert.That(Check(host.Centerline.First(),Sv5InfillCellValue.Solid).Any(e=>e.StartsWith("SOLID_RESERVED_PASSAGE_CLEARANCE|")),Is.True);
             var passage=p.Connections.SelectMany(c=>c.Centerline.Concat(c.ApertureCells)).ToHashSet();
             var clearance=host.Envelope.First(c=>!passage.Contains(c));
             Assert.That(Check(clearance,Sv5InfillCellValue.Solid).Any(e=>e.StartsWith("SOLID_RESERVED_PASSAGE_CLEARANCE|")),Is.True);
-            var coreAir=p.Core.CoreCells.First(c=>c.BaseCell==RmapPatternBaseCell.Air).World;
+            var coreAir=p.Core.CoreCells.First(c=>c.BaseCell==Sv5PatternBaseCell.Air).World;
             Assert.That(Check(coreAir,Sv5InfillCellValue.Solid).Any(e=>e.StartsWith("CORE_PROTECTED|")),Is.True);
             Assert.That(p.Core.RouteSource.Secrets,Is.Not.Empty,"Fixture must include actual sealed Type0 geometry.");
             var secret=p.Core.RouteSource.Secrets.First();
@@ -94,11 +94,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(Sv5SpaceInfill.ValidateCandidate(p,new[]{new Sv5InfillCell(from,Sv5InfillCellValue.Air,"T05","FIXTURE",host:host.Id,shared:true)},
                 new[]{Construct<Sv5SpaceBoundaryFace>(from,to)},host.Id).Any(e=>e.StartsWith("DECLARED_FACE_FOREIGN_HOST|")),Is.True);
             var large=p.Places.First(c=>c.Kind==Sv5SpacePlaceKind.Large);
-            Assert.That(Check(new RmapSpecialWorldPoint(large.Bounds.X,large.Bounds.Y),Sv5InfillCellValue.Air,large.Id)
-                .Any(e=>e.StartsWith("INVALID_LEGACY_ORDINARY_SCOPE|")),Is.True);
+            Assert.That(Check(new Sv5SpecialWorldPoint(large.Bounds.X,large.Bounds.Y),Sv5InfillCellValue.Air)
+                .Any(e=>e.StartsWith("OLD_PLACE_OVERLAP|")),Is.True);
         }
 
-        [Test, Timeout(1200000)] public void T06_DefaultConnectedCellGenerationMeetsFrozenDensityAndLegacyCompletion()
+        [Test, Timeout(1200000)] public void T06_DefaultConnectedCellGenerationMeetsFrozenDensity()
         {
             var plan=DefaultOn.Value;
             var payload=plan.Infill;
@@ -116,8 +116,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             WriteCellPreview(plan,Path.Combine(Path.GetDirectoryName(path),"candidate_cells.png"));
             Assert.That(payload.Success,Is.True,detail);
             Assert.That(plan.Success,Is.True,detail);
-            Assert.That(payload.Rooms.Count(r=>r.Legacy),Is.EqualTo(6));
-            Assert.That(payload.Rooms.Where(r=>!r.Legacy).Select(r=>r.Recipe).Distinct(),Is.EquivalentTo(Sv5InfillPatterns.Recipes));
+            Assert.That(payload.Rooms.Select(r=>r.Recipe).Distinct(),Is.EquivalentTo(Sv5InfillPatterns.Recipes));
         }
 
         [Test, Timeout(1200000)] public void T07_RepeatOnPreservesTwentyFourPlacesAndMeetsIdenticalDensity()
@@ -129,8 +128,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(after.Infill.NewRoomCount,Is.InRange(128,384));
             Assert.That(after.Infill.NewOwnedTiles,Is.GreaterThanOrEqualTo(24576));
             Assert.That(after.Infill.SectorCounts.Count(n=>n>=6),Is.GreaterThanOrEqualTo(12));
-            Assert.That(after.Infill.Rooms.Count(r=>r.Legacy),Is.EqualTo(6));
-            Assert.That(after.Infill.Rooms.Where(r=>!r.Legacy).Select(r=>r.Recipe).Distinct(),Is.EquivalentTo(Sv5InfillPatterns.Recipes));
+            Assert.That(after.Infill.Rooms.Select(r=>r.Recipe).Distinct(),Is.EquivalentTo(Sv5InfillPatterns.Recipes));
             Assert.That(after.Diversity.EligibleNearPairs,Is.EqualTo(before.Diversity.EligibleNearPairs));
             foreach(var place in before.Places)
             {
@@ -159,18 +157,18 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                         foreach(string host in c.Host.Split(';'))
                             Assert.That(plan.Connections.Single(v=>v.Id==host).ApertureCells,Does.Contain(c.World),c.Token);
                 }
-                var components=new System.Collections.Generic.Dictionary<RmapSpecialWorldPoint,int>(); int componentId=0;
+                var components=new System.Collections.Generic.Dictionary<Sv5SpecialWorldPoint,int>(); int componentId=0;
                 foreach(var seed in graph.OrderBy(p=>p))
                 {
                     if(components.ContainsKey(seed)) continue;
                     componentId++; components.Add(seed,componentId);
-                    var componentQueue=new System.Collections.Generic.Queue<RmapSpecialWorldPoint>(); componentQueue.Enqueue(seed);
+                    var componentQueue=new System.Collections.Generic.Queue<Sv5SpecialWorldPoint>(); componentQueue.Enqueue(seed);
                     while(componentQueue.Count>0)
                     {
                         var p=componentQueue.Dequeue();
                         foreach(var d in new[]{new[]{1,0},new[]{-1,0},new[]{0,1},new[]{0,-1}})
                         {
-                            var n=new RmapSpecialWorldPoint(p.X+d[0],p.Y+d[1]);
+                            var n=new Sv5SpecialWorldPoint(p.X+d[0],p.Y+d[1]);
                             if(!graph.Contains(n) || components.ContainsKey(n)) continue;
                             components.Add(n,componentId); componentQueue.Enqueue(n);
                         }
@@ -180,7 +178,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 {
                     var link=payload.Links.Single(l=>l.Room==room.Id);
                     var parent=payload.Rooms.SingleOrDefault(r=>r.Id==room.Parent);
-                    var origin=room.Legacy ? link.Path[0] : parent==null ? link.HostAccess[0] : parent.Entry;
+                    var origin=parent==null ? link.HostAccess[0] : parent.Entry;
                     Assert.That(components.ContainsKey(origin),Is.True,room.Id+" origin");
                     Assert.That(components[room.Entry],Is.EqualTo(components[origin]),room.Id+" entry");
                     Assert.That(components[room.Deep],Is.EqualTo(components[origin]),room.Id+" deep");
@@ -189,11 +187,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                     Assert.That(proof.PlayerVerified,Is.False);
                     foreach(var foot in proof.Approach.Concat(proof.Return))
                     {
-                        Assert.That(cells[new RmapSpecialWorldPoint(foot.X,foot.Y-1)],Is.EqualTo(Sv5InfillCellValue.Solid));
+                        Assert.That(cells[new Sv5SpecialWorldPoint(foot.X,foot.Y-1)],Is.EqualTo(Sv5InfillCellValue.Solid));
                         Assert.That(cells[foot],Is.EqualTo(Sv5InfillCellValue.Air));
-                        Assert.That(cells[new RmapSpecialWorldPoint(foot.X,foot.Y+1)],Is.EqualTo(Sv5InfillCellValue.Air));
+                        Assert.That(cells[new Sv5SpecialWorldPoint(foot.X,foot.Y+1)],Is.EqualTo(Sv5InfillCellValue.Air));
                     }
-                    if(room.Legacy) continue;
                     Assert.That(link.ConnectionCellCount,Is.InRange(1,24),room.Id);
                     Assert.That(link.ConnectionCenterline,Is.EqualTo(link.HostAccess.Count==0 ? link.Path :
                         link.HostAccess.Concat(link.Path.Skip(1))),room.Id+" inclusive endpoints");
@@ -226,9 +223,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 }
                 Assert.That(Sv5SpacePhysicalMovement.FindStateErrors(p.Core,p.Connections,p.Gates.Skip(1)),Is.Not.Empty);
                 var gate=p.Gates.First(); var face=gate.BlockingFaces.Single();
-                var offset=face.First.X==face.Second.X ? new RmapSpecialWorldPoint(1,0) : new RmapSpecialWorldPoint(0,1);
-                var bypass=new[]{new RmapSpecialWorldPoint(face.First.X+offset.X,face.First.Y+offset.Y),
-                    new RmapSpecialWorldPoint(face.Second.X+offset.X,face.Second.Y+offset.Y)};
+                var offset=face.First.X==face.Second.X ? new Sv5SpecialWorldPoint(1,0) : new Sv5SpecialWorldPoint(0,1);
+                var bypass=new[]{new Sv5SpecialWorldPoint(face.First.X+offset.X,face.First.Y+offset.Y),
+                    new Sv5SpecialWorldPoint(face.Second.X+offset.X,face.Second.Y+offset.Y)};
                 var changed=p.Connections.Select(c=>c.Id!=gate.SourceConnectionId ? c :
                     Construct<Sv5SpaceConnection>(c.Id,c.Kind,c.FromPortId,c.ToPortId,c.FromPlaceId,c.ToPlaceId,c.Direction,
                         c.Flow,c.Condition,c.SourceGraphEdgeId,c.SelectionState,c.Centerline,c.Envelope.Concat(bypass),c.ApertureCells.Concat(bypass))).ToArray();
@@ -287,7 +284,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 foreach(string file in files) Assert.That(File.ReadAllBytes(Path.Combine(second,Path.GetFileName(file))),Is.EqualTo(File.ReadAllBytes(file)));
                 var rows=ReadCsv(Path.Combine(first,"infill_cells.csv"));
                 Assert.That(rows.Length,Is.EqualTo(payload.Cells.Count));
-                var exported=rows.ToDictionary(r=>new RmapSpecialWorldPoint(int.Parse(r[0]),int.Parse(r[1])),r=>r);
+                var exported=rows.ToDictionary(r=>new Sv5SpecialWorldPoint(int.Parse(r[0]),int.Parse(r[1])),r=>r);
                 foreach(var c in payload.Cells)
                 {
                     var row=exported[c.World];
@@ -298,7 +295,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                     new Sv5InfillPattern(ushort.Parse(r[1]),r[2].Split('|').Select(v=>(Sv5InfillCellValue)Enum.Parse(typeof(Sv5InfillCellValue),v))));
                 foreach(var pattern in patterns) Assert.That(pattern.Value.Id,Is.EqualTo(pattern.Key));
                 var instances=ReadCsv(Path.Combine(first,"infill_instances.csv")).Select(r=>new Sv5InfillInstance(patterns[r[0]],
-                    new RmapSpecialWorldPoint(int.Parse(r[1]),int.Parse(r[2])),r[3],r[5],r[6],r[7],bool.Parse(r[8]))).ToArray();
+                    new Sv5SpecialWorldPoint(int.Parse(r[1]),int.Parse(r[2])),r[3],r[5],r[6],r[7],bool.Parse(r[8]))).ToArray();
                 var rebuilt=Sv5InfillPatterns.Reconstruct(instances);
                 Assert.That(rebuilt.Count,Is.EqualTo(payload.Cells.Count));
                 foreach(var c in payload.Cells) Assert.That(rebuilt[c.World],Is.EqualTo(c.Value),c.Token);
@@ -325,12 +322,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 foreach(var row in linkRows)
                 {
                     var exportedLink=payload.Links.Single(l=>l.Room==row[0]);
-                    var linkedRoom=payload.Rooms.Single(r=>r.Id==exportedLink.Room);
                     string expectedPoints="["+string.Join(",",exportedLink.ConnectionCenterline.Select(point=>"["+point.X+","+point.Y+"]"))+"]";
                     Assert.That(row[7],Is.EqualTo(expectedPoints),exportedLink.Room);
                     Assert.That(int.Parse(row[8]),Is.EqualTo(exportedLink.ConnectionCellCount),exportedLink.Room);
                     Assert.That(row[9],Is.EqualTo(Sv5InfillProfile.ConnectionLengthPolicy),exportedLink.Room);
-                    Assert.That(row[10],Is.EqualTo(linkedRoom.Legacy ? "NOT_APPLICABLE_LEGACY_INTERIOR" : "PASS"),exportedLink.Room);
+                    Assert.That(row[10],Is.EqualTo("PASS"),exportedLink.Room);
                     Assert.That(row[17],Is.EqualTo(p.Digest),exportedLink.Room);
                 }
                 string infillJson=File.ReadAllText(Path.Combine(first,"infill.json"));
@@ -340,8 +336,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 Assert.That(svg.GetElementsByTagName("metadata")[0].InnerText,Is.EqualTo(p.Digest));
                 Assert.That(svg.GetElementsByTagName("path").Cast<System.Xml.XmlElement>().Count(n=>n.GetAttribute("fill")=="#111a20" || n.GetAttribute("fill")=="#f5f5e9"),
                     Is.EqualTo(Sv5SpaceInfill.KnownBase(p).Keys.Concat(payload.Cells.Select(c=>c.World)).Distinct().Count()));
-                var room=payload.Rooms.First(r=>!r.Legacy);
-                var floor=new RmapSpecialWorldPoint(room.Entry.X,room.Entry.Y-1);
+                var room=payload.Rooms.First();
+                var floor=new Sv5SpecialWorldPoint(room.Entry.X,room.Entry.Y-1);
                 var changedCells=payload.Cells.Select(c=>!c.World.Equals(floor) ? c :
                     new Sv5InfillCell(c.World,Sv5InfillCellValue.Air,c.Owner,c.Recipe,c.Parent,c.Host,c.Shared)).ToArray();
                 var changed=Construct<Sv5InfillPlan>(payload.BaselineDigest,payload.Profile,payload.Rooms,payload.Links,changedCells,
@@ -361,7 +357,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             }
             // Both immutable integration candidates already passed production validation above.
             // This is the sole final ON export pair, never an export into historical directories.
-            Sv5InfillExport.WriteComparison(Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/legacy_exports/sv5_08_fix01"),DefaultOn.Value,RepeatOn.Value);
+            Sv5InfillExport.WriteComparison(Path.Combine(Root,"Temp/SV5Tests/space_infill_fix01"),DefaultOn.Value,RepeatOn.Value);
         }
 
         [Test, Timeout(1200000)] public void T12_HistoricalLocksAndEightyTwoTestNamesRemainAndObligationsReflectActualState()
@@ -427,14 +423,14 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             const int scale=3,width=624,height=416;
             var pixels=Enumerable.Repeat(new Color32(184,195,198,255),width*height*scale*scale).ToArray();
-            void Paint(RmapSpecialWorldPoint p,Color32 color)
+            void Paint(Sv5SpecialWorldPoint p,Color32 color)
             {
                 for(int dy=0;dy<scale;dy++) for(int dx=0;dx<scale;dx++)
                     pixels[(p.Y*scale+dy)*width*scale+p.X*scale+dx]=color;
             }
             foreach(var place in plan.Places.Where(p=>p.Kind!=Sv5SpacePlaceKind.Core))
                 for(int y=place.Bounds.Y;y<place.Bounds.MaxYExclusive;y++)
-                for(int x=place.Bounds.X;x<place.Bounds.MaxXExclusive;x++) Paint(new RmapSpecialWorldPoint(x,y),new Color32(215,201,170,255));
+                for(int x=place.Bounds.X;x<place.Bounds.MaxXExclusive;x++) Paint(new Sv5SpecialWorldPoint(x,y),new Color32(215,201,170,255));
             foreach(var p in plan.Connections.SelectMany(c=>c.Centerline).Distinct()) Paint(p,new Color32(120,158,175,255));
             foreach(var c in Sv5SpaceInfill.KnownBase(plan)) Paint(c.Key,c.Value==Sv5InfillCellValue.Solid ? new Color32(17,26,32,255) : new Color32(245,245,233,255));
             foreach(var c in plan.Infill.Cells) Paint(c.World,c.Value==Sv5InfillCellValue.Solid ? new Color32(17,26,32,255) : new Color32(245,245,233,255));

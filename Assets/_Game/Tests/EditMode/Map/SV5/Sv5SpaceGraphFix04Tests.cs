@@ -34,7 +34,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             // The old loop iterated aperture cells, then required !allPortCells.Contains(first).
             // Do not depend on a historical accepted-plan contact surviving a reroute.
-            var line = Enumerable.Range(10, 8).Select(x => new RmapSpecialWorldPoint(x, 10)).ToArray();
+            var line = Enumerable.Range(10, 8).Select(x => new Sv5SpecialWorldPoint(x, 10)).ToArray();
             var ports = new[] { line[0] };
             var protectedAir = new[] { line[0], line[1] };
             var faces = Sv5SpaceGateGeometry.PortBoundaryCandidates(line, ports, ports, protectedAir);
@@ -87,15 +87,15 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void F02_SharedAndFaceUsePhysicalGeometry()
         {
-            var a = new RmapSpecialWorldPoint(10,10); var b = new RmapSpecialWorldPoint(11,10);
+            var a = new Sv5SpecialWorldPoint(10,10); var b = new Sv5SpecialWorldPoint(11,10);
             Sv5RouteContactPair Pair(string kind) => Create<Sv5RouteContactPair>(kind,a,kind == "SHARED" ? a : b,
                 "A","B",a,kind == "SHARED" ? a : b,"Passage","Passage","Passage","Passage");
             var exact = Create<Sv5SpaceBoundaryFace>(a,b);
-            var remote = Create<Sv5SpaceBoundaryFace>(new RmapSpecialWorldPoint(30,30),new RmapSpecialWorldPoint(31,30));
-            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("SHARED"),Array.Empty<RmapSpecialWorldPoint>(),new[] { exact }), Is.Not.Empty);
+            var remote = Create<Sv5SpaceBoundaryFace>(new Sv5SpecialWorldPoint(30,30),new Sv5SpecialWorldPoint(31,30));
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("SHARED"),Array.Empty<Sv5SpecialWorldPoint>(),new[] { exact }), Is.Not.Empty);
             Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("SHARED"),new[] { a },Array.Empty<Sv5SpaceBoundaryFace>()), Is.Empty);
-            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("FACE"),Array.Empty<RmapSpecialWorldPoint>(),new[] { remote }), Is.Not.Empty);
-            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("FACE"),Array.Empty<RmapSpecialWorldPoint>(),new[] { exact }), Is.Empty);
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("FACE"),Array.Empty<Sv5SpecialWorldPoint>(),new[] { remote }), Is.Not.Empty);
+            Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(Pair("FACE"),Array.Empty<Sv5SpecialWorldPoint>(),new[] { exact }), Is.Empty);
             var fake = Create<Sv5SpaceContactDecision>(Pair("FACE"),"FIXTURE",Sv5SpaceCrossingKind.ConditionalGate,
                 "forge","FAKE_BOUNDARY",true,true,"fixture");
             Assert.That(Sv5SpaceGraphValidator.FindGateErrors(new[] { fake },Plan.Value.Gates), Is.Not.Empty);
@@ -110,7 +110,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 Assert.That(Sv5SpacePhysicalMovement.Evaluate(Core.Value,before,Array.Empty<Sv5SpaceGate>(),id,0,false,false,false).TargetPortReachable, Is.True,id);
                 Assert.That(Reach(id,0,false,false,false), Is.True,id);
             }
-            var first = Plan.Value.PhysicalProduct.Proofs.Where(p => p.GoalProof.RequestedOrder.First() == RmapWorldGraphRole.DeepStarYeast).ToArray();
+            var first = Plan.Value.PhysicalProduct.Proofs.Where(p => p.GoalProof.RequestedOrder.First() == Sv5WorldGraphRole.DeepStarYeast).ToArray();
             Assert.That(first.Length, Is.EqualTo(2));
             foreach (var proof in first) Assert.That(proof.Success, Is.True,proof.GoalProof.ProofId);
         }
@@ -180,7 +180,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var plan = Plan.Value;
             var files = Directory.GetFiles(Historical(""),"*",SearchOption.AllDirectories).OrderBy(f => f).ToArray();
             var before = files.Select(Hash).ToArray();
-            string directory = Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/legacy_exports/sv5_06_fix04"));
+            string directory = Path.GetFullPath(Path.Combine(Application.dataPath,"../Temp/SV5Tests/space_graph_fix04"));
             Sv5SpaceGraphExport.WriteAll(plan,directory);
             string comparison = Sv5SpaceGraphExport.RepairDetailSvg(plan,HistoricalConnections(),HistoricalGates());
             new System.Xml.XmlDocument().LoadXml(comparison);
@@ -208,9 +208,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpacePhysicalMovement.Evaluate(Plan.Value.Core,Plan.Value.Connections,Plan.Value.Gates,id,mask,forge,seal,boss,reverse).TargetPortReachable;
         private static T Create<T>(params object[] args) => (T)Activator.CreateInstance(typeof(T),
             System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic,null,args,System.Globalization.CultureInfo.InvariantCulture);
-        private static RmapSpecialWorldPoint P(string x,string y) => new RmapSpecialWorldPoint(int.Parse(x),int.Parse(y));
-        private static RmapSpecialWorldPoint P(int[] xy) => new RmapSpecialWorldPoint(xy[0],xy[1]);
-        private static RmapSpecialWorldPoint[] Points(string value) => value.Split('|').Where(s => s.Length != 0).Select(s => s.Split(':')).Select(p => P(p[0],p[1])).ToArray();
+        private static Sv5SpecialWorldPoint P(string x,string y) => new Sv5SpecialWorldPoint(int.Parse(x),int.Parse(y));
+        private static Sv5SpecialWorldPoint P(int[] xy) => new Sv5SpecialWorldPoint(xy[0],xy[1]);
+        private static Sv5SpecialWorldPoint[] Points(string value) => value.Split('|').Where(s => s.Length != 0).Select(s => s.Split(':')).Select(p => P(p[0],p[1])).ToArray();
         private static string Historical(string file) => Path.GetFullPath(Path.Combine(Application.dataPath,"../MapDesign/MCP/GENERATED/SV5_06_FIX03",file));
         private static string[][] Rows(string file) => File.ReadAllLines(Historical(file)).Skip(1).Where(s => s.Length != 0)
             .Select(s => System.Text.RegularExpressions.Regex.Split(s, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)")
@@ -219,14 +219,14 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             return BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(path))).Replace("-",""); }
         private static Sv5SpaceConnection[] HistoricalConnections() => Rows("connections.csv").Select(r =>
             Create<Sv5SpaceConnection>(r[0],Enum.Parse(typeof(Sv5SpaceConnectionKind),r[1]),r[2],r[3],r[4],r[5],
-                Enum.Parse(typeof(RmapWorldGraphDirection),r[6]),r[7],r[8],r[9],r[10],Points(r[12]),Points(r[14]),Points(r[16]))).ToArray();
+                Enum.Parse(typeof(Sv5WorldGraphDirection),r[6]),r[7],r[8],r[9],r[10],Points(r[12]),Points(r[14]),Points(r[16]))).ToArray();
         private static Sv5SpaceGate[] HistoricalGates()
         {
             string json = File.ReadAllText(Historical("gate_geometry.json"));
             Assert.That(System.Text.RegularExpressions.Regex.Matches(json,"\"blocking_cells\":\\[\\]").Count, Is.EqualTo(3));
             return JsonUtility.FromJson<GateFile>(json).gates.Select(g => Create<Sv5SpaceGate>(g.gate_id,g.boundary_id,
-                g.contact_ids,Array.Empty<RmapSpecialWorldPoint>(),g.blocking_faces.Select(f => Create<Sv5SpaceBoundaryFace>(P(f.first),P(f.second))),
-                P(g.side_a_anchor),P(g.side_b_anchor),Enum.Parse(typeof(RmapWorldGraphDirection),g.direction),g.flow,g.predicate,
+                g.contact_ids,Array.Empty<Sv5SpecialWorldPoint>(),g.blocking_faces.Select(f => Create<Sv5SpaceBoundaryFace>(P(f.first),P(f.second))),
+                P(g.side_a_anchor),P(g.side_b_anchor),Enum.Parse(typeof(Sv5WorldGraphDirection),g.direction),g.flow,g.predicate,
                 new Sv5SpaceGatePredicate(g.typed_predicate.required_resource_mask,g.typed_predicate.requires_forge,g.typed_predicate.requires_seal,g.typed_predicate.requires_boss_complete),
                 g.source_connection_id,g.source_route_id,g.source_port_id,g.target_port_id,Sv5SpaceCrossingKind.ConditionalGate,g.sealed_state,g.open_state)).ToArray();
         }

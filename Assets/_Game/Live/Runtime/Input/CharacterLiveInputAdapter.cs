@@ -36,7 +36,7 @@ namespace StarNight.Character.Live.Input
                 false, in jumpFrame, in actionFrame, in bombFrame, in ropeFrame);
         }
 
-        /// <summary>RMAP04 climb/drop input을 포함한 fixed-step 누적 경로.</summary>
+        /// <summary>SV5 climb/drop input을 포함한 fixed-step 누적 경로.</summary>
         public void AccumulateFrame(
             float horizontalAxis,
             bool isUpHeld,
@@ -51,7 +51,7 @@ namespace StarNight.Character.Live.Input
                 false, in jumpFrame, in actionFrame, in bombFrame, in ropeFrame);
         }
 
-        /// <summary>RMAP06 Tab observation modifier를 같은 fixed-step 경로로 누적한다.</summary>
+        /// <summary>SV5 Tab observation modifier를 같은 fixed-step 경로로 누적한다.</summary>
         public void AccumulateFrame(
             float horizontalAxis,
             bool isUpHeld,

@@ -1,0 +1,749 @@
+{
+  "format": "sv5_06_source_lock_v2",
+  "task": "SV5_06_SPACE_GRAPH",
+  "all_paths_relative_to": "ACTUAL_UNITY_PROJECT_ROOT",
+  "predecessor": {
+    "task": "SV5_05_FIX01",
+    "result_sha256": "46d9e5b0dceb2a1efc431602df7d5da068642831e67468042f4f90498e4c1ef3",
+    "task_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+    "commit": "37c09eb8663656da182453c19487f65ea056c8f2",
+    "parent": "117d99a82eb0889ab0edfeda250e535c5f56c295",
+    "claim": "Reported by uploaded review; STAGE.py verifies ancestry, parent and commit blobs in actual repository before staging."
+  },
+  "status_before_sha256": "f1c450c04ba9ed8aac05d86c87ea22815b3aa7d28bd30deacbdb02edadec6f29",
+  "master_sha256": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+  "owned_existing": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+    "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs",
+    "MapDesign/MCP/SV5/02_PROTOCOL_V5.md"
+  ],
+  "owned_new": [
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlan.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphPlanner.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphStateProjection.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5SpaceGraphExport.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5SpaceGraphPlanTests.cs.meta",
+    "MapDesign/MCP/SV5/10_SPACE_GRAPH_V5.md",
+    "MapDesign/MCP/GENERATED/SV5_06",
+    "MapDesign/MCP/REPORTS/SV5_06_SPACE_GRAPH_RESULT.md"
+  ],
+  "files": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "sha256": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "commit_blob_bytes": 42730,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+      "sha256": "980a2fb31a1b0a5e94538989737c8b00343782be8c488278d464c87c51c7cb77",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "980a2fb31a1b0a5e94538989737c8b00343782be8c488278d464c87c51c7cb77",
+      "commit_blob_bytes": 67455,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/RmapSpecialReservationPlanner.cs",
+      "sha256": "e524df90e1ea1744a979f7fdaac8b1b80601407ea07cbce029baabbcc70ed216",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "commit_blob_bytes": 29731,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs",
+      "sha256": "48bc1b2664034beb923427c037a0b0b2d18f7a8c11d1705e9fce432a37324bab",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs",
+      "sha256": "ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/WorldData/RmapWorldDataContract.cs",
+      "sha256": "345458eb9a59a0add84ca15bd3106226ca2b3151c94831d7b6667943ac0b2841",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs",
+      "sha256": "c9b0e71ace1bcc665387744d8c3de679eef8668f0994125663f96ee6156379ae",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "c9b0e71ace1bcc665387744d8c3de679eef8668f0994125663f96ee6156379ae",
+      "commit_blob_bytes": 10672,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "sha256": "0ad252215729eb7c2a325395ef81ae730f72f3ab5af244476313c921b4d0b4d8",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "sha256": "f2c58c16609ab557d60bb23d42ff3b91b9ae5fbdebd1ab154667c13443267504",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "f2c58c16609ab557d60bb23d42ff3b91b9ae5fbdebd1ab154667c13443267504",
+      "commit_blob_bytes": 18248,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs.meta",
+      "sha256": "4ee0d22ae7c5ab55a52847844ed99f014cdb68a5ea337a4f7ffdc13f0e4235f5",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "4ee0d22ae7c5ab55a52847844ed99f014cdb68a5ea337a4f7ffdc13f0e4235f5",
+      "commit_blob_bytes": 60,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "sha256": "37f2aea9c310a337846fb2be0d066919cfa1b784b6ccce0be61b4e7d48057aa7",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "37f2aea9c310a337846fb2be0d066919cfa1b784b6ccce0be61b4e7d48057aa7",
+      "commit_blob_bytes": 19835,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/00_MCP_ENTRYPOINT.md",
+      "sha256": "cd2a70cdaf886a363756e9abd781807d8f6aef2c457f493268bab0bcdb283402",
+      "phase": "ALWAYS",
+      "evidence": "NATIVE_REG_CONTEXT_ACTUAL_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/01_PROJECT_LOCKED_RULES.md",
+      "sha256": "a01b69a9827deedd411ce6f2e040df0b52758dd0b699f48ee980774e3ce45400",
+      "phase": "ALWAYS",
+      "evidence": "NATIVE_REG_CONTEXT_ACTUAL_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/05_CHANGE_CONTROL_RULES.md",
+      "sha256": "45bb7fd6e5981fe8f89bf5d34887086ecceb1db8410543564ef1338981302ba3",
+      "phase": "ALWAYS",
+      "evidence": "NATIVE_REG_CONTEXT_ACTUAL_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/07_PATCH_APPLY_RULES.md",
+      "sha256": "7c3c78b0fd72ded29d41a179b899d3c7d73fb1567cd7d717e82bbf6cd5e45728",
+      "phase": "ALWAYS",
+      "evidence": "NATIVE_REG_CONTEXT_ACTUAL_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/08_STATUS_FINALIZE_RULES.md",
+      "sha256": "e121a60b78eb28d0e12e38ddba8b56ac825435a130fc707ad5f0de29df92e169",
+      "phase": "ALWAYS",
+      "evidence": "NATIVE_REG_CONTEXT_ACTUAL_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/APPLY_PATCH_AND_RUN_CURRENT_TASK.md",
+      "sha256": "31c590564d4501de2f3c9c92d09142c3374e77dfcfbde7dc91e83fe7026561e4",
+      "phase": "ALWAYS",
+      "evidence": "NATIVE_REG_CONTEXT_ACTUAL_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/BINDING.json",
+      "sha256": "6eb339dea116ce1b82e20407793ae77568e01cf09014ab5a771e08edbd2c685b",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/BINDINGS.csv",
+      "sha256": "387334b77c82b2aa62e9e9b6c11330d3b83f4106abc4bf8916f5fe6afecdefee",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/CORE_BINDINGS.csv",
+      "sha256": "3063f808d294e09e5b03f33a2b2357a1f4f2ba510c38c56dac4ed0e10ccfac35",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/DATA_SCHEMAS.csv",
+      "sha256": "083f91e9d4cfc5118d9cdeba4a0f1cc7184d0b6d3cacd653609076b763d5542c",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/SOURCE_SNAPSHOT.json",
+      "sha256": "1021386d9e1dd20f267a6f917f857e55ad431d612a1f3709da9f4df394fd49ac",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/TASK_COVERAGE.csv",
+      "sha256": "86309a520cf32fc268f0c9cabd25c68568fdc3b868ccf6b95c19611cba4644c6",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/validation.json",
+      "sha256": "87bb4af251e023d03a4f4c02079fb74ebc09686718f7388ce829b50f34248b96",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/BINDING.json",
+      "sha256": "bc7d94a6c1fdb05a0e9067d4bc8488c6294e75b2293cafa979c19f4f05b5568f",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/access_bindings.csv",
+      "sha256": "9600d72d0df139937462aefab5bf0fde86ab8117eaa32831df47777f6fc10379",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/core_cells.csv",
+      "sha256": "10a6bc42eea1aebba755cc94d10d0d999688ecc850cc4901417c83a9ec8ad389",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/core_sites.csv",
+      "sha256": "78dd267b778dbdbf04b2d53cb912bc334984f3ea4b3495c319c21270cedba9bd",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/focused_results.xml",
+      "sha256": "42a550abf7c4bf618a22ddd52fbbf42eae5a83a1fbbc9cd077bd47d5dfc716b4",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/reservation_manifest.json",
+      "sha256": "e567722745d1f15feef314b3efa047a7e53d44cc7704893ff14a1875ebdc00b5",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/route_cells.csv",
+      "sha256": "63e3d445377a0fdea658ed39b0a8765b5b66b14083a560b4c54b434b743cba13",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/state_geometry.csv",
+      "sha256": "ac93edca65636b73a71c47af3c58e514cb6759d1d549f00575d08846245d8785",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_04/validation.json",
+      "sha256": "7dacd96e607b7dd362c03aec5d53f7f2ff5e8aa273f2d81277aa1caebe31fa77",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/BINDING.json",
+      "sha256": "629f53a7257d828e27a37a00537359b2421bbdddb233b5c17c29d0c41ee70a50",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "629f53a7257d828e27a37a00537359b2421bbdddb233b5c17c29d0c41ee70a50",
+      "commit_blob_bytes": 2580,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "commit_blob_bytes": 5397,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/BINDING.json",
+      "sha256": "db89d2814c28e962b5a34d687c1828b972cadad85bd5395adbf86f1fb16b8664",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "db89d2814c28e962b5a34d687c1828b972cadad85bd5395adbf86f1fb16b8664",
+      "commit_blob_bytes": 4888,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/analysis.json",
+      "sha256": "c23ff673fd02b62551fc28065a28694364e0540f4e5f0be258bd348aa71d54ed",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "c23ff673fd02b62551fc28065a28694364e0540f4e5f0be258bd348aa71d54ed",
+      "commit_blob_bytes": 457495,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/candidate_set_proofs.csv",
+      "sha256": "44c24cf4f5386d7ef0354e5eabc554fa4b8bfde097fb16b80d650c06069c5f06",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "44c24cf4f5386d7ef0354e5eabc554fa4b8bfde097fb16b80d650c06069c5f06",
+      "commit_blob_bytes": 1701,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "commit_blob_bytes": 5397,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/contact_checks.csv",
+      "sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "commit_blob_bytes": 328740,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/expected_pre_fix_failure.xml",
+      "sha256": "77b359fd70490ba602420c47142288a8126218436047a381bd26cf357d9c334e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "a5c704fdbf0ef5bf4eb808a1b4ae6ebca77f50e61a01b29f56c38626e6b6a314",
+      "commit_blob_bytes": 6487,
+      "commit_blob_evidence": "USER_REPORTED_ACTUAL_COMMIT_BLOB_AND_INDEPENDENT_LF_DERIVATION_AGREE"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/focused_results.xml",
+      "sha256": "5addbe7c8524c6b97d4cfca4a782e5f69a0ed59e91df47a82eb1ebd77f6ca931",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "29f517a4f99afdbadc46a42a670a396dd3b720d88d39509cc70e9bd6317a352f",
+      "commit_blob_bytes": 41733,
+      "commit_blob_evidence": "PACKAGING_DERIVED_LF_FROM_EXACT_REVIEW_CRLF_BYTES_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "commit_blob_bytes": 5397,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/contact_checks.csv",
+      "sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "commit_blob_bytes": 328740,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/obligations.csv",
+      "sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "commit_blob_bytes": 850,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/order_proofs.csv",
+      "sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "commit_blob_bytes": 1735,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/route_state_manifest.json",
+      "sha256": "c2b05bec50b6ec693a6eb6b5218abe5dd4a52c2f924da18cc1d97ada741ff023",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "c2b05bec50b6ec693a6eb6b5218abe5dd4a52c2f924da18cc1d97ada741ff023",
+      "commit_blob_bytes": 668,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/shortcut_decisions.csv",
+      "sha256": "9663b19aa9f9c729f37e6b3e85fd0c962d96237df2d68bd7446e659ed88ae038",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "9663b19aa9f9c729f37e6b3e85fd0c962d96237df2d68bd7446e659ed88ae038",
+      "commit_blob_bytes": 606,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/state_traces.csv",
+      "sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "commit_blob_bytes": 30810,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/obligations.csv",
+      "sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "commit_blob_bytes": 850,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/order_proofs.csv",
+      "sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "commit_blob_bytes": 1735,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/route_state_manifest.json",
+      "sha256": "f45b24a73587b14c9caabc0d8b6adf9b467cd67baa93c5db262b24e7dcba2396",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "f45b24a73587b14c9caabc0d8b6adf9b467cd67baa93c5db262b24e7dcba2396",
+      "commit_blob_bytes": 668,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/shortcut_decisions.csv",
+      "sha256": "b387bfe71e3676483a18f949596809f90de2cb78517d14d52f849d631143e1a6",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "b387bfe71e3676483a18f949596809f90de2cb78517d14d52f849d631143e1a6",
+      "commit_blob_bytes": 597,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/state_traces.csv",
+      "sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "commit_blob_bytes": 30810,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/validation.json",
+      "sha256": "9799c651606f7f19709b26ed36c6fb7e4984791a11cba7f324f6303f675f9c21",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "9799c651606f7f19709b26ed36c6fb7e4984791a11cba7f324f6303f675f9c21",
+      "commit_blob_bytes": 2030,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/REGISTRATION_RECEIPT.json",
+      "sha256": "36135757f4670de12b47c1b35af794d7c1b0834e045bb9c18009819f0fa1f15c",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "36135757f4670de12b47c1b35af794d7c1b0834e045bb9c18009819f0fa1f15c",
+      "commit_blob_bytes": 3660,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/REGISTRATION_RECORD.md",
+      "sha256": "d51edb35bd8ba290631f510d0755863b2654508d428fc12181dd9c3d3597a018",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "d51edb35bd8ba290631f510d0755863b2654508d428fc12181dd9c3d3597a018",
+      "commit_blob_bytes": 6403,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha256": "8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha256": "6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/TASKS.csv",
+      "sha256": "aac3c738f4f16fd69ce6ee71abb897420cf3b239d470e097e82311b304804052",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/TASKS.json",
+      "sha256": "7932de9ac46a82cf27046599a0ede47bf5a35f35c29edb374df178feeb70b367",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/BASELINE_SHA.json",
+      "sha256": "e7f77144bafae687f960cfbf6be5096958c197c593d22479e4a1ded24ec5d70c",
+      "phase": "ALWAYS",
+      "evidence": "APPROVED_BASELINE_PACKAGE_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/connections.json",
+      "sha256": "e4cf9bb03e0740ce4393ddf4a0db37afafa19dc5e114a7d337384428d22356bd",
+      "phase": "ALWAYS",
+      "evidence": "APPROVED_BASELINE_PACKAGE_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/regions.json",
+      "sha256": "17d3bfcc1b60839796805c52dabb8ab65a723aca82bcb8eb470b7b1d5f1abccd",
+      "phase": "ALWAYS",
+      "evidence": "APPROVED_BASELINE_PACKAGE_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5/baseline/validation.json",
+      "sha256": "52ccb91f40832f71235481683535df1c4ff5ff14d0615d1c7ca73eb01901a8f4",
+      "phase": "ALWAYS",
+      "evidence": "APPROVED_BASELINE_PACKAGE_BYTES"
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REPAIR_CONTRACT.md",
+      "sha256": "d4b8197fc2720f0cce038e11ed2909c3b1e83dd2054204876febd5d2c76bdb0b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": false
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW_FINDINGS.json",
+      "sha256": "7d073dfdef6e4b5ce4517e4d8974cd6e082bf7ab41cd1fbb6f417cafc04b056e",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": false
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_05_FIX01_RESULT.md",
+      "sha256": "46d9e5b0dceb2a1efc431602df7d5da068642831e67468042f4f90498e4c1ef3",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "46d9e5b0dceb2a1efc431602df7d5da068642831e67468042f4f90498e4c1ef3",
+      "commit_blob_bytes": 2366,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/00_APPROVAL_BASELINE.md",
+      "sha256": "a04f0c814273048db51c903d965e526c2bc987abb64294811675d301acf177fa",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/01_SEQUENCE_V5.md",
+      "sha256": "27a0ab0942ee2671a5720a1fe232018b5356c2c304ad6e8229c7c8842b05d9be",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "d007b49969c44b0fb1d64a8bf6fc54e64e8fec8b9714dcf8025fcc3999fc0a77",
+      "phase": "BEFORE_ONLY",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "d007b49969c44b0fb1d64a8bf6fc54e64e8fec8b9714dcf8025fcc3999fc0a77",
+      "commit_blob_bytes": 2739,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/06_BINDINGS_V5.md",
+      "sha256": "b71c553032de446ce7c7d7c65e806879bdd360ab77389c684f201a0f5d6ccf21",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/07_FILE_FLOW_V5.md",
+      "sha256": "611f604f8d65a7ac15a70f20ab848a4ed40ecf5d7fafa4428f3a77167c7f43a4",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/08_CORE_RESERVE_V5.md",
+      "sha256": "795bb8af332ce0d2de3f22bd28a1db2c77ef56aa3a6ff24b4a7e89be37a6c45d",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/SV5/09_ROUTE_STATE_FIX01.md",
+      "sha256": "3424908d50c85be143813f363bac05fdfe4edee4f7e46c653c4b59918e1d817b",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "3424908d50c85be143813f363bac05fdfe4edee4f7e46c653c4b59918e1d817b",
+      "commit_blob_bytes": 2056,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_04_CORE_RESERVE.md",
+      "sha256": "fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_05_FIX01.md",
+      "sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+      "commit_blob_bytes": 7842,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_04_CORE_RESERVE.md",
+      "sha256": "fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2",
+      "phase": "ALWAYS",
+      "evidence": "PREVIOUS_VERIFIED_SOURCE_CHAIN"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_05_FIX01.md",
+      "sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+      "phase": "ALWAYS",
+      "evidence": "SV5_05_FIX01_REVIEW_ACTUAL_BYTES",
+      "commit_bound": true,
+      "commit_blob_sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+      "commit_blob_bytes": 7842,
+      "commit_blob_evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    }
+  ],
+  "notes": [
+    "BEFORE_ONLY source changes require installed Task authority; post-readonly still checks immutable old evidence.",
+    "Only one bound MD goes into INBOX; package inputs and old held originals never become candidates.",
+    "No fake paths/EOL normalization/expected hash repairs. Historical audit pins on mutable files are replaced by latest verified bytes."
+  ],
+  "hash_roles": {
+    "files[].sha256": "Exact unchanged WORKTREE/REVIEW raw bytes; never substitute a Git blob SHA here.",
+    "files[].commit_blob_sha256": "Exact PREDECESSOR COMMIT BLOB raw bytes; independently checked by git show.",
+    "status_before_sha256": "Exact worktree Status bytes before Apply.",
+    "master_sha256": "Exact worktree Master bytes.",
+    "committed_state": "Independent exact predecessor commit blob pins for Status and Master.",
+    "verification": "Both roles must match. No newline normalization, whitespace/BOM stripping, fallback forms, or expected-SHA auto-repair at runtime."
+  },
+  "committed_state": [
+    {
+      "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+      "commit_blob_sha256": "f1c450c04ba9ed8aac05d86c87ea22815b3aa7d28bd30deacbdb02edadec6f29",
+      "commit_blob_bytes": 102328,
+      "evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    },
+    {
+      "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+      "commit_blob_sha256": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+      "commit_blob_bytes": 36695,
+      "evidence": "EXACT_REVIEW_BYTES_ALREADY_LF_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+    }
+  ],
+  "packaging_revision": {
+    "id": "SV5_06_R2",
+    "supersedes_manifest_sha256": "4ca3d0ffb77e72cb4c0d5ccb978cd066105a62887f7cf792dc5e4617cfdb1279",
+    "reason": "R1 incorrectly compared Git blob bytes against the review/worktree SHA.",
+    "changed_package_files": [
+      "STAGE.py",
+      "SOURCE_LOCK.json",
+      "FILES.json"
+    ],
+    "bound_task_unchanged": true,
+    "native_apply_started": false,
+    "role_corrections": [
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/expected_pre_fix_failure.xml",
+        "worktree_sha256": "77b359fd70490ba602420c47142288a8126218436047a381bd26cf357d9c334e",
+        "worktree_bytes": 6562,
+        "commit_blob_sha256": "a5c704fdbf0ef5bf4eb808a1b4ae6ebca77f50e61a01b29f56c38626e6b6a314",
+        "commit_blob_bytes": 6487,
+        "crlf_to_lf_count": 75,
+        "evidence": "USER_REPORTED_ACTUAL_COMMIT_BLOB_AND_INDEPENDENT_LF_DERIVATION_AGREE"
+      },
+      {
+        "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/focused_results.xml",
+        "worktree_sha256": "5addbe7c8524c6b97d4cfca4a782e5f69a0ed59e91df47a82eb1ebd77f6ca931",
+        "worktree_bytes": 41922,
+        "commit_blob_sha256": "29f517a4f99afdbadc46a42a670a396dd3b720d88d39509cc70e9bd6317a352f",
+        "commit_blob_bytes": 41733,
+        "crlf_to_lf_count": 189,
+        "evidence": "PACKAGING_DERIVED_LF_FROM_EXACT_REVIEW_CRLF_BYTES_REQUIRES_LOCAL_COMMIT_VERIFICATION"
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="147.7748431">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26805" result="Failed" site="Child" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="147.774843" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="24863" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22785" result="Failed" site="Child" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="147.598418" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="32464" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="24864" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22785" result="Failed" site="Child" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="147.395298" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="24872" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22569" result="Failed" site="Child" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="147.254901" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="24876" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22510" result="Failed" site="Child" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="147.116603" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="24885" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7828" result="Failed" site="Child" start-time="2026-09-12 08:59:07Z" end-time="2026-09-12 09:01:34Z" duration="146.921793" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="24901" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="116" result="Failed" site="Child" start-time="2026-09-12 08:59:08Z" end-time="2026-09-12 09:01:34Z" duration="146.757151" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="24736" name="Sv5SpaceLoopTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-09-12 08:59:08Z" end-time="2026-09-12 09:01:34Z" duration="146.754209" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="24737" name="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" methodname="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="534554649" result="Failed" start-time="2026-09-12 08:59:08Z" end-time="2026-09-12 09:01:34Z" duration="146.741970" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  accepted=3 sectors=3 candidates=19 eligible=8
+baseline_occupancy=93085 baseline_feet=8214 host_support=1906
+MINIMUM_LOOPS|3/16
+MINIMUM_LOOP_SECTORS|3/12
+LOOP_CENTERLINE_INVALID|SV5_LOOP_23ba2e6b04d354054e1f
+LOOP_CENTERLINE_INVALID|SV5_LOOP_5a84d232ab44ce70d682
+LOOP_CENTERLINE_INVALID|SV5_LOOP_993e86f1c8be9a3eac87
+MINIMUM_LOOPS|3/16
+MINIMUM_LOOP_SECTORS|3/12
+DUPLICATE_ENDPOINT_PAIR=5
+EXTERNAL_AIR_DEPENDENCY=19
+FOREIGN_SOLID_OPENING=4
+INELIGIBLE_HASH=11
+SUPPORT_NOT_SOLID=334
+TOPOLOGY_BASELINE_CONTACTS=8
+TOPOLOGY_NEWLY_CARVED_AIR=3
+  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread () [0x0004c] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceLoopTests.cs:26
+]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

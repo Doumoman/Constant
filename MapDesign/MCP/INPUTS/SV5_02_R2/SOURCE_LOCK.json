@@ -1,0 +1,158 @@
+{
+  "format": "sv5_02_source_lock_v1",
+  "path_base": "MapDesign module root. MCP/GENERATED is relative to MapDesign, not relative to MCP.",
+  "previous_result_sha256": "78f9e84bf82b9640c51a5ee4bc2847610a296ebd26e0849706d3ce58601a37b6",
+  "previous_result_path": "RESOLVE_FROM_LOCAL_CONTRACT_NOT_REFERENCE_COPY",
+  "previous_task_sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed",
+  "required_before_apply": {
+    "SV5_01_APPROVAL_BASELINE": "COMPLETE",
+    "SV5_02_RULES": "LOCKED",
+    "Current": "NONE"
+  },
+  "reported_state_after_sv5_01": {
+    "total": 285,
+    "complete": 239,
+    "current": 0,
+    "locked": 46
+  },
+  "state_note": "These counts are reported expectations; use actual normal contract, never force numeric state or reuse a transient Status SHA.",
+  "commit_note": "User supplied the local BLOCKED console report containing the SV5_01 Finalize commit. Reconfirm locally; do not require it to equal current HEAD or amend the immutable Result.",
+  "files": [
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha256": "8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha256": "6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/TASKS.csv",
+      "sha256": "aac3c738f4f16fd69ce6ee71abb897420cf3b239d470e097e82311b304804052",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/TASKS.json",
+      "sha256": "7932de9ac46a82cf27046599a0ede47bf5a35f35c29edb374df178feeb70b367",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/baseline/BASELINE_SHA.json",
+      "sha256": "e7f77144bafae687f960cfbf6be5096958c197c593d22479e4a1ded24ec5d70c",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_COVERAGE.md",
+      "sha256": "859d592584d22238b116f212aa6f13085b373502eb385413383a3eaa2605354b",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_FILL.md",
+      "sha256": "34bd4d366582454aa57f2005639177c64b326ce191b2c142b9b6849be6a2b6f1",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+      "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_NETWORK.md",
+      "sha256": "815637f2df4f18f1be37a8a499d016a200dbc8bb5759a340cfc90f43493e1706",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_PLACES.md",
+      "sha256": "96d240d783501072bb547ccc5da781013964916aa5e83af396776a62626b3e20",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_RAIL.md",
+      "sha256": "8e3219243af72b3a1412ae7d911d91d3384044bdf0221a6e90d609e85d9ed6fb",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+      "sha256": "39acc95088558121b9ca08fb1cecca07bd3b966e58ad6d6dd64af8099196b554",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_RULES.md",
+      "sha256": "ab5d9efdad350e8123a0ff7b05a812a9752e455e8f47fd600e91e4fef2553aa5",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_SPAWN.md",
+      "sha256": "1bda912a84d38a1177ce5db166a6c49c0ce1f945e475d6c4f4251399f517bc0a",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_SPECIALS.md",
+      "sha256": "a88298cfa97f90ed8454a9fae072f460b63e81e15f98b855b30cd270907b30b1",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/reference/v4/SPACE_STAIRS.md",
+      "sha256": "a53a524c281d4672a6d3a5c6fbfb3ef732206b7f03b111640dec9389820cd134",
+      "check": "EXACT_SOURCE"
+    },
+    {
+      "path": "MCP/TASKS/SV5_01_APPROVAL_BASELINE.md",
+      "sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed",
+      "check": "PRIOR_TASK_EVIDENCE"
+    },
+    {
+      "path": "MCP_ARCHIVE/SV5_01_APPROVAL_BASELINE.md",
+      "sha256": "c63acc8cf464ae837d5e83efef9976f5e12f42f1cf8a32f2634ba32cf587d5ed",
+      "check": "PRIOR_TASK_EVIDENCE"
+    },
+    {
+      "path": "MCP/SV5/00_APPROVAL_BASELINE.md",
+      "sha256": "a04f0c814273048db51c903d965e526c2bc987abb64294811675d301acf177fa",
+      "check": "PRIOR_TASK_EVIDENCE"
+    },
+    {
+      "path": "MCP/SV5/01_SEQUENCE_V5.md",
+      "sha256": "27a0ab0942ee2671a5720a1fe232018b5356c2c304ad6e8229c7c8842b05d9be",
+      "check": "PRIOR_TASK_EVIDENCE"
+    },
+    {
+      "path": "MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "d0dca368acc3b961a09b1a54f1efa1a1ffce37d13734b0201b0e66098897201e",
+      "check": "PRE_APPLY_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_01/BASELINE.json",
+      "sha256": "1f36a2dc80f5cd01427592641e854651280bc664e02c6c4bd363ce210e81bbac",
+      "check": "PRIOR_TASK_EVIDENCE"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_01/PLAN_LINK.json",
+      "sha256": "9c338ef451126acd10ad77f8a30747f216e71552fb697958fb5c5e5a03d8332b",
+      "check": "PRIOR_TASK_EVIDENCE"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_01/BINDING.json",
+      "sha256": "fe5ce5f6ac16857608b86c64ebb11930124f5d3f2ed2b8b4559096f1a269129c",
+      "check": "PRIOR_TASK_EVIDENCE"
+    }
+  ],
+  "input_revision": "R2",
+  "reported_local_evidence": {
+    "source": "User-pasted local Codex BLOCKED summary; not independently inspected in this workspace",
+    "sv5_01_finalize_commit": "9e6a71489fb4881c4112c378f7ca043bbbd85e85",
+    "reported_parent_commit": "da1803447ac3275da4c674fc67a00844ff252ad5",
+    "status_sha256_before_apply": "143350621914313f3ba8ccf12dccada6b98078b25c7c4a7044892c9262c2071a",
+    "master_sha256_before_apply": "cbe616e54c85a05181759dc87997f68e94f5ee92ff1a2a9896396a9e3c937d4c",
+    "sv5_02_bound_installed_archive_issued": false,
+    "note": "Before-Apply observations only. Native tools may update state normally; never force these hashes after Apply/Finalize."
+  },
+  "revision_note": "Only three prerequisite locations are corrected. Every prior evidence SHA and check remains unchanged. No alias/fallback directory is allowed."
+}

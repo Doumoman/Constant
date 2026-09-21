@@ -1,7 +1,7 @@
 # SV5 core reservation entrypoint
 
 SV5_04 is a deterministic, read-only adapter over one existing
-`RmapSpecialReservationPlan` and one existing `Rmap16ClusterAssemblyPlan`.
+`Sv5SpecialReservationPlan` and one existing `Sv5ClusterAssemblyPlan`.
 It does not place sites, consume a new RNG stream, regenerate terrain, or
 advance graph/progression state.
 
@@ -9,22 +9,22 @@ advance graph/progression state.
 
 - Source adapter: `Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/
   Sv5CoreReservationPlan.cs`.
-- Build only from `Sv5CoreReservationPlanner.Plan(Rmap16ClusterAssemblyPlan)`.
-  The overload that receives a core plan requires that exact same RMAP15 plan
+- Build only from `Sv5CoreReservationPlanner.Plan(Sv5ClusterAssemblyPlan)`.
+  The overload that receives a core plan requires that exact same SV5 plan
   object and its definition/biome provenance; mixed source plans are rejected.
 - Future terrain consumers call `EvaluateTerrainCandidates` before writing.
   `Sv5CoreTerrainCandidate` contains the consumer ID, tile coordinate, and
   requested base cell. The decision is diagnostic-only and does not mutate a
   source plan or a terrain cell.
-- The existing `RmapSpecialReservationPlan.EvaluateTerrainCells` remains the
-  core S/A/O protection authority. SV5_04 additionally protects actual RMAP16
-  route passage/headroom/support and RMAP15 SealBoss state geometry.
+- The existing `Sv5SpecialReservationPlan.EvaluateTerrainCells` remains the
+  core S/A/O protection authority. SV5_04 additionally protects actual SV5
+  route passage/headroom/support and SV5 SealBoss state geometry.
 
 ## Current representative evidence
 
 - The checked plan retains 8 physical sites, 2,432 source core cells (483 S,
   1,919 A, 30 O), 10 slots, 45 physical port cells, and 6 SealBoss state rows.
-- The current graph has 11 RMAP16 static routes. They provide 3,019 passage,
+- The current graph has 11 SV5 static routes. They provide 3,019 passage,
   3,019 clearance, and 1,037 existing support reservation rows. They are
   static suitability evidence, not Player traversal or a full-world Bake.
 - Twelve physical access groups are current graph route endpoints. Start's

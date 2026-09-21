@@ -1,0 +1,345 @@
+{
+  "format": "sv5_03_audit_scope_v1",
+  "task_id": "SV5_03_BINDINGS",
+  "mode": "READ_ONLY_SOURCE_AUDIT_WITH_DOCUMENT_OUTPUTS",
+  "expected_future_tasks": [
+    "SV5_04_CORE_RESERVE",
+    "SV5_05_ROUTE_STATE",
+    "SV5_06_SPACE_GRAPH",
+    "SV5_07_DIVERSITY",
+    "SV5_08_INFILL",
+    "SV5_09_LOOPS",
+    "SV5_10_SIDEPATH",
+    "SV5_11_HUB_SHELL",
+    "SV5_12_TREE_GRAB",
+    "SV5_13_JUMP_CONTRACT",
+    "SV5_14_JUMP_SOLID",
+    "SV5_15_JUMP_GRAB",
+    "SV5_16_JUMP_OUTLINE",
+    "SV5_17_JUMP_RECIPES",
+    "SV5_18_JUMP_CLEARANCE",
+    "SV5_19_JUMP_RECOVERY",
+    "SV5_20_JUMP_PLAYER",
+    "SV5_21_LIBRARY",
+    "SV5_22_STAIR_DATA",
+    "SV5_23_STAIR_MOTOR",
+    "SV5_24_CAVE",
+    "SV5_25_RATDEN",
+    "SV5_26_CANYON",
+    "SV5_27_HOUSING",
+    "SV5_28_HALL",
+    "SV5_29_RANCH",
+    "SV5_30_LAKE",
+    "SV5_31_FARM",
+    "SV5_32_RAIL_PATH",
+    "SV5_33_RAIL_RIDE",
+    "SV5_34_RAIL_CRASH",
+    "SV5_35_CAPSULE",
+    "SV5_36_PRISON",
+    "SV5_37_PINBALL_SHELL",
+    "SV5_38_WORKSHOP",
+    "SV5_39_RABBIT_VILLAGE",
+    "SV5_40_ELEVATOR",
+    "SV5_41_COMPOSE",
+    "SV5_42_FINAL_SCAN",
+    "SV5_43_WORLD_BAKE",
+    "SV5_44_WORLD_PLAYER",
+    "SV5_45_REVIEW_HANDOFF"
+  ],
+  "groups": [
+    {
+      "audit_id": "B01",
+      "title": "좌표·월드 정의·난수·안정 ID",
+      "consumer_tasks": [
+        "SV5_04_CORE_RESERVE",
+        "SV5_05_ROUTE_STATE",
+        "SV5_06_SPACE_GRAPH",
+        "SV5_07_DIVERSITY",
+        "SV5_08_INFILL",
+        "SV5_09_LOOPS",
+        "SV5_10_SIDEPATH",
+        "SV5_41_COMPOSE",
+        "SV5_43_WORLD_BAKE"
+      ],
+      "search_hints": [
+        "RmapWorldDataContract.cs",
+        "RMAP12_WORLD_DATA"
+      ],
+      "questions": "tile 1×1, Pattern 4×4, MicroChunk 12×8, world 624×416, origin/axis/local↔world, seed/content/generator version, independent random streams, stable IDs",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B02",
+      "title": "진행 그래프·복귀·상태 조건",
+      "consumer_tasks": [
+        "SV5_04_CORE_RESERVE",
+        "SV5_05_ROUTE_STATE",
+        "SV5_06_SPACE_GRAPH",
+        "SV5_09_LOOPS",
+        "SV5_35_CAPSULE",
+        "SV5_36_PRISON",
+        "SV5_44_WORLD_PLAYER"
+      ],
+      "search_hints": [
+        "RmapWorldGraphPlanner.cs",
+        "GeneratedCompletionSearch.cs",
+        "RMAP13_WORLD_GRAPH"
+      ],
+      "questions": "세 자원 여섯 순서, 제작→봉인→보스→출구, 공유 장소와 개별 상태, 접근/복귀 방향, 물리 경로 검증과 논리 BFS 분리",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B03",
+      "title": "바이옴·경계 소유",
+      "consumer_tasks": [
+        "SV5_04_CORE_RESERVE",
+        "SV5_06_SPACE_GRAPH",
+        "SV5_07_DIVERSITY",
+        "SV5_24_CAVE",
+        "SV5_25_RATDEN",
+        "SV5_26_CANYON",
+        "SV5_41_COMPOSE",
+        "SV5_42_FINAL_SCAN"
+      ],
+      "search_hints": [
+        "RmapWorldBiomePlanner.cs",
+        "MoonpalaceBiomePairCatalog.cs",
+        "RMAP14_BIOMES"
+      ],
+      "questions": "실제 patch/ownership/profile, biome boundary candidate 규격, 읽기/소유 경계, 독립 장소 family 반복과 긴 지형 청크 분할 구별",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B04",
+      "title": "핵심 구역·슬롯·보호 셀",
+      "consumer_tasks": [
+        "SV5_04_CORE_RESERVE",
+        "SV5_05_ROUTE_STATE",
+        "SV5_06_SPACE_GRAPH",
+        "SV5_09_LOOPS",
+        "SV5_35_CAPSULE",
+        "SV5_36_PRISON",
+        "SV5_38_WORKSHOP",
+        "SV5_39_RABBIT_VILLAGE",
+        "SV5_41_COMPOSE",
+        "SV5_42_FINAL_SCAN",
+        "SV5_44_WORLD_PLAYER"
+      ],
+      "search_hints": [
+        "RmapSpecialReservationPlanner.cs",
+        "SpecialRegionFixedSlotLayers.cs",
+        "SpecialRegionSiteBridge.cs",
+        "RMAP15_SPECIALS"
+      ],
+      "questions": "8개 물리 site의 정본 ID, graph binding, 보호 SOLID/AIR, 접근/복귀 port, slot, gate state geometry; 예시 좌표로 대체 금지",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B05",
+      "title": "500 패턴 풀·포트·청크 조립",
+      "consumer_tasks": [
+        "SV5_06_SPACE_GRAPH",
+        "SV5_11_HUB_SHELL",
+        "SV5_13_JUMP_CONTRACT",
+        "SV5_14_JUMP_SOLID",
+        "SV5_17_JUMP_RECIPES",
+        "SV5_24_CAVE",
+        "SV5_25_RATDEN",
+        "SV5_26_CANYON",
+        "SV5_41_COMPOSE"
+      ],
+      "search_hints": [
+        "RMAP07_PATTERNS",
+        "RMAP08_PORTS",
+        "RMAP09_COMPOSER",
+        "RMAP11_POOL500"
+      ],
+      "questions": "실제 final pool/4×4 pattern/12×8 microchunk API와 방향·포트·S/A/O 의미; 규칙 하나로 공간을 먼저 설계하는 후속 연결점",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B06",
+      "title": "지형·공간 레시피·종류 분포",
+      "consumer_tasks": [
+        "SV5_06_SPACE_GRAPH",
+        "SV5_07_DIVERSITY",
+        "SV5_08_INFILL",
+        "SV5_09_LOOPS",
+        "SV5_10_SIDEPATH",
+        "SV5_11_HUB_SHELL",
+        "SV5_16_JUMP_OUTLINE",
+        "SV5_21_LIBRARY",
+        "SV5_24_CAVE",
+        "SV5_25_RATDEN",
+        "SV5_26_CANYON",
+        "SV5_27_HOUSING",
+        "SV5_28_HALL",
+        "SV5_29_RANCH",
+        "SV5_30_LAKE",
+        "SV5_31_FARM",
+        "SV5_39_RABBIT_VILLAGE",
+        "SV5_41_COMPOSE",
+        "SV5_42_FINAL_SCAN"
+      ],
+      "search_hints": [
+        "RMAP16_CLUSTERS",
+        "SPACE",
+        "SV4",
+        "SV5"
+      ],
+      "questions": "현재 공간/cluster/recipe 표현과 확장점, 일반 방·샛길·재합류, fill/protection, 6×6 검사, 기존 밀도 방식과 최신 승인 차이",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B07",
+      "title": "최종 셀·베이크·레이어",
+      "consumer_tasks": [
+        "SV5_41_COMPOSE",
+        "SV5_42_FINAL_SCAN",
+        "SV5_43_WORLD_BAKE",
+        "SV5_45_REVIEW_HANDOFF"
+      ],
+      "search_hints": [
+        "RMAP17_WORLD_BAKE",
+        "MoonPalaceWorldBake_RMAP17.unity"
+      ],
+      "questions": "한 정본 셀에서 CSV·Tilemap·Collider·review 파생 경로, S/O 충돌과 배경/예약, scene 생성 소유, 재생성 접점",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B08",
+      "title": "Player·Grab·낙하·카메라",
+      "consumer_tasks": [
+        "SV5_12_TREE_GRAB",
+        "SV5_13_JUMP_CONTRACT",
+        "SV5_14_JUMP_SOLID",
+        "SV5_15_JUMP_GRAB",
+        "SV5_17_JUMP_RECIPES",
+        "SV5_18_JUMP_CLEARANCE",
+        "SV5_19_JUMP_RECOVERY",
+        "SV5_20_JUMP_PLAYER",
+        "SV5_23_STAIR_MOTOR",
+        "SV5_25_RATDEN",
+        "SV5_40_ELEVATOR",
+        "SV5_43_WORLD_BAKE",
+        "SV5_44_WORLD_PLAYER"
+      ],
+      "search_hints": [
+        "RMAP02_PLAYER",
+        "RMAP03_GRAB",
+        "RMAP04_CLIMB",
+        "RMAP05_FALL",
+        "RMAP06_LOOK"
+      ],
+      "questions": "실제 활성 prefab/scene binding, motor/contacts/input/Grab/climb/fall APIs와 설정, 몸체 sweep, 1칸/+2 Grab, 무아이템 실패 복귀; 측정치를 새 보장으로 승격 금지",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B09",
+      "title": "도서관 계단·엘리베이터",
+      "consumer_tasks": [
+        "SV5_21_LIBRARY",
+        "SV5_22_STAIR_DATA",
+        "SV5_23_STAIR_MOTOR",
+        "SV5_27_HOUSING",
+        "SV5_39_RABBIT_VILLAGE",
+        "SV5_40_ELEVATOR"
+      ],
+      "search_hints": [
+        "SPACE_STAIRS.md",
+        "SPACE_MOVEMENT.md",
+        "stair",
+        "elevator"
+      ],
+      "questions": "대각 접촉 상승/Down 하강과 ONE_WAY 이동 발판의 실제 구현 유무, Player 상태 확장점과 압사 방지의 후속 소유",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B10",
+      "title": "호수·장식·스폰·슬롯",
+      "consumer_tasks": [
+        "SV5_28_HALL",
+        "SV5_29_RANCH",
+        "SV5_30_LAKE",
+        "SV5_31_FARM",
+        "SV5_35_CAPSULE",
+        "SV5_36_PRISON",
+        "SV5_37_PINBALL_SHELL",
+        "SV5_38_WORKSHOP",
+        "SV5_39_RABBIT_VILLAGE"
+      ],
+      "search_hints": [
+        "SPACE_SPAWN.md",
+        "SPACE_REGIONS.md",
+        "SPACE_SPECIALS.md"
+      ],
+      "questions": "현재 spawn/profile/slot 시스템, 물 이동 미정과 마른 경로, 장식/상호작용 분리, Type0 봉쇄·공간 예약의 소비 책임",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B11",
+      "title": "철도 경로·주행·피해",
+      "consumer_tasks": [
+        "SV5_32_RAIL_PATH",
+        "SV5_33_RAIL_RIDE",
+        "SV5_34_RAIL_CRASH"
+      ],
+      "search_hints": [
+        "SPACE_RAIL.md",
+        "rail",
+        "train"
+      ],
+      "questions": "path dx/dy·3칸 통로·60이동의 데이터 접점과 탑승 상태/피해/knockdown, .0007 per completed move; 미구현은 NEW로 명시",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B12",
+      "title": "실제 검사·증거·검토 출력",
+      "consumer_tasks": [
+        "SV5_18_JUMP_CLEARANCE",
+        "SV5_19_JUMP_RECOVERY",
+        "SV5_20_JUMP_PLAYER",
+        "SV5_42_FINAL_SCAN",
+        "SV5_43_WORLD_BAKE",
+        "SV5_44_WORLD_PLAYER",
+        "SV5_45_REVIEW_HANDOFF"
+      ],
+      "search_hints": [
+        "RMAP17",
+        "EditMode",
+        "PlayMode",
+        "validation",
+        "review"
+      ],
+      "questions": "기존 필요한 검사 API/선택 가능한 category/결과 위치와 정적·실제 Player 증거의 범위, 실행하지 않은 검사를 재사용 PASS로 표기 금지",
+      "hints_are_not_verified_paths_or_API": true
+    },
+    {
+      "audit_id": "B13",
+      "title": "별도 시각화·기존 작업 이력",
+      "consumer_tasks": [
+        "SV5_06_SPACE_GRAPH",
+        "SV5_41_COMPOSE",
+        "SV5_43_WORLD_BAKE",
+        "SV5_45_REVIEW_HANDOFF"
+      ],
+      "search_hints": [
+        "VIS01",
+        "VIS02",
+        "MoonPalaceGrayboxGeneratorWindow",
+        "SPACE",
+        "SV4"
+      ],
+      "questions": "현지 존재 여부/소유/완료 이력만 조사. VIS02 한 섹터 UI PASS를 SV5 전체 월드 또는 같은 seed/pool 승인으로 전환하지 않음",
+      "hints_are_not_verified_paths_or_API": true
+    }
+  ],
+  "priority": "SV5_04-06 core/state/space bindings first, then remaining families; no blanket whole-repo reading",
+  "classification": [
+    "REUSE",
+    "ADAPT",
+    "NEW"
+  ],
+  "absence_rule": "NEW needs recorded actual search roots, queries, and reuse rejection reason; never pretend a proposed type already exists",
+  "unresolved_rule": "Conflicting canonical ownership, missing critical predecessor data, or unknown core identity blocks dependent readiness and must be explicit; do not invent a binding."
+}

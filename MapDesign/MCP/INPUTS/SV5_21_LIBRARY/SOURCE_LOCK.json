@@ -1,0 +1,86 @@
+{
+  "schema": "SV5_21_LIBRARY_SOURCE_LOCK/v1",
+  "base_commit": "b95289b6c2eb727dd107d01ce89279d1556a60f9",
+  "base_parent": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "base_subject": "SV5_20_JUMP_PLAYER: verify actual Player traversal",
+  "review_zip_sha256": "e21570bab0c9689e76fa009ffc8ec57e4e1d6fa7d127e4e7f8e1c772e6a11ff7",
+  "files": [
+    {
+      "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+      "git_blob_oid": "5be55f742f6e2dff8dda37d56ab3fc789fb67eb0",
+      "sha256": "88527b5e880ead21d77595f63538dbd22f3589ec38957e6c5f0a6d4e78c7e2b8",
+      "bytes": 102558,
+      "role": "LIFECYCLE_WRITE"
+    },
+    {
+      "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+      "git_blob_oid": "c6709977ad95f9121b6894185faeb990cf9bc093",
+      "sha256": "69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c",
+      "bytes": 37001,
+      "role": "IMMUTABLE_MASTER"
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_20_JUMP_PLAYER_RESULT.md",
+      "git_blob_oid": "44e0164192f0aa2cce600b88820ab51314b05f68",
+      "sha256": "24301fbdffe4d187304993b5253e831ac0f966316002960cc18016c5edf1e086",
+      "bytes": 3534,
+      "role": "IMMUTABLE_PREDECESSOR"
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_20_JUMP_PLAYER.md",
+      "git_blob_oid": "b4be72f911a96539aedd6dae6f5cd99ef485e54f",
+      "sha256": "d300ce5685af05676398f7db0a33ae28206b876613b129e1b73ffc236da14517",
+      "bytes": 5052,
+      "role": "IMMUTABLE_PREDECESSOR"
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_20_JUMP_PLAYER.md",
+      "git_blob_oid": "b4be72f911a96539aedd6dae6f5cd99ef485e54f",
+      "sha256": "d300ce5685af05676398f7db0a33ae28206b876613b129e1b73ffc236da14517",
+      "bytes": 5052,
+      "role": "IMMUTABLE_PREDECESSOR"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_20_JUMP_PLAYER/BINDING.json",
+      "git_blob_oid": "04fa47bd1c66b9e881d84bf2310dbe4aecc84dbe",
+      "sha256": "c3e0edf1d7b64a9b0f5fb6111a79fad1b3b39386adb972ea2c1a81eb62d74f53",
+      "bytes": 6606,
+      "role": "IMMUTABLE_PREDECESSOR"
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs",
+      "git_blob_oid": "ab9f186b485912cb808669fd190b38d3a8ca84f6",
+      "sha256": "48bc1b2664034beb923427c037a0b0b2d18f7a8c11d1705e9fce432a37324bab",
+      "bytes": 64393,
+      "role": "IMMUTABLE_CLUSTER_BOUNDARY"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/BINDINGS.csv",
+      "git_blob_oid": "5376f11d06982d3b70e51bc5411c0676b353affd",
+      "sha256": "387334b77c82b2aa62e9e9b6c11330d3b83f4106abc4bf8916f5fe6afecdefee",
+      "bytes": 8910,
+      "role": "IMMUTABLE_BINDING_AUDIT"
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_03/TASK_COVERAGE.csv",
+      "git_blob_oid": "4fbf720f78aa997d35331d2920989a3c6191685d",
+      "sha256": "86309a520cf32fc268f0c9cabd25c68568fdc3b868ccf6b95c19611cba4644c6",
+      "bytes": 6466,
+      "role": "IMMUTABLE_BINDING_AUDIT"
+    }
+  ],
+  "write_allowlist": [
+    "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+    "MapDesign/MCP/TASKS/SV5_21_LIBRARY.md",
+    "MapDesign/MCP_ARCHIVE/SV5_21_LIBRARY.md",
+    "MapDesign/MCP/REPORTS/SV5_21_LIBRARY_RESULT.md",
+    "MapDesign/MCP/GENERATED/SV5_21_LIBRARY/**",
+    "MapDesign/MCP/SV5/29_LIBRARY_V5.md",
+    "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/Sv5LibraryLayout.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/Sv5LibraryLayout.cs.meta",
+    "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/Sv5LibraryExport.cs",
+    "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/Sv5LibraryExport.cs.meta",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5LibraryLayoutTests.cs",
+    "Assets/_Game/Tests/EditMode/Map/SV5/Sv5LibraryLayoutTests.cs.meta"
+  ]
+}

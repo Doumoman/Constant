@@ -1,0 +1,198 @@
+{
+  "schema": "SV5_INFILL_PROFILE_V1",
+  "id": "SV5_ORDINARY_INFILL_V1",
+  "version": "1.0.0",
+  "values_are": "IMPLEMENTATION_DEFAULTS_NOT_USER_QUOTED_NUMBERS",
+  "world": [
+    624,
+    416
+  ],
+  "tile": [
+    1,
+    1
+  ],
+  "pattern": [
+    4,
+    4
+  ],
+  "micro_chunk": [
+    12,
+    8
+  ],
+  "integration_seed": 1304,
+  "integration_cases": [
+    "SV5_07_DEFAULT_ON",
+    "SV5_07_REPEAT_ON"
+  ],
+  "source_plan_digests": {
+    "default": "10080e53c3d4c47f6e93f49118c7c648f07c1f3162742ce866b6ecd8a0be3e46",
+    "repeat": "94c9f3a353e39984633a755af7842e87989e86dc97c3545ce87a4ac4da4397b7"
+  },
+  "placement": {
+    "target_new_rooms": 256,
+    "minimum_new_rooms": 128,
+    "maximum_new_rooms": 384,
+    "review_sector_size": [
+      156,
+      104
+    ],
+    "minimum_populated_sectors": 12,
+    "minimum_rooms_in_populated_sector": 6,
+    "minimum_new_owned_tiles": 24576,
+    "review_window_size": [
+      48,
+      32
+    ],
+    "candidate_origin_grid": 4,
+    "maximum_external_connector_centerline_tiles": 24,
+    "maximum_parent_room_depth": 12,
+    "connected_growth_only": true,
+    "large_footprints_and_baseline_corridors_immutable": true,
+    "candidate_order": "LEAST_FILLED_SECTOR_THEN_STABLE_HASH_THEN_Y_X_TEMPLATE",
+    "random_salt": "SV5_INFILL_V1",
+    "rank": "UTF8_SHA256_FIRST_16_HEX_AS_UINT64",
+    "rank_token": "SV5_INFILL_V1|<seed>|<parent_id>|<x>|<y>|<template_id>|<mirror>"
+  },
+  "terrain": {
+    "allowed_base_cells": [
+      "SOLID",
+      "AIR"
+    ],
+    "default_shell_thickness": 3,
+    "thickness_target": [
+      3,
+      4
+    ],
+    "join_thickness_exception": [
+      1,
+      2
+    ],
+    "door_open_tiles": 2,
+    "connector_clear_tiles": 2,
+    "ordinary_rise_max": 1,
+    "jump_grab_rise_max": 2,
+    "ordinary_recipe_uses_grab": false,
+    "minimum_clear_height_over_standing_route": 2,
+    "must_include_all_cells_in_each_4x4_pattern": true,
+    "pattern_write_mask_required_for_partial_blocks": true,
+    "six_by_six_scan_total": 254409
+  },
+  "recipes": [
+    {
+      "id": "EMPTY_ROOM",
+      "bounds": [
+        16,
+        12
+      ],
+      "family": "ORDINARY_ROOM_A",
+      "role": "EMPTY_REST",
+      "air_base_inclusive": [
+        3,
+        3,
+        12,
+        8
+      ],
+      "door_side": "LEFT_OR_MIRROR",
+      "door_y": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "SMALL_CAVE",
+      "bounds": [
+        20,
+        12
+      ],
+      "family": "ORDINARY_ROOM_B",
+      "role": "SMALL_CAVITY",
+      "air_base_inclusive": [
+        3,
+        3,
+        16,
+        8
+      ],
+      "door_side": "LEFT_OR_MIRROR",
+      "door_y": [
+        3,
+        4
+      ],
+      "ceiling_y_max_by_local_x": "8 for x3..5; 9 for x6..9; 8 for x10..13; 7 for x14..16",
+      "flat_floor_y": 3
+    },
+    {
+      "id": "LANDING",
+      "bounds": [
+        16,
+        16
+      ],
+      "family": "ORDINARY_ROOM_C",
+      "role": "STEPPED_LANDING",
+      "air_base_inclusive": [
+        3,
+        3,
+        12,
+        12
+      ],
+      "floor_surface_by_local_x": "3 + min(2, floor((x-3)/2)) for x3..12",
+      "door_side": "LEFT_OR_MIRROR",
+      "door_y": [
+        3,
+        4
+      ],
+      "upper_child_door_optional": true
+    },
+    {
+      "id": "DEAD_END",
+      "bounds": [
+        16,
+        12
+      ],
+      "family": "ORDINARY_ROOM_D",
+      "role": "EMPTY_DEAD_END",
+      "air_base_inclusive": [
+        3,
+        3,
+        12,
+        8
+      ],
+      "door_side": "LEFT_OR_MIRROR",
+      "door_y": [
+        3,
+        4
+      ],
+      "back_wall_local_x": 12,
+      "back_wall_local_y_inclusive": [
+        6,
+        8
+      ]
+    }
+  ],
+  "reward_policy": "NO_AUTOMATIC_REWARD_NPC_OR_EVENT",
+  "topology": "ONE_PARENT_ACTIONLESS_ATTACHMENT;CHILDREN_ALLOWED;NO_JOIN_TO_SECOND_BASE_ROUTE",
+  "candidate_exhaustion": "REPORT_COUNTS_REASONS_AND_FAIL_IF_MINIMUMS_NOT_MET;NEVER_LOWER_PROFILE_OR_REMOVE_PROTECTION",
+  "readiness": {
+    "infill_cells": "STATIC_SCREEN_AFTER_CHECKS",
+    "pattern_payload": "LOCAL_WRITE_MASKS_NOT_WORLD_COMPOSITION",
+    "composed_geometry_ready": false,
+    "player_verified": false
+  },
+  "legacy_ordinary": {
+    "count": 6,
+    "families": [
+      "ORDINARY_ROOM_A",
+      "ORDINARY_ROOM_B",
+      "ORDINARY_ROOM_C",
+      "ORDINARY_ROOM_D",
+      "ORDINARY_ROOM_E",
+      "ORDINARY_ROOM_F"
+    ],
+    "future_owner": "SV5_08_INFILL",
+    "preserve_bounds_and_ports": true,
+    "count_as_new_rooms": false,
+    "entry_y": "height/2",
+    "floor": "max(3,entry_y-1-min(x-3,width-4-x)) for x3..width-4",
+    "air_ceiling_inclusive": "height-4",
+    "incident_hosts": "ONLY_EXISTING_IN_OUT_OPTIONAL_BINDINGS;FULL_CONTACT_AND_PRODUCT_RECHECK"
+  }
+}

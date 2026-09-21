@@ -1,0 +1,28 @@
+{
+  "schema": "SV5_19_JUMP_RECOVERY_SOURCE_LOCK/v1",
+  "base_commit": "47ffdcf930a6a0c2fbaf6a3edce369a138cfc339",
+  "base_parent": "7c8281c1527f55c2d9a1f7d4c5c03f424cf8663b",
+  "base_subject": "SV5_18_JUMP_CLEARANCE: prove corrected local jump clearance",
+  "review_zip_sha256": "5b5d00269934d3db10358511528e33df1f6a477dd76529cb84bfcaedc8e1bb81",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"2718ca1567ad8eb5ccaa21641be887bf1ede4290","sha256":"967b9e634ae4671789df24caa2e505410fb9efd975cf36465c53ed281344a543","bytes":102606,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_18_JUMP_CLEARANCE.md","git_blob_oid":"8e9c87608d01b2344829ff0340b3fc9443803e98","sha256":"4d855ec8f5272a91729f0800d2c7d20da3060405f0074f4f231475556b0bee68","bytes":3624,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_18_JUMP_CLEARANCE.md","git_blob_oid":"8e9c87608d01b2344829ff0340b3fc9443803e98","sha256":"4d855ec8f5272a91729f0800d2c7d20da3060405f0074f4f231475556b0bee68","bytes":3624,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_18_JUMP_CLEARANCE_RESULT.md","git_blob_oid":"2d70144dadba28556376cfa8168deaea8c147a5f","sha256":"140b6cef8e732c4b5fac897a15da4f5f321d510eb43fe99176df8504c83b0ee5","bytes":3453,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/BINDING.json","git_blob_oid":"59e39e7eebf9de246bee356b77814f91bbb1ce8e","sha256":"21d6bbb8c3653bf978c6f09cba78ca6486a7abbd9b3e608cc0844ff90e5409ad","bytes":6487,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpClearance.cs","git_blob_oid":"3293ee449af5dc565d8ac64f3d16f6623a390785","sha256":"bf9aa50c39da40e3d128a25de076eb07bfe3f461a118856a3d4d26191d597fa7","bytes":31272,"role":"IMMUTABLE_SOURCE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpClearanceExport.cs","git_blob_oid":"c2317ac339389fe3a8175546bb69696950bff7c8","sha256":"057d9fcc7faa0462ad91c4ec45c80a0fd64dc586f779257a657c9ea8fe074186","bytes":16407,"role":"IMMUTABLE_SOURCE"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5JumpClearanceTests.cs","git_blob_oid":"125671ad5ddf00261a250302f711ce9a70a015b6","sha256":"1fdb4b03b2b60d0eaff7f47f32349ad430f411f6cd2f48c7f4c6dee4599f0870","bytes":23028,"role":"IMMUTABLE_TEST"},
+    {"path":"MapDesign/MCP/SV5/26_JUMP_CLEARANCE_V5.md","git_blob_oid":"97a0f8af4b9a7cb57217a958d5c29fd21dd76306","sha256":"5f30692be1596c5d7c8ecc8abe1885d19a5c694bd5ab1510a38ac57988c94c1f","bytes":2651,"role":"IMMUTABLE_DOC"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/jump_clearance.json","git_blob_oid":"d9af00f0743fdf5cf00cdd9ea6ee4a0579bf0d94","sha256":"042172aabb8ae18026a7dec4a55528a1950984f9fc3d207f2f33f4ff37676083","bytes":1145,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_links.csv","git_blob_oid":"f54152583feacde278d9045ba1aec1c6b895680d","sha256":"1da6f52d2897bb6928efb0c79d26ba840060672fe321f675328df6f76e9a660e","bytes":1687,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_trace.csv","git_blob_oid":"ccb447fdb4dc55122b63144f01cf3ad09daa2b0b","sha256":"62ee64bc1446ed34285315e4d5cdebb7a02f7dc6e73d36fc5730252ccabf2285","bytes":6184,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_grab_contacts.csv","git_blob_oid":"3b2b8f70cbadcded5b943bc762d4f9393488ea6c","sha256":"a9b2a639f831aa6f664bde20c0652d364f0fe99d5bd086c2b4d79e5bdbcc5c27","bytes":391,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_validation.json","git_blob_oid":"123f90ac17a95cc1484d5eb3cb9703892a47a272","sha256":"95629d4a304ff3ff35a062877048c7c04b66a175d7a93d5845d2fde083776417","bytes":567,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/focused_results.xml","git_blob_oid":"29863bf3b9cb1ecb8193c5547c321939c34ccce6","sha256":"8db7596c61930e060ddf94def6f0406bf8d7ecb46afe3df05f741eb878d7831c","bytes":320083,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/independent_jump_clearance_audit.json","git_blob_oid":"05256e3db89057e276ebb4c45a4a30802724a4f7","sha256":"048614fa30d70a68f60bbecac7110a241e24373ce45f42320c42b6633e589683","bytes":702,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpRecipeCatalog.cs","git_blob_oid":"3fe23552843c2ccf8ff83f97e7c37557e5c9134c","sha256":"39a3a73596e6f67d53e0a5585238db4932ebbd9e788a683c2c1201820a90e9bb","bytes":36964,"role":"IMMUTABLE_SOURCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_occupancy.csv","git_blob_oid":"a632333a26c330859ccecdc949a84b5093c2d870","sha256":"763f1a192f7d83e328660049f9bc26edb1fa633c0f1c22858fff603c28bee492","bytes":5521,"role":"IMMUTABLE_EVIDENCE"}
+  ]
+}
+

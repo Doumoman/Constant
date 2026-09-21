@@ -5,7 +5,7 @@ SV5_05의 기존 Result는 보존한다. 이 문서는 `Sv5RouteStatePolicy.Anal
 
 ## API와 논리 범위
 
-- `RmapWorldGraphPlanner.ExploreWithAnalysisNodes`는 기존 RMAP13 상태·action·edge
+- `Sv5WorldGraphPlanner.ExploreWithAnalysisNodes`는 기존 SV5 상태·action·edge
   predicate를 재사용해 후보 분석 노드를 포함한 모든 도달 상태와 전이를 읽기 전용으로 열거한다.
 - `Sv5RouteStatePolicy.Analyze`는 baseline 6순서 proof와 candidate-set augmented proof를
   분리한다. 후보 집합은 각 order에서 EXIT goal 역도달 가능성까지 검사한다.

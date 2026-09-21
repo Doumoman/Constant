@@ -1,0 +1,53 @@
+{
+  "package": {
+    "status": "PASS_PACKAGE_ONLY",
+    "state_contract_sections": 9,
+    "test_responsibilities": 10,
+    "baseline_air_witness": "NOT_CHECKED_AGAINST_LOCAL_DATA",
+    "native_finalize_commit_checked": false,
+    "Unity_run_here": false,
+    "runtime_state_evaluated": false,
+    "errors": []
+  },
+  "reviewed_source_tests_and_data": true,
+  "reported_hashes_verified": 16,
+  "uploaded_xml_passed": 8,
+  "uploaded_xml_executed_here": false,
+  "review_zip_sha256": "d57b7dfc6725a0c3fc732b7893f2b820b2e7a99b872df131dd84eadc397fc6d6",
+  "actual_SV5_04_finalize_commit": "NOT_VERIFIED_HERE",
+  "SV5_05_implementation_Unity_apply_finalize_commit": "NOT_RUN",
+  "new_project_root_files": 0,
+  "verifier_fixtures": [
+    {
+      "case": "two_path_bases_and_real_negative_witness",
+      "expected": "PASS_LOCAL_BYTES_ONLY",
+      "test": "PASS",
+      "synthetic_local_evidence_only": true
+    },
+    {
+      "case": "explicit_project_module_roots",
+      "expected": "PASS_LOCAL_BYTES_ONLY",
+      "test": "PASS",
+      "synthetic_local_evidence_only": true
+    },
+    {
+      "case": "reference_rejected",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_local_evidence_only": true
+    },
+    {
+      "case": "actual_adapter_SHA_mismatch_rejected",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_local_evidence_only": true
+    },
+    {
+      "case": "MCP_is_not_module_root",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_local_evidence_only": true
+    }
+  ],
+  "max_markdown_lines": 104
+}

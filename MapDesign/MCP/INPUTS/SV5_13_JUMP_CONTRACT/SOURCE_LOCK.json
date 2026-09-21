@@ -1,0 +1,17 @@
+{
+  "schema": "SV5_13_JUMP_CONTRACT_SOURCE_LOCK/v1",
+  "base_commit": "5e09c37146c21e16bb165ebdd47745205e5a0381",
+  "base_parent": "3f05858cb80d6437e89123fb6b6dd30a395996fc",
+  "base_subject": "SV5_12_FIX01: expand tree envelope into multi-stem canopy",
+  "review_zip_sha256": "91f6ec28cf541f1d2474eddaf2451d036e2c8d4bc6a690a379bc859f35d87a35",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"7950457a0458f2ec584d0f736e380870cbb10c12","sha256":"bb6104504995f4d20c4b2986ca95c6a49a14a4a16c03d34be041ce814d7333df","bytes":102594,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md","git_blob_oid":"c6709977ad95f9121b6894185faeb990cf9bc093","sha256":"69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c","bytes":37001,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_12_FIX01.md","git_blob_oid":"fc5cf169209296831741275dc678f6ddb900c755","sha256":"3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0","bytes":6327,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_12_FIX01.md","git_blob_oid":"fc5cf169209296831741275dc678f6ddb900c755","sha256":"3459698bfab18442d96ce535dbab6cbfc335d32c61af3f0baafbba955163ddd0","bytes":6327,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_12_FIX01_RESULT.md","git_blob_oid":"824b3291d507405841cfbdf530740d15a0f64216","sha256":"62a3050904c258537b276c153ee7cc0878333cee1930e9efacdc4182eace240b","bytes":5015,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_12_FIX01/BINDING.json","git_blob_oid":"7a598d5f8cb0873dc545b56ad36b031661303f95","sha256":"fd9e95c3ec352f56b1a865fc4f91beaeb76846b5057d72d2edfa1a57a9c05e10","bytes":6153,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5TreeGrab.cs","git_blob_oid":"17075228dffd22f26f7b8244b1da027317196f40","sha256":"6bd46561114ba973a29e0a478ab64ab2a1bcb39bd9b12a5eed19cd69e1bb60dd","bytes":37395,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5TreeGrabExport.cs","git_blob_oid":"f4a863e7aaea21890c4dc8e186c21a0df721221b","sha256":"5d8a5739cb3c533dd05f11f062f48708088cb03f0256f0038f024f9177246d4e","bytes":20340,"role":"IMMUTABLE"}
+  ]
+}

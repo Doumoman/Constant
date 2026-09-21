@@ -1,0 +1,15 @@
+{
+  "schema": "SV5_19_JUMP_RECOVERY_FILES/v1",
+  "task": "SV5_19_JUMP_RECOVERY",
+  "base_commit": "47ffdcf930a6a0c2fbaf6a3edce369a138cfc339",
+  "files": [
+    {"path":"CONTRACT.md","sha256":"ab9fa192b1617a90d084d66a48a51e63c7effd1c27cc34593fb7f09f0bd95679","bytes":6571},
+    {"path":"README.md","sha256":"16731eb95ec68eccc0ae2604276028e86d3c423d351fd9f4ef9c26891ae22ad2","bytes":439},
+    {"path":"RECOVERY_PROFILE.json","sha256":"a10ab03dc90b34edeaf293ae6112209497c81688b74ce9c589611baa58398c61","bytes":1437},
+    {"path":"SOURCE_LOCK.json","sha256":"8002bf7d911eb9523f2e80a68ec5db98648e3ee82a97e189794c83c716ddc84d","bytes":4902},
+    {"path":"STAGE.py","sha256":"194af45fc52e175101e516287190a0d51ba0d62f3c1e7a858568c0de7a2f5a5a","bytes":12493},
+    {"path":"SV5_19_JUMP_RECOVERY.md","sha256":"d5961f0f6f89339ded8d82134df10e427d6654e6e0c84aa28d026c01b1d6ecd4","bytes":3469},
+    {"path":"tools/check_jump_recovery.py","sha256":"980fa80e771f4f5da22f1be27a0383703551b19f187e42909b0dac378b950ba9","bytes":22388}
+  ]
+}
+

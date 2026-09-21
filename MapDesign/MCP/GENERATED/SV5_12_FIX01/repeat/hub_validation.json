@@ -24,7 +24,7 @@
   "physical_movement_digest":"d0669520ccd08e3e419fc88b064ec470ff619649a414915e13a695c5e48c3806",
   "physical_product_digest":"ac860be64e35c539fc5d991660c7cc99709ed6f04b260e965d19a0452ba4a111",
   "rejection_histogram":{"CANDIDATE_ROUTE_ATTEMPT_CAP":259,"CONNECTION_SHORTFALL":172,"EXTERNAL_ANCHOR_INGRESS_BLOCKED":171,"FOOTPRINT_CONFLICT":2809,"MOVEMENT_SUPPORT_CONFLICT":41,"NO_ACTUAL_CELL_ROUTE":3189,"NO_PLATFORMER_WITNESS":58,"PROGRESSION_COMPONENT_BRIDGE":3044,"ROUTE_ATTEMPT_CAP":2,"ROUTE_GEOMETRY_INVALID":332,"TARGET_SHORTFALL":68},
-  "timings_ms":{"accepted_overlay_ms":0.547,"candidate_evaluation_ms":31220.796,"external_target_index_ms":2569.585,"progression_component_index_ms":3031.926,"source_index_ms":28.501,"total_build_ms":36859.300},
+  "timings_ms":{"accepted_overlay_ms":0.876,"candidate_evaluation_ms":35476.666,"external_target_index_ms":3036.491,"progression_component_index_ms":2780.983,"source_index_ms":33.036,"total_build_ms":41336.625},
   "diagnostics":[],
   "tree_grab_geometry_ready":true,
   "composed_geometry_ready":false,

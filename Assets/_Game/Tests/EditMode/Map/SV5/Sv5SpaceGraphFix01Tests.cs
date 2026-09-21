@@ -164,7 +164,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         }
 
         private static IReadOnlyList<string> Validate(Sv5SpaceConnection value, string fromPort, string flow,
-            RmapWorldGraphDirection direction, IEnumerable<RmapSpecialWorldPoint> envelope) =>
+            Sv5WorldGraphDirection direction, IEnumerable<Sv5SpecialWorldPoint> envelope) =>
             Sv5SpaceGraphValidator.ValidatePortTransitionFixture(Plan.Value.Ports, fromPort, value.ToPortId,
                 value.FromPlaceId, value.ToPlaceId, flow, direction, value.Centerline, envelope,
                 value.ApertureCells);
@@ -176,7 +176,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             {
                 if (string.IsNullOrWhiteSpace(line)) continue;
                 string[] fields = line.Split(',');
-                var world = new RmapSpecialWorldPoint(I(fields[0]), I(fields[1]));
+                var world = new Sv5SpecialWorldPoint(I(fields[0]), I(fields[1]));
                 if (fields[2] == "CoreRoute" && fields[4].StartsWith("Passage:", StringComparison.Ordinal))
                     cells.Add(new Sv5RouteContactCell(fields[3], world, Sv5RouteContactCellKind.Passage));
                 else if (fields[2] == "CoreRoute" && fields[4].StartsWith("Clearance:", StringComparison.Ordinal))
@@ -192,7 +192,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 foreach (string cell in fields[12].Split('|'))
                 {
                     string[] xy = cell.Split(':');
-                    cells.Add(new Sv5RouteContactCell(route, new RmapSpecialWorldPoint(I(xy[0]), I(xy[1])),
+                    cells.Add(new Sv5RouteContactCell(route, new Sv5SpecialWorldPoint(I(xy[0]), I(xy[1])),
                         Sv5RouteContactCellKind.Passage));
                 }
             }
@@ -203,19 +203,19 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 Historical("GENERATED", "SV5_06", "reservation_cells.csv")).Skip(1)
             .Where(value => !string.IsNullOrWhiteSpace(value)).Select(value => value.Split(','))
             .Where(value => value[2] == "CorridorCenterline" || value[2] == "CorridorClearance")
-            .Select(value => new Sv5SpaceReservationProbe(new RmapSpecialWorldPoint(I(value[0]), I(value[1])),
+            .Select(value => new Sv5SpaceReservationProbe(new Sv5SpecialWorldPoint(I(value[0]), I(value[1])),
                 value[2] == "CorridorCenterline" ? Sv5SpaceReservationKind.CorridorCenterline :
                 Sv5SpaceReservationKind.CorridorClearance, value[3])).ToArray();
 
-        private static RmapWorldGraphDirection Opposite(RmapWorldGraphDirection value) =>
-            value == RmapWorldGraphDirection.Left ? RmapWorldGraphDirection.Right :
-            value == RmapWorldGraphDirection.Right ? RmapWorldGraphDirection.Left :
-            value == RmapWorldGraphDirection.Up ? RmapWorldGraphDirection.Down : RmapWorldGraphDirection.Up;
+        private static Sv5WorldGraphDirection Opposite(Sv5WorldGraphDirection value) =>
+            value == Sv5WorldGraphDirection.Left ? Sv5WorldGraphDirection.Right :
+            value == Sv5WorldGraphDirection.Right ? Sv5WorldGraphDirection.Left :
+            value == Sv5WorldGraphDirection.Up ? Sv5WorldGraphDirection.Down : Sv5WorldGraphDirection.Up;
         private static int I(string value) => int.Parse(value, CultureInfo.InvariantCulture);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_08_FIX01", "_work", "legacy_exports",
-            "sv5_06_fix01_n08");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "Temp", "SV5Tests",
+            "space_graph_fix01_n08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {

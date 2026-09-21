@@ -1,0 +1,498 @@
+{
+  "format": "sv5_05_fix01_review_findings_v1",
+  "review_zip_sha256": "ae95024b5564a6d5dbcccca35ba6424153b82cfc755f3c73e43f7423cff3f038",
+  "verdict": "F1_F2_FIXED_CONTACT_C04_INCOMPLETE_ADDRESS_IN_REGISTERED_SV5_06",
+  "evidence_level": "UPLOADED_BYTES_XML_AND_STATIC_SOURCE_REVIEW_NOT_LOCAL_UNITY_EXECUTION",
+  "verified_manifest_files": 40,
+  "reported_commit": "37c09eb8663656da182453c19487f65ea056c8f2",
+  "reported_parent": "117d99a82eb0889ab0edfeda250e535c5f56c295",
+  "live_git_verified_here": false,
+  "actual_state": {
+    "total": 286,
+    "complete": 244,
+    "current": 0,
+    "locked": 42,
+    "current_task": "NONE",
+    "SV5_06_SPACE_GRAPH": "LOCKED"
+  },
+  "uploaded_tests": {
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0,
+    "xml_sha256": "5addbe7c8524c6b97d4cfca4a782e5f69a0ed59e91df47a82eb1ebd77f6ca931",
+    "executed_here": false,
+    "separate_expected_pre_fix_failure_cases": 1
+  },
+  "fixed": [
+    {
+      "id": "F1",
+      "basis": "LogicalEntryRequirement(Boss) adds SealOpen; T01 actual uploaded Passed and separate pre-fix Failed."
+    },
+    {
+      "id": "F2",
+      "basis": "CanonicalPayload length-prefixes candidate anchors/direction/guards/provenance; candidate/proof/review/witness bound into V2; T04 actual uploaded Passed."
+    }
+  ],
+  "remaining": [
+    {
+      "id": "CONTACT-PAIR",
+      "priority": "P2",
+      "source_method": "CollectContacts",
+      "reason": "Neighbor cells sharing one route skip the entire contact; distinct route pairs at those faces disappear. Shared-cell rows elsewhere do not prove these face directions.",
+      "face_locations_skipped": 907,
+      "distinct_pair_face_instances_skipped": 1422,
+      "examples": [
+        {
+          "a": [
+            270,
+            341
+          ],
+          "b": [
+            271,
+            341
+          ],
+          "a_routes": [
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            270,
+            342
+          ],
+          "b": [
+            271,
+            342
+          ],
+          "a_routes": [
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            271,
+            340
+          ],
+          "b": [
+            271,
+            341
+          ],
+          "a_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            271,
+            341
+          ],
+          "b": [
+            272,
+            341
+          ],
+          "a_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            271,
+            341
+          ],
+          "b": [
+            271,
+            342
+          ],
+          "a_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            271,
+            342
+          ],
+          "b": [
+            272,
+            342
+          ],
+          "a_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            272,
+            341
+          ],
+          "b": [
+            273,
+            341
+          ],
+          "a_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        },
+        {
+          "a": [
+            272,
+            341
+          ],
+          "b": [
+            272,
+            342
+          ],
+          "a_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "b_routes": [
+            "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+            "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+          ],
+          "missing_pair_instances": 1,
+          "pairs": [
+            [
+              "b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+              "fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2"
+            ]
+          ]
+        }
+      ],
+      "tiny_fixture": {
+        "cell_a": [
+          10,
+          10
+        ],
+        "routes_a": [
+          "A",
+          "B"
+        ],
+        "cell_b": [
+          11,
+          10
+        ],
+        "routes_b": [
+          "A",
+          "C"
+        ],
+        "expected_distinct_unordered_route_pairs": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ]
+      },
+      "boundary": "Counts are omitted face instances, not a count of proven gate exploits."
+    },
+    {
+      "id": "CONTACT-CLAIM",
+      "priority": "P2",
+      "source_methods": [
+        "AddContact",
+        "CollectContacts review rows"
+      ],
+      "reason": "LogicalStateTransitionChecked is true after predicate listing / route-ID presence, without contact state transitions. Original FIX01 C04 remains incomplete.",
+      "required": "Separate predicate classification, actual state transition analysis, planned geometry and live Player evidence; unexamined is false/pending."
+    }
+  ],
+  "next_task": "SV5_06_SPACE_GRAPH",
+  "next_task_condition": "Mandatory correction/consumption guard before using contact outputs to accept any new spatial graph. Historical FIX01 outputs remain immutable; corrected evidence belongs to 06.",
+  "readiness": {
+    "candidate_logic_evidence": "F1_F2_AND_UPLOADED_TESTS_CONFIRMED",
+    "contact_state_verified": false,
+    "geometry_state_ready": false,
+    "player_verified": false
+  },
+  "verified_files": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "sha256": "7d8518d5f7d7487592f38a7bcf1a2943b4cca524570a5cc77bd6b7be8b8cb984",
+      "bytes": 42730
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+      "sha256": "980a2fb31a1b0a5e94538989737c8b00343782be8c488278d464c87c51c7cb77",
+      "bytes": 67455
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "bytes": 29731
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/RMAP13/RmapWorldGraphPlannerTests.cs",
+      "sha256": "c9b0e71ace1bcc665387744d8c3de679eef8668f0994125663f96ee6156379ae",
+      "bytes": 10672
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs",
+      "sha256": "f2c58c16609ab557d60bb23d42ff3b91b9ae5fbdebd1ab154667c13443267504",
+      "bytes": 18248
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStateFix01Tests.cs.meta",
+      "sha256": "4ee0d22ae7c5ab55a52847844ed99f014cdb68a5ea337a4f7ffdc13f0e4235f5",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "sha256": "37f2aea9c310a337846fb2be0d066919cfa1b784b6ccce0be61b4e7d48057aa7",
+      "bytes": 19835
+    },
+    {
+      "path": "MapDesign/MCP/06_IMPLEMENTATION_STATUS.md",
+      "sha256": "f1c450c04ba9ed8aac05d86c87ea22815b3aa7d28bd30deacbdb02edadec6f29",
+      "bytes": 102328
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/BINDING.json",
+      "sha256": "629f53a7257d828e27a37a00537359b2421bbdddb233b5c17c29d0c41ee70a50",
+      "bytes": 2580
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "bytes": 5397
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/analysis.json",
+      "sha256": "c23ff673fd02b62551fc28065a28694364e0540f4e5f0be258bd348aa71d54ed",
+      "bytes": 457495
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/BINDING.json",
+      "sha256": "db89d2814c28e962b5a34d687c1828b972cadad85bd5395adbf86f1fb16b8664",
+      "bytes": 4888
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/candidate_set_proofs.csv",
+      "sha256": "44c24cf4f5386d7ef0354e5eabc554fa4b8bfde097fb16b80d650c06069c5f06",
+      "bytes": 1701
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "bytes": 5397
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/contact_checks.csv",
+      "sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "bytes": 328740
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/expected_pre_fix_failure.xml",
+      "sha256": "77b359fd70490ba602420c47142288a8126218436047a381bd26cf357d9c334e",
+      "bytes": 6562
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/focused_results.xml",
+      "sha256": "5addbe7c8524c6b97d4cfca4a782e5f69a0ed59e91df47a82eb1ebd77f6ca931",
+      "bytes": 41922
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "bytes": 5397
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/contact_checks.csv",
+      "sha256": "93e1c727504f5b71aa2a0e7260faa95272ea820b3596474e242a9dd62fd58e7e",
+      "bytes": 328740
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/obligations.csv",
+      "sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "bytes": 850
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/order_proofs.csv",
+      "sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "bytes": 1735
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/route_state_manifest.json",
+      "sha256": "c2b05bec50b6ec693a6eb6b5218abe5dd4a52c2f924da18cc1d97ada741ff023",
+      "bytes": 668
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/shortcut_decisions.csv",
+      "sha256": "9663b19aa9f9c729f37e6b3e85fd0c962d96237df2d68bd7446e659ed88ae038",
+      "bytes": 606
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/legacy_sv5_05_policy_export/state_traces.csv",
+      "sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "bytes": 30810
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/obligations.csv",
+      "sha256": "2752da9c966bf0af898fec21f45dc3d999d39ad4ea9aba9a25b08db39bf2b4b4",
+      "bytes": 850
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/order_proofs.csv",
+      "sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "bytes": 1735
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/route_state_manifest.json",
+      "sha256": "f45b24a73587b14c9caabc0d8b6adf9b467cd67baa93c5db262b24e7dcba2396",
+      "bytes": 668
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/shortcut_decisions.csv",
+      "sha256": "b387bfe71e3676483a18f949596809f90de2cb78517d14d52f849d631143e1a6",
+      "bytes": 597
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/state_traces.csv",
+      "sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "bytes": 30810
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01/validation.json",
+      "sha256": "9799c651606f7f19709b26ed36c6fb7e4984791a11cba7f324f6303f675f9c21",
+      "bytes": 2030
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/REGISTRATION_RECEIPT.json",
+      "sha256": "36135757f4670de12b47c1b35af794d7c1b0834e045bb9c18009819f0fa1f15c",
+      "bytes": 3660
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05_FIX01_REG/REGISTRATION_RECORD.md",
+      "sha256": "d51edb35bd8ba290631f510d0755863b2654508d428fc12181dd9c3d3597a018",
+      "bytes": 6403
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REPAIR_CONTRACT.md",
+      "sha256": "d4b8197fc2720f0cce038e11ed2909c3b1e83dd2054204876febd5d2c76bdb0b",
+      "bytes": 10154
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_05_FIX01/REVIEW_FINDINGS.json",
+      "sha256": "7d073dfdef6e4b5ce4517e4d8974cd6e082bf7ab41cd1fbb6f417cafc04b056e",
+      "bytes": 15819
+    },
+    {
+      "path": "MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md",
+      "sha256": "8a0d957aec361358b1f8e7b9cb9897c3af2d93c4ddaf7917c660b2ce1dc284d4",
+      "bytes": 36695
+    },
+    {
+      "path": "MapDesign/MCP/REPORTS/SV5_05_FIX01_RESULT.md",
+      "sha256": "46d9e5b0dceb2a1efc431602df7d5da068642831e67468042f4f90498e4c1ef3",
+      "bytes": 2366
+    },
+    {
+      "path": "MapDesign/MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "d007b49969c44b0fb1d64a8bf6fc54e64e8fec8b9714dcf8025fcc3999fc0a77",
+      "bytes": 2739
+    },
+    {
+      "path": "MapDesign/MCP/SV5/09_ROUTE_STATE_FIX01.md",
+      "sha256": "3424908d50c85be143813f363bac05fdfe4edee4f7e46c653c4b59918e1d817b",
+      "bytes": 2056
+    },
+    {
+      "path": "MapDesign/MCP/TASKS/SV5_05_FIX01.md",
+      "sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+      "bytes": 7842
+    },
+    {
+      "path": "MapDesign/MCP_ARCHIVE/SV5_05_FIX01.md",
+      "sha256": "4f0fb356be2a2ced028a890047580cec62bec65c19dd035ce1ccb258ae55b9b0",
+      "bytes": 7842
+    }
+  ]
+}

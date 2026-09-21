@@ -10,7 +10,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5SidepathEndpoint : IComparable<Sv5SidepathEndpoint>
     {
         internal Sv5SidepathEndpoint(string id,string room,string group,string connection,string port,
-            string patternOwner,RmapSpecialWorldPoint world,int exitX,string stableHash)
+            string patternOwner,Sv5SpecialWorldPoint world,int exitX,string stableHash)
         {
             EndpointId=id;RoomId=room;SpaceGroupId=group;ConnectionId=connection;PortId=port;
             MicroPatternOwner=patternOwner;World=world;ExitX=exitX;StableHash=stableHash;
@@ -21,7 +21,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string ConnectionId { get; }
         public string PortId { get; }
         public string MicroPatternOwner { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public int ExitX { get; }
         public string StableHash { get; }
         public int CompareTo(Sv5SidepathEndpoint other)
@@ -56,7 +56,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             Endpoints=Array.AsReadOnly(endpoints.OrderBy(v=>v).ToArray());
             Pairs=Array.AsReadOnly(pairs.OrderBy(v=>v).ToArray());
-            Digest=RmapWorldDefinition.Hash("SV5_SIDEPATH_ENDPOINT_WINDOW_V1\n"+
+            Digest=Sv5WorldDefinition.Hash("SV5_SIDEPATH_ENDPOINT_WINDOW_V1\n"+
                 string.Join("\n",Endpoints.Select(v=>v.EndpointId+"|"+v.RoomId+"|"+v.SpaceGroupId+"|"+
                     v.ConnectionId+"|"+v.PortId+"|"+v.MicroPatternOwner+"|"+v.World+"|"+v.ExitX))+"\n"+
                 string.Join("\n",Pairs.Select(v=>v.PairKey+"|"+v.Dx+"|"+v.Dy+"|"+v.Manhattan+"|"+v.RejectionReason)));
@@ -69,14 +69,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public static class Sv5SidepathEndpointIndex
     {
         public static Sv5SidepathEndpointPlan Build(Sv5SpaceGraphPlan plan,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
-            IReadOnlyCollection<RmapSpecialWorldPoint> supportedFeet)
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
+            IReadOnlyCollection<Sv5SpecialWorldPoint> supportedFeet)
         {
             if(plan==null || plan.Infill==null) throw new ArgumentException("An infill plan is required.",nameof(plan));
             if(occupancy==null || supportedFeet==null) throw new ArgumentNullException(nameof(occupancy));
             var rooms=plan.Infill.Rooms.ToDictionary(v=>v.Id,v=>v,StringComparer.Ordinal);
             var cells=plan.Infill.Cells.GroupBy(v=>v.World).ToDictionary(v=>v.Key,v=>v.Last());
-            var feet=new HashSet<RmapSpecialWorldPoint>(supportedFeet);
+            var feet=new HashSet<Sv5SpecialWorldPoint>(supportedFeet);
             var connections=plan.Connections.ToDictionary(v=>v.Id,v=>v,StringComparer.Ordinal);
             var ports=plan.Ports.ToDictionary(v=>v.Id,v=>v,StringComparer.Ordinal);
             var endpoints=new List<Sv5SidepathEndpoint>();
@@ -87,11 +87,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 var room=rooms[roomId]; if(!connections.TryGetValue(room.Host,out Sv5SpaceConnection connection)) continue;
                 foreach(int exitX in new[]{-1,1})
                 {
-                    var outside=new RmapSpecialWorldPoint(point.X+exitX,point.Y);
+                    var outside=new Sv5SpecialWorldPoint(point.X+exitX,point.Y);
                     if(outside.X<1 || outside.X>622 || room.Bounds.Contains(outside) || feet.Contains(outside)) continue;
                     string port=NearestPort(connection,point,ports);
-                    string endpointId="EP_"+RmapWorldDefinition.Hash(connection.Id+"|"+port+"|"+roomId+"|"+point+"|"+exitX).Substring(0,24);
-                    string stable=RmapWorldDefinition.Hash("SV5_SIDE_ENDPOINT|"+plan.Seed+"|"+endpointId);
+                    string endpointId="EP_"+Sv5WorldDefinition.Hash(connection.Id+"|"+port+"|"+roomId+"|"+point+"|"+exitX).Substring(0,24);
+                    string stable=Sv5WorldDefinition.Hash("SV5_SIDE_ENDPOINT|"+plan.Seed+"|"+endpointId);
                     endpoints.Add(new Sv5SidepathEndpoint(endpointId,roomId,connection.Id,connection.Id,port,
                         cell.Owner+":"+cell.Recipe,point,exitX,stable));
                 }
@@ -123,7 +123,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Select(v=>RoomKey(v.Room,v.Parent)),StringComparer.Ordinal);
         }
         private static string RoomKey(string a,string b) => string.Compare(a,b,StringComparison.Ordinal)<=0 ? a+"|"+b : b+"|"+a;
-        private static string NearestPort(Sv5SpaceConnection connection,RmapSpecialWorldPoint point,
+        private static string NearestPort(Sv5SpaceConnection connection,Sv5SpecialWorldPoint point,
             IReadOnlyDictionary<string,Sv5SpacePort> ports)
         {
             var ids=new[]{connection.FromPortId,connection.ToPortId}.Where(ports.ContainsKey).ToArray();

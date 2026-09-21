@@ -6,17 +6,17 @@ future Task must recheck the current files before changing them.
 
 ## Canonical current sources
 
-- `MCP/GENERATED/RMAP15/rmap15_sites.csv` is the physical-site index. Its eight
+- `MCP/GENERATED/SV5/rmap15_sites.csv` is the physical-site index. Its eight
   sites are Start, three resources, Village, Forge, shared SealBoss, and Exit.
   Graph reservations, fixed-cell protection, access ports, slots, and SealBoss
-  state geometry remain in their separate RMAP15 exports.
-- `RmapWorldDataContract`, `RmapWorldGraphPlanner`, `RmapWorldBiomePlanner`,
-  and `RmapSpecialReservationPlanner` are the read-only starting points for
+  state geometry remain in their separate SV5 exports.
+- `Sv5WorldDataContract`, `Sv5WorldGraphPlanner`, `Sv5WorldBiomePlanner`,
+  and `Sv5SpecialReservationPlanner` are the read-only starting points for
   SV5_04 through SV5_06; see `BINDINGS.csv` for actual symbols and SHA values.
-- `RmapPatternCatalog`, `RmapPortCatalog`, `RmapPatternPool500`, and
-  `RmapClusterAssemblyPlanner` are existing reuse/adaptation boundaries, not
+- `Sv5PatternCatalog`, `Sv5PortCatalog`, `Sv5PatternPool500`, and
+  `Sv5ClusterAssemblyPlanner` are existing reuse/adaptation boundaries, not
   an authorization to reshape the world in this Task.
-- RMAP16 final cells and RMAP17 bake artifacts provide current final-cell and
+- SV5 final cells and SV5 bake artifacts provide current final-cell and
   static-bake provenance. Their historical PASS does not make SV5 rules or
   later Player/progression work complete.
 
@@ -45,5 +45,5 @@ state only an absence observation and future owner; they do not create APIs.
 ## Scope boundaries
 
 SV5_03 performed no Unity run, compile, tests, build, bake, game-code change,
-data change, RMAP18/19 work, or SV5_04+ execution. `07_FILE_FLOW_V5.md`
+data change, SV5/19 work, or SV5_04+ execution. `07_FILE_FLOW_V5.md`
 governs future package and temporary-file placement.

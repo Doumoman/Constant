@@ -14,8 +14,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
     public sealed class Sv5InfillLengthFix01Tests
     {
         private static string Root => Path.GetFullPath(Path.Combine(Application.dataPath,".."));
-        private static RmapSpecialWorldPoint P(int x,int y) => new RmapSpecialWorldPoint(x,y);
-        private static RmapSpecialWorldPoint[] Horizontal(int count) => Enumerable.Range(0,count).Select(x=>P(x,0)).ToArray();
+        private static Sv5SpecialWorldPoint P(int x,int y) => new Sv5SpecialWorldPoint(x,y);
+        private static Sv5SpecialWorldPoint[] Horizontal(int count) => Enumerable.Range(0,count).Select(x=>P(x,0)).ToArray();
 
         [Test] public void F01_InclusiveBoundaryAcceptsTwentyThreeAndTwentyFourButRejectsTwentyFiveAndTwentySix()
         {
@@ -51,10 +51,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             var expanded=Sv5SpaceInfill.CardinalCenterline(new[]{P(0,0),P(1,1)});
             Assert.That(expanded,Is.EqualTo(new[]{P(0,0),P(0,1),P(1,1)}));
-            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(expanded,Array.Empty<RmapSpecialWorldPoint>(),24,false),Is.Empty);
-            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(new[]{P(0,0),P(1,1)},Array.Empty<RmapSpecialWorldPoint>(),24,false),
+            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(expanded,Array.Empty<Sv5SpecialWorldPoint>(),24,false),Is.Empty);
+            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(new[]{P(0,0),P(1,1)},Array.Empty<Sv5SpecialWorldPoint>(),24,false),
                 Does.Contain("NON_CARDINAL_STEP"));
-            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(Array.Empty<RmapSpecialWorldPoint>(),Array.Empty<RmapSpecialWorldPoint>(),24,false),
+            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(Array.Empty<Sv5SpecialWorldPoint>(),Array.Empty<Sv5SpecialWorldPoint>(),24,false),
                 Does.Contain("EMPTY_PATH"));
             Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(new[]{P(0,0),P(1,0)},new[]{P(-1,0),P(9,0)},24,true),
                 Does.Contain("ROOT_JOIN_MISMATCH"));
@@ -74,7 +74,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var oldOwnershipFiltered=full.Skip(1).Take(24).ToArray();
             Assert.That(oldOwnershipFiltered.Length,Is.EqualTo(24));
             Assert.That(full.Length,Is.EqualTo(26));
-            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(full,Array.Empty<RmapSpecialWorldPoint>(),24,false),
+            Assert.That(Sv5SpaceInfill.FindConnectionLengthErrors(full,Array.Empty<Sv5SpecialWorldPoint>(),24,false),
                 Does.Contain("OVER_MAXIMUM|26/24"));
         }
 
@@ -85,7 +85,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 var baseline=pair.Before; var plan=pair.After; var payload=plan.Infill;
                 var oldAir=baseline.Connections.SelectMany(c=>c.Centerline.Concat(c.ApertureCells)).ToHashSet();
                 var newAir=payload.Cells.Where(c=>c.Value==Sv5InfillCellValue.Air).Select(c=>c.World).ToHashSet();
-                foreach(var room in payload.Rooms.Where(r=>!r.Legacy))
+                foreach(var room in payload.Rooms)
                 {
                     var link=payload.Links.Single(l=>l.Room==room.Id);
                     var parent=payload.Rooms.SingleOrDefault(r=>r.Id==room.Parent);

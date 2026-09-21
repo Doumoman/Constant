@@ -10,7 +10,7 @@ namespace StarNight.Map.WorldGeneration.Baking
     /// <summary>
     /// Logical bake commands are applied to Unity Tilemaps only through this
     /// narrow boundary. It owns no Player, Camera, seed selection, or scene
-    /// lifecycle. RMAP02 also uses its seven-layer fixture overload for the
+    /// lifecycle. SV5 also uses its seven-layer fixture overload for the
     /// explicitly authored 60x40 physical course.
     /// </summary>
     [Serializable]
@@ -39,9 +39,9 @@ namespace StarNight.Map.WorldGeneration.Baking
         public TileBase OccupiedTile { get { return occupiedTile; } }
     }
 
-    public readonly struct Rmap02TilemapFixtureCell
+    public readonly struct Sv5TilemapFixtureCell
     {
-        public Rmap02TilemapFixtureCell(
+        public Sv5TilemapFixtureCell(
             GeneratedTilemapLayerId layerId,
             int x,
             int y,
@@ -60,21 +60,21 @@ namespace StarNight.Map.WorldGeneration.Baking
     /// <summary>
     /// Explicit authored physical fixture. The seven logical layer identities
     /// and integer cell coordinates match the GeneratedCellPlacement/Bake seam,
-    /// while its 60x40 size deliberately remains a non-seeded RMAP02 course.
+    /// while its 60x40 size deliberately remains a non-seeded SV5 course.
     /// </summary>
-    public sealed class Rmap02TilemapFixturePlan
+    public sealed class Sv5TilemapFixturePlan
     {
-        private readonly ReadOnlyCollection<Rmap02TilemapFixtureCell> cells;
+        private readonly ReadOnlyCollection<Sv5TilemapFixtureCell> cells;
 
-        private Rmap02TilemapFixturePlan(
+        private Sv5TilemapFixturePlan(
             int width,
             int height,
-            IEnumerable<Rmap02TilemapFixtureCell> cells)
+            IEnumerable<Sv5TilemapFixtureCell> cells)
         {
             Width = width;
             Height = height;
-            this.cells = new ReadOnlyCollection<Rmap02TilemapFixtureCell>((cells ??
-                Array.Empty<Rmap02TilemapFixtureCell>()).OrderBy(value => value.LayerId)
+            this.cells = new ReadOnlyCollection<Sv5TilemapFixtureCell>((cells ??
+                Array.Empty<Sv5TilemapFixtureCell>()).OrderBy(value => value.LayerId)
                 .ThenBy(value => value.Position.y).ThenBy(value => value.Position.x).ToArray());
         }
 
@@ -87,11 +87,11 @@ namespace StarNight.Map.WorldGeneration.Baking
 
         public int Width { get; }
         public int Height { get; }
-        public IReadOnlyList<Rmap02TilemapFixtureCell> Cells { get { return cells; } }
+        public IReadOnlyList<Sv5TilemapFixtureCell> Cells { get { return cells; } }
 
-        public static Rmap02TilemapFixturePlan Create()
+        public static Sv5TilemapFixturePlan Create()
         {
-            var occupied = new Dictionary<string, Rmap02TilemapFixtureCell>(
+            var occupied = new Dictionary<string, Sv5TilemapFixtureCell>(
                 StringComparer.Ordinal);
             AddHorizontal(occupied, GeneratedTilemapLayerId.Terrain, 0, WidthInTiles - 1, 0);
             Add(occupied, GeneratedTilemapLayerId.Terrain, 12, 1);
@@ -108,12 +108,12 @@ namespace StarNight.Map.WorldGeneration.Baking
             AddHorizontal(occupied, GeneratedTilemapLayerId.Protection, 0, WidthInTiles - 1, 0);
             AddHorizontal(occupied, GeneratedTilemapLayerId.SourceOwner, 0, WidthInTiles - 1, 0);
 
-            return new Rmap02TilemapFixturePlan(WidthInTiles, HeightInTiles,
+            return new Sv5TilemapFixturePlan(WidthInTiles, HeightInTiles,
                 occupied.Values);
         }
 
         private static void Add(
-            IDictionary<string, Rmap02TilemapFixtureCell> cells,
+            IDictionary<string, Sv5TilemapFixtureCell> cells,
             GeneratedTilemapLayerId layer,
             int x,
             int y)
@@ -121,15 +121,15 @@ namespace StarNight.Map.WorldGeneration.Baking
             if (x < 0 || x >= WidthInTiles || y < 0 || y >= HeightInTiles)
             {
                 throw new ArgumentOutOfRangeException(nameof(x),
-                    "RMAP02 fixture cells must remain inside 60x40.");
+                    "SV5 fixture cells must remain inside 60x40.");
             }
 
-            var cell = new Rmap02TilemapFixtureCell(layer, x, y, true);
+            var cell = new Sv5TilemapFixtureCell(layer, x, y, true);
             cells[layer + ":" + x + ":" + y] = cell;
         }
 
         private static void AddHorizontal(
-            IDictionary<string, Rmap02TilemapFixtureCell> cells,
+            IDictionary<string, Sv5TilemapFixtureCell> cells,
             GeneratedTilemapLayerId layer,
             int minX,
             int maxX,
@@ -142,7 +142,7 @@ namespace StarNight.Map.WorldGeneration.Baking
         }
 
         private static void AddVertical(
-            IDictionary<string, Rmap02TilemapFixtureCell> cells,
+            IDictionary<string, Sv5TilemapFixtureCell> cells,
             GeneratedTilemapLayerId layer,
             int x,
             int minY,
@@ -176,7 +176,7 @@ namespace StarNight.Map.WorldGeneration.Baking
     public sealed class GeneratedUnityTilemapApplier : MonoBehaviour
     {
         // The builder and tests configure bindings after AddComponent.  The
-        // saved RMAP02 scene serializes this as true, so runtime application
+        // saved SV5 scene serializes this as true, so runtime application
         // still occurs before the local Player bootstrap starts.
         [SerializeField] private bool applyFixtureOnAwake;
         [SerializeField] private GeneratedUnityTilemapLayerBinding[] layerBindings =
@@ -194,7 +194,7 @@ namespace StarNight.Map.WorldGeneration.Baking
 
         public GeneratedUnityTilemapApplyReport ApplyFixture()
         {
-            LastReport = ApplyCells(Rmap02TilemapFixturePlan.Create().Cells, layerBindings);
+            LastReport = ApplyCells(Sv5TilemapFixturePlan.Create().Cells, layerBindings);
             return LastReport;
         }
 
@@ -213,7 +213,7 @@ namespace StarNight.Map.WorldGeneration.Baking
             }
 
             var cells = bakePlan.Commands.Select(command =>
-                new Rmap02TilemapFixtureCell(command.LayerId,
+                new Sv5TilemapFixtureCell(command.LayerId,
                     command.SectorLocalX, command.SectorLocalY, command.IsOccupied));
             return ApplyCells(cells, bindings);
         }
@@ -227,7 +227,7 @@ namespace StarNight.Map.WorldGeneration.Baking
         }
 
         private static GeneratedUnityTilemapApplyReport ApplyCells(
-            IEnumerable<Rmap02TilemapFixtureCell> sourceCells,
+            IEnumerable<Sv5TilemapFixtureCell> sourceCells,
             IEnumerable<GeneratedUnityTilemapLayerBinding> sourceBindings)
         {
             var bindings = (sourceBindings ?? Array.Empty<GeneratedUnityTilemapLayerBinding>())
@@ -250,7 +250,7 @@ namespace StarNight.Map.WorldGeneration.Baking
             }
 
             var applied = 0;
-            foreach (var group in (sourceCells ?? Array.Empty<Rmap02TilemapFixtureCell>())
+            foreach (var group in (sourceCells ?? Array.Empty<Sv5TilemapFixtureCell>())
                 .Where(value => value.IsOccupied).GroupBy(value => value.LayerId))
             {
                 GeneratedUnityTilemapLayerBinding binding;

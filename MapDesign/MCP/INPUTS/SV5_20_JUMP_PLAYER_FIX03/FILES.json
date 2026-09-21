@@ -1,0 +1,15 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FIX03_FILES/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "amendment": "SV5_20_JUMP_PLAYER_FIX03",
+  "base_commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "files": [
+    {"path":"AMENDMENT.md","sha256":"cb460a788808c3052f2e5353729a09294ca5b8aec081f8c73111678ff29e7e18","bytes":6530},
+    {"path":"GEOMETRY_PATCH.json","sha256":"763c6b0bb379556b9364631a30c10fc89ef38fd99ffc890a9aa7c33f47621665","bytes":5026},
+    {"path":"README.md","sha256":"133b049117385c77ef74ae742003a1ef9e9dfd81556ec545086fa50db60ca9fc","bytes":672},
+    {"path":"SCHEDULER_PROFILE.json","sha256":"eb7ab01d02b51f4b2dcaa25e2ea81b3fa7e7c112b41392cf461f7ba2b986ae43","bytes":2077},
+    {"path":"SOURCE_LOCK.json","sha256":"fdf3c6a36185e2f139bb01f9cd6459cde7c37d4e0fab1ac386d99960c49448ae","bytes":3911},
+    {"path":"VERIFY.py","sha256":"945dd1a18a65bb4edec665b35c70323d855790d50ef0b8594dea19eeebcb8f34","bytes":9286},
+    {"path":"tools/check_jump_player_fix03.py","sha256":"3fd541b9b9666034b7ae6584fe55b385ccc6e18028092af1dddf85107fb092ef","bytes":17111}
+  ]
+}

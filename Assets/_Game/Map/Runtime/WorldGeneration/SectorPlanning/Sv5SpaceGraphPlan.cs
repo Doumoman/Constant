@@ -37,7 +37,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public int Height { get; }
         public int MaxXExclusive => X + Width;
         public int MaxYExclusive => Y + Height;
-        public bool Contains(RmapSpecialWorldPoint point) => point.X >= X && point.X < MaxXExclusive &&
+        public bool Contains(Sv5SpecialWorldPoint point) => point.X >= X && point.X < MaxXExclusive &&
             point.Y >= Y && point.Y < MaxYExclusive;
         public bool Equals(Sv5SpaceBounds other) => X == other.X && Y == other.Y && Width == other.Width && Height == other.Height;
         public override bool Equals(object obj) => obj is Sv5SpaceBounds other && Equals(other);
@@ -64,7 +64,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (families.Count < 8 || families.Count(value => value.Kind == Sv5SpacePlaceKind.Large) < 4 ||
                 families.Count(value => value.Kind == Sv5SpacePlaceKind.Ordinary) < 4)
                 throw new ArgumentException("A profile needs several large and ordinary place families.", nameof(sourceFamilies));
-            Digest = RmapWorldDefinition.Hash("SV5_SPACE_PROFILE_V1\n" + Id + "\n" + Version + "\n" +
+            Digest = Sv5WorldDefinition.Hash("SV5_SPACE_PROFILE_V1\n" + Id + "\n" + Version + "\n" +
                 string.Join("\n", families.Select(value => value.StableToken)));
         }
 
@@ -152,15 +152,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5SpacePort : IComparable<Sv5SpacePort>
     {
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> boundaryCells;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> boundaryCells;
 
-        internal Sv5SpacePort(string id, string placeId, IEnumerable<RmapSpecialWorldPoint> cells,
-            RmapSpecialWorldPoint anchor, RmapWorldGraphDirection direction, string flow, string condition,
+        internal Sv5SpacePort(string id, string placeId, IEnumerable<Sv5SpecialWorldPoint> cells,
+            Sv5SpecialWorldPoint anchor, Sv5WorldGraphDirection direction, string flow, string condition,
             string sourceAccessId, string sourceNodeId, string status)
         {
             Id = Sv5SpaceGraphAuthoringProfile.Require(id, nameof(id));
             PlaceId = Sv5SpaceGraphAuthoringProfile.Require(placeId, nameof(placeId));
-            boundaryCells = new ReadOnlyCollection<RmapSpecialWorldPoint>((cells ?? Array.Empty<RmapSpecialWorldPoint>())
+            boundaryCells = new ReadOnlyCollection<Sv5SpecialWorldPoint>((cells ?? Array.Empty<Sv5SpecialWorldPoint>())
                 .Distinct().OrderBy(value => value).ToArray());
             if (boundaryCells.Count == 0 || !boundaryCells.Contains(anchor))
                 throw new ArgumentException("A port anchor must be one of its boundary cells.", nameof(anchor));
@@ -175,9 +175,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         public string Id { get; }
         public string PlaceId { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> BoundaryCells => boundaryCells;
-        public RmapSpecialWorldPoint Anchor { get; }
-        public RmapWorldGraphDirection Direction { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> BoundaryCells => boundaryCells;
+        public Sv5SpecialWorldPoint Anchor { get; }
+        public Sv5WorldGraphDirection Direction { get; }
         public string Flow { get; }
         public string Condition { get; }
         public string SourceAccessId { get; }
@@ -188,15 +188,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5SpaceConnection : IComparable<Sv5SpaceConnection>
     {
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> centerline;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> envelope;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> apertureCells;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> centerline;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> envelope;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> apertureCells;
 
         internal Sv5SpaceConnection(string id, Sv5SpaceConnectionKind kind, string fromPortId, string toPortId,
-            string fromPlaceId, string toPlaceId, RmapWorldGraphDirection direction, string flow, string condition,
-            string sourceGraphEdgeId, string selectionState, IEnumerable<RmapSpecialWorldPoint> sourceCenterline,
-            IEnumerable<RmapSpecialWorldPoint> sourceEnvelope,
-            IEnumerable<RmapSpecialWorldPoint> sourceApertureCells)
+            string fromPlaceId, string toPlaceId, Sv5WorldGraphDirection direction, string flow, string condition,
+            string sourceGraphEdgeId, string selectionState, IEnumerable<Sv5SpecialWorldPoint> sourceCenterline,
+            IEnumerable<Sv5SpecialWorldPoint> sourceEnvelope,
+            IEnumerable<Sv5SpecialWorldPoint> sourceApertureCells)
         {
             Id = Sv5SpaceGraphAuthoringProfile.Require(id, nameof(id));
             Kind = kind;
@@ -209,12 +209,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Condition = Sv5SpaceGraphAuthoringProfile.Require(condition, nameof(condition));
             SourceGraphEdgeId = sourceGraphEdgeId ?? string.Empty;
             SelectionState = Sv5SpaceGraphAuthoringProfile.Require(selectionState, nameof(selectionState));
-            centerline = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceCenterline ??
-                Array.Empty<RmapSpecialWorldPoint>()).ToArray());
-            envelope = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceEnvelope ??
-                Array.Empty<RmapSpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
-            apertureCells = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceApertureCells ??
-                Array.Empty<RmapSpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
+            centerline = new ReadOnlyCollection<Sv5SpecialWorldPoint>((sourceCenterline ??
+                Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
+            envelope = new ReadOnlyCollection<Sv5SpecialWorldPoint>((sourceEnvelope ??
+                Array.Empty<Sv5SpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
+            apertureCells = new ReadOnlyCollection<Sv5SpecialWorldPoint>((sourceApertureCells ??
+                Array.Empty<Sv5SpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
             if (centerline.Count < 2) throw new ArgumentException("A connection needs a cardinal centerline.", nameof(sourceCenterline));
             for (var index = 1; index < centerline.Count; index++)
                 if (Math.Abs(centerline[index].X - centerline[index - 1].X) +
@@ -230,28 +230,28 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string ToPortId { get; }
         public string FromPlaceId { get; }
         public string ToPlaceId { get; }
-        public RmapWorldGraphDirection Direction { get; }
+        public Sv5WorldGraphDirection Direction { get; }
         public string Flow { get; }
         public string Condition { get; }
         public string SourceGraphEdgeId { get; }
         public string SelectionState { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> Centerline => centerline;
-        public IReadOnlyList<RmapSpecialWorldPoint> Envelope => envelope;
-        public IReadOnlyList<RmapSpecialWorldPoint> ApertureCells => apertureCells;
+        public IReadOnlyList<Sv5SpecialWorldPoint> Centerline => centerline;
+        public IReadOnlyList<Sv5SpecialWorldPoint> Envelope => envelope;
+        public IReadOnlyList<Sv5SpecialWorldPoint> ApertureCells => apertureCells;
         public int CompareTo(Sv5SpaceConnection other) => other == null ? 1 : string.Compare(Id, other.Id, StringComparison.Ordinal);
     }
 
     public sealed class Sv5SpaceBoundaryFace : IComparable<Sv5SpaceBoundaryFace>
     {
-        internal Sv5SpaceBoundaryFace(RmapSpecialWorldPoint first, RmapSpecialWorldPoint second)
+        internal Sv5SpaceBoundaryFace(Sv5SpecialWorldPoint first, Sv5SpecialWorldPoint second)
         {
             if (Math.Abs(first.X - second.X) + Math.Abs(first.Y - second.Y) != 1)
                 throw new ArgumentException("A blocking face must join cardinally adjacent cells.", nameof(second));
             if (first.CompareTo(second) <= 0) { First = first; Second = second; }
             else { First = second; Second = first; }
         }
-        public RmapSpecialWorldPoint First { get; }
-        public RmapSpecialWorldPoint Second { get; }
+        public Sv5SpecialWorldPoint First { get; }
+        public Sv5SpecialWorldPoint Second { get; }
         public string StableToken => First + ">" + Second;
         public int CompareTo(Sv5SpaceBoundaryFace other) => other == null ? 1 :
             string.Compare(StableToken, other.StableToken, StringComparison.Ordinal);
@@ -260,13 +260,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5SpaceGate : IComparable<Sv5SpaceGate>
     {
         private readonly ReadOnlyCollection<string> contactIds;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> blockingCells;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> blockingCells;
         private readonly ReadOnlyCollection<Sv5SpaceBoundaryFace> blockingFaces;
 
         internal Sv5SpaceGate(string id, string boundaryId, IEnumerable<string> sourceContactIds,
-            IEnumerable<RmapSpecialWorldPoint> sourceBlockingCells,
-            IEnumerable<Sv5SpaceBoundaryFace> sourceBlockingFaces, RmapSpecialWorldPoint sideAAnchor,
-            RmapSpecialWorldPoint sideBAnchor, RmapWorldGraphDirection direction, string flow, string predicate,
+            IEnumerable<Sv5SpecialWorldPoint> sourceBlockingCells,
+            IEnumerable<Sv5SpaceBoundaryFace> sourceBlockingFaces, Sv5SpecialWorldPoint sideAAnchor,
+            Sv5SpecialWorldPoint sideBAnchor, Sv5WorldGraphDirection direction, string flow, string predicate,
             Sv5SpaceGatePredicate typedPredicate, string sourceConnectionId, string sourceRouteId,
             string sourcePortId, string targetPortId, Sv5SpaceCrossingKind crossing, string sealedState,
             string openState)
@@ -276,8 +276,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             contactIds = new ReadOnlyCollection<string>((sourceContactIds ?? Array.Empty<string>())
                 .Where(value => !string.IsNullOrWhiteSpace(value)).Distinct(StringComparer.Ordinal)
                 .OrderBy(value => value, StringComparer.Ordinal).ToArray());
-            blockingCells = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceBlockingCells ??
-                Array.Empty<RmapSpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
+            blockingCells = new ReadOnlyCollection<Sv5SpecialWorldPoint>((sourceBlockingCells ??
+                Array.Empty<Sv5SpecialWorldPoint>()).Distinct().OrderBy(value => value).ToArray());
             blockingFaces = new ReadOnlyCollection<Sv5SpaceBoundaryFace>((sourceBlockingFaces ??
                 Array.Empty<Sv5SpaceBoundaryFace>()).Where(value => value != null)
                 .GroupBy(value => value.StableToken, StringComparer.Ordinal).Select(value => value.First())
@@ -300,12 +300,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string BoundaryId { get; }
         public IReadOnlyList<string> ContactIds => contactIds;
         public string ContactId => contactIds[0];
-        public RmapSpecialWorldPoint World => SideAAnchor;
-        public IReadOnlyList<RmapSpecialWorldPoint> BlockingCells => blockingCells;
+        public Sv5SpecialWorldPoint World => SideAAnchor;
+        public IReadOnlyList<Sv5SpecialWorldPoint> BlockingCells => blockingCells;
         public IReadOnlyList<Sv5SpaceBoundaryFace> BlockingFaces => blockingFaces;
-        public RmapSpecialWorldPoint SideAAnchor { get; }
-        public RmapSpecialWorldPoint SideBAnchor { get; }
-        public RmapWorldGraphDirection Direction { get; }
+        public Sv5SpecialWorldPoint SideAAnchor { get; }
+        public Sv5SpecialWorldPoint SideBAnchor { get; }
+        public Sv5WorldGraphDirection Direction { get; }
         public string Flow { get; }
         public string Predicate { get; }
         public Sv5SpaceGatePredicate TypedPredicate { get; }
@@ -327,12 +327,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5SpaceReservationCell : IComparable<Sv5SpaceReservationCell>
     {
-        internal Sv5SpaceReservationCell(RmapSpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId,
+        internal Sv5SpaceReservationCell(Sv5SpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId,
             string semantics)
         {
             World = world; Kind = kind; OwnerId = ownerId; Semantics = semantics;
         }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5SpaceReservationKind Kind { get; }
         public string OwnerId { get; }
         public string Semantics { get; }
@@ -375,7 +375,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5SpaceProjectionOrderProof : IComparable<Sv5SpaceProjectionOrderProof>
     {
-        internal Sv5SpaceProjectionOrderProof(RmapWorldGraphProof goalProof, int reachableStates,
+        internal Sv5SpaceProjectionOrderProof(Sv5WorldGraphProof goalProof, int reachableStates,
             int transitions, int reverseReachableStates, IEnumerable<string> sourceDeadEnds)
         {
             GoalProof = goalProof;
@@ -385,7 +385,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             DeadEnds = new ReadOnlyCollection<string>((sourceDeadEnds ?? Array.Empty<string>()).OrderBy(value => value,
                 StringComparer.Ordinal).ToArray());
         }
-        public RmapWorldGraphProof GoalProof { get; }
+        public Sv5WorldGraphProof GoalProof { get; }
         public int ReachableStates { get; }
         public int Transitions { get; }
         public int ReverseReachableStates { get; }
@@ -496,11 +496,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             GeometryStateReady = false;
             PlayerVerified = false;
             InfillPendingTileCount = 624 * 416 - Reservations.Select(value => value.World)
-                .Concat(Infill == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Infill.Cells.Select(c => c.World))
-                .Concat(Loops == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Loops.Cells.Select(c => c.World))
-                .Concat(Sidepaths == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : Sidepaths.Cells.Select(c => c.World))
-                .Concat(HubShell == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : HubShell.Cells.Select(c => c.World))
-                .Concat(TreeGrab == null ? Enumerable.Empty<RmapSpecialWorldPoint>() : TreeGrab.Cells.Select(c => c.World)).Distinct().Count();
+                .Concat(Infill == null ? Enumerable.Empty<Sv5SpecialWorldPoint>() : Infill.Cells.Select(c => c.World))
+                .Concat(Loops == null ? Enumerable.Empty<Sv5SpecialWorldPoint>() : Loops.Cells.Select(c => c.World))
+                .Concat(Sidepaths == null ? Enumerable.Empty<Sv5SpecialWorldPoint>() : Sidepaths.Cells.Select(c => c.World))
+                .Concat(HubShell == null ? Enumerable.Empty<Sv5SpecialWorldPoint>() : HubShell.Cells.Select(c => c.World))
+                .Concat(TreeGrab == null ? Enumerable.Empty<Sv5SpecialWorldPoint>() : TreeGrab.Cells.Select(c => c.World)).Distinct().Count();
             var movementConnections = Loops == null ? Connections : Sv5SpaceLoops.ApplyPhysicalCells(Connections, Loops);
             if (Sidepaths != null) movementConnections = Sv5SpaceSidepaths.ApplyPhysicalCells(movementConnections, Sidepaths);
             if (HubShell != null) movementConnections = Sv5HubShell.ApplyPhysicalCells(movementConnections, HubShell);
@@ -508,7 +508,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             PhysicalProduct = PhysicalMovement.Product;
             Segments = Sv5SpacePhysicalProduct.BuildSegments(movementConnections, Gates);
             Diversity = new Sv5DiversityPlan(seed, diversityProfile ?? new Sv5DiversityProfile(), Places, diversityDecisions);
-            Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
+            Digest = Sv5WorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
         public Sv5CoreReservationPlan Core { get; }
@@ -614,8 +614,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             string text = value ?? string.Empty;
             return text.Length.ToString(CultureInfo.InvariantCulture) + ":" + text + "|";
         }
-        private static string Points(IEnumerable<RmapSpecialWorldPoint> values) => Strings((values ??
-            Array.Empty<RmapSpecialWorldPoint>()).Select(value => value.ToString()));
+        private static string Points(IEnumerable<Sv5SpecialWorldPoint> values) => Strings((values ??
+            Array.Empty<Sv5SpecialWorldPoint>()).Select(value => value.ToString()));
         private static string Strings(IEnumerable<string> values) => string.Join(string.Empty, (values ??
             Array.Empty<string>()).Select(L));
 

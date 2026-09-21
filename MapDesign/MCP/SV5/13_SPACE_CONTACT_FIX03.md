@@ -2,7 +2,7 @@
 
 ## 결론
 
-FIX02의 W01/W02 포트 보완과 RMAP13 상태 전이는 유지했다. FIX03은 route ID 또는 predicate 문자열을 공간 벽으로 사용하지 않는다. 실제 통행 노드는 모든 accepted connection의 `Centerline`과 `ApertureCells`를 world 좌표로 합친 집합이며, cardinal face로만 이동한다. `Clearance`와 `INFILL_PENDING`은 통행 노드가 아니다. 같은 world 좌표가 여러 route에 속해도 하나의 노드다.
+FIX02의 W01/W02 포트 보완과 SV5 상태 전이는 유지했다. FIX03은 route ID 또는 predicate 문자열을 공간 벽으로 사용하지 않는다. 실제 통행 노드는 모든 accepted connection의 `Centerline`과 `ApertureCells`를 world 좌표로 합친 집합이며, cardinal face로만 이동한다. `Clearance`와 `INFILL_PENDING`은 통행 노드가 아니다. 같은 world 좌표가 여러 route에 속해도 하나의 노드다.
 
 7,188개 SHARED/FACE 접촉을 모두 생산 `Sv5SpacePhysicalMovement`에 넣었다. 같은 typed predicate는 `Join`, 다른 predicate의 225개 접촉은 nonempty boundary와 실제 typed global cut을 갖는 `ConditionalGate`다. SHARED 좌표 자체를 face-only separation으로 주장하지 않고, 소유 gate의 전역 region cut과 동시 상태 검사로 재진입을 차단한다. 빈/가짜 boundary와 SHARED의 직접 face-only 분리 fixture는 생산 validator에서 실패한다.
 
@@ -15,7 +15,7 @@ FIX02의 W01/W02 포트 보완과 RMAP13 상태 전이는 유지했다. FIX03은
 - Seal 완료: Seal→Boss는 열리고 Boss→Exit는 차단된다.
 - Boss 완료: Boss→Exit가 열린다.
 - 세 열린 상태의 witness 길이는 각각 189, 47, 231이고, 여섯 닫힌 상태의 target 도달은 모두 false다.
-- RMAP13 자원 3종의 6순서, 모든 reachable state의 역도달, dead-end 0은 그대로 유지된다.
+- SV5 자원 3종의 6순서, 모든 reachable state의 역도달, dead-end 0은 그대로 유지된다.
 
 gate 형상 자체의 SEALED/OPEN 검사는 대상 gate를 격리해 full cut을 확인한다. FIX03 물리 상태 검사는 별도로 모든 gate를 동시에 적용한다. 이 구분으로 다른 선행 gate가 단일 gate의 source fixture를 가리는 오류 없이, 실제 전역 우회는 숨기지 않는다.
 

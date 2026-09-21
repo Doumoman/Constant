@@ -49,7 +49,7 @@ namespace StarNight.Character.Live.Input
         }
 
         /// <summary>
-        /// RMAP02의 Shift 보행 유지 상태. 논리 ActionId에는 추가하지 않고,
+        /// SV5의 Shift 보행 유지 상태. 논리 ActionId에는 추가하지 않고,
         /// 기존 snapshot 소비 이후 Live 이동 조립에서만 속도를 선택한다.
         /// </summary>
         public bool IsWalkHeld
@@ -57,7 +57,7 @@ namespace StarNight.Character.Live.Input
             get { return walkAction != null && walkAction.IsPressed(); }
         }
 
-        /// <summary>RMAP06 Tab action의 현재 Input System held 상태.</summary>
+        /// <summary>SV5 Tab action의 현재 Input System held 상태.</summary>
         public bool IsLookHeld
         {
             get { return lookAction != null && lookAction.IsPressed(); }

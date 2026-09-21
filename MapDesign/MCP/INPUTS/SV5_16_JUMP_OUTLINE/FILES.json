@@ -1,0 +1,42 @@
+{
+  "schema": "SV5_16_JUMP_OUTLINE_FILES/v1",
+  "task_id": "SV5_16_JUMP_OUTLINE",
+  "base_commit": "289015d201186fe79da733a5fe99fdb6844047fb",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "66a8cf15737ac027d6cfff960f17c20c41c490af8aa5c3932578f10e7173e177",
+      "bytes": 578
+    },
+    {
+      "path": "CONTRACT.md",
+      "sha256": "67bfe4a6a6e0721ab2b3bfb73fa2fbd0221a141b5098426c434896b33e08b1c4",
+      "bytes": 6165
+    },
+    {
+      "path": "JUMP_OUTLINE_PROFILE.json",
+      "sha256": "7c774f6e180c498c4c6b5456d328b28f2053d2b43197a5eed4e18e2fcaadc343",
+      "bytes": 1680
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "b53ed48771c13a5a9b8ef5dc7ae7d3f49c09253fe8c44d3c714b98e64b2ffddf",
+      "bytes": 5158
+    },
+    {
+      "path": "SV5_16_JUMP_OUTLINE.md",
+      "sha256": "282a3f2483f6a1e8ed0b2de1a34833747b4d06536954147a8250df7e374a325c",
+      "bytes": 3298
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "d6446a4b3412e226187dbf8983a1210897852cb89a3c01e12ee8db9afe1b4b0f",
+      "bytes": 12367
+    },
+    {
+      "path": "tools/check_jump_outline.py",
+      "sha256": "6010dfb1f960b78090872095407fa589a5cebd1a2b22ffd1d8ccb6b7fc8a60c5",
+      "bytes": 16810
+    }
+  ]
+}

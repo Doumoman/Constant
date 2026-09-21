@@ -23,8 +23,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             var tree=Default.Value.TreeGrab.ReservedVolume;var hub=Default.Value.HubShell.Footprint;
             var inner=new Sv5SpaceBounds(hub.X+6,hub.Y+5,12,30);
-            Assert.That(inner.Contains(new RmapSpecialWorldPoint(tree.X,tree.Y)),Is.True);
-            Assert.That(inner.Contains(new RmapSpecialWorldPoint(tree.MaxXExclusive-1,tree.MaxYExclusive-1)),Is.True);
+            Assert.That(inner.Contains(new Sv5SpecialWorldPoint(tree.X,tree.Y)),Is.True);
+            Assert.That(inner.Contains(new Sv5SpecialWorldPoint(tree.MaxXExclusive-1,tree.MaxYExclusive-1)),Is.True);
         }
 
         [Test] public void F03_LowerRootWidthIsFourOrFiveCells()

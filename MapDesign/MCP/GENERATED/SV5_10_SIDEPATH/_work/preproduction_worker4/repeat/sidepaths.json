@@ -1,0 +1,10 @@
+{
+  "schema":"SV5_ACTUAL_TILE_SIDEPATH_NONGRID_V2",
+  "plan_digest":"c4047b78601928383e81fd84b2ad56c4a065fede00be8b56e40c56760296cd21",
+  "baseline_digest":"ec00522aa6b6e8da780a2d0ae593a8805e80ddf196b16cd60bb5ec124574217b",
+  "sidepath_digest":"34119c5f0dfc2fc649e21acd21e5f0a82b69960a90ef3f1d2fbe1c6198963263",
+  "profile":{"minimum_length":20,"maximum_length":50,"target":12,"minimum":8,"minimum_returning":5,"minimum_space_groups":6,"maximum_per_space_group":2},
+  "counts":{"endpoints":1255,"nearby_pairs":148648,"candidates":484,"accepted":12,"returning":5,"space_groups":12},
+  "composed_geometry_ready":false,
+  "player_verified":false
+}

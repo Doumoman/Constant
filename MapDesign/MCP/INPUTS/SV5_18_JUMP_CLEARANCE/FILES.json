@@ -1,0 +1,16 @@
+{
+  "schema": "SV5_18_JUMP_CLEARANCE_FILES/v1",
+  "task": "SV5_18_JUMP_CLEARANCE",
+  "base_commit": "7c8281c1527f55c2d9a1f7d4c5c03f424cf8663b",
+  "files": [
+    {"path":"CLEARANCE_PROFILE.json","sha256":"d67bb24bb48f8ac15750b7355ae15e3560e61227890b8e6f5845d02e58739838","bytes":1105},
+    {"path":"CONTRACT.md","sha256":"5d4a0b3ac51b2354f62d3b3c6bd7ef7374b77085eb94488fa8ce99af6f8749f8","bytes":5848},
+    {"path":"CORRECTIONS/ENDPOINT_FIX01/CORRECTION.md","sha256":"e2e04494817ce35866600a5315cd455a75e1847322caa4201a9de88aeda32f39","bytes":2685},
+    {"path":"CORRECTIONS/ENDPOINT_FIX01/ENDPOINT_FIX01.json","sha256":"e9a337f51bc537ed7ffe1d6487dcd024ccc42fab8e088c17af6969642797e8a5","bytes":1070},
+    {"path":"README.md","sha256":"5dcd407ada942bfdea3a8ed9859081154a84ec0a6a30c7acedc9561a862b926c","bytes":793},
+    {"path":"SOURCE_LOCK.json","sha256":"43fc8b266393bde23fea5bab98785aab16b7a163ee10fa1cf7c6f9394f8043c1","bytes":4833},
+    {"path":"STAGE.py","sha256":"4f97d0903e9e7ee32ee7f9e77e0c199fe82f9f59f9df8507b3b849129e75a213","bytes":12808},
+    {"path":"SV5_18_JUMP_CLEARANCE.md","sha256":"4d855ec8f5272a91729f0800d2c7d20da3060405f0074f4f231475556b0bee68","bytes":3624},
+    {"path":"tools/check_jump_clearance.py","sha256":"2fccc3e12d54040c7b133cd68ec523c4f9a6de3cc9ac6e3ac50e10b7b9b3e4bd","bytes":16293}
+  ]
+}

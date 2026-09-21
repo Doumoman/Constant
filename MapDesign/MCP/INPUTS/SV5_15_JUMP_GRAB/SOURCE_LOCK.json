@@ -1,0 +1,27 @@
+{
+  "schema": "SV5_15_JUMP_GRAB_SOURCE_LOCK/v1",
+  "base_commit": "ad952b3929259c1968ffd62ef60c3b99b9bed42e",
+  "base_parent": "33a635905345ff2a42facc3add5c6609eea9357c",
+  "base_subject": "SV5_14_JUMP_SOLID: build mixed-support local ascent route",
+  "review_zip_sha256": "ba7ed3cd5c7d3f119803a2f3fd4d1e6b924edc86f10e66ece8df2417b5bb740a",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"5b422ca59973e5007a33e7c1bbe2ef8ace4209db","sha256":"de8ffbdeb14f67f85b73e13694fd3151a3cc5b83b0c47c75a162effd08b4d99c","bytes":102598,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/MASTER_IMPLEMENTATION_TASK_LIST.md","git_blob_oid":"c6709977ad95f9121b6894185faeb990cf9bc093","sha256":"69a67b82b691f049bbcbb50a7f037869c17e32ca21f0d2deef3e01492793333c","bytes":37001,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_14_JUMP_SOLID.md","git_blob_oid":"b142e28395d46f268156aa5121b8c45eb55de344","sha256":"3cb140ff326f5bfb5458435d465f6128d1b624eb3fdb881fd1e36c3966cc9a58","bytes":3441,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_14_JUMP_SOLID.md","git_blob_oid":"b142e28395d46f268156aa5121b8c45eb55de344","sha256":"3cb140ff326f5bfb5458435d465f6128d1b624eb3fdb881fd1e36c3966cc9a58","bytes":3441,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_14_JUMP_SOLID_RESULT.md","git_blob_oid":"a20bf53b3c188a03b94a0b27b5a101aa5dba3ffe","sha256":"356d1ce122a95b98e671710fc6bcf694371f02edc9e5800470472aee309d48d2","bytes":4986,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/BINDING.json","git_blob_oid":"c882a1c0009f27ef7565ab4d4765b2bc52648334","sha256":"d77472d93714b0e3bc63d74b83c4cd63a2719fb6fddb74aa1786814d532fab83","bytes":7028,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpContract.cs","git_blob_oid":"2ce92078ceaf772a39fff0ad2db6b74a60657e1b","sha256":"18f2381c684d2d763d2cbf44b2767220e67ddacdac96a47e091a2251ada1f109","bytes":28536,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpSolidGeometry.cs","git_blob_oid":"5b0df001136269b21ad97096db85ebdb7e9693ca","sha256":"95c5ab80ea308b3a0fb04cc2f4e8ba27d30b74ce2809dd69f60bbae5a130edd3","bytes":35894,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpSolidExport.cs","git_blob_oid":"634f1a2a08ac6f49ce9b57c5c80ad2a9dee148d1","sha256":"93805bed7fb92332f6b98a985769c57efa6f9262e072376968dcbff5ca75f8f6","bytes":19284,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5JumpSolidTests.cs","git_blob_oid":"6e187bd871b842c88075e05d45d94d2e2a361a1c","sha256":"287a5b06cf206083df802ac31425f4ec539cd0d57fbc7260c004bad2b7e7f33d","bytes":14993,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/SV5/22_JUMP_SOLID_V5.md","git_blob_oid":"b5dc486578f06c9b85728a283a2db11fc8bdb31a","sha256":"477fdec5a4edb444bccc4df0234a77101b285962c0200c2873b3ad842e17a61e","bytes":2745,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/jump_solid.json","git_blob_oid":"890d2c0b1d06b2791cf0a35c687e34b3c13719af","sha256":"83465927882d2063f4ab7b1157bff1896f91aa6ce0f5c01b40629d5cc295f6cc","bytes":1384,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/jump_solid_validation.json","git_blob_oid":"3aa12178599ce18a4550f87a8e349b512de17aac","sha256":"4c3d677c00c1e8dec2d77cab5b97f33c035cf9b6e52a19ed8042969b584569fe","bytes":573,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/supports.csv","git_blob_oid":"cb39d0fd6acd9ec8660f9d4e9a00e905c73501fd","sha256":"77bb8cd10074ba221e1869805914b3b2219d74e145f4867cb6f4524054df0ef2","bytes":617,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/support_cells.csv","git_blob_oid":"38135a576f9939eec495f6303bc9297f4cdd09b1","sha256":"6825abc50309b14174c32497f86bfd47751049cea8384c025cd2ae08664528c0","bytes":903,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/route_support_sequence.csv","git_blob_oid":"5441b873f7af4b57bcf8cb667041bcf47898094d","sha256":"a63ec7b7228ce029adcd40b48639456f583c9f7ad9843bd13a155939199b1fcf","bytes":297,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/route_links.csv","git_blob_oid":"8f91698031b29602a6047d60dccc1d6bb5116d3a","sha256":"0264cf6ecd3501ac6464a5c304db5f2926066158803bca27c986d4c473291ae3","bytes":811,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_14_JUMP_SOLID/support_clearance.csv","git_blob_oid":"ac717164741263b5582a3d2596ca6047ccbb4f65","sha256":"491e4cc777cc3483f03518585f2662eff705268ce1922153a38ab658b8335a2e","bytes":376,"role":"IMMUTABLE"}
+  ]
+}

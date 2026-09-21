@@ -1,0 +1,90 @@
+{
+  "format": "sv5_03_source_lock_v1",
+  "task_id": "SV5_03_BINDINGS",
+  "path_base": "MapDesign module root; MCP/GENERATED is not GENERATED at this root",
+  "previous_task": "SV5_02_RULES",
+  "previous_result_sha256": "ed4e9ee6fd6f271bd81915040e1d6e103832a3737bd90d5eb90cc9371956a496",
+  "previous_result_path": "RESOLVE_ACTUAL_LOCAL_MCP_REPORT_NOT_INPUT_REFERENCE",
+  "previous_installed_archive_sha256": "b0bc1a19dc1ff100cdf8116ba5e1447af6080556a98011b05bbc84deb1619fc1",
+  "previous_finalize_commit": "RESOLVE_LOCALLY_NOT_REPORTED_IN_UPLOADED_RESULT",
+  "required_before_apply": {
+    "previous_status": "COMPLETE",
+    "current_task": "NONE",
+    "SV5_03_BINDINGS": "LOCKED"
+  },
+  "expected_after_previous_finalize": {
+    "total": 285,
+    "complete": 240,
+    "current": 0,
+    "locked": 45
+  },
+  "state_note": "Counts are expectations, not state writes. Uploaded Result records SV5_02 CURRENT before Finalize; confirm actual state and commit locally.",
+  "files": [
+    {
+      "path": "MCP/TASKS/SV5_02_RULES.md",
+      "sha256": "b0bc1a19dc1ff100cdf8116ba5e1447af6080556a98011b05bbc84deb1619fc1",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP_ARCHIVE/SV5_02_RULES.md",
+      "sha256": "b0bc1a19dc1ff100cdf8116ba5e1447af6080556a98011b05bbc84deb1619fc1",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/00_APPROVAL_BASELINE.md",
+      "sha256": "a04f0c814273048db51c903d965e526c2bc987abb64294811675d301acf177fa",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/01_SEQUENCE_V5.md",
+      "sha256": "27a0ab0942ee2671a5720a1fe232018b5356c2c304ad6e8229c7c8842b05d9be",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "c77c776975f8416678f3f29cc6cc0af96b65dd95ede5894d4b9402cf565842b5",
+      "check": "PRE_APPLY_ONLY"
+    },
+    {
+      "path": "MCP/SV5/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha256": "8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha256": "6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/TASKS.csv",
+      "sha256": "aac3c738f4f16fd69ce6ee71abb897420cf3b239d470e097e82311b304804052",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/TASKS.json",
+      "sha256": "7932de9ac46a82cf27046599a0ede47bf5a35f35c29edb374df178feeb70b367",
+      "check": "EXACT_READ_ONLY"
+    }
+  ],
+  "generated_evidence_note": "Read actual MCP/GENERATED/SV5_02 evidence and record its current bytes. The supplied Result did not give those file hashes; none are fabricated here."
+}

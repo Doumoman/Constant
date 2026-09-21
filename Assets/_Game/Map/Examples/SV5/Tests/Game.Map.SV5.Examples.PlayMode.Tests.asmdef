@@ -1,0 +1,20 @@
+{
+  "name": "Game.Map.SV5.Examples.PlayMode.Tests",
+  "rootNamespace": "StarNight.Map.SV5.Examples.Tests",
+  "references": [
+    "Game.Map.SV5.Examples.Runtime",
+    "Game.Character.Live"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

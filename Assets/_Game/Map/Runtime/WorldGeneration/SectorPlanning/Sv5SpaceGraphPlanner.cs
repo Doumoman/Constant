@@ -177,14 +177,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (core.RouteSource.Definition.Request.Seed != seed)
                 throw new ArgumentException("The explicit layout seed must equal the preserved world definition seed.", nameof(seed));
             if (core.Sites.Count != 8 || core.CoreCells.Count != 2432 || !core.RouteSource.Graph.Success)
-                throw new ArgumentException("A passing SV5_04/RMAP13 source is required.", nameof(core));
+                throw new ArgumentException("A passing SV5_04/SV5 source is required.", nameof(core));
             profile = profile ?? Sv5SpaceGraphAuthoringProfile.RepresentativeV1();
             diversity = diversity ?? new Sv5DiversityProfile();
 
             var diagnostics = new List<string>();
             var diversityDecisions = new List<Sv5DiversityDecision>();
             List<Sv5SpacePlace> places = BuildCorePlaces(core).ToList();
-            var placementBlocked = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Select(value => value.World));
+            var placementBlocked = new HashSet<Sv5SpecialWorldPoint>(core.CoreCells.Select(value => value.World));
             placementBlocked.UnionWith(core.RouteCells.Select(value => value.World));
             foreach (Sv5SpaceFamilySpec spec in profile.Families)
             {
@@ -204,11 +204,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var byPort = ports.ToDictionary(value => value.Id, value => value, StringComparer.Ordinal);
             List<Sv5SpaceConnection> connections = BuildCoreConnections(core, byPort, diagnostics).ToList();
 
-            var hardBlocked = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Where(value =>
-                value.Protection == RmapSpecialProtectionKind.FixedSolid).Select(value => value.World));
-            hardBlocked.UnionWith(core.RouteCells.Where(value => value.RequiredBaseCell == RmapPatternBaseCell.Solid)
+            var hardBlocked = new HashSet<Sv5SpecialWorldPoint>(core.CoreCells.Where(value =>
+                value.Protection == Sv5SpecialProtectionKind.FixedSolid).Select(value => value.World));
+            hardBlocked.UnionWith(core.RouteCells.Where(value => value.RequiredBaseCell == Sv5PatternBaseCell.Solid)
                 .Select(value => value.World));
-            var routingBlocked = new HashSet<RmapSpecialWorldPoint>(hardBlocked);
+            var routingBlocked = new HashSet<Sv5SpecialWorldPoint>(hardBlocked);
             foreach (Sv5SpacePlace place in places.Where(value => value.Kind != Sv5SpacePlaceKind.Core))
                 AddBounds(routingBlocked, place.Bounds, 2);
             BuildOptionalCircuit(core, seed, places, byPort, connections, hardBlocked, routingBlocked, diagnostics);
@@ -232,14 +232,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         private static IEnumerable<Sv5SpacePlace> BuildCorePlaces(Sv5CoreReservationPlan core)
         {
-            foreach (RmapSpecialSite site in core.Sites)
+            foreach (Sv5SpecialSite site in core.Sites)
                 yield return new Sv5SpacePlace(site.Id, site.TemplateId, Sv5SpacePlaceKind.Core,
                     new Sv5SpaceBounds(site.Origin.X, site.Origin.Y, site.WidthTiles, site.HeightTiles), site.Id,
-                    "PRESERVED_RMAP15", Sector(site.Origin.X + site.WidthTiles / 2, site.Origin.Y + site.HeightTiles / 2));
+                    "PRESERVED_SV515", Sector(site.Origin.X + site.WidthTiles / 2, site.Origin.Y + site.HeightTiles / 2));
         }
 
         private static Sv5SpacePlace PlaceFamily(Sv5SpaceFamilySpec spec, ulong seed,
-            ISet<RmapSpecialWorldPoint> blocked, IEnumerable<Sv5SpacePlace> placed,
+            ISet<Sv5SpecialWorldPoint> blocked, IEnumerable<Sv5SpacePlace> placed,
             Sv5DiversityProfile diversity, ICollection<Sv5DiversityDecision> decisions)
         {
             int preferred = (spec.Ordinal + (int)(seed % 16UL)) % 16;
@@ -268,13 +268,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         private static IEnumerable<Sv5SpacePort> BuildCorePorts(Sv5CoreReservationPlan core)
         {
-            foreach (RmapSpecialAccess access in core.Source.Accesses)
+            foreach (Sv5SpecialAccess access in core.Source.Accesses)
             {
-                RmapSpecialWorldPoint anchor = access.OpenCells[access.OpenCells.Count / 2];
-                string status = access.Id == "RMAP15_SITE_START_PORT_EXIT" ?
-                    "UNUSED_WITH_REASON:RMAP16_PROTECTED_APPROACH_HAS_NO_DISTINCT_SAFE_BRANCH" :
-                    access.Id == "RMAP15_SITE_START_PORT_ENTRY" ? "PRESERVED_CORE_BINDING_AND_OPTIONAL_CIRCUIT" :
-                    access.SiteId == "RMAP15_SITE_VILLAGE" ? "USED_BY_SV5_06_OPTIONAL_RETURN" : "PRESERVED_CORE_BINDING";
+                Sv5SpecialWorldPoint anchor = access.OpenCells[access.OpenCells.Count / 2];
+                string status = access.Id == "SV5_SITE_START_PORT_EXIT" ?
+                    "UNUSED_WITH_REASON:SV5_PROTECTED_APPROACH_HAS_NO_DISTINCT_SAFE_BRANCH" :
+                    access.Id == "SV5_SITE_START_PORT_ENTRY" ? "PRESERVED_CORE_BINDING_AND_OPTIONAL_CIRCUIT" :
+                    access.SiteId == "SV5_SITE_VILLAGE" ? "USED_BY_SV5_06_OPTIONAL_RETURN" : "PRESERVED_CORE_BINDING";
                 yield return new Sv5SpacePort(access.Id, access.SiteId, access.OpenCells, anchor, access.Side,
                     access.Flow.ToString().ToUpperInvariant(), access.Condition, access.Id, access.SourceNodeId, status);
             }
@@ -283,12 +283,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static IEnumerable<Sv5SpacePort> BuildGeneralPorts(Sv5SpacePlace place)
         {
             int y = place.Bounds.Y + place.Bounds.Height / 2;
-            var left = new RmapSpecialWorldPoint(place.Bounds.X, y);
-            var right = new RmapSpecialWorldPoint(place.Bounds.MaxXExclusive - 1, y);
+            var left = new Sv5SpecialWorldPoint(place.Bounds.X, y);
+            var right = new Sv5SpecialWorldPoint(place.Bounds.MaxXExclusive - 1, y);
             yield return new Sv5SpacePort(place.Id + "_PORT_IN", place.Id, new[] { left }, left,
-                RmapWorldGraphDirection.Left, "IN", "OPTIONAL_ACTIONLESS", string.Empty, place.Id, "PLANNED");
+                Sv5WorldGraphDirection.Left, "IN", "OPTIONAL_ACTIONLESS", string.Empty, place.Id, "PLANNED");
             yield return new Sv5SpacePort(place.Id + "_PORT_OUT", place.Id, new[] { right }, right,
-                RmapWorldGraphDirection.Right, "OUT", "OPTIONAL_ACTIONLESS", string.Empty, place.Id, "PLANNED");
+                Sv5WorldGraphDirection.Right, "OUT", "OPTIONAL_ACTIONLESS", string.Empty, place.Id, "PLANNED");
         }
 
         private static IEnumerable<Sv5SpaceConnection> BuildCoreConnections(Sv5CoreReservationPlan core,
@@ -298,14 +298,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 StringComparer.Ordinal);
             foreach (Sv5CoreRouteReservation route in core.Routes)
             {
-                if (!graphEdges.TryGetValue(route.RouteId, out RmapWorldGraphEdge edge) ||
+                if (!graphEdges.TryGetValue(route.RouteId, out Sv5WorldGraphEdge edge) ||
                     !ports.TryGetValue(route.FromPortId, out Sv5SpacePort from) ||
                     !ports.TryGetValue(route.ToPortId, out Sv5SpacePort to))
                 {
                     diagnostics.Add("CORE_CONNECTION_BINDING_MISSING|" + route.RouteId);
                     continue;
                 }
-                RmapSpecialWorldPoint[] attached = AttachToPorts(route.Cells, from, to);
+                Sv5SpecialWorldPoint[] attached = AttachToPorts(route.Cells, from, to);
                 if (!from.BoundaryCells.Contains(attached.First()) || !to.BoundaryCells.Contains(attached.Last()))
                     diagnostics.Add("CORE_CONNECTION_ENDPOINT_MISMATCH|" + route.RouteId);
                 yield return new Sv5SpaceConnection("SV5_CORE_CONN_" + route.RouteId.Substring(0, 16),
@@ -321,14 +321,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         private static List<Sv5SpaceConnection> RepairGateCorridors(Sv5CoreReservationPlan core,
             IReadOnlyList<Sv5SpacePlace> places, IReadOnlyDictionary<string, Sv5SpacePort> ports,
-            IReadOnlyList<Sv5SpaceConnection> source, ISet<RmapSpecialWorldPoint> hardBlocked)
+            IReadOnlyList<Sv5SpaceConnection> source, ISet<Sv5SpecialWorldPoint> hardBlocked)
         {
             var edges = core.RouteSource.Graph.Edges.ToDictionary(e => e.EdgeId);
             bool Guarded(Sv5SpaceConnection c) => c.Kind == Sv5SpaceConnectionKind.CoreProgression &&
                 (edges[c.SourceGraphEdgeId].RequiresForge || edges[c.SourceGraphEdgeId].RequiresSeal ||
                  edges[c.SourceGraphEdgeId].RequiresBossComplete);
             var guarded = source.Where(Guarded).ToArray();
-            var normalAdapters = new HashSet<RmapSpecialWorldPoint>(Envelope(Envelope(source.Where(c => !Guarded(c))
+            var normalAdapters = new HashSet<Sv5SpecialWorldPoint>(Envelope(Envelope(source.Where(c => !Guarded(c))
                 .SelectMany(c => c.ApertureCells))));
             var result = new List<Sv5SpaceConnection>();
             // Reserve the Seal and Boss corridors first. Normal traffic routes around their
@@ -336,8 +336,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach (var c in guarded.Where(c => !edges[c.SourceGraphEdgeId].RequiresForge)
                 .OrderBy(c => edges[c.SourceGraphEdgeId].RequiresSeal ? 0 : 1))
                 AddGuarded(c);
-            var isolated = new HashSet<RmapSpecialWorldPoint>(result.SelectMany(c => c.Centerline.Concat(c.ApertureCells)));
-            bool Reserved(RmapSpecialWorldPoint p) => isolated.Contains(p) || Neighbors(p).Any(isolated.Contains);
+            var isolated = new HashSet<Sv5SpecialWorldPoint>(result.SelectMany(c => c.Centerline.Concat(c.ApertureCells)));
+            bool Reserved(Sv5SpecialWorldPoint p) => isolated.Contains(p) || Neighbors(p).Any(isolated.Contains);
             foreach (var c in source.Where(c => !Guarded(c)).OrderBy(c => c))
                 result.Add(c.Centerline.Concat(c.ApertureCells).Any(Reserved) ? Route(c, Reserved) : c);
             foreach (var c in guarded.Where(c => edges[c.SourceGraphEdgeId].RequiresForge)) AddGuarded(c);
@@ -347,10 +347,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 var ownPorts = ports[c.FromPortId].BoundaryCells.Concat(ports[c.ToPortId].BoundaryCells).ToArray();
                 // Forge's source-side corridor may join normal traffic. It may not touch the
                 // other gated corridors except at its declared shared Seal entry aperture.
-                var foreign = new HashSet<RmapSpecialWorldPoint>(result.Where(r =>
+                var foreign = new HashSet<Sv5SpecialWorldPoint>(result.Where(r =>
                     !edges[c.SourceGraphEdgeId].RequiresForge || Guarded(r))
                     .SelectMany(r => r.Centerline.Concat(r.ApertureCells)));
-                bool Forbidden(RmapSpecialWorldPoint p) =>
+                bool Forbidden(Sv5SpecialWorldPoint p) =>
                     (!edges[c.SourceGraphEdgeId].RequiresForge && normalAdapters.Contains(p)) ||
                     (!ownPorts.Any(q => Distance(p,q) <= 3) &&
                      (foreign.Contains(p) || Neighbors(p).Any(foreign.Contains)));
@@ -358,11 +358,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             }
             return result.OrderBy(c => c).ToList();
 
-            Sv5SpaceConnection Route(Sv5SpaceConnection c, Func<RmapSpecialWorldPoint, bool> forbidden)
+            Sv5SpaceConnection Route(Sv5SpaceConnection c, Func<Sv5SpecialWorldPoint, bool> forbidden)
             {
                 var from = ports[c.FromPortId]; var to = ports[c.ToPortId];
-                var own = new HashSet<RmapSpecialWorldPoint>(c.ApertureCells);
-                var blocked = new HashSet<RmapSpecialWorldPoint>(hardBlocked);
+                var own = new HashSet<Sv5SpecialWorldPoint>(c.ApertureCells);
+                var blocked = new HashSet<Sv5SpecialWorldPoint>(hardBlocked);
                 foreach (var cell in core.CoreCells) if (!own.Contains(cell.World)) blocked.Add(cell.World);
                 foreach (var place in places.Where(p => p.Kind != Sv5SpacePlaceKind.Core &&
                     p.Id != c.FromPlaceId && p.Id != c.ToPlaceId)) AddBounds(blocked, place.Bounds, 1);
@@ -380,16 +380,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         private static void BuildOptionalCircuit(Sv5CoreReservationPlan core, ulong seed,
             IEnumerable<Sv5SpacePlace> sourcePlaces, IReadOnlyDictionary<string, Sv5SpacePort> ports,
-            ICollection<Sv5SpaceConnection> connections, ISet<RmapSpecialWorldPoint> hardBlocked,
-            ISet<RmapSpecialWorldPoint> routingBlocked,
+            ICollection<Sv5SpaceConnection> connections, ISet<Sv5SpecialWorldPoint> hardBlocked,
+            ISet<Sv5SpecialWorldPoint> routingBlocked,
             ICollection<string> diagnostics)
         {
-            Sv5SpacePort startEntry = ports["RMAP15_SITE_START_PORT_ENTRY"];
-            Sv5SpacePort villageEntry = ports["RMAP15_SITE_VILLAGE_PORT_ENTRY"];
-            Sv5SpacePort villageExit = ports["RMAP15_SITE_VILLAGE_PORT_EXIT"];
+            Sv5SpacePort startEntry = ports["SV5_SITE_START_PORT_ENTRY"];
+            Sv5SpacePort villageEntry = ports["SV5_SITE_VILLAGE_PORT_ENTRY"];
+            Sv5SpacePort villageExit = ports["SV5_SITE_VILLAGE_PORT_EXIT"];
             var remaining = sourcePlaces.Where(value => value.Kind != Sv5SpacePlaceKind.Core).ToList();
             var ordered = new List<Sv5SpacePlace>();
-            RmapSpecialWorldPoint cursor = startEntry.Anchor;
+            Sv5SpecialWorldPoint cursor = startEntry.Anchor;
             while (remaining.Count != 0)
             {
                 Sv5SpacePlace next = remaining.OrderBy(value => Distance(cursor, ports[value.Id + "_PORT_IN"].Anchor))
@@ -413,19 +413,19 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             AddRouted(from, villageEntry, Sv5SpaceConnectionKind.OptionalBranch, "OPTIONAL_VILLAGE",
                 "SV5_OPTIONAL_TO_VILLAGE");
 
-            HashSet<RmapSpecialWorldPoint> villageAir = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Where(value =>
-                    value.SiteId == "RMAP15_SITE_VILLAGE" && value.BaseCell == RmapPatternBaseCell.Air)
+            HashSet<Sv5SpecialWorldPoint> villageAir = new HashSet<Sv5SpecialWorldPoint>(core.CoreCells.Where(value =>
+                    value.SiteId == "SV5_SITE_VILLAGE" && value.BaseCell == Sv5PatternBaseCell.Air)
                 .Select(value => value.World));
             villageAir.UnionWith(villageEntry.BoundaryCells);
             villageAir.UnionWith(villageExit.BoundaryCells);
-            IReadOnlyList<RmapSpecialWorldPoint> interior = FindPath(villageEntry.Anchor, villageExit.Anchor,
+            IReadOnlyList<Sv5SpecialWorldPoint> interior = FindPath(villageEntry.Anchor, villageExit.Anchor,
                 point => villageAir.Contains(point));
             if (interior.Count == 0)
                 diagnostics.Add("VILLAGE_INTERIOR_RETURN_UNAVAILABLE");
             else
                 connections.Add(new Sv5SpaceConnection("SV5_VILLAGE_INTERIOR", Sv5SpaceConnectionKind.VillageInterior,
                     villageEntry.Id, villageExit.Id, villageEntry.PlaceId, villageExit.PlaceId,
-                    RmapWorldGraphDirection.Right, "BIDIRECTIONAL", "OPTIONAL_VILLAGE_NO_STATE_ACTION", string.Empty,
+                    Sv5WorldGraphDirection.Right, "BIDIRECTIONAL", "OPTIONAL_VILLAGE_NO_STATE_ACTION", string.Empty,
                     "OPTIONAL_SELECTED", interior, interior.Concat(villageEntry.BoundaryCells)
                         .Concat(villageExit.BoundaryCells), interior.Concat(villageEntry.BoundaryCells)
                         .Concat(villageExit.BoundaryCells)));
@@ -436,18 +436,18 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             void AddRouted(Sv5SpacePort routeFrom, Sv5SpacePort routeTo, Sv5SpaceConnectionKind kind,
                 string condition, string id)
             {
-                RmapSpecialWorldPoint[] fromApproach = BuildPortAdapter(routeFrom, hardBlocked, routingBlocked);
-                RmapSpecialWorldPoint[] toApproach = BuildPortAdapter(routeTo, hardBlocked, routingBlocked);
+                Sv5SpecialWorldPoint[] fromApproach = BuildPortAdapter(routeFrom, hardBlocked, routingBlocked);
+                Sv5SpecialWorldPoint[] toApproach = BuildPortAdapter(routeTo, hardBlocked, routingBlocked);
                 if (fromApproach.Length == 0 || toApproach.Length == 0)
                 {
                     diagnostics.Add("PORT_WIDTH_TRANSITION_UNAVAILABLE|" + id);
                     return;
                 }
-                var aperture = new HashSet<RmapSpecialWorldPoint>(fromApproach);
+                var aperture = new HashSet<Sv5SpecialWorldPoint>(fromApproach);
                 aperture.UnionWith(toApproach);
                 aperture.UnionWith(routeFrom.BoundaryCells);
                 aperture.UnionWith(routeTo.BoundaryCells);
-                IReadOnlyList<RmapSpecialWorldPoint> middle = FindPath(fromApproach.Last(), toApproach.Last(),
+                IReadOnlyList<Sv5SpecialWorldPoint> middle = FindPath(fromApproach.Last(), toApproach.Last(),
                     point => Envelope(new[] { point }).All(cell => !hardBlocked.Contains(cell) &&
                         (!routingBlocked.Contains(cell) || aperture.Contains(cell))));
                 if (middle.Count == 0)
@@ -455,14 +455,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     diagnostics.Add("OPTIONAL_ROUTE_UNAVAILABLE|" + id);
                     return;
                 }
-                var path = new List<RmapSpecialWorldPoint>(fromApproach);
+                var path = new List<Sv5SpecialWorldPoint>(fromApproach);
                 path.AddRange(middle.Skip(1));
                 path.AddRange(toApproach.Reverse().Skip(1));
-                RmapWorldGraphDirection direction = Direction(path[0], path[1]);
-                var envelope = new HashSet<RmapSpecialWorldPoint>(aperture);
+                Sv5WorldGraphDirection direction = Direction(path[0], path[1]);
+                var envelope = new HashSet<Sv5SpecialWorldPoint>(aperture);
                 envelope.UnionWith(Envelope(middle));
                 envelope.UnionWith(path);
-                RmapSpecialWorldPoint[] conflicts = envelope.Where(hardBlocked.Contains).OrderBy(value => value).ToArray();
+                Sv5SpecialWorldPoint[] conflicts = envelope.Where(hardBlocked.Contains).OrderBy(value => value).ToArray();
                 if (conflicts.Length != 0)
                 {
                     diagnostics.Add("OPTIONAL_REQUIRED_WIDTH_BLOCKED|" + id + "|" + conflicts[0]);
@@ -486,16 +486,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach (Sv5SpaceConnection connection in (sourceConnections ?? Array.Empty<Sv5SpaceConnection>())
                          .Where(value => value != null))
             {
-                var passage = new HashSet<RmapSpecialWorldPoint>(connection.Centerline);
+                var passage = new HashSet<Sv5SpecialWorldPoint>(connection.Centerline);
                 passage.UnionWith(connection.ApertureCells);
-                foreach (RmapSpecialWorldPoint point in connection.Envelope)
+                foreach (Sv5SpecialWorldPoint point in connection.Envelope)
                     Add(RouteKey(connection), point, passage.Contains(point) ? Sv5RouteContactCellKind.Passage :
                         Sv5RouteContactCellKind.Clearance);
             }
             return output.Values.OrderBy(value => value.World).ThenBy(value => value.RouteId, StringComparer.Ordinal)
                 .ThenBy(value => value.Kind).ToArray();
 
-            void Add(string route, RmapSpecialWorldPoint point, Sv5RouteContactCellKind kind)
+            void Add(string route, Sv5SpecialWorldPoint point, Sv5RouteContactCellKind kind)
             {
                 string key = route + "|" + point + "|" + kind;
                 if (!output.ContainsKey(key)) output.Add(key, new Sv5RouteContactCell(route, point, kind));
@@ -506,22 +506,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5SpacePlace> places, IEnumerable<Sv5SpaceConnection> connections,
             IEnumerable<Sv5SpaceGate> gates)
         {
-            foreach (RmapSpecialWorldCell cell in core.CoreCells)
+            foreach (Sv5SpecialWorldCell cell in core.CoreCells)
                 yield return new Sv5SpaceReservationCell(cell.World, Sv5SpaceReservationKind.CoreProtected,
                     cell.SiteId, cell.Protection + ":" + cell.BaseCell);
             foreach (Sv5CoreRouteCellReservation cell in core.RouteCells)
                 yield return new Sv5SpaceReservationCell(cell.World, Sv5SpaceReservationKind.CoreRoute,
                     cell.RouteId, cell.Kind + ":" + cell.RequiredBaseCell);
             foreach (Sv5SpacePlace place in places.Where(value => value.Kind != Sv5SpacePlaceKind.Core))
-            foreach (RmapSpecialWorldPoint point in BoundsCells(place.Bounds, 0))
+            foreach (Sv5SpecialWorldPoint point in BoundsCells(place.Bounds, 0))
                 yield return new Sv5SpaceReservationCell(point, Sv5SpaceReservationKind.PlannedFootprint,
                     place.Id, "PLANNED_SHELL_NOT_FINAL_TILE");
             foreach (Sv5SpaceConnection connection in connections.Where(value => value.Kind !=
                          Sv5SpaceConnectionKind.CoreProgression))
             {
-                var center = new HashSet<RmapSpecialWorldPoint>(connection.Centerline);
-                var aperture = new HashSet<RmapSpecialWorldPoint>(connection.ApertureCells);
-                foreach (RmapSpecialWorldPoint point in connection.Envelope)
+                var center = new HashSet<Sv5SpecialWorldPoint>(connection.Centerline);
+                var aperture = new HashSet<Sv5SpecialWorldPoint>(connection.ApertureCells);
+                foreach (Sv5SpecialWorldPoint point in connection.Envelope)
                     yield return new Sv5SpaceReservationCell(point, aperture.Contains(point) ?
                         Sv5SpaceReservationKind.PortAperture : center.Contains(point) ?
                         Sv5SpaceReservationKind.CorridorCenterline : Sv5SpaceReservationKind.CorridorClearance,
@@ -529,7 +529,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                         center.Contains(point) ? "PASSAGE_SUPPORT_LAYOUT_PENDING" : "REQUIRED_CLEARANCE");
             }
             foreach (Sv5SpaceGate gate in gates)
-            foreach (RmapSpecialWorldPoint point in gate.BlockingCells)
+            foreach (Sv5SpecialWorldPoint point in gate.BlockingCells)
                 yield return new Sv5SpaceReservationCell(point, Sv5SpaceReservationKind.ConditionalGate,
                     gate.Id, "CELL_BLOCK|SEALED:" + gate.TypedPredicate.StableToken + "|OPEN:PASSAGE");
             foreach (Sv5SpaceGate gate in gates)
@@ -559,12 +559,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             for (var second = first + 1; second < places.Count; second++)
                 if (Overlaps(places[first].Bounds, places[second].Bounds))
                     diagnostics.Add("PLACE_OVERLAP|" + places[first].Id + "|" + places[second].Id);
-            Sv5SpacePort startExit = ports.Single(value => value.Id == "RMAP15_SITE_START_PORT_EXIT");
+            Sv5SpacePort startExit = ports.Single(value => value.Id == "SV5_SITE_START_PORT_EXIT");
             if (connections.Any(value => value.FromPortId == startExit.Id || value.ToPortId == startExit.Id) ||
                 !startExit.Status.StartsWith("UNUSED_WITH_REASON:", StringComparison.Ordinal))
                 diagnostics.Add("START_EXIT_DECISION_INVALID");
-            if (!connections.Any(value => value.ToPortId == "RMAP15_SITE_VILLAGE_PORT_ENTRY") ||
-                !connections.Any(value => value.FromPortId == "RMAP15_SITE_VILLAGE_PORT_EXIT"))
+            if (!connections.Any(value => value.ToPortId == "SV5_SITE_VILLAGE_PORT_ENTRY") ||
+                !connections.Any(value => value.FromPortId == "SV5_SITE_VILLAGE_PORT_EXIT"))
                 diagnostics.Add("VILLAGE_OPTIONAL_RETURN_MISSING");
             if (projection.Contacts.Any(value => !value.LogicalStateTransitionChecked ||
                 !value.CoverageChecked || value.Crossing == Sv5SpaceCrossingKind.Pending))
@@ -584,8 +584,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 diagnostics.Add("SOURCE_IDENTITY_MISMATCH");
         }
 
-        private static IReadOnlyList<RmapSpecialWorldPoint> FindPath(RmapSpecialWorldPoint start,
-            RmapSpecialWorldPoint goal, Func<RmapSpecialWorldPoint, bool> allowed)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> FindPath(Sv5SpecialWorldPoint start,
+            Sv5SpecialWorldPoint goal, Func<Sv5SpecialWorldPoint, bool> allowed)
         {
             int count = WorldWidth * WorldHeight;
             var previous = new int[count];
@@ -598,8 +598,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             while (head < tail && previous[goalIndex] == -2)
             {
                 int currentIndex = queue[head++];
-                RmapSpecialWorldPoint current = Point(currentIndex);
-                foreach (RmapSpecialWorldPoint next in Neighbors(current))
+                Sv5SpecialWorldPoint current = Point(currentIndex);
+                foreach (Sv5SpecialWorldPoint next in Neighbors(current))
                 {
                     if (!InWorld(next) || !allowed(next)) continue;
                     int nextIndex = Index(next);
@@ -608,28 +608,28 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     queue[tail++] = nextIndex;
                 }
             }
-            if (previous[goalIndex] == -2) return Array.Empty<RmapSpecialWorldPoint>();
-            var result = new List<RmapSpecialWorldPoint>();
+            if (previous[goalIndex] == -2) return Array.Empty<Sv5SpecialWorldPoint>();
+            var result = new List<Sv5SpecialWorldPoint>();
             for (int cursor = goalIndex; cursor >= 0; cursor = previous[cursor]) result.Add(Point(cursor));
             result.Reverse();
             return result;
         }
 
-        private static IEnumerable<RmapSpecialWorldPoint> Envelope(IEnumerable<RmapSpecialWorldPoint> source)
+        private static IEnumerable<Sv5SpecialWorldPoint> Envelope(IEnumerable<Sv5SpecialWorldPoint> source)
         {
-            var output = new HashSet<RmapSpecialWorldPoint>();
-            foreach (RmapSpecialWorldPoint point in source ?? Array.Empty<RmapSpecialWorldPoint>())
+            var output = new HashSet<Sv5SpecialWorldPoint>();
+            foreach (Sv5SpecialWorldPoint point in source ?? Array.Empty<Sv5SpecialWorldPoint>())
             {
                 if (InWorld(point)) output.Add(point);
-                foreach (RmapSpecialWorldPoint neighbor in Neighbors(point)) if (InWorld(neighbor)) output.Add(neighbor);
+                foreach (Sv5SpecialWorldPoint neighbor in Neighbors(point)) if (InWorld(neighbor)) output.Add(neighbor);
             }
             return output.OrderBy(value => value);
         }
 
-        private static RmapSpecialWorldPoint[] BuildPortAdapter(Sv5SpacePort port,
-            ISet<RmapSpecialWorldPoint> hardBlocked, ISet<RmapSpecialWorldPoint> routingBlocked)
+        private static Sv5SpecialWorldPoint[] BuildPortAdapter(Sv5SpacePort port,
+            ISet<Sv5SpecialWorldPoint> hardBlocked, ISet<Sv5SpecialWorldPoint> routingBlocked)
         {
-            var exceptions = new HashSet<RmapSpecialWorldPoint>(PortApproach(port, 4));
+            var exceptions = new HashSet<Sv5SpecialWorldPoint>(PortApproach(port, 4));
             int count = WorldWidth * WorldHeight;
             var previous = new int[count];
             for (var index = 0; index < count; index++) previous[index] = -2;
@@ -641,12 +641,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             while (head < tail && goal < 0)
             {
                 int currentIndex = queue[head++];
-                RmapSpecialWorldPoint current = Point(currentIndex);
+                Sv5SpecialWorldPoint current = Point(currentIndex);
                 if (Distance(port.Anchor, current) >= 2 && OutwardDistance(port, current) > 0 &&
                     !routingBlocked.Contains(current) && Envelope(new[] { current }).All(value =>
                         !hardBlocked.Contains(value) && !routingBlocked.Contains(value)))
                 { goal = currentIndex; break; }
-                foreach (RmapSpecialWorldPoint next in Neighbors(current))
+                foreach (Sv5SpecialWorldPoint next in Neighbors(current))
                 {
                     if (!InWorld(next) || hardBlocked.Contains(next) ||
                         (routingBlocked.Contains(next) && !exceptions.Contains(next))) continue;
@@ -656,74 +656,74 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     queue[tail++] = nextIndex;
                 }
             }
-            if (goal < 0) return Array.Empty<RmapSpecialWorldPoint>();
-            var output = new List<RmapSpecialWorldPoint>();
+            if (goal < 0) return Array.Empty<Sv5SpecialWorldPoint>();
+            var output = new List<Sv5SpecialWorldPoint>();
             for (int cursor = goal; cursor >= 0; cursor = previous[cursor]) output.Add(Point(cursor));
             output.Reverse();
             return output.ToArray();
         }
 
-        private static RmapSpecialWorldPoint[] AttachToPorts(IReadOnlyList<RmapSpecialWorldPoint> route,
+        private static Sv5SpecialWorldPoint[] AttachToPorts(IReadOnlyList<Sv5SpecialWorldPoint> route,
             Sv5SpacePort from, Sv5SpacePort to)
         {
-            if (route == null || route.Count == 0) return Array.Empty<RmapSpecialWorldPoint>();
-            RmapSpecialWorldPoint first = from.BoundaryCells.Where(value => Distance(value, route[0]) == 1)
+            if (route == null || route.Count == 0) return Array.Empty<Sv5SpecialWorldPoint>();
+            Sv5SpecialWorldPoint first = from.BoundaryCells.Where(value => Distance(value, route[0]) == 1)
                 .OrderBy(value => value).FirstOrDefault();
-            RmapSpecialWorldPoint last = to.BoundaryCells.Where(value => Distance(value, route[route.Count - 1]) == 1)
+            Sv5SpecialWorldPoint last = to.BoundaryCells.Where(value => Distance(value, route[route.Count - 1]) == 1)
                 .OrderBy(value => value).FirstOrDefault();
-            var output = new List<RmapSpecialWorldPoint>();
+            var output = new List<Sv5SpecialWorldPoint>();
             if (from.BoundaryCells.Contains(first) && Distance(first, route[0]) == 1) output.Add(first);
             output.AddRange(route);
             if (to.BoundaryCells.Contains(last) && Distance(last, route[route.Count - 1]) == 1) output.Add(last);
             return output.ToArray();
         }
 
-        private static IEnumerable<RmapSpecialWorldPoint> BoundsCells(Sv5SpaceBounds bounds, int padding)
+        private static IEnumerable<Sv5SpecialWorldPoint> BoundsCells(Sv5SpaceBounds bounds, int padding)
         {
             for (int y = Math.Max(0, bounds.Y - padding); y < Math.Min(WorldHeight, bounds.MaxYExclusive + padding); y++)
             for (int x = Math.Max(0, bounds.X - padding); x < Math.Min(WorldWidth, bounds.MaxXExclusive + padding); x++)
-                yield return new RmapSpecialWorldPoint(x, y);
+                yield return new Sv5SpecialWorldPoint(x, y);
         }
 
-        private static void AddBounds(ISet<RmapSpecialWorldPoint> output, Sv5SpaceBounds bounds, int padding)
-        { foreach (RmapSpecialWorldPoint point in BoundsCells(bounds, padding)) output.Add(point); }
+        private static void AddBounds(ISet<Sv5SpecialWorldPoint> output, Sv5SpaceBounds bounds, int padding)
+        { foreach (Sv5SpecialWorldPoint point in BoundsCells(bounds, padding)) output.Add(point); }
 
-        private static IEnumerable<RmapSpecialWorldPoint> Neighbors(RmapSpecialWorldPoint point)
+        private static IEnumerable<Sv5SpecialWorldPoint> Neighbors(Sv5SpecialWorldPoint point)
         {
-            yield return new RmapSpecialWorldPoint(point.X - 1, point.Y);
-            yield return new RmapSpecialWorldPoint(point.X + 1, point.Y);
-            yield return new RmapSpecialWorldPoint(point.X, point.Y - 1);
-            yield return new RmapSpecialWorldPoint(point.X, point.Y + 1);
+            yield return new Sv5SpecialWorldPoint(point.X - 1, point.Y);
+            yield return new Sv5SpecialWorldPoint(point.X + 1, point.Y);
+            yield return new Sv5SpecialWorldPoint(point.X, point.Y - 1);
+            yield return new Sv5SpecialWorldPoint(point.X, point.Y + 1);
         }
 
-        private static RmapSpecialWorldPoint Outward(Sv5SpacePort port) => port.Direction == RmapWorldGraphDirection.Left ?
-            new RmapSpecialWorldPoint(port.Anchor.X - 1, port.Anchor.Y) : port.Direction == RmapWorldGraphDirection.Right ?
-            new RmapSpecialWorldPoint(port.Anchor.X + 1, port.Anchor.Y) : port.Direction == RmapWorldGraphDirection.Up ?
-            new RmapSpecialWorldPoint(port.Anchor.X, port.Anchor.Y + 1) : new RmapSpecialWorldPoint(port.Anchor.X, port.Anchor.Y - 1);
-        private static IEnumerable<RmapSpecialWorldPoint> PortApproach(Sv5SpacePort port, int length)
+        private static Sv5SpecialWorldPoint Outward(Sv5SpacePort port) => port.Direction == Sv5WorldGraphDirection.Left ?
+            new Sv5SpecialWorldPoint(port.Anchor.X - 1, port.Anchor.Y) : port.Direction == Sv5WorldGraphDirection.Right ?
+            new Sv5SpecialWorldPoint(port.Anchor.X + 1, port.Anchor.Y) : port.Direction == Sv5WorldGraphDirection.Up ?
+            new Sv5SpecialWorldPoint(port.Anchor.X, port.Anchor.Y + 1) : new Sv5SpecialWorldPoint(port.Anchor.X, port.Anchor.Y - 1);
+        private static IEnumerable<Sv5SpecialWorldPoint> PortApproach(Sv5SpacePort port, int length)
         {
-            RmapSpecialWorldPoint point = port.Anchor;
+            Sv5SpecialWorldPoint point = port.Anchor;
             yield return point;
             for (var index = 0; index < length; index++)
             {
-                point = port.Direction == RmapWorldGraphDirection.Left ? new RmapSpecialWorldPoint(point.X - 1, point.Y) :
-                    port.Direction == RmapWorldGraphDirection.Right ? new RmapSpecialWorldPoint(point.X + 1, point.Y) :
-                    port.Direction == RmapWorldGraphDirection.Up ? new RmapSpecialWorldPoint(point.X, point.Y + 1) :
-                    new RmapSpecialWorldPoint(point.X, point.Y - 1);
+                point = port.Direction == Sv5WorldGraphDirection.Left ? new Sv5SpecialWorldPoint(point.X - 1, point.Y) :
+                    port.Direction == Sv5WorldGraphDirection.Right ? new Sv5SpecialWorldPoint(point.X + 1, point.Y) :
+                    port.Direction == Sv5WorldGraphDirection.Up ? new Sv5SpecialWorldPoint(point.X, point.Y + 1) :
+                    new Sv5SpecialWorldPoint(point.X, point.Y - 1);
                 if (InWorld(point)) yield return point;
             }
         }
-        private static int OutwardDistance(Sv5SpacePort port, RmapSpecialWorldPoint point) =>
-            port.Direction == RmapWorldGraphDirection.Left ? port.Anchor.X - point.X :
-            port.Direction == RmapWorldGraphDirection.Right ? point.X - port.Anchor.X :
-            port.Direction == RmapWorldGraphDirection.Up ? point.Y - port.Anchor.Y : port.Anchor.Y - point.Y;
-        private static RmapWorldGraphDirection Direction(RmapSpecialWorldPoint first, RmapSpecialWorldPoint second) =>
-            second.X > first.X ? RmapWorldGraphDirection.Right : second.X < first.X ? RmapWorldGraphDirection.Left :
-            second.Y > first.Y ? RmapWorldGraphDirection.Up : RmapWorldGraphDirection.Down;
-        private static bool InWorld(RmapSpecialWorldPoint point) => point.X >= 0 && point.X < WorldWidth && point.Y >= 0 && point.Y < WorldHeight;
-        private static int Index(RmapSpecialWorldPoint point) => point.Y * WorldWidth + point.X;
-        private static RmapSpecialWorldPoint Point(int index) => new RmapSpecialWorldPoint(index % WorldWidth, index / WorldWidth);
-        private static int Distance(RmapSpecialWorldPoint left, RmapSpecialWorldPoint right) => Math.Abs(left.X - right.X) + Math.Abs(left.Y - right.Y);
+        private static int OutwardDistance(Sv5SpacePort port, Sv5SpecialWorldPoint point) =>
+            port.Direction == Sv5WorldGraphDirection.Left ? port.Anchor.X - point.X :
+            port.Direction == Sv5WorldGraphDirection.Right ? point.X - port.Anchor.X :
+            port.Direction == Sv5WorldGraphDirection.Up ? point.Y - port.Anchor.Y : port.Anchor.Y - point.Y;
+        private static Sv5WorldGraphDirection Direction(Sv5SpecialWorldPoint first, Sv5SpecialWorldPoint second) =>
+            second.X > first.X ? Sv5WorldGraphDirection.Right : second.X < first.X ? Sv5WorldGraphDirection.Left :
+            second.Y > first.Y ? Sv5WorldGraphDirection.Up : Sv5WorldGraphDirection.Down;
+        private static bool InWorld(Sv5SpecialWorldPoint point) => point.X >= 0 && point.X < WorldWidth && point.Y >= 0 && point.Y < WorldHeight;
+        private static int Index(Sv5SpecialWorldPoint point) => point.Y * WorldWidth + point.X;
+        private static Sv5SpecialWorldPoint Point(int index) => new Sv5SpecialWorldPoint(index % WorldWidth, index / WorldWidth);
+        private static int Distance(Sv5SpecialWorldPoint left, Sv5SpecialWorldPoint right) => Math.Abs(left.X - right.X) + Math.Abs(left.Y - right.Y);
         private static int Align4(int value) => ((value + 3) / 4) * 4;
         private static int Sector(int x, int y) => Math.Min(3, Math.Max(0, x / 156)) +
             Math.Min(3, Math.Max(0, y / 104)) * 4;
@@ -754,12 +754,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5SpaceReservationProbe
     {
-        public Sv5SpaceReservationProbe(RmapSpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId)
+        public Sv5SpaceReservationProbe(Sv5SpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId)
             : this(world, kind, ownerId, string.Empty) { }
-        public Sv5SpaceReservationProbe(RmapSpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId,
+        public Sv5SpaceReservationProbe(Sv5SpecialWorldPoint world, Sv5SpaceReservationKind kind, string ownerId,
             string semantics)
         { World = world; Kind = kind; OwnerId = ownerId ?? string.Empty; Semantics = semantics ?? string.Empty; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5SpaceReservationKind Kind { get; }
         public string OwnerId { get; }
         public string Semantics { get; }
@@ -785,13 +785,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 value => value.Select(item => item.RouteId).Distinct(StringComparer.Ordinal)
                     .OrderBy(item => item, StringComparer.Ordinal).ToArray());
             var expected = new HashSet<string>(StringComparer.Ordinal);
-            foreach (KeyValuePair<RmapSpecialWorldPoint, string[]> entry in groups)
+            foreach (KeyValuePair<Sv5SpecialWorldPoint, string[]> entry in groups)
             {
                 AddPairs("SHARED", entry.Key, entry.Key, entry.Value, entry.Value, true);
-                foreach (RmapSpecialWorldPoint neighbor in new[]
+                foreach (Sv5SpecialWorldPoint neighbor in new[]
                 {
-                    new RmapSpecialWorldPoint(entry.Key.X + 1, entry.Key.Y),
-                    new RmapSpecialWorldPoint(entry.Key.X, entry.Key.Y + 1),
+                    new Sv5SpecialWorldPoint(entry.Key.X + 1, entry.Key.Y),
+                    new Sv5SpecialWorldPoint(entry.Key.X, entry.Key.Y + 1),
                 })
                     if (groups.TryGetValue(neighbor, out string[] other))
                         AddPairs("FACE", entry.Key, neighbor, entry.Value, other, false);
@@ -807,7 +807,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Select(value => "CONTACT_COVERAGE_DUPLICATE|" + value.Key));
             return new ReadOnlyCollection<string>(errors.ToArray());
 
-            void AddPairs(string kind, RmapSpecialWorldPoint first, RmapSpecialWorldPoint second,
+            void AddPairs(string kind, Sv5SpecialWorldPoint first, Sv5SpecialWorldPoint second,
                 string[] left, string[] right, bool sameCell)
             {
                 for (var a = 0; a < left.Length; a++)
@@ -855,24 +855,24 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 if (connection.Kind != Sv5SpaceConnectionKind.CoreProgression && connection.Centerline.Count > 1 &&
                     GeometryDirection(connection.Centerline[0], connection.Centerline[1]) != connection.Direction)
                     errors.Add("CONNECTION_DIRECTION_MISMATCH|" + connection.Id);
-                var envelope = new HashSet<RmapSpecialWorldPoint>(connection.Envelope);
+                var envelope = new HashSet<Sv5SpecialWorldPoint>(connection.Envelope);
                 if (connection.Centerline.Any(value => !envelope.Contains(value)) ||
                     connection.ApertureCells.Any(value => !envelope.Contains(value)))
                     errors.Add("CONNECTION_ENVELOPE_INCOMPLETE|" + connection.Id);
-                var aperture = new HashSet<RmapSpecialWorldPoint>(connection.ApertureCells);
-                var apertureReachable = new HashSet<RmapSpecialWorldPoint>(from.BoundaryCells
+                var aperture = new HashSet<Sv5SpecialWorldPoint>(connection.ApertureCells);
+                var apertureReachable = new HashSet<Sv5SpecialWorldPoint>(from.BoundaryCells
                     .Concat(to.BoundaryCells).Where(aperture.Contains));
-                var apertureQueue = new Queue<RmapSpecialWorldPoint>(apertureReachable);
+                var apertureQueue = new Queue<Sv5SpecialWorldPoint>(apertureReachable);
                 while (apertureQueue.Count != 0)
                 {
-                    RmapSpecialWorldPoint current = apertureQueue.Dequeue();
-                    foreach (RmapSpecialWorldPoint next in CardinalNeighbors(current))
+                    Sv5SpecialWorldPoint current = apertureQueue.Dequeue();
+                    foreach (Sv5SpecialWorldPoint next in CardinalNeighbors(current))
                         if (aperture.Contains(next) && apertureReachable.Add(next)) apertureQueue.Enqueue(next);
                 }
                 if (aperture.Count != 0 && apertureReachable.Count != aperture.Count)
                     errors.Add("CONNECTION_APERTURE_NOT_PORT_REACHABLE|" + connection.Id);
                 if (connection.Kind != Sv5SpaceConnectionKind.CoreProgression)
-                    foreach (RmapSpecialWorldPoint point in connection.Centerline.Where(value => !aperture.Contains(value)))
+                    foreach (Sv5SpecialWorldPoint point in connection.Centerline.Where(value => !aperture.Contains(value)))
                         if (!CardinalCross(point).All(envelope.Contains))
                         { errors.Add("CONNECTION_REQUIRED_WIDTH_NARROW|" + connection.Id + "|" + point); break; }
             }
@@ -893,12 +893,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             IEnumerable<Sv5SpaceReservationProbe> sourceReservations)
         {
             if (core == null) throw new ArgumentNullException(nameof(core));
-            var fixedSolid = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Where(value =>
-                value.Protection == RmapSpecialProtectionKind.FixedSolid).Select(value => value.World));
-            var routeSolid = new HashSet<RmapSpecialWorldPoint>(core.RouteCells.Where(value =>
-                value.RequiredBaseCell == RmapPatternBaseCell.Solid).Select(value => value.World));
-            var protectedAir = new HashSet<RmapSpecialWorldPoint>(core.CoreCells.Where(value =>
-                value.Protection == RmapSpecialProtectionKind.ProtectedAir).Select(value => value.World));
+            var fixedSolid = new HashSet<Sv5SpecialWorldPoint>(core.CoreCells.Where(value =>
+                value.Protection == Sv5SpecialProtectionKind.FixedSolid).Select(value => value.World));
+            var routeSolid = new HashSet<Sv5SpecialWorldPoint>(core.RouteCells.Where(value =>
+                value.RequiredBaseCell == Sv5PatternBaseCell.Solid).Select(value => value.World));
+            var protectedAir = new HashSet<Sv5SpecialWorldPoint>(core.CoreCells.Where(value =>
+                value.Protection == Sv5SpecialProtectionKind.ProtectedAir).Select(value => value.World));
             var errors = new List<string>();
             foreach (Sv5SpaceReservationProbe value in (sourceReservations ?? Array.Empty<Sv5SpaceReservationProbe>())
                          .Where(value => value != null && (value.Kind == Sv5SpaceReservationKind.CorridorCenterline ||
@@ -921,10 +921,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         public static IReadOnlyList<string> ValidatePortTransitionFixture(IEnumerable<Sv5SpacePort> sourcePorts,
             string fromPortId, string toPortId, string fromPlaceId, string toPlaceId, string flow,
-            RmapWorldGraphDirection direction,
-            IEnumerable<RmapSpecialWorldPoint> sourceCenterline,
-            IEnumerable<RmapSpecialWorldPoint> sourceEnvelope,
-            IEnumerable<RmapSpecialWorldPoint> sourceAperture)
+            Sv5WorldGraphDirection direction,
+            IEnumerable<Sv5SpecialWorldPoint> sourceCenterline,
+            IEnumerable<Sv5SpecialWorldPoint> sourceEnvelope,
+            IEnumerable<Sv5SpecialWorldPoint> sourceAperture)
         {
             try
             {
@@ -940,11 +940,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         public static IReadOnlyList<string> ValidateBarrierFixture(Sv5RouteContactPair contact,
-            IEnumerable<RmapSpecialWorldPoint> sourceBlockingCells,
+            IEnumerable<Sv5SpecialWorldPoint> sourceBlockingCells,
             IEnumerable<Sv5SpaceBoundaryFace> sourceBlockingFaces)
         {
             if (contact == null) throw new ArgumentNullException(nameof(contact));
-            var cells = new HashSet<RmapSpecialWorldPoint>(sourceBlockingCells ?? Array.Empty<RmapSpecialWorldPoint>());
+            var cells = new HashSet<Sv5SpecialWorldPoint>(sourceBlockingCells ?? Array.Empty<Sv5SpecialWorldPoint>());
             var faces = new HashSet<string>((sourceBlockingFaces ?? Array.Empty<Sv5SpaceBoundaryFace>())
                 .Where(value => value != null).Select(value => value.StableToken), StringComparer.Ordinal);
             var errors = new List<string>();
@@ -986,30 +986,30 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .OrderBy(value => value, StringComparer.Ordinal).ToArray());
         }
 
-        private static IEnumerable<RmapSpecialWorldPoint> CardinalCross(RmapSpecialWorldPoint point)
+        private static IEnumerable<Sv5SpecialWorldPoint> CardinalCross(Sv5SpecialWorldPoint point)
         {
             yield return point;
-            if (point.X > 0) yield return new RmapSpecialWorldPoint(point.X - 1, point.Y);
-            if (point.X < Sv5SpaceGraphPlanner.WorldWidth - 1) yield return new RmapSpecialWorldPoint(point.X + 1, point.Y);
-            if (point.Y > 0) yield return new RmapSpecialWorldPoint(point.X, point.Y - 1);
-            if (point.Y < Sv5SpaceGraphPlanner.WorldHeight - 1) yield return new RmapSpecialWorldPoint(point.X, point.Y + 1);
+            if (point.X > 0) yield return new Sv5SpecialWorldPoint(point.X - 1, point.Y);
+            if (point.X < Sv5SpaceGraphPlanner.WorldWidth - 1) yield return new Sv5SpecialWorldPoint(point.X + 1, point.Y);
+            if (point.Y > 0) yield return new Sv5SpecialWorldPoint(point.X, point.Y - 1);
+            if (point.Y < Sv5SpaceGraphPlanner.WorldHeight - 1) yield return new Sv5SpecialWorldPoint(point.X, point.Y + 1);
         }
-        private static IEnumerable<RmapSpecialWorldPoint> CardinalNeighbors(RmapSpecialWorldPoint point)
+        private static IEnumerable<Sv5SpecialWorldPoint> CardinalNeighbors(Sv5SpecialWorldPoint point)
         {
-            if (point.X > 0) yield return new RmapSpecialWorldPoint(point.X - 1, point.Y);
-            if (point.X < Sv5SpaceGraphPlanner.WorldWidth - 1) yield return new RmapSpecialWorldPoint(point.X + 1, point.Y);
-            if (point.Y > 0) yield return new RmapSpecialWorldPoint(point.X, point.Y - 1);
-            if (point.Y < Sv5SpaceGraphPlanner.WorldHeight - 1) yield return new RmapSpecialWorldPoint(point.X, point.Y + 1);
+            if (point.X > 0) yield return new Sv5SpecialWorldPoint(point.X - 1, point.Y);
+            if (point.X < Sv5SpaceGraphPlanner.WorldWidth - 1) yield return new Sv5SpecialWorldPoint(point.X + 1, point.Y);
+            if (point.Y > 0) yield return new Sv5SpecialWorldPoint(point.X, point.Y - 1);
+            if (point.Y < Sv5SpaceGraphPlanner.WorldHeight - 1) yield return new Sv5SpecialWorldPoint(point.X, point.Y + 1);
         }
         private static string ContactKey(Sv5RouteContactPair value) => ContactKey(value.Kind, value.FirstWorld,
             value.SecondWorld, value.RouteA, value.RouteB);
-        private static string ContactKey(string kind, RmapSpecialWorldPoint first, RmapSpecialWorldPoint second,
+        private static string ContactKey(string kind, Sv5SpecialWorldPoint first, Sv5SpecialWorldPoint second,
             string routeA, string routeB) => kind + "|" + first + "|" + second + "|" + routeA + "|" + routeB;
-        private static string FaceToken(RmapSpecialWorldPoint first, RmapSpecialWorldPoint second) =>
+        private static string FaceToken(Sv5SpecialWorldPoint first, Sv5SpecialWorldPoint second) =>
             first.CompareTo(second) <= 0 ? first + ">" + second : second + ">" + first;
-        private static RmapWorldGraphDirection GeometryDirection(RmapSpecialWorldPoint first,
-            RmapSpecialWorldPoint second) => second.X > first.X ? RmapWorldGraphDirection.Right :
-            second.X < first.X ? RmapWorldGraphDirection.Left :
-            second.Y > first.Y ? RmapWorldGraphDirection.Up : RmapWorldGraphDirection.Down;
+        private static Sv5WorldGraphDirection GeometryDirection(Sv5SpecialWorldPoint first,
+            Sv5SpecialWorldPoint second) => second.X > first.X ? Sv5WorldGraphDirection.Right :
+            second.X < first.X ? Sv5WorldGraphDirection.Left :
+            second.Y > first.Y ? Sv5WorldGraphDirection.Up : Sv5WorldGraphDirection.Down;
     }
 }

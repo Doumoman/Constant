@@ -29,7 +29,7 @@ FIX01은 다음 하나의 production 규칙을 생성, 최종 검증, export가 
 
 ## 레거시 읽기 전용 조사
 
-`legacy_inventory.json`은 현재 `PlanWithInfill` 생산 체인, PhysicalMovement/Product/StateProjection, RMAP13 및 core/Type0/RMAP15/16 입력 소비자, 테스트/export helper의 과거 증거 참조를 읽기 전용으로 추적한다. 분류 결과는 ACTIVE 7, COMPAT 4, HISTORICAL 5, RETIRE_CANDIDATE 0, UNKNOWN 0이다. 이번 Task는 레거시 파일의 이동·삭제를 승인하지 않으므로 실제 소비자가 있는 항목은 보존했고, 향후 격리 판단은 별도 승인 작업으로 남긴다.
+`legacy_inventory.json`은 현재 `PlanWithInfill` 생산 체인, PhysicalMovement/Product/StateProjection, SV5 및 core/Type0/SV5/16 입력 소비자, 테스트/export helper의 과거 증거 참조를 읽기 전용으로 추적한다. 분류 결과는 ACTIVE 7, COMPAT 4, HISTORICAL 5, RETIRE_CANDIDATE 0, UNKNOWN 0이다. 이번 Task는 레거시 파일의 이동·삭제를 승인하지 않으므로 실제 소비자가 있는 항목은 보존했고, 향후 격리 판단은 별도 승인 작업으로 남긴다.
 
 ## 검증 범위와 한계
 

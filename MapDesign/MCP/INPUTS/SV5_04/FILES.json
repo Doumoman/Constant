@@ -1,0 +1,46 @@
+{
+  "format": "sv5_04_manifest_v1",
+  "path_base": "MapDesign",
+  "files": [
+    {
+      "path": "MCP/INPUTS/SV5_04/OUTPUT_CONTRACT.md",
+      "sha256": "8f6243374c152be819a2ce793fe5dd738e301e120f693cd46940f6f8ad8caba1",
+      "bytes": 4115
+    },
+    {
+      "path": "MCP/INPUTS/SV5_04/REFERENCE_SV5_03.md",
+      "sha256": "0b6f9c0a8ba658de8e911781f3b5a3e614c27333ff25faf3c63720e7486ae422",
+      "bytes": 5749
+    },
+    {
+      "path": "MCP/INPUTS/SV5_04/RESERVATION_CONTRACT.md",
+      "sha256": "df60dce841ef482336234ae85b0fde2cee4ab54542cca84c046e6e89232e649e",
+      "bytes": 7908
+    },
+    {
+      "path": "MCP/INPUTS/SV5_04/SOURCE_LOCK.json",
+      "sha256": "138d0d85156697ba9a4cbe498e28226780f7590df96fd46759e6c58ef19edf8b",
+      "bytes": 5471
+    },
+    {
+      "path": "MCP/INPUTS/SV5_04/SV5_04_CORE_RESERVE.md",
+      "sha256": "658aa2ccf67d1f4c3a4507cd4b1521d0fc56dc414fd946636410f682e4b54d3c",
+      "bytes": 8305
+    },
+    {
+      "path": "MCP/INPUTS/SV5_04/VALIDATION_CONTRACT.md",
+      "sha256": "17f6d7515eb640a02809a977f4d99013e40e25a3761806a9da8330d3ee3c398b",
+      "bytes": 3338
+    },
+    {
+      "path": "MCP/INPUTS/SV5_04/VERIFY.py",
+      "sha256": "167c2edccba94e8a7347618d9ada5b656171d2ccb58af631025bfd32f4d12c65",
+      "bytes": 4665
+    },
+    {
+      "path": "MCP_INBOX/SV5_04_START.md",
+      "sha256": "349a6955ad8c03434c5a99d905600792632de162d71c17a9518e6cda610f9664",
+      "bytes": 2232
+    }
+  ]
+}

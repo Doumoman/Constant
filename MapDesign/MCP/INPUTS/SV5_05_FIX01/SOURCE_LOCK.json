@@ -1,0 +1,305 @@
+{
+  "format": "sv5_05_fix01_source_lock_v1",
+  "task_id": "SV5_05_FIX01",
+  "previous_task": "SV5_05_ROUTE_STATE",
+  "previous_result_sha256": "2a8da38b83e4f124ed8059c071a8d7a718ba19178582d935657fe2b3a5d13222",
+  "previous_installed_archive_sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+  "previous_result_path": "MCP/REPORTS/SV5_05_ROUTE_STATE_RESULT.md",
+  "review_manifest_reported_commit": "117d99a82eb0889ab0edfeda250e535c5f56c295",
+  "reported_commit_is_not_live_git_verification": true,
+  "path_bases": {
+    "MAPDESIGN": "actual MapDesign module root",
+    "PROJECT": "actual Unity project root"
+  },
+  "required_before_apply": {
+    "previous_task": "COMPLETE",
+    "current": "NONE",
+    "SV5_06_SPACE_GRAPH": "LOCKED"
+  },
+  "state_expectation_before_repair_registration": {
+    "total": 285,
+    "complete": 243,
+    "current": 0,
+    "locked": 42
+  },
+  "repair_registration": "One supplemental task only; preserve original 45 IDs/order. Verify native support and bind normal registration before mutation.",
+  "files": [
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/BINDING.json",
+      "sha256": "bc7d94a6c1fdb05a0e9067d4bc8488c6294e75b2293cafa979c19f4f05b5568f",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/access_bindings.csv",
+      "sha256": "9600d72d0df139937462aefab5bf0fde86ab8117eaa32831df47777f6fc10379",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/core_cells.csv",
+      "sha256": "10a6bc42eea1aebba755cc94d10d0d999688ecc850cc4901417c83a9ec8ad389",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/core_sites.csv",
+      "sha256": "78dd267b778dbdbf04b2d53cb912bc334984f3ea4b3495c319c21270cedba9bd",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/focused_results.xml",
+      "sha256": "42a550abf7c4bf618a22ddd52fbbf42eae5a83a1fbbc9cd077bd47d5dfc716b4",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/reservation_manifest.json",
+      "sha256": "e567722745d1f15feef314b3efa047a7e53d44cc7704893ff14a1875ebdc00b5",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/route_cells.csv",
+      "sha256": "63e3d445377a0fdea658ed39b0a8765b5b66b14083a560b4c54b434b743cba13",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/state_geometry.csv",
+      "sha256": "ac93edca65636b73a71c47af3c58e514cb6759d1d549f00575d08846245d8785",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/validation.json",
+      "sha256": "7dacd96e607b7dd362c03aec5d53f7f2ff5e8aa273f2d81277aa1caebe31fa77",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/BINDING.json",
+      "sha256": "629f53a7257d828e27a37a00537359b2421bbdddb233b5c17c29d0c41ee70a50",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/contact_checks.csv",
+      "sha256": "5dcc734f2017ae663eb7123350ac6c01aa3135fb3a201a33673f2a1b36dc4b2d",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/focused_results.xml",
+      "sha256": "bb66f7c42fa9b419b9734f81bd6263dbc3876752bd1cd5b2aea689de7bf660cb",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/obligations.csv",
+      "sha256": "cfa77f077e17f8fdc63b814645e3945217c734b1105e1bf72acfe6f024b28621",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/order_proofs.csv",
+      "sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/route_state_manifest.json",
+      "sha256": "514a0773ec5a038acae18702df84243254d5145b89d3674f8932814ba9c564a7",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/shortcut_decisions.csv",
+      "sha256": "9d61dd8f7605c37b2373431f6f24dedd6f89fe25867a0fa9e3dfdcdb59826c84",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/state_traces.csv",
+      "sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_05/validation.json",
+      "sha256": "9ff57b9e8f8de9218157df7a848b2e476223cb58c03bc4645400ef6dd2334a25",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5_05/FILES.json",
+      "sha256": "cc2502e7d3fa623de5b290741f26623d0ab96d4d8bc6283ae3bb221327542b0d",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5_05/OUTPUT_CONTRACT.md",
+      "sha256": "192a4a95785a52dda991ac447e3b3bafe078e4ccce4ab2ec6a52173d2f8de109",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5_05/REVIEW_FINDINGS.json",
+      "sha256": "1916341dc20114b4ae24167bda59a816618169fe6f411d5ce21b4b8ec2679474",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5_05/STATE_CONTRACT.md",
+      "sha256": "3a9fc6688c1c4c43953a3b7460e9e44b5001f4ccc3dd11812ed699beda4cbb0a",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5_05/SV5_05_ROUTE_STATE.md",
+      "sha256": "7f09d1564c90052b2e6e91bfee8a5857bf2c8712ebcac57fe5e891752d21086a",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5_05/VALIDATION_CONTRACT.md",
+      "sha256": "cbf51aa55437d4a5dfeeee3a71d30eb7ef3ae82fc003549bba0c9faae218f0c8",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/REPORTS/SV5_05_ROUTE_STATE_RESULT.md",
+      "sha256": "2a8da38b83e4f124ed8059c071a8d7a718ba19178582d935657fe2b3a5d13222",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/00_APPROVAL_BASELINE.md",
+      "sha256": "a04f0c814273048db51c903d965e526c2bc987abb64294811675d301acf177fa",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/01_SEQUENCE_V5.md",
+      "sha256": "27a0ab0942ee2671a5720a1fe232018b5356c2c304ad6e8229c7c8842b05d9be",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "0331d3364cbb7d9b9c2d615f861924f50474539f69800ebd01439eef3526cc02",
+      "check": "PRE_APPLY_APPEND_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/06_BINDINGS_V5.md",
+      "sha256": "b71c553032de446ce7c7d7c65e806879bdd360ab77389c684f201a0f5d6ccf21",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/07_FILE_FLOW_V5.md",
+      "sha256": "611f604f8d65a7ac15a70f20ab848a4ed40ecf5d7fafa4428f3a77167c7f43a4",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/08_CORE_RESERVE_V5.md",
+      "sha256": "795bb8af332ce0d2de3f22bd28a1db2c77ef56aa3a6ff24b4a7e89be37a6c45d",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/09_ROUTE_STATE_V5.md",
+      "sha256": "836e311b71a25db4f71ad3edbc5b10205ef65e65a53b224302074a50528d54c4",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/TASKS/SV5_05_ROUTE_STATE.md",
+      "sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP_ARCHIVE/SV5_05_ROUTE_STATE.md",
+      "sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "sha256": "39362098ddc6da4100af3790d3200a5c9c80b72e6bb57531f34e00a26c2d475a",
+      "check": "PRE_APPLY_OPTIONAL_BOUND_ANALYSIS_EXTENSION"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs.meta",
+      "sha256": "567d98ba416a08e8f49c7247afdc6b313e5afe5e8510bdd447a51ca826350cc7",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+      "sha256": "030d53903caec2f491b273da01340535536fdf66aae08481745a7a6ef593b27f",
+      "check": "PRE_APPLY_REPAIR"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs.meta",
+      "sha256": "ce438f43f3ce6199c9e741c7cbc92759b54ba67343df155d8cce2a1ff42d1f03",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs",
+      "sha256": "ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "sha256": "3e9ae15708243d440bc169c0290882155ca622637371e09abd31618cd01c8953",
+      "check": "PRE_APPLY_REPAIR_EXPORT_ISOLATION"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs.meta",
+      "sha256": "820ccb6c904ea83971403e70965e1e3d6dfaab454d46e43a1921453f2d834341",
+      "check": "EXACT_READ_ONLY"
+    }
+  ],
+  "mutation_note": "PRE_APPLY_* hashes verify reviewed source before repair only. Actual after hashes belong to FIX01 evidence. EXACT_READ_ONLY hashes remain pinned after repair."
+}

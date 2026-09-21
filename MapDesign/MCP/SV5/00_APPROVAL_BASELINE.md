@@ -26,7 +26,7 @@ Finalize flow. SV5_02~SV5_45 remain locked.
 
 This is not a generic unknown-ID exception. Every later SV5 Task must use the
 normal predecessor Result/installed-Task SHA checks in `02_PROTOCOL_V5.md`.
-The existing RMAP queue and all MAP/VIS/RUN history remain independent.
+SV5 is the sole active map-design lineage; predecessor queues and histories are retired.
 
 ## Approval scope
 

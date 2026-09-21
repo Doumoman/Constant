@@ -1,0 +1,40 @@
+{
+  "format": "sv5_06_package_v1",
+  "task": "SV5_06_SPACE_GRAPH",
+  "bound_task_sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "3da0b25a84afe3fd0b63f19173d71fc0e59dfeb458de9a93aac2e58a2841f059",
+      "bytes": 21309
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "sha256": "837a76bf4797d465357ac29f953bdcc1be47949403cea17045c360945b4cd8e4",
+      "bytes": 731
+    },
+    {
+      "path": "REVIEW_FINDINGS.json",
+      "sha256": "d24ccfa85b758f1f1e787dab4853111e061480076ced917a3766ca0e7c5dbff1",
+      "bytes": 17293
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "ab0f044d4256c33701f486385c1b0f58c3a8d733a5fdc4ec837f5065d76659fc",
+      "bytes": 35262
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "12a546a1b1ae0786a7a0cb1c710abd24ce9bfd44caed869d155e869c1f448c11",
+      "bytes": 12687
+    },
+    {
+      "path": "SV5_06_SPACE_GRAPH.md",
+      "sha256": "c8786c2a4b35702dc67e8b975b0647125b3c988cee9929baf7a86bfcd99a4925",
+      "bytes": 7865
+    }
+  ],
+  "revision": "SV5_06_R2",
+  "supersedes_manifest_sha256": "4ca3d0ffb77e72cb4c0d5ccb978cd066105a62887f7cf792dc5e4617cfdb1279",
+  "replacement_scope": "Only STAGE.py, SOURCE_LOCK.json and this manifest; bound Task and all implementation contracts remain byte-identical."
+}

@@ -1,0 +1,51 @@
+{
+  "format": "sv5_05_fix01_manifest_v1",
+  "path_base": "MAPDESIGN",
+  "files": [
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/PROTOCOL_APPEND.md",
+      "sha256": "a4c630947472c6d4a3e30d860651e11e5aea73036ca4434cd1dc8b572bd1087b",
+      "bytes": 645
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/REFERENCE_SV5_05.md",
+      "sha256": "2a8da38b83e4f124ed8059c071a8d7a718ba19178582d935657fe2b3a5d13222",
+      "bytes": 6118
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/REPAIR_CONTRACT.md",
+      "sha256": "d4b8197fc2720f0cce038e11ed2909c3b1e83dd2054204876febd5d2c76bdb0b",
+      "bytes": 10154
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/REVIEW.md",
+      "sha256": "102146b1eee0e6150e4e584893e8c2ed05bbb48c634b097a29ad03014ad61413",
+      "bytes": 4121
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/REVIEW_FINDINGS.json",
+      "sha256": "7d073dfdef6e4b5ce4517e4d8974cd6e082bf7ab41cd1fbb6f417cafc04b056e",
+      "bytes": 15819
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/SOURCE_LOCK.json",
+      "sha256": "75f587982ceaba952dbf3d34ddbf0e4b77ed97fcf4b828c765f1723d8b5582f8",
+      "bytes": 11509
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/SV5_05_FIX01.md",
+      "sha256": "96e43d745f5a0bf2057b54c2bbd2007530293211b87e84bb5f76b4b0afb5330b",
+      "bytes": 6661
+    },
+    {
+      "path": "MCP/INPUTS/SV5_05_FIX01/VERIFY.py",
+      "sha256": "57faf794e4c895026edf720dce6520fb88393d277b45becb0c6ebab00659261d",
+      "bytes": 4448
+    },
+    {
+      "path": "MCP_INBOX/SV5_05_FIX01_START.md",
+      "sha256": "4adc3b8841d264158501fc09f116894fb4d8384e66622c8d9beb22fbb4d4b128",
+      "bytes": 1727
+    }
+  ]
+}

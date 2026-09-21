@@ -86,7 +86,7 @@ namespace StarNight.Character.Live.Movement
             get { return physicsTick; }
         }
 
-        /// <summary>마지막 실제 motor fixed step의 dt (RMAP04 측정 증거용).</summary>
+        /// <summary>마지막 실제 motor fixed step의 dt (SV5 측정 증거용).</summary>
         public float LastFixedDeltaTime { get { return lastFixedDeltaTime; } }
 
         public CharacterLiveMovementSettings Settings
@@ -94,13 +94,13 @@ namespace StarNight.Character.Live.Movement
             get { return settings; }
         }
 
-        /// <summary>RMAP05가 실제 Player에 붙이는 낙하 결과 상태.</summary>
+        /// <summary>SV5가 실제 Player에 붙이는 낙하 결과 상태.</summary>
         public CharacterLiveFallDamageState FallDamageState
         {
             get { return fallDamageState; }
         }
 
-        /// <summary>RMAP06 Player-local Tab observation state.</summary>
+        /// <summary>SV5 Player-local Tab observation state.</summary>
         public CharacterLiveLookModeState LookModeState
         {
             get { return lookModeState; }
@@ -117,21 +117,21 @@ namespace StarNight.Character.Live.Movement
             get { return isFallTracking ? Mathf.Max(0f, fallPeakFeetY - GetCurrentFeetY()) : 0f; }
         }
 
-        /// <summary>RMAP03의 현재 모서리 Grab 상태(등반/벽차기 상태는 포함하지 않음).</summary>
+        /// <summary>SV5의 현재 모서리 Grab 상태(등반/벽차기 상태는 포함하지 않음).</summary>
         public bool IsGrabbing
         {
             get { return isGrabbing; }
         }
 
-        /// <summary>RMAP05가 소비할 수 있는 마지막 안전 Grab 성립 정보.</summary>
+        /// <summary>SV5가 소비할 수 있는 마지막 안전 Grab 성립 정보.</summary>
         public bool HasSafeGrabContact { get; private set; }
 
         public Vector2 LastSafeGrabAnchor { get; private set; }
 
-        /// <summary>RMAP04의 현재 ladder/pole climb 상태.</summary>
+        /// <summary>SV5의 현재 ladder/pole climb 상태.</summary>
         public bool IsClimbing { get { return isClimbing; } }
 
-        /// <summary>RMAP05가 소비할 수 있는 마지막 안전 climb 성립 정보.</summary>
+        /// <summary>SV5가 소비할 수 있는 마지막 안전 climb 성립 정보.</summary>
         public bool HasSafeClimbContact { get; private set; }
 
         public Vector2 LastSafeClimbAnchor { get; private set; }
@@ -142,15 +142,15 @@ namespace StarNight.Character.Live.Movement
             get { return ignoredOneWayCollider != null && physicsTime < oneWayIgnoreEndsAt; }
         }
 
-        /// <summary>RMAP02 scene builder가 기존 Player prefab을 국소 fixture로 조립할 때 사용한다.</summary>
-        public void ConfigureRmap02(int solidLayerMask)
+        /// <summary>SV5 scene builder가 기존 Player prefab을 국소 fixture로 조립할 때 사용한다.</summary>
+        public void ConfigureSv502(int solidLayerMask)
         {
-            settings.ConfigureRmap02(solidLayerMask);
+            settings.ConfigureSv502(solidLayerMask);
         }
 
-        public void ConfigureRmap05Fall()
+        public void ConfigureSv505Fall()
         {
-            settings.ConfigureRmap05Fall();
+            settings.ConfigureSv505Fall();
         }
 
         /// <summary>스폰 소비 직후 호출 — 운동 상태 초기화 + 구동 시작.</summary>
@@ -261,7 +261,7 @@ namespace StarNight.Character.Live.Movement
                     default, default, default, default);
                 velocity.x = 0f;
             }
-            // Rigidbody2D owns the Player's feet pivot in RMAP02.  The
+            // Rigidbody2D owns the Player's feet pivot in SV5.  The
             // collision queries instead use the capsule centre, matching the
             // real CapsuleCollider2D's local offset and dimensions.
             Vector2 center = rig.Body.position + capsuleOffset;
@@ -494,7 +494,7 @@ namespace StarNight.Character.Live.Movement
             if (isGrabbing)
             {
                 // A climb axis deliberately wins only when the player supplied
-                // Up/Down.  Without one, the RMAP03 Grab path remains unchanged.
+                // Up/Down.  Without one, the SV5 Grab path remains unchanged.
                 EndGrab(drop: false);
             }
 
@@ -519,7 +519,7 @@ namespace StarNight.Character.Live.Movement
 
             if (input.Jump.PressedThisFrame && Mathf.Abs(input.Horizontal) > 0.01f)
             {
-                // The exit reuses the RMAP02 jump value and run/walk profiles.
+                // The exit reuses the SV5 jump value and run/walk profiles.
                 // Later fixed steps stay on the ordinary air-control motor.
                 float exitSpeed = input.WalkHeld ? settings.WalkSpeed : settings.RunSpeed;
                 EndClimb();

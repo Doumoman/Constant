@@ -35,8 +35,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 witness.SourceAnchorReachable && witness.TargetPortReachable && witness.OpenPathVerified, Is.True);
             Assert.That(gate.TypedPredicate.RequiresForge, Is.True);
             Assert.That(gate.TypedPredicate.RequiresSeal, Is.False);
-            Assert.That(gate.SourcePortId, Is.EqualTo("RMAP15_SITE_FORGE_PORT_EXIT"));
-            Assert.That(gate.TargetPortId, Is.EqualTo("RMAP15_SITE_SEALBOSS_PORT_ENTRY"));
+            Assert.That(gate.SourcePortId, Is.EqualTo("SV5_SITE_FORGE_PORT_EXIT"));
+            Assert.That(gate.TargetPortId, Is.EqualTo("SV5_SITE_SEALBOSS_PORT_ENTRY"));
             Assert.That(Plan.Value.Gates.Any(value => value.Id == "SV5_GATE_F3608BF3D1EE0923F69A"), Is.False);
         }
 
@@ -55,8 +55,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 !exit.TargetPortReachable && exit.SealedCutVerified && exit.OpenPathVerified, Is.True);
             Sv5SpaceGate exitGate = Plan.Value.Gates.Single(value => value.Id == exit.GateId);
             Assert.That(exitGate.TypedPredicate.RequiresBossComplete, Is.True);
-            Assert.That(exitGate.SourcePortId, Is.EqualTo("RMAP15_SITE_SEALBOSS_PORT_EXIT"));
-            Assert.That(exitGate.TargetPortId, Is.EqualTo("RMAP15_SITE_EXIT_PORT_ENTRY"));
+            Assert.That(exitGate.SourcePortId, Is.EqualTo("SV5_SITE_SEALBOSS_PORT_EXIT"));
+            Assert.That(exitGate.TargetPortId, Is.EqualTo("SV5_SITE_EXIT_PORT_ENTRY"));
         }
 
         [Test]
@@ -81,8 +81,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test]
         public void G04_ConditionalGateProtectedAirConflictRejectsCellOwnershipButAllowsFaceBoundary()
         {
-            RmapSpecialWorldPoint protectedAir = Core.Value.CoreCells.First(value =>
-                value.Protection == RmapSpecialProtectionKind.ProtectedAir).World;
+            Sv5SpecialWorldPoint protectedAir = Core.Value.CoreCells.First(value =>
+                value.Protection == Sv5SpecialProtectionKind.ProtectedAir).World;
             Assert.That(Sv5SpaceGraphValidator.FindRequiredReservationConflicts(Core.Value, new[]
             {
                 new Sv5SpaceReservationProbe(protectedAir, Sv5SpaceReservationKind.ConditionalGate,
@@ -105,8 +105,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(Sv5SpaceGraphValidator.FindConnectionErrors(plan.Ports, plan.Connections), Is.Empty);
             Sv5SpaceConnection connection = plan.Connections.First(value =>
                 value.Kind == Sv5SpaceConnectionKind.OptionalBranch && value.Centerline.Count > 8);
-            RmapSpecialWorldPoint isolated = connection.Centerline[connection.Centerline.Count / 2];
-            RmapSpecialWorldPoint[] aperture =
+            Sv5SpecialWorldPoint isolated = connection.Centerline[connection.Centerline.Count / 2];
+            Sv5SpecialWorldPoint[] aperture =
             {
                 connection.Centerline.First(), isolated, connection.Centerline.Last(),
             };
@@ -146,7 +146,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpaceGraphPlan plan = Plan.Value;
             var digests = new HashSet<string>(StringComparer.Ordinal) { plan.Digest };
             Sv5SpacePort port = plan.Ports.First(value => value.BoundaryCells.Count > 1);
-            RmapSpecialWorldPoint[] boundary = port.BoundaryCells.Where(value => !value.Equals(port.Anchor))
+            Sv5SpecialWorldPoint[] boundary = port.BoundaryCells.Where(value => !value.Equals(port.Anchor))
                 .Skip(1).Concat(new[] { port.Anchor }).ToArray();
             digests.Add(ClonePlan(plan, ports: Replace(plan.Ports, port.Id, ClonePort(port, boundary))).Digest);
 
@@ -154,7 +154,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 value.Kind == Sv5SpaceConnectionKind.OptionalBranch);
             digests.Add(ClonePlan(plan, connections: Replace(plan.Connections, connection.Id,
                 CloneConnection(connection, "ONE_WAY", connection.Envelope))).Digest);
-            RmapSpecialWorldPoint removable = connection.Envelope.First(value =>
+            Sv5SpecialWorldPoint removable = connection.Envelope.First(value =>
                 !connection.Centerline.Contains(value) && !connection.ApertureCells.Contains(value));
             digests.Add(ClonePlan(plan, connections: Replace(plan.Connections, connection.Id,
                 CloneConnection(connection, connection.Flow, connection.Envelope.Where(value =>
@@ -217,17 +217,17 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         }
 
         private static IReadOnlyList<string> Validate(Sv5SpaceConnection value, string fromPort, string flow,
-            RmapWorldGraphDirection direction, IEnumerable<RmapSpecialWorldPoint> envelope,
-            IEnumerable<RmapSpecialWorldPoint> aperture) => Sv5SpaceGraphValidator.ValidatePortTransitionFixture(
+            Sv5WorldGraphDirection direction, IEnumerable<Sv5SpecialWorldPoint> envelope,
+            IEnumerable<Sv5SpecialWorldPoint> aperture) => Sv5SpaceGraphValidator.ValidatePortTransitionFixture(
                 Plan.Value.Ports, fromPort, value.ToPortId, value.FromPlaceId, value.ToPlaceId, flow, direction,
                 value.Centerline, envelope, aperture);
 
-        private static Sv5SpacePort ClonePort(Sv5SpacePort value, IEnumerable<RmapSpecialWorldPoint> boundary) =>
+        private static Sv5SpacePort ClonePort(Sv5SpacePort value, IEnumerable<Sv5SpecialWorldPoint> boundary) =>
             Create<Sv5SpacePort>(value.Id, value.PlaceId, boundary, value.Anchor, value.Direction, value.Flow,
                 value.Condition, value.SourceAccessId, value.SourceNodeId, value.Status);
 
         private static Sv5SpaceConnection CloneConnection(Sv5SpaceConnection value, string flow,
-            IEnumerable<RmapSpecialWorldPoint> envelope) => Create<Sv5SpaceConnection>(value.Id, value.Kind,
+            IEnumerable<Sv5SpecialWorldPoint> envelope) => Create<Sv5SpaceConnection>(value.Id, value.Kind,
                 value.FromPortId, value.ToPortId, value.FromPlaceId, value.ToPlaceId, value.Direction, flow,
                 value.Condition, value.SourceGraphEdgeId, value.SelectionState, value.Centerline, envelope,
                 value.ApertureCells);
@@ -256,18 +256,18 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static T Create<T>(params object[] arguments) => (T)Activator.CreateInstance(typeof(T),
             BindingFlags.Instance | BindingFlags.NonPublic, null, arguments, CultureInfo.InvariantCulture);
 
-        private static RmapWorldGraphDirection Opposite(RmapWorldGraphDirection value) =>
-            value == RmapWorldGraphDirection.Left ? RmapWorldGraphDirection.Right :
-            value == RmapWorldGraphDirection.Right ? RmapWorldGraphDirection.Left :
-            value == RmapWorldGraphDirection.Up ? RmapWorldGraphDirection.Down : RmapWorldGraphDirection.Up;
+        private static Sv5WorldGraphDirection Opposite(Sv5WorldGraphDirection value) =>
+            value == Sv5WorldGraphDirection.Left ? Sv5WorldGraphDirection.Right :
+            value == Sv5WorldGraphDirection.Right ? Sv5WorldGraphDirection.Left :
+            value == Sv5WorldGraphDirection.Up ? Sv5WorldGraphDirection.Down : Sv5WorldGraphDirection.Up;
         private static string Input(string file) => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "INPUTS",
             "SV5_06_FIX02", file);
         private static string Compact(string value) => value.Replace(" ", string.Empty).Replace("\r", string.Empty)
             .Replace("\n", string.Empty).Replace("\t", string.Empty);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_08_FIX01", "_work", "legacy_exports",
-            "sv5_06_fix02_g08");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "Temp", "SV5Tests",
+            "space_graph_fix02_g08");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {

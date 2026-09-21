@@ -112,7 +112,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach(var link in plan.Loops.Links)
             {
                 var byWorld=link.Cells.ToDictionary(c=>c.World,c=>c);
-                var ordered=new Dictionary<RmapSpecialWorldPoint,int>();
+                var ordered=new Dictionary<Sv5SpecialWorldPoint,int>();
                 for(int i=0;i<link.Centerline.Count;i++) if(!ordered.ContainsKey(link.Centerline[i])) ordered.Add(link.Centerline[i],i);
                 foreach(var cell in link.Cells)
                 {
@@ -132,13 +132,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             "pattern_id,write_mask,cells_row_major_16,semantic_hash,variants,actual_cell_digest,plan_digest",
             plan.Loops.Patterns.Select(pattern=>Row(pattern.Id,pattern.Mask,string.Join("|",pattern.Values),pattern.Digest,
                 string.Join("|",plan.Loops.Instances.Where(i=>i.Pattern.Id==pattern.Id).Select(i=>i.Recipe).Distinct().OrderBy(v=>v)),
-                RmapWorldDefinition.Hash(string.Join("\n",plan.Loops.Cells.Where(c=>plan.Loops.Instances.Any(i=>i.Pattern.Id==pattern.Id &&
+                Sv5WorldDefinition.Hash(string.Join("\n",plan.Loops.Cells.Where(c=>plan.Loops.Instances.Any(i=>i.Pattern.Id==pattern.Id &&
                     c.LoopId==i.Owner)).Select(c=>c.Token))),plan.Digest)));
 
         public static string InstancesCsv(Sv5SpaceGraphPlan plan) => Csv(
             "pattern_id,origin_x,origin_y,loop_id,recipe,host,mirror,write_mask,actual_cell_digest,plan_digest",
             plan.Loops.Instances.Select(i=>Row(i.Pattern.Id,i.Origin.X,i.Origin.Y,i.Owner,i.Recipe,i.Host,i.Mirror,
-                i.Pattern.Mask,RmapWorldDefinition.Hash(i.Token),plan.Digest)));
+                i.Pattern.Mask,Sv5WorldDefinition.Hash(i.Token),plan.Digest)));
 
         public static string ValidationJson(Sv5SpaceGraphPlan plan)
         {
@@ -162,20 +162,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"composed_geometry_ready\":false,\n  \"player_verified\":false\n}\n";
         }
 
-        public static string OccupancyCsv(IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy)
+        public static string OccupancyCsv(IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy)
         {
             var rows=new List<string>(Sv5SpaceGraphPlanner.WorldWidth*Sv5SpaceGraphPlanner.WorldHeight);
             for(int y=0;y<Sv5SpaceGraphPlanner.WorldHeight;y++) for(int x=0;x<Sv5SpaceGraphPlanner.WorldWidth;x++)
             {
-                var p=new RmapSpecialWorldPoint(x,y); occupancy.TryGetValue(p,out Sv5LoopOccupancyCell cell);
+                var p=new Sv5SpecialWorldPoint(x,y); occupancy.TryGetValue(p,out Sv5LoopOccupancyCell cell);
                 rows.Add(Row(x,y,(cell?.Value ?? Sv5InfillCellValue.Unknown).ToString().ToUpperInvariant(),
                     cell?.Provenance ?? "UNKNOWN",cell?.Owner ?? string.Empty));
             }
             return Csv("x,y,value,provenance,owner",rows);
         }
 
-        public static string FootNodesCsv(IEnumerable<RmapSpecialWorldPoint> source) => Csv("x,y",
-            (source ?? Array.Empty<RmapSpecialWorldPoint>()).OrderBy(v=>v).Select(p=>Row(p.X,p.Y)));
+        public static string FootNodesCsv(IEnumerable<Sv5SpecialWorldPoint> source) => Csv("x,y",
+            (source ?? Array.Empty<Sv5SpecialWorldPoint>()).OrderBy(v=>v).Select(p=>Row(p.X,p.Y)));
 
         public static string TopologyEdgesCsv(IEnumerable<Sv5LoopTopologyEdge> source) => Csv(
             "edge_id,from_vertex,to_vertex,kind,loop_id",(source ?? Array.Empty<Sv5LoopTopologyEdge>())
@@ -240,7 +240,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append("<text x=\"1\" y=\"").Append(view.Height+9).Append("\" font-size=\"2.1\">ComposedGeometryReady=false; PlayerVerified=false; SV5_10 deferred.</text>")
                 .Append("<metadata>").Append(H(plan.Digest+"|"+plan.Loops.Digest)).Append("</metadata></svg>\n");
             return text.ToString();
-            void Cell(RmapSpecialWorldPoint p,string color) => text.Append("<path d=\"M").Append(p.X-view.X).Append(' ')
+            void Cell(Sv5SpecialWorldPoint p,string color) => text.Append("<path d=\"M").Append(p.X-view.X).Append(' ')
                 .Append(view.MaxYExclusive-p.Y-1).Append("h1v1h-1z\" fill=\"").Append(color).Append("\"/>");
         }
 
@@ -260,7 +260,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             ",\"random_shortcut\":"+p.Loops.Links.Count(l=>l.Kind==Sv5LoopKind.RandomShortcut)+"}";
         private static string Csv(string header,IEnumerable<string> rows) => header+"\n"+string.Join("\n",rows)+"\n";
         private static string Row(params object[] fields) => string.Join(",",fields.Select(v=>"\""+Convert.ToString(v,CultureInfo.InvariantCulture).Replace("\"","\"\"")+"\""));
-        private static string Point(RmapSpecialWorldPoint p) => "["+p.X+","+p.Y+"]";
+        private static string Point(Sv5SpecialWorldPoint p) => "["+p.X+","+p.Y+"]";
         private static string Kind(Sv5LoopKind kind) => kind==Sv5LoopKind.RandomShortcut ? "RANDOM_SHORTCUT" : "LOOP";
         private static string J(string value) => "\""+(value ?? string.Empty).Replace("\\","\\\\").Replace("\"","\\\"").Replace("\r","\\r").Replace("\n","\\n")+"\"";
         private static string B(bool value) => value ? "true" : "false";

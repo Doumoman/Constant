@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.33124">
+  <test-suite type="TestSuite" id="1137" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="84" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.331240" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1125" name="Game.Map.Tests.PlayMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.PlayMode.dll" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.322913" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="45724" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1126" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.321767" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1127" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.320613" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1128" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.319506" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1129" name="PlayMode" fullname="StarNight.Map.Tests.PlayMode" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.318648" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="1133" name="SV5" fullname="StarNight.Map.Tests.PlayMode.SV5" runstate="Runnable" testcasecount="19" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.317703" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="1105" name="Sv5JumpPlayerPlayModeTests" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" testcasecount="19" result="Failed" site="Child" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.316363" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5" />
+                    <property name="Category" value="SV5_20_JUMP_PLAYER" />
+                    <property name="Category" value="SV5_20_PLAYMODE" />
+                    <property name="ParallelScope" value="None" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1124" name="P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests.P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof" methodname="P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" seed="1097084751" result="Failed" start-time="2026-09-15 15:18:51Z" end-time="2026-09-15 15:19:11Z" duration="20.302430" asserts="0">
+                    <properties>
+                      <property name="_JOINTYPE" value="UnityCombinatorial" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  FULL_R0 stopped at link 3
+  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests+<P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof>d__21.MoveNext () [0x004f8] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\PlayMode\Map\SV5\Sv5JumpPlayerPlayModeTests.cs:97
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@0b7a23ab2e1d\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

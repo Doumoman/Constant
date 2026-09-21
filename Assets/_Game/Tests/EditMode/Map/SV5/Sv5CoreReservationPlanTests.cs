@@ -37,24 +37,24 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(plan.StateGeometry.Count, Is.EqualTo(6));
             Assert.That(plan.Sites.Select(value => value.Id), Is.EquivalentTo(plan.Source.Sites.Select(value => value.Id)));
             Assert.That(ReferenceEquals(plan.CoreCells, plan.Source.Cells), Is.True);
-            Assert.That(plan.Sites.Single(value => value.Role == RmapSpecialPhysicalRole.Village).Id,
-                Is.EqualTo("RMAP15_SITE_VILLAGE"));
-            Assert.That(plan.GraphBindings.Single(value => value.Role == RmapWorldGraphRole.Seal).SiteId,
-                Is.EqualTo(plan.GraphBindings.Single(value => value.Role == RmapWorldGraphRole.Boss).SiteId));
+            Assert.That(plan.Sites.Single(value => value.Role == Sv5SpecialPhysicalRole.Village).Id,
+                Is.EqualTo("SV5_SITE_VILLAGE"));
+            Assert.That(plan.GraphBindings.Single(value => value.Role == Sv5WorldGraphRole.Seal).SiteId,
+                Is.EqualTo(plan.GraphBindings.Single(value => value.Role == Sv5WorldGraphRole.Boss).SiteId));
         }
 
         [Test]
         public void T02_ConsumerRejectsProtectedCoreAirAndSlotSupportOrHeadroom()
         {
             Sv5CoreReservationPlan plan = Representative.Value;
-            RmapSpecialWorldCell fixedSolid = plan.CoreCells.First(value => value.Protection == RmapSpecialProtectionKind.FixedSolid);
-            RmapSpecialWorldCell protectedAir = plan.CoreCells.First(value => value.Protection == RmapSpecialProtectionKind.ProtectedAir);
-            RmapSpecialSlot slot = plan.Slots.First();
-            AssertRejected(plan, fixedSolid.World, RmapPatternBaseCell.Air, Sv5CoreReservationDiagnosticCode.ProtectedCoreCell);
-            AssertRejected(plan, protectedAir.World, RmapPatternBaseCell.Solid, Sv5CoreReservationDiagnosticCode.ProtectedCoreCell);
-            AssertRejected(plan, new RmapSpecialWorldPoint(slot.World.X, slot.World.Y - 1), RmapPatternBaseCell.Air,
+            Sv5SpecialWorldCell fixedSolid = plan.CoreCells.First(value => value.Protection == Sv5SpecialProtectionKind.FixedSolid);
+            Sv5SpecialWorldCell protectedAir = plan.CoreCells.First(value => value.Protection == Sv5SpecialProtectionKind.ProtectedAir);
+            Sv5SpecialSlot slot = plan.Slots.First();
+            AssertRejected(plan, fixedSolid.World, Sv5PatternBaseCell.Air, Sv5CoreReservationDiagnosticCode.ProtectedCoreCell);
+            AssertRejected(plan, protectedAir.World, Sv5PatternBaseCell.Solid, Sv5CoreReservationDiagnosticCode.ProtectedCoreCell);
+            AssertRejected(plan, new Sv5SpecialWorldPoint(slot.World.X, slot.World.Y - 1), Sv5PatternBaseCell.Air,
                 Sv5CoreReservationDiagnosticCode.ProtectedCoreCell);
-            AssertRejected(plan, new RmapSpecialWorldPoint(slot.World.X, slot.World.Y + 1), RmapPatternBaseCell.Solid,
+            AssertRejected(plan, new Sv5SpecialWorldPoint(slot.World.X, slot.World.Y + 1), Sv5PatternBaseCell.Solid,
                 Sv5CoreReservationDiagnosticCode.ProtectedCoreCell);
         }
 
@@ -62,16 +62,16 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         public void T03_NormalCandidatesAndCompatibleDuplicatesAreAllowedButConflictsFail()
         {
             Sv5CoreReservationPlan plan = Representative.Value;
-            RmapSpecialWorldPoint point = FindUnreservedPoint(plan, 0, 0);
+            Sv5SpecialWorldPoint point = FindUnreservedPoint(plan, 0, 0);
             Sv5CoreReservationDecision allowed = plan.EvaluateTerrainCandidates(new[]
             {
-                new Sv5CoreTerrainCandidate("SV5_04_TEST", point, RmapPatternBaseCell.Air),
-                new Sv5CoreTerrainCandidate("SV5_04_TEST_REPEAT", point, RmapPatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("SV5_04_TEST", point, Sv5PatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("SV5_04_TEST_REPEAT", point, Sv5PatternBaseCell.Air),
             });
             Sv5CoreReservationDecision conflict = plan.EvaluateTerrainCandidates(new[]
             {
-                new Sv5CoreTerrainCandidate("SV5_04_TEST", point, RmapPatternBaseCell.Air),
-                new Sv5CoreTerrainCandidate("SV5_04_TEST_CONFLICT", point, RmapPatternBaseCell.Solid),
+                new Sv5CoreTerrainCandidate("SV5_04_TEST", point, Sv5PatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("SV5_04_TEST_CONFLICT", point, Sv5PatternBaseCell.Solid),
             });
             Assert.That(allowed.IsAllowed, Is.True);
             Assert.That(conflict.IsAllowed, Is.False);
@@ -109,11 +109,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 (!plan.TryGetRouteCells(value.World, out IReadOnlyList<Sv5CoreRouteCellReservation> all) ||
                  all.All(item => item.Kind != Sv5CoreRouteReservationKind.Passage)));
             Sv5CoreRouteCellReservation support = plan.RouteCells.First(value => value.Kind == Sv5CoreRouteReservationKind.Support);
-            RmapSpecialStateGeometryCell sealedGate = plan.StateGeometry.First(value => value.State == "SEALED");
-            AssertRejected(plan, passage.World, RmapPatternBaseCell.Solid, Sv5CoreReservationDiagnosticCode.RoutePassageBlocked);
-            AssertRejected(plan, clearance.World, RmapPatternBaseCell.Solid, Sv5CoreReservationDiagnosticCode.RouteClearanceBlocked);
-            AssertRejected(plan, support.World, RmapPatternBaseCell.Air, Sv5CoreReservationDiagnosticCode.RouteSupportRemoved);
-            AssertRejected(plan, sealedGate.World, RmapPatternBaseCell.Air, Sv5CoreReservationDiagnosticCode.StateGeometry);
+            Sv5SpecialStateGeometryCell sealedGate = plan.StateGeometry.First(value => value.State == "SEALED");
+            AssertRejected(plan, passage.World, Sv5PatternBaseCell.Solid, Sv5CoreReservationDiagnosticCode.RoutePassageBlocked);
+            AssertRejected(plan, clearance.World, Sv5PatternBaseCell.Solid, Sv5CoreReservationDiagnosticCode.RouteClearanceBlocked);
+            AssertRejected(plan, support.World, Sv5PatternBaseCell.Air, Sv5CoreReservationDiagnosticCode.RouteSupportRemoved);
+            AssertRejected(plan, sealedGate.World, Sv5PatternBaseCell.Air, Sv5CoreReservationDiagnosticCode.StateGeometry);
         }
 
         [Test]
@@ -122,9 +122,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5CoreReservationPlan plan = Representative.Value;
             Sv5CoreReservationDecision outside = plan.EvaluateTerrainCandidates(new[]
             {
-                new Sv5CoreTerrainCandidate("SV5_04_TEST", new RmapSpecialWorldPoint(-1, 0), RmapPatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("SV5_04_TEST", new Sv5SpecialWorldPoint(-1, 0), Sv5PatternBaseCell.Air),
             });
-            Rmap16ClusterAssemblyPlan another = BuildRouteSource(1305);
+            Sv5ClusterAssemblyPlan another = BuildRouteSource(1305);
             Assert.That(outside.Diagnostics.Single().Code, Is.EqualTo(Sv5CoreReservationDiagnosticCode.OutOfWorld));
             Assert.Throws<ArgumentException>(() => Sv5CoreReservationPlanner.Plan(another.SpecialPlan, plan.RouteSource));
             Assert.That(plan.Source.Sites.Count, Is.EqualTo(8));
@@ -136,17 +136,17 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             Sv5CoreReservationPlan first = Build(1304);
             Sv5CoreReservationPlan second = Build(1304);
-            RmapSpecialWorldPoint firstPoint = FindUnreservedPoint(first, 0, 0);
-            RmapSpecialWorldPoint secondPoint = FindUnreservedPoint(first, firstPoint.X + 1, firstPoint.Y);
+            Sv5SpecialWorldPoint firstPoint = FindUnreservedPoint(first, 0, 0);
+            Sv5SpecialWorldPoint secondPoint = FindUnreservedPoint(first, firstPoint.X + 1, firstPoint.Y);
             Sv5CoreReservationDecision forward = first.EvaluateTerrainCandidates(new[]
             {
-                new Sv5CoreTerrainCandidate("A", firstPoint, RmapPatternBaseCell.Air),
-                new Sv5CoreTerrainCandidate("B", secondPoint, RmapPatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("A", firstPoint, Sv5PatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("B", secondPoint, Sv5PatternBaseCell.Air),
             });
             Sv5CoreReservationDecision reverse = first.EvaluateTerrainCandidates(new[]
             {
-                new Sv5CoreTerrainCandidate("B", secondPoint, RmapPatternBaseCell.Air),
-                new Sv5CoreTerrainCandidate("A", firstPoint, RmapPatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("B", secondPoint, Sv5PatternBaseCell.Air),
+                new Sv5CoreTerrainCandidate("A", firstPoint, Sv5PatternBaseCell.Air),
             });
             Assert.That(second.Digest, Is.EqualTo(first.Digest));
             Assert.That(second.Source.Digest, Is.EqualTo(first.Source.Digest));
@@ -180,8 +180,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             TestContext.Out.WriteLine("SV5_04_EXPORT_END");
         }
 
-        private static void AssertRejected(Sv5CoreReservationPlan plan, RmapSpecialWorldPoint world,
-            RmapPatternBaseCell proposed, Sv5CoreReservationDiagnosticCode code)
+        private static void AssertRejected(Sv5CoreReservationPlan plan, Sv5SpecialWorldPoint world,
+            Sv5PatternBaseCell proposed, Sv5CoreReservationDiagnosticCode code)
         {
             Sv5CoreReservationDecision decision = plan.EvaluateTerrainCandidates(new[]
             {
@@ -191,12 +191,12 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(decision.Diagnostics.Select(value => value.Code), Does.Contain(code));
         }
 
-        private static RmapSpecialWorldPoint FindUnreservedPoint(Sv5CoreReservationPlan plan, int minimumX, int minimumY)
+        private static Sv5SpecialWorldPoint FindUnreservedPoint(Sv5CoreReservationPlan plan, int minimumX, int minimumY)
         {
-            for (int y = Math.Max(0, minimumY); y < RmapSpecialReservationPlanner.WorldHeightTiles; y++)
-            for (int x = y == Math.Max(0, minimumY) ? Math.Max(0, minimumX) : 0; x < RmapSpecialReservationPlanner.WorldWidthTiles; x++)
+            for (int y = Math.Max(0, minimumY); y < Sv5SpecialReservationPlanner.WorldHeightTiles; y++)
+            for (int x = y == Math.Max(0, minimumY) ? Math.Max(0, minimumX) : 0; x < Sv5SpecialReservationPlanner.WorldWidthTiles; x++)
             {
-                var point = new RmapSpecialWorldPoint(x, y);
+                var point = new Sv5SpecialWorldPoint(x, y);
                 if (!plan.Source.TryGetCell(point, out _) && !plan.TryGetRouteCells(point, out _)) return point;
             }
             throw new AssertionException("No unreserved representative point was found.");
@@ -204,19 +204,18 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         private static Sv5CoreReservationPlan Build(ulong seed) => Sv5CoreReservationPlanner.Plan(BuildRouteSource(seed));
 
-        private static Rmap16ClusterAssemblyPlan BuildRouteSource(ulong seed)
+        private static Sv5ClusterAssemblyPlan BuildRouteSource(ulong seed)
         {
             WorldGenerationRngStreams streams = RngStreams();
-            RmapWorldDefinition definition = RmapWorldDataGenerator.Generate(
-                new RmapWorldDataRequest(seed, "CONTENT_V1", "GENERATOR_V1"), streams);
-            return RmapClusterAssemblyPlanner.Plan(definition, streams);
+            Sv5WorldDefinition definition = Sv5WorldDataGenerator.Generate(
+                new Sv5WorldDataRequest(seed, "CONTENT_V1", "GENERATOR_V1"), streams);
+            return Sv5ClusterAssemblyPlanner.Plan(definition, streams);
         }
 
         private static string GeneratedDirectory()
         {
             string root = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
-            return Path.Combine(root, "MapDesign", "MCP", "GENERATED", "SV5_08_FIX01", "_work", "legacy_exports",
-                "sv5_04_core_t08");
+            return Path.Combine(root, "Temp", "SV5Tests", "core_reservation_t08");
         }
 
         private static void Write(string path, string text) => File.WriteAllText(path, text, new UTF8Encoding(false));

@@ -1,0 +1,59 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_SOURCE_LOCK/v3",
+  "base_commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "base_parent": "47ffdcf930a6a0c2fbaf6a3edce369a138cfc339",
+  "base_subject": "SV5_19_JUMP_RECOVERY: add local missed-jump recovery",
+  "review_zip_sha256": "a0708dc358aff3d77a7c1921ce2f81d010de43d89ebdbdc351378eb23e5c1371",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"0425f759cf2b11ca29e4fe2b6d3e794eb2a18dbf","sha256":"56fc87f404f1fc1806fd9050893c30c4895bde632feaf846191d1119ddcc46d8","bytes":102608,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_19_JUMP_RECOVERY.md","git_blob_oid":"dd5da4f3d0ee946d074f445a60bea61dac6f0edb","sha256":"d5961f0f6f89339ded8d82134df10e427d6654e6e0c84aa28d026c01b1d6ecd4","bytes":3469,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_19_JUMP_RECOVERY.md","git_blob_oid":"dd5da4f3d0ee946d074f445a60bea61dac6f0edb","sha256":"d5961f0f6f89339ded8d82134df10e427d6654e6e0c84aa28d026c01b1d6ecd4","bytes":3469,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_19_JUMP_RECOVERY_RESULT.md","git_blob_oid":"a81dc28598abb303adbb189735819f600d5d8864","sha256":"324f19e4098133b4be6b22d7a2dc72823f8e5637fb07cad6cc1faf02ad5e2bb2","bytes":4393,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/BINDING.json","git_blob_oid":"13bee8eacbe347de9f5b61576d60912615b7c982","sha256":"b929b9eaa582481215e95f06297b030fdb1fdbd8181e5d53480dad75c78496c1","bytes":7267,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpRecovery.cs","git_blob_oid":"a85424ba06c78591f7bd220d324f6da66bc205e3","sha256":"2c9f04a4b622f6b9f9ca1da65f6c698d40ee324853d379f43f58dc84b78d1047","bytes":47598,"role":"IMMUTABLE_SOURCE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpRecoveryExport.cs","git_blob_oid":"7b95f3bfb69e7487a470e212bdde301cd07b0ef4","sha256":"d1b94f69ecc9b5dd42bd839cf175682d369541e417cd24f0b1ee6da3f2933d79","bytes":17743,"role":"IMMUTABLE_SOURCE"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5JumpRecoveryTests.cs","git_blob_oid":"c19446623090025fae269ea347a20541a5d4692d","sha256":"4b7ba2038cc353ceabd1629205dcada4e7bfa279243005169949b727e7b5f175","bytes":30122,"role":"IMMUTABLE_TEST"},
+    {"path":"MapDesign/MCP/SV5/27_JUMP_RECOVERY_V5.md","git_blob_oid":"7a62da67116479c46d4200034d4b4ff71cd97359","sha256":"5f429f1ad0883685cfb944295e12536a33060bfce1dbe931700e3703ffe74bcd","bytes":2005,"role":"IMMUTABLE_DOC"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/jump_recovery.json","git_blob_oid":"a06c393ef84137949f3e35de47f50ea7cda5e888","sha256":"6d6904442e49e4f6b5ebac298855b86e91fb9a6e8948df7c6fdeabb733298a09","bytes":990,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_overlay.csv","git_blob_oid":"c027f72ba1bb6f494aca11c1bf5b677ffeedc966","sha256":"5888bbd111a4546cb13d1e7ccc3d8534a6b6166c6231cd49f405145d7744685b","bytes":1225,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_miss_probes.csv","git_blob_oid":"60598690b17c8195bfdb2cb7c5e5b92de7aae4d6","sha256":"1efc6aa9cc8fb08db3d5711b0f361dac7f5f9e05bf2e2ea51be767fb3c186124","bytes":1508,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_routes.csv","git_blob_oid":"a9886edf1cd18c7a9c426523b3909646f110140b","sha256":"46a5747897341cd5959e7d375b7cc5d920a952e4d2fbb154d9f81eb14efe34b2","bytes":1758,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_links.csv","git_blob_oid":"15ed676d0c0593b55c325e22054a77838ec7bc39","sha256":"8360c7aed31f1aee53687621ecf681c68f21e783649b4b0619491c5d78d68c05","bytes":924,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_trace.csv","git_blob_oid":"d8f4fb7ab32939284b3481465874c239cfb05bdd","sha256":"07445cc0956537f777235d0ffde08e96ac1e033e26cc88a2daef3fa9b3489a17","bytes":3441,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_validation.json","git_blob_oid":"e051a140ab85db6de4f4539b9c452ca0829aab24","sha256":"f93b4c33a580a2155b730ca71102d0fb494c2596eed3ad076f5a2d23269989ef","bytes":415,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpClearance.cs","git_blob_oid":"3293ee449af5dc565d8ac64f3d16f6623a390785","sha256":"bf9aa50c39da40e3d128a25de076eb07bfe3f461a118856a3d4d26191d597fa7","bytes":31272,"role":"IMMUTABLE_SOURCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/jump_clearance.json","git_blob_oid":"d9af00f0743fdf5cf00cdd9ea6ee4a0579bf0d94","sha256":"042172aabb8ae18026a7dec4a55528a1950984f9fc3d207f2f33f4ff37676083","bytes":1145,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_links.csv","git_blob_oid":"f54152583feacde278d9045ba1aec1c6b895680d","sha256":"1da6f52d2897bb6928efb0c79d26ba840060672fe321f675328df6f76e9a660e","bytes":1687,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_trace.csv","git_blob_oid":"ccb447fdb4dc55122b63144f01cf3ad09daa2b0b","sha256":"62ee64bc1446ed34285315e4d5cdebb7a02f7dc6e73d36fc5730252ccabf2285","bytes":6184,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpRecipeCatalog.cs","git_blob_oid":"3fe23552843c2ccf8ff83f97e7c37557e5c9134c","sha256":"39a3a73596e6f67d53e0a5585238db4932ebbd9e788a683c2c1201820a90e9bb","bytes":36964,"role":"IMMUTABLE_SOURCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_occupancy.csv","git_blob_oid":"a632333a26c330859ccecdc949a84b5093c2d870","sha256":"763f1a192f7d83e328660049f9bc26edb1fa633c0f1c22858fff603c28bee492","bytes":5521,"role":"IMMUTABLE_EVIDENCE"}
+  ],
+  "base_commit_readonly_paths": [
+    "Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveGrabSurface.cs",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveOneWayPlatform.cs",
+    "Assets/_Game/Character/Runtime/Input/CharacterInputSnapshot.cs"
+  ],
+  "approved_runtime_bindings": [
+    {
+      "path": "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs",
+      "base_git_blob_oid": "8eda20b5a2b1e854cf13c062adea411ca8798411",
+      "base_sha256": "df58bb6edca4179cefb3d149baf032f03724f2aac4f5afafb8cc10a66b40a836",
+      "base_bytes": 33883,
+      "approved_sha256": "77ac90e6c65f4dc83a104deb1db6c02177b1c50c2797426c6e3b07aeedc0d8f8",
+      "approved_bytes": 39703,
+      "role": "APPROVED_FIX04_RUNTIME_CORRECTION"
+    }
+  ],
+  "approved_test_harness_paths": [
+    {
+      "path": "Assets/_Game/Tests/PlayMode/Character/RMAP02/GeneratedTilemapPlayerRunPlayModeTests.cs",
+      "role": "APPROVED_FIX05_SCENE_AND_FIXTURE_LIFECYCLE_ONLY"
+    },
+    {
+      "path": "Assets/_Game/Tests/PlayMode/Character/RMAP03/CharacterLiveGrabPlayModeTests.cs",
+      "role": "APPROVED_FIX04_ACTUAL_CAPSULE_AND_FIX05_LIFECYCLE_TEST_ONLY"
+    }
+  ]
+}

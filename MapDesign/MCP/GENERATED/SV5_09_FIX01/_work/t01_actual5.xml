@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-12 10:00:25Z" end-time="2026-09-12 10:02:47Z" duration="141.9223795">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26805" result="Failed" site="Child" start-time="2026-09-12 10:00:25Z" end-time="2026-09-12 10:02:47Z" duration="141.922380" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="24863" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22785" result="Failed" site="Child" start-time="2026-09-12 10:00:25Z" end-time="2026-09-12 10:02:47Z" duration="141.721898" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="30624" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="24864" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22785" result="Failed" site="Child" start-time="2026-09-12 10:00:25Z" end-time="2026-09-12 10:02:47Z" duration="141.583024" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="24872" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22569" result="Failed" site="Child" start-time="2026-09-12 10:00:26Z" end-time="2026-09-12 10:02:47Z" duration="141.448221" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="24876" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22510" result="Failed" site="Child" start-time="2026-09-12 10:00:26Z" end-time="2026-09-12 10:02:47Z" duration="141.224828" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="24885" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7828" result="Failed" site="Child" start-time="2026-09-12 10:00:26Z" end-time="2026-09-12 10:02:47Z" duration="141.032927" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="24901" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="116" result="Failed" site="Child" start-time="2026-09-12 10:00:26Z" end-time="2026-09-12 10:02:47Z" duration="140.962864" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="24736" name="Sv5SpaceLoopTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-09-12 10:00:26Z" end-time="2026-09-12 10:02:47Z" duration="140.959106" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="24737" name="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" methodname="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="494166923" result="Failed" start-time="2026-09-12 10:00:26Z" end-time="2026-09-12 10:02:47Z" duration="140.945337" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  accepted=19 sectors=13 candidates=161 eligible=51
+candidate_pairs=23 candidate_sectors=18
+baseline_occupancy=87448 baseline_feet=5908 host_support=0
+SV5_LOOP_00b258af492738402346|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_01068870d516dfad251e|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_09639e7ac88f0bb14df6|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0d8d01ea4d4f309ab9c7|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0e2e3d15796340638ca3|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_1a66d6a9a4f17c17495b|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_227af2366de6e32a442d|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_234c595115e9abfeadf3|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_2c724dc439eadceac799|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_3b220c34633ec13aee21|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_3c76ff3601ec4d43f9f9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_413cd010201e0f1db1c7|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_5a84b6c25c577d782fea|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_6d45e3e449d542f6b593|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_bd98aecc0be5be2673d2|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_e17268fb88d96a61b70d|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_e283d93ae148f2930ce9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_eabee6083b6154fa81b5|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_f5cf140825efa61b8433|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_00b258af492738402346|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_01068870d516dfad251e|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_09639e7ac88f0bb14df6|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_0d8d01ea4d4f309ab9c7|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_0e2e3d15796340638ca3|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_1a66d6a9a4f17c17495b|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_227af2366de6e32a442d|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_234c595115e9abfeadf3|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_2c724dc439eadceac799|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_3b220c34633ec13aee21|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_3c76ff3601ec4d43f9f9|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_413cd010201e0f1db1c7|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_5a84b6c25c577d782fea|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_6d45e3e449d542f6b593|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_bd98aecc0be5be2673d2|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_e17268fb88d96a61b70d|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_e283d93ae148f2930ce9|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_eabee6083b6154fa81b5|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_f5cf140825efa61b8433|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_00b258af492738402346|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_01068870d516dfad251e|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_09639e7ac88f0bb14df6|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0d8d01ea4d4f309ab9c7|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0e2e3d15796340638ca3|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_1a66d6a9a4f17c17495b|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_227af2366de6e32a442d|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_234c595115e9abfeadf3|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_2c724dc439eadceac799|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_3b220c34633ec13aee21|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_3c76ff3601ec4d43f9f9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_413cd010201e0f1db1c7|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_5a84b6c25c577d782fea|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_6d45e3e449d542f6b593|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_bd98aecc0be5be2673d2|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_e17268fb88d96a61b70d|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_e283d93ae148f2930ce9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_eabee6083b6154fa81b5|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_f5cf140825efa61b8433|BASELINE_FOOT_BFS_MISSING
+BASELINE_CONTACTS=15417
+DUPLICATE_ENDPOINT_PAIR=32
+FOREIGN_SOLID_OPENING=100
+INELIGIBLE_HASH=110
+NEWLY_CARVED_AIR=16
+SUPPORT_NOT_SOLID=6897
+  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread () [0x00078] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceLoopTests.cs:28
+]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

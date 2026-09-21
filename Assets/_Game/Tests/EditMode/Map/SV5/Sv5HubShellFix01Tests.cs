@@ -14,42 +14,41 @@ namespace StarNight.Map.Tests.EditMode.Sv5
     {
         private static Sv5SpaceGraphPlan Baseline=>Sv5HubShellTests.DefaultBaselineForFix01;
         private static Sv5SpaceGraphPlan Plan=>Sv5HubShellTests.DefaultForFix01;
-        private static RmapSpecialWorldPoint P(int x,int y)=>new RmapSpecialWorldPoint(x,y);
+        private static Sv5SpecialWorldPoint P(int x,int y)=>new Sv5SpecialWorldPoint(x,y);
 
-        [Test] public void F01_LegacyVerticalThenHorizontalRouteExposesOriginalFalsePositive()
+        [Test] public void F01_BodyIntersectionDetectsProtectedInteriorCells()
         {
-            var legacy=Sv5HubConnectionRouter.LegacyVerticalThenHorizontal(P(10,10),P(15,13));
-            var blocked=new HashSet<RmapSpecialWorldPoint>{P(10,11)};
-            Assert.That(Sv5HubConnectionRouter.BodyIntersects(legacy,blocked),Is.True,
-                "The old claim-only L route crossed a protected cell while exported booleans stayed false.");
+            var route=new[]{P(10,10),P(10,11),P(10,12),P(11,12)};
+            var blocked=new HashSet<Sv5SpecialWorldPoint>{P(10,11)};
+            Assert.That(Sv5HubConnectionRouter.BodyIntersects(route,blocked),Is.True);
         }
 
         [Test] public void F02_BoundedRouterRejectsAnUnavoidableProtectedBodyWall()
         {
-            var protectedCells=new HashSet<RmapSpecialWorldPoint>(Enumerable.Range(0,
+            var protectedCells=new HashSet<Sv5SpecialWorldPoint>(Enumerable.Range(0,
                 Sv5SpaceGraphPlanner.WorldHeight-1).Select(y=>P(11,y)));
-            Assert.That(Route(P(10,10),P(16,10),protectedCells,new HashSet<RmapSpecialWorldPoint>(),
-                new HashSet<RmapSpecialWorldPoint>(),new HashSet<RmapSpecialWorldPoint>(),out _,out string reason),Is.False);
+            Assert.That(Route(P(10,10),P(16,10),protectedCells,new HashSet<Sv5SpecialWorldPoint>(),
+                new HashSet<Sv5SpecialWorldPoint>(),new HashSet<Sv5SpecialWorldPoint>(),out _,out string reason),Is.False);
             Assert.That(reason,Is.EqualTo("NO_ACTUAL_CELL_ROUTE"));
         }
 
         [Test] public void F03_Type0IntersectionIsComputedFromBodyCells()
         {
-            var path=Sv5HubConnectionRouter.LegacyVerticalThenHorizontal(P(20,20),P(24,22));
-            Assert.That(Sv5HubConnectionRouter.BodyIntersects(path,new HashSet<RmapSpecialWorldPoint>{P(20,21)}),Is.True);
+            var path=new[]{P(20,20),P(20,21),P(20,22),P(21,22),P(22,22)};
+            Assert.That(Sv5HubConnectionRouter.BodyIntersects(path,new HashSet<Sv5SpecialWorldPoint>{P(20,21)}),Is.True);
         }
 
         [Test] public void F04_ProgressionIntersectionIsComputedFromBodyCells()
         {
-            var path=Sv5HubConnectionRouter.LegacyVerticalThenHorizontal(P(30,30),P(34,32));
-            Assert.That(Sv5HubConnectionRouter.BodyIntersects(path,new HashSet<RmapSpecialWorldPoint>{P(30,31)}),Is.True);
+            var path=new[]{P(30,30),P(30,31),P(30,32),P(31,32),P(32,32)};
+            Assert.That(Sv5HubConnectionRouter.BodyIntersects(path,new HashSet<Sv5SpecialWorldPoint>{P(30,31)}),Is.True);
         }
 
         [Test] public void F05_ExternalAnchorIsTheOnlyReadOnlyForeignContact()
         {
-            var foreign=new HashSet<RmapSpecialWorldPoint>{P(16,10)};
-            Assert.That(Route(P(10,10),P(16,10),foreign,new HashSet<RmapSpecialWorldPoint>(),
-                new HashSet<RmapSpecialWorldPoint>(),new HashSet<RmapSpecialWorldPoint>(),out var route,out _),Is.True);
+            var foreign=new HashSet<Sv5SpecialWorldPoint>{P(16,10)};
+            Assert.That(Route(P(10,10),P(16,10),foreign,new HashSet<Sv5SpecialWorldPoint>(),
+                new HashSet<Sv5SpecialWorldPoint>(),new HashSet<Sv5SpecialWorldPoint>(),out var route,out _),Is.True);
             var anchor=route.Cells.Single(v=>v.Role==Sv5HubConnectionCellRole.Centerline&&v.World.Equals(P(16,10)));
             Assert.That(anchor.Changed,Is.False);Assert.That(anchor.Ownership,Is.Empty);
         }
@@ -150,19 +149,19 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                     edge.MoveType==Sv5PlatformerMoveType.Jump)),Is.True);
         }
 
-        private static bool Route(RmapSpecialWorldPoint start,RmapSpecialWorldPoint end,
-            ISet<RmapSpecialWorldPoint> protectedBody,ISet<RmapSpecialWorldPoint> type0,
-            ISet<RmapSpecialWorldPoint> progression,ISet<RmapSpecialWorldPoint> endpointForbidden,
+        private static bool Route(Sv5SpecialWorldPoint start,Sv5SpecialWorldPoint end,
+            ISet<Sv5SpecialWorldPoint> protectedBody,ISet<Sv5SpecialWorldPoint> type0,
+            ISet<Sv5SpecialWorldPoint> progression,ISet<Sv5SpecialWorldPoint> endpointForbidden,
             out Sv5HubConnectionRoute route,out string reason)
         {
-            var baseline=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>
+            var baseline=new Dictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>
             {
                 {end,new Sv5LoopOccupancyCell(end,Sv5InfillCellValue.Air,"FOREIGN","ROOM")},
                 {P(end.X,end.Y+1),new Sv5LoopOccupancyCell(P(end.X,end.Y+1),Sv5InfillCellValue.Air,"FOREIGN","ROOM")},
                 {P(end.X,end.Y-1),new Sv5LoopOccupancyCell(P(end.X,end.Y-1),Sv5InfillCellValue.Solid,"FOREIGN","ROOM")}
             };
             return Sv5HubConnectionRouter.TryRoute(start,end,new Sv5SpaceBounds(start.X,start.Y,1,1),baseline,
-                protectedBody,type0,progression,endpointForbidden,new HashSet<RmapSpecialWorldPoint>(),out route,out reason);
+                protectedBody,type0,progression,endpointForbidden,new HashSet<Sv5SpecialWorldPoint>(),out route,out reason);
         }
     }
 }

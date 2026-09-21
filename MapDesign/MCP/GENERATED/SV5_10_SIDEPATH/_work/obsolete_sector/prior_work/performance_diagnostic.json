@@ -1,0 +1,5 @@
+{
+  "schema":"SV5_SIDEPATH_PERFORMANCE_DIAGNOSTIC_V1",
+  "default":{"candidates":179,"affected_foot_nodes":1571,"world_index_builds":1,"whole_world_copy_per_candidate":0,"whole_world_bfs_per_candidate":0,"global_product_runs":1,"timings_ms":{"candidate_generation_ms":79.943,"final_overlay_ms":5.101,"packing_ms":2.197,"sector_index_ms":93.807,"total_build_ms":184.746}},
+  "repeat":{"candidates":169,"affected_foot_nodes":1443,"world_index_builds":1,"whole_world_copy_per_candidate":0,"whole_world_bfs_per_candidate":0,"global_product_runs":1,"timings_ms":{"candidate_generation_ms":70.632,"final_overlay_ms":6.904,"packing_ms":0.393,"sector_index_ms":45.926,"total_build_ms":124.690}}
+}

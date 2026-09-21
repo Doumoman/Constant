@@ -1,0 +1,32 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FIX03_SOURCE_LOCK/v1",
+  "base_commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "task": "SV5_20_JUMP_PLAYER",
+  "required_current_task": "SV5_20_JUMP_PLAYER",
+  "original_package_manifest": {"path":"MapDesign/MCP/INPUTS/SV5_20_JUMP_PLAYER/FILES.json","sha256":"683085584ed6e51ae37a65ecc1f8a2fa31a522d9c5e9b2dd3cf0588d7fe685cc","bytes":1010},
+  "fix01_package_manifest": {"path":"MapDesign/MCP/INPUTS/SV5_20_JUMP_PLAYER_FIX01/FILES.json","sha256":"f51da5eb63fabebbc8e166a1de77e1fac6cce5c29149e64d633e65adf666839c","bytes":939},
+  "fix02_package_manifest": {"path":"MapDesign/MCP/INPUTS/SV5_20_JUMP_PLAYER_FIX02/FILES.json","sha256":"769319037a602197071162ab5c40cd5ba54d0842325467dee85825d6e57315dd","bytes":1067},
+  "installed_task": {"path":"MapDesign/MCP/TASKS/SV5_20_JUMP_PLAYER.md","sha256":"d04d6c4438b0d017599311ed3cccca940c5a3f52fa5a4cc087b69b21675ea451","bytes":4055},
+  "archive_task": {"path":"MapDesign/MCP_ARCHIVE/SV5_20_JUMP_PLAYER.md","sha256":"d04d6c4438b0d017599311ed3cccca940c5a3f52fa5a4cc087b69b21675ea451","bytes":4055},
+  "failure_evidence": [
+    {"label":"BEFORE_FIX01_MAIN_MX_02","paths":["MapDesign/MCP/GENERATED/SV5_20_JUMP_PLAYER/targeted_playmode_before_fix01.xml"],"sha256":"ded511e0ea9efd05a729f7003befe9d85c662297a1f301f6f909053adea3874e","bytes":16147,"required_failure_token":"MAIN_MX_02 failed at (10.36, 4.46)"},
+    {"label":"BEFORE_FIX02_MAIN_MX_00","paths":["MapDesign/MCP/GENERATED/SV5_20_JUMP_PLAYER/targeted_playmode_before_fix02.xml"],"sha256":"48b6fbe5267e2625ca4ab1bbebf8f927729627ea0722809aff6b5c5958c1b98c","bytes":17574,"required_failure_token":"MAIN_MX_00 failed at (17.60, -42.02)"},
+    {"label":"BEFORE_FIX03_SIX_SYMMETRIC_FAILURES","paths":["MapDesign/MCP/GENERATED/SV5_20_JUMP_PLAYER/player_main_link_diagnostic_results.xml","MapDesign/MCP/GENERATED/SV5_20_JUMP_PLAYER/targeted_playmode_before_fix03.xml"],"sha256":"640170e9e2dc6e7c27a659d00dc43840ec0d9ef84033cee8c846e80902fc60ba","bytes":76428,"required_failure_token":"MAIN_R0_02 failed at (17.56, -2.16)"}
+  ],
+  "base_files": [
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_occupancy.csv","git_blob_oid":"a632333a26c330859ccecdc949a84b5093c2d870","sha256":"763f1a192f7d83e328660049f9bc26edb1fa633c0f1c22858fff603c28bee492","bytes":5521},
+    {"path":"MapDesign/MCP/GENERATED/SV5_18_JUMP_CLEARANCE/clearance_links.csv","git_blob_oid":"f54152583feacde278d9045ba1aec1c6b895680d","sha256":"1da6f52d2897bb6928efb0c79d26ba840060672fe321f675328df6f76e9a660e","bytes":1687},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/jump_recovery.json","git_blob_oid":"a06c393ef84137949f3e35de47f50ea7cda5e888","sha256":"6d6904442e49e4f6b5ebac298855b86e91fb9a6e8948df7c6fdeabb733298a09","bytes":990},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_overlay.csv","git_blob_oid":"c027f72ba1bb6f494aca11c1bf5b677ffeedc966","sha256":"5888bbd111a4546cb13d1e7ccc3d8534a6b6166c6231cd49f405145d7744685b","bytes":1225},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_miss_probes.csv","git_blob_oid":"60598690b17c8195bfdb2cb7c5e5b92de7aae4d6","sha256":"1efc6aa9cc8fb08db3d5711b0f361dac7f5f9e05bf2e2ea51be767fb3c186124","bytes":1508},
+    {"path":"MapDesign/MCP/GENERATED/SV5_19_JUMP_RECOVERY/recovery_routes.csv","git_blob_oid":"a9886edf1cd18c7a9c426523b3909646f110140b","sha256":"46a5747897341cd5959e7d375b7cc5d920a952e4d2fbb154d9f81eb14efe34b2","bytes":1758}
+  ],
+  "base_commit_readonly_paths": [
+    "Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementDriver.cs",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveMovementSettings.cs",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveGrabSurface.cs",
+    "Assets/_Game/Live/Runtime/Movement/CharacterLiveOneWayPlatform.cs",
+    "Assets/_Game/Character/Runtime/Input/CharacterInputSnapshot.cs"
+  ]
+}

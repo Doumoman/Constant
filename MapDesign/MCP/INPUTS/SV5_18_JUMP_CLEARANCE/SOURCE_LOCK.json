@@ -1,0 +1,28 @@
+{
+  "schema": "SV5_18_JUMP_CLEARANCE_SOURCE_LOCK/v1",
+  "base_commit": "7c8281c1527f55c2d9a1f7d4c5c03f424cf8663b",
+  "base_parent": "b99f9b9214583d653c273efaa53e69ec0e4abbe4",
+  "base_subject": "SV5_17_JUMP_RECIPES: add mirrored mixed jump recipes",
+  "review_zip_sha256": "3dbbcfffb2547d72a346bf5e942fc8b24976184d383dff36d1f445a9bd51f05b",
+  "files": [
+    {"path":"MapDesign/MCP/06_IMPLEMENTATION_STATUS.md","git_blob_oid":"be980ee6422e9ef84edc89dbb804d5cc4fb2f7d1","sha256":"f26de1d0a9cf9324905bb85e9d812c0b85d3d9919f3db929fdee87968c6433af","bytes":102604,"role":"LIFECYCLE_WRITE"},
+    {"path":"MapDesign/MCP/TASKS/SV5_17_JUMP_RECIPES.md","git_blob_oid":"5c7365d45269dbbd3385bd453f6d5f15064a5fad","sha256":"63b74bfd3ebd30929a0b377e03ca3379929d77012027d0e0285bae1ff1ec0a18","bytes":3591,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP_ARCHIVE/SV5_17_JUMP_RECIPES.md","git_blob_oid":"5c7365d45269dbbd3385bd453f6d5f15064a5fad","sha256":"63b74bfd3ebd30929a0b377e03ca3379929d77012027d0e0285bae1ff1ec0a18","bytes":3591,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/REPORTS/SV5_17_JUMP_RECIPES_RESULT.md","git_blob_oid":"2b31636bbcf4be169f109e05698bf7602ac9aacf","sha256":"06bd13ee5b306aa1b72bbccbd5791834b87605dc7fb4b79deae1933db0900ce2","bytes":5563,"role":"IMMUTABLE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/BINDING.json","git_blob_oid":"254c402e6f0e7e96b83636ce115817d53a3ee194","sha256":"a5e1f73f3aa31ed39a009a5669a1d9ccf9afe7c432a8a337e80787d7a588624f","bytes":7701,"role":"IMMUTABLE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpRecipeCatalog.cs","git_blob_oid":"3fe23552843c2ccf8ff83f97e7c37557e5c9134c","sha256":"39a3a73596e6f67d53e0a5585238db4932ebbd9e788a683c2c1201820a90e9bb","bytes":36964,"role":"IMMUTABLE_SOURCE"},
+    {"path":"Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5JumpRecipeExport.cs","git_blob_oid":"2bf7a0fee31dfd6e4f334b20012b29f649798774","sha256":"f4623481705a7839029e5e7944f0af5a674c117157eeac2fd18399d5a4a552fd","bytes":20598,"role":"IMMUTABLE_SOURCE"},
+    {"path":"Assets/_Game/Tests/EditMode/Map/SV5/Sv5JumpRecipeTests.cs","git_blob_oid":"b6123e4d3d5369bcdfd41d7d5f3f57da4edef4bc","sha256":"deeea6f0a2f84abbecf578e6e0f6eb773c067dd443806a56d5d987c37206cd48","bytes":23359,"role":"IMMUTABLE_TEST"},
+    {"path":"MapDesign/MCP/SV5/25_JUMP_RECIPES_V5.md","git_blob_oid":"6fa512e58e269ca585fe15687e3f19390a6183ee","sha256":"ebd5a68b9ace8fd86be8957e69d05dd170eee4b5d50350ffe03365e4c439d264","bytes":2653,"role":"IMMUTABLE_DOC"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/jump_recipes.json","git_blob_oid":"b6281cdda8a3b47579e5193341a7eefdcf5f837e","sha256":"a3cda3b687a64e74d44b5a0708e4c35a05fe75ea4298281686ea028315f8f1e2","bytes":1992,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_catalog.csv","git_blob_oid":"a46016c202b3cc47ba1d4955d1c457a8c66dfda7","sha256":"93c97024910afb6503b2f5cbd9df22c16dde2a2856a377e0ceb9176c8bfd3479","bytes":505,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_links.csv","git_blob_oid":"462272e68adbcf4912b39d0be8485da9e02f876f","sha256":"68c66aaf8118b3f5064fbfc10b0d4bf3721f332c62e3ab95c89f38f0193ea4f1","bytes":2158,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_occupancy.csv","git_blob_oid":"a632333a26c330859ccecdc949a84b5093c2d870","sha256":"763f1a192f7d83e328660049f9bc26edb1fa633c0f1c22858fff603c28bee492","bytes":5521,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_grab_edges.csv","git_blob_oid":"dd44be6f5b6514debd3eaf8da624b112a8c39bde","sha256":"aa91eab54f59620da360fe8680bfe685bb95300b7e042f110dc25c17b8bf36c4","bytes":395,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_segments.csv","git_blob_oid":"b35250d871106cf10481a257fcef5bfb42c71386","sha256":"aee62ea9faefa7d0669d6035254a375dbf0ea6fb30c77e0c962d6449762c1dc6","bytes":683,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/recipe_supports.csv","git_blob_oid":"0421bd34e1c17cb836b102fc15826b72369e01bc","sha256":"2fa7724278712601676f12e241c7a9f4130a343a935832418d2a79d6dd9a3c15","bytes":1433,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/focused_results.xml","git_blob_oid":"39a31f9770610cf662014879d09c534afcd1c230","sha256":"01225cabb1b2cdec6aa2feb51f9cc47d4ab9692d870db3f340d4ed30ffd78b5a","bytes":293171,"role":"IMMUTABLE_EVIDENCE"},
+    {"path":"MapDesign/MCP/GENERATED/SV5_17_JUMP_RECIPES/independent_jump_recipe_audit.json","git_blob_oid":"5aae1d28450813767294bb0efe665ac2061385dc","sha256":"f108b99124fb7b9d3174cedec2b2e2a8698e6e7b611813abd3d208e4429e32f3","bytes":828,"role":"IMMUTABLE_EVIDENCE"}
+  ]
+}
+

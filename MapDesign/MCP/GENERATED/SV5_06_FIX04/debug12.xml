@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-11 05:19:39Z" end-time="2026-09-11 05:20:05Z" duration="25.9404027">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26749" result="Passed" start-time="2026-09-11 05:19:39Z" end-time="2026-09-11 05:20:05Z" duration="25.940403" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24802" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22729" result="Passed" start-time="2026-09-11 05:19:39Z" end-time="2026-09-11 05:20:05Z" duration="25.772172" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="31212" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24803" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22729" result="Passed" start-time="2026-09-11 05:19:39Z" end-time="2026-09-11 05:20:05Z" duration="25.641531" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24811" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22513" result="Passed" start-time="2026-09-11 05:19:40Z" end-time="2026-09-11 05:20:05Z" duration="25.514432" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24815" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22454" result="Passed" start-time="2026-09-11 05:19:40Z" end-time="2026-09-11 05:20:05Z" duration="25.329782" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24824" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7772" result="Passed" start-time="2026-09-11 05:19:40Z" end-time="2026-09-11 05:20:05Z" duration="25.167638" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24840" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="60" result="Passed" start-time="2026-09-11 05:19:40Z" end-time="2026-09-11 05:20:05Z" duration="25.095406" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24677" name="Sv5SpaceGraphFix04Tests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-11 05:19:40Z" end-time="2026-09-11 05:20:05Z" duration="25.093304" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5_06_FIX04" />
+                  </properties>
+                  <test-case id="24678" name="C01_Fix03CounterexampleIsPreserved" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.C01_Fix03CounterexampleIsPreserved" methodname="C01_Fix03CounterexampleIsPreserved" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="855192999" result="Passed" start-time="2026-09-11 05:19:40Z" end-time="2026-09-11 05:20:05Z" duration="25.082174" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[OPEN_SV5_GATE_D0D6EDED7F731ED2D088|expected=True|actual=True|reachable=True|success=True|faces=22
+OPEN_SV5_GATE_F7F5C03CD911CAD5D150|expected=True|actual=True|reachable=True|success=True|faces=23
+OPEN_SV5_GATE_F90095C47BEC0869BB04|expected=True|actual=True|reachable=True|success=True|faces=43
+SEALED_SV5_GATE_D0D6EDED7F731ED2D088|expected=False|actual=False|reachable=False|success=True|faces=22
+SEALED_SV5_GATE_F7F5C03CD911CAD5D150|expected=False|actual=False|reachable=False|success=True|faces=23
+SEALED_SV5_GATE_F90095C47BEC0869BB04|expected=False|actual=False|reachable=False|success=True|faces=43
+W01_SEAL_ENTRY_REACHABLE|expected=True|actual=True|reachable=True|success=True|faces=23
+W02_BOSS_APPROACH_REACHABLE|expected=True|actual=True|reachable=True|success=True|faces=22
+W02_EXIT_REMAINS_SEALED|expected=False|actual=False|reachable=False|success=True|faces=43
+GATE|SV5_GATE_D0D6EDED7F731ED2D088|conn=SV5_CORE_CONN_88ee0ec82e323424|route=88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2|cells=13|faces=22|A=531,322|B=532,322
+GATE|SV5_GATE_F7F5C03CD911CAD5D150|conn=SV5_CORE_CONN_29dc755094886d48|route=29dc755094886d48300e9f8cf0fb0e54f09125a29c2fac78855bda7885f7dbaa|cells=12|faces=23|A=523,134|B=523,135
+GATE|SV5_GATE_F90095C47BEC0869BB04|conn=SV5_CORE_CONN_74004c50147eb4af|route=74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4|cells=19|faces=43|A=349,296|B=350,296
+diagnostics=GLOBAL_GATE_OPEN_PATH_MISSING|FORGE_OPEN;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|0|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|7|3|1|1|1|3|SV5_CORE_CONN_29dc755094886d48|False;UNRESOLVED_CONTACT
+<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

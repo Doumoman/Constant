@@ -1,0 +1,41 @@
+{
+  "schema": "SV5_18_JUMP_CLEARANCE_PROFILE/v1",
+  "task": "SV5_18_JUMP_CLEARANCE",
+  "input_catalog_digest": "19b4b3c37a1b1b11856eb1c946ce8ea64cbc16517dbfe9ace2ae66e4a5504022",
+  "local_room": {"width": 24, "height": 32},
+  "recipes": ["JUMP012_MIXED_R0", "JUMP012_MIXED_MX"],
+  "links_per_recipe": 9,
+  "player_footprint": {
+    "body": {"dx": 0, "dy": 0},
+    "head": {"dx": 0, "dy": 1}
+  },
+  "trace": {
+    "max_states": 16,
+    "max_step_x": 1,
+    "max_step_y": 1,
+    "max_apex_above_higher_endpoint": 3,
+    "horizontal_direction_must_be_monotonic": true,
+    "diagonal_supercover": true
+  },
+  "movement_mix_per_recipe": {
+    "plus_one_jump": 7,
+    "plus_two_jump_grab": 1,
+    "level_jump": 1
+  },
+  "grab_link": {
+    "source_link_id": "JS_LINK_03",
+    "rise": 2,
+    "required_phases": ["HANG", "PULL_UP"]
+  },
+  "readiness_on_pass": {
+    "JumpRecipeReady": true,
+    "ComposedGeometryReady": true,
+    "SweptClearanceReady": true,
+    "RecoveryReady": false,
+    "PlayerVerified": false
+  },
+  "whole_world_builds": 0,
+  "whole_world_searches": 0,
+  "global_endpoint_comparisons": 0
+}
+

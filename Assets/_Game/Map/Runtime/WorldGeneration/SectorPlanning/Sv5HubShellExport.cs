@@ -152,7 +152,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 foreach(var cell in connection.Cells.Where(v=>v.ExportRole=="CENTERLINE"))Rect(cell.World,cell.Changed?"#ff6b6b":color,4);
             }
             return text.Append("<!-- actual 1x1 Hub connections; TreeGrab=false; Player=false; ").Append(hub.Digest).Append(" --></svg>\n").ToString();
-            void Rect(RmapSpecialWorldPoint point,string color,int size){text.Append("<rect x=\"").Append((point.X-minX)*scale)
+            void Rect(Sv5SpecialWorldPoint point,string color,int size){text.Append("<rect x=\"").Append((point.X-minX)*scale)
                 .Append("\" y=\"").Append((maxY-point.Y)*scale).Append("\" width=\"").Append(size).Append("\" height=\"")
                 .Append(size).Append("\" fill=\"").Append(color).Append("\"/>");}
         }
@@ -196,7 +196,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static string Summary(Sv5SpaceGraphPlan plan)=>"{\"hub_id\":"+J(plan.HubShell.HubId)+",\"hub_digest\":"+
             J(plan.HubShell.Digest)+",\"candidates\":"+plan.HubShell.Performance.CandidateCount+",\"connections\":"+
             plan.HubShell.Connections.Count+",\"cells\":"+plan.HubShell.Cells.Count+"}";
-        private static string Points(IEnumerable<RmapSpecialWorldPoint> source)=>string.Join(";",source.Select(v=>v.X+":"+v.Y));
+        private static string Points(IEnumerable<Sv5SpecialWorldPoint> source)=>string.Join(";",source.Select(v=>v.X+":"+v.Y));
         private static string Value(Sv5InfillCellValue value)=>value.ToString().ToUpperInvariant();
         private static string Csv(string header,IEnumerable<string> rows)=>header+"\n"+string.Join("\n",rows)+"\n";
         private static string Row(params object[] values)=>string.Join(",",values.Select(v=>Q(v==null?string.Empty:

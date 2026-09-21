@@ -13,8 +13,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         private static string J(string v) => "\""+(v ?? "").Replace("\\","\\\\").Replace("\"","\\\"").Replace("\r","\\r").Replace("\n","\\n")+"\"";
         private static string B(bool v) => v ? "true" : "false";
-        private static string P(RmapSpecialWorldPoint p) => "["+p.X+","+p.Y+"]";
-        private static string Points(IEnumerable<RmapSpecialWorldPoint> points) => "["+string.Join(",",points.Select(P))+"]";
+        private static string P(Sv5SpecialWorldPoint p) => "["+p.X+","+p.Y+"]";
+        private static string Points(IEnumerable<Sv5SpecialWorldPoint> points) => "["+string.Join(",",points.Select(P))+"]";
         private static string Row(params object[] fields) => string.Join(",",fields.Select(v=>"\""+Convert.ToString(v,CultureInfo.InvariantCulture).Replace("\"","\"\"")+"\""));
         private static string Csv(string header,IEnumerable<string> rows) => header+"\n"+string.Join("\n",rows)+"\n";
         private static void Write(string path,string value) => File.WriteAllText(path,value,new UTF8Encoding(false));
@@ -25,12 +25,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var infill=plan.Infill ?? throw new ArgumentException("Infill payload required.");
             var reconstructed=Sv5InfillPatterns.Reconstruct(infill.Instances);
             bool patterns=reconstructed.Count==infill.Cells.Count && infill.Cells.All(c=>reconstructed.TryGetValue(c.World,out var v) && v==c.Value);
-            var passage=new HashSet<RmapSpecialWorldPoint>(plan.Connections.SelectMany(c=>c.Centerline.Concat(c.ApertureCells)));
+            var passage=new HashSet<Sv5SpecialWorldPoint>(plan.Connections.SelectMany(c=>c.Centerline.Concat(c.ApertureCells)));
             bool air=infill.Cells.Where(c=>c.Value==Sv5InfillCellValue.Air).All(c=>passage.Contains(c.World));
             bool solid=infill.Cells.Where(c=>c.Value==Sv5InfillCellValue.Solid).All(c=>!passage.Contains(c.World));
             var owned=infill.Cells.ToDictionary(c=>c.World,c=>c.Value);
-            var legacyRooms=new HashSet<string>(infill.Rooms.Where(r=>r.Legacy).Select(r=>r.Id),StringComparer.Ordinal);
-            var measuredLinks=infill.Links.Where(l=>!legacyRooms.Contains(l.Room)).ToArray();
+            var measuredLinks=infill.Links.ToArray();
             int overLength=measuredLinks.Count(l=>l.ConnectionCellCount>infill.Profile.MaximumLink);
             int endpointErrors=measuredLinks.Count(l=>
             {
@@ -78,11 +77,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "\"qualification\":\"Known-solid union and local supported movement only; not composed-world or Player verification\"}";
         }
 
-        private static int FullyKnownWindows(IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCellValue> known)
+        private static int FullyKnownWindows(IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCellValue> known)
         {
             var sums=new int[625,417]; int count=0;
             for(int y=0;y<416;y++) for(int x=0;x<624;x++)
-                sums[x+1,y+1]=sums[x,y+1]+sums[x+1,y]-sums[x,y]+(known.TryGetValue(new RmapSpecialWorldPoint(x,y),out var value) && value!=Sv5InfillCellValue.Unknown ? 1 : 0);
+                sums[x+1,y+1]=sums[x,y+1]+sums[x+1,y]-sums[x,y]+(known.TryGetValue(new Sv5SpecialWorldPoint(x,y),out var value) && value!=Sv5InfillCellValue.Unknown ? 1 : 0);
             for(int y=0;y<=410;y++) for(int x=0;x<=618;x++)
                 if(sums[x+6,y+6]-sums[x,y+6]-sums[x+6,y]+sums[x,y]==36) count++;
             return count;
@@ -91,8 +90,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public static string InfillJson(Sv5SpaceGraphPlan plan)
         {
             var p=plan.Infill ?? throw new ArgumentException("Infill payload required.");
-            var legacy=new HashSet<string>(p.Rooms.Where(r=>r.Legacy).Select(r=>r.Id),StringComparer.Ordinal);
-            var measured=p.Links.Where(l=>!legacy.Contains(l.Room)).ToArray();
+            var measured=p.Links.ToArray();
             return "{\"schema\":\"SV5_INFILL_V2\",\"plan_digest\":"+J(plan.Digest)+",\"baseline_digest\":"+J(p.BaselineDigest)+
                 ",\"infill_digest\":"+J(p.Digest)+",\"profile_digest\":"+J(p.Profile.Digest)+",\"length_policy\":"+
                 J(Sv5InfillProfile.ConnectionLengthPolicy)+",\"length_target_count\":"+measured.Length+
@@ -103,7 +101,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 ",\"target_shortfall\":"+Math.Max(0,p.Profile.Target-p.NewRoomCount)+",\"rejections\":{"+
                 string.Join(",",p.Rejections.Select(k=>J(k.Key)+":"+k.Value))+"},\"rooms\":["+
                 string.Join(",",p.Rooms.Select(r=>"{\"id\":"+J(r.Id)+",\"recipe\":"+J(r.Recipe)+",\"bounds\":["+r.Bounds+"],\"parent\":"+
-                    J(r.Parent)+",\"host\":"+J(r.Host)+",\"mirror\":"+B(r.Mirror)+",\"depth\":"+r.Depth+",\"legacy\":"+B(r.Legacy)+
+                    J(r.Parent)+",\"host\":"+J(r.Host)+",\"mirror\":"+B(r.Mirror)+",\"depth\":"+r.Depth+
                     ",\"entry\":"+P(r.Entry)+",\"deep\":"+P(r.Deep)+"}"))+"],\"cells\":["+
                 string.Join(",",p.Cells.Select(c=>"{\"world\":"+P(c.World)+",\"base\":"+J(c.Value.ToString().ToUpperInvariant())+
                     ",\"owner\":"+J(c.Owner)+",\"recipe\":"+J(c.Recipe)+",\"parent\":"+J(c.Parent)+",\"host\":"+J(c.Host)+",\"shared\":"+B(c.Shared)+"}"))+
@@ -123,26 +121,25 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     .Select(i=>Row(i.Id,i.Mask,string.Join("|",i.Values),i.Digest,plan.Digest))));
             Write(Path.Combine(directory,"infill_instances.csv"),Csv("pattern_id,origin_x,origin_y,room_id,formation_id,recipe,parent,host,mirror,plan_digest",
                 p.Instances.Select(i=>Row(i.Pattern.Id,i.Origin.X,i.Origin.Y,i.Owner,i.Owner,i.Recipe,i.Parent,i.Host,i.Mirror,plan.Digest))));
-            Write(Path.Combine(directory,"infill_rooms.csv"),Csv("room_id,recipe,bounds,parent,host,depth,entry,deep,air,solid,legacy,reward,static_success,plan_digest",
+            Write(Path.Combine(directory,"infill_rooms.csv"),Csv("room_id,recipe,bounds,parent,host,depth,entry,deep,air,solid,reward,static_success,plan_digest",
                 p.Rooms.Select(r=>Row(r.Id,r.Recipe,r.Bounds,r.Parent,r.Host,r.Depth,r.Entry,r.Deep,r.Cells.Count(c=>c.Value==Sv5InfillCellValue.Air),
-                    r.Cells.Count(c=>c.Value==Sv5InfillCellValue.Solid),r.Legacy,"NONE",p.Links.Single(l=>l.Room==r.Id).Proof.Success,plan.Digest))));
+                    r.Cells.Count(c=>c.Value==Sv5InfillCellValue.Solid),"NONE",p.Links.Single(l=>l.Room==r.Id).Proof.Success,plan.Digest))));
             Write(Path.Combine(directory,"infill_links.csv"),Csv("room_id,parent,host,ordered_cardinal_air_path,host_access,external_cardinal_air,external_cell_count,connection_centerline,connection_cell_count,length_policy,length_status,opening_faces,support_cells,approach,return,success,qualification,plan_digest",
                 p.Links.Select(l=>Row(l.Room,l.Parent,l.Host,Points(l.Path),Points(l.HostAccess),Points(l.ExternalCenterline),l.ExternalCenterline.Count,
                     Points(l.ConnectionCenterline),l.ConnectionCellCount,Sv5InfillProfile.ConnectionLengthPolicy,
-                    p.Rooms.Single(r=>r.Id==l.Room).Legacy ? "NOT_APPLICABLE_LEGACY_INTERIOR" : l.ConnectionCellCount<=p.Profile.MaximumLink ? "PASS" : "FAIL_OVER_LIMIT",
-                    string.Join("|",l.Faces.Select(f=>f.StableToken)),Points(l.Proof.Approach.Select(q=>new RmapSpecialWorldPoint(q.X,q.Y-1))),
+                    l.ConnectionCellCount<=p.Profile.MaximumLink ? "PASS" : "FAIL_OVER_LIMIT",
+                    string.Join("|",l.Faces.Select(f=>f.StableToken)),Points(l.Proof.Approach.Select(q=>new Sv5SpecialWorldPoint(q.X,q.Y-1))),
                     Points(l.Proof.Approach),Points(l.Proof.Return),l.Proof.Success,l.Proof.Reason,plan.Digest))));
             var known=Sv5SpaceInfill.KnownBase(plan); var added=p.Cells.Select(c=>c.World).ToHashSet();
             var reserved=p.PreviouslyReservedCells.ToHashSet();
-            var legacy=p.Rooms.Where(r=>r.Legacy).Select(r=>r.Id).ToHashSet();
-            var newOwned=p.Cells.Where(c=>!c.Shared && !legacy.Contains(c.Owner) && !reserved.Contains(c.World)).Select(c=>c.World).ToHashSet();
+            var newOwned=p.Cells.Where(c=>!c.Shared && !reserved.Contains(c.World)).Select(c=>c.World).ToHashSet();
             var windows=new List<string>();
             for(int row=0;row<13;row++) for(int col=0;col<13;col++)
             {
                 var bounds=new Sv5SpaceBounds(col*48,row*32,48,32);
                 int before=known.Keys.Count(bounds.Contains), after=known.Keys.Concat(added).Distinct().Count(bounds.Contains);
                 int reservations=reserved.Count(bounds.Contains), owned=newOwned.Count(bounds.Contains);
-                var rooms=p.Rooms.Where(r=>!r.Legacy && bounds.Contains(new RmapSpecialWorldPoint(r.Bounds.X+r.Bounds.Width/2,r.Bounds.Y+r.Bounds.Height/2))).ToArray();
+                var rooms=p.Rooms.Where(r=>bounds.Contains(new Sv5SpecialWorldPoint(r.Bounds.X+r.Bounds.Width/2,r.Bounds.Y+r.Bounds.Height/2))).ToArray();
                 windows.Add(Row(col,row,before,after,reservations,owned,1536-after,rooms.Length,
                     rooms.Count(r=>!p.Rooms.Any(child=>child.Parent==r.Id)),rooms.Count(r=>!p.Links.Single(l=>l.Room==r.Id).Proof.Success),plan.Digest));
             }
@@ -157,7 +154,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         private static string PreviewCells(Sv5SpaceGraphPlan plan,Sv5SpaceBounds view,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCellValue> cells,bool showRoomMarkers,string metadata)
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCellValue> cells,bool showRoomMarkers,string metadata)
         {
             var text=new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\""+view.Width+"\" height=\""+(view.Height+12)+"\" viewBox=\"0 0 "+view.Width+" "+(view.Height+12)+"\">");
             text.Append("<rect width=\"100%\" height=\"100%\" fill=\"#b8c3c6\"/><defs><pattern id=\"grid\" width=\"4\" height=\"4\" patternUnits=\"userSpaceOnUse\"><path d=\"M0 0H4V4 M1 0V4 M2 0V4 M3 0V4 M0 1H4 M0 2H4 M0 3H4\" fill=\"none\" stroke=\"#60727b\" stroke-width=\".03\"/><path d=\"M0 4V0H4\" fill=\"none\" stroke=\"#174b65\" stroke-width=\".09\"/></pattern></defs>");
@@ -182,7 +179,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append("<text x=\"1\" y=\"").Append(view.Height+6).Append("\" font-size=\"2.2\">1-cell grid; 4x4 pattern; 12x8 chunk. Composed=false; Player=false.</text>")
                 .Append("<metadata>").Append(H(metadata)).Append("</metadata></svg>\n");
             return text.ToString();
-            void Cell(RmapSpecialWorldPoint p,string color) => text.Append("<path d=\"M").Append(p.X-view.X).Append(" ").Append(view.MaxYExclusive-p.Y-1)
+            void Cell(Sv5SpecialWorldPoint p,string color) => text.Append("<path d=\"M").Append(p.X-view.X).Append(" ").Append(view.MaxYExclusive-p.Y-1)
                 .Append("h1v1h-1z\" fill=\"").Append(color).Append("\"/>");
         }
 
@@ -233,22 +230,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static string Summary(Sv5SpaceGraphPlan p) => "{\"plan_digest\":"+J(p.Digest)+",\"baseline_digest\":"+J(p.Infill.BaselineDigest)+
             ",\"new_rooms\":"+p.Infill.NewRoomCount+",\"new_owned_tiles\":"+p.Infill.NewOwnedTiles+",\"sector_counts\":["+string.Join(",",p.Infill.SectorCounts)+
             "],\"termination\":"+J(p.Infill.Termination)+",\"target_shortfall\":"+Math.Max(0,p.Infill.Profile.Target-p.Infill.NewRoomCount)+",\"validation\":"+ValidationJson(p)+"}";
-        private static IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCellValue> ReadCells(string path)
+        private static IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCellValue> ReadCells(string path)
         {
             if(!File.Exists(path)) throw new FileNotFoundException("Historical SV5_08 cell CSV is required read-only evidence.",path);
-            var cells=new Dictionary<RmapSpecialWorldPoint,Sv5InfillCellValue>();
+            var cells=new Dictionary<Sv5SpecialWorldPoint,Sv5InfillCellValue>();
             foreach(string line in File.ReadLines(path).Skip(1).Where(value=>value.Length>0))
             {
                 string[] fields=line.Trim('"').Split(new[]{"\",\""},StringSplitOptions.None);
                 if(fields.Length<3) throw new InvalidDataException("Malformed historical infill cell row.");
-                cells[new RmapSpecialWorldPoint(int.Parse(fields[0],CultureInfo.InvariantCulture),int.Parse(fields[1],CultureInfo.InvariantCulture))]=
+                cells[new Sv5SpecialWorldPoint(int.Parse(fields[0],CultureInfo.InvariantCulture),int.Parse(fields[1],CultureInfo.InvariantCulture))]=
                     (Sv5InfillCellValue)Enum.Parse(typeof(Sv5InfillCellValue),fields[2],true);
             }
-            return new System.Collections.ObjectModel.ReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCellValue>(cells);
+            return new System.Collections.ObjectModel.ReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCellValue>(cells);
         }
 
         private static string HistoricalComparison(Sv5SpaceGraphPlan plan,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCellValue> historical,Sv5SpaceBounds view,string label,bool showLengthWitness)
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCellValue> historical,Sv5SpaceBounds view,string label,bool showLengthWitness)
         {
             var before=Sv5SpaceInfill.KnownBase(plan).ToDictionary(c=>c.Key,c=>c.Value);
             foreach(var cell in historical) before[cell.Key]=cell.Value;
@@ -269,7 +266,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 string points=string.Join(" ",old.Select(p=>(p[0]-view.X+0.5).ToString(CultureInfo.InvariantCulture)+","+
                     (16+view.MaxYExclusive-p[1]-0.5).ToString(CultureInfo.InvariantCulture)));
                 text.Append("<polyline points=\"").Append(points).Append("\" fill=\"none\" stroke=\"#d12929\" stroke-width=\".5\"><title>historical 26-cell connector rejected by V2</title></polyline>");
-                foreach(var link in plan.Infill.Links.Where(l=>!plan.Infill.Rooms.Single(r=>r.Id==l.Room).Legacy && l.ConnectionCenterline.Any(view.Contains)))
+                foreach(var link in plan.Infill.Links.Where(l=>l.ConnectionCenterline.Any(view.Contains)))
                 {
                     string current=string.Join(" ",link.ConnectionCenterline.Where(view.Contains).Select(p=>(view.Width+gap+p.X-view.X+0.5).ToString(CultureInfo.InvariantCulture)+","+
                         (16+view.MaxYExclusive-p.Y-0.5).ToString(CultureInfo.InvariantCulture)));

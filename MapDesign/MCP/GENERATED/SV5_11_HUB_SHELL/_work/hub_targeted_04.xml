@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="15" result="Passed" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="223.429944">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26843" result="Passed" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="223.429944" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24904" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22823" result="Passed" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="223.189901" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="25660" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24905" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22823" result="Passed" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="223.054232" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24913" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22607" result="Passed" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="222.917380" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24917" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22548" result="Passed" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="222.779763" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24926" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7866" result="Passed" start-time="2026-09-13 05:36:22Z" end-time="2026-09-13 05:40:05Z" duration="222.539301" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24942" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="154" result="Passed" start-time="2026-09-13 05:36:23Z" end-time="2026-09-13 05:40:05Z" duration="222.472397" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24631" name="Sv5HubShellTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" testcasecount="15" result="Passed" start-time="2026-09-13 05:36:23Z" end-time="2026-09-13 05:40:05Z" duration="222.468583" total="15" passed="15" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="24632" name="H01_DefaultBuildAcceptsOneActualHubShell" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H01_DefaultBuildAcceptsOneActualHubShell" methodname="H01_DefaultBuildAcceptsOneActualHubShell" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="701458843" result="Passed" start-time="2026-09-13 05:36:23Z" end-time="2026-09-13 05:38:07Z" duration="104.283405" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="600000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24633" name="H02_RepeatBuildAcceptsOneActualHubShell" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H02_RepeatBuildAcceptsOneActualHubShell" methodname="H02_RepeatBuildAcceptsOneActualHubShell" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="778501249" result="Passed" start-time="2026-09-13 05:38:07Z" end-time="2026-09-13 05:40:01Z" duration="114.369692" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="600000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24634" name="H03_FootprintAndInnerVolumeUseActualOneByOneCells" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H03_FootprintAndInnerVolumeUseActualOneByOneCells" methodname="H03_FootprintAndInnerVolumeUseActualOneByOneCells" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="950474535" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.005207" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24635" name="H04_ShellOccupancyHasUniqueAirSolidTreeAndNeckCells" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H04_ShellOccupancyHasUniqueAirSolidTreeAndNeckCells" methodname="H04_ShellOccupancyHasUniqueAirSolidTreeAndNeckCells" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="2132816058" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.002117" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24636" name="H05_EveryCellCarriesFourByFourOwnershipAndHubIdentity" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H05_EveryCellCarriesFourByFourOwnershipAndHubIdentity" methodname="H05_EveryCellCarriesFourByFourOwnershipAndHubIdentity" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="225633055" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.000462" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24637" name="H06_SixSocketsCoverBothSidesThreeTiersAndSixToSevenCellApertures" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H06_SixSocketsCoverBothSidesThreeTiersAndSixToSevenCellApertures" methodname="H06_SixSocketsCoverBothSidesThreeTiersAndSixToSevenCellApertures" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="315352114" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.001930" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24638" name="H07_OnlyActiveSocketsBecomePortsAndUnusedSocketsDoNotCount" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H07_OnlyActiveSocketsBecomePortsAndUnusedSocketsDoNotCount" methodname="H07_OnlyActiveSocketsBecomePortsAndUnusedSocketsDoNotCount" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="1268703860" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.000656" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24639" name="H08_ConnectionsUseDistinctExternalRoomsAndSpaceGroups" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H08_ConnectionsUseDistinctExternalRoomsAndSpaceGroups" methodname="H08_ConnectionsUseDistinctExternalRoomsAndSpaceGroups" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="83678822" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.000279" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24640" name="H09_EachPortHasCardinalEvidenceToItsExternalAnchor" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H09_EachPortHasCardinalEvidenceToItsExternalAnchor" methodname="H09_EachPortHasCardinalEvidenceToItsExternalAnchor" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="976889897" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.000740" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24641" name="H10_AllActivePortAnchorsShareOnePassableShellComponent" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H10_AllActivePortAnchorsShareOnePassableShellComponent" methodname="H10_AllActivePortAnchorsShareOnePassableShellComponent" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="1636109295" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.000818" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24642" name="H11_TreeSlotIsContinuousReservationWithoutReadinessPromotion" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H11_TreeSlotIsContinuousReservationWithoutReadinessPromotion" methodname="H11_TreeSlotIsContinuousReservationWithoutReadinessPromotion" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="1988637850" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.001302" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24643" name="H12_ProtectedTypeZeroAndProgressionEvidenceRemainClear" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H12_ProtectedTypeZeroAndProgressionEvidenceRemainClear" methodname="H12_ProtectedTypeZeroAndProgressionEvidenceRemainClear" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="896151828" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:01Z" duration="0.001106" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24644" name="H13_SameSeedAndInputReproduceHubCandidateCellAndConnectionDigests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H13_SameSeedAndInputReproduceHubCandidateCellAndConnectionDigests" methodname="H13_SameSeedAndInputReproduceHubCandidateCellAndConnectionDigests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="314556461" result="Passed" start-time="2026-09-13 05:40:01Z" end-time="2026-09-13 05:40:05Z" duration="3.730520" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="600000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24645" name="H14_CandidateWorkIsLocalAndFinalProductPreservesNineBySixTopology" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H14_CandidateWorkIsLocalAndFinalProductPreservesNineBySixTopology" methodname="H14_CandidateWorkIsLocalAndFinalProductPreservesNineBySixTopology" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="617554380" result="Passed" start-time="2026-09-13 05:40:05Z" end-time="2026-09-13 05:40:05Z" duration="0.000353" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24646" name="H15_FinalDefaultRepeatExportsAreByteStableAndComplete" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests.H15_FinalDefaultRepeatExportsAreByteStableAndComplete" methodname="H15_FinalDefaultRepeatExportsAreByteStableAndComplete" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5HubShellTests" runstate="Runnable" seed="201521245" result="Passed" start-time="2026-09-13 05:40:05Z" end-time="2026-09-13 05:40:05Z" duration="0.056272" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="600000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

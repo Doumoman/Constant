@@ -1138,7 +1138,7 @@ namespace StarNight.Map.Tests.PlayMode.SV5
                 buttonConstructor = buttonType.GetConstructor(new[] { typeof(bool), typeof(bool), typeof(bool) });
                 accumulate = adapter.GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance)
                     .Single(method => method.Name == "AccumulateFrame" && method.GetParameters().Length == 6);
-                configure = movementType.GetMethod("ConfigureRmap02", BindingFlags.Public | BindingFlags.Instance);
+                configure = movementType.GetMethod("ConfigureSv502", BindingFlags.Public | BindingFlags.Instance);
                 reset = movementType.GetMethod("ResetMotion", BindingFlags.Public | BindingFlags.Instance);
                 grounded = movementType.GetProperty("IsGroundedNow");
                 grabbing = movementType.GetProperty("IsGrabbing");

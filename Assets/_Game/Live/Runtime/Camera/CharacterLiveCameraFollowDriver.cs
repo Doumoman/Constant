@@ -3,7 +3,7 @@ using UnityEngine;
 namespace StarNight.Character.Live.Cameras
 {
     /// <summary>
-    /// RMAP02's local gameplay camera. It follows a Player transform smoothly,
+    /// SV5's local gameplay camera. It follows a Player transform smoothly,
     /// letterboxes/pillarboxes to a true 12x8 world viewport, then clamps the
     /// final center to the authored fixture bounds. It has no room-transition,
     /// map-generation, or save ownership.

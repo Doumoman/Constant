@@ -39,7 +39,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var h=Default.Value.HubShell;Assert.That(h.Footprint.Width,Is.EqualTo(24));Assert.That(h.Footprint.Height,Is.EqualTo(40));
             var inner=new Sv5SpaceBounds(h.Footprint.X+6,h.Footprint.Y+5,12,30);
             Assert.That(Enumerable.Range(inner.X,inner.Width).SelectMany(x=>Enumerable.Range(inner.Y,inner.Height)
-                .Select(y=>new RmapSpecialWorldPoint(x,y))).All(point=>h.Cells.Any(c=>c.World.Equals(point)&&c.Role!=Sv5HubCellRole.Solid)),Is.True);
+                .Select(y=>new Sv5SpecialWorldPoint(x,y))).All(point=>h.Cells.Any(c=>c.World.Equals(point)&&c.Role!=Sv5HubCellRole.Solid)),Is.True);
         }
 
         [Test] public void H04_ShellOccupancyHasUniqueAirSolidTreeAndNeckCells()
@@ -88,9 +88,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void H10_AllActivePortAnchorsShareOnePassableShellComponent()
         {
-            var h=Default.Value.HubShell;var passable=new HashSet<RmapSpecialWorldPoint>(h.Cells.Where(v=>v.Role!=Sv5HubCellRole.Solid).Select(v=>v.World));
-            var anchors=h.Ports.Select(v=>v.Anchor).ToArray();var visited=new HashSet<RmapSpecialWorldPoint>{anchors[0]};var queue=new Queue<RmapSpecialWorldPoint>();queue.Enqueue(anchors[0]);
-            while(queue.Count!=0){var at=queue.Dequeue();foreach(var next in new[]{new RmapSpecialWorldPoint(at.X-1,at.Y),new RmapSpecialWorldPoint(at.X+1,at.Y),new RmapSpecialWorldPoint(at.X,at.Y-1),new RmapSpecialWorldPoint(at.X,at.Y+1)})if(passable.Contains(next)&&visited.Add(next))queue.Enqueue(next);}
+            var h=Default.Value.HubShell;var passable=new HashSet<Sv5SpecialWorldPoint>(h.Cells.Where(v=>v.Role!=Sv5HubCellRole.Solid).Select(v=>v.World));
+            var anchors=h.Ports.Select(v=>v.Anchor).ToArray();var visited=new HashSet<Sv5SpecialWorldPoint>{anchors[0]};var queue=new Queue<Sv5SpecialWorldPoint>();queue.Enqueue(anchors[0]);
+            while(queue.Count!=0){var at=queue.Dequeue();foreach(var next in new[]{new Sv5SpecialWorldPoint(at.X-1,at.Y),new Sv5SpecialWorldPoint(at.X+1,at.Y),new Sv5SpecialWorldPoint(at.X,at.Y-1),new Sv5SpecialWorldPoint(at.X,at.Y+1)})if(passable.Contains(next)&&visited.Add(next))queue.Enqueue(next);}
             Assert.That(anchors.All(visited.Contains),Is.True);
         }
 
@@ -104,7 +104,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void H12_ProtectedTypeZeroAndProgressionEvidenceRemainClear()
         {
             var h=Default.Value.HubShell;
-            var protectedCells=new HashSet<RmapSpecialWorldPoint>(h.ConstraintSets.SelectMany(set=>set.Cells));
+            var protectedCells=new HashSet<Sv5SpecialWorldPoint>(h.ConstraintSets.SelectMany(set=>set.Cells));
             Assert.That(h.Cells.All(v=>!protectedCells.Contains(v.World)),Is.True);
             Assert.That(h.Connections.All(v=>!Sv5HubConnectionRouter.BodyIntersects(v.Centerline,protectedCells)&&
                 !v.ProtectedOverlap&&!v.Type0Overlap&&!v.ProgressionBypass),Is.True);

@@ -1,0 +1,49 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FIX03_SCHEDULER/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "policy_id": "WALKABLE_FRONTIER_AND_GRAB_EXIT_V2",
+  "proven_failure_groups": ["JS_LINK_02_HEAD_IMPACT", "JS_LINK_03_NON_IMPULSIVE_RELEASE", "JS_LINK_06_FUTURE_SUPPORT_BLOCK"],
+  "jump_trigger": {
+    "requires_grounded": true,
+    "leading_capsule_edge": "body_x + direction_sign * capsule_half_width",
+    "support_frontier": "MAX_CONTIGUOUS_SUPPORTED_AND_BODY_HEAD_CLEAR_CELLS_IN_DIRECTION",
+    "stop_conditions": ["UNSUPPORTED_NEXT_CELL", "BODY_CELL_BLOCKED", "HEAD_CELL_BLOCKED"],
+    "internal_supported_cell_boundary_is_frontier": false,
+    "threshold_formula": "max(abs(velocity_x) * fixed_delta_time + collision_skin, minimum_edge_margin)",
+    "action": "SUBMIT_JUMP_IN_NEXT_FIXED_SNAPSHOT_BEFORE_FRONTIER_EXIT",
+    "hardcoded_step_allowed": false,
+    "per_link_magic_frame_allowed": false,
+    "coyote_time_required_for_pass": false
+  },
+  "air_control": {
+    "target": "BOUND_LANDING_SUPPORT_INTERVAL",
+    "hold_toward_target_until_interval": true,
+    "brake_only_from_actual_position_and_velocity": true,
+    "per_link_delay_allowed": false
+  },
+  "grab_exit": {
+    "links": ["JUMP012_MIXED_R0/JS_LINK_03", "JUMP012_MIXED_MX/JS_LINK_03"],
+    "required_consecutive_grab_observations": 2,
+    "fresh_jump_press": true,
+    "down_must_be_false": true,
+    "horizontal_input_toward_landing": true,
+    "positive_vertical_velocity_observation_window": 2,
+    "required_event": "GRAB_SPACE_EXIT",
+    "failure_event": "GRAB_EXIT_NO_VERTICAL_IMPULSE",
+    "pull_up_allowed": false,
+    "teleport_allowed": false
+  },
+  "diagnostic": {
+    "first_gate_cases": ["MAIN_R0_02", "MAIN_MX_02", "MAIN_R0_03", "MAIN_MX_03", "MAIN_R0_06", "MAIN_MX_06"],
+    "first_gate_required": "6/6 PASS",
+    "main_link_cases": 18,
+    "main_gate_required": "18/18 PASS",
+    "parallel_execution": false,
+    "run_before_full_38_case_suite": true
+  },
+  "fail_fast": {
+    "minimum_body_y": -2.0,
+    "maximum_steps_per_case": 240,
+    "grab_exit_missing_impulse_stops_immediately": true
+  }
+}

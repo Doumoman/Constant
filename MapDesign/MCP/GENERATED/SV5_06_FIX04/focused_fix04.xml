@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Failed(Child)" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-11 08:09:58Z" end-time="2026-09-11 08:10:40Z" duration="41.643506">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26757" result="Failed" site="Child" start-time="2026-09-11 08:09:58Z" end-time="2026-09-11 08:10:40Z" duration="41.643506" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="24810" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22737" result="Failed" site="Child" start-time="2026-09-11 08:09:58Z" end-time="2026-09-11 08:10:40Z" duration="41.484698" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="7068" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="24811" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22737" result="Failed" site="Child" start-time="2026-09-11 08:09:58Z" end-time="2026-09-11 08:10:40Z" duration="41.361699" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="24819" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22521" result="Failed" site="Child" start-time="2026-09-11 08:09:58Z" end-time="2026-09-11 08:10:40Z" duration="41.230885" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="24823" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22462" result="Failed" site="Child" start-time="2026-09-11 08:09:58Z" end-time="2026-09-11 08:10:40Z" duration="41.103857" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="24832" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7780" result="Failed" site="Child" start-time="2026-09-11 08:09:59Z" end-time="2026-09-11 08:10:40Z" duration="40.872166" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="24848" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="68" result="Failed" site="Child" start-time="2026-09-11 08:09:59Z" end-time="2026-09-11 08:10:40Z" duration="40.810487" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="24677" name="Sv5SpaceGraphFix04Tests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-09-11 08:09:59Z" end-time="2026-09-11 08:10:40Z" duration="40.808247" total="9" passed="5" failed="4" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5_06_FIX04" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="24678" name="C01_Fix03CounterexampleIsPreserved" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.C01_Fix03CounterexampleIsPreserved" methodname="C01_Fix03CounterexampleIsPreserved" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="1781003133" result="Passed" start-time="2026-09-11 08:09:59Z" end-time="2026-09-11 08:10:40Z" duration="40.789533" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[OPEN_SV5_GATE_D0D6EDED7F731ED2D088|expected=True|actual=True|reachable=True|success=True|faces=22
+OPEN_SV5_GATE_F7F5C03CD911CAD5D150|expected=True|actual=True|reachable=True|success=True|faces=23
+OPEN_SV5_GATE_F90095C47BEC0869BB04|expected=True|actual=True|reachable=True|success=True|faces=43
+SEALED_SV5_GATE_D0D6EDED7F731ED2D088|expected=False|actual=False|reachable=False|success=True|faces=22
+SEALED_SV5_GATE_F7F5C03CD911CAD5D150|expected=False|actual=False|reachable=False|success=True|faces=23
+SEALED_SV5_GATE_F90095C47BEC0869BB04|expected=False|actual=False|reachable=False|success=True|faces=43
+W01_SEAL_ENTRY_REACHABLE|expected=True|actual=True|reachable=True|success=True|faces=23
+W02_BOSS_APPROACH_REACHABLE|expected=True|actual=True|reachable=True|success=True|faces=22
+W02_EXIT_REMAINS_SEALED|expected=False|actual=False|reachable=False|success=True|faces=43
+diagnostics=GLOBAL_GATE_OPEN_PATH_MISSING|FORGE_OPEN;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|0|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|0|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|1|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|1|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|2|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|2|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|3|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|3|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|4|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|4|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|5|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|5|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|6|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|6|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|7|1|1|1|1|0|SV5_CORE_CONN_0fc428a59647d624|False;PRODUCT_OPEN_TRANSITION_BLOCKED|RMAP13_STATE_V1|COMPLETION_STATE_V1|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|7|3|1|1|1|0|SV5_CORE_CONN_29dc755094886d48|False
+]]></output>
+                  </test-case>
+                  <test-case id="24679" name="F01_ConditionalGatesHaveExactLocalBarriers" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F01_ConditionalGatesHaveExactLocalBarriers" methodname="F01_ConditionalGatesHaveExactLocalBarriers" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="135356518" result="Failed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.002552" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F01_ConditionalGatesHaveExactLocalBarriers () [0x00024] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceGraphFix04Tests.cs:34
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="24680" name="F02_SharedAndFaceUsePhysicalGeometry" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F02_SharedAndFaceUsePhysicalGeometry" methodname="F02_SharedAndFaceUsePhysicalGeometry" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="1166179687" result="Failed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000888" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F02_SharedAndFaceUsePhysicalGeometry () [0x00000] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceGraphFix04Tests.cs:37
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="24681" name="F03_DeepStarYeastApproachAndReturnReachable" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F03_DeepStarYeastApproachAndReturnReachable" methodname="F03_DeepStarYeastApproachAndReturnReachable" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="669674076" result="Passed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000250" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24682" name="F04_BossForgeClosedPreservesNormalTransitions" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F04_BossForgeClosedPreservesNormalTransitions" methodname="F04_BossForgeClosedPreservesNormalTransitions" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="1133089660" result="Failed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000223" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F04_BossForgeClosedPreservesNormalTransitions () [0x00000] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceGraphFix04Tests.cs:44
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="24683" name="F05_ResourceOrderStateProductIsComplete" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F05_ResourceOrderStateProductIsComplete" methodname="F05_ResourceOrderStateProductIsComplete" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="651907286" result="Failed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000800" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F05_ResourceOrderStateProductIsComplete () [0x00029] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceGraphFix04Tests.cs:48
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="24684" name="F06_OptionalCollateralLocksAreAbsent" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F06_OptionalCollateralLocksAreAbsent" methodname="F06_OptionalCollateralLocksAreAbsent" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="1514334458" result="Passed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000381" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24685" name="F07_RenameOrderDigestRegression" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F07_RenameOrderDigestRegression" methodname="F07_RenameOrderDigestRegression" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="574936618" result="Passed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000475" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24686" name="F08_ExportEvidenceBindsProductDigest" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests.F08_ExportEvidenceBindsProductDigest" methodname="F08_ExportEvidenceBindsProductDigest" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceGraphFix04Tests" runstate="Runnable" seed="1827833370" result="Passed" start-time="2026-09-11 08:10:40Z" end-time="2026-09-11 08:10:40Z" duration="0.000255" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

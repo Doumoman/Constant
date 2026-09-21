@@ -32,11 +32,11 @@ MIRROR_X occupancy are exact mirrors.
 
 ## Harness isolation
 
-FIX05 loads RMAP02 and RMAP03 saved scenes additively, inspects only the loaded
+FIX05 loads SV5 and SV5 saved scenes additively, inspects only the loaded
 scene, restores the previous active scene, unloads in `finally`, and destroys
 test-owned physical roots followed by one frame and
-`Physics2D.SyncTransforms()`. The accepted direct gate is exactly 5 RMAP02,
-10 RMAP03, and 6 RMAP04 tests in one Unity execution.
+`Physics2D.SyncTransforms()`. The accepted direct gate is exactly 5 SV5,
+10 SV5, and 6 SV5 tests in one Unity execution.
 
 ## Readiness
 

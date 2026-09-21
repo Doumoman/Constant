@@ -19,7 +19,7 @@ namespace StarNight.Character.Input
         }
 
         /// <summary>
-        /// RMAP04 live traversal extension.  Up/Down and Shift remain values
+        /// SV5 live traversal extension.  Up/Down and Shift remain values
         /// in the same fixed-step snapshot; they do not allocate a new
         /// CharacterActionId or change the locked action priority.
         /// </summary>
@@ -38,7 +38,7 @@ namespace StarNight.Character.Input
         }
 
         /// <summary>
-        /// RMAP06 observation modifier. It is deliberately a held value in
+        /// SV5 observation modifier. It is deliberately a held value in
         /// the existing fixed-step snapshot rather than a new gameplay
         /// action: the live movement driver decides when it may consume the
         /// accompanying Move/Up/Down direction.
@@ -71,7 +71,7 @@ namespace StarNight.Character.Input
         /// <summary>하강 축 유지 여부. SafeDrop 조합 계산에 사용한다.</summary>
         public bool DownHeld { get; }
 
-        /// <summary>상승 축 유지 여부. RMAP04 climb-axis 진입/이동에 사용한다.</summary>
+        /// <summary>상승 축 유지 여부. SV5 climb-axis 진입/이동에 사용한다.</summary>
         public bool UpHeld { get; }
 
         /// <summary>Shift 보행/느린 climb modifier 유지 여부.</summary>

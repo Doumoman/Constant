@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="14" result="Failed(Child)" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-12 10:42:33Z" end-time="2026-09-12 10:52:38Z" duration="605.0442266">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26814" result="Failed" site="Child" start-time="2026-09-12 10:42:33Z" end-time="2026-09-12 10:52:38Z" duration="605.044227" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="24873" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22794" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.768841" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="40464" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="24874" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22794" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.624645" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="24882" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22578" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.482618" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="24886" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22519" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.342857" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="24895" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7837" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.083925" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="24911" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="125" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.015731" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="24736" name="Sv5SpaceLoopTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:52:38Z" duration="604.011798" total="14" passed="13" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="24737" name="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" methodname="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1514926084" result="Passed" start-time="2026-09-12 10:42:34Z" end-time="2026-09-12 10:45:24Z" duration="170.063727" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24738" name="T02_RepeatProductionPlanMeetsHardMinimumAndSpread" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T02_RepeatProductionPlanMeetsHardMinimumAndSpread" methodname="T02_RepeatProductionPlanMeetsHardMinimumAndSpread" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="292822207" result="Passed" start-time="2026-09-12 10:45:24Z" end-time="2026-09-12 10:48:42Z" duration="197.781741" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24739" name="T03_SameSeedAndProfileReproduceCandidateCellDigestAndExportBytes" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T03_SameSeedAndProfileReproduceCandidateCellDigestAndExportBytes" methodname="T03_SameSeedAndProfileReproduceCandidateCellDigestAndExportBytes" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1358795566" result="Passed" start-time="2026-09-12 10:48:42Z" end-time="2026-09-12 10:51:33Z" duration="170.346161" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24740" name="T04_InclusiveLengthAcceptsTwentyThreeAndTwentyFourAndRejectsTwentyFive" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T04_InclusiveLengthAcceptsTwentyThreeAndTwentyFourAndRejectsTwentyFive" methodname="T04_InclusiveLengthAcceptsTwentyThreeAndTwentyFourAndRejectsTwentyFive" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="2096088680" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.002453" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24741" name="T05_SupportedPlusOneIsAllowedAndPlusTwoIsRejectedWithoutDiagonalTeleport" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T05_SupportedPlusOneIsAllowedAndPlusTwoIsRejectedWithoutDiagonalTeleport" methodname="T05_SupportedPlusOneIsAllowedAndPlusTwoIsRejectedWithoutDiagonalTeleport" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="60776637" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.001281" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24742" name="T06_LoopsUseActualAirSupportAndExplicitSolidOpeningOverrides" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T06_LoopsUseActualAirSupportAndExplicitSolidOpeningOverrides" methodname="T06_LoopsUseActualAirSupportAndExplicitSolidOpeningOverrides" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="650288965" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.008022" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24743" name="T07_EndpointsAreDistinctBranchesAndDirectParentChildPairsAreExcluded" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T07_EndpointsAreDistinctBranchesAndDirectParentChildPairsAreExcluded" methodname="T07_EndpointsAreDistinctBranchesAndDirectParentChildPairsAreExcluded" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1687546381" result="Failed" label="Error" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.024093" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[System.InvalidOperationException : Sequence contains no matching element]]></message>
+                      <stack-trace><![CDATA[  at System.Linq.Enumerable.Single[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Func`2[T,TResult] predicate) [0x00070] in <6faa6124236442759eb396cfbfdad508>:0 
+  at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T07_EndpointsAreDistinctBranchesAndDirectParentChildPairsAreExcluded () [0x0016e] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceLoopTests.cs:100 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <1eb9db207454431c84a47bcd81e79c37>:0 ]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case id="24744" name="T08_CoreTypeZeroGatePortAndForeignReservationsRemainUntouched" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T08_CoreTypeZeroGatePortAndForeignReservationsRemainUntouched" methodname="T08_CoreTypeZeroGatePortAndForeignReservationsRemainUntouched" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="2146465713" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.001691" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24745" name="T09_EveryAcceptedLinkHasAlternatePathAndAddsExactlyOneCycleWithoutStubOrDuplicate" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T09_EveryAcceptedLinkHasAlternatePathAndAddsExactlyOneCycleWithoutStubOrDuplicate" methodname="T09_EveryAcceptedLinkHasAlternatePathAndAddsExactlyOneCycleWithoutStubOrDuplicate" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="974622443" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.001401" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24746" name="T10_StrictActualCostReductionAloneClassifiesRandomShortcut" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T10_StrictActualCostReductionAloneClassifiesRandomShortcut" methodname="T10_StrictActualCostReductionAloneClassifiesRandomShortcut" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="738610380" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.000405" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24747" name="T11_FourByFourMaskedPayloadReconstructsActualCellsWithTwoContourVariants" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T11_FourByFourMaskedPayloadReconstructsActualCellsWithTwoContourVariants" methodname="T11_FourByFourMaskedPayloadReconstructsActualCellsWithTwoContourVariants" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1498808641" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.003280" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24748" name="T12_AllLegalFsmStatesAndSixResourceOrdersRemainPhysicallyValid" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T12_AllLegalFsmStatesAndSixResourceOrdersRemainPhysicallyValid" methodname="T12_AllLegalFsmStatesAndSixResourceOrdersRemainPhysicallyValid" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1716595774" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:51:33Z" duration="0.026960" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24749" name="T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence" methodname="T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1106159167" result="Passed" start-time="2026-09-12 10:51:33Z" end-time="2026-09-12 10:52:38Z" duration="65.680339" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="24750" name="T14_PreviousOneHundredTwoFocusedNamesRemainAndReadinessIsNotOverclaimed" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T14_PreviousOneHundredTwoFocusedNamesRemainAndReadinessIsNotOverclaimed" methodname="T14_PreviousOneHundredTwoFocusedNamesRemainAndReadinessIsNotOverclaimed" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="316512506" result="Passed" start-time="2026-09-12 10:52:38Z" end-time="2026-09-12 10:52:38Z" duration="0.055141" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

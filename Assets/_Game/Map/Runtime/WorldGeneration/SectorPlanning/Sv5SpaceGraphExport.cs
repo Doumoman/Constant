@@ -123,7 +123,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     for(int gy=y;gy<=y+h;gy++) s.Append("<path d=\"M").Append(x).Append(' ').Append(gy).Append("h").Append(w)
                         .Append("\" stroke=\"").Append(gy%4==0?"#9aa7b2":"#dce2e6").Append("\" stroke-width=\"").Append(gy%4==0?"0.15":"0.05").Append("\"/>");
                 }
-                foreach(var c in p.Core.CoreCells.Where(c=>c.Protection==RmapSpecialProtectionKind.FixedSolid))
+                foreach(var c in p.Core.CoreCells.Where(c=>c.Protection==Sv5SpecialProtectionKind.FixedSolid))
                     s.Append("<rect x=\"").Append(c.World.X).Append("\" y=\"").Append(c.World.Y).Append("\" width=\"1\" height=\"1\" fill=\"#37434d\"/>");
                 foreach(var c in p.Connections) s.Append("<polyline points=\"").Append(string.Join(" ",c.Centerline.Select(v=>N(v.X)+","+N(v.Y))))
                     .Append("\" fill=\"none\" stroke=\"#377ec4\" stroke-width=\"0.45\"/>");
@@ -152,7 +152,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             }
             string Color(string family)
             {
-                string hash=StarNight.Map.WorldGeneration.WorldData.RmapWorldDefinition.Hash(family);
+                string hash=StarNight.Map.WorldGeneration.WorldData.Sv5WorldDefinition.Hash(family);
                 return "#"+string.Join("",Enumerable.Range(0,3).Select(i=>(32+int.Parse(hash.Substring(i*2,2),NumberStyles.HexNumber)%128).ToString("x2")));
             }
             string F(double n) => n.ToString(CultureInfo.InvariantCulture);
@@ -272,10 +272,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 int X(int x) => ox+(x-minX)*scale;
                 int Y(int y) => 120+(minY+height-1-y)*scale;
-                bool Visible(RmapSpecialWorldPoint p) => p.X>=minX && p.X<minX+width && p.Y>=minY && p.Y<minY+height;
-                var passage = new HashSet<RmapSpecialWorldPoint>(connections.SelectMany(c => c.Centerline.Concat(c.ApertureCells)));
-                var solid = new HashSet<RmapSpecialWorldPoint>(plan.Core.CoreCells.Where(c => c.Protection == RmapSpecialProtectionKind.FixedSolid).Select(c => c.World)
-                    .Concat(plan.Core.RouteCells.Where(c => c.RequiredBaseCell == StarNight.Map.WorldGeneration.MicroPatterns.RmapPatternBaseCell.Solid).Select(c => c.World)));
+                bool Visible(Sv5SpecialWorldPoint p) => p.X>=minX && p.X<minX+width && p.Y>=minY && p.Y<minY+height;
+                var passage = new HashSet<Sv5SpecialWorldPoint>(connections.SelectMany(c => c.Centerline.Concat(c.ApertureCells)));
+                var solid = new HashSet<Sv5SpecialWorldPoint>(plan.Core.CoreCells.Where(c => c.Protection == Sv5SpecialProtectionKind.FixedSolid).Select(c => c.World)
+                    .Concat(plan.Core.RouteCells.Where(c => c.RequiredBaseCell == StarNight.Map.WorldGeneration.MicroPatterns.Sv5PatternBaseCell.Solid).Select(c => c.World)));
                 var forge = initialDeepStar ? connections.Single(c => c.Id == "SV5_CORE_CONN_93f752cf7b8f813c") :
                     connections.Single(c => c.Condition == "FORGE_GATED_SEAL_APPROACH");
                 var reach = Sv5SpacePhysicalMovement.Evaluate(plan.Core,connections,gates,forge.Id,
@@ -283,7 +283,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 svg.Append("<text x=\"").Append(ox).Append("\" y=\"101\" font-size=\"15\">").Append(label).Append("; reachable=").Append(reach.TargetPortReachable).Append("</text>");
                 for(int y=minY;y<minY+height;y++) for(int x=minX;x<minX+width;x++)
                 {
-                    var p = new RmapSpecialWorldPoint(x,y);
+                    var p = new Sv5SpecialWorldPoint(x,y);
                     svg.Append("<rect x=\"").Append(X(x)).Append("\" y=\"").Append(Y(y)).Append("\" width=\"24\" height=\"24\" fill=\"")
                         .Append(solid.Contains(p)?"#38434e":"#fff").Append("\" stroke=\"#c7ccd1\" stroke-width=\"0.5\"/>");
                     if(passage.Contains(p)) svg.Append("<rect x=\"").Append(X(x)+3).Append("\" y=\"").Append(Y(y)+3).Append("\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"#2376bd\" stroke-dasharray=\"3 2\"/>");
@@ -571,7 +571,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return "{\n" +
                 "  \"schema\": \"SV5_SPACE_STATE_PROOFS_FIX03_V1\",\n" +
                 "  \"plan_digest\": " + J(plan.Digest) + ",\n" +
-                "  \"baseline\": {\"source\":\"RMAP13\",\"edge_count\":" + N(plan.Core.RouteSource.Graph.Edges.Count) +
+                "  \"baseline\": {\"source\":\"SV5\",\"edge_count\":" + N(plan.Core.RouteSource.Graph.Edges.Count) +
                     ",\"proof_count\":" + N(plan.Core.RouteSource.Graph.Proofs.Count) + ",\"pass\":" +
                     B(plan.Core.RouteSource.Graph.Success) + "},\n" +
                 "  \"candidate_set\": {\"source\":\"SV5_05_FIX01_API\",\"status\":\"PRESERVED_SEPARATE\"},\n" +
@@ -758,7 +758,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     .Append("\" r=\"").Append(overview ? "1.2" : "1.8").Append("\" fill=\"#fff176\"/>");
             foreach (Sv5SpaceGate value in plan.Gates)
             {
-                foreach (RmapSpecialWorldPoint cell in value.BlockingCells)
+                foreach (Sv5SpecialWorldPoint cell in value.BlockingCells)
                     svg.Append("<rect x=\"").Append(cell.X).Append("\" y=\"").Append(cell.Y)
                         .Append("\" width=\"1\" height=\"1\" fill=\"#ef5350\"/>");
                 foreach (Sv5SpaceBoundaryFace face in value.BlockingFaces)
@@ -804,10 +804,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             string text = value is bool boolean ? (boolean ? "true" : "false") : Convert.ToString(value, CultureInfo.InvariantCulture) ?? string.Empty;
             return text.IndexOfAny(new[] { ',', '"', '\n', '\r' }) >= 0 ? "\"" + text.Replace("\"", "\"\"") + "\"" : text;
         }));
-        private static string Cells(IEnumerable<RmapSpecialWorldPoint> cells) => string.Join("|", (cells ??
-            Array.Empty<RmapSpecialWorldPoint>()).Select(value => value.X.ToString(CultureInfo.InvariantCulture) + ":" +
+        private static string Cells(IEnumerable<Sv5SpecialWorldPoint> cells) => string.Join("|", (cells ??
+            Array.Empty<Sv5SpecialWorldPoint>()).Select(value => value.X.ToString(CultureInfo.InvariantCulture) + ":" +
             value.Y.ToString(CultureInfo.InvariantCulture)));
-        private static string Point(RmapSpecialWorldPoint point) => "[" + N(point.X) + "," + N(point.Y) + "]";
+        private static string Point(Sv5SpecialWorldPoint point) => "[" + N(point.X) + "," + N(point.Y) + "]";
         private static string J(string value) => "\"" + (value ?? string.Empty).Replace("\\", "\\\\")
             .Replace("\"", "\\\"").Replace("\r", "\\r").Replace("\n", "\\n") + "\"";
         private static string N(int value) => value.ToString(CultureInfo.InvariantCulture);

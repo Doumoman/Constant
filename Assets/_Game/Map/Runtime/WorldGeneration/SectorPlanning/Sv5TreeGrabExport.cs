@@ -182,9 +182,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         private static string State(Sv5MovementEdge edge)=>edge.MoveType==Sv5PlatformerMoveType.JumpGrab?"JUMP_GRAB":
             edge.MoveType==Sv5PlatformerMoveType.Drop?"DROP":edge.TraversalState=="TRUNK_CLIMB"?"TRUNK_CLIMB":"BRANCH_LAND";
-        private static bool Clear(Sv5TreeGrabPlan tree,RmapSpecialWorldPoint point)=>
+        private static bool Clear(Sv5TreeGrabPlan tree,Sv5SpecialWorldPoint point)=>
             Sv5LoopTopology.ValueAt(tree.FinalOccupancy,point)==Sv5InfillCellValue.Air&&
-            Sv5LoopTopology.ValueAt(tree.FinalOccupancy,new RmapSpecialWorldPoint(point.X,point.Y+1))==Sv5InfillCellValue.Air;
+            Sv5LoopTopology.ValueAt(tree.FinalOccupancy,new Sv5SpecialWorldPoint(point.X,point.Y+1))==Sv5InfillCellValue.Air;
         private static string Bounds(Sv5SpaceBounds value)=>"\"x\":"+value.X+",\"y\":"+value.Y+",\"width\":"+value.Width+",\"height\":"+value.Height;
         private static StringBuilder SvgStart(Sv5HubShellPlan hub,int scale,string title)=>new StringBuilder(
             "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 "+hub.Footprint.Width*scale+" "+hub.Footprint.Height*scale+
@@ -204,21 +204,21 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 .Append((hub.Footprint.MaxYExclusive-tree.ReservedVolume.MaxYExclusive)*scale).Append("\" x2=\"")
                 .Append(x.ToString("0.0",CultureInfo.InvariantCulture)).Append("\" y2=\"")
                 .Append((hub.Footprint.MaxYExclusive-tree.ReservedVolume.Y)*scale).Append("\" stroke=\"#ffffff\" stroke-width=\"0.7\" stroke-dasharray=\"2 2\"/>");}
-        private static void Rect(StringBuilder text,Sv5HubShellPlan hub,RmapSpecialWorldPoint point,string color,int scale,double opacity)
+        private static void Rect(StringBuilder text,Sv5HubShellPlan hub,Sv5SpecialWorldPoint point,string color,int scale,double opacity)
         {text.Append("<rect x=\"").Append((point.X-hub.Footprint.X)*scale).Append("\" y=\"")
             .Append((hub.Footprint.MaxYExclusive-1-point.Y)*scale).Append("\" width=\"").Append(scale)
             .Append("\" height=\"").Append(scale).Append("\" fill=\"").Append(color).Append("\" opacity=\"")
             .Append(opacity.ToString("0.00",CultureInfo.InvariantCulture)).Append("\"/>");}
-        private static void Circle(StringBuilder text,Sv5HubShellPlan hub,RmapSpecialWorldPoint point,string color,int scale)
+        private static void Circle(StringBuilder text,Sv5HubShellPlan hub,Sv5SpecialWorldPoint point,string color,int scale)
         {text.Append("<circle cx=\"").Append((point.X-hub.Footprint.X+0.5)*scale).Append("\" cy=\"")
             .Append((hub.Footprint.MaxYExclusive-point.Y-0.5)*scale).Append("\" r=\"3\" fill=\"").Append(color).Append("\"/>");}
-        private static void Line(StringBuilder text,Sv5HubShellPlan hub,RmapSpecialWorldPoint from,RmapSpecialWorldPoint to,string color,int scale)
+        private static void Line(StringBuilder text,Sv5HubShellPlan hub,Sv5SpecialWorldPoint from,Sv5SpecialWorldPoint to,string color,int scale)
         {text.Append("<line x1=\"").Append((from.X-hub.Footprint.X+0.5)*scale).Append("\" y1=\"")
             .Append((hub.Footprint.MaxYExclusive-from.Y-0.5)*scale).Append("\" x2=\"")
             .Append((to.X-hub.Footprint.X+0.5)*scale).Append("\" y2=\"")
             .Append((hub.Footprint.MaxYExclusive-to.Y-0.5)*scale).Append("\" stroke=\"").Append(color)
             .Append("\" stroke-width=\"2\"/>");}
-        private static void PointLabel(StringBuilder text,Sv5HubShellPlan hub,RmapSpecialWorldPoint point,string label,int scale)
+        private static void PointLabel(StringBuilder text,Sv5HubShellPlan hub,Sv5SpecialWorldPoint point,string label,int scale)
         {text.Append("<text x=\"").Append((point.X-hub.Footprint.X+0.15)*scale).Append("\" y=\"")
             .Append((hub.Footprint.MaxYExclusive-point.Y-0.15)*scale).Append("\" fill=\"#ffffff\" font-size=\"3.5\">")
             .Append(label).Append("</text>");}

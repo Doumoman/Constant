@@ -1,0 +1,59 @@
+{
+  "package": {
+    "status": "PASS_PACKAGE_ONLY",
+    "reservation_sections": 8,
+    "focused_validation_responsibilities": 8,
+    "native_status_finalize_commit_checked": false,
+    "actual_API_binding_verified_here": false,
+    "mcp_applied": false,
+    "unity_run": false,
+    "errors": []
+  },
+  "prior_input_and_file_flow_hashes_match_report": true,
+  "reported_audit_summary": {
+    "groups": 13,
+    "bindings": 19,
+    "reuse": 13,
+    "adapt": 4,
+    "new": 2,
+    "physical_sites": 8,
+    "protected_cells": 2432
+  },
+  "actual_audit_tables_opened_here": false,
+  "actual_runtime_implementation_or_Unity_run": "NOT_RUN",
+  "actual_SV5_03_finalize_commit": "NOT_VERIFIED_HERE",
+  "new_project_root_files": 0,
+  "verifier_fixtures": [
+    {
+      "case": "nested_default_map_root",
+      "expected": "PASS_LOCAL_BYTES_ONLY",
+      "test": "PASS",
+      "synthetic_only": true
+    },
+    {
+      "case": "input_reference_rejected",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_only": true
+    },
+    {
+      "case": "missing_real_table_no_fallback",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_only": true
+    },
+    {
+      "case": "audit_bytes_mismatch_rejected",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_only": true
+    },
+    {
+      "case": "known_blocked_readiness_rejected",
+      "expected": "FAIL",
+      "test": "PASS",
+      "synthetic_only": true
+    }
+  ],
+  "max_markdown_lines": 94
+}

@@ -1,6 +1,6 @@
 {
   "schema": "SV5_SPACE_STATE_PROOFS_FIX03_V1",
-  "plan_digest": "ec00522aa6b6e8da780a2d0ae593a8805e80ddf196b16cd60bb5ec124574217b",
+  "plan_digest": "d381ea7f0f21f05701140f12f3d305a8dc506a576371888395da9c021b1352d5",
   "baseline": {"source":"RMAP13","edge_count":11,"proof_count":6,"pass":true},
   "candidate_set": {"source":"SV5_05_FIX01_API","status":"PRESERVED_SEPARATE"},
   "gate_bindings": [{"gate_id":"SV5_GATE_81BAEC0F51B2FEE6443F","connection_id":"SV5_CORE_CONN_29dc755094886d48","typed_predicate":"mask=0,forge=1,seal=0,boss=0"},{"gate_id":"SV5_GATE_CE3A6CEC888F775FDF94","connection_id":"SV5_CORE_CONN_74004c50147eb4af","typed_predicate":"mask=0,forge=0,seal=0,boss=1"},{"gate_id":"SV5_GATE_D3E9DFDBAD3EFFEBB9CD","connection_id":"SV5_CORE_CONN_88ee0ec82e323424","typed_predicate":"mask=0,forge=0,seal=1,boss=0"}],

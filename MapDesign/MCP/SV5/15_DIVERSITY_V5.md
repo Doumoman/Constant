@@ -20,6 +20,6 @@ family_key는 명시적 alias로만 결정한다. variant/표시 이름은 진�
 
 ## 출력과 완료 수준
 
-최종 실제 수치와 시험은 `REPORTS/SV5_07_DIVERSITY_RESULT.md` 및 `GENERATED/SV5_07/`를 소비한다. default/repeat는 ON 출력 한 벌씩이며 OFF geometry는 diversity.json에 포함한다. pairs.csv/decisions.csv와 비교 그림은 같은 실제 plan에서 만든다. 기존 회귀의 임시 export는 SV5_07/_work/legacy_exports의 fixture별 경로에만 쓴다. 과거 FIX04/FIX03 출력은 읽기 전용이다.
+최종 실제 수치와 시험은 `REPORTS/SV5_07_DIVERSITY_RESULT.md` 및 `GENERATED/SV5_07/`를 소비한다. default/repeat는 ON 출력 한 벌씩이며 OFF geometry는 diversity.json에 포함한다. pairs.csv/decisions.csv와 비교 그림은 같은 실제 plan에서 만든다. 회귀 시험의 임시 출력은 `Temp/SV5Tests/SV5_07/<fixture>`에만 쓴다. 이전 단계의 SV5 출력은 읽기 전용이다.
 
 그림의 외곽은 예정 장소 점유, 선은 예정 통로이며 내부는 미조립이다. 1×1 좌표 도달성은 바닥/착지/머리 여유를 갖춘 Player 이동 증명이 아니다. `ComposedGeometryReady=false`, `PlayerVerified=false`. SV5_08 밀도, SV5_09 loop, SV5_41 조립, SV5_44 Player는 후속 책임이다. 이 작업은 새 Task를 자동으로 열지 않는다.

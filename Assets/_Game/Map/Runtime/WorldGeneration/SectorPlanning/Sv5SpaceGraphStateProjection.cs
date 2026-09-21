@@ -105,7 +105,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         private static string ContactNodeId(Sv5RouteContactPair contact) => "SV5_CONTACT_NODE_" +
-            RmapWorldDefinition.Hash(contact.Kind + "|" + contact.FirstWorld + "|" + contact.SecondWorld)
+            Sv5WorldDefinition.Hash(contact.Kind + "|" + contact.FirstWorld + "|" + contact.SecondWorld)
                 .Substring(0, 20).ToUpperInvariant();
     }
 }

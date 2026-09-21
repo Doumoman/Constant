@@ -177,7 +177,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 Assert.That(plan.PhysicalProduct.Proofs.SelectMany(p=>p.DeadEnds),Is.Empty);
                 Assert.That(Sv5SpaceGraphValidator.FindGateErrors(plan.ContactDecisions,plan.Gates),Is.Empty);
                 Assert.That(Sv5SpacePhysicalMovement.Analyze(plan.Core,plan.Connections,plan.ContactDecisions,plan.Gates.Skip(1)).Success,Is.False);
-                var cell=plan.Core.CoreCells.First(c=>c.Protection==RmapSpecialProtectionKind.ProtectedAir);
+                var cell=plan.Core.CoreCells.First(c=>c.Protection==Sv5SpecialProtectionKind.ProtectedAir);
                 Assert.That(Sv5SpaceGraphValidator.FindRequiredReservationConflicts(plan.Core,new[] {
                     new Sv5SpaceReservationProbe(cell.World,Sv5SpaceReservationKind.ConditionalGate,"FOREIGN") }),Is.Not.Empty);
             }
@@ -186,7 +186,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void V11_ExportsBindActualSelectionsGeometryAndPolicyAndAreByteDeterministic()
         {
             var plans=new[]{DefaultOff.Value,DefaultOn.Value,RepeatOff.Value,RepeatOn.Value};
-            string directory=Path.Combine(Root,"MapDesign/MCP/GENERATED/SV5_09_LOOPS/_work/legacy_exports/sv5_07_v11");
+            string directory=Path.Combine(Root,"Temp/SV5Tests/space_diversity_v11");
             Sv5SpaceGraphExport.WriteDiversityComparison(directory,plans);
             var files=new[]{"diversity.json","decisions.csv","pairs.csv","preview/before_after.svg","preview/detail.svg","preview/index.html"}
                 .Concat(Directory.GetFiles(Path.Combine(directory,"default"),"*",SearchOption.AllDirectories))

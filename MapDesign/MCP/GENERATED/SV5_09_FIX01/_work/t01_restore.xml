@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-12 09:35:24Z" end-time="2026-09-12 09:37:38Z" duration="134.0079164">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26805" result="Failed" site="Child" start-time="2026-09-12 09:35:24Z" end-time="2026-09-12 09:37:38Z" duration="134.007916" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="24863" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22785" result="Failed" site="Child" start-time="2026-09-12 09:35:24Z" end-time="2026-09-12 09:37:38Z" duration="133.809599" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="41384" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="24864" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22785" result="Failed" site="Child" start-time="2026-09-12 09:35:24Z" end-time="2026-09-12 09:37:38Z" duration="133.654797" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="24872" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22569" result="Failed" site="Child" start-time="2026-09-12 09:35:24Z" end-time="2026-09-12 09:37:38Z" duration="133.512109" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="24876" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22510" result="Failed" site="Child" start-time="2026-09-12 09:35:24Z" end-time="2026-09-12 09:37:38Z" duration="133.300308" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="24885" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7828" result="Failed" site="Child" start-time="2026-09-12 09:35:25Z" end-time="2026-09-12 09:37:38Z" duration="133.099862" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="24901" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="116" result="Failed" site="Child" start-time="2026-09-12 09:35:25Z" end-time="2026-09-12 09:37:38Z" duration="133.021152" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="24736" name="Sv5SpaceLoopTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" testcasecount="14" result="Failed" site="Child" start-time="2026-09-12 09:35:25Z" end-time="2026-09-12 09:37:38Z" duration="133.017827" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="24737" name="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" methodname="T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="1789955789" result="Failed" start-time="2026-09-12 09:35:25Z" end-time="2026-09-12 09:37:38Z" duration="133.000522" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  accepted=18 sectors=14 candidates=259 eligible=79
+candidate_pairs=23 candidate_sectors=18
+baseline_occupancy=87448 baseline_feet=5740 host_support=0
+SV5_LOOP_00b258af492738402346|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_00b258af492738402346|STORED_COST_MISMATCH
+SV5_LOOP_04909d2d0771f8c70c71|BASELINE_CONTACTS|4
+SV5_LOOP_04909d2d0771f8c70c71|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_04909d2d0771f8c70c71|NEWLY_CARVED_AIR|1
+SV5_LOOP_04909d2d0771f8c70c71|STORED_COST_MISMATCH
+SV5_LOOP_09639e7ac88f0bb14df6|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_09639e7ac88f0bb14df6|STORED_COST_MISMATCH
+SV5_LOOP_0e2e3d15796340638ca3|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0e2e3d15796340638ca3|STORED_COST_MISMATCH
+SV5_LOOP_0e3b06df3260f35d7e43|BASELINE_CONTACTS|5
+SV5_LOOP_0e3b06df3260f35d7e43|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0e3b06df3260f35d7e43|STORED_COST_MISMATCH
+SV5_LOOP_10679894a03f8e8ab078|BASELINE_CONTACTS|3
+SV5_LOOP_10679894a03f8e8ab078|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_10679894a03f8e8ab078|STORED_COST_MISMATCH
+SV5_LOOP_1f1ca272324cf9b734a9|BASELINE_CONTACTS|4
+SV5_LOOP_1f1ca272324cf9b734a9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_1f1ca272324cf9b734a9|NEWLY_CARVED_AIR|1
+SV5_LOOP_1f1ca272324cf9b734a9|STORED_COST_MISMATCH
+SV5_LOOP_227af2366de6e32a442d|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_227af2366de6e32a442d|STORED_COST_MISMATCH
+SV5_LOOP_3b220c34633ec13aee21|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_3b220c34633ec13aee21|STORED_COST_MISMATCH
+SV5_LOOP_4d5d6c75a5c069443883|BASELINE_CONTACTS|6
+SV5_LOOP_4d5d6c75a5c069443883|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_4d5d6c75a5c069443883|NEWLY_CARVED_AIR|1
+SV5_LOOP_4d5d6c75a5c069443883|STORED_COST_MISMATCH
+SV5_LOOP_5087dc04c4155454233c|BASELINE_CONTACTS|5
+SV5_LOOP_5087dc04c4155454233c|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_5087dc04c4155454233c|NEWLY_CARVED_AIR|1
+SV5_LOOP_5087dc04c4155454233c|STORED_COST_MISMATCH
+SV5_LOOP_688eb14711cd245fc9d9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_688eb14711cd245fc9d9|STORED_COST_MISMATCH
+SV5_LOOP_6d45e3e449d542f6b593|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_6d45e3e449d542f6b593|STORED_COST_MISMATCH
+SV5_LOOP_829a25f2c266d036ed76|BASELINE_CONTACTS|3
+SV5_LOOP_829a25f2c266d036ed76|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_829a25f2c266d036ed76|NEWLY_CARVED_AIR|1
+SV5_LOOP_829a25f2c266d036ed76|STORED_COST_MISMATCH
+SV5_LOOP_9682f0b30efd51933ef5|BASELINE_CONTACTS|3
+SV5_LOOP_9682f0b30efd51933ef5|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_9682f0b30efd51933ef5|NEWLY_CARVED_AIR|1
+SV5_LOOP_9682f0b30efd51933ef5|STORED_COST_MISMATCH
+SV5_LOOP_e283d93ae148f2930ce9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_e283d93ae148f2930ce9|STORED_COST_MISMATCH
+SV5_LOOP_eabee6083b6154fa81b5|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_eabee6083b6154fa81b5|STORED_COST_MISMATCH
+SV5_LOOP_f5cf140825efa61b8433|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_f5cf140825efa61b8433|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_00b258af492738402346|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_00b258af492738402346|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_04909d2d0771f8c70c71|BASELINE_CONTACTS|4
+LOOP_TOPOLOGY|SV5_LOOP_04909d2d0771f8c70c71|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_04909d2d0771f8c70c71|NEWLY_CARVED_AIR|1
+LOOP_TOPOLOGY|SV5_LOOP_04909d2d0771f8c70c71|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_09639e7ac88f0bb14df6|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_09639e7ac88f0bb14df6|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_0e2e3d15796340638ca3|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_0e2e3d15796340638ca3|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_0e3b06df3260f35d7e43|BASELINE_CONTACTS|5
+LOOP_TOPOLOGY|SV5_LOOP_0e3b06df3260f35d7e43|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_0e3b06df3260f35d7e43|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_10679894a03f8e8ab078|BASELINE_CONTACTS|3
+LOOP_TOPOLOGY|SV5_LOOP_10679894a03f8e8ab078|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_10679894a03f8e8ab078|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_1f1ca272324cf9b734a9|BASELINE_CONTACTS|4
+LOOP_TOPOLOGY|SV5_LOOP_1f1ca272324cf9b734a9|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_1f1ca272324cf9b734a9|NEWLY_CARVED_AIR|1
+LOOP_TOPOLOGY|SV5_LOOP_1f1ca272324cf9b734a9|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_227af2366de6e32a442d|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_227af2366de6e32a442d|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_3b220c34633ec13aee21|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_3b220c34633ec13aee21|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_4d5d6c75a5c069443883|BASELINE_CONTACTS|6
+LOOP_TOPOLOGY|SV5_LOOP_4d5d6c75a5c069443883|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_4d5d6c75a5c069443883|NEWLY_CARVED_AIR|1
+LOOP_TOPOLOGY|SV5_LOOP_4d5d6c75a5c069443883|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_5087dc04c4155454233c|BASELINE_CONTACTS|5
+LOOP_TOPOLOGY|SV5_LOOP_5087dc04c4155454233c|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_5087dc04c4155454233c|NEWLY_CARVED_AIR|1
+LOOP_TOPOLOGY|SV5_LOOP_5087dc04c4155454233c|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_688eb14711cd245fc9d9|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_688eb14711cd245fc9d9|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_6d45e3e449d542f6b593|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_6d45e3e449d542f6b593|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_829a25f2c266d036ed76|BASELINE_CONTACTS|3
+LOOP_TOPOLOGY|SV5_LOOP_829a25f2c266d036ed76|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_829a25f2c266d036ed76|NEWLY_CARVED_AIR|1
+LOOP_TOPOLOGY|SV5_LOOP_829a25f2c266d036ed76|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_9682f0b30efd51933ef5|BASELINE_CONTACTS|3
+LOOP_TOPOLOGY|SV5_LOOP_9682f0b30efd51933ef5|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_9682f0b30efd51933ef5|NEWLY_CARVED_AIR|1
+LOOP_TOPOLOGY|SV5_LOOP_9682f0b30efd51933ef5|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_e283d93ae148f2930ce9|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_e283d93ae148f2930ce9|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_eabee6083b6154fa81b5|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_eabee6083b6154fa81b5|STORED_COST_MISMATCH
+LOOP_TOPOLOGY|SV5_LOOP_f5cf140825efa61b8433|BASELINE_FOOT_BFS_MISSING
+LOOP_TOPOLOGY|SV5_LOOP_f5cf140825efa61b8433|STORED_COST_MISMATCH
+SV5_LOOP_00b258af492738402346|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_00b258af492738402346|STORED_COST_MISMATCH
+SV5_LOOP_04909d2d0771f8c70c71|BASELINE_CONTACTS|4
+SV5_LOOP_04909d2d0771f8c70c71|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_04909d2d0771f8c70c71|NEWLY_CARVED_AIR|1
+SV5_LOOP_04909d2d0771f8c70c71|STORED_COST_MISMATCH
+SV5_LOOP_09639e7ac88f0bb14df6|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_09639e7ac88f0bb14df6|STORED_COST_MISMATCH
+SV5_LOOP_0e2e3d15796340638ca3|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0e2e3d15796340638ca3|STORED_COST_MISMATCH
+SV5_LOOP_0e3b06df3260f35d7e43|BASELINE_CONTACTS|5
+SV5_LOOP_0e3b06df3260f35d7e43|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_0e3b06df3260f35d7e43|STORED_COST_MISMATCH
+SV5_LOOP_10679894a03f8e8ab078|BASELINE_CONTACTS|3
+SV5_LOOP_10679894a03f8e8ab078|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_10679894a03f8e8ab078|STORED_COST_MISMATCH
+SV5_LOOP_1f1ca272324cf9b734a9|BASELINE_CONTACTS|4
+SV5_LOOP_1f1ca272324cf9b734a9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_1f1ca272324cf9b734a9|NEWLY_CARVED_AIR|1
+SV5_LOOP_1f1ca272324cf9b734a9|STORED_COST_MISMATCH
+SV5_LOOP_227af2366de6e32a442d|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_227af2366de6e32a442d|STORED_COST_MISMATCH
+SV5_LOOP_3b220c34633ec13aee21|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_3b220c34633ec13aee21|STORED_COST_MISMATCH
+SV5_LOOP_4d5d6c75a5c069443883|BASELINE_CONTACTS|6
+SV5_LOOP_4d5d6c75a5c069443883|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_4d5d6c75a5c069443883|NEWLY_CARVED_AIR|1
+SV5_LOOP_4d5d6c75a5c069443883|STORED_COST_MISMATCH
+SV5_LOOP_5087dc04c4155454233c|BASELINE_CONTACTS|5
+SV5_LOOP_5087dc04c4155454233c|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_5087dc04c4155454233c|NEWLY_CARVED_AIR|1
+SV5_LOOP_5087dc04c4155454233c|STORED_COST_MISMATCH
+SV5_LOOP_688eb14711cd245fc9d9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_688eb14711cd245fc9d9|STORED_COST_MISMATCH
+SV5_LOOP_6d45e3e449d542f6b593|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_6d45e3e449d542f6b593|STORED_COST_MISMATCH
+SV5_LOOP_829a25f2c266d036ed76|BASELINE_CONTACTS|3
+SV5_LOOP_829a25f2c266d036ed76|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_829a25f2c266d036ed76|NEWLY_CARVED_AIR|1
+SV5_LOOP_829a25f2c266d036ed76|STORED_COST_MISMATCH
+SV5_LOOP_9682f0b30efd51933ef5|BASELINE_CONTACTS|3
+SV5_LOOP_9682f0b30efd51933ef5|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_9682f0b30efd51933ef5|NEWLY_CARVED_AIR|1
+SV5_LOOP_9682f0b30efd51933ef5|STORED_COST_MISMATCH
+SV5_LOOP_e283d93ae148f2930ce9|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_e283d93ae148f2930ce9|STORED_COST_MISMATCH
+SV5_LOOP_eabee6083b6154fa81b5|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_eabee6083b6154fa81b5|STORED_COST_MISMATCH
+SV5_LOOP_f5cf140825efa61b8433|BASELINE_FOOT_BFS_MISSING
+SV5_LOOP_f5cf140825efa61b8433|STORED_COST_MISMATCH
+DUPLICATE_ENDPOINT_PAIR=61
+EXTERNAL_AIR_DEPENDENCY=820
+FOREIGN_SOLID_OPENING=83
+INELIGIBLE_HASH=180
+SUPPORT_NOT_SOLID=4822
+  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T01_DefaultProductionPlanMeetsHardMinimumAndFortyEightByThirtyTwoSpread () [0x0004c] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\EditMode\Map\SV5\Sv5SpaceLoopTests.cs:26
+]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

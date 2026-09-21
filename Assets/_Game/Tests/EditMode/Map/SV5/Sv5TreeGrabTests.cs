@@ -18,7 +18,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5HubShellTests.RepeatForFix01));
         private static Sv5SpaceGraphPlan Attach(Sv5SpaceGraphPlan hub)=>
             Sv5SpaceGraphPlanner.AttachTreeGrab(hub,Sv5TreeGrab.Build(hub));
-        private static RmapSpecialWorldPoint P(int x,int y)=>new RmapSpecialWorldPoint(x,y);
+        private static Sv5SpecialWorldPoint P(int x,int y)=>new Sv5SpecialWorldPoint(x,y);
 
         [Test,Timeout(600000)] public void T01_DefaultBuildProducesPassingBranchingTreeGeometry()
         {Assert.That(Default.Value.Success,Is.True,Detail(Default.Value));Assert.That(Default.Value.TreeGrab.Success,Is.True,Detail(Default.Value));}
@@ -35,31 +35,31 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void T05_SixCellEmptyVerticalClimbIsNotAnInitialGrab()
         {
             var edge=new Sv5MovementEdge(0,P(0,0),P(0,6),Sv5PlatformerMoveType.JumpGrab,true,true);
-            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<RmapSpecialWorldPoint>(),
-                new HashSet<RmapSpecialWorldPoint>()),Is.False);
+            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<Sv5SpecialWorldPoint>(),
+                new HashSet<Sv5SpecialWorldPoint>()),Is.False);
         }
 
         [Test] public void T06_InitialGrabWithoutTrunkContactFails()
         {
             var edge=new Sv5MovementEdge(0,P(0,0),P(1,2),Sv5PlatformerMoveType.JumpGrab,true,true);
-            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<RmapSpecialWorldPoint>(),
-                new HashSet<RmapSpecialWorldPoint>()),Is.False);
+            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<Sv5SpecialWorldPoint>(),
+                new HashSet<Sv5SpecialWorldPoint>()),Is.False);
         }
 
         [Test] public void T07_BlockedHeadClearanceFails()
         {
             var contact=P(1,2);var edge=new Sv5MovementEdge(0,P(0,0),P(0,2),
                 Sv5PlatformerMoveType.JumpGrab,true,false,contact);
-            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<RmapSpecialWorldPoint>{contact},
-                new HashSet<RmapSpecialWorldPoint>{contact}),Is.False);
+            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<Sv5SpecialWorldPoint>{contact},
+                new HashSet<Sv5SpecialWorldPoint>{contact}),Is.False);
         }
 
         [Test] public void T08_InitialJumpGrabRiseAboveTwoFails()
         {
             var contact=P(1,3);var edge=new Sv5MovementEdge(0,P(0,0),P(0,3),
                 Sv5PlatformerMoveType.JumpGrab,true,true,contact);
-            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<RmapSpecialWorldPoint>{contact},
-                new HashSet<RmapSpecialWorldPoint>{contact}),Is.False);
+            Assert.That(Sv5TreeGrab.ValidateMovementEdge(edge,new HashSet<Sv5SpecialWorldPoint>{contact},
+                new HashSet<Sv5SpecialWorldPoint>{contact}),Is.False);
         }
 
         [Test] public void T09_DisconnectedUpperLevelFixtureFails()
@@ -70,7 +70,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void T11_SixBySixSolidFillFixtureFails()
         {
-            var solid=new HashSet<RmapSpecialWorldPoint>(Enumerable.Range(0,6).SelectMany(x=>
+            var solid=new HashSet<Sv5SpecialWorldPoint>(Enumerable.Range(0,6).SelectMany(x=>
                 Enumerable.Range(0,6).Select(y=>P(x,y))));
             Assert.That(Sv5TreeGrab.HasSolidRectangle(solid,6,6),Is.True);
         }
@@ -124,7 +124,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void T18_TrunkClimbGraphIsConnectedAndHasMultipleEndpoints()
         {
-            var tree=Default.Value.TreeGrab;var trunk=new HashSet<RmapSpecialWorldPoint>(tree.Cells
+            var tree=Default.Value.TreeGrab;var trunk=new HashSet<Sv5SpecialWorldPoint>(tree.Cells
                 .Where(cell=>cell.Role==Sv5TreeCellRole.TrunkClimb).Select(cell=>cell.World));
             Assert.That(Sv5TreeGrab.Connected(trunk),Is.True);
             Assert.That(tree.ClimbEndpoints.Count,Is.GreaterThanOrEqualTo(3));

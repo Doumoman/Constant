@@ -1,0 +1,68 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FILES/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "base_commit": "660d0c58ec0f65cbbbe200716d0e3c36b0ea4ba7",
+  "amendment": "SV5_20_FIX05_RMAP_SCENE_ISOLATION",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "90fabda050eaab72cebc3481f772df5bb5730bbb6dea64fad4a7c54325cb25d0",
+      "bytes": 8378
+    },
+    {
+      "path": "FIX04_PLAYER_BINDING_AMENDMENT.json",
+      "sha256": "f6baffa1b14d9434e8676ac2f7ff0c3b813ded659a70cf7c25ea30853c077a1d",
+      "bytes": 1314
+    },
+    {
+      "path": "FIX04_PLAYER_BINDING_AMENDMENT.md",
+      "sha256": "17ab8deace2a7ac9348df02fb42b59b57969f57a506224ea263a8d2e51cf7ce2",
+      "bytes": 1717
+    },
+    {
+      "path": "FIX05_RMAP_SCENE_ISOLATION_AMENDMENT.json",
+      "sha256": "2c037e9ad8538071f3524874a29b39b8017324e11b64301a7dbc219a85bb7da4",
+      "bytes": 1397
+    },
+    {
+      "path": "FIX05_RMAP_SCENE_ISOLATION_AMENDMENT.md",
+      "sha256": "139effe0e1a4b86756b56af931bca9da631d8fed398d9924d7866b7246b37c5a",
+      "bytes": 1412
+    },
+    {
+      "path": "PLAYER_PROFILE.json",
+      "sha256": "a207db4841794b78768324ba452d4b6f9a74c7f77312854dcdd494aa0c29afbb",
+      "bytes": 1696
+    },
+    {
+      "path": "README.md",
+      "sha256": "ecf43df2e15024b37536e13d63fb1bb68dafd381eab8806063f86a4a5d147b45",
+      "bytes": 1031
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "58d4684677db4d09fbc71b59938dba1de45e4cc1ad15675413d40b3bb49611f9",
+      "bytes": 7173
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "92bafe9f022c67bac92b63598ad39966a15202e3b44dcefc782ff701c4db3479",
+      "bytes": 14507
+    },
+    {
+      "path": "SV5_20_JUMP_PLAYER.md",
+      "sha256": "d300ce5685af05676398f7db0a33ae28206b876613b129e1b73ffc236da14517",
+      "bytes": 5052
+    },
+    {
+      "path": "tools/check_jump_player.py",
+      "sha256": "253e373fd2ac238bc67e0dfa1aed92627534671deff41f82b2cd665a26175f54",
+      "bytes": 19430
+    },
+    {
+      "path": "tools/write_player_binding_amendment.py",
+      "sha256": "693c7a919e7e30ef36adccafe35fa38b65ffc97374cf4dcd0a211025d130c698",
+      "bytes": 3094
+    }
+  ]
+}

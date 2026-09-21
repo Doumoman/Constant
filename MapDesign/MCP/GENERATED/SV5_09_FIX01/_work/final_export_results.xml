@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-12 14:58:55Z" end-time="2026-09-12 15:02:50Z" duration="234.8138313">
+  <test-suite type="TestSuite" id="1000" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="26814" result="Passed" start-time="2026-09-12 14:58:55Z" end-time="2026-09-12 15:02:50Z" duration="234.813831" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="24873" name="Game.Map.Tests.EditMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.EditMode.dll" runstate="Runnable" testcasecount="22794" result="Passed" start-time="2026-09-12 14:58:55Z" end-time="2026-09-12 15:02:50Z" duration="234.649106" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="44880" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="24874" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="22794" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="234.522703" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="24882" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="22578" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="234.396995" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="24886" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="22519" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="234.272940" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="24895" name="EditMode" fullname="StarNight.Map.Tests.EditMode" runstate="Runnable" testcasecount="7837" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="234.055609" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestSuite" id="24911" name="Sv5" fullname="StarNight.Map.Tests.EditMode.Sv5" runstate="Runnable" testcasecount="125" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="233.991613" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-suite type="TestFixture" id="24736" name="Sv5SpaceLoopTests" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="233.988375" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="24749" name="T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence" fullname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests.T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence" methodname="T13_ExportsAreByteStableAndWriteTheFinalDefaultRepeatEvidence" classname="StarNight.Map.Tests.EditMode.Sv5.Sv5SpaceLoopTests" runstate="Runnable" seed="416892611" result="Passed" start-time="2026-09-12 14:58:56Z" end-time="2026-09-12 15:02:50Z" duration="233.976213" asserts="0">
+                    <properties>
+                      <property name="Timeout" value="1200000" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace StarNight.Character.Live.Movement
 {
     /// <summary>
-    /// Small RMAP03 fixture mover.  The safe solid itself is a kinematic
+    /// Small SV5 fixture mover.  The safe solid itself is a kinematic
     /// Rigidbody2D, so a Grab anchor follows an actual Collider2D rather than
     /// a synthetic Player-position correction.
     /// </summary>

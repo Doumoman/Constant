@@ -55,7 +55,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void T04_InclusiveLengthAcceptsTwentyThreeAndTwentyFourAndRejectsTwentyFive()
         {
-            RmapSpecialWorldPoint[] Flat(int count)=>Enumerable.Range(0,count).Select(x=>new RmapSpecialWorldPoint(x,20)).ToArray();
+            Sv5SpecialWorldPoint[] Flat(int count)=>Enumerable.Range(0,count).Select(x=>new Sv5SpecialWorldPoint(x,20)).ToArray();
             Assert.That(Sv5SpaceLoops.ValidateSupportedPath(Flat(23)),Is.Empty);
             Assert.That(Sv5SpaceLoops.ValidateSupportedPath(Flat(24)),Is.Empty);
             Assert.That(Sv5SpaceLoops.ValidateSupportedPath(Flat(25)),Does.Contain("OVER_MAXIMUM|25/24"));
@@ -63,10 +63,10 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         [Test] public void T05_SupportedPlusOneIsAllowedAndPlusTwoIsRejectedWithoutDiagonalTeleport()
         {
-            var plusOne=new[]{new RmapSpecialWorldPoint(10,10),new RmapSpecialWorldPoint(11,11),new RmapSpecialWorldPoint(12,11)};
+            var plusOne=new[]{new Sv5SpecialWorldPoint(10,10),new Sv5SpecialWorldPoint(11,11),new Sv5SpecialWorldPoint(12,11)};
             Assert.That(Sv5SpaceLoops.ValidateSupportedPath(plusOne),Is.Empty);
             Assert.That(Sv5SpaceInfill.CardinalCenterline(plusOne).Count,Is.EqualTo(4));
-            var plusTwo=new[]{new RmapSpecialWorldPoint(10,10),new RmapSpecialWorldPoint(11,12),new RmapSpecialWorldPoint(12,12)};
+            var plusTwo=new[]{new Sv5SpecialWorldPoint(10,10),new Sv5SpecialWorldPoint(11,12),new Sv5SpecialWorldPoint(12,12)};
             Assert.That(Sv5SpaceLoops.ValidateSupportedPath(plusTwo),Does.Contain("UNSUPPORTED_PLUS_TWO"));
         }
 
@@ -81,8 +81,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 foreach(var foot in link.FootPath)
                 {
                     Assert.That(link.Cells.Single(c=>c.World.Equals(foot)).FinalValue,Is.EqualTo(Sv5InfillCellValue.Air));
-                    Assert.That(link.Cells.Single(c=>c.World.Equals(new RmapSpecialWorldPoint(foot.X,foot.Y+1))).FinalValue,Is.EqualTo(Sv5InfillCellValue.Air));
-                    Assert.That(link.Cells.Single(c=>c.World.Equals(new RmapSpecialWorldPoint(foot.X,foot.Y-1))).FinalValue,Is.EqualTo(Sv5InfillCellValue.Solid));
+                    Assert.That(link.Cells.Single(c=>c.World.Equals(new Sv5SpecialWorldPoint(foot.X,foot.Y+1))).FinalValue,Is.EqualTo(Sv5InfillCellValue.Air));
+                    Assert.That(link.Cells.Single(c=>c.World.Equals(new Sv5SpecialWorldPoint(foot.X,foot.Y-1))).FinalValue,Is.EqualTo(Sv5InfillCellValue.Solid));
                 }
                 foreach(var opening in link.Cells.Where(c=>c.Role==Sv5LoopCellRole.ApertureOverride))
                     Assert.That(source[opening.World].Value,Is.EqualTo(Sv5InfillCellValue.Solid));
@@ -111,7 +111,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             var p=Default.Value; var core=p.Core.CoreCells.Select(c=>c.World).ToHashSet();
             var type0=p.Core.RouteSource.Secrets.SelectMany(s=>s.Chunks).SelectMany(chunk=>Enumerable.Range(0,8)
-                .SelectMany(y=>Enumerable.Range(0,12).Select(x=>new RmapSpecialWorldPoint(chunk.X*12+x,chunk.Y*8+y)))).ToHashSet();
+                .SelectMany(y=>Enumerable.Range(0,12).Select(x=>new Sv5SpecialWorldPoint(chunk.X*12+x,chunk.Y*8+y)))).ToHashSet();
             var gate=p.Gates.SelectMany(g=>g.BlockingCells.Concat(g.BlockingFaces.SelectMany(f=>new[]{f.First,f.Second}))).ToHashSet();
             var ports=p.Ports.SelectMany(v=>v.BoundaryCells.Concat(new[]{v.Anchor})).ToHashSet();
             foreach(var c in p.Loops.Cells.Where(c=>c.SourceValue==Sv5InfillCellValue.Unknown))

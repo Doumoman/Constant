@@ -1,0 +1,352 @@
+{
+  "format": "sv5_05_review_findings_v1",
+  "verdict": "CORRECTION_REQUIRED_BEFORE_SV5_06",
+  "evidence_level": "UPLOADED_BYTES_AND_STATIC_SOURCE_ARGUMENT_NOT_CSHARP_EXECUTION",
+  "review_zip_sha256": "1fa933cdec25e12a845c43ef6f2bc7959514dbc3c2a9cb9b2e8ea9229876dfc8",
+  "previous_result_sha256": "2a8da38b83e4f124ed8059c071a8d7a718ba19178582d935657fe2b3a5d13222",
+  "previous_installed_archive_sha256": "38c86cfa5411bb4e991c1cc0ed55116ea9de153e9131e262308b0459d676acb1",
+  "review_manifest_reported_commit": "117d99a82eb0889ab0edfeda250e535c5f56c295",
+  "commit_verified_in_live_git": false,
+  "verified_artifacts": [
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "sha256": "39362098ddc6da4100af3790d3200a5c9c80b72e6bb57531f34e00a26c2d475a",
+      "bytes": 36658
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs.meta",
+      "sha256": "567d98ba416a08e8f49c7247afdc6b313e5afe5e8510bdd447a51ca826350cc7",
+      "bytes": 59
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs",
+      "sha256": "030d53903caec2f491b273da01340535536fdf66aae08481745a7a6ef593b27f",
+      "bytes": 43001
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/Sv5RouteStatePolicy.cs.meta",
+      "sha256": "ce438f43f3ce6199c9e741c7cbc92759b54ba67343df155d8cce2a1ff42d1f03",
+      "bytes": 60
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "bytes": 29731
+    },
+    {
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs",
+      "sha256": "ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e",
+      "bytes": 43059
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs",
+      "sha256": "3e9ae15708243d440bc169c0290882155ca622637371e09abd31618cd01c8953",
+      "bytes": 19686
+    },
+    {
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5RouteStatePolicyTests.cs.meta",
+      "sha256": "820ccb6c904ea83971403e70965e1e3d6dfaab454d46e43a1921453f2d834341",
+      "bytes": 60
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/BINDING.json",
+      "sha256": "629f53a7257d828e27a37a00537359b2421bbdddb233b5c17c29d0c41ee70a50",
+      "bytes": 2580
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/condition_bindings.csv",
+      "sha256": "e6e71c7478d7d11f9bb9ea5bad67aa72863466d8675aa1eabe0d53e86e7e4e41",
+      "bytes": 5397
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/contact_checks.csv",
+      "sha256": "5dcc734f2017ae663eb7123350ac6c01aa3135fb3a201a33673f2a1b36dc4b2d",
+      "bytes": 209123
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/focused_results.xml",
+      "sha256": "bb66f7c42fa9b419b9734f81bd6263dbc3876752bd1cd5b2aea689de7bf660cb",
+      "bytes": 35670
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/obligations.csv",
+      "sha256": "cfa77f077e17f8fdc63b814645e3945217c734b1105e1bf72acfe6f024b28621",
+      "bytes": 710
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/order_proofs.csv",
+      "sha256": "2cbfb446ae34abf6f7fb7fcf110bac85b1f69cff51673a584c3347995ac055b2",
+      "bytes": 1735
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/route_state_manifest.json",
+      "sha256": "514a0773ec5a038acae18702df84243254d5145b89d3674f8932814ba9c564a7",
+      "bytes": 597
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/shortcut_decisions.csv",
+      "sha256": "9d61dd8f7605c37b2373431f6f24dedd6f89fe25867a0fa9e3dfdcdb59826c84",
+      "bytes": 463
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/state_traces.csv",
+      "sha256": "1f77d744b69d8e9717cb5505388576ec8781a6a2efeec554726faeb14e3bd1b5",
+      "bytes": 30810
+    },
+    {
+      "path": "MapDesign/MCP/GENERATED/SV5_05/validation.json",
+      "sha256": "9ff57b9e8f8de9218157df7a848b2e476223cb58c03bc4645400ef6dd2334a25",
+      "bytes": 1730
+    },
+    {
+      "path": "MapDesign/MCP/SV5/09_ROUTE_STATE_V5.md",
+      "sha256": "836e311b71a25db4f71ad3edbc5b10205ef65e65a53b224302074a50528d54c4",
+      "bytes": 3324
+    }
+  ],
+  "uploaded_tests": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "executed_here": false
+  },
+  "counts": {
+    "bindings": 11,
+    "order_proofs": 6,
+    "state_trace_rows": 96
+  },
+  "findings": [
+    {
+      "id": "FIX01-F1",
+      "priority": "P1",
+      "title": "Boss access can omit the actual SealOpen predicate",
+      "policy_lines": [
+        416,
+        441
+      ],
+      "set_check_lines": [
+        397,
+        412
+      ],
+      "tests_lines": [
+        66,
+        88
+      ],
+      "actual_boss_edge": {
+        "route_id": "88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2",
+        "edge_id": "88ee0ec82e323424ac35c6a0686f4ad0fe97710744d3eba9277c1b5343f18ac2",
+        "route_label": "SEAL_GATED_BOSS_APPROACH",
+        "source_node_id": "3a940bd17917accb8b86ed854685e791096281c72956719915c96ba4eba00b22",
+        "source_role": "Seal",
+        "target_node_id": "44a22e8a2bf4736c80a7476cdfcc927f62cfa6a507e5e5c2b962578b1291e105",
+        "target_role": "Boss",
+        "from_port_id": "RMAP15_SITE_SEALBOSS_PORT_EXIT",
+        "from_flow": "Out",
+        "from_condition": "ALL_RESOURCES_AND_FORGE",
+        "to_port_id": "RMAP15_SITE_SEALBOSS_PORT_ENTRY",
+        "to_flow": "In",
+        "to_condition": "ALL_RESOURCES_AND_FORGE",
+        "required_resource_mask": "0",
+        "requires_forge": "False",
+        "requires_seal": "True",
+        "requires_boss_complete": "False",
+        "geometry_state": "PENDING",
+        "player_state": "PENDING"
+      },
+      "candidate": {
+        "id": "REVIEW_FORGE_TO_BOSS_NO_SEAL",
+        "from": {
+          "kind": "ExistingGraphNode",
+          "id": "25106024ba2b119900ae0ddd27b4ed5900cd904288ad09482650f35774c4eb1c"
+        },
+        "to": {
+          "kind": "ExistingGraphNode",
+          "id": "44a22e8a2bf4736c80a7476cdfcc927f62cfa6a507e5e5c2b962578b1291e105"
+        },
+        "direction": "Right",
+        "required_resource_mask": 7,
+        "requires_forge": true,
+        "requires_seal": false,
+        "requires_boss_complete": false,
+        "source_provenance": "SV5_05_REVIEW_FIX01"
+      },
+      "current_static_decision": "Allowed candidate and Allowed CANDIDATE_SET; baseline goal paths remain present",
+      "required_decision": "Reject with a missing SealOpen access condition and counterexample",
+      "reachable_prefix_from_uploaded_trace": [
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "0",
+          "action": "MOVE|fec566f68036a383c202d5789b32adf6291c3329d4ef7c871c4d6c22a16238b2",
+          "state_before": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|0|0|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|074b9996b4a439df4de40e48099d1df36afbea6dc71dfd35dbd88b2d72278db2|0|0|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "1",
+          "action": "ACQUIRE|MooncoreOre",
+          "state_before": "SV5_TRACE_RMAP13|074b9996b4a439df4de40e48099d1df36afbea6dc71dfd35dbd88b2d72278db2|0|0|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|074b9996b4a439df4de40e48099d1df36afbea6dc71dfd35dbd88b2d72278db2|1|1|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "2",
+          "action": "MOVE|21e6a90771dd0ec3a5924c7bed7cedd6df7b87118024ccd550005017a8e7ebd0",
+          "state_before": "SV5_TRACE_RMAP13|074b9996b4a439df4de40e48099d1df36afbea6dc71dfd35dbd88b2d72278db2|1|1|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|1|1|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "3",
+          "action": "MOVE|93f752cf7b8f813c7187a636bc069c5d6f346ab0cc35ccae94931bdb9059f48f",
+          "state_before": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|1|1|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|13933f09ce4b0d3a0dc80937a24466faed6d3870661471ec7c307af7e78a40c5|1|1|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "4",
+          "action": "ACQUIRE|DeepStarYeast",
+          "state_before": "SV5_TRACE_RMAP13|13933f09ce4b0d3a0dc80937a24466faed6d3870661471ec7c307af7e78a40c5|1|1|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|13933f09ce4b0d3a0dc80937a24466faed6d3870661471ec7c307af7e78a40c5|5|2|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "5",
+          "action": "MOVE|be0aa26aa7cc3b03c3fcd8635bf07caf7940fd71048ae99a89807ebb540d3f29",
+          "state_before": "SV5_TRACE_RMAP13|13933f09ce4b0d3a0dc80937a24466faed6d3870661471ec7c307af7e78a40c5|5|2|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|5|2|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "6",
+          "action": "MOVE|b7862f4e818afdb3c6c2b8d27942bbf40c3a9aa2cfa146360ab9ab3fe2e29b0b",
+          "state_before": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|5|2|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|4d2f3947cda6d83ffe46e375d247485ed93f8716ccee3e585ff055ea8ce50707|5|2|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "7",
+          "action": "ACQUIRE|CondensedCoefficientSap",
+          "state_before": "SV5_TRACE_RMAP13|4d2f3947cda6d83ffe46e375d247485ed93f8716ccee3e585ff055ea8ce50707|5|2|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|4d2f3947cda6d83ffe46e375d247485ed93f8716ccee3e585ff055ea8ce50707|7|3|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "8",
+          "action": "MOVE|16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998",
+          "state_before": "SV5_TRACE_RMAP13|4d2f3947cda6d83ffe46e375d247485ed93f8716ccee3e585ff055ea8ce50707|7|3|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|7|3|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "9",
+          "action": "MOVE|a98881f4240397805efa4bd7a49fec0d564a271544864f5fdd66657aed45cdff",
+          "state_before": "SV5_TRACE_RMAP13|9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47|7|3|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|25106024ba2b119900ae0ddd27b4ed5900cd904288ad09482650f35774c4eb1c|7|3|0|0|0",
+          "predicate_passed": "True"
+        },
+        {
+          "proof_id": "2f522cddc03c97a5c5f97d10f7f432041fca0063479774597767b77f7bba0993",
+          "ordinal": "10",
+          "action": "FORGE|MAKE_SEAL",
+          "state_before": "SV5_TRACE_RMAP13|25106024ba2b119900ae0ddd27b4ed5900cd904288ad09482650f35774c4eb1c|7|3|0|0|0",
+          "state_after": "SV5_TRACE_RMAP13|25106024ba2b119900ae0ddd27b4ed5900cd904288ad09482650f35774c4eb1c|7|3|1|0|0",
+          "predicate_passed": "True"
+        }
+      ],
+      "candidate_state_before": "SV5_TRACE_RMAP13|25106024ba2b119900ae0ddd27b4ed5900cd904288ad09482650f35774c4eb1c|7|3|1|0|0",
+      "candidate_state_after": "SV5_TRACE_RMAP13|44a22e8a2bf4736c80a7476cdfcc927f62cfa6a507e5e5c2b962578b1291e105|7|3|1|0|0",
+      "dead_end_reason": "Boss completion needs SealOpen; sole outgoing edge needs BossComplete. No normal return exists at this state.",
+      "scope": "Logical premature entry/dead-end; no Unity Player or physical exploit has been demonstrated."
+    },
+    {
+      "id": "FIX01-F2",
+      "priority": "P2",
+      "title": "Analysis digest omits candidate semantics",
+      "source_lines": [
+        284,
+        299
+      ],
+      "candidate_sets": [
+        [
+          {
+            "id": "SAME_IN",
+            "from": "9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47",
+            "from_kind": "ExistingGraphNode",
+            "to": "REVIEW_GENERAL",
+            "to_kind": "GeneralConnection",
+            "required_resource_mask": 0,
+            "requires_forge": false,
+            "requires_seal": false,
+            "requires_boss_complete": false,
+            "direction": "Right",
+            "source_provenance": "FIX01_DIGEST"
+          },
+          {
+            "id": "SAME_OUT",
+            "from": "REVIEW_GENERAL",
+            "from_kind": "GeneralConnection",
+            "to": "074b9996b4a439df4de40e48099d1df36afbea6dc71dfd35dbd88b2d72278db2",
+            "to_kind": "ExistingGraphNode",
+            "required_resource_mask": 0,
+            "requires_forge": false,
+            "requires_seal": false,
+            "requires_boss_complete": false,
+            "direction": "Right",
+            "source_provenance": "FIX01_DIGEST"
+          }
+        ],
+        [
+          {
+            "id": "SAME_IN",
+            "from": "9f205e3136515f7b3ccb77c93c7238adefb24933728722c9e29b0a0d6b6fcd47",
+            "from_kind": "ExistingGraphNode",
+            "to": "REVIEW_GENERAL",
+            "to_kind": "GeneralConnection",
+            "required_resource_mask": 0,
+            "requires_forge": false,
+            "requires_seal": false,
+            "requires_boss_complete": false,
+            "direction": "Right",
+            "source_provenance": "FIX01_DIGEST"
+          },
+          {
+            "id": "SAME_OUT",
+            "from": "REVIEW_GENERAL",
+            "from_kind": "GeneralConnection",
+            "to": "4d2f3947cda6d83ffe46e375d247485ed93f8716ccee3e585ff055ea8ce50707",
+            "to_kind": "ExistingGraphNode",
+            "required_resource_mask": 0,
+            "requires_forge": false,
+            "requires_seal": false,
+            "requires_boss_complete": false,
+            "direction": "Right",
+            "source_provenance": "FIX01_DIGEST"
+          }
+        ]
+      ],
+      "current_static_result": "Different destination sets produce identical CanonicalLines because only decision id/code/detail are included; base proof/contact inputs are unchanged.",
+      "required_result": "Candidate destination/direction/conditions/provenance are canonically bound; different content differs, enumeration permutations remain identical."
+    }
+  ],
+  "additional_evidence_boundary": {
+    "contacts": "CollectContacts classifies any guarded edge or existing review IDs without enumerating contact state transitions; this does not establish that a shared cell is physically guarded.",
+    "geometry_ready": false,
+    "player_verified": false,
+    "future_owners": {
+      "SV5_06": "geometry contacts and Start/Village port plan",
+      "SV5_09": "loops recheck",
+      "SV5_41": "composed geometry recheck",
+      "SV5_44": "whole-world Player verification"
+    }
+  }
+}

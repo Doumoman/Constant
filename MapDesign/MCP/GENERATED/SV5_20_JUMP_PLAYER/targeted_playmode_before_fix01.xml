@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.6828447">
+  <test-suite type="TestSuite" id="1112" name="별을 물어오는 밤" fullname="별을 물어오는 밤" runstate="Runnable" testcasecount="59" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.682845" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1100" name="Game.Map.Tests.PlayMode.dll" fullname="C:/Users/user/Documents/GitHub/Optimal-Selection/Constant/Library/ScriptAssemblies/Game.Map.Tests.PlayMode.dll" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.676189" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="33688" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1101" name="StarNight" fullname="StarNight" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.675389" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1102" name="Map" fullname="StarNight.Map" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.674779" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1103" name="Tests" fullname="StarNight.Map.Tests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.674240" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1104" name="PlayMode" fullname="StarNight.Map.Tests.PlayMode" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.673707" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestSuite" id="1108" name="SV5" fullname="StarNight.Map.Tests.PlayMode.SV5" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.673063" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-suite type="TestFixture" id="1098" name="Sv5JumpPlayerPlayModeTests" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.672069" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                  <properties>
+                    <property name="Category" value="SV5" />
+                    <property name="Category" value="SV5_20_JUMP_PLAYER" />
+                    <property name="Category" value="SV5_20_PLAYMODE" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                  </failure>
+                  <test-case id="1099" name="P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof" fullname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests.P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof" methodname="P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof" classname="StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests" runstate="Runnable" seed="1467877347" result="Failed" start-time="2026-09-15 05:07:36Z" end-time="2026-09-15 05:07:41Z" duration="4.662707" asserts="0">
+                    <properties>
+                      <property name="_JOINTYPE" value="UnityCombinatorial" />
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                    <failure>
+                      <message><![CDATA[  MAIN_MX_02 failed at (10.36, 4.46)
+0 START p=(10.50,4.46) v=(0.00,0.00) g=False
+1 PREPARE_02 p=(10.50,4.46) v=(0.00,0.00) g=True
+2 RUNUP_02 p=(10.49,4.46) v=(-0.50,0.00) g=True
+3 RUNUP_02 p=(10.48,4.46) v=(-1.00,0.00) g=True
+4 RUNUP_02 p=(10.45,4.46) v=(-1.50,0.00) g=True
+5 RUNUP_02 p=(10.42,4.46) v=(-2.00,0.00) g=True
+6 RUNUP_02 p=(10.38,4.46) v=(-2.50,0.00) g=True
+7 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+8 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+9 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+10 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+11 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+12 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+13 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+14 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+15 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+16 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+17 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+18 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+19 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+20 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+21 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+22 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+23 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+24 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+25 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+26 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+27 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+28 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+29 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+30 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+31 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+32 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+33 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+34 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+35 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+36 RUNUP_02 p=(10.37,4.46) v=(0.00,0.00) g=True
+37 JUMP_02 p=(10.36,4.57) v=(0.00,6.87) g=False
+38 AIR_02 p=(10.36,4.68) v=(0.00,6.53) g=False
+39 AIR_02 p=(10.36,4.78) v=(0.00,6.20) g=False
+40 AIR_02 p=(10.36,4.88) v=(0.00,5.87) g=False
+41 AIR_02 p=(10.36,4.97) v=(0.00,5.53) g=False
+42 AIR_02 p=(10.36,5.06) v=(0.00,5.20) g=False
+43 AIR_02 p=(10.36,5.14) v=(0.00,4.87) g=False
+44 AIR_02 p=(10.36,5.22) v=(0.00,4.53) g=False
+45 AIR_02 p=(10.36,5.29) v=(0.00,4.20) g=False
+46 AIR_02 p=(10.36,5.35) v=(0.00,3.87) g=False
+47 AIR_02 p=(10.36,5.41) v=(0.00,3.53) g=False
+48 AIR_02 p=(10.36,5.46) v=(0.00,3.20) g=False
+49 AIR_02 p=(10.36,5.51) v=(0.00,2.87) g=False
+50 AIR_02 p=(10.36,5.55) v=(0.00,2.53) g=False
+51 AIR_02 p=(10.36,5.59) v=(0.00,2.20) g=False
+52 AIR_02 p=(10.36,5.62) v=(0.00,1.87) g=False
+53 AIR_02 p=(10.36,5.65) v=(0.00,1.53) g=False
+54 AIR_02 p=(10.36,5.67) v=(0.00,1.20) g=False
+55 AIR_02 p=(10.36,5.68) v=(0.00,0.87) g=False
+56 AIR_02 p=(10.36,5.69) v=(0.00,0.53) g=False
+57 AIR_02 p=(10.36,5.69) v=(0.00,0.20) g=False
+58 AIR_02 p=(10.36,5.69) v=(0.00,-0.13) g=False
+59 AIR_02 p=(10.36,5.68) v=(0.00,-0.57) g=False
+60 AIR_02 p=(10.36,5.66) v=(0.00,-1.00) g=False
+61 AIR_02 p=(10.36,5.64) v=(0.00,-1.43) g=False
+62 AIR_02 p=(10.36,5.61) v=(0.00,-1.87) g=False
+63 AIR_02 p=(10.36,5.57) v=(0.00,-2.30) g=False
+64 AIR_02 p=(10.36,5.52) v=(0.00,-2.73) g=False
+65 AIR_02 p=(10.36,5.47) v=(0.00,-3.17) g=False
+66 AIR_02 p=(10.36,5.41) v=(0.00,-3.60) g=False
+67 AIR_02 p=(10.36,5.34) v=(0.00,-4.03) g=False
+68 AIR_02 p=(10.36,5.27) v=(0.00,-4.47) g=False
+69 AIR_02 p=(10.36,5.19) v=(0.00,-4.90) g=False
+70 AIR_02 p=(10.36,5.10) v=(0.00,-5.33) g=False
+71 AIR_02 p=(10.36,5.00) v=(0.00,-5.77) g=False
+72 AIR_02 p=(10.36,4.90) v=(0.00,-6.20) g=False
+73 AIR_02 p=(10.36,4.79) v=(0.00,-6.63) g=False
+74 AIR_02 p=(10.36,4.67) v=(0.00,-7.07) g=False
+75 AIR_02 p=(10.36,4.55) v=(0.00,-7.50) g=False
+76 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=False
+77 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+78 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+79 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+80 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+81 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+82 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+83 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+84 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+85 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+86 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+87 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+88 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+89 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+90 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+91 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+92 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+93 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+94 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+95 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+96 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+97 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+98 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+99 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+100 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+101 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+102 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+103 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+104 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+105 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+106 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+107 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+108 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+109 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+110 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+111 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+112 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+113 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+114 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+115 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+116 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+117 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+118 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+119 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+120 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+121 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+122 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+123 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+124 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+125 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+126 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+127 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+128 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+129 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+130 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+131 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+132 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+133 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+134 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+135 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+136 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+137 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+138 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+139 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+140 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+141 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+142 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+143 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+144 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+145 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+146 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+147 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+148 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+149 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+150 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+151 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+152 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+153 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+154 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+155 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+156 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+157 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+158 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+159 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+160 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+161 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+162 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+163 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+164 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+165 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+166 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+167 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+168 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+169 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+170 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+171 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+172 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+173 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+174 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+175 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+176 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+177 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+178 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+179 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+180 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+181 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+182 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+183 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+184 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+185 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+186 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+187 AIR_02 p=(10.36,4.46) v=(0.00,0.00) g=True
+188 PASS_TARGET p=(10.36,4.46) v=(0.00,0.00) g=True
+  Expected: True
+  But was:  False
+]]></message>
+                      <stack-trace><![CDATA[at StarNight.Map.Tests.PlayMode.SV5.Sv5JumpPlayerPlayModeTests+<P01_ActualCharacterLivePlayerPassesAllPhysicalCasesAndExportsTheProof>d__4.MoveNext () [0x0026f] in C:\Users\user\Documents\GitHub\Optimal-Selection\Constant\Assets\_Game\Tests\PlayMode\Map\SV5\Sv5JumpPlayerPlayModeTests.cs:52
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@0b7a23ab2e1d\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+                    </failure>
+                    <output><![CDATA[<b><color=#2EA3FF>MCP-FOR-UNITY</color></b>: [TestRunnerNoThrottle] Restored Interaction Mode after test run.
+Saving results to: C:/Users/user/AppData/LocalLow/DefaultCompany/별을 물어오는 밤\TestResults.xml
+]]></output>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

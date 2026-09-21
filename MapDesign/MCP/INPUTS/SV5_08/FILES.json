@@ -1,0 +1,44 @@
+{
+  "format": "sv5_08_package_v1",
+  "task": "SV5_08_INFILL",
+  "native_inbox_file": "MapDesign/MCP_INBOX/SV5_08_INFILL.md",
+  "source_predecessor_commit": "ab82efcfb3d183c995d0184db9d3dc55f2f3acc9",
+  "bound_task_sha256": "ebf2e2bf48e1431353e5f9ddcf32a5f92effe3e4ec2580cf715020956e70e8dc",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "bytes": 25842,
+      "sha256": "3cd97aff632f75082209abcbe2f0a44e743ee571f2f45949f9eed3bda1a31c57"
+    },
+    {
+      "path": "INFILL_PROFILE.json",
+      "bytes": 4667,
+      "sha256": "d69ed27682f15913d55d28015ff5fc49b1f48752f49e3137c44cfbd239cca58c"
+    },
+    {
+      "path": "PROTOCOL_APPEND.md",
+      "bytes": 1178,
+      "sha256": "21c073a6e0bec50302740b4451217879d2820f8637cf4867e8bf1420a0a17cff"
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "bytes": 213217,
+      "sha256": "1d28c86386bd8d79c45f0c91bd11cf94aa24b0c381df0759203e234b06d41ee3"
+    },
+    {
+      "path": "STAGE.py",
+      "bytes": 13151,
+      "sha256": "87b2e5ab936d213d170063f7100c623e1d49504310670c1c25eef84bcedb3637"
+    },
+    {
+      "path": "SV5_08_INFILL.md",
+      "bytes": 7785,
+      "sha256": "ebf2e2bf48e1431353e5f9ddcf32a5f92effe3e4ec2580cf715020956e70e8dc"
+    }
+  ],
+  "self_exclusion": [
+    "FILES.json",
+    "SV5_08_PATCH.zip"
+  ],
+  "scope": "INPUTS_ONLY_STAGE_ONE_NATIVE_MD_IMPLEMENTATION_NOT_RUN"
+}

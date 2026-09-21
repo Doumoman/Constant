@@ -1,0 +1,148 @@
+{
+  "format": "sv5_rule_readset_v1",
+  "purpose": "documentation consumer index, not a new runtime API",
+  "verification": "RULES_REGISTERED_GAMEPLAY_NOT_IMPLEMENTED",
+  "precedence": [
+    "Current explicit user decisions",
+    "SV5 approved baseline scope and SPACE_V5_RULES",
+    "Referenced unchanged v4 detail where consistent"
+  ],
+  "groups": [
+    {
+      "id": "always",
+      "tasks": "SV5_03-SV5_45",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+          "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54"
+        }
+      ]
+    },
+    {
+      "id": "composition",
+      "tasks": "SV5_04-SV5_10;SV5_41-SV5_45",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_SPECIALS.md",
+          "sha256": "a88298cfa97f90ed8454a9fae072f460b63e81e15f98b855b30cd270907b30b1"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_NETWORK.md",
+          "sha256": "815637f2df4f18f1be37a8a499d016a200dbc8bb5759a340cfc90f43493e1706"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_FILL.md",
+          "sha256": "34bd4d366582454aa57f2005639177c64b326ce191b2c142b9b6849be6a2b6f1"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_SPAWN.md",
+          "sha256": "1bda912a84d38a1177ce5db166a6c49c0ce1f945e475d6c4f4251399f517bc0a"
+        }
+      ]
+    },
+    {
+      "id": "hub_and_jump",
+      "tasks": "SV5_11-SV5_20",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_PLACES.md",
+          "sha256": "96d240d783501072bb547ccc5da781013964916aa5e83af396776a62626b3e20"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+          "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761"
+        }
+      ]
+    },
+    {
+      "id": "library_stairs",
+      "tasks": "SV5_21-SV5_23",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+          "sha256": "39acc95088558121b9ca08fb1cecca07bd3b966e58ad6d6dd64af8099196b554"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_STAIRS.md",
+          "sha256": "a53a524c281d4672a6d3a5c6fbfb3ef732206b7f03b111640dec9389820cd134"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+          "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761"
+        }
+      ]
+    },
+    {
+      "id": "terrain_places",
+      "tasks": "SV5_24-SV5_31",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+          "sha256": "39acc95088558121b9ca08fb1cecca07bd3b966e58ad6d6dd64af8099196b554"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_SPAWN.md",
+          "sha256": "1bda912a84d38a1177ce5db166a6c49c0ce1f945e475d6c4f4251399f517bc0a"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+          "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761"
+        }
+      ]
+    },
+    {
+      "id": "rail",
+      "tasks": "SV5_32-SV5_34",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_RAIL.md",
+          "sha256": "8e3219243af72b3a1412ae7d911d91d3384044bdf0221a6e90d609e85d9ed6fb"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+          "sha256": "39acc95088558121b9ca08fb1cecca07bd3b966e58ad6d6dd64af8099196b554"
+        }
+      ]
+    },
+    {
+      "id": "specials_and_elevator",
+      "tasks": "SV5_35-SV5_40",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_SPECIALS.md",
+          "sha256": "a88298cfa97f90ed8454a9fae072f460b63e81e15f98b855b30cd270907b30b1"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_PLACES.md",
+          "sha256": "96d240d783501072bb547ccc5da781013964916aa5e83af396776a62626b3e20"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_REGIONS.md",
+          "sha256": "39acc95088558121b9ca08fb1cecca07bd3b966e58ad6d6dd64af8099196b554"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+          "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761"
+        }
+      ]
+    },
+    {
+      "id": "final_validation",
+      "tasks": "SV5_41-SV5_45",
+      "sources": [
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_FILL.md",
+          "sha256": "34bd4d366582454aa57f2005639177c64b326ce191b2c142b9b6849be6a2b6f1"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_NETWORK.md",
+          "sha256": "815637f2df4f18f1be37a8a499d016a200dbc8bb5759a340cfc90f43493e1706"
+        },
+        {
+          "path": "MCP/INPUTS/SV5/reference/v4/SPACE_MOVEMENT.md",
+          "sha256": "c4bdf67d505d6c2f6d5400a5cf5300e6a6bb45e9dccece731b02fc615894b761"
+        }
+      ]
+    }
+  ]
+}

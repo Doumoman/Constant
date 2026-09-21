@@ -1,0 +1,33 @@
+{
+  "schema": "SV5_13_JUMP_CONTRACT_PROFILE/v1",
+  "world_width": 624,
+  "world_height": 416,
+  "tile_size_cells": 1,
+  "player_width_tiles": 0.4,
+  "player_height_tiles": 0.8,
+  "maximum_normal_rise_cells": 1,
+  "maximum_jump_grab_rise_cells": 2,
+  "support_kinds": ["SOLID", "ONE_WAY"],
+  "movement_modes": ["JUMP", "JUMP_GRAB"],
+  "validation_states": ["PLANNED", "STATIC_SCREEN", "PLAYER_VERIFIED"],
+  "canonical_links": [
+    {"id": "J1", "gap_air": 3, "rise": 1, "mode": "JUMP"},
+    {"id": "J2", "gap_air": 4, "rise": 1, "mode": "JUMP"},
+    {"id": "J3", "gap_air": 2, "rise": 2, "mode": "JUMP_GRAB", "target_kind": "SOLID"}
+  ],
+  "minimum_active_solid_supports": 1,
+  "minimum_active_one_way_supports": 1,
+  "minimum_active_jump_grab_links": 1,
+  "minimum_new_tests": 14,
+  "minimum_total_focused_tests": 225,
+  "full_regression_runs_after_targeted_pass": 1,
+  "whole_world_builds_in_new_targeted_tests": 0,
+  "player_verified_after_pass": false,
+  "jump_contract_ready_after_pass": true,
+  "jump_solid_geometry_ready_after_pass": false,
+  "jump_grab_geometry_ready_after_pass": false,
+  "next_task": "SV5_14_JUMP_SOLID",
+  "next_task_must_remain": "LOCKED",
+  "forbidden_identifiers": ["SectorId", "sector_id", "sector_index", "48x32"]
+}
+

@@ -1,0 +1,142 @@
+{
+  "format": "sv5_04_source_lock_v1",
+  "task_id": "SV5_04_CORE_RESERVE",
+  "path_base": "MapDesign module root",
+  "previous_task": "SV5_03_BINDINGS",
+  "previous_result_sha256": "0b6f9c0a8ba658de8e911781f3b5a3e614c27333ff25faf3c63720e7486ae422",
+  "previous_installed_archive_sha256": "b8f6f5865dae26d512a50a3f62061c1370daec8bc12e9c56578ebda3565677b3",
+  "previous_result_path": "RESOLVE_ACTUAL_LOCAL_MCP_REPORT_NOT_INPUT_COPY",
+  "previous_finalize_commit": "RESOLVE_LOCALLY_RESULT_WAS_WRITTEN_BEFORE_FINALIZE",
+  "required_before_apply": {
+    "previous_status": "COMPLETE",
+    "current_task": "NONE",
+    "SV5_04_CORE_RESERVE": "LOCKED"
+  },
+  "expected_after_previous_finalize": {
+    "total": 285,
+    "complete": 241,
+    "current": 0,
+    "locked": 44
+  },
+  "state_note": "Expectations only; actual native state/Finalize/commit must be checked locally. Do not force counts or invent a commit.",
+  "files": [
+    {
+      "path": "MCP/SV5/00_APPROVAL_BASELINE.md",
+      "sha256": "a04f0c814273048db51c903d965e526c2bc987abb64294811675d301acf177fa",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/01_SEQUENCE_V5.md",
+      "sha256": "27a0ab0942ee2671a5720a1fe232018b5356c2c304ad6e8229c7c8842b05d9be",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "0331d3364cbb7d9b9c2d615f861924f50474539f69800ebd01439eef3526cc02",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha256": "8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha256": "6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/TASKS.csv",
+      "sha256": "aac3c738f4f16fd69ce6ee71abb897420cf3b239d470e097e82311b304804052",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/INPUTS/SV5/TASKS.json",
+      "sha256": "7932de9ac46a82cf27046599a0ede47bf5a35f35c29edb374df178feeb70b367",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/06_BINDINGS_V5.md",
+      "sha256": "b71c553032de446ce7c7d7c65e806879bdd360ab77389c684f201a0f5d6ccf21",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/SV5/07_FILE_FLOW_V5.md",
+      "sha256": "611f604f8d65a7ac15a70f20ab848a4ed40ecf5d7fafa4428f3a77167c7f43a4",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/BINDINGS.csv",
+      "sha256": "387334b77c82b2aa62e9e9b6c11330d3b83f4106abc4bf8916f5fe6afecdefee",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/CORE_BINDINGS.csv",
+      "sha256": "3063f808d294e09e5b03f33a2b2357a1f4f2ba510c38c56dac4ed0e10ccfac35",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/DATA_SCHEMAS.csv",
+      "sha256": "083f91e9d4cfc5118d9cdeba4a0f1cc7184d0b6d3cacd653609076b763d5542c",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/TASK_COVERAGE.csv",
+      "sha256": "86309a520cf32fc268f0c9cabd25c68568fdc3b868ccf6b95c19611cba4644c6",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/SOURCE_SNAPSHOT.json",
+      "sha256": "1021386d9e1dd20f267a6f917f857e55ad431d612a1f3709da9f4df394fd49ac",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/BINDING.json",
+      "sha256": "6eb339dea116ce1b82e20407793ae77568e01cf09014ab5a771e08edbd2c685b",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/GENERATED/SV5_03/validation.json",
+      "sha256": "87bb4af251e023d03a4f4c02079fb74ebc09686718f7388ce829b50f34248b96",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP/TASKS/SV5_03_BINDINGS.md",
+      "sha256": "b8f6f5865dae26d512a50a3f62061c1370daec8bc12e9c56578ebda3565677b3",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path": "MCP_ARCHIVE/SV5_03_BINDINGS.md",
+      "sha256": "b8f6f5865dae26d512a50a3f62061c1370daec8bc12e9c56578ebda3565677b3",
+      "check": "EXACT_READ_ONLY"
+    }
+  ],
+  "audit_tables": {
+    "MCP/GENERATED/SV5_03/BINDINGS.csv": 19,
+    "MCP/GENERATED/SV5_03/CORE_BINDINGS.csv": 8,
+    "MCP/GENERATED/SV5_03/DATA_SCHEMAS.csv": 12,
+    "MCP/GENERATED/SV5_03/TASK_COVERAGE.csv": 42
+  },
+  "table_note": "Only Result was supplied here. These existing local tables must be opened and read before execution binding; this package does not invent their contents.",
+  "code_source_note": "Use SV5_03 actual source/key/signature/schema rows and current byte snapshots for the core/state/world/route bindings. Historical names in this specification are search hints until resolved locally."
+}

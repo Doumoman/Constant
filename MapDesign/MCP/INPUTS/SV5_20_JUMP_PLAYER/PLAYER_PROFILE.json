@@ -1,0 +1,51 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_PROFILE/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "input_recovery_digest": "f8b2e69686dbd9b7a29b82e4e4a8ca2c46c6183a005a5373e986e04b21f4288b",
+  "local_room": {"width": 24, "height": 32, "cell_world_size": 1},
+  "recipes": ["JUMP012_MIXED_R0", "JUMP012_MIXED_MX"],
+  "actual_player": {
+    "prefab": "Assets/_Game/Live/Prefabs/CharacterLivePlayer.prefab",
+    "driver": "CharacterLiveMovementDriver",
+    "rigidbody": "Rigidbody2D",
+    "collider": "CapsuleCollider2D",
+    "retune_allowed": false,
+    "driver_binding": {
+      "amendment": "SV5_20_FIX04_PLAYER_BINDING",
+      "approved_sha256": "77ac90e6c65f4dc83a104deb1db6c02177b1c50c2797426c6e3b07aeedc0d8f8",
+      "approved_bytes": 39703,
+      "further_edits_allowed": false
+    }
+  },
+  "physical_cases": {
+    "main_link_cases_per_recipe": 9,
+    "forward_full_route_cases_per_recipe": 1,
+    "recovery_cases_per_recipe": 9,
+    "total": 38
+  },
+  "movement_contract": {
+    "itemless": true,
+    "reverse_completion_required": false,
+    "jump_plus_grab_max_rise_cells": 2,
+    "post_start_teleports_allowed": 0,
+    "fixed_timestep": true
+  },
+  "fixture": {
+    "source": "SV5_17_OCCUPANCY_PLUS_SV5_19_RECOVERY_OVERLAY",
+    "solid": "REAL_COLLIDER2D",
+    "top_only": "REAL_PLATFORM_EFFECTOR2D",
+    "grab": "REAL_CHARACTER_LIVE_GRAB_SURFACE",
+    "scene_storage": "IN_MEMORY_TEST_FIXTURE_ONLY"
+  },
+  "readiness_on_pass": {
+    "JumpRecipeReady": true,
+    "ComposedGeometryReady": true,
+    "SweptClearanceReady": true,
+    "RecoveryReady": true,
+    "PlayerVerified": true
+  },
+  "whole_world_builds": 0,
+  "whole_world_searches": 0,
+  "global_endpoint_comparisons": 0,
+  "sector_partitions": 0
+}

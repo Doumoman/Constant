@@ -1,0 +1,19 @@
+{
+  "name": "Game.Map.SV5.Examples.Editor",
+  "rootNamespace": "StarNight.Map.SV5.Examples.Editor",
+  "references": [
+    "Game.Map.SV5.Examples.Runtime",
+    "Game.Character.Live"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,66 @@
+{
+  "format": "sv5_02_manifest_v1",
+  "input_revision": "R2",
+  "files": [
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/PROTOCOL_APPEND.md",
+      "sha256": "96218d33b866541b6ab8b99f2e00cf50073d02ce5178f1f569d1a050f0463763",
+      "bytes": 475
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/REPAIR.md",
+      "sha256": "f3df789173ad91e03fd3f4bd226a2d85829ef8f10be9cd38fa59a0a9111da847",
+      "bytes": 3530
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/REVISION.json",
+      "sha256": "1e7d29fb33c75f1704db041ccd1ad4aefa82262d06dad9009e65ae14c3526f45",
+      "bytes": 2416
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/SOURCE_LOCK.json",
+      "sha256": "6b38d2fbcf5d9dbea808b24303899a8fc2081718eaf590c2ca5a76e4b8d79e7e",
+      "bytes": 6476
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/SV5_02_RULES.md",
+      "sha256": "4b371aaddbfd4f1946fbf32b1da2096e522a7dacef45bd4958f0cb477653a321",
+      "bytes": 8454
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/candidate/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe",
+      "bytes": 3903
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/candidate/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07",
+      "bytes": 22464
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/candidate/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9",
+      "bytes": 4972
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/reference/RULES_SOURCE.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "bytes": 9715
+    },
+    {
+      "path": "MapDesign/MCP/INPUTS/SV5_02_R2/reference/SV5_01_RESULT.md",
+      "sha256": "78f9e84bf82b9640c51a5ee4bc2847610a296ebd26e0849706d3ce58601a37b6",
+      "bytes": 5958
+    },
+    {
+      "path": "MapDesign/MCP_INBOX/SV5_02_R2_START.md",
+      "sha256": "558ca42645c58d3c2ed9bf4e6975caf4e4b1af4bc45f00f9cae65b2c0d68ae94",
+      "bytes": 2485
+    },
+    {
+      "path": "SV5_02_R2_VERIFY.py",
+      "sha256": "39a6f63d304e3202f2a7738bd51df22e08fa93f8fceaf8f82061714bc7df87da",
+      "bytes": 5436
+    }
+  ]
+}

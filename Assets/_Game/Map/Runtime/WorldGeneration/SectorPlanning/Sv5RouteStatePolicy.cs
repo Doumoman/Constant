@@ -43,13 +43,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5RouteShortcutCandidate
     {
         public Sv5RouteShortcutCandidate(string id, Sv5RouteStateAnchor from, Sv5RouteStateAnchor to,
-            RmapWorldGraphDirection direction, ulong requiredResourceMask, bool requiresForge,
+            Sv5WorldGraphDirection direction, ulong requiredResourceMask, bool requiresForge,
             bool requiresSeal, bool requiresBossComplete, string sourceProvenance)
         {
             if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException("A candidate ID is required.", nameof(id));
             if (from == null) throw new ArgumentNullException(nameof(from));
             if (to == null) throw new ArgumentNullException(nameof(to));
-            if (!Enum.IsDefined(typeof(RmapWorldGraphDirection), direction)) throw new ArgumentOutOfRangeException(nameof(direction));
+            if (!Enum.IsDefined(typeof(Sv5WorldGraphDirection), direction)) throw new ArgumentOutOfRangeException(nameof(direction));
             if (string.IsNullOrWhiteSpace(sourceProvenance)) throw new ArgumentException("Source provenance is required.", nameof(sourceProvenance));
             Id = id.Trim();
             From = from;
@@ -65,7 +65,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string Id { get; }
         public Sv5RouteStateAnchor From { get; }
         public Sv5RouteStateAnchor To { get; }
-        public RmapWorldGraphDirection Direction { get; }
+        public Sv5WorldGraphDirection Direction { get; }
         public ulong RequiredResourceMask { get; }
         public bool RequiresForge { get; }
         public bool RequiresSeal { get; }
@@ -88,28 +88,28 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5RouteStateReviewInput
     {
         private readonly ReadOnlyCollection<Sv5RouteStateReviewContact> contacts;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> airWitness;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> airWitness;
 
         public Sv5RouteStateReviewInput(IEnumerable<Sv5RouteStateReviewContact> sourceContacts,
-            IEnumerable<RmapSpecialWorldPoint> sourceAirWitness)
+            IEnumerable<Sv5SpecialWorldPoint> sourceAirWitness)
         {
             contacts = new ReadOnlyCollection<Sv5RouteStateReviewContact>((sourceContacts ??
                 Array.Empty<Sv5RouteStateReviewContact>()).Where(value => value != null)
                 .OrderBy(value => value).ToArray());
-            airWitness = new ReadOnlyCollection<RmapSpecialWorldPoint>((sourceAirWitness ??
-                Array.Empty<RmapSpecialWorldPoint>()).ToArray());
+            airWitness = new ReadOnlyCollection<Sv5SpecialWorldPoint>((sourceAirWitness ??
+                Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
         }
 
         public IReadOnlyList<Sv5RouteStateReviewContact> Contacts => contacts;
-        public IReadOnlyList<RmapSpecialWorldPoint> AirWitness => airWitness;
+        public IReadOnlyList<Sv5SpecialWorldPoint> AirWitness => airWitness;
     }
 
     /// <summary>One physical route reservation sample used by the shared
     /// contact-pair enumerator.  The type is deliberately independent from
-    /// RMAP16 so focused fixtures can prove pair completeness.</summary>
+    /// SV5 so focused fixtures can prove pair completeness.</summary>
     public sealed class Sv5RouteContactCell
     {
-        public Sv5RouteContactCell(string routeId, RmapSpecialWorldPoint world,
+        public Sv5RouteContactCell(string routeId, Sv5SpecialWorldPoint world,
             Sv5RouteContactCellKind kind)
         {
             if (string.IsNullOrWhiteSpace(routeId))
@@ -122,7 +122,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         public string RouteId { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5RouteContactCellKind Kind { get; }
     }
 
@@ -131,9 +131,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     /// pair observations at the same physical contact are collapsed.</summary>
     public sealed class Sv5RouteContactPair : IComparable<Sv5RouteContactPair>
     {
-        internal Sv5RouteContactPair(string kind, RmapSpecialWorldPoint firstWorld,
-            RmapSpecialWorldPoint secondWorld, string routeA, string routeB,
-            RmapSpecialWorldPoint routeAWorld, RmapSpecialWorldPoint routeBWorld,
+        internal Sv5RouteContactPair(string kind, Sv5SpecialWorldPoint firstWorld,
+            Sv5SpecialWorldPoint secondWorld, string routeA, string routeB,
+            Sv5SpecialWorldPoint routeAWorld, Sv5SpecialWorldPoint routeBWorld,
             string firstKinds, string secondKinds, string routeAKinds, string routeBKinds)
         {
             Kind = kind;
@@ -154,17 +154,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 firstWorld.Y.ToString(CultureInfo.InvariantCulture) + "_" +
                 secondWorld.X.ToString(CultureInfo.InvariantCulture) + "_" +
                 secondWorld.Y.ToString(CultureInfo.InvariantCulture) + "_" +
-                RmapWorldDefinition.Hash(routeA + "|" + routeB).Substring(0, 12);
+                Sv5WorldDefinition.Hash(routeA + "|" + routeB).Substring(0, 12);
         }
 
         public string Id { get; }
         public string Kind { get; }
-        public RmapSpecialWorldPoint FirstWorld { get; }
-        public RmapSpecialWorldPoint SecondWorld { get; }
+        public Sv5SpecialWorldPoint FirstWorld { get; }
+        public Sv5SpecialWorldPoint SecondWorld { get; }
         public string RouteA { get; }
         public string RouteB { get; }
-        public RmapSpecialWorldPoint RouteAWorld { get; }
-        public RmapSpecialWorldPoint RouteBWorld { get; }
+        public Sv5SpecialWorldPoint RouteAWorld { get; }
+        public Sv5SpecialWorldPoint RouteBWorld { get; }
         public string Direction { get; }
         public string FirstKinds { get; }
         public string SecondKinds { get; }
@@ -180,7 +180,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         private readonly ReadOnlyCollection<string> routeIds;
 
-        public Sv5RouteStateReviewContact(RmapSpecialWorldPoint world, IEnumerable<string> sourceRouteIds)
+        public Sv5RouteStateReviewContact(Sv5SpecialWorldPoint world, IEnumerable<string> sourceRouteIds)
         {
             World = world;
             routeIds = new ReadOnlyCollection<string>((sourceRouteIds ?? Array.Empty<string>()).Where(value =>
@@ -189,7 +189,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             if (routeIds.Count < 2) throw new ArgumentException("A review contact needs two route IDs.", nameof(sourceRouteIds));
         }
 
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public IReadOnlyList<string> RouteIds => routeIds;
         public int CompareTo(Sv5RouteStateReviewContact other)
         {
@@ -201,9 +201,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5RouteConditionBinding : IComparable<Sv5RouteConditionBinding>
     {
-        internal Sv5RouteConditionBinding(Sv5CoreRouteReservation route, RmapWorldGraphEdge edge,
-            RmapWorldGraphNode sourceNode, RmapWorldGraphNode targetNode, RmapSpecialAccess fromAccess,
-            RmapSpecialAccess toAccess)
+        internal Sv5RouteConditionBinding(Sv5CoreRouteReservation route, Sv5WorldGraphEdge edge,
+            Sv5WorldGraphNode sourceNode, Sv5WorldGraphNode targetNode, Sv5SpecialAccess fromAccess,
+            Sv5SpecialAccess toAccess)
         {
             Route = route;
             Edge = edge;
@@ -214,11 +214,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         public Sv5CoreRouteReservation Route { get; }
-        public RmapWorldGraphEdge Edge { get; }
-        public RmapWorldGraphNode SourceNode { get; }
-        public RmapWorldGraphNode TargetNode { get; }
-        public RmapSpecialAccess FromAccess { get; }
-        public RmapSpecialAccess ToAccess { get; }
+        public Sv5WorldGraphEdge Edge { get; }
+        public Sv5WorldGraphNode SourceNode { get; }
+        public Sv5WorldGraphNode TargetNode { get; }
+        public Sv5SpecialAccess FromAccess { get; }
+        public Sv5SpecialAccess ToAccess { get; }
         public bool GeometryReady => false;
         public bool PlayerVerified => false;
         public int CompareTo(Sv5RouteConditionBinding other) => other == null ? 1 :
@@ -256,14 +256,14 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         private readonly ReadOnlyCollection<Sv5RouteStateTraceStep> trace;
 
-        internal Sv5RouteOrderProof(RmapWorldGraphProof source, IEnumerable<Sv5RouteStateTraceStep> sourceTrace)
+        internal Sv5RouteOrderProof(Sv5WorldGraphProof source, IEnumerable<Sv5RouteStateTraceStep> sourceTrace)
         {
             Source = source;
             trace = new ReadOnlyCollection<Sv5RouteStateTraceStep>((sourceTrace ?? Array.Empty<Sv5RouteStateTraceStep>())
                 .OrderBy(value => value).ToArray());
         }
 
-        public RmapWorldGraphProof Source { get; }
+        public Sv5WorldGraphProof Source { get; }
         public IReadOnlyList<Sv5RouteStateTraceStep> Trace => trace;
         public bool Success => Source != null && Source.Success;
         public int CompareTo(Sv5RouteOrderProof other) => other == null ? 1 :
@@ -273,7 +273,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public sealed class Sv5RouteShortcutDecision : IComparable<Sv5RouteShortcutDecision>
     {
         internal Sv5RouteShortcutDecision(string id, Sv5RouteShortcutDecisionCode code, string detail,
-            RmapWorldGraphState counterexampleBefore = null, RmapWorldGraphState counterexampleAfter = null,
+            Sv5WorldGraphState counterexampleBefore = null, Sv5WorldGraphState counterexampleAfter = null,
             string counterexampleAction = null, IEnumerable<string> sourceCounterexamplePrefix = null)
         {
             Id = id ?? string.Empty;
@@ -291,8 +291,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string Detail { get; }
         public bool IsAllowed => Code == Sv5RouteShortcutDecisionCode.Allowed;
         public Sv5RouteStateReadiness GeometryReadiness => Sv5RouteStateReadiness.Pending;
-        public RmapWorldGraphState CounterexampleBefore { get; }
-        public RmapWorldGraphState CounterexampleAfter { get; }
+        public Sv5WorldGraphState CounterexampleBefore { get; }
+        public Sv5WorldGraphState CounterexampleAfter { get; }
         public string CounterexampleAction { get; }
         public IReadOnlyList<string> CounterexamplePrefix { get; }
         public int CompareTo(Sv5RouteShortcutDecision other) => other == null ? 1 :
@@ -303,7 +303,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     {
         private readonly ReadOnlyCollection<string> routeIds;
 
-        internal Sv5RouteContactCheck(string id, string kind, RmapSpecialWorldPoint world,
+        internal Sv5RouteContactCheck(string id, string kind, Sv5SpecialWorldPoint world,
             IEnumerable<string> sourceRouteIds, string classification, string detail,
             string requiredPredicate = "", bool logicalStateTransitionChecked = false)
         {
@@ -320,7 +320,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         public string Id { get; }
         public string Kind { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public IReadOnlyList<string> RouteIds => routeIds;
         public string Classification { get; }
         public string Detail { get; }
@@ -386,7 +386,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 !string.Equals(value.Classification, "INVALID_WITNESS", StringComparison.Ordinal));
             GeometryStateReady = false;
             PlayerVerified = false;
-            Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
+            Digest = Sv5WorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
         public Sv5CoreReservationPlan CorePlan { get; }
@@ -427,7 +427,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     value.World.Y.ToString(CultureInfo.InvariantCulture), string.Join("\u001f", value.RouteIds));
             for (int index = 0; index < Review.AirWitness.Count; index++)
             {
-                RmapSpecialWorldPoint value = Review.AirWitness[index];
+                Sv5SpecialWorldPoint value = Review.AirWitness[index];
                 yield return Record("air_witness", index.ToString(CultureInfo.InvariantCulture),
                     value.X.ToString(CultureInfo.InvariantCulture), value.Y.ToString(CultureInfo.InvariantCulture));
             }
@@ -460,11 +460,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
     public static class Sv5RouteStatePolicy
     {
         private const ulong AllResources = 7;
-        private static readonly RmapWorldGraphRole[] Resources =
+        private static readonly Sv5WorldGraphRole[] Resources =
         {
-            RmapWorldGraphRole.MooncoreOre,
-            RmapWorldGraphRole.CondensedCoefficientSap,
-            RmapWorldGraphRole.DeepStarYeast,
+            Sv5WorldGraphRole.MooncoreOre,
+            Sv5WorldGraphRole.CondensedCoefficientSap,
+            Sv5WorldGraphRole.DeepStarYeast,
         };
 
         public static Sv5RouteStateAnalysis Analyze(Sv5CoreReservationPlan corePlan,
@@ -472,8 +472,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             if (corePlan == null) throw new ArgumentNullException(nameof(corePlan));
             if (review == null) throw new ArgumentNullException(nameof(review));
-            RmapWorldGraphPlan graph = corePlan.RouteSource.Graph;
-            if (graph == null || !graph.Success) throw new ArgumentException("A passing RMAP13 graph is required.", nameof(corePlan));
+            Sv5WorldGraphPlan graph = corePlan.RouteSource.Graph;
+            if (graph == null || !graph.Success) throw new ArgumentException("A passing SV5 graph is required.", nameof(corePlan));
             if (corePlan.Routes.Count != 11 || graph.Edges.Count != corePlan.Routes.Count)
                 throw new ArgumentException("SV5_05 requires the current eleven-route source.", nameof(corePlan));
 
@@ -487,11 +487,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 contacts, obligations, review);
         }
 
-        public static RmapWorldGraphPlan EvaluateReturnPolicy(Sv5CoreReservationPlan corePlan,
-            RmapWorldReturnShortcutPolicy policy)
+        public static Sv5WorldGraphPlan EvaluateReturnPolicy(Sv5CoreReservationPlan corePlan,
+            Sv5WorldReturnShortcutPolicy policy)
         {
             if (corePlan == null) throw new ArgumentNullException(nameof(corePlan));
-            return RmapWorldGraphPlanner.Plan(corePlan.RouteSource.Definition, policy);
+            return Sv5WorldGraphPlanner.Plan(corePlan.RouteSource.Definition, policy);
         }
 
         /// <summary>Enumerates every unordered distinct route pair at shared
@@ -506,7 +506,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     .ToDictionary(route => route.Key, route => string.Join("|", route.Select(cell => cell.Kind)
                         .Distinct().OrderBy(kind => kind).Select(kind => kind.ToString())), StringComparer.Ordinal));
             var output = new Dictionary<string, Sv5RouteContactPair>(StringComparer.Ordinal);
-            foreach (KeyValuePair<RmapSpecialWorldPoint, Dictionary<string, string>> entry in groups)
+            foreach (KeyValuePair<Sv5SpecialWorldPoint, Dictionary<string, string>> entry in groups)
             {
                 string[] routes = entry.Value.Keys.OrderBy(value => value, StringComparer.Ordinal).ToArray();
                 for (var left = 0; left < routes.Length; left++)
@@ -515,7 +515,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                         entry.Value[routes[left]], entry.Value[routes[right]], entry.Value[routes[left]],
                         entry.Value[routes[right]]);
 
-                foreach (RmapSpecialWorldPoint neighbor in Neighbors(entry.Key))
+                foreach (Sv5SpecialWorldPoint neighbor in Neighbors(entry.Key))
                 {
                     if (entry.Key.CompareTo(neighbor) >= 0 || !groups.TryGetValue(neighbor, out var other)) continue;
                     foreach (string firstRoute in routes)
@@ -539,9 +539,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             }
             return new ReadOnlyCollection<Sv5RouteContactPair>(output.Values.OrderBy(value => value).ToArray());
 
-            void AddPair(string kind, RmapSpecialWorldPoint first, RmapSpecialWorldPoint second,
-                string routeA, string routeB, RmapSpecialWorldPoint routeAWorld,
-                RmapSpecialWorldPoint routeBWorld, string firstKinds, string secondKinds,
+            void AddPair(string kind, Sv5SpecialWorldPoint first, Sv5SpecialWorldPoint second,
+                string routeA, string routeB, Sv5SpecialWorldPoint routeAWorld,
+                Sv5SpecialWorldPoint routeBWorld, string firstKinds, string secondKinds,
                 string routeAKinds, string routeBKinds)
             {
                 var pair = new Sv5RouteContactPair(kind, first, second, routeA, routeB, routeAWorld, routeBWorld,
@@ -551,21 +551,21 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         private static IEnumerable<Sv5RouteConditionBinding> Bind(Sv5CoreReservationPlan corePlan,
-            RmapWorldGraphPlan graph)
+            Sv5WorldGraphPlan graph)
         {
             var nodes = graph.Nodes.ToDictionary(value => value.NodeId, value => value, StringComparer.Ordinal);
             var edges = graph.Edges.ToDictionary(value => value.EdgeId, value => value, StringComparer.Ordinal);
             foreach (Sv5CoreRouteReservation route in corePlan.Routes.OrderBy(value => value))
             {
-                if (!edges.TryGetValue(route.RouteId, out RmapWorldGraphEdge edge))
-                    throw new ArgumentException("Unknown RMAP13 edge for route " + route.RouteId + ".", nameof(corePlan));
-                if (!nodes.TryGetValue(edge.SourceNodeId, out RmapWorldGraphNode sourceNode) ||
-                    !nodes.TryGetValue(edge.TargetNodeId, out RmapWorldGraphNode targetNode))
-                    throw new ArgumentException("Route edge has an unknown RMAP13 node.", nameof(corePlan));
+                if (!edges.TryGetValue(route.RouteId, out Sv5WorldGraphEdge edge))
+                    throw new ArgumentException("Unknown SV5 edge for route " + route.RouteId + ".", nameof(corePlan));
+                if (!nodes.TryGetValue(edge.SourceNodeId, out Sv5WorldGraphNode sourceNode) ||
+                    !nodes.TryGetValue(edge.TargetNodeId, out Sv5WorldGraphNode targetNode))
+                    throw new ArgumentException("Route edge has an unknown SV5 node.", nameof(corePlan));
                 if (!string.Equals(route.Condition, edge.TraversalCondition, StringComparison.Ordinal))
-                    throw new ArgumentException("Route label does not equal its RMAP13 edge condition.", nameof(corePlan));
-                RmapSpecialAccess from = corePlan.Source.Accesses.Single(value => value.Id == route.FromPortId);
-                RmapSpecialAccess to = corePlan.Source.Accesses.Single(value => value.Id == route.ToPortId);
+                    throw new ArgumentException("Route label does not equal its SV5 edge condition.", nameof(corePlan));
+                Sv5SpecialAccess from = corePlan.Source.Accesses.Single(value => value.Id == route.FromPortId);
+                Sv5SpecialAccess to = corePlan.Source.Accesses.Single(value => value.Id == route.ToPortId);
                 if (!ContainsNode(from.SourceNodeId, edge.SourceNodeId) || !ContainsNode(to.SourceNodeId, edge.TargetNodeId))
                     throw new ArgumentException("Route port source-node binding is inconsistent.", nameof(corePlan));
                 if (!IsKnownPortCondition(from.Condition) || !IsKnownPortCondition(to.Condition))
@@ -575,7 +575,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         }
 
         private static ShortcutEvaluation EvaluateShortcuts(Sv5CoreReservationPlan corePlan,
-            RmapWorldGraphPlan graph, IEnumerable<Sv5RouteShortcutCandidate> sourceCandidates)
+            Sv5WorldGraphPlan graph, IEnumerable<Sv5RouteShortcutCandidate> sourceCandidates)
         {
             Sv5RouteShortcutCandidate[] candidates = (sourceCandidates ?? Array.Empty<Sv5RouteShortcutCandidate>())
                 .Where(value => value != null).OrderBy(value => value.CanonicalPayload, StringComparer.Ordinal).ToArray();
@@ -608,15 +608,15 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 return new ShortcutEvaluation(candidates, decisions, Array.Empty<Sv5RouteOrderProof>());
             }
 
-            RmapWorldGraphEdge[] candidateEdges = accepted.Select(ToEdge).ToArray();
-            RmapWorldGraphRole[][] orders = ResourceOrders().ToArray();
-            RmapWorldGraphProof[] proofs = orders.Select(order => RmapWorldGraphPlanner.EvaluateWithAnalysisNodes(
+            Sv5WorldGraphEdge[] candidateEdges = accepted.Select(ToEdge).ToArray();
+            Sv5WorldGraphRole[][] orders = ResourceOrders().ToArray();
+            Sv5WorldGraphProof[] proofs = orders.Select(order => Sv5WorldGraphPlanner.EvaluateWithAnalysisNodes(
                 graph.Nodes, generalIds, graph.Edges.Concat(candidateEdges), order)).ToArray();
             Sv5RouteOrderProof[] candidateSetProofs = proofs.Select(value => ToRouteProof(value, graph.Nodes,
                 graph.Edges.Concat(candidateEdges))).ToArray();
             if (proofs.Any(value => !value.Success))
             {
-                RmapWorldGraphProof failure = proofs.First(value => !value.Success);
+                Sv5WorldGraphProof failure = proofs.First(value => !value.Success);
                 decisions.Add(new Sv5RouteShortcutDecision("CANDIDATE_SET",
                     Sv5RouteShortcutDecisionCode.CandidateSetGoalUnreachable,
                     failure.Failures.First().Code + ":" + failure.Failures.First().Detail));
@@ -627,30 +627,30 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     graph.Edges.Concat(candidateEdges), orders);
                 decisions.Add(unsafeDecision ?? new Sv5RouteShortcutDecision("CANDIDATE_SET",
                     Sv5RouteShortcutDecisionCode.Allowed,
-                    "All six RMAP13 resource orders retain required actions, goal recovery, and exit reachability."));
+                    "All six SV5 resource orders retain required actions, goal recovery, and exit reachability."));
             }
             return new ShortcutEvaluation(candidates, decisions, candidateSetProofs);
         }
 
         private static Sv5RouteShortcutDecision ValidateCandidate(Sv5CoreReservationPlan corePlan,
-            RmapWorldGraphPlan graph, ISet<string> graphNodeIds, ISet<string> generalIds,
+            Sv5WorldGraphPlan graph, ISet<string> graphNodeIds, ISet<string> generalIds,
             Sv5RouteShortcutCandidate candidate)
         {
             if (!AnchorIsKnown(candidate.From, graphNodeIds, generalIds) ||
                 !AnchorIsKnown(candidate.To, graphNodeIds, generalIds))
                 return new Sv5RouteShortcutDecision(candidate.Id, Sv5RouteShortcutDecisionCode.UnknownAnchor,
-                    "Candidate anchors must be existing RMAP13 nodes or declared general analysis nodes.");
+                    "Candidate anchors must be existing SV5 nodes or declared general analysis nodes.");
             if (string.Equals(candidate.From.Id, candidate.To.Id, StringComparison.Ordinal))
                 return new Sv5RouteShortcutDecision(candidate.Id, Sv5RouteShortcutDecisionCode.InvalidGeneralAnchor,
                     "A shortcut must connect two distinct anchors.");
             if (graphNodeIds.Contains(candidate.To.Id))
             {
-                RmapSpecialAccess target = TargetAccess(corePlan, graph, candidate.To.Id);
+                Sv5SpecialAccess target = TargetAccess(corePlan, graph, candidate.To.Id);
                 PortRequirement requirement = ParsePortRequirement(target.Condition);
                 if (!requirement.IsKnown || !HasRequirement(candidate, requirement))
                     return new Sv5RouteShortcutDecision(candidate.Id, Sv5RouteShortcutDecisionCode.WeakRequiredCondition,
                         "Candidate does not preserve target port condition " + target.Condition + ".");
-                RmapWorldGraphRole targetRole = graph.Nodes.Single(value => value.NodeId == candidate.To.Id).Role;
+                Sv5WorldGraphRole targetRole = graph.Nodes.Single(value => value.NodeId == candidate.To.Id).Role;
                 PortRequirement logicalEntry = LogicalEntryRequirement(targetRole);
                 if (!HasRequirement(candidate, logicalEntry))
                 {
@@ -669,22 +669,22 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 edge.TargetNodeId == candidate.From.Id && edge.SourceConnectionIsOneWay);
             if (reversesOneWay && !hasDirectEdge)
                 return new Sv5RouteShortcutDecision(candidate.Id, Sv5RouteShortcutDecisionCode.ReverseOfOneWay,
-                    "A reverse of an existing one-way connection needs its own declared RMAP13 route.");
+                    "A reverse of an existing one-way connection needs its own declared SV5 route.");
             return new Sv5RouteShortcutDecision(candidate.Id, Sv5RouteShortcutDecisionCode.Allowed,
                 "Logical proposal only; geometry and Player evidence remain pending.");
         }
 
-        private static EntryCounterexample FindMissingEntryCounterexample(RmapWorldGraphPlan graph,
+        private static EntryCounterexample FindMissingEntryCounterexample(Sv5WorldGraphPlan graph,
             Sv5RouteShortcutCandidate candidate, PortRequirement requirement)
         {
             if (candidate.From.Kind != Sv5RouteStateAnchorKind.ExistingGraphNode ||
                 candidate.To.Kind != Sv5RouteStateAnchorKind.ExistingGraphNode) return null;
-            RmapWorldGraphEdge edge = ToEdge(candidate);
-            foreach (RmapWorldGraphRole[] order in ResourceOrders())
+            Sv5WorldGraphEdge edge = ToEdge(candidate);
+            foreach (Sv5WorldGraphRole[] order in ResourceOrders())
             {
-                RmapWorldGraphExploration exploration = RmapWorldGraphPlanner.ExploreWithAnalysisNodes(graph.Nodes,
+                Sv5WorldGraphExploration exploration = Sv5WorldGraphPlanner.ExploreWithAnalysisNodes(graph.Nodes,
                     Array.Empty<string>(), graph.Edges.Concat(new[] { edge }), order);
-                RmapWorldGraphTransition transition = exploration.Transitions.Where(value => value.Action == "MOVE|" +
+                Sv5WorldGraphTransition transition = exploration.Transitions.Where(value => value.Action == "MOVE|" +
                     edge.EdgeId && (!requirement.RequiresForge || value.Before.ForgeMade) &&
                     (!requirement.RequiresSeal || !value.Before.SealOpen) && (!requirement.RequiresBoss ||
                         !value.Before.BossComplete)).OrderBy(value => value).FirstOrDefault();
@@ -694,27 +694,27 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return null;
         }
 
-        private static Sv5RouteShortcutDecision FindUnsafeReachableState(RmapWorldGraphPlan graph,
-            IEnumerable<string> generalIds, IEnumerable<RmapWorldGraphEdge> edges, IEnumerable<RmapWorldGraphRole[]> orders)
+        private static Sv5RouteShortcutDecision FindUnsafeReachableState(Sv5WorldGraphPlan graph,
+            IEnumerable<string> generalIds, IEnumerable<Sv5WorldGraphEdge> edges, IEnumerable<Sv5WorldGraphRole[]> orders)
         {
-            foreach (RmapWorldGraphRole[] order in orders ?? Array.Empty<RmapWorldGraphRole[]>())
+            foreach (Sv5WorldGraphRole[] order in orders ?? Array.Empty<Sv5WorldGraphRole[]>())
             {
-                RmapWorldGraphExploration exploration = RmapWorldGraphPlanner.ExploreWithAnalysisNodes(graph.Nodes,
+                Sv5WorldGraphExploration exploration = Sv5WorldGraphPlanner.ExploreWithAnalysisNodes(graph.Nodes,
                     generalIds, edges, order);
-                var goalStates = new HashSet<RmapWorldGraphState>(exploration.States.Where(state => IsGoalState(graph, state,
+                var goalStates = new HashSet<Sv5WorldGraphState>(exploration.States.Where(state => IsGoalState(graph, state,
                     order.Length)));
-                var recoverable = new HashSet<RmapWorldGraphState>(goalStates);
-                var queue = new Queue<RmapWorldGraphState>(goalStates);
+                var recoverable = new HashSet<Sv5WorldGraphState>(goalStates);
+                var queue = new Queue<Sv5WorldGraphState>(goalStates);
                 while (queue.Count != 0)
                 {
-                    RmapWorldGraphState state = queue.Dequeue();
-                    foreach (RmapWorldGraphTransition transition in exploration.Transitions.Where(value => value.After.Equals(state)))
+                    Sv5WorldGraphState state = queue.Dequeue();
+                    foreach (Sv5WorldGraphTransition transition in exploration.Transitions.Where(value => value.After.Equals(state)))
                         if (recoverable.Add(transition.Before)) queue.Enqueue(transition.Before);
                 }
-                RmapWorldGraphState unsafeState = exploration.States.Where(state => !recoverable.Contains(state))
+                Sv5WorldGraphState unsafeState = exploration.States.Where(state => !recoverable.Contains(state))
                     .OrderBy(state => state).FirstOrDefault();
                 if (unsafeState == null) continue;
-                RmapWorldGraphTransition entering = exploration.Transitions.Where(value => value.After.Equals(unsafeState))
+                Sv5WorldGraphTransition entering = exploration.Transitions.Where(value => value.After.Equals(unsafeState))
                     .OrderBy(value => value).FirstOrDefault();
                 IReadOnlyList<string> prefix = PrefixTo(graph, exploration, unsafeState);
                 return new Sv5RouteShortcutDecision("CANDIDATE_SET", Sv5RouteShortcutDecisionCode.CandidateSetUnsafeState,
@@ -725,25 +725,25 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return null;
         }
 
-        private static bool IsGoalState(RmapWorldGraphPlan graph, RmapWorldGraphState state, int orderLength) => state != null &&
-            string.Equals(state.PositionNodeId, graph.Nodes.Single(value => value.Role == RmapWorldGraphRole.Exit).NodeId,
+        private static bool IsGoalState(Sv5WorldGraphPlan graph, Sv5WorldGraphState state, int orderLength) => state != null &&
+            string.Equals(state.PositionNodeId, graph.Nodes.Single(value => value.Role == Sv5WorldGraphRole.Exit).NodeId,
                 StringComparison.Ordinal) && state.ResourceMask == AllResources && state.OrderCursor == orderLength &&
             state.ForgeMade && state.SealOpen && state.BossComplete;
 
-        private static IReadOnlyList<string> PrefixTo(RmapWorldGraphPlan graph, RmapWorldGraphExploration exploration,
-            RmapWorldGraphState target)
+        private static IReadOnlyList<string> PrefixTo(Sv5WorldGraphPlan graph, Sv5WorldGraphExploration exploration,
+            Sv5WorldGraphState target)
         {
-            RmapWorldGraphState start = exploration.States.Single(state => state.PositionNodeId == graph.Nodes.Single(value =>
-                value.Role == RmapWorldGraphRole.Start).NodeId && state.ResourceMask == 0 && state.OrderCursor == 0 &&
+            Sv5WorldGraphState start = exploration.States.Single(state => state.PositionNodeId == graph.Nodes.Single(value =>
+                value.Role == Sv5WorldGraphRole.Start).NodeId && state.ResourceMask == 0 && state.OrderCursor == 0 &&
                 !state.ForgeMade && !state.SealOpen && !state.BossComplete);
-            var queue = new Queue<RmapWorldGraphState>();
-            var previous = new Dictionary<RmapWorldGraphState, RmapWorldGraphTransition>();
+            var queue = new Queue<Sv5WorldGraphState>();
+            var previous = new Dictionary<Sv5WorldGraphState, Sv5WorldGraphTransition>();
             queue.Enqueue(start);
             previous.Add(start, null);
             while (queue.Count != 0 && !previous.ContainsKey(target))
             {
-                RmapWorldGraphState state = queue.Dequeue();
-                foreach (RmapWorldGraphTransition transition in exploration.Transitions.Where(value => value.Before.Equals(state))
+                Sv5WorldGraphState state = queue.Dequeue();
+                foreach (Sv5WorldGraphTransition transition in exploration.Transitions.Where(value => value.Before.Equals(state))
                              .OrderBy(value => value))
                     if (!previous.ContainsKey(transition.After))
                     {
@@ -753,7 +753,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             }
             if (!previous.ContainsKey(target)) return Array.Empty<string>();
             var output = new List<string>();
-            for (RmapWorldGraphState cursor = target; !cursor.Equals(start); cursor = previous[cursor].Before)
+            for (Sv5WorldGraphState cursor = target; !cursor.Equals(start); cursor = previous[cursor].Before)
                 output.Add(previous[cursor].Action);
             output.Reverse();
             return output;
@@ -778,20 +778,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 string id = ContactId("REVIEW", reviewContact.World, reviewContact.RouteIds);
                 output[id] = new Sv5RouteContactCheck(id, "REVIEW_LABEL_CONTACT", reviewContact.World,
                     reviewContact.RouteIds, routesExist ? "LOGICAL_GUARD_PRESENT_GEOMETRY_PENDING" : "UNKNOWN_ROUTE_REJECTED",
-                    routesExist ? "Review label mismatch is classified from actual RMAP13 predicates, not the label alone."
+                    routesExist ? "Review label mismatch is classified from actual SV5 predicates, not the label alone."
                         : "Review input references an unknown route ID.", routesExist ?
                     RequiredPredicate(reviewContact.RouteIds, bindings) : "UNKNOWN_ROUTE", false);
             }
             if (review.AirWitness.Count != 0)
             {
                 bool contiguous = IsContiguous(review.AirWitness);
-                bool endpoints = IsAccessEndpoint(corePlan, review.AirWitness.First(), "RMAP15_SITE_START_PORT_ENTRY") &&
-                    IsAccessEndpoint(corePlan, review.AirWitness.Last(), "RMAP15_SITE_EXIT_PORT_ENTRY");
+                bool endpoints = IsAccessEndpoint(corePlan, review.AirWitness.First(), "SV5_SITE_START_PORT_ENTRY") &&
+                    IsAccessEndpoint(corePlan, review.AirWitness.Last(), "SV5_SITE_EXIT_PORT_ENTRY");
                 bool fixedAir = review.AirWitness.All(point => corePlan.CoreCells.Any(cell => cell.World.Equals(point) &&
-                        cell.BaseCell == RmapPatternBaseCell.Air) || corePlan.RouteCells.Any(cell => cell.World.Equals(point) &&
-                        cell.RequiredBaseCell == RmapPatternBaseCell.Air));
+                        cell.BaseCell == Sv5PatternBaseCell.Air) || corePlan.RouteCells.Any(cell => cell.World.Equals(point) &&
+                        cell.RequiredBaseCell == Sv5PatternBaseCell.Air));
                 bool excludesSealed = !corePlan.StateGeometry.Any(cell => string.Equals(cell.State, "SEALED",
-                    StringComparison.Ordinal) && cell.BaseCell == RmapPatternBaseCell.Solid && review.AirWitness.Contains(cell.World));
+                    StringComparison.Ordinal) && cell.BaseCell == Sv5PatternBaseCell.Solid && review.AirWitness.Contains(cell.World));
                 bool validWitness = contiguous && endpoints && fixedAir && excludesSealed;
                 string id = "AIR_WITNESS_109_EDGE";
                 output[id] = new Sv5RouteContactCheck(id, "RAW_AIR_WITNESS", review.AirWitness.First(),
@@ -820,21 +820,21 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "Run whole-world Player traversal verification after composed geometry is available.", "PENDING");
         }
 
-        private static Sv5RouteOrderProof BuildProof(IEnumerable<RmapWorldGraphNode> nodes,
-            IEnumerable<RmapWorldGraphEdge> edges, RmapWorldGraphRole[] order)
+        private static Sv5RouteOrderProof BuildProof(IEnumerable<Sv5WorldGraphNode> nodes,
+            IEnumerable<Sv5WorldGraphEdge> edges, Sv5WorldGraphRole[] order)
         {
-            RmapWorldGraphProof proof = RmapWorldGraphPlanner.Evaluate(nodes, edges, order);
+            Sv5WorldGraphProof proof = Sv5WorldGraphPlanner.Evaluate(nodes, edges, order);
             return ToRouteProof(proof, nodes, edges);
         }
 
-        private static Sv5RouteOrderProof ToRouteProof(RmapWorldGraphProof proof,
-            IEnumerable<RmapWorldGraphNode> nodes, IEnumerable<RmapWorldGraphEdge> edges)
+        private static Sv5RouteOrderProof ToRouteProof(Sv5WorldGraphProof proof,
+            IEnumerable<Sv5WorldGraphNode> nodes, IEnumerable<Sv5WorldGraphEdge> edges)
         {
             var trace = new List<Sv5RouteStateTraceStep>();
             if (!proof.Success) return new Sv5RouteOrderProof(proof, trace);
             var graphNodes = nodes.ToDictionary(value => value.NodeId, value => value, StringComparer.Ordinal);
             var graphEdges = edges.ToDictionary(value => value.EdgeId, value => value, StringComparer.Ordinal);
-            string position = graphNodes.Values.Single(value => value.Role == RmapWorldGraphRole.Start).NodeId;
+            string position = graphNodes.Values.Single(value => value.Role == Sv5WorldGraphRole.Start).NodeId;
             ulong mask = 0;
             var cursor = 0;
             var forge = false;
@@ -844,10 +844,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             {
                 string before = TraceState(position, mask, cursor, forge, seal, boss);
                 string action = proof.Actions[index];
-                if (action.StartsWith("MOVE|", StringComparison.Ordinal) && graphEdges.TryGetValue(action.Substring(5), out RmapWorldGraphEdge edge))
+                if (action.StartsWith("MOVE|", StringComparison.Ordinal) && graphEdges.TryGetValue(action.Substring(5), out Sv5WorldGraphEdge edge))
                     position = edge.TargetNodeId;
                 else if (action.StartsWith("ACQUIRE|", StringComparison.Ordinal) &&
-                         Enum.TryParse(action.Substring(8), out RmapWorldGraphRole role))
+                         Enum.TryParse(action.Substring(8), out Sv5WorldGraphRole role))
                 {
                     mask |= Bit(role);
                     cursor++;
@@ -870,16 +870,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return true;
         }
 
-        private static RmapWorldGraphEdge ToEdge(Sv5RouteShortcutCandidate candidate) => new RmapWorldGraphEdge(
+        private static Sv5WorldGraphEdge ToEdge(Sv5RouteShortcutCandidate candidate) => new Sv5WorldGraphEdge(
             candidate.From.Id, candidate.To.Id, candidate.Direction, "SV5_05_SHORTCUT_" + candidate.Id,
             "SV5_05_CANDIDATE_" + candidate.Id, true, candidate.RequiredResourceMask,
             candidate.RequiresForge, candidate.RequiresSeal, candidate.RequiresBossComplete);
 
-        private static RmapSpecialAccess TargetAccess(Sv5CoreReservationPlan corePlan, RmapWorldGraphPlan graph,
+        private static Sv5SpecialAccess TargetAccess(Sv5CoreReservationPlan corePlan, Sv5WorldGraphPlan graph,
             string targetNodeId)
         {
             Sv5CoreRouteReservation route = corePlan.Routes.FirstOrDefault(value => value.Source.TargetNodeId == targetNodeId);
-            if (route == null) throw new ArgumentException("No physical access binds the target RMAP13 node.", nameof(targetNodeId));
+            if (route == null) throw new ArgumentException("No physical access binds the target SV5 node.", nameof(targetNodeId));
             return corePlan.Source.Accesses.Single(value => value.Id == route.ToPortId);
         }
 
@@ -898,8 +898,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             (!requirement.RequiresSeal || candidate.RequiresSeal) &&
             (!requirement.RequiresBoss || candidate.RequiresBossComplete);
 
-        private static PortRequirement LogicalEntryRequirement(RmapWorldGraphRole role) => role == RmapWorldGraphRole.Boss
-            ? new PortRequirement(true, AllResources, true, true, false) : role == RmapWorldGraphRole.Exit
+        private static PortRequirement LogicalEntryRequirement(Sv5WorldGraphRole role) => role == Sv5WorldGraphRole.Boss
+            ? new PortRequirement(true, AllResources, true, true, false) : role == Sv5WorldGraphRole.Exit
             ? new PortRequirement(true, AllResources, true, true, true) : new PortRequirement(true, 0, false, false, false);
 
         private static string DescribeMissingRequirement(Sv5RouteShortcutCandidate candidate, PortRequirement requirement)
@@ -916,17 +916,17 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static bool IsKnownPortCondition(string condition) => ParsePortRequirement(condition).IsKnown;
         private static bool ContainsNode(string portNodeIds, string nodeId) => (portNodeIds ?? string.Empty)
             .Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Contains(nodeId, StringComparer.Ordinal);
-        private static bool IsAccessEndpoint(Sv5CoreReservationPlan plan, RmapSpecialWorldPoint point, string accessId) =>
+        private static bool IsAccessEndpoint(Sv5CoreReservationPlan plan, Sv5SpecialWorldPoint point, string accessId) =>
             plan.Source.Accesses.Single(value => value.Id == accessId).OpenCells.Contains(point);
-        private static bool IsContiguous(IReadOnlyList<RmapSpecialWorldPoint> points) => points.Count >= 2 &&
+        private static bool IsContiguous(IReadOnlyList<Sv5SpecialWorldPoint> points) => points.Count >= 2 &&
             points.Skip(1).Select((value, index) => Math.Abs(value.X - points[index].X) + Math.Abs(value.Y - points[index].Y))
                 .All(value => value == 1);
-        private static IEnumerable<RmapSpecialWorldPoint> Neighbors(RmapSpecialWorldPoint point)
+        private static IEnumerable<Sv5SpecialWorldPoint> Neighbors(Sv5SpecialWorldPoint point)
         {
-            yield return new RmapSpecialWorldPoint(point.X - 1, point.Y);
-            yield return new RmapSpecialWorldPoint(point.X + 1, point.Y);
-            yield return new RmapSpecialWorldPoint(point.X, point.Y - 1);
-            yield return new RmapSpecialWorldPoint(point.X, point.Y + 1);
+            yield return new Sv5SpecialWorldPoint(point.X - 1, point.Y);
+            yield return new Sv5SpecialWorldPoint(point.X + 1, point.Y);
+            yield return new Sv5SpecialWorldPoint(point.X, point.Y - 1);
+            yield return new Sv5SpecialWorldPoint(point.X, point.Y + 1);
         }
 
         private static void AddContact(IDictionary<string, Sv5RouteContactCheck> output, Sv5RouteContactPair pair,
@@ -937,7 +937,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 edge.RequiresForge || edge.RequiresSeal || edge.RequiresBossComplete);
             output[pair.Id] = new Sv5RouteContactCheck(pair.Id, pair.Kind, pair.FirstWorld, ids,
                 guarded ? "LOGICAL_GUARD_PRESENT_GEOMETRY_PENDING" : "SAME_STAGE_MERGE_GEOMETRY_PENDING",
-                guarded ? "Pair was completely enumerated; its RMAP13 predicates are classified but the mid-route switch is not yet evaluated."
+                guarded ? "Pair was completely enumerated; its SV5 predicates are classified but the mid-route switch is not yet evaluated."
                     : "Pair was completely enumerated; a split-node transition still requires the shared FSM evaluation.",
                 RequiredPredicate(ids, bindings), false);
         }
@@ -950,16 +950,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 (bindings[value].Edge.RequiresSeal ? "SealOpen" : "-") + "/" +
                 (bindings[value].Edge.RequiresBossComplete ? "BossComplete" : "-")));
 
-        private static string ContactId(string kind, RmapSpecialWorldPoint point, IEnumerable<string> routeIds) => kind + "_" +
+        private static string ContactId(string kind, Sv5SpecialWorldPoint point, IEnumerable<string> routeIds) => kind + "_" +
             point.X.ToString(CultureInfo.InvariantCulture) + "_" + point.Y.ToString(CultureInfo.InvariantCulture) + "_" +
-            RmapWorldDefinition.Hash(string.Join("|", routeIds.OrderBy(value => value, StringComparer.Ordinal))).Substring(0, 12);
+            Sv5WorldDefinition.Hash(string.Join("|", routeIds.OrderBy(value => value, StringComparer.Ordinal))).Substring(0, 12);
         private static string TraceState(string position, ulong mask, int cursor, bool forge, bool seal, bool boss) =>
-            "SV5_TRACE_RMAP13|" + position + "|" + mask.ToString(CultureInfo.InvariantCulture) + "|" +
+            "SV5_TRACE_SV513|" + position + "|" + mask.ToString(CultureInfo.InvariantCulture) + "|" +
             cursor.ToString(CultureInfo.InvariantCulture) + "|" + (forge ? "1" : "0") + "|" +
             (seal ? "1" : "0") + "|" + (boss ? "1" : "0");
-        private static ulong Bit(RmapWorldGraphRole role) => role == RmapWorldGraphRole.MooncoreOre ? 1UL :
-            role == RmapWorldGraphRole.CondensedCoefficientSap ? 2UL : role == RmapWorldGraphRole.DeepStarYeast ? 4UL : 0UL;
-        private static IEnumerable<RmapWorldGraphRole[]> ResourceOrders() => Resources.SelectMany(first =>
+        private static ulong Bit(Sv5WorldGraphRole role) => role == Sv5WorldGraphRole.MooncoreOre ? 1UL :
+            role == Sv5WorldGraphRole.CondensedCoefficientSap ? 2UL : role == Sv5WorldGraphRole.DeepStarYeast ? 4UL : 0UL;
+        private static IEnumerable<Sv5WorldGraphRole[]> ResourceOrders() => Resources.SelectMany(first =>
             Resources.Where(second => second != first).SelectMany(second => Resources.Where(third => third != first &&
                 third != second).Select(third => new[] { first, second, third })));
 
@@ -980,11 +980,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
         private sealed class EntryCounterexample
         {
-            public EntryCounterexample(RmapWorldGraphState before, RmapWorldGraphState after, string action,
+            public EntryCounterexample(Sv5WorldGraphState before, Sv5WorldGraphState after, string action,
                 IReadOnlyList<string> prefix)
             { Before = before; After = after; Action = action; Prefix = prefix ?? Array.Empty<string>(); }
-            public RmapWorldGraphState Before { get; }
-            public RmapWorldGraphState After { get; }
+            public Sv5WorldGraphState Before { get; }
+            public Sv5WorldGraphState After { get; }
             public string Action { get; }
             public IReadOnlyList<string> Prefix { get; }
         }
@@ -1055,7 +1055,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return "{\n" +
                 "  \"format\": \"SV5_05_ROUTE_STATE_FIX01_V2\",\n" +
                 "  \"core_reservation_digest\": \"" + value.CorePlan.Digest + "\",\n" +
-                "  \"rmap13_graph_digest\": \"" + value.CorePlan.RouteSource.Graph.Digest + "\",\n" +
+                "  \"sv5_graph_digest\": \"" + value.CorePlan.RouteSource.Graph.Digest + "\",\n" +
                 "  \"analysis_digest\": \"" + value.Digest + "\",\n" +
                 "  \"route_count\": " + value.ConditionBindings.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
                 "  \"resource_order_count\": " + value.OrderProofs.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
@@ -1078,7 +1078,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "  \"format\": \"SV5_05_FIX01_ANALYSIS_V2\",\n" +
                 "  \"analysis_digest\": " + JsonText(value.Digest) + ",\n" +
                 "  \"core_reservation_digest\": " + JsonText(value.CorePlan.Digest) + ",\n" +
-                "  \"rmap13_graph_digest\": " + JsonText(value.CorePlan.RouteSource.Graph.Digest) + ",\n" +
+                "  \"sv5_graph_digest\": " + JsonText(value.CorePlan.RouteSource.Graph.Digest) + ",\n" +
                 "  \"candidates\": [" + string.Join(",", value.Candidates.Select(CandidateJson)) + "],\n" +
                 "  \"review_contacts\": [" + string.Join(",", value.Review.Contacts.Select(ContactInputJson)) + "],\n" +
                 "  \"air_witness\": [" + string.Join(",", value.Review.AirWitness.Select(PointJson)) + "],\n" +
@@ -1114,7 +1114,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             ",\"canonical_payload\":" + JsonText(value.CanonicalPayload) + "}";
         private static string ContactInputJson(Sv5RouteStateReviewContact value) => "{\"world\":" + PointJson(value.World) +
             ",\"route_ids\":[" + string.Join(",", value.RouteIds.Select(JsonText)) + "]}";
-        private static string PointJson(RmapSpecialWorldPoint value) => "[" + value.X.ToString(CultureInfo.InvariantCulture) +
+        private static string PointJson(Sv5SpecialWorldPoint value) => "[" + value.X.ToString(CultureInfo.InvariantCulture) +
             "," + value.Y.ToString(CultureInfo.InvariantCulture) + "]";
         private static string ProofJson(string scope, Sv5RouteOrderProof value) => "{\"scope\":" + JsonText(scope) +
             ",\"proof_id\":" + JsonText(value.Source.ProofId) + ",\"order\":[" +
@@ -1136,7 +1136,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             string.Join(",", value.RouteIds.Select(JsonText)) + "],\"classification\":" + JsonText(value.Classification) +
             ",\"required_predicate\":" + JsonText(value.RequiredPredicate) + ",\"logical_state_transition_checked\":" +
             Json(value.LogicalStateTransitionChecked) + ",\"geometry_state\":\"PENDING\",\"player_state\":\"PENDING\"}";
-        private static int NormalReturnCount(Sv5RouteStateAnalysis analysis, RmapWorldGraphProof proof)
+        private static int NormalReturnCount(Sv5RouteStateAnalysis analysis, Sv5WorldGraphProof proof)
         {
             var conditions = Require(analysis).ConditionBindings.ToDictionary(value => value.Edge.EdgeId,
                 value => value.Edge.TraversalCondition, StringComparer.Ordinal);

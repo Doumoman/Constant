@@ -75,9 +75,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void T09_OrdinaryMovementHasHeadroomAndSupport()
         {
             var p=Default.Value.Sidepaths;foreach(var link in p.Links)for(int i=0;i<link.Centerline.Count;i++)
-            {var v=link.Centerline[i];Assert.That(Sv5LoopTopology.ValueAt(p.FinalOccupancy,new RmapSpecialWorldPoint(v.X,v.Y+1)),Is.EqualTo(Sv5InfillCellValue.Air));
+            {var v=link.Centerline[i];Assert.That(Sv5LoopTopology.ValueAt(p.FinalOccupancy,new Sv5SpecialWorldPoint(v.X,v.Y+1)),Is.EqualTo(Sv5InfillCellValue.Air));
                 if(Sv5SpaceSidepaths.MovementRole(link.Centerline,i)==Sv5SidepathMovementRole.SupportedFoot)
-                    Assert.That(Sv5LoopTopology.ValueAt(p.FinalOccupancy,new RmapSpecialWorldPoint(v.X,v.Y-1)),Is.EqualTo(Sv5InfillCellValue.Solid));}
+                    Assert.That(Sv5LoopTopology.ValueAt(p.FinalOccupancy,new Sv5SpecialWorldPoint(v.X,v.Y-1)),Is.EqualTo(Sv5InfillCellValue.Solid));}
         }
         [Test] public void T10_PathsAreIrregularWithoutSawtoothOrLongVerticalTube()
         {

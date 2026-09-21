@@ -1,0 +1,32 @@
+{
+  "schema": "SV5_21_LIBRARY_PROFILE/v1",
+  "task": "SV5_21_LIBRARY",
+  "coordinate_scope": "LOCAL_20x24_TILES",
+  "layout_count": 4,
+  "layout_width": 20,
+  "layout_height": 24,
+  "allowed_width_range": [18, 20],
+  "allowed_height_range": [20, 25],
+  "micro_pattern_size": 4,
+  "micro_grid_width": 5,
+  "micro_grid_height": 6,
+  "primary_tier_vertical_gap": [3, 5],
+  "platform_length": [4, 10],
+  "minimum_zigzag_reversals": 3,
+  "stair_reservations_per_layout": [2, 4],
+  "port_height": 2,
+  "bookshelf_coverage": [0.55, 0.80],
+  "maximum_filled_solid_rectangle": [5, 5],
+  "preview": {
+    "width": 624,
+    "height": 416,
+    "panels": 4
+  },
+  "readiness": {
+    "LibraryShellReady": true,
+    "StairDataReady": false,
+    "StairMotorReady": false,
+    "LibraryTraversalReady": false,
+    "WorldPlaced": false
+  }
+}

@@ -34,21 +34,21 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public int MaximumPerSector { get; }
         public int MinimumLength => 4;
         public int MaximumLength => 24;
-        public string Digest => RmapWorldDefinition.Hash("SV5_LOOP_PROFILE_V1|1.0.0|624|416|1|4|4|12|8|48|32|" +
+        public string Digest => Sv5WorldDefinition.Hash("SV5_LOOP_PROFILE_V1|1.0.0|624|416|1|4|4|12|8|48|32|" +
             Enabled + "|" + EligibilityPercent + "|" + Target + "|" + Minimum + "|" + Maximum + "|" +
             MinimumSectors + "|" + MaximumPerSector + "|4|24|2|1|1|NO_PLUS_TWO|NO_SIDEPATH");
     }
 
     public sealed class Sv5LoopCell : IComparable<Sv5LoopCell>
     {
-        internal Sv5LoopCell(string loopId, RmapSpecialWorldPoint world, Sv5LoopCellRole role,
+        internal Sv5LoopCell(string loopId, Sv5SpecialWorldPoint world, Sv5LoopCellRole role,
             Sv5InfillCellValue sourceValue, Sv5InfillCellValue finalValue, string sourceOwner)
         {
             LoopId = loopId ?? string.Empty; World = world; Role = role; SourceValue = sourceValue;
             FinalValue = finalValue; SourceOwner = sourceOwner ?? string.Empty;
         }
         public string LoopId { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public Sv5LoopCellRole Role { get; }
         public Sv5InfillCellValue SourceValue { get; }
         public Sv5InfillCellValue FinalValue { get; }
@@ -66,23 +66,23 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
 
     public sealed class Sv5LoopCandidate : IComparable<Sv5LoopCandidate>
     {
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> footPath;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> centerline;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> footPath;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> centerline;
         private readonly ReadOnlyCollection<Sv5LoopCell> cells;
 
         internal Sv5LoopCandidate(string id, string hash, ulong rank, string fromRoomId, string toRoomId,
             string fromApertureOwner, string toApertureOwner, string host,
-            string sector, IEnumerable<RmapSpecialWorldPoint> sourceFeet,
-            IEnumerable<RmapSpecialWorldPoint> sourceCenterline, IEnumerable<Sv5LoopCell> sourceCells,
-            IEnumerable<RmapSpecialWorldPoint> sourceFromApproach,
-            IEnumerable<RmapSpecialWorldPoint> sourceToApproach,
+            string sector, IEnumerable<Sv5SpecialWorldPoint> sourceFeet,
+            IEnumerable<Sv5SpecialWorldPoint> sourceCenterline, IEnumerable<Sv5LoopCell> sourceCells,
+            IEnumerable<Sv5SpecialWorldPoint> sourceFromApproach,
+            IEnumerable<Sv5SpecialWorldPoint> sourceToApproach,
             int baselineCost, int finalCost, string status, string reason)
         {
             Id=id; StableHash=hash; StableRank=rank; FromRoomId=fromRoomId; ToRoomId=toRoomId;
             FromApertureOwner=fromApertureOwner; ToApertureOwner=toApertureOwner; Host=host; SectorId=sector;
             footPath=Array.AsReadOnly(sourceFeet.ToArray()); centerline=Array.AsReadOnly(sourceCenterline.ToArray());
-            FromApproach=Array.AsReadOnly((sourceFromApproach ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray());
-            ToApproach=Array.AsReadOnly((sourceToApproach ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray());
+            FromApproach=Array.AsReadOnly((sourceFromApproach ?? Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
+            ToApproach=Array.AsReadOnly((sourceToApproach ?? Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
             cells=Array.AsReadOnly(sourceCells.OrderBy(c=>c).ToArray()); BaselineCost=baselineCost; FinalCost=finalCost;
             Status=status; Reason=reason;
         }
@@ -97,10 +97,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string ToOwner => ToRoomId;
         public string Host { get; }
         public string SectorId { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> FootPath => footPath;
-        public IReadOnlyList<RmapSpecialWorldPoint> Centerline => centerline;
-        public IReadOnlyList<RmapSpecialWorldPoint> FromApproach { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> ToApproach { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> FootPath => footPath;
+        public IReadOnlyList<Sv5SpecialWorldPoint> Centerline => centerline;
+        public IReadOnlyList<Sv5SpecialWorldPoint> FromApproach { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> ToApproach { get; }
         public IReadOnlyList<Sv5LoopCell> Cells => cells;
         public int BaselineCost { get; internal set; }
         public int FinalCost { get; internal set; }
@@ -124,20 +124,20 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             int rank=StableRank.CompareTo(other.StableRank);
             return rank!=0 ? rank : string.Compare(Id,other.Id,StringComparison.Ordinal);
         }
-        private static string EndpointPair(RmapSpecialWorldPoint first,RmapSpecialWorldPoint second)
+        private static string EndpointPair(Sv5SpecialWorldPoint first,Sv5SpecialWorldPoint second)
             => first.CompareTo(second)<=0 ? first+"|"+second : second+"|"+first;
     }
 
     public sealed class Sv5LoopLink : IComparable<Sv5LoopLink>
     {
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> feet;
-        private readonly ReadOnlyCollection<RmapSpecialWorldPoint> centerline;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> feet;
+        private readonly ReadOnlyCollection<Sv5SpecialWorldPoint> centerline;
         private readonly ReadOnlyCollection<Sv5LoopCell> cells;
         internal Sv5LoopLink(string id, Sv5LoopKind kind, string fromRoomId, string toRoomId,
             string fromApertureOwner, string toApertureOwner, string host, string sector,
-            IEnumerable<RmapSpecialWorldPoint> sourceFeet, IEnumerable<RmapSpecialWorldPoint> sourceCenterline,
-            IEnumerable<RmapSpecialWorldPoint> sourceFromApproach,
-            IEnumerable<RmapSpecialWorldPoint> sourceToApproach,
+            IEnumerable<Sv5SpecialWorldPoint> sourceFeet, IEnumerable<Sv5SpecialWorldPoint> sourceCenterline,
+            IEnumerable<Sv5SpecialWorldPoint> sourceFromApproach,
+            IEnumerable<Sv5SpecialWorldPoint> sourceToApproach,
             IEnumerable<Sv5LoopCell> sourceCells, int baselineCost, int newCost, string contourVariant,
             bool alternatePathExists, int cycleDelta, int bypassCount, int resourceOrdersChecked,
             int legalStatesChecked)
@@ -145,8 +145,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Id=id; Kind=kind; FromRoomId=fromRoomId; ToRoomId=toRoomId;
             FromApertureOwner=fromApertureOwner; ToApertureOwner=toApertureOwner; Host=host; SectorId=sector;
             feet=Array.AsReadOnly(sourceFeet.ToArray()); centerline=Array.AsReadOnly(sourceCenterline.ToArray());
-            FromApproach=Array.AsReadOnly((sourceFromApproach ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray());
-            ToApproach=Array.AsReadOnly((sourceToApproach ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray());
+            FromApproach=Array.AsReadOnly((sourceFromApproach ?? Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
+            ToApproach=Array.AsReadOnly((sourceToApproach ?? Array.Empty<Sv5SpecialWorldPoint>()).ToArray());
             cells=Array.AsReadOnly(sourceCells.OrderBy(c=>c).ToArray()); BaselineCost=baselineCost; NewCost=newCost;
             ContourVariant=contourVariant; AlternatePathExists=alternatePathExists; CycleDelta=cycleDelta;
             BypassCount=bypassCount; ResourceOrdersChecked=resourceOrdersChecked; LegalStatesChecked=legalStatesChecked;
@@ -161,10 +161,10 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public string ToOwner => ToRoomId;
         public string Host { get; }
         public string SectorId { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> FootPath => feet;
-        public IReadOnlyList<RmapSpecialWorldPoint> Centerline => centerline;
-        public IReadOnlyList<RmapSpecialWorldPoint> FromApproach { get; }
-        public IReadOnlyList<RmapSpecialWorldPoint> ToApproach { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> FootPath => feet;
+        public IReadOnlyList<Sv5SpecialWorldPoint> Centerline => centerline;
+        public IReadOnlyList<Sv5SpecialWorldPoint> FromApproach { get; }
+        public IReadOnlyList<Sv5SpecialWorldPoint> ToApproach { get; }
         public IReadOnlyList<Sv5LoopCell> Cells => cells;
         public int BaselineCost { get; }
         public int NewCost { get; }
@@ -208,7 +208,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Topology=topology ?? throw new ArgumentNullException(nameof(topology));
             BaselineCycleRank=Topology.Before.CycleRank; FinalCycleRank=Topology.After.CycleRank;
             BaselineBridgeCount=Topology.Before.Bridges.Count; FinalBridgeCount=Topology.After.Bridges.Count;
-            Digest=RmapWorldDefinition.Hash("SV5_ACTUAL_TILE_LOOPS_V1\n"+baseline+"\n"+profile.Digest+"\n"+
+            Digest=Sv5WorldDefinition.Hash("SV5_ACTUAL_TILE_LOOPS_V1\n"+baseline+"\n"+profile.Digest+"\n"+
                 string.Join("\n",Candidates.Select(c=>c.Token))+"\n"+string.Join("\n",Links.Select(l=>l.Token))+"\n"+
                 string.Join("\n",Instances.Select(i=>i.Token))+"\n"+Topology.Digest+"\n"+string.Join("\n",Diagnostics));
         }
@@ -249,9 +249,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             public string FromApertureOwner;
             public string ToApertureOwner;
             public string Host;
-            public IReadOnlyList<RmapSpecialWorldPoint> Feet;
-            public IReadOnlyList<RmapSpecialWorldPoint> FromApproach;
-            public IReadOnlyList<RmapSpecialWorldPoint> ToApproach;
+            public IReadOnlyList<Sv5SpecialWorldPoint> Feet;
+            public IReadOnlyList<Sv5SpecialWorldPoint> FromApproach;
+            public IReadOnlyList<Sv5SpecialWorldPoint> ToApproach;
         }
 
         private sealed class ActualEndpoint
@@ -259,8 +259,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             public string RoomId;
             public string ApertureOwner;
             public string Host;
-            public RmapSpecialWorldPoint World;
-            public IReadOnlyList<RmapSpecialWorldPoint> ExitNeighbors;
+            public Sv5SpecialWorldPoint World;
+            public IReadOnlyList<Sv5SpecialWorldPoint> ExitNeighbors;
             public bool Preferred;
         }
 
@@ -344,11 +344,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     var exits=Sv5LoopTopology.FootNeighbors(cell.World).Where(p=>!context.IsBaselineFoot(p))
                         .OrderBy(p=>p).ToList();
                     if(exits.Count==0){performance.Reject("UNSUPPORTED_FOOT");continue;}
-                    var preferredExits=new List<RmapSpecialWorldPoint>();
+                    var preferredExits=new List<Sv5SpecialWorldPoint>();
                     foreach(var next in exits)
                     {
                         var probeFeet=new[]{cell.World,next};
-                        IReadOnlyList<RmapSpecialWorldPoint> probeCenter=Sv5SpaceInfill.CardinalCenterline(probeFeet);
+                        IReadOnlyList<Sv5SpecialWorldPoint> probeCenter=Sv5SpaceInfill.CardinalCenterline(probeFeet);
                         if(TryCells(string.Empty,cell.Owner,cell.Owner,room.Host,probeFeet,probeCenter,actual,
                             baselineOccupancy,forbidden,reservations,out Sv5LoopCell[] ignored,out string ignoredError))
                             preferredExits.Add(next);
@@ -361,7 +361,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 var byRoom=endpoints.GroupBy(v=>v.RoomId,StringComparer.Ordinal).ToDictionary(g=>g.Key,
                     g=>g.OrderBy(v=>v.World).ThenBy(v=>v.ApertureOwner,StringComparer.Ordinal).ToArray(),StringComparer.Ordinal);
                 string[] roomIds=byRoom.Keys.OrderBy(v=>v,StringComparer.Ordinal).ToArray();
-                var routePossibleCache=new Dictionary<string,HashSet<RmapSpecialWorldPoint>>(StringComparer.Ordinal);
+                var routePossibleCache=new Dictionary<string,HashSet<Sv5SpecialWorldPoint>>(StringComparer.Ordinal);
                 for(int ai=0;ai<roomIds.Length;ai++) for(int bi=ai+1;bi<roomIds.Length;bi++)
                 {
                     string fromRoomId=roomIds[ai],toRoomId=roomIds[bi];
@@ -462,7 +462,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                                 cell.SourceValue!=Sv5InfillCellValue.Air && cell.FinalValue==Sv5InfillCellValue.Air);
                             if(newlyCarved<2){performance.Reject("NEWLY_CARVED_LT_2");RawReject("NEWLY_CARVED_LT_2");continue;}
                             performance.Survive("newly_carved_at_least_two");
-                            string hash=RmapWorldDefinition.Hash("SV5_LOOP_CANDIDATE_V2|"+plan.Seed+"|"+
+                            string hash=Sv5WorldDefinition.Hash("SV5_LOOP_CANDIDATE_V2|"+plan.Seed+"|"+
                                 fromRoomId+"|"+toRoomId+"|"+segment.FromApertureOwner+"|"+segment.ToApertureOwner+"|"+
                                 pathToken+"|ELIGIBILITY_SALT_9");
                             ulong rank=ulong.Parse(hash.Substring(0,16),NumberStyles.HexNumber,CultureInfo.InvariantCulture);
@@ -558,7 +558,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 performance.Set("viable_sectors",viable.Select(v=>v.SectorId).Distinct(StringComparer.Ordinal).Count());
             });
 
-            var packed=new List<Sv5LoopCandidate>(); var packedCells=new HashSet<RmapSpecialWorldPoint>();
+            var packed=new List<Sv5LoopCandidate>(); var packedCells=new HashSet<Sv5SpecialWorldPoint>();
             var packedPairs=new HashSet<string>(StringComparer.Ordinal);
             var packedSectors=new Dictionary<string,int>(StringComparer.Ordinal);
             var cellFrequency=viable.SelectMany(c=>c.Cells.Select(cell=>cell.World)).GroupBy(p=>p)
@@ -765,13 +765,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             var links=(loops ?? Array.Empty<Sv5LoopLink>()).ToArray();
             var additions=links.GroupBy(l=>l.Host,StringComparer.Ordinal).ToDictionary(g=>g.Key,g=>g.SelectMany(l=>
                 l.Cells.Where(c=>c.FinalValue==Sv5InfillCellValue.Air).Select(c=>c.World)).Distinct().ToArray(),StringComparer.Ordinal);
-            var supports=links.GroupBy(l=>l.Host,StringComparer.Ordinal).ToDictionary(g=>g.Key,g=>new HashSet<RmapSpecialWorldPoint>(g.SelectMany(l=>
+            var supports=links.GroupBy(l=>l.Host,StringComparer.Ordinal).ToDictionary(g=>g.Key,g=>new HashSet<Sv5SpecialWorldPoint>(g.SelectMany(l=>
                 l.Cells.Where(c=>c.FinalValue==Sv5InfillCellValue.Solid).Select(c=>c.World))),StringComparer.Ordinal);
             return Array.AsReadOnly((source ?? Array.Empty<Sv5SpaceConnection>()).Select(c=>
             {
-                if(!additions.TryGetValue(c.Id,out RmapSpecialWorldPoint[] cells) || cells.Length==0) return c;
-                supports.TryGetValue(c.Id,out HashSet<RmapSpecialWorldPoint> solid);
-                solid=solid ?? new HashSet<RmapSpecialWorldPoint>();
+                if(!additions.TryGetValue(c.Id,out Sv5SpecialWorldPoint[] cells) || cells.Length==0) return c;
+                supports.TryGetValue(c.Id,out HashSet<Sv5SpecialWorldPoint> solid);
+                solid=solid ?? new HashSet<Sv5SpecialWorldPoint>();
                 return new Sv5SpaceConnection(c.Id,c.Kind,c.FromPortId,c.ToPortId,c.FromPlaceId,c.ToPlaceId,c.Direction,
                     c.Flow,c.Condition,c.SourceGraphEdgeId,c.SelectionState,c.Centerline,c.Envelope.Concat(cells),
                     c.ApertureCells.Where(p=>!solid.Contains(p)).Concat(cells));
@@ -790,9 +790,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         public static Sv5LoopKind Classify(int baselineCost,int newCost) => newCost<baselineCost ?
             Sv5LoopKind.RandomShortcut : Sv5LoopKind.Loop;
 
-        public static IReadOnlyList<string> ValidateSupportedPath(IEnumerable<RmapSpecialWorldPoint> source,int maximum=24)
+        public static IReadOnlyList<string> ValidateSupportedPath(IEnumerable<Sv5SpecialWorldPoint> source,int maximum=24)
         {
-            var feet=(source ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray(); var errors=new List<string>();
+            var feet=(source ?? Array.Empty<Sv5SpecialWorldPoint>()).ToArray(); var errors=new List<string>();
             if(feet.Length==0) errors.Add("EMPTY_SUPPORTED_PATH");
             if(feet.Distinct().Count()!=feet.Length) errors.Add("SELF_INTERSECTION");
             foreach(var pair in feet.Zip(feet.Skip(1),(a,b)=>new{a,b}))
@@ -809,27 +809,27 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             return Array.AsReadOnly(errors.Distinct(StringComparer.Ordinal).ToArray());
         }
 
-        private static IReadOnlyList<RmapSpecialWorldPoint> SupportedPath(RmapSpecialWorldPoint start,
-            RmapSpecialWorldPoint goal,bool early)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> SupportedPath(Sv5SpecialWorldPoint start,
+            Sv5SpecialWorldPoint goal,bool early)
         {
             int dx=goal.X-start.X,dy=goal.Y-start.Y,columns=Math.Abs(dx),rise=Math.Abs(dy);
-            if(columns==0 || columns<rise) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
-            int sx=Math.Sign(dx),sy=Math.Sign(dy); var result=new List<RmapSpecialWorldPoint>();
+            if(columns==0 || columns<rise) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
+            int sx=Math.Sign(dx),sy=Math.Sign(dy); var result=new List<Sv5SpecialWorldPoint>();
             for(int i=0;i<=columns;i++)
             {
                 int climbed=rise==0 ? 0 : early ? (i*rise+columns-1)/columns : (i*rise)/columns;
-                result.Add(new RmapSpecialWorldPoint(start.X+sx*i,start.Y+sy*climbed));
+                result.Add(new Sv5SpecialWorldPoint(start.X+sx*i,start.Y+sy*climbed));
             }
             result[result.Count-1]=goal;
             return Array.AsReadOnly(result.ToArray());
         }
 
-        private static IReadOnlyList<RmapSpecialWorldPoint> SupportedContourPath(
-            RmapSpecialWorldPoint start,RmapSpecialWorldPoint goal,int variant)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> SupportedContourPath(
+            Sv5SpecialWorldPoint start,Sv5SpecialWorldPoint goal,int variant)
         {
             if(variant<2) return SupportedPath(start,goal,variant==1);
             int columns=Math.Abs(goal.X-start.X);
-            if(columns<4) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            if(columns<4) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             int code=(variant-2)/2;
             int bendOffset=code%5-2;
             int left=Math.Max(1,Math.Min(columns-1,columns/2+bendOffset));
@@ -839,62 +839,62 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             int amplitude=code/5+1;
             int desired=baseY+(variant%2==0 ? amplitude : -amplitude);
             int middleY=Math.Max(low,Math.Min(high,desired));
-            var middle=new RmapSpecialWorldPoint(start.X+sx*left,middleY);
+            var middle=new Sv5SpecialWorldPoint(start.X+sx*left,middleY);
             var first=SupportedPath(start,middle,variant%2==0);
             var second=SupportedPath(middle,goal,variant%2!=0);
-            if(first.Count==0 || second.Count==0) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            if(first.Count==0 || second.Count==0) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             return Array.AsReadOnly(first.Concat(second.Skip(1)).ToArray());
         }
 
-        private static IReadOnlyList<RmapSpecialWorldPoint> SupportedDoubleContourPath(
-            RmapSpecialWorldPoint start,RmapSpecialWorldPoint goal,int variant)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> SupportedDoubleContourPath(
+            Sv5SpecialWorldPoint start,Sv5SpecialWorldPoint goal,int variant)
         {
             int columns=Math.Abs(goal.X-start.X);
-            if(columns<6) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            if(columns<6) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             int sx=Math.Sign(goal.X-start.X),firstColumn=Math.Max(1,columns/3);
             int secondColumn=Math.Min(columns-1,Math.Max(firstColumn+1,columns*2/3));
             int code=variant/2,firstOffset=code%9-4,secondOffset=(code/9)%9-4;
             int firstBase=start.Y+(goal.Y-start.Y)*firstColumn/columns;
             int secondBase=start.Y+(goal.Y-start.Y)*secondColumn/columns;
-            var firstPoint=new RmapSpecialWorldPoint(start.X+sx*firstColumn,firstBase+firstOffset);
-            var secondPoint=new RmapSpecialWorldPoint(start.X+sx*secondColumn,secondBase+secondOffset);
+            var firstPoint=new Sv5SpecialWorldPoint(start.X+sx*firstColumn,firstBase+firstOffset);
+            var secondPoint=new Sv5SpecialWorldPoint(start.X+sx*secondColumn,secondBase+secondOffset);
             bool early=variant%2!=0;
             var first=SupportedPath(start,firstPoint,early);
             var second=SupportedPath(firstPoint,secondPoint,!early);
             var third=SupportedPath(secondPoint,goal,early);
             if(first.Count==0 || second.Count==0 || third.Count==0)
-                return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+                return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             return Array.AsReadOnly(first.Concat(second.Skip(1)).Concat(third.Skip(1)).ToArray());
         }
 
-        private static IReadOnlyList<RmapSpecialWorldPoint> EndpointExitPath(ActualEndpoint from,ActualEndpoint to,
-            int variant,IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCell> actual)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> EndpointExitPath(ActualEndpoint from,ActualEndpoint to,
+            int variant,IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCell> actual)
         {
             var exitPairs=from.ExitNeighbors.Where(p=>!IsActualAir(p,actual))
                 .SelectMany(left=>to.ExitNeighbors.Where(p=>!IsActualAir(p,actual)).Select(right=>new{Left=left,Right=right}))
                 .Where(v=>Math.Abs(v.Left.X-v.Right.X)>=Math.Abs(v.Left.Y-v.Right.Y) && !v.Left.Equals(v.Right))
                 .OrderBy(v=>Distance(v.Left,v.Right)).ThenBy(v=>v.Left).ThenBy(v=>v.Right).Take(16).ToArray();
             int pairIndex=variant/2;
-            if(pairIndex>=exitPairs.Length) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            if(pairIndex>=exitPairs.Length) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             var pair=exitPairs[pairIndex];
             var middle=SupportedPath(pair.Left,pair.Right,variant%2!=0);
-            if(middle.Count==0) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            if(middle.Count==0) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             return Array.AsReadOnly(new[]{from.World}.Concat(middle).Concat(new[]{to.World}).ToArray());
         }
 
-        private static bool IsActualAir(RmapSpecialWorldPoint point,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCell> actual)
+        private static bool IsActualAir(Sv5SpecialWorldPoint point,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCell> actual)
             => actual.TryGetValue(point,out Sv5InfillCell cell) && cell.Value==Sv5InfillCellValue.Air;
 
-        private static bool TryCells(string loopId,string from,string to,string host,IReadOnlyList<RmapSpecialWorldPoint> feet,
-            IReadOnlyList<RmapSpecialWorldPoint> centerline,IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCell> actual,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
-            ISet<RmapSpecialWorldPoint> forbidden,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5SpaceReservationCell[]> reservations,
+        private static bool TryCells(string loopId,string from,string to,string host,IReadOnlyList<Sv5SpecialWorldPoint> feet,
+            IReadOnlyList<Sv5SpecialWorldPoint> centerline,IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCell> actual,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
+            ISet<Sv5SpecialWorldPoint> forbidden,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5SpaceReservationCell[]> reservations,
             out Sv5LoopCell[] output,out string error)
         {
-            var desired=new Dictionary<RmapSpecialWorldPoint,Desired>(); error=string.Empty; string localError=string.Empty;
-            bool AddDesired(RmapSpecialWorldPoint p,Sv5InfillCellValue value,Sv5LoopCellRole role)
+            var desired=new Dictionary<Sv5SpecialWorldPoint,Desired>(); error=string.Empty; string localError=string.Empty;
+            bool AddDesired(Sv5SpecialWorldPoint p,Sv5InfillCellValue value,Sv5LoopCellRole role)
             {
                 if(desired.TryGetValue(p,out Desired existing))
                 {
@@ -907,11 +907,11 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             foreach(var p in centerline)
             {
                 if(!AddDesired(p,Sv5InfillCellValue.Air,Sv5LoopCellRole.Air) ||
-                    !AddDesired(new RmapSpecialWorldPoint(p.X,p.Y+1),Sv5InfillCellValue.Air,Sv5LoopCellRole.Air))
+                    !AddDesired(new Sv5SpecialWorldPoint(p.X,p.Y+1),Sv5InfillCellValue.Air,Sv5LoopCellRole.Air))
                 { error=localError; output=Array.Empty<Sv5LoopCell>(); return false; }
             }
             foreach(var p in feet)
-                if(!AddDesired(new RmapSpecialWorldPoint(p.X,p.Y-1),Sv5InfillCellValue.Solid,Sv5LoopCellRole.SolidSupport))
+                if(!AddDesired(new Sv5SpecialWorldPoint(p.X,p.Y-1),Sv5InfillCellValue.Solid,Sv5LoopCellRole.SolidSupport))
                 { error=localError; output=Array.Empty<Sv5LoopCell>(); return false; }
             var cells=new List<Sv5LoopCell>();
             foreach(var pair in desired.OrderBy(p=>p.Key))
@@ -955,24 +955,24 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             output=cells.ToArray(); return true;
         }
 
-        private static HashSet<RmapSpecialWorldPoint> Forbidden(Sv5SpaceGraphPlan plan)
+        private static HashSet<Sv5SpecialWorldPoint> Forbidden(Sv5SpaceGraphPlan plan)
         {
-            var result=new HashSet<RmapSpecialWorldPoint>(plan.Core.CoreCells.Select(c=>c.World));
+            var result=new HashSet<Sv5SpecialWorldPoint>(plan.Core.CoreCells.Select(c=>c.World));
             result.UnionWith(plan.Core.RouteCells.Select(c=>c.World));
             result.UnionWith(plan.Core.RouteSource.Secrets.SelectMany(s=>s.Chunks).SelectMany(chunk=>
-                Enumerable.Range(0,8).SelectMany(y=>Enumerable.Range(0,12).Select(x=>new RmapSpecialWorldPoint(chunk.X*12+x,chunk.Y*8+y)))));
+                Enumerable.Range(0,8).SelectMany(y=>Enumerable.Range(0,12).Select(x=>new Sv5SpecialWorldPoint(chunk.X*12+x,chunk.Y*8+y)))));
             result.UnionWith(plan.Gates.SelectMany(g=>g.BlockingCells));
             result.UnionWith(plan.Gates.SelectMany(g=>g.BlockingFaces).SelectMany(f=>new[]{f.First,f.Second}));
             result.UnionWith(plan.Ports.SelectMany(p=>p.BoundaryCells.Concat(new[]{p.Anchor})));
             return result;
         }
 
-        private static bool TryTrimPath(IReadOnlyList<RmapSpecialWorldPoint> source,string fromRoomId,
-            string toRoomId,IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCell> actual,
+        private static bool TryTrimPath(IReadOnlyList<Sv5SpecialWorldPoint> source,string fromRoomId,
+            string toRoomId,IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCell> actual,
             IReadOnlyDictionary<string,Sv5InfillRoom> rooms,Sv5LoopTopologyContext context,
             int maximum,out JunctionSegment segment,out string error)
         {
-            segment=null; error=string.Empty; var path=(source ?? Array.Empty<RmapSpecialWorldPoint>()).ToArray();
+            segment=null; error=string.Empty; var path=(source ?? Array.Empty<Sv5SpecialWorldPoint>()).ToArray();
             if(!rooms.TryGetValue(fromRoomId,out Sv5InfillRoom left) ||
                 !rooms.TryGetValue(toRoomId,out Sv5InfillRoom right) || left.Host!=right.Host)
             {error="ENDPOINT_NOT_ACTUAL_ROOM";return false;}
@@ -1004,16 +1004,16 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 ToApproach=Array.AsReadOnly(path.Skip(last+1).ToArray())};
             return true;
         }
-        private static IReadOnlyList<RmapSpecialWorldPoint> RoutedPath(RmapSpecialWorldPoint start,
-            RmapSpecialWorldPoint goal,int routeVariant,string from,string to,string host,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCell> actual,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
-            Sv5LoopTopologyContext context,ISet<RmapSpecialWorldPoint> forbidden,
-            IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5SpaceReservationCell[]> reservations,int maximum,
-            IDictionary<string,HashSet<RmapSpecialWorldPoint>> possibleCache)
+        private static IReadOnlyList<Sv5SpecialWorldPoint> RoutedPath(Sv5SpecialWorldPoint start,
+            Sv5SpecialWorldPoint goal,int routeVariant,string from,string to,string host,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCell> actual,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> occupancy,
+            Sv5LoopTopologyContext context,ISet<Sv5SpecialWorldPoint> forbidden,
+            IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5SpaceReservationCell[]> reservations,int maximum,
+            IDictionary<string,HashSet<Sv5SpecialWorldPoint>> possibleCache)
         {
             int directCost=Distance(start,goal)+1;
-            if(directCost>maximum) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
+            if(directCost>maximum) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
             int detourColumns=(maximum-directCost)/2;
             int minX=Math.Max(0,Math.Min(start.X,goal.X)-detourColumns);
             int maxX=Math.Min(Sv5SpaceGraphPlanner.WorldWidth-1,Math.Max(start.X,goal.X)+detourColumns);
@@ -1027,12 +1027,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             int maxY=Math.Min(Sv5SpaceGraphPlanner.WorldHeight-2,minY+maximum-1);
             minY=Math.Max(1,maxY-maximum+1);
             string possibleKey=start+"|"+goal+"|"+from+"|"+to+"|"+host+"|"+minX+"|"+maxX+"|"+minY+"|"+maxY;
-            if(!possibleCache.TryGetValue(possibleKey,out HashSet<RmapSpecialWorldPoint> possible))
+            if(!possibleCache.TryGetValue(possibleKey,out HashSet<Sv5SpecialWorldPoint> possible))
             {
-                possible=new HashSet<RmapSpecialWorldPoint>{start,goal};
+                possible=new HashSet<Sv5SpecialWorldPoint>{start,goal};
                 for(int y=minY;y<=maxY;y++) for(int x=minX;x<=maxX;x++)
                 {
-                    var p=new RmapSpecialWorldPoint(x,y);
+                    var p=new Sv5SpecialWorldPoint(x,y);
                     if(p.Equals(start) || p.Equals(goal) || context.IsBaselineFoot(p)) continue;
                     if(actual.TryGetValue(p,out Sv5InfillCell infill) && infill.Value==Sv5InfillCellValue.Air) continue;
                     if(TryCells(string.Empty,from,to,host,new[]{p},new[]{p},actual,occupancy,forbidden,reservations,
@@ -1040,9 +1040,9 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 }
                 possibleCache[possibleKey]=possible;
             }
-            var parent=new Dictionary<RmapSpecialWorldPoint,RmapSpecialWorldPoint>{{start,start}};
-            var distance=new Dictionary<RmapSpecialWorldPoint,int>{{start,1}};
-            var queue=new Queue<RmapSpecialWorldPoint>(); queue.Enqueue(start);
+            var parent=new Dictionary<Sv5SpecialWorldPoint,Sv5SpecialWorldPoint>{{start,start}};
+            var distance=new Dictionary<Sv5SpecialWorldPoint,int>{{start,1}};
+            var queue=new Queue<Sv5SpecialWorldPoint>(); queue.Enqueue(start);
             int direction=Math.Sign(goal.X-start.X);
             int[] dxs=direction==0 ? (routeVariant%2==0 ? new[]{1,-1} : new[]{-1,1}) :
                 (routeVariant%2==0 ? new[]{direction,-direction} : new[]{-direction,direction});
@@ -1051,7 +1051,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             while(queue.Count!=0 && !parent.ContainsKey(goal))
             {
                 var p=queue.Dequeue();
-                var nextRows=dxs.SelectMany(dx=>dys.Select(dy=>new RmapSpecialWorldPoint(p.X+dx,p.Y+dy)))
+                var nextRows=dxs.SelectMany(dx=>dys.Select(dy=>new Sv5SpecialWorldPoint(p.X+dx,p.Y+dy)))
                     .OrderBy(next=>RouteTieBreak(next,goal,routeVariant)).ThenBy(next=>Distance(next,goal)).ToArray();
                 foreach(var next in nextRows)
                 {
@@ -1060,12 +1060,12 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                     parent[next]=p; distance[next]=nextCost; queue.Enqueue(next);
                 }
             }
-            if(!parent.ContainsKey(goal)) return Array.AsReadOnly(Array.Empty<RmapSpecialWorldPoint>());
-            var path=new List<RmapSpecialWorldPoint>{goal};
+            if(!parent.ContainsKey(goal)) return Array.AsReadOnly(Array.Empty<Sv5SpecialWorldPoint>());
+            var path=new List<Sv5SpecialWorldPoint>{goal};
             while(!path[path.Count-1].Equals(start)) path.Add(parent[path[path.Count-1]]);
             path.Reverse(); return Array.AsReadOnly(path.ToArray());
         }
-        private static int RouteTieBreak(RmapSpecialWorldPoint point,RmapSpecialWorldPoint goal,int variant)
+        private static int RouteTieBreak(Sv5SpecialWorldPoint point,Sv5SpecialWorldPoint goal,int variant)
         {
             unchecked
             {
@@ -1074,36 +1074,36 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 return value&int.MaxValue;
             }
         }
-        private static IReadOnlyDictionary<RmapSpecialWorldPoint,int> FootComponents(
-            IEnumerable<RmapSpecialWorldPoint> source)
+        private static IReadOnlyDictionary<Sv5SpecialWorldPoint,int> FootComponents(
+            IEnumerable<Sv5SpecialWorldPoint> source)
         {
-            var nodes=new HashSet<RmapSpecialWorldPoint>(source ?? Array.Empty<RmapSpecialWorldPoint>());
-            var result=new Dictionary<RmapSpecialWorldPoint,int>(); int component=0;
+            var nodes=new HashSet<Sv5SpecialWorldPoint>(source ?? Array.Empty<Sv5SpecialWorldPoint>());
+            var result=new Dictionary<Sv5SpecialWorldPoint,int>(); int component=0;
             foreach(var start in nodes.OrderBy(v=>v))
             {
                 if(result.ContainsKey(start)) continue;
-                var queue=new Queue<RmapSpecialWorldPoint>(); queue.Enqueue(start); result[start]=component;
+                var queue=new Queue<Sv5SpecialWorldPoint>(); queue.Enqueue(start); result[start]=component;
                 while(queue.Count!=0)
                 {
                     var p=queue.Dequeue();
                     foreach(int dx in new[]{-1,1}) foreach(int dy in new[]{-1,0,1})
                     {
-                        var next=new RmapSpecialWorldPoint(p.X+dx,p.Y+dy);
+                        var next=new Sv5SpecialWorldPoint(p.X+dx,p.Y+dy);
                         if(nodes.Contains(next) && !result.ContainsKey(next)){result[next]=component;queue.Enqueue(next);}
                     }
                 }
                 component++;
             }
-            return new ReadOnlyDictionary<RmapSpecialWorldPoint,int>(result);
+            return new ReadOnlyDictionary<Sv5SpecialWorldPoint,int>(result);
         }
-        private static bool Is(IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5InfillCell> cells,int x,int y,Sv5InfillCellValue value)
-            => cells.TryGetValue(new RmapSpecialWorldPoint(x,y),out Sv5InfillCell cell) && cell.Value==value;
+        private static bool Is(IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5InfillCell> cells,int x,int y,Sv5InfillCellValue value)
+            => cells.TryGetValue(new Sv5SpecialWorldPoint(x,y),out Sv5InfillCell cell) && cell.Value==value;
         private static string BaseRoom(string owner) => owner.EndsWith("_LINK",StringComparison.Ordinal) ? owner.Substring(0,owner.Length-5) : owner;
-        private static int Distance(RmapSpecialWorldPoint a,RmapSpecialWorldPoint b) => Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y);
+        private static int Distance(Sv5SpecialWorldPoint a,Sv5SpecialWorldPoint b) => Math.Abs(a.X-b.X)+Math.Abs(a.Y-b.Y);
         private static string Pair(string a,string b) => string.Compare(a,b,StringComparison.Ordinal)<=0 ? a+"|"+b : b+"|"+a;
-        private static string EndpointPair(RmapSpecialWorldPoint a,RmapSpecialWorldPoint b)
+        private static string EndpointPair(Sv5SpecialWorldPoint a,Sv5SpecialWorldPoint b)
             => a.CompareTo(b)<=0 ? a+"|"+b : b+"|"+a;
-        private static string Sector(RmapSpecialWorldPoint p) => "S"+(p.Y/32).ToString("00",CultureInfo.InvariantCulture)+"_"+
+        private static string Sector(Sv5SpecialWorldPoint p) => "S"+(p.Y/32).ToString("00",CultureInfo.InvariantCulture)+"_"+
             (p.X/48).ToString("00",CultureInfo.InvariantCulture);
         private static void Add(IDictionary<string,int> counts,string key)
         { if(string.IsNullOrEmpty(key)) key="UNSPECIFIED"; counts[key]=counts.TryGetValue(key,out int count) ? count+1 : 1; }

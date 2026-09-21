@@ -303,12 +303,12 @@ namespace StarNight.Map.Tests.EditMode.SV5
             var changed = new List<string>();
             foreach (Sv5JumpPlayerEffectiveLink link in geometry.EffectiveLinks)
             {
-                float legacy = SchedulerFrontier(geometry, link, topOnlyPassesOverhead: false);
+                float unrestricted = SchedulerFrontier(geometry, link, topOnlyPassesOverhead: false);
                 float corrected = SchedulerFrontier(geometry, link, topOnlyPassesOverhead: true);
-                if (!legacy.Equals(corrected))
+                if (!unrestricted.Equals(corrected))
                 {
                     changed.Add(link.RecipeId + "|" + link.SourceLinkId + "|" +
-                        legacy.ToString("0.00") + "|" + corrected.ToString("0.00"));
+                        unrestricted.ToString("0.00") + "|" + corrected.ToString("0.00"));
                 }
             }
 

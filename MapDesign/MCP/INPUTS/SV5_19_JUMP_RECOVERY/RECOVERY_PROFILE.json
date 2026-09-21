@@ -1,0 +1,46 @@
+{
+  "schema": "SV5_19_JUMP_RECOVERY_PROFILE/v1",
+  "task": "SV5_19_JUMP_RECOVERY",
+  "input_clearance_digest": "48c3754b8109aa0601760567010b9aece67c5305907dfb76c7b155b3d4c37f13",
+  "local_room": {"width": 24, "height": 32},
+  "recipes": ["JUMP012_MIXED_R0", "JUMP012_MIXED_MX"],
+  "main_links_per_recipe": 9,
+  "miss_probe": {
+    "count_per_main_link": 1,
+    "selection": "LOWER_MIDDLE_ORDERED_AIR_SAMPLE",
+    "air_index_formula": "(n-1)//2",
+    "fall_direction": "DOWN",
+    "catch_rule": "FIRST_OCCUPIED_SOLID_OR_TOP_ONLY_BELOW"
+  },
+  "overlay": {
+    "min_groups_per_recipe": 3,
+    "max_groups_per_recipe": 9,
+    "max_cells_per_recipe": 36,
+    "min_horizontal_run": 2,
+    "max_horizontal_run": 5,
+    "exact_mirror_x": true,
+    "max_solid_fill_width": 5,
+    "max_solid_fill_height": 5
+  },
+  "movement": {
+    "modes": ["WALK", "JUMP", "DROP"],
+    "jump_max_rise": 1,
+    "drop_max_rise": 0,
+    "max_trace_states_per_link": 16,
+    "body_height_cells": 2,
+    "diagonal_supercover": true,
+    "reverse_required": false,
+    "zero_link_route": "ALLOWED_ONLY_WHEN_CATCH_EQUALS_CHECKPOINT"
+  },
+  "minimum_distinct_checkpoint_orders_per_recipe": 2,
+  "readiness_on_pass": {
+    "JumpRecipeReady": true,
+    "ComposedGeometryReady": true,
+    "SweptClearanceReady": true,
+    "RecoveryReady": true,
+    "PlayerVerified": false
+  },
+  "whole_world_builds": 0,
+  "whole_world_searches": 0,
+  "global_endpoint_comparisons": 0
+}

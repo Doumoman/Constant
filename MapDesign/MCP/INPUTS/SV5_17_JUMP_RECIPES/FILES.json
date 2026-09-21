@@ -1,0 +1,47 @@
+{
+  "schema": "SV5_17_JUMP_RECIPES_FILES/v1",
+  "task_id": "SV5_17_JUMP_RECIPES",
+  "base_commit": "b99f9b9214583d653c273efaa53e69ec0e4abbe4",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "9dbaf8ae73131f7a79d910823626a3ee3d57dd81fbf4f1de9853541e3ce3f9d7",
+      "bytes": 711
+    },
+    {
+      "path": "CONTRACT.md",
+      "sha256": "8c285126c4c481679d315c295e312ebdb089af7b3a9b1e6a35f579472e7ac324",
+      "bytes": 7631
+    },
+    {
+      "path": "JUMP_RECIPE_PROFILE.json",
+      "sha256": "dfad73670899950e72a2d372806c4b165388a7e14abd8c0bce9d7dbf88298646",
+      "bytes": 2669
+    },
+    {
+      "path": "REFERENCE_012_PROFILE.json",
+      "sha256": "f9a421a6afa7d937598e10525d8c5a15f9cede48e636a70f7b5f336938f6c932",
+      "bytes": 3225
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "88bfa317790f385b9c942d85a0d63c8310ee9436bdc421cac540fbeaecf09d42",
+      "bytes": 6453
+    },
+    {
+      "path": "SV5_17_JUMP_RECIPES.md",
+      "sha256": "63b74bfd3ebd30929a0b377e03ca3379929d77012027d0e0285bae1ff1ec0a18",
+      "bytes": 3591
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "c064da7522619b17986e966f8e21a087720424ef1e8f9e2822628e82fbad4716",
+      "bytes": 12399
+    },
+    {
+      "path": "tools/check_jump_recipes.py",
+      "sha256": "dadc783745acd14fcc215062c18c2fb1464d40e74e0b8f80746182e14e3fd38e",
+      "bytes": 19071
+    }
+  ]
+}

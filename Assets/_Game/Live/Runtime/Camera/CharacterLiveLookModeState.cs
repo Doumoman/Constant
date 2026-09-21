@@ -4,7 +4,7 @@ using UnityEngine;
 namespace StarNight.Character.Live.Cameras
 {
     /// <summary>
-    /// Player-local RMAP06 observation state. The movement driver supplies its
+    /// Player-local SV5 observation state. The movement driver supplies its
     /// real runtime eligibility every fixed step; this type only owns the
     /// Tab+direction hold, direction normalization, and input-lock lifetime.
     /// It has no world, save, room-camera, or generation state.

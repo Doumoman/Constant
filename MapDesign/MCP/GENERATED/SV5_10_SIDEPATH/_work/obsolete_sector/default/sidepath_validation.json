@@ -1,0 +1,10 @@
+{
+  "schema":"SV5_SIDEPATH_VALIDATION_V1",
+  "status":"PASS",
+  "metrics":{"accepted":12,"returning":12,"distinct_sectors":12,"bypass":0,"protected_violations":0,"type0_violations":0},
+  "performance":{"world_index_builds":1,"whole_world_copy_per_candidate":0,"whole_world_bfs_per_candidate":0,"global_product_runs":1,"candidate_count":179,"affected_foot_nodes":1571,"timings_ms":{"diagnostic_only":true}},
+  "rejections":{"entries":4},
+  "diagnostics":[],
+  "composed_geometry_ready":false,
+  "player_verified":false
+}

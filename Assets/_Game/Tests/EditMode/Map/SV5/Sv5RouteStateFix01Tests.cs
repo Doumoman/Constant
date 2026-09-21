@@ -19,8 +19,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test]
         public void T01_ForgeToBossWithoutSealIsRejectedWithTheReachableMissingGuard()
         {
-            var candidate = Candidate("REVIEW_FORGE_TO_BOSS_NO_SEAL", Existing(Node(RmapWorldGraphRole.Forge)),
-                Existing(Node(RmapWorldGraphRole.Boss)), RmapWorldGraphDirection.Right, 7, true, false, false, "SV5_05_REVIEW_FIX01");
+            var candidate = Candidate("REVIEW_FORGE_TO_BOSS_NO_SEAL", Existing(Node(Sv5WorldGraphRole.Forge)),
+                Existing(Node(Sv5WorldGraphRole.Boss)), Sv5WorldGraphDirection.Right, 7, true, false, false, "SV5_05_REVIEW_FIX01");
             Sv5RouteShortcutDecision decision = Analyze(new[] { candidate }, EmptyReview()).ShortcutDecisions.Single(value => value.Id == candidate.Id);
             Assert.That(decision.Code, Is.EqualTo(Sv5RouteShortcutDecisionCode.WeakRequiredCondition));
             Assert.That(decision.Detail, Does.Contain("SealOpen"));
@@ -37,16 +37,16 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var general = new Sv5RouteStateAnchor("FIX01_SAFE_GENERAL", Sv5RouteStateAnchorKind.GeneralConnection);
             Sv5RouteStateAnalysis analysis = Analyze(new[]
             {
-                Candidate("SAFE_GENERAL_IN", Existing(Node(RmapWorldGraphRole.Start)), general, RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T02"),
-                Candidate("SAFE_GENERAL_OUT", general, Existing(Node(RmapWorldGraphRole.MooncoreOre)), RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T02"),
-                Candidate("SAFE_SEALED_BOSS", Existing(Node(RmapWorldGraphRole.Forge)), Existing(Node(RmapWorldGraphRole.Boss)), RmapWorldGraphDirection.Right, 7, true, true, false, "FIX01_T02"),
+                Candidate("SAFE_GENERAL_IN", Existing(Node(Sv5WorldGraphRole.Start)), general, Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T02"),
+                Candidate("SAFE_GENERAL_OUT", general, Existing(Node(Sv5WorldGraphRole.MooncoreOre)), Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T02"),
+                Candidate("SAFE_SEALED_BOSS", Existing(Node(Sv5WorldGraphRole.Forge)), Existing(Node(Sv5WorldGraphRole.Boss)), Sv5WorldGraphDirection.Right, 7, true, true, false, "FIX01_T02"),
             }, EmptyReview());
             Assert.That(analysis.ShortcutDecisions.Where(value => value.Id != "CANDIDATE_SET"), Is.All.Matches<Sv5RouteShortcutDecision>(value => value.IsAllowed));
             Assert.That(analysis.ShortcutDecisions.Single(value => value.Id == "CANDIDATE_SET").IsAllowed, Is.True);
             Assert.That(analysis.OrderProofs, Is.All.Matches<Sv5RouteOrderProof>(value => value.Success));
             Assert.That(analysis.CandidateSetProofs, Is.All.Matches<Sv5RouteOrderProof>(value => value.Success));
             Assert.That(analysis.OrderProofs.All(value => value.Source.Actions.Contains("FORGE|MAKE_SEAL") && value.Source.Actions.Contains("SEAL|OPEN") && value.Source.Actions.Contains("BOSS|PLANNED_COMPLETION_EVENT")), Is.True);
-            RmapWorldGraphPlan required = Sv5RouteStatePolicy.EvaluateReturnPolicy(Plan, RmapWorldReturnShortcutPolicy.Required);
+            Sv5WorldGraphPlan required = Sv5RouteStatePolicy.EvaluateReturnPolicy(Plan, Sv5WorldReturnShortcutPolicy.Required);
             Assert.That(required.Success, Is.True);
             Assert.That(required.Edges.Count(value => value.TraversalCondition == "NORMAL_RESOURCE_RETURN"), Is.EqualTo(3));
         }
@@ -57,8 +57,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var early = new Sv5RouteStateAnchor("FIX01_EARLY_BOSS", Sv5RouteStateAnchorKind.GeneralConnection);
             Sv5RouteStateAnalysis earlyBoss = Analyze(new[]
             {
-                Candidate("EARLY_IN", Existing(Node(RmapWorldGraphRole.Start)), early, RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T03"),
-                Candidate("EARLY_BOSS", early, Existing(Node(RmapWorldGraphRole.Boss)), RmapWorldGraphDirection.Right, 7, true, false, false, "FIX01_T03"),
+                Candidate("EARLY_IN", Existing(Node(Sv5WorldGraphRole.Start)), early, Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T03"),
+                Candidate("EARLY_BOSS", early, Existing(Node(Sv5WorldGraphRole.Boss)), Sv5WorldGraphDirection.Right, 7, true, false, false, "FIX01_T03"),
             }, EmptyReview());
             Assert.That(earlyBoss.ShortcutDecisions.Single(value => value.Id == "EARLY_BOSS").Code, Is.EqualTo(Sv5RouteShortcutDecisionCode.WeakRequiredCondition));
             Assert.That(earlyBoss.ShortcutDecisions.Single(value => value.Id == "CANDIDATE_SET").IsAllowed, Is.False);
@@ -66,7 +66,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             var dead = new Sv5RouteStateAnchor("FIX01_REACHABLE_DEAD_END", Sv5RouteStateAnchorKind.GeneralConnection);
             Sv5RouteStateAnalysis deadEnd = Analyze(new[]
             {
-                Candidate("DEAD_END_IN", Existing(Node(RmapWorldGraphRole.Start)), dead, RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T03"),
+                Candidate("DEAD_END_IN", Existing(Node(Sv5WorldGraphRole.Start)), dead, Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T03"),
             }, EmptyReview());
             Sv5RouteShortcutDecision decision = deadEnd.ShortcutDecisions.Single(value => value.Id == "CANDIDATE_SET");
             Assert.That(decision.Code, Is.EqualTo(Sv5RouteShortcutDecisionCode.CandidateSetUnsafeState));
@@ -80,20 +80,20 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test]
         public void T04_CanonicalDigestBindsEveryCandidateSemanticAndIgnoresSetEnumerationOrder()
         {
-            string start = Node(RmapWorldGraphRole.Start);
-            string ore = Node(RmapWorldGraphRole.MooncoreOre);
-            string sap = Node(RmapWorldGraphRole.CondensedCoefficientSap);
-            Sv5RouteShortcutCandidate baseline = Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T04_A");
-            Sv5RouteShortcutCandidate companion = Candidate("COMPANION", Existing(start), Existing(sap), RmapWorldGraphDirection.Up, 0, false, false, false, "FIX01_T04_A");
+            string start = Node(Sv5WorldGraphRole.Start);
+            string ore = Node(Sv5WorldGraphRole.MooncoreOre);
+            string sap = Node(Sv5WorldGraphRole.CondensedCoefficientSap);
+            Sv5RouteShortcutCandidate baseline = Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T04_A");
+            Sv5RouteShortcutCandidate companion = Candidate("COMPANION", Existing(start), Existing(sap), Sv5WorldGraphDirection.Up, 0, false, false, false, "FIX01_T04_A");
             string digest = Analyze(new[] { baseline, companion }, EmptyReview()).Digest;
             Assert.That(Analyze(new[] { companion, baseline }, EmptyReview()).Digest, Is.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(sap), RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Left, 0, false, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Right, 1, false, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Right, 0, true, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Right, 0, false, true, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Right, 0, false, false, true, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
-            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_T04_B"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(sap), Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Left, 0, false, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Right, 1, false, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Right, 0, true, false, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Right, 0, false, true, false, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Right, 0, false, false, true, "FIX01_T04_A"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
+            Assert.That(Analyze(new[] { Candidate("SEMANTIC", Existing(start), Existing(ore), Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_T04_B"), companion }, EmptyReview()).Digest, Is.Not.EqualTo(digest));
         }
 
         [Test]
@@ -117,8 +117,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             Sv5RouteStateAnalysis invalid = Analyze(SafeCandidates(), new Sv5RouteStateReviewInput(new[]
             {
-                new Sv5RouteStateReviewContact(new RmapSpecialWorldPoint(1, 1), new[] { "UNKNOWN_ROUTE", "OTHER_UNKNOWN_ROUTE" }),
-            }, new[] { new RmapSpecialWorldPoint(0, 0), new RmapSpecialWorldPoint(0, 1) }));
+                new Sv5RouteStateReviewContact(new Sv5SpecialWorldPoint(1, 1), new[] { "UNKNOWN_ROUTE", "OTHER_UNKNOWN_ROUTE" }),
+            }, new[] { new Sv5SpecialWorldPoint(0, 0), new Sv5SpecialWorldPoint(0, 1) }));
             Assert.That(invalid.LogicalStateVerified, Is.True);
             Assert.That(invalid.ContactStateVerified, Is.False);
             Assert.That(invalid.ContactChecks.Any(value => value.Classification == "UNKNOWN_ROUTE_REJECTED"), Is.True);
@@ -126,7 +126,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
             Sv5RouteStateAnalysis actual = Analyze(SafeCandidates(), ActualReview());
             Sv5RouteContactCheck[] reviews = actual.ContactChecks.Where(value => value.Kind == "REVIEW_LABEL_CONTACT").ToArray();
-            Assert.That(reviews.Select(value => value.World), Is.EquivalentTo(new[] { new RmapSpecialWorldPoint(415, 301), new RmapSpecialWorldPoint(491, 301), new RmapSpecialWorldPoint(523, 134) }));
+            Assert.That(reviews.Select(value => value.World), Is.EquivalentTo(new[] { new Sv5SpecialWorldPoint(415, 301), new Sv5SpecialWorldPoint(491, 301), new Sv5SpecialWorldPoint(523, 134) }));
             Assert.That(reviews.All(value => !value.LogicalStateTransitionChecked && value.RequiredPredicate.Length != 0), Is.True);
             Assert.That(actual.ContactStateVerified, Is.False);
             Assert.That(actual.ContactChecks.Single(value => value.Id == "AIR_WITNESS_109_EDGE").Classification, Is.EqualTo("STATIC_AIR_CONTACT_GEOMETRY_PENDING"));
@@ -148,7 +148,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             string coreHash = HashFile(core);
             string historicalHash = HashFile(historical);
             string coreDigest = Plan.Digest;
-            Sv5RouteStateAnalysis rejected = Analyze(new[] { Candidate("REJECTED", Existing(Node(RmapWorldGraphRole.Forge)), Existing(Node(RmapWorldGraphRole.Boss)), RmapWorldGraphDirection.Right, 7, true, false, false, "FIX01_T07") }, EmptyReview());
+            Sv5RouteStateAnalysis rejected = Analyze(new[] { Candidate("REJECTED", Existing(Node(Sv5WorldGraphRole.Forge)), Existing(Node(Sv5WorldGraphRole.Boss)), Sv5WorldGraphDirection.Right, 7, true, false, false, "FIX01_T07") }, EmptyReview());
             Sv5RouteStateAnalysis first = Analyze(SafeCandidates(), ActualReview());
             Sv5RouteStateAnalysis second = Analyze(SafeCandidates().Reverse().ToArray(), ActualReview());
             Assert.That(rejected.ShortcutDecisions.Single(value => value.Id == "REJECTED").IsAllowed, Is.False);
@@ -162,34 +162,34 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 
         private static Sv5CoreReservationPlan Plan => Sv5RouteStatePolicyTests.RepresentativePlanForFix01;
         private static Sv5RouteStateAnalysis Analyze(Sv5RouteShortcutCandidate[] candidates, Sv5RouteStateReviewInput review) => Sv5RouteStatePolicy.Analyze(Plan, candidates, review);
-        private static Sv5RouteStateReviewInput EmptyReview() => new Sv5RouteStateReviewInput(Array.Empty<Sv5RouteStateReviewContact>(), Array.Empty<RmapSpecialWorldPoint>());
+        private static Sv5RouteStateReviewInput EmptyReview() => new Sv5RouteStateReviewInput(Array.Empty<Sv5RouteStateReviewContact>(), Array.Empty<Sv5SpecialWorldPoint>());
         private static Sv5RouteShortcutCandidate[] SafeCandidates()
         {
             var general = new Sv5RouteStateAnchor("FIX01_EXPORT_GENERAL", Sv5RouteStateAnchorKind.GeneralConnection);
             return new[]
             {
-                Candidate("FIX01_SAFE_IN", Existing(Node(RmapWorldGraphRole.Start)), general, RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_EXPORT"),
-                Candidate("FIX01_SAFE_OUT", general, Existing(Node(RmapWorldGraphRole.MooncoreOre)), RmapWorldGraphDirection.Right, 0, false, false, false, "FIX01_EXPORT"),
+                Candidate("FIX01_SAFE_IN", Existing(Node(Sv5WorldGraphRole.Start)), general, Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_EXPORT"),
+                Candidate("FIX01_SAFE_OUT", general, Existing(Node(Sv5WorldGraphRole.MooncoreOre)), Sv5WorldGraphDirection.Right, 0, false, false, false, "FIX01_EXPORT"),
             };
         }
-        private static Sv5RouteShortcutCandidate Candidate(string id, Sv5RouteStateAnchor from, Sv5RouteStateAnchor to, RmapWorldGraphDirection direction, ulong resources, bool forge, bool seal, bool boss, string provenance) => new Sv5RouteShortcutCandidate(id, from, to, direction, resources, forge, seal, boss, provenance);
+        private static Sv5RouteShortcutCandidate Candidate(string id, Sv5RouteStateAnchor from, Sv5RouteStateAnchor to, Sv5WorldGraphDirection direction, ulong resources, bool forge, bool seal, bool boss, string provenance) => new Sv5RouteShortcutCandidate(id, from, to, direction, resources, forge, seal, boss, provenance);
         private static Sv5RouteStateAnchor Existing(string id) => new Sv5RouteStateAnchor(id, Sv5RouteStateAnchorKind.ExistingGraphNode);
-        private static string Node(RmapWorldGraphRole role) => Plan.RouteSource.Graph.Nodes.Single(value => value.Role == role).NodeId;
+        private static string Node(Sv5WorldGraphRole role) => Plan.RouteSource.Graph.Nodes.Single(value => value.Role == role).NodeId;
 
         private static Sv5RouteStateReviewInput ActualReview() => new Sv5RouteStateReviewInput(new[]
         {
-            new Sv5RouteStateReviewContact(new RmapSpecialWorldPoint(415, 301), new[] { "0fc428a59647d62495d286c4c25fd66afac209842182354729188041dc5796e3", "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998", "21e6a90771dd0ec3a5924c7bed7cedd6df7b87118024ccd550005017a8e7ebd0", "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4" }),
-            new Sv5RouteStateReviewContact(new RmapSpecialWorldPoint(491, 301), new[] { "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4", "a98881f4240397805efa4bd7a49fec0d564a271544864f5fdd66657aed45cdff" }),
-            new Sv5RouteStateReviewContact(new RmapSpecialWorldPoint(523, 134), new[] { "0fc428a59647d62495d286c4c25fd66afac209842182354729188041dc5796e3", "29dc755094886d48300e9f8cf0fb0e54f09125a29c2fac78855bda7885f7dbaa" }),
+            new Sv5RouteStateReviewContact(new Sv5SpecialWorldPoint(415, 301), new[] { "0fc428a59647d62495d286c4c25fd66afac209842182354729188041dc5796e3", "16f8c96de43cf0ec7882d78bdcae5b4cc79a1e08fd38fcfbbb7e90b19bfc8998", "21e6a90771dd0ec3a5924c7bed7cedd6df7b87118024ccd550005017a8e7ebd0", "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4" }),
+            new Sv5RouteStateReviewContact(new Sv5SpecialWorldPoint(491, 301), new[] { "74004c50147eb4af54c7c3beb9c82282fb0d23628aa3c2e2a588301c04e965f4", "a98881f4240397805efa4bd7a49fec0d564a271544864f5fdd66657aed45cdff" }),
+            new Sv5RouteStateReviewContact(new Sv5SpecialWorldPoint(523, 134), new[] { "0fc428a59647d62495d286c4c25fd66afac209842182354729188041dc5796e3", "29dc755094886d48300e9f8cf0fb0e54f09125a29c2fac78855bda7885f7dbaa" }),
         }, ReadAirWitness());
-        private static RmapSpecialWorldPoint[] ReadAirWitness()
+        private static Sv5SpecialWorldPoint[] ReadAirWitness()
         {
             string text = File.ReadAllText(Path.Combine(ProjectRoot(), "MapDesign", "MCP", "INPUTS", "SV5_05", "REVIEW_FINDINGS.json"), Encoding.UTF8);
             int air = text.IndexOf("\"air_contact_witness\"", StringComparison.Ordinal);
             int cells = text.IndexOf("\"cells\": [", air, StringComparison.Ordinal);
             int end = text.IndexOf("\"excluded_sealed_cells\"", cells, StringComparison.Ordinal);
             MatchCollection matches = Regex.Matches(text.Substring(cells, end - cells), @"\[\s*(\d+)\s*,\s*(\d+)\s*\]");
-            RmapSpecialWorldPoint[] points = matches.Cast<Match>().Select(value => new RmapSpecialWorldPoint(int.Parse(value.Groups[1].Value, CultureInfo.InvariantCulture), int.Parse(value.Groups[2].Value, CultureInfo.InvariantCulture))).ToArray();
+            Sv5SpecialWorldPoint[] points = matches.Cast<Match>().Select(value => new Sv5SpecialWorldPoint(int.Parse(value.Groups[1].Value, CultureInfo.InvariantCulture), int.Parse(value.Groups[2].Value, CultureInfo.InvariantCulture))).ToArray();
             Assert.That(points.Length, Is.EqualTo(110));
             return points;
         }
@@ -207,8 +207,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Write(Path.Combine(directory, "obligations.csv"), Sv5RouteStateExport.ObligationsCsv(analysis));
             Write(Path.Combine(directory, "route_state_manifest.json"), Sv5RouteStateExport.ManifestJson(analysis));
         }
-        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
-            "SV5_08_FIX01", "_work", "legacy_exports", "sv5_05_fix01_t05");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "Temp", "SV5Tests",
+            "route_state_fix01_t05");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static void Write(string path, string text) => File.WriteAllText(path, text, new UTF8Encoding(false));
         private static string HashFile(string path)

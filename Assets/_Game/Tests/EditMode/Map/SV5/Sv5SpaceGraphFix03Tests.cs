@@ -43,7 +43,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpaceGraphPlan plan = Plan.Value;
             Sv5RouteContactPair fixture = FixturePair("SHARED");
             Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
-                Array.Empty<RmapSpecialWorldPoint>(), Array.Empty<Sv5SpaceBoundaryFace>()),
+                Array.Empty<Sv5SpecialWorldPoint>(), Array.Empty<Sv5SpaceBoundaryFace>()),
                 Has.Some.EqualTo("GATE_SHARED_CELL_BYPASS|" + fixture.Id));
             Assert.That(plan.PhysicalMovement.ContactChecks.Any(value => value.Success), Is.True);
         }
@@ -57,12 +57,12 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             // A rerouted accepted corridor has a single local neck, not FIX03's distributed cuts.
             Assert.That(owner.BlockingFaces.Count, Is.EqualTo(1));
             Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
-                Array.Empty<RmapSpecialWorldPoint>(), new[]
+                Array.Empty<Sv5SpecialWorldPoint>(), new[]
                 {
                     Create<Sv5SpaceBoundaryFace>(fixture.FirstWorld, fixture.SecondWorld),
                 }), Is.Empty);
             Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
-                Array.Empty<RmapSpecialWorldPoint>(), owner.BlockingFaces), Is.Not.Empty);
+                Array.Empty<Sv5SpecialWorldPoint>(), owner.BlockingFaces), Is.Not.Empty);
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Sv5SpaceContactDecision shared = Create<Sv5SpaceContactDecision>(fixture, "FIXTURE_SPLIT",
                 Sv5SpaceCrossingKind.ConditionalGate, "FIXTURE_PREDICATE", owner.BoundaryId, true, true, "fixture");
             Assert.That(Sv5SpaceGraphValidator.ValidateBarrierFixture(fixture,
-                Array.Empty<RmapSpecialWorldPoint>(), owner.BlockingFaces),
+                Array.Empty<Sv5SpecialWorldPoint>(), owner.BlockingFaces),
                 Has.Some.EqualTo("GATE_SHARED_CELL_BYPASS|" + fixture.Id));
             Sv5SpaceContactDecision fake = Create<Sv5SpaceContactDecision>(fixture, shared.SplitNodeId,
                 shared.Crossing, shared.Predicate, "FAKE_BOUNDARY", true, true, shared.Detail);
@@ -225,14 +225,15 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         // FIX04 deliberately uses a deterministic validator fixture here: accepted-plan
         // rerouting may remove a historical contact and must not be recreated in production.
         private static Sv5RouteContactPair FixturePair(string kind) => Create<Sv5RouteContactPair>(kind,
-            new RmapSpecialWorldPoint(10, 10), kind == "SHARED" ? new RmapSpecialWorldPoint(10, 10) : new RmapSpecialWorldPoint(11, 10),
-            "FIXTURE_ROUTE_A", "FIXTURE_ROUTE_B", new RmapSpecialWorldPoint(10, 10),
-            new RmapSpecialWorldPoint(11, 10), "OPEN", "OPEN", "OPEN", "OPEN");
+            new Sv5SpecialWorldPoint(10, 10), kind == "SHARED" ? new Sv5SpecialWorldPoint(10, 10) : new Sv5SpecialWorldPoint(11, 10),
+            "FIXTURE_ROUTE_A", "FIXTURE_ROUTE_B", new Sv5SpecialWorldPoint(10, 10),
+            new Sv5SpecialWorldPoint(11, 10), "OPEN", "OPEN", "OPEN", "OPEN");
         private static string Input(string file) => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "INPUTS",
             "SV5_06_FIX03", file);
         private static string Historical(params string[] parts) => parts.Aggregate(
             Path.Combine(ProjectRoot(), "MapDesign", "MCP"), Path.Combine);
-        private static string GeneratedDirectory() => Historical("GENERATED", "SV5_08_FIX01", "_work", "legacy_exports", "sv5_06_fix03");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "Temp", "SV5Tests",
+            "space_graph_fix03");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string Compact(string value) => value.Replace(" ", string.Empty).Replace("\r", string.Empty)
             .Replace("\n", string.Empty).Replace("\t", string.Empty);

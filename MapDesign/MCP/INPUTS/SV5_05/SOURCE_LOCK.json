@@ -1,0 +1,263 @@
+{
+  "format": "sv5_05_source_lock_v1",
+  "task_id": "SV5_05_ROUTE_STATE",
+  "path_bases": {
+    "MAPDESIGN": "actual MapDesign module root",
+    "PROJECT": "actual Unity root containing Assets/Packages/ProjectSettings"
+  },
+  "previous_task": "SV5_04_CORE_RESERVE",
+  "previous_result_sha256": "e7f75abeae77693f2190a6cc58dee50fd27cf2ea3bbf589f37140ebc242b073a",
+  "previous_result_path": "RESOLVE_ACTUAL_LOCAL_MCP_REPORT_NOT_INPUT_COPY",
+  "previous_installed_archive_sha256": "fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2",
+  "previous_finalize_commit": "RESOLVE_LOCALLY_NOT_IN_IMMUTABLE_RESULT_OR_REVIEW_ZIP",
+  "expected_after_previous_finalize": {
+    "total": 285,
+    "complete": 242,
+    "current": 0,
+    "locked": 43
+  },
+  "required_before_apply": {
+    "previous_status": "COMPLETE",
+    "current_task": "NONE",
+    "SV5_05_ROUTE_STATE": "LOCKED"
+  },
+  "state_note": "Expectations only; verify actual native Finalize/commit/state. Do not force counts or a historical HEAD.",
+  "files": [
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/BINDING.json",
+      "sha256": "6eb339dea116ce1b82e20407793ae77568e01cf09014ab5a771e08edbd2c685b",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/BINDINGS.csv",
+      "sha256": "387334b77c82b2aa62e9e9b6c11330d3b83f4106abc4bf8916f5fe6afecdefee",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/CORE_BINDINGS.csv",
+      "sha256": "3063f808d294e09e5b03f33a2b2357a1f4f2ba510c38c56dac4ed0e10ccfac35",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/DATA_SCHEMAS.csv",
+      "sha256": "083f91e9d4cfc5118d9cdeba4a0f1cc7184d0b6d3cacd653609076b763d5542c",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/SOURCE_SNAPSHOT.json",
+      "sha256": "1021386d9e1dd20f267a6f917f857e55ad431d612a1f3709da9f4df394fd49ac",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/TASK_COVERAGE.csv",
+      "sha256": "86309a520cf32fc268f0c9cabd25c68568fdc3b868ccf6b95c19611cba4644c6",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_03/validation.json",
+      "sha256": "87bb4af251e023d03a4f4c02079fb74ebc09686718f7388ce829b50f34248b96",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/BINDING.json",
+      "sha256": "bc7d94a6c1fdb05a0e9067d4bc8488c6294e75b2293cafa979c19f4f05b5568f",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/access_bindings.csv",
+      "sha256": "9600d72d0df139937462aefab5bf0fde86ab8117eaa32831df47777f6fc10379",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/core_cells.csv",
+      "sha256": "10a6bc42eea1aebba755cc94d10d0d999688ecc850cc4901417c83a9ec8ad389",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/core_sites.csv",
+      "sha256": "78dd267b778dbdbf04b2d53cb912bc334984f3ea4b3495c319c21270cedba9bd",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/focused_results.xml",
+      "sha256": "42a550abf7c4bf618a22ddd52fbbf42eae5a83a1fbbc9cd077bd47d5dfc716b4",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/reservation_manifest.json",
+      "sha256": "e567722745d1f15feef314b3efa047a7e53d44cc7704893ff14a1875ebdc00b5",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/route_cells.csv",
+      "sha256": "63e3d445377a0fdea658ed39b0a8765b5b66b14083a560b4c54b434b743cba13",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/state_geometry.csv",
+      "sha256": "ac93edca65636b73a71c47af3c58e514cb6759d1d549f00575d08846245d8785",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/GENERATED/SV5_04/validation.json",
+      "sha256": "7dacd96e607b7dd362c03aec5d53f7f2ff5e8aa273f2d81277aa1caebe31fa77",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5/SPACE_V5_MEMORY.md",
+      "sha256": "8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5/SPACE_V5_RULES.md",
+      "sha256": "4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5/SPACE_V5_TASKS.md",
+      "sha256": "6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5/TASKS.csv",
+      "sha256": "aac3c738f4f16fd69ce6ee71abb897420cf3b239d470e097e82311b304804052",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/INPUTS/SV5/TASKS.json",
+      "sha256": "7932de9ac46a82cf27046599a0ede47bf5a35f35c29edb374df178feeb70b367",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/00_APPROVAL_BASELINE.md",
+      "sha256": "a04f0c814273048db51c903d965e526c2bc987abb64294811675d301acf177fa",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/01_SEQUENCE_V5.md",
+      "sha256": "27a0ab0942ee2671a5720a1fe232018b5356c2c304ad6e8229c7c8842b05d9be",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/02_PROTOCOL_V5.md",
+      "sha256": "0331d3364cbb7d9b9c2d615f861924f50474539f69800ebd01439eef3526cc02",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/03_RULES_V5.md",
+      "sha256": "ecad8f6d292dcc5238d99f9b259f40fe57b554f253f1b920fb39476494641efe",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/04_RULE_COVERAGE_V5.csv",
+      "sha256": "0aaed8e54f63946ff1680c2b7474f84e5c836aaacc8fc2aa13049604f1c4ce07",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/05_RULE_READSET_V5.json",
+      "sha256": "271a659f44a10737478377a1b7d7f7d8f90830153594c0cbe8ac33828d22b8a9",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/06_BINDINGS_V5.md",
+      "sha256": "b71c553032de446ce7c7d7c65e806879bdd360ab77389c684f201a0f5d6ccf21",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/07_FILE_FLOW_V5.md",
+      "sha256": "611f604f8d65a7ac15a70f20ab848a4ed40ecf5d7fafa4428f3a77167c7f43a4",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/SV5/08_CORE_RESERVE_V5.md",
+      "sha256": "795bb8af332ce0d2de3f22bd28a1db2c77ef56aa3a6ff24b4a7e89be37a6c45d",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP/TASKS/SV5_04_CORE_RESERVE.md",
+      "sha256": "fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "MAPDESIGN",
+      "path": "MCP_ARCHIVE/SV5_04_CORE_RESERVE.md",
+      "sha256": "fd1f879e9f3d1ab302a1b2f7eb0b610227d6a7d9d86e7d43d2724978cb05f9a2",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SectorPlanning/RmapWorldGraphPlanner.cs",
+      "sha256": "93a77853b140f5a97aa15056921794e2212d722ebc6184e498e0cb59bc5a7729",
+      "check": "PRE_APPLY_ONLY_OPTIONAL_BOUND_ADAPT"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/RmapSpecialReservationPlanner.cs",
+      "sha256": "e524df90e1ea1744a979f7fdaac8b1b80601407ea07cbce029baabbcc70ed216",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/SpecialRegions/Sv5CoreReservationPlan.cs",
+      "sha256": "128d98c42e092d917a58460ba980bfe09eda33cad41ccd56bff1e7b3fffe0cf3",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/TerrainClusters/RmapClusterAssemblyPlanner.cs",
+      "sha256": "48bc1b2664034beb923427c037a0b0b2d18f7a8c11d1705e9fce432a37324bab",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/Validation/GeneratedCompletionSearch.cs",
+      "sha256": "ce93c625c52fbc89782fcc6e2c5494c8dbdc2ba6f8b912336d27a6a0936d2a0e",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Map/Runtime/WorldGeneration/WorldData/RmapWorldDataContract.cs",
+      "sha256": "345458eb9a59a0add84ca15bd3106226ca2b3151c94831d7b6667943ac0b2841",
+      "check": "EXACT_READ_ONLY"
+    },
+    {
+      "path_base": "PROJECT",
+      "path": "Assets/_Game/Tests/EditMode/Map/SV5/Sv5CoreReservationPlanTests.cs",
+      "sha256": "0ad252215729eb7c2a325395ef81ae730f72f3ab5af244476313c921b4d0b4d8",
+      "check": "EXACT_READ_ONLY"
+    }
+  ],
+  "source_note": "Reviewed SV5_04 adapter/test and CSV bytes are pinned. RMAP13/WorldData/completion sources are pinned to actual SV5_03 audit rows but must be read locally before API binding.",
+  "negative_baseline_note": "Expected AIR-only contact witness is diagnostic input, not a reason to edit source hashes or a claim of Player completion."
+}

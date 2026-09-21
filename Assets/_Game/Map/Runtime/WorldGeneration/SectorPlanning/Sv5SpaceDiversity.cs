@@ -27,7 +27,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
                 "FARM_TERRACE", "RANCH_YARD", "LAKE_CHAMBER", "JUMP_RESERVE" }) aliases.Add(family, family);
             foreach (string variant in new[] { "A", "B", "C", "D", "E", "F" }) aliases.Add("ORDINARY_ROOM_" + variant, "ORDINARY_ROOM");
             Aliases = new ReadOnlyDictionary<string,string>(aliases);
-            Digest = RmapWorldDefinition.Hash(Id + "|" + Version + "|" + Enabled + "|" +
+            Digest = Sv5WorldDefinition.Hash(Id + "|" + Version + "|" + Enabled + "|" +
                 Radius.ToString(CultureInfo.InvariantCulture) + "|" + Metric + "|" + Salt + "|" +
                 string.Join(",", values.Select(v => v.ToString(CultureInfo.InvariantCulture))) +
                 "|CORE_EXEMPT|ORDINARY_ROOM_EXEMPT|" + string.Join(";", aliases.Select(p => p.Key + "=" + p.Value)));
@@ -146,7 +146,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Profile = profile; Parts = Array.AsReadOnly(places.Select(Sv5FormationPart.FromPlace).OrderBy(p => p.FormationId, StringComparer.Ordinal).ToArray());
             Pairs = Sv5SpaceDiversity.Pairs(Parts, profile);
             Decisions = Array.AsReadOnly((decisions ?? Array.Empty<Sv5DiversityDecision>()).ToArray());
-            Digest = RmapWorldDefinition.Hash(profile.Digest + "|" + seed.ToString(CultureInfo.InvariantCulture) + "\n" +
+            Digest = Sv5WorldDefinition.Hash(profile.Digest + "|" + seed.ToString(CultureInfo.InvariantCulture) + "\n" +
                 string.Join("\n", Parts.Select(p => p.FormationId + "|" + profile.FamilyKey(p.Family) + "|" + p.Bounds + "|" + p.Core)) + "\n" +
                 string.Join("\n", Pairs.Select(p => p.Token)) + "\n" + string.Join("\n", Decisions.Select(d => d.Token)));
         }
@@ -166,13 +166,13 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
             Math.Max(0, Math.Max(b.Y - a.MaxYExclusive, a.Y - b.MaxYExclusive));
 
         public static int Roll(ulong seed, int ordinal, string familyKey) =>
-            (int)(ulong.Parse(RmapWorldDefinition.Hash(Sv5DiversityProfile.Salt + "|" + seed.ToString(CultureInfo.InvariantCulture) +
+            (int)(ulong.Parse(Sv5WorldDefinition.Hash(Sv5DiversityProfile.Salt + "|" + seed.ToString(CultureInfo.InvariantCulture) +
                 "|" + ordinal.ToString(CultureInfo.InvariantCulture) + "|" + familyKey).Substring(0, 16),
                 NumberStyles.HexNumber, CultureInfo.InvariantCulture) % 100UL);
 
         public static string PlaceId(Sv5SpaceFamilySpec spec, ulong seed, Sv5SpaceBounds bounds) =>
             "SV5_PLACE_" + spec.Ordinal.ToString("00", CultureInfo.InvariantCulture) + "_" +
-            RmapWorldDefinition.Hash(seed.ToString(CultureInfo.InvariantCulture) + "|" + spec.StableToken + "|" + bounds)
+            Sv5WorldDefinition.Hash(seed.ToString(CultureInfo.InvariantCulture) + "|" + spec.StableToken + "|" + bounds)
                 .Substring(0,16).ToUpperInvariant();
 
         private static Sv5FormationPart[][] Formations(IEnumerable<Sv5FormationPart> parts, Sv5DiversityProfile profile)

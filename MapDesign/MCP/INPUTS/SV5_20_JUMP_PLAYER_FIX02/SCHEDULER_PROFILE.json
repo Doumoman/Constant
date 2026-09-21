@@ -1,0 +1,34 @@
+{
+  "schema": "SV5_20_JUMP_PLAYER_FIX02_SCHEDULER/v1",
+  "task": "SV5_20_JUMP_PLAYER",
+  "policy_id": "GROUNDED_SUPPORT_EDGE_TRIGGER_V1",
+  "problem_case": "MAIN_MX_00",
+  "observed_last_grounded_step": 41,
+  "observed_first_unsupported_step": 42,
+  "observed_bad_jump_step": 49,
+  "observed_bad_jump_velocity_y": -2.17,
+  "trigger": {
+    "requires_grounded": true,
+    "leading_capsule_edge": "body_x + direction_sign * capsule_half_width",
+    "support_edge_source": "COMPOSED_OCCUPANCY_UNDER_ACTUAL_PLAYER",
+    "distance_formula": "abs(leading_capsule_edge - forward_support_edge)",
+    "threshold_formula": "max(abs(velocity_x) * fixed_delta_time + collision_skin, minimum_edge_margin)",
+    "action": "SUBMIT_JUMP_IN_NEXT_FIXED_SNAPSHOT_BEFORE_SUPPORT_EXIT",
+    "hardcoded_step_allowed": false,
+    "per_link_magic_frame_allowed": false,
+    "coyote_time_required_for_pass": false
+  },
+  "diagnostic": {
+    "main_link_cases": 18,
+    "nunit_case_per_link": true,
+    "continue_after_one_case_failure": true,
+    "parallel_execution": false,
+    "run_before_full_38_case_suite": true
+  },
+  "fail_fast": {
+    "minimum_body_y": -2.0,
+    "maximum_steps_per_case": 240,
+    "stop_trace_after_divergence": true
+  }
+}
+

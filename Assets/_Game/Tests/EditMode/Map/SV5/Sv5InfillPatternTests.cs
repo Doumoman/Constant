@@ -9,7 +9,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
 {
     public sealed class Sv5InfillPatternTests
     {
-        private static RmapSpecialWorldPoint P(int x,int y) => new RmapSpecialWorldPoint(x,y);
+        private static Sv5SpecialWorldPoint P(int x,int y) => new Sv5SpecialWorldPoint(x,y);
 
         [Test] public void T01_FourExactRecipesMirrorsDoorsSupportedStepsAndSolidWindows()
         {

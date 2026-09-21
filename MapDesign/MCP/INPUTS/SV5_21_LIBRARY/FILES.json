@@ -1,0 +1,42 @@
+{
+  "schema": "SV5_21_LIBRARY_FILES/v1",
+  "task": "SV5_21_LIBRARY",
+  "base_commit": "b95289b6c2eb727dd107d01ce89279d1556a60f9",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "59c19889d797b2cd62aadc5b022673ab57314fbab8e5324acae693ab8e5f3302",
+      "bytes": 6139
+    },
+    {
+      "path": "LIBRARY_PROFILE.json",
+      "sha256": "4c3f02ce717e040ed0f6b7dd09109c5a335683582bd730b5018d0baa5760bb28",
+      "bytes": 823
+    },
+    {
+      "path": "README.md",
+      "sha256": "cb71fd8f0c1bce39e6dea40495214a98653fc60c1843c9c0b1b65005bb628665",
+      "bytes": 493
+    },
+    {
+      "path": "SOURCE_LOCK.json",
+      "sha256": "ec10ba0d6511e3c9d8930ee602f2cf9d9080b3aaa609bb2a9a3a49e9e7d79ae8",
+      "bytes": 3767
+    },
+    {
+      "path": "STAGE.py",
+      "sha256": "e21139d42d311adae464115ab6b8c4a83fbdb6d62feb48b73197c348e89deab5",
+      "bytes": 9639
+    },
+    {
+      "path": "SV5_21_LIBRARY.md",
+      "sha256": "2ab9b6c451686e85c5dec497da44d12db5181b63ef6d8ffab5ba5a2518e6cd80",
+      "bytes": 3961
+    },
+    {
+      "path": "tools/check_library.py",
+      "sha256": "cb295c01d9e7bffc10ad0e055652fffcad07154fe1d21ef50e38241fba428651",
+      "bytes": 14237
+    }
+  ]
+}

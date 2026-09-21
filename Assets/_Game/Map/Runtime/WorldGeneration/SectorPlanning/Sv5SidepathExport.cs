@@ -48,7 +48,7 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         {
             var p=plan.Sidepaths;var rows=new List<string>();foreach(var link in p.Links)for(int i=0;i<link.Centerline.Count;i++)
             {var point=link.Centerline[i];rows.Add(Row(link.Id,i,point.X,point.Y,Value(p.BaselineOccupancy,point),Value(p.FinalOccupancy,point),
-                Value(p.FinalOccupancy,new RmapSpecialWorldPoint(point.X,point.Y+1)),Value(p.FinalOccupancy,new RmapSpecialWorldPoint(point.X,point.Y-1)),
+                Value(p.FinalOccupancy,new Sv5SpecialWorldPoint(point.X,point.Y+1)),Value(p.FinalOccupancy,new Sv5SpecialWorldPoint(point.X,point.Y-1)),
                 Sv5SpaceSidepaths.MovementRole(link.Centerline,i)==Sv5SidepathMovementRole.StepTransition?"STEP_TRANSITION":"SUPPORTED_FOOT",plan.Digest));}
             return Csv("sidepath_id,sequence,x,y,source_value,final_value,head_value,support_value,movement_role,plan_digest",rows);
         }
@@ -123,8 +123,8 @@ namespace StarNight.Map.WorldGeneration.SectorPlanning
         private static string Summary(Sv5SpaceGraphPlan p)=>"{\"digest\":"+J(p.Sidepaths.Digest)+",\"accepted\":"+p.Sidepaths.AcceptedCount+
             ",\"returning\":"+p.Sidepaths.ReturningCount+",\"space_groups\":"+p.Sidepaths.DistinctSpaceGroupCount+"}";
         private static string Kind(Sv5SidepathKind kind)=>kind==Sv5SidepathKind.Returning?"SIDE_PATH_RETURNING":"SIDE_PATH_DEAD_END";
-        private static string Value(IReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell> map,RmapSpecialWorldPoint point)=>Sv5LoopTopology.ValueAt(map,point).ToString().ToUpperInvariant();
-        private static string Points(IEnumerable<RmapSpecialWorldPoint> source)=>string.Join(";",source.Select(p=>p.X+":"+p.Y));
+        private static string Value(IReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell> map,Sv5SpecialWorldPoint point)=>Sv5LoopTopology.ValueAt(map,point).ToString().ToUpperInvariant();
+        private static string Points(IEnumerable<Sv5SpecialWorldPoint> source)=>string.Join(";",source.Select(p=>p.X+":"+p.Y));
         private static string Csv(string header,IEnumerable<string> rows)=>header+"\n"+string.Join("\n",rows)+"\n";
         private static string Row(params object[] values)=>string.Join(",",values.Select(v=>Q(v==null?string.Empty:v is bool b?(b?"true":"false"):Convert.ToString(v,CultureInfo.InvariantCulture))));
         private static string Q(string value)=>value.IndexOfAny(new[]{',','"','\n','\r'})<0?value:"\""+value.Replace("\"","\"\"")+"\"";

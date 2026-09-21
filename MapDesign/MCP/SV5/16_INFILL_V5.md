@@ -72,7 +72,7 @@ SV5_41의 합성 및 SV5_44의 실제 Player 검증은 이번 단계에 포함�
 ## 출력 및 검증 경계
 
 최종 출력은 GENERATED/SV5_08의 default/repeat 각 ON 한 벌과 동일 셀에서 만든 전체 전후 및 A1~D4다.
-기존 9개 시험의 쓰기만 이번 `_work/legacy_exports/<fixture>`로 격리했고 과거 입력 읽기는 유지한다.
+9개 회귀 시험의 쓰기는 `Temp/SV5Tests/SV5_08/<fixture>`로 격리하고 현재 SV5 입력만 읽는다.
 중간 XML은 `_work`에 있으며 최신 source와 SHA를 대조한 실행만 해당 소스의 증거로 취급한다.
 T01~T12, 두 integration 사례, 기존 82개 focused, 전체 SOURCE_LOCK 및 비소유 dirty 대조가
 완료되기 전에는 최종 PASS, Finalize, 소유 commit 또는 Review ZIP을 만들지 않는다.

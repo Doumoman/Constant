@@ -49,7 +49,7 @@ geometry 증거를 대체하지 않는다. FindGateErrors와 PhysicalMovement.An
 
 ## 실제 product 증거
 
-RMAP13 `ExploreWithAnalysisNodes`가 여섯 자원 순서 각각의 합법적 상태·행동·전이를
+SV5 `ExploreWithAnalysisNodes`가 여섯 자원 순서 각각의 합법적 상태·행동·전이를
 제공한다. canonical 코드는 변경하지 않는다. 모든 canonical reachable state에서
 세 gate를 동시에 적용하고 모든 core/optional 방향의 기대 도달 여부를 검사한다.
 닫혀야 하는 guarded 연결도 제외하지 않는다.
@@ -79,7 +79,7 @@ physical_contact_checks/physical_gate_state_checks/state_proofs/validation/previ
 상태/도달 결과/실제 witness 참조/차단 이유를 기록한다. witness 좌표열은 ID별로
 중복 제거한다. validation PASS는 plan 계산값이며 수동 후처리하지 않는다.
 
-legacy export는 FIX04 `legacy_exports/<시험별 고유 경로>`에만 기록한다.
+회귀 시험의 임시 출력은 `Temp/SV5Tests/FIX04/<시험별 고유 경로>`에만 기록한다.
 과거 GENERATED/Task/Archive/Result와 무관한 dirty 변경은 보존한다. 실행 전후의
 전체 299 ALWAYS 및 35 commit blob 검사는 `PRECHECK --mode post-readonly`로 수행한다.
 FIX03 GENERATED 161개는 그 검사에 포함된다. `_work`는 임시 진단이며 최종 ZIP에서 제외한다.

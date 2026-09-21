@@ -5,7 +5,7 @@ using UnityEngine;
 namespace StarNight.Character.Live.Movement
 {
     /// <summary>
-    /// RMAP05의 Player-local 낙하 결과 상태. 기존 CharacterHealthState,
+    /// SV5의 Player-local 낙하 결과 상태. 기존 CharacterHealthState,
     /// CharacterHealthDamagePolicy 및 CharacterPlayerState를 그대로 소비하며
     /// 전투/저장 체력 시스템을 새로 소유하지 않는다.
     /// </summary>

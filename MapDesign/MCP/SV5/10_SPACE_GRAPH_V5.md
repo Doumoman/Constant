@@ -11,7 +11,7 @@
 - `Sv5SpaceGraphPlanner.Plan(Sv5CoreReservationPlan core, ulong seed, Sv5SpaceGraphAuthoringProfile profile)`이 유일한 생성 진입점이다.
 - 명시 seed는 `core.RouteSource.Definition.Request.Seed`와 같아야 한다.
 - `core.Source`, `core.RouteSource.SpecialPlan`, `core.RouteSource.Definition`, `core.Source.BiomePlan.Definition`은 같은 실제 객체 계보를 유지한다.
-- 8개 RMAP15 physical site, 2,432 core cell, slot/access/state geometry와 11개 RMAP16 route는 재생성하거나 옮기지 않는다.
+- 8개 SV5 physical site, 2,432 core cell, slot/access/state geometry와 11개 SV5 route는 재생성하거나 옮기지 않는다.
 - 승인 예시의 101 places, 166 connections, seed 40921은 정답 상수가 아니다. 대표 profile은 core 밖에 8 large, 6 ordinary places를 분산 배치한다.
 
 ## API와 상태 층
@@ -21,26 +21,26 @@
 | `Sv5SpaceGraphPlan` | source identity, profile, place/port/connection/gate/reservation/contact/proof와 전체 digest 소유 |
 | `Sv5SpaceGraphAuthoringProfile` | versioned family, footprint, 후속 owner를 결정; 입력 순서와 무관하게 canonical 정렬 |
 | `Sv5RouteStatePolicy.EnumerateContactPairs` | Passage·Clearance shared-cell 조합과 cardinal-face Cartesian product의 모든 서로 다른 route pair 열거 |
-| `Sv5SpaceGraphStateProjection` | 실제 06 connector를 RMAP13 FSM에 투영하고 접촉마다 action-less split node 생성 |
+| `Sv5SpaceGraphStateProjection` | 실제 06 connector를 SV5 FSM에 투영하고 접촉마다 action-less split node 생성 |
 | `Sv5SpaceGraphExport.WriteAll` | 동일 plan에서 JSON, CSV, overview, 16 zoom, HTML 생성 |
 
 기존 `Sv5RouteStateAnalysis.LogicalStateVerified`는 baseline 6순서와 후보집합 논리만 뜻한다. `ContactStateVerified`는 별도다. route/predicate 이름이 존재한다는 이유만으로 contact row를 checked로 표시하지 않는다. 과거 05/FIX01 층의 접촉은 실제 FSM 투영 전까지 `logical_state_transition_checked=false`다.
 
-06 투영에서는 접촉의 두 route가 각자 점유한 위치를 ordinal로 찾고 route 중간에 split node를 삽입한다. 원래 RMAP13 edge의 resource mask, Forge, Seal, Boss 조건을 split 전후 모든 segment에 반복한다. 따라서 끝점 guard를 우회해 중간 접촉으로 들어갈 수 없다. 모든 실제 connector를 결합한 뒤 각 자원 순서에서 reachable state 전체를 열거하고 goal state에서 한 번 만든 reverse adjacency로 역도달 집합을 계산한다.
+06 투영에서는 접촉의 두 route가 각자 점유한 위치를 ordinal로 찾고 route 중간에 split node를 삽입한다. 원래 SV5 edge의 resource mask, Forge, Seal, Boss 조건을 split 전후 모든 segment에 반복한다. 따라서 끝점 guard를 우회해 중간 접촉으로 들어갈 수 없다. 모든 실제 connector를 결합한 뒤 각 자원 순서에서 reachable state 전체를 열거하고 goal state에서 한 번 만든 reverse adjacency로 역도달 집합을 계산한다.
 
 ## 장소와 포트
 
-- Core place는 RMAP15 site ID, origin, width, height, template을 그대로 사용한다.
+- Core place는 SV5 site ID, origin, width, height, template을 그대로 사용한다.
 - Large/ordinary place는 stable ID, family, footprint, distribution sector, future owner, `PLANNED_SHELL` 상태를 갖는다.
 - 일반 footprint는 최종 지형이 아니다. 7×5보다 작지 않으며 60-tile long cave band를 포함한다.
-- Core port는 실제 RMAP15 access ID, 전체 boundary cell set, side, flow, condition, source node를 그대로 기록한다.
-- `RMAP15_SITE_START_PORT_EXIT`는 보호된 기존 접근면과 겹치지 않는 별도 안전 분기를 만들 수 없어 `UNUSED_WITH_REASON:RMAP16_PROTECTED_APPROACH_HAS_NO_DISTINCT_SAFE_BRANCH`로 유지한다.
+- Core port는 실제 SV5 access ID, 전체 boundary cell set, side, flow, condition, source node를 그대로 기록한다.
+- `SV5_SITE_START_PORT_EXIT`는 보호된 기존 접근면과 겹치지 않는 별도 안전 분기를 만들 수 없어 `UNUSED_WITH_REASON:SV5_PROTECTED_APPROACH_HAS_NO_DISTINCT_SAFE_BRANCH`로 유지한다.
 - Start ENTRY의 `Both` 흐름에서 선택 회로가 시작하고 같은 ENTRY로 복귀한다.
 - Village ENTRY/EXIT와 village 내부 protected-AIR 경로를 실제로 연결한다. 이 회로는 resource/Forge/Seal/Boss action을 만들지 않는다.
 
 ## 통로, 접촉, gate
 
-Core progression connection은 `SourceGraphEdgeId`가 있는 11개 실제 RMAP16 route다. 포트 boundary cell을 route의 외부 첫/끝 셀에 cardinally 붙여 centerline을 완성한다. 선택 회로는 명시적인 from/to port와 ordered cardinal centerline, 한 타일 clearance envelope를 가진다.
+Core progression connection은 `SourceGraphEdgeId`가 있는 11개 실제 SV5 route다. 포트 boundary cell을 route의 외부 첫/끝 셀에 cardinally 붙여 centerline을 완성한다. 선택 회로는 명시적인 from/to port와 ordered cardinal centerline, 한 타일 clearance envelope를 가진다.
 
 모든 connection centerline 및 기존 Passage·Clearance를 같은 pair 열거기에 입력한다. 공통 route가 있는 face도 나머지 `(A,B)`, `(A,C)`, `(B,C)`를 버리지 않는다. 같은 물리 접촉의 중복은 stable contact key로 제거하고 face 방향은 보존한다.
 

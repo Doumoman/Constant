@@ -7,12 +7,12 @@
 
 1. 현재 사용자의 명시적 결정과 SV5 승인 범위를 따른다.
 2. 아래 SV5 규칙 원본이 구체 규칙의 정본이다. 이 파일은 원본을 찾아 읽는 인덱스다.
-3. 기존 v4 상세 계약은 새 결정과 충돌하지 않는 부분을 유지한다.
+3. 기존 SV5 상세 계약은 새 결정과 충돌하지 않는 부분을 유지한다.
 4. 과거 예시의 수치·정적 검사·작성 기본값을 사용자 지정값이나 Player 통과 증거로 승격하지 않는다.
 
 | 자료 | MapDesign 기준 경로 | SHA-256 |
 |---|---|---|
-| 승인된 규칙 | MCP/INPUTS/SV5/SPACE_V5_RULES.md | 4cc8e65a23f511b05a91e74af75a5c2ade522f266bd9ce3a9bb5da8108f0ee54 |
+| 승인된 규칙 | MCP/INPUTS/SV5/SPACE_V5_RULES.md | 2a89e036aafb94f012eb4b4d7e0379a878ed4d4794f7653e5bc1ccaaeee07b7e |
 | 최신 결정 메모 | MCP/INPUTS/SV5/SPACE_V5_MEMORY.md | 8759d6bc0ded6cdfb306bcb0ef13404b9bfef612092021cc868215bb91e26f85 |
 | 45개 계획 | MCP/INPUTS/SV5/SPACE_V5_TASKS.md | 6ca7ba9fc236e8c1a0625145221bf226613203dbff2870fc3e7157cb0c30efdc |
 
@@ -25,7 +25,7 @@
 - 일반 +1칸, Jump+Grab 최대 +2칸. 실제 Player 수치를 올려 불가능한 지형을 통과시키지 않는다.
 - Grab 최소 1회·외곽 구간 2곳은 제작 기본값이다. 고체 비율은 미지정이다.
 - 가로 3~4칸 점프와 (가로 2, 세로 2+Grab)는 실물 검증 전 후보이며 자동 PASS가 아니다.
-- RMAP15 핵심 ID·보호 셀·접근·복귀와 진행 조건을 실제 정본에 연결한다.
+- SV5 핵심 ID·보호 셀·접근·복귀와 진행 조건을 실제 정본에 연결한다.
 - Type0 봉쇄·절구 작업장 예약·핵심 경로의 진행 조건을 랜덤 샛길로 우회하지 않는다.
 - 도서관 계단·열차·엘리베이터 등은 후속 구현 책임이다. 규칙 등록만으로 READY 처리하지 않는다.
 
@@ -44,7 +44,7 @@
 | 32~34 | RAIL·REGIONS |
 | 35~40 | SPECIALS·PLACES·REGIONS·MOVEMENT |
 
-파일들은 MCP/INPUTS/SV5/reference/v4/ 아래 SPACE_*.md이다.
+파일들은 MCP/INPUTS/SV5/SPACE_V5_RULES.md 아래 SPACE_*.md이다.
 이 표는 실제 실행 Task의 Read 목록을 대신하지 않는다. 해당 Task 발행 시 정확한 Read/Write/API를 바인딩한다.
 
 ## 문장별 추적과 상태

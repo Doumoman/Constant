@@ -69,7 +69,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         public void T03_PortsBindActualCoreAccessAndOptionalStartVillageReturn()
         {
             Sv5SpaceGraphPlan plan = Representative.Value;
-            foreach (RmapSpecialAccess access in plan.Core.Source.Accesses)
+            foreach (Sv5SpecialAccess access in plan.Core.Source.Accesses)
             {
                 Sv5SpacePort port = plan.Ports.Single(value => value.Id == access.Id);
                 Assert.That(port.BoundaryCells, Is.EqualTo(access.OpenCells));
@@ -77,14 +77,14 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 Assert.That(port.Condition, Is.EqualTo(access.Condition));
                 Assert.That(port.SourceAccessId, Is.EqualTo(access.Id));
             }
-            Assert.That(plan.Connections.Any(value => value.FromPortId == "RMAP15_SITE_START_PORT_EXIT" ||
-                value.ToPortId == "RMAP15_SITE_START_PORT_EXIT"), Is.False);
-            Assert.That(plan.Ports.Single(value => value.Id == "RMAP15_SITE_START_PORT_EXIT").Status,
+            Assert.That(plan.Connections.Any(value => value.FromPortId == "SV5_SITE_START_PORT_EXIT" ||
+                value.ToPortId == "SV5_SITE_START_PORT_EXIT"), Is.False);
+            Assert.That(plan.Ports.Single(value => value.Id == "SV5_SITE_START_PORT_EXIT").Status,
                 Does.StartWith("UNUSED_WITH_REASON:"));
-            Assert.That(plan.Connections.Any(value => value.FromPortId == "RMAP15_SITE_START_PORT_ENTRY" &&
+            Assert.That(plan.Connections.Any(value => value.FromPortId == "SV5_SITE_START_PORT_ENTRY" &&
                 value.Kind == Sv5SpaceConnectionKind.OptionalBranch), Is.True);
-            Assert.That(plan.Connections.Any(value => value.ToPortId == "RMAP15_SITE_VILLAGE_PORT_ENTRY"), Is.True);
-            Assert.That(plan.Connections.Any(value => value.FromPortId == "RMAP15_SITE_VILLAGE_PORT_EXIT"), Is.True);
+            Assert.That(plan.Connections.Any(value => value.ToPortId == "SV5_SITE_VILLAGE_PORT_ENTRY"), Is.True);
+            Assert.That(plan.Connections.Any(value => value.FromPortId == "SV5_SITE_VILLAGE_PORT_EXIT"), Is.True);
             Assert.That(plan.Connections.Any(value => value.Kind == Sv5SpaceConnectionKind.VillageInterior), Is.True);
             foreach (Sv5SpaceConnection connection in plan.Connections)
             {
@@ -98,8 +98,8 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test]
         public void T04_CompleteContactEnumeratorKeepsCommonRouteFacePairsAndLayers()
         {
-            var p = new RmapSpecialWorldPoint(10, 10);
-            var q = new RmapSpecialWorldPoint(11, 10);
+            var p = new Sv5SpecialWorldPoint(10, 10);
+            var q = new Sv5SpecialWorldPoint(11, 10);
             IReadOnlyList<Sv5RouteContactPair> face = Sv5RouteStatePolicy.EnumerateContactPairs(new[]
             {
                 new Sv5RouteContactCell("A", p, Sv5RouteContactCellKind.Passage),
@@ -130,7 +130,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         {
             Sv5RouteStateAnalysis oldLayer = Sv5RouteStatePolicy.Analyze(Core1304.Value,
                 Array.Empty<Sv5RouteShortcutCandidate>(), new Sv5RouteStateReviewInput(
-                    Array.Empty<Sv5RouteStateReviewContact>(), Array.Empty<RmapSpecialWorldPoint>()));
+                    Array.Empty<Sv5RouteStateReviewContact>(), Array.Empty<Sv5SpecialWorldPoint>()));
             Assert.That(oldLayer.LogicalStateVerified, Is.True);
             Assert.That(oldLayer.ContactStateVerified, Is.False);
             Assert.That(oldLayer.ContactChecks.All(value => !value.LogicalStateTransitionChecked), Is.True);
@@ -195,7 +195,7 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             Assert.That(plan.Connections.Count(value => value.Kind == Sv5SpaceConnectionKind.OptionalBranch),
                 Is.GreaterThan(plan.Places.Count(value => value.Kind == Sv5SpacePlaceKind.Large)));
             Assert.That(plan.Connections.Any(value => value.Kind == Sv5SpaceConnectionKind.OptionalBranch &&
-                value.ToPlaceId == "RMAP15_SITE_START"), Is.True);
+                value.ToPlaceId == "SV5_SITE_START"), Is.True);
         }
 
         [Test]
@@ -249,14 +249,14 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         private static Sv5CoreReservationPlan BuildCore(ulong seed)
         {
             WorldGenerationRngStreams streams = RngStreams();
-            RmapWorldDefinition definition = RmapWorldDataGenerator.Generate(
-                new RmapWorldDataRequest(seed, "CONTENT_V1", "GENERATOR_V1"), streams);
-            Rmap16ClusterAssemblyPlan routeSource = RmapClusterAssemblyPlanner.Plan(definition, streams);
+            Sv5WorldDefinition definition = Sv5WorldDataGenerator.Generate(
+                new Sv5WorldDataRequest(seed, "CONTENT_V1", "GENERATOR_V1"), streams);
+            Sv5ClusterAssemblyPlan routeSource = Sv5ClusterAssemblyPlanner.Plan(definition, streams);
             return Sv5CoreReservationPlanner.Plan(routeSource);
         }
 
-        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "MapDesign", "MCP", "GENERATED",
-            "SV5_08_FIX01", "_work", "legacy_exports", "sv5_06_original_t10");
+        private static string GeneratedDirectory() => Path.Combine(ProjectRoot(), "Temp", "SV5Tests",
+            "space_graph_plan_t10");
         private static string ProjectRoot() => Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
         private static string HashFile(string path)
         {

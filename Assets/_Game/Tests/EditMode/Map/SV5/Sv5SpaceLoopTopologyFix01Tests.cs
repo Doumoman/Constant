@@ -32,9 +32,9 @@ namespace StarNight.Map.Tests.EditMode.Sv5
             {
                 Assert.That(Sv5LoopTopology.ValueAt(topology.BaselineOccupancy,foot),Is.EqualTo(Sv5InfillCellValue.Air));
                 Assert.That(Sv5LoopTopology.ValueAt(topology.BaselineOccupancy,
-                    new RmapSpecialWorldPoint(foot.X,foot.Y+1)),Is.EqualTo(Sv5InfillCellValue.Air));
+                    new Sv5SpecialWorldPoint(foot.X,foot.Y+1)),Is.EqualTo(Sv5InfillCellValue.Air));
                 Assert.That(Sv5LoopTopology.ValueAt(topology.BaselineOccupancy,
-                    new RmapSpecialWorldPoint(foot.X,foot.Y-1)),Is.EqualTo(Sv5InfillCellValue.Solid));
+                    new Sv5SpecialWorldPoint(foot.X,foot.Y-1)),Is.EqualTo(Sv5InfillCellValue.Solid));
             }
         }
 
@@ -46,11 +46,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
                 var proof=topology.Proofs.Single(p=>p.LoopId==link.Id);
                 Assert.That(Sv5LoopTopology.ShortestCost(link.FootPath.First(),link.FootPath.Last(),
                     topology.BaselineFootNodes),Is.EqualTo(proof.BaselineCost));
-                var overlay=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(topology.BaselineOccupancy);
+                var overlay=new Dictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(topology.BaselineOccupancy);
                 foreach(var cell in link.Cells) overlay[cell.World]=new Sv5LoopOccupancyCell(cell.World,
                     cell.FinalValue,"TEST_LOOP_RECONSTRUCTION",link.Id);
                 var finalFeet=Sv5LoopTopology.SupportedFootNodes(
-                    new ReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(overlay));
+                    new ReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(overlay));
                 Assert.That(Sv5LoopTopology.ShortestCost(link.FootPath.First(),link.FootPath.Last(),finalFeet),
                     Is.EqualTo(proof.FinalCost));
             }
@@ -99,11 +99,11 @@ namespace StarNight.Map.Tests.EditMode.Sv5
         [Test] public void T07_RemovingHeadroomInvalidatesTheReconstructedFootNode()
         {
             var topology=Plan.Loops.Topology; var foot=topology.BaselineFootNodes.First();
-            var changed=new Dictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(topology.BaselineOccupancy);
-            var head=new RmapSpecialWorldPoint(foot.X,foot.Y+1);
+            var changed=new Dictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(topology.BaselineOccupancy);
+            var head=new Sv5SpecialWorldPoint(foot.X,foot.Y+1);
             changed[head]=new Sv5LoopOccupancyCell(head,Sv5InfillCellValue.Solid,"NEGATIVE_HEADROOM",string.Empty);
             var rebuilt=Sv5LoopTopology.SupportedFootNodes(
-                new ReadOnlyDictionary<RmapSpecialWorldPoint,Sv5LoopOccupancyCell>(changed));
+                new ReadOnlyDictionary<Sv5SpecialWorldPoint,Sv5LoopOccupancyCell>(changed));
             Assert.That(rebuilt.Contains(foot),Is.False);
         }
 

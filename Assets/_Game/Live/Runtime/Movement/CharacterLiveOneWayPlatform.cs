@@ -4,7 +4,7 @@ using UnityEngine;
 namespace StarNight.Character.Live.Movement
 {
     /// <summary>
-    /// RMAP04 top-only platform marker.  The component keeps the authored
+    /// SV5 top-only platform marker.  The component keeps the authored
     /// physical Collider2D addressable so a Player can ignore only its chosen
     /// drop-through target; it is intentionally never a Grab-safe surface.
     /// </summary>

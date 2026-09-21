@@ -1,0 +1,362 @@
+[
+  {
+    "order": 1,
+    "task_id": "SV5_01_APPROVAL_BASELINE",
+    "phase": "기준과 전체 연결",
+    "title": "승인된 전체 구조 기준 등록",
+    "completion": "624×416 예시의 파일·셀·번호표 SHA, 사용자 승인 범위, 점프맵 수정 범위를 기록한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 2,
+    "task_id": "SV5_02_RULES",
+    "phase": "기준과 전체 연결",
+    "title": "SPACE v5 규칙 등록",
+    "completion": "승인된 공간 구성과 점프맵의 고체 혼합·매달림·1~2칸 외곽 굴곡 규칙을 계속 읽는 정본에 연결한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 3,
+    "task_id": "SV5_03_BINDINGS",
+    "phase": "기준과 전체 연결",
+    "title": "SV5 코드·데이터 접점 확인",
+    "completion": "현재 SV5 타입/API/파일을 대조하고 FOUNDATION·ADAPT·NEW를 기록한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 4,
+    "task_id": "SV5_04_CORE_RESERVE",
+    "phase": "기준과 전체 연결",
+    "title": "핵심 구역과 복귀 통로 선예약",
+    "completion": "Start·세 자원·Village·Forge·Seal/Boss·Exit의 정본 ID, 보호 셀, 접근과 복귀를 먼저 예약한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 5,
+    "task_id": "SV5_05_ROUTE_STATE",
+    "phase": "기준과 전체 연결",
+    "title": "진행 조건과 지름길 규칙 연결",
+    "completion": "세 자원 6가지 획득 순서와 제작→봉인→보스→출구 조건을 유지하며 랜덤 연결로 조건을 우회하지 못하게 한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 6,
+    "task_id": "SV5_06_SPACE_GRAPH",
+    "phase": "기준과 전체 연결",
+    "title": "전체 장소·통로 배치 그래프 작성",
+    "completion": "큰 장소·핵심 구역·보통 공간을 묶어 연결하고 공간을 먼저 설계한 뒤 12×8 청크와 4×4 패턴으로 분해한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 7,
+    "task_id": "SV5_07_DIVERSITY",
+    "phase": "기준과 전체 연결",
+    "title": "가까운 독립 지형의 반복 억제",
+    "completion": "같은 Family의 독립 공간이 인접해 몰리는 현상을 줄이고 한 긴 동굴의 여러 청크는 중복 스폰으로 세지 않는다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 8,
+    "task_id": "SV5_08_INFILL",
+    "phase": "기준과 전체 연결",
+    "title": "일반 방·굴·계단참으로 사이 공간 구성",
+    "completion": "큰 외부 AIR 대신 실제 들어갈 수 있는 작은 방과 연결 공간으로 잔여 영역을 채운다. 보상 없는 공간도 허용한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 9,
+    "task_id": "SV5_09_LOOPS",
+    "phase": "기준과 전체 연결",
+    "title": "재합류 통로와 지름길 후보 생성",
+    "completion": "서로 다른 연결 지점 사이의 추가 경로를 만들고 실제 다른 공간에 닿는지, 진행 조건을 보존하는지 확인한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 10,
+    "task_id": "SV5_10_SIDEPATH",
+    "phase": "기준과 전체 연결",
+    "title": "불규칙한 2칸 샛길 제작",
+    "completion": "유효 통로 약 2칸, 중심선 길이 약 20~50칸으로 만들고 점프 접점은 머리 여유와 복귀를 확보한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 11,
+    "task_id": "SV5_11_HUB_SHELL",
+    "phase": "허브와 점프맵",
+    "title": "여섯 갈래길의 공간·출입구 제작",
+    "completion": "약 12×30 내부와 좌우 세 높이대의 6~7칸 개구를 만들고 4~6개의 실제 외부 연결을 확보한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 12,
+    "task_id": "SV5_12_TREE_GRAB",
+    "phase": "허브와 점프맵",
+    "title": "계수나무의 실제 등반 지형 제작",
+    "completion": "장식 줄기와 SOLID 가지·안전 모서리를 구분하여 최대 1~2칸 동작으로 활성 출입구에 도달하도록 만든다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 13,
+    "task_id": "SV5_13_JUMP_CONTRACT",
+    "phase": "허브와 점프맵",
+    "title": "점프맵 데이터와 거리 기준 정의",
+    "completion": "각 지지물의 재질·크기·지지면, gap_air·rise·진입 방향·Grab 모서리·검증 상태를 기록한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 14,
+    "task_id": "SV5_14_JUMP_SOLID",
+    "phase": "허브와 점프맵",
+    "title": "고체 지지물을 포함한 점프 루트 제작",
+    "completion": "ONE_WAY만으로 된 루트를 고치고 실제 경로에 착지하거나 매달리는 SOLID 블록을 포함한다. 장식용 고체는 실적으로 세지 않는다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 15,
+    "task_id": "SV5_15_JUMP_GRAB",
+    "phase": "허브와 점프맵",
+    "title": "매달림 모서리와 착지 여유 제작",
+    "completion": "고체의 노출된 안전 모서리에 접근·매달림·당겨 오르기·착지 공간을 만들고 ONE_WAY 측면은 Grab에서 제외한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 16,
+    "task_id": "SV5_16_JUMP_OUTLINE",
+    "phase": "허브와 점프맵",
+    "title": "점프맵 외곽을 1~2칸 불규칙하게 변경",
+    "completion": "긴 직사각형 내부 경계에 완만한 국소 굴곡을 넣고 예약 범위·출입구·지지면·주변 보호 공간을 보존한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 17,
+    "task_id": "SV5_17_JUMP_RECIPES",
+    "phase": "허브와 점프맵",
+    "title": "점프맵의 혼합 루트 변형 작성",
+    "completion": "+1칸 점프, 최대 +2칸 Jump+Grab, 수평 연결을 조합하고 기존 #012와 대응되는 수정 전후 레시피를 남긴다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 18,
+    "task_id": "SV5_18_JUMP_CLEARANCE",
+    "phase": "허브와 점프맵",
+    "title": "머리·옆면·아래면 충돌 검사",
+    "completion": "Player 전체 몸체의 접근·도약·매달림·올라서기 궤적을 검사한다. 외곽 굴곡 때문에 생긴 충돌도 포함한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 19,
+    "task_id": "SV5_19_JUMP_RECOVERY",
+    "phase": "허브와 점프맵",
+    "title": "실패 후 재시도·복귀 경로 제작",
+    "completion": "낙하 후 다음 시도나 정상 길로 복귀하는 지지물을 배치하고 실제 낙하 피해·회복 가능성을 확인한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 20,
+    "task_id": "SV5_20_JUMP_PLAYER",
+    "phase": "허브와 점프맵",
+    "title": "실제 Player로 점프맵 검증",
+    "completion": "무아이템 상태로 양방향 요구 동작과 전체 도전 루트를 검증한다. 실패한 간격은 지형을 수정하며 플레이어 능력을 올리지 않는다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 21,
+    "task_id": "SV5_21_LIBRARY",
+    "phase": "장소별 지형",
+    "title": "대형 도서관 공간과 층별 발판 제작",
+    "completion": "내부 약 18~20×20~25, 층간 3~5칸인 하나의 큰 공간을 만들고 책장은 비충돌 배경으로 구분한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 22,
+    "task_id": "SV5_22_STAIR_DATA",
+    "phase": "장소별 지형",
+    "title": "대각 발판 계단의 경로·접촉 데이터 작성",
+    "completion": "계단별 하단·상단·방향·연결 발판과 접촉 상승·Down 하강 요청을 명시한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 23,
+    "task_id": "SV5_23_STAIR_MOTOR",
+    "phase": "장소별 지형",
+    "title": "접촉 상승·아래키 하강 구현",
+    "completion": "실제 이동 상태와 계단 진입·끝점·하차를 연결하고 다른 점프·낙하·매달림 상태와의 충돌을 검증한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 24,
+    "task_id": "SV5_24_CAVE",
+    "phase": "장소별 지형",
+    "title": "거친 동굴과 떠 있는 장애물 제작",
+    "completion": "약 50칸 길이·20칸 상하 변화·5~9칸 통로에서 불규칙한 바닥·천장·공중 장애물과 정상 이동 지지를 유지한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 25,
+    "task_id": "SV5_25_RATDEN",
+    "phase": "장소별 지형",
+    "title": "쥐 소굴의 무아이템 연결 제작",
+    "completion": "둥근 공동과 약 2칸 연결 통로의 모양을 유지하면서 점프·Grab으로 요구 방향을 완주하도록 구성한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 26,
+    "task_id": "SV5_26_CANYON",
+    "phase": "장소별 지형",
+    "title": "아래로 좁아지는 협곡 제작",
+    "completion": "상부 약 10칸·깊이 약 20칸, 하부로 차오르는 좌우 벽을 4×4 패턴으로 구성하고 갈비뼈형 돌출을 피한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 27,
+    "task_id": "SV5_27_HOUSING",
+    "phase": "장소별 지형",
+    "title": "좌우 비대칭 주거지 제작",
+    "completion": "5×3 생활 방의 층 높이를 좌우 지그재그로 배치하고 복도·정차점·생활 흔적을 만든다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 28,
+    "task_id": "SV5_28_HALL",
+    "phase": "장소별 지형",
+    "title": "높이 15~20칸의 회랑 제작",
+    "completion": "큰 활동 공간과 정상 통과 바닥을 만들고 샹들리에·장식 기둥은 이동 충돌과 분리한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 29,
+    "task_id": "SV5_29_RANCH",
+    "phase": "장소별 지형",
+    "title": "희귀 목장과 주변 호수 관계 작성",
+    "completion": "약 10~12×6~7 목장, 비충돌 울타리·장식 동물·양치기 슬롯, 매우 낮은 출현과 호수 인접 선호를 정의한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 30,
+    "task_id": "SV5_30_LAKE",
+    "phase": "장소별 지형",
+    "title": "호수와 마른 이동 경로 제작",
+    "completion": "폭 약 10~15칸·깊이 1~4칸의 물구덩이를 만들고 물 이동 기능에 의존하지 않는 필수 통과 경로를 둔다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 31,
+    "task_id": "SV5_31_FARM",
+    "phase": "장소별 지형",
+    "title": "비대칭 다층 농장 제작",
+    "completion": "약 6~8×4~5 재배 공간 여러 개를 연결하고 낮은 출현·호수 인접 선호·정상 접근을 유지한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 32,
+    "task_id": "SV5_32_RAIL_PATH",
+    "phase": "장치와 특수 구역",
+    "title": "철도 경로와 3칸 통로 제작",
+    "completion": "약 60회 이동, dx=±1·dy=0 또는 ±1인 선로를 만들고 순수 수직 이동을 금지한다. 끊어진 선로는 별도 변형이다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 33,
+    "task_id": "SV5_33_RAIL_RIDE",
+    "phase": "장치와 특수 구역",
+    "title": "열차 탑승·주행·종점 배치 구현",
+    "completion": "무작위 한쪽 종점에 열차를 두고 실제 탑승·단위 이동·종점 정지를 연결한다. 반대편에서 자동 호출하지 않는다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 34,
+    "task_id": "SV5_34_RAIL_CRASH",
+    "phase": "장치와 특수 구역",
+    "title": "탈선·폭발·피해 상태 구현",
+    "completion": "완료된 한 칸 이동당 0.07% 탈선, 열차 소멸·피해 2·나뒹굴기와 중복 처리 방지·상태 보존을 구현한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 35,
+    "task_id": "SV5_35_CAPSULE",
+    "phase": "장치와 특수 구역",
+    "title": "Type0 타임 캡슐 공간 제작",
+    "completion": "약 7×5 봉쇄 공간에 상자·편지 슬롯을 두고 일반 샛길로 뚫리지 않게 한다. 편지 콘텐츠 확장은 후속이다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 36,
+    "task_id": "SV5_36_PRISON",
+    "phase": "장치와 특수 구역",
+    "title": "Type0 감옥 공간 제작",
+    "completion": "약 7×5 봉쇄 공간과 해방 전 실루엣 슬롯·상태 접점을 만든다. 생명체 AI·조력 콘텐츠는 후속이다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 37,
+    "task_id": "SV5_37_PINBALL_SHELL",
+    "phase": "장치와 특수 구역",
+    "title": "협곡 10% 핀볼 구역 예약",
+    "completion": "선택된 협곡의 변형으로 운영 NPC·하부 보드·정상 통과 공간을 예약한다. 핀볼 게임 자체는 구현하지 않는다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 38,
+    "task_id": "SV5_38_WORKSHOP",
+    "phase": "장치와 특수 구역",
+    "title": "36×16 절구 작업장 예약",
+    "completion": "정확한 예약 영역과 소유를 기록하고 내부 미설계 상태를 AIR나 SOLID 완성 지형으로 바꾸지 않는다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 39,
+    "task_id": "SV5_39_RABBIT_VILLAGE",
+    "phase": "장치와 특수 구역",
+    "title": "토끼 마을의 8개 건물 구성",
+    "completion": "승인 예시의 36×24 구성과 좌우 비대칭 8개 건물을 기준으로 기존 Village 정본에 맞춰 적용한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 40,
+    "task_id": "SV5_40_ELEVATOR",
+    "phase": "장치와 특수 구역",
+    "title": "위판정·압사 방지 엘리베이터 구현",
+    "completion": "주거지·마을 정차점의 승하차와 위판정 발판을 연결하고 천장 끼임·위아래 압사를 방지한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 41,
+    "task_id": "SV5_41_COMPOSE",
+    "phase": "합성·검증·인계",
+    "title": "624×416 전체 지형 합성",
+    "completion": "같은 최종 셀 데이터에 장소·보통 공간·샛길·지름길·장치를 합성하고 승인된 공간 구성 방식을 유지한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 42,
+    "task_id": "SV5_42_FINAL_SCAN",
+    "phase": "합성·검증·인계",
+    "title": "최종 보호·채움·연결 검사",
+    "completion": "전체 겹침, 공개 출입구, 6×6 SOLID, Type0 봉쇄, 예약 영역, 지지·머리 여유를 경계 너머까지 검사한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 43,
+    "task_id": "SV5_43_WORLD_BAKE",
+    "phase": "합성·검증·인계",
+    "title": "CSV·Unity 씬·콜라이더 생성",
+    "completion": "최종 정본 하나에서 전체 CSV·지형 레이어·Player·카메라를 생성하고 재생성 동일성과 점프맵 SOLID/O/Grab 대응을 검사한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 44,
+    "task_id": "SV5_44_WORLD_PLAYER",
+    "phase": "합성·검증·인계",
+    "title": "전체 진행과 무아이템 완주 검증",
+    "completion": "세 자원 6가지 순서·복귀·제련·봉인·보스·출구와 실제 이동을 검증하고 미구현 장치 의존을 제거한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  },
+  {
+    "order": 45,
+    "task_id": "SV5_45_REVIEW_HANDOFF",
+    "phase": "합성·검증·인계",
+    "title": "번호 PDF와 결과 인계 발행",
+    "completion": "전체도·16구간 확대도·점프맵 수정 전후·실제 통과 기록·남은 제한과 원본 SHA를 함께 발행한다.",
+    "status": "PLANNED_NOT_INSTALLED"
+  }
+]

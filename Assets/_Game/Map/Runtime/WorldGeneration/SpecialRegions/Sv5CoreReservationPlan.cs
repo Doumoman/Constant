@@ -29,23 +29,23 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
 
     public sealed class Sv5CoreTerrainCandidate
     {
-        public Sv5CoreTerrainCandidate(string consumerId, RmapSpecialWorldPoint world, RmapPatternBaseCell baseCell)
+        public Sv5CoreTerrainCandidate(string consumerId, Sv5SpecialWorldPoint world, Sv5PatternBaseCell baseCell)
         {
             if (string.IsNullOrWhiteSpace(consumerId)) throw new ArgumentException("A consumer id is required.", nameof(consumerId));
-            if (!Enum.IsDefined(typeof(RmapPatternBaseCell), baseCell)) throw new ArgumentOutOfRangeException(nameof(baseCell));
+            if (!Enum.IsDefined(typeof(Sv5PatternBaseCell), baseCell)) throw new ArgumentOutOfRangeException(nameof(baseCell));
             ConsumerId = consumerId.Trim();
             World = world;
             BaseCell = baseCell;
         }
 
         public string ConsumerId { get; }
-        public RmapSpecialWorldPoint World { get; }
-        public RmapPatternBaseCell BaseCell { get; }
+        public Sv5SpecialWorldPoint World { get; }
+        public Sv5PatternBaseCell BaseCell { get; }
     }
 
     public sealed class Sv5CoreReservationDiagnostic : IComparable<Sv5CoreReservationDiagnostic>
     {
-        internal Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode code, RmapSpecialWorldPoint world,
+        internal Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode code, Sv5SpecialWorldPoint world,
             string ownerId, string reason)
         {
             Code = code;
@@ -55,7 +55,7 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
         }
 
         public Sv5CoreReservationDiagnosticCode Code { get; }
-        public RmapSpecialWorldPoint World { get; }
+        public Sv5SpecialWorldPoint World { get; }
         public string OwnerId { get; }
         public string Reason { get; }
 
@@ -84,12 +84,12 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
     public sealed class Sv5CoreRouteCellReservation : IComparable<Sv5CoreRouteCellReservation>
     {
         internal Sv5CoreRouteCellReservation(string routeId, int ordinal, Sv5CoreRouteReservationKind kind,
-            RmapSpecialWorldPoint world, RmapPatternBaseCell requiredBaseCell, string sourceId)
+            Sv5SpecialWorldPoint world, Sv5PatternBaseCell requiredBaseCell, string sourceId)
         {
             RouteId = Sv5CoreReservationPlan.Require(routeId, nameof(routeId));
             if (ordinal < 0) throw new ArgumentOutOfRangeException(nameof(ordinal));
             if (!Enum.IsDefined(typeof(Sv5CoreRouteReservationKind), kind)) throw new ArgumentOutOfRangeException(nameof(kind));
-            if (!Enum.IsDefined(typeof(RmapPatternBaseCell), requiredBaseCell)) throw new ArgumentOutOfRangeException(nameof(requiredBaseCell));
+            if (!Enum.IsDefined(typeof(Sv5PatternBaseCell), requiredBaseCell)) throw new ArgumentOutOfRangeException(nameof(requiredBaseCell));
             Ordinal = ordinal;
             Kind = kind;
             World = world;
@@ -100,8 +100,8 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
         public string RouteId { get; }
         public int Ordinal { get; }
         public Sv5CoreRouteReservationKind Kind { get; }
-        public RmapSpecialWorldPoint World { get; }
-        public RmapPatternBaseCell RequiredBaseCell { get; }
+        public Sv5SpecialWorldPoint World { get; }
+        public Sv5PatternBaseCell RequiredBaseCell { get; }
         public string SourceId { get; }
 
         public int CompareTo(Sv5CoreRouteCellReservation other)
@@ -117,17 +117,17 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
 
     public sealed class Sv5CoreRouteReservation : IComparable<Sv5CoreRouteReservation>
     {
-        internal Sv5CoreRouteReservation(Rmap16Route source)
+        internal Sv5CoreRouteReservation(Sv5Route source)
         {
             Source = source ?? throw new ArgumentNullException(nameof(source));
         }
 
-        public Rmap16Route Source { get; }
+        public Sv5Route Source { get; }
         public string RouteId => Source.EdgeId;
         public string FromPortId => Source.FromPortId;
         public string ToPortId => Source.ToPortId;
         public string Condition => Source.Condition;
-        public IReadOnlyList<RmapSpecialWorldPoint> Cells => Source.Cells;
+        public IReadOnlyList<Sv5SpecialWorldPoint> Cells => Source.Cells;
 
         public int CompareTo(Sv5CoreRouteReservation other) => other == null ? 1 :
             string.Compare(RouteId, other.RouteId, StringComparison.Ordinal);
@@ -137,7 +137,7 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
     {
         private readonly ReadOnlyCollection<string> routeIds;
 
-        internal Sv5CoreAccessBinding(RmapSpecialAccess source, IEnumerable<string> values, string status)
+        internal Sv5CoreAccessBinding(Sv5SpecialAccess source, IEnumerable<string> values, string status)
         {
             Source = source ?? throw new ArgumentNullException(nameof(source));
             routeIds = new ReadOnlyCollection<string>((values ?? Array.Empty<string>()).Where(value =>
@@ -146,7 +146,7 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             Status = Sv5CoreReservationPlan.Require(status, nameof(status));
         }
 
-        public RmapSpecialAccess Source { get; }
+        public Sv5SpecialAccess Source { get; }
         public IReadOnlyList<string> RouteIds => routeIds;
         public string Status { get; }
         public bool IsGraphRouteBound => routeIds.Count != 0;
@@ -156,8 +156,8 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
     }
 
     /// <summary>
-    /// SV5_04's read-only reservation adapter. It retains the exact RMAP15
-    /// core object and the exact RMAP16 route object; it does not place sites,
+    /// SV5_04's read-only reservation adapter. It retains the exact SV5
+    /// core object and the exact SV5 route object; it does not place sites,
     /// create RNG streams, or regenerate terrain.
     /// </summary>
     public sealed class Sv5CoreReservationPlan
@@ -166,9 +166,9 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
         private readonly ReadOnlyCollection<Sv5CoreRouteCellReservation> routeCells;
         private readonly ReadOnlyCollection<Sv5CoreAccessBinding> accessBindings;
         private readonly IReadOnlyDictionary<string, IReadOnlyList<Sv5CoreRouteCellReservation>> routeCellsByCoordinate;
-        private readonly IReadOnlyDictionary<string, IReadOnlyList<RmapSpecialStateGeometryCell>> stateByCoordinate;
+        private readonly IReadOnlyDictionary<string, IReadOnlyList<Sv5SpecialStateGeometryCell>> stateByCoordinate;
 
-        internal Sv5CoreReservationPlan(RmapSpecialReservationPlan source, Rmap16ClusterAssemblyPlan routeSource,
+        internal Sv5CoreReservationPlan(Sv5SpecialReservationPlan source, Sv5ClusterAssemblyPlan routeSource,
             IEnumerable<Sv5CoreRouteReservation> routeValues, IEnumerable<Sv5CoreRouteCellReservation> routeCellValues,
             IEnumerable<Sv5CoreAccessBinding> accessValues)
         {
@@ -178,29 +178,29 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             routeCells = Freeze(routeCellValues);
             accessBindings = Freeze(accessValues);
             if (Source.Sites.Count != 8 || Source.Cells.Count != 2432)
-                throw new ArgumentException("SV5_04 requires the representative RMAP15 core source.", nameof(source));
+                throw new ArgumentException("SV5_04 requires the representative SV5 core source.", nameof(source));
             if (routes.Count != RouteSource.Graph.Edges.Count || routes.Any(value => !value.Source.Evidence.IsValid))
-                throw new ArgumentException("Every current graph edge needs valid RMAP16 route evidence.", nameof(routeValues));
+                throw new ArgumentException("Every current graph edge needs valid SV5 route evidence.", nameof(routeValues));
             if (accessBindings.Count != Source.Accesses.Count)
-                throw new ArgumentException("Every physical RMAP15 access must be recorded.", nameof(accessValues));
+                throw new ArgumentException("Every physical SV5 access must be recorded.", nameof(accessValues));
             routeCellsByCoordinate = BuildRouteCellIndex(routeCells);
             stateByCoordinate = BuildStateIndex(Source.StateGeometry);
-            Digest = RmapWorldDefinition.Hash(string.Join("\n", CanonicalLines()));
+            Digest = Sv5WorldDefinition.Hash(string.Join("\n", CanonicalLines()));
         }
 
-        public RmapSpecialReservationPlan Source { get; }
-        public Rmap16ClusterAssemblyPlan RouteSource { get; }
-        public IReadOnlyList<RmapSpecialSite> Sites => Source.Sites;
-        public IReadOnlyList<RmapSpecialWorldCell> CoreCells => Source.Cells;
-        public IReadOnlyList<RmapSpecialSlot> Slots => Source.Slots;
-        public IReadOnlyList<RmapSpecialGraphBinding> GraphBindings => Source.GraphBindings;
-        public IReadOnlyList<RmapSpecialStateGeometryCell> StateGeometry => Source.StateGeometry;
+        public Sv5SpecialReservationPlan Source { get; }
+        public Sv5ClusterAssemblyPlan RouteSource { get; }
+        public IReadOnlyList<Sv5SpecialSite> Sites => Source.Sites;
+        public IReadOnlyList<Sv5SpecialWorldCell> CoreCells => Source.Cells;
+        public IReadOnlyList<Sv5SpecialSlot> Slots => Source.Slots;
+        public IReadOnlyList<Sv5SpecialGraphBinding> GraphBindings => Source.GraphBindings;
+        public IReadOnlyList<Sv5SpecialStateGeometryCell> StateGeometry => Source.StateGeometry;
         public IReadOnlyList<Sv5CoreRouteReservation> Routes => routes;
         public IReadOnlyList<Sv5CoreRouteCellReservation> RouteCells => routeCells;
         public IReadOnlyList<Sv5CoreAccessBinding> AccessBindings => accessBindings;
         public string Digest { get; }
 
-        public bool TryGetRouteCells(RmapSpecialWorldPoint world, out IReadOnlyList<Sv5CoreRouteCellReservation> values) =>
+        public bool TryGetRouteCells(Sv5SpecialWorldPoint world, out IReadOnlyList<Sv5CoreRouteCellReservation> values) =>
             routeCellsByCoordinate.TryGetValue(Key(world), out values);
 
         /// <summary>Public consumer gate for future terrain writers. A caller must
@@ -210,10 +210,10 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             var diagnostics = new List<Sv5CoreReservationDiagnostic>();
             Sv5CoreTerrainCandidate[] ordered = (candidates ?? Array.Empty<Sv5CoreTerrainCandidate>()).Where(value =>
                 value != null).OrderBy(value => value.World).ThenBy(value => value.ConsumerId, StringComparer.Ordinal).ToArray();
-            foreach (IGrouping<RmapSpecialWorldPoint, Sv5CoreTerrainCandidate> group in ordered.GroupBy(value => value.World).OrderBy(value => value.Key))
+            foreach (IGrouping<Sv5SpecialWorldPoint, Sv5CoreTerrainCandidate> group in ordered.GroupBy(value => value.World).OrderBy(value => value.Key))
             {
                 Sv5CoreTerrainCandidate[] values = group.ToArray();
-                if (!RmapSpecialReservationPlanner.IsInWorld(group.Key.X, group.Key.Y))
+                if (!Sv5SpecialReservationPlanner.IsInWorld(group.Key.X, group.Key.Y))
                 {
                     diagnostics.Add(new Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode.OutOfWorld,
                         group.Key, values[0].ConsumerId, "Candidate coordinate is outside the 624x416 world."));
@@ -225,19 +225,19 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
                         group.Key, values[0].ConsumerId, "Candidates at one coordinate require incompatible base cells."));
                     continue;
                 }
-                RmapPatternBaseCell proposed = values[0].BaseCell;
-                if (stateByCoordinate.TryGetValue(Key(group.Key), out IReadOnlyList<RmapSpecialStateGeometryCell> states))
+                Sv5PatternBaseCell proposed = values[0].BaseCell;
+                if (stateByCoordinate.TryGetValue(Key(group.Key), out IReadOnlyList<Sv5SpecialStateGeometryCell> states))
                 {
                     diagnostics.Add(new Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode.StateGeometry,
                         group.Key, states[0].SiteId, "Conditional state geometry is owned by its existing state authority."));
                     continue;
                 }
-                RmapSpecialTerrainReservationDecision coreDecision = Source.EvaluateTerrainCells(new[] { group.Key });
+                Sv5SpecialTerrainReservationDecision coreDecision = Source.EvaluateTerrainCells(new[] { group.Key });
                 if (!coreDecision.IsAllowed)
                 {
-                    RmapSpecialWorldCell cell = coreDecision.ProtectedCells[0];
+                    Sv5SpecialWorldCell cell = coreDecision.ProtectedCells[0];
                     diagnostics.Add(new Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode.ProtectedCoreCell,
-                        group.Key, cell.SiteId, "RMAP15 " + cell.Protection + " cannot be changed by general terrain."));
+                        group.Key, cell.SiteId, "SV5 " + cell.Protection + " cannot be changed by general terrain."));
                     continue;
                 }
                 if (!routeCellsByCoordinate.TryGetValue(Key(group.Key), out IReadOnlyList<Sv5CoreRouteCellReservation> reservations)) continue;
@@ -249,14 +249,14 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
                     continue;
                 }
                 Sv5CoreRouteCellReservation passage = reservations.FirstOrDefault(value => value.Kind == Sv5CoreRouteReservationKind.Passage);
-                if (passage != null && proposed != RmapPatternBaseCell.Air)
+                if (passage != null && proposed != Sv5PatternBaseCell.Air)
                 {
                     diagnostics.Add(new Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode.RoutePassageBlocked,
                         group.Key, passage.RouteId, "Route body must retain AIR."));
                     continue;
                 }
                 Sv5CoreRouteCellReservation clearance = reservations.FirstOrDefault(value => value.Kind == Sv5CoreRouteReservationKind.Clearance);
-                if (clearance != null && proposed != RmapPatternBaseCell.Air)
+                if (clearance != null && proposed != Sv5PatternBaseCell.Air)
                     diagnostics.Add(new Sv5CoreReservationDiagnostic(Sv5CoreReservationDiagnosticCode.RouteClearanceBlocked,
                         group.Key, clearance.RouteId, "Route headroom must retain AIR."));
             }
@@ -289,17 +289,17 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             return new ReadOnlyDictionary<string, IReadOnlyList<Sv5CoreRouteCellReservation>>(map);
         }
 
-        private static IReadOnlyDictionary<string, IReadOnlyList<RmapSpecialStateGeometryCell>> BuildStateIndex(
-            IEnumerable<RmapSpecialStateGeometryCell> values)
+        private static IReadOnlyDictionary<string, IReadOnlyList<Sv5SpecialStateGeometryCell>> BuildStateIndex(
+            IEnumerable<Sv5SpecialStateGeometryCell> values)
         {
-            var map = new Dictionary<string, IReadOnlyList<RmapSpecialStateGeometryCell>>(StringComparer.Ordinal);
-            foreach (IGrouping<string, RmapSpecialStateGeometryCell> group in (values ??
-                Array.Empty<RmapSpecialStateGeometryCell>()).GroupBy(value => Key(value.World), StringComparer.Ordinal))
-                map.Add(group.Key, new ReadOnlyCollection<RmapSpecialStateGeometryCell>(group.OrderBy(value => value).ToArray()));
-            return new ReadOnlyDictionary<string, IReadOnlyList<RmapSpecialStateGeometryCell>>(map);
+            var map = new Dictionary<string, IReadOnlyList<Sv5SpecialStateGeometryCell>>(StringComparer.Ordinal);
+            foreach (IGrouping<string, Sv5SpecialStateGeometryCell> group in (values ??
+                Array.Empty<Sv5SpecialStateGeometryCell>()).GroupBy(value => Key(value.World), StringComparer.Ordinal))
+                map.Add(group.Key, new ReadOnlyCollection<Sv5SpecialStateGeometryCell>(group.OrderBy(value => value).ToArray()));
+            return new ReadOnlyDictionary<string, IReadOnlyList<Sv5SpecialStateGeometryCell>>(map);
         }
 
-        internal static string Key(RmapSpecialWorldPoint point) => point.X.ToString(CultureInfo.InvariantCulture) + "," +
+        internal static string Key(Sv5SpecialWorldPoint point) => point.X.ToString(CultureInfo.InvariantCulture) + "," +
             point.Y.ToString(CultureInfo.InvariantCulture);
         internal static string Require(string value, string name)
         {
@@ -310,25 +310,25 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
 
     public static class Sv5CoreReservationPlanner
     {
-        public static Sv5CoreReservationPlan Plan(Rmap16ClusterAssemblyPlan routeSource)
+        public static Sv5CoreReservationPlan Plan(Sv5ClusterAssemblyPlan routeSource)
         {
             if (routeSource == null) throw new ArgumentNullException(nameof(routeSource));
             return Plan(routeSource.SpecialPlan, routeSource);
         }
 
-        public static Sv5CoreReservationPlan Plan(RmapSpecialReservationPlan coreSource,
-            Rmap16ClusterAssemblyPlan routeSource)
+        public static Sv5CoreReservationPlan Plan(Sv5SpecialReservationPlan coreSource,
+            Sv5ClusterAssemblyPlan routeSource)
         {
             if (coreSource == null) throw new ArgumentNullException(nameof(coreSource));
             if (routeSource == null) throw new ArgumentNullException(nameof(routeSource));
-            if (!routeSource.Success) throw new ArgumentException("A passing RMAP16 source is required.", nameof(routeSource));
+            if (!routeSource.Success) throw new ArgumentException("A passing SV5 source is required.", nameof(routeSource));
             if (!ReferenceEquals(coreSource, routeSource.SpecialPlan))
-                throw new ArgumentException("Core and route sources must be the same RMAP15 plan object.", nameof(coreSource));
+                throw new ArgumentException("Core and route sources must be the same SV5 plan object.", nameof(coreSource));
             if (!ReferenceEquals(coreSource.BiomePlan.Definition, routeSource.Definition) ||
                 !string.Equals(coreSource.BiomePlan.Digest, routeSource.BiomePlan.Digest, StringComparison.Ordinal))
                 throw new ArgumentException("Core and route sources must share definition and biome provenance.", nameof(routeSource));
             if (routeSource.Routes.Count != routeSource.Graph.Edges.Count)
-                throw new ArgumentException("Every RMAP13 edge must have one RMAP16 route.", nameof(routeSource));
+                throw new ArgumentException("Every SV5 edge must have one SV5 route.", nameof(routeSource));
 
             var routes = routeSource.Routes.Select(value => new Sv5CoreRouteReservation(value)).ToArray();
             ValidateRoutes(coreSource, routes);
@@ -337,7 +337,7 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             return new Sv5CoreReservationPlan(coreSource, routeSource, routes, routeCells, accesses);
         }
 
-        private static void ValidateRoutes(RmapSpecialReservationPlan source, IEnumerable<Sv5CoreRouteReservation> routes)
+        private static void ValidateRoutes(Sv5SpecialReservationPlan source, IEnumerable<Sv5CoreRouteReservation> routes)
         {
             var accessIds = new HashSet<string>(source.Accesses.Select(value => value.Id), StringComparer.Ordinal);
             foreach (Sv5CoreRouteReservation route in routes ?? Array.Empty<Sv5CoreRouteReservation>())
@@ -347,57 +347,57 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
                 if (route.Cells.Count < 2) throw new ArgumentException("A route needs at least two cells.", nameof(routes));
                 for (int index = 1; index < route.Cells.Count; index++)
                 {
-                    RmapSpecialWorldPoint before = route.Cells[index - 1];
-                    RmapSpecialWorldPoint current = route.Cells[index];
+                    Sv5SpecialWorldPoint before = route.Cells[index - 1];
+                    Sv5SpecialWorldPoint current = route.Cells[index];
                     if (Math.Abs(before.X - current.X) + Math.Abs(before.Y - current.Y) != 1)
                         throw new ArgumentException("A route must be cardinally contiguous.", nameof(routes));
                 }
             }
         }
 
-        private static IEnumerable<Sv5CoreRouteCellReservation> BuildRouteCells(Rmap16ClusterAssemblyPlan source,
+        private static IEnumerable<Sv5CoreRouteCellReservation> BuildRouteCells(Sv5ClusterAssemblyPlan source,
             IEnumerable<Sv5CoreRouteReservation> routes)
         {
             foreach (Sv5CoreRouteReservation route in routes ?? Array.Empty<Sv5CoreRouteReservation>())
             for (int ordinal = 0; ordinal < route.Cells.Count; ordinal++)
             {
-                RmapSpecialWorldPoint point = route.Cells[ordinal];
-                Rmap16TerrainCell passage = source.GetCell(point.X, point.Y);
-                if (passage.BaseCell != RmapPatternBaseCell.Air)
-                    throw new ArgumentException("RMAP16 route passage must be AIR.", nameof(source));
+                Sv5SpecialWorldPoint point = route.Cells[ordinal];
+                Sv5TerrainCell passage = source.GetCell(point.X, point.Y);
+                if (passage.BaseCell != Sv5PatternBaseCell.Air)
+                    throw new ArgumentException("SV5 route passage must be AIR.", nameof(source));
                 yield return new Sv5CoreRouteCellReservation(route.RouteId, ordinal,
-                    Sv5CoreRouteReservationKind.Passage, point, RmapPatternBaseCell.Air, passage.SourceId);
+                    Sv5CoreRouteReservationKind.Passage, point, Sv5PatternBaseCell.Air, passage.SourceId);
 
-                RmapSpecialWorldPoint clearancePoint = new RmapSpecialWorldPoint(point.X, point.Y + 1);
-                if (RmapSpecialReservationPlanner.IsInWorld(clearancePoint.X, clearancePoint.Y))
+                Sv5SpecialWorldPoint clearancePoint = new Sv5SpecialWorldPoint(point.X, point.Y + 1);
+                if (Sv5SpecialReservationPlanner.IsInWorld(clearancePoint.X, clearancePoint.Y))
                 {
-                    Rmap16TerrainCell clearance = source.GetCell(clearancePoint.X, clearancePoint.Y);
-                    if (clearance.BaseCell != RmapPatternBaseCell.Air)
-                        throw new ArgumentException("RMAP16 route clearance must be AIR.", nameof(source));
+                    Sv5TerrainCell clearance = source.GetCell(clearancePoint.X, clearancePoint.Y);
+                    if (clearance.BaseCell != Sv5PatternBaseCell.Air)
+                        throw new ArgumentException("SV5 route clearance must be AIR.", nameof(source));
                     yield return new Sv5CoreRouteCellReservation(route.RouteId, ordinal,
-                        Sv5CoreRouteReservationKind.Clearance, clearancePoint, RmapPatternBaseCell.Air, clearance.SourceId);
+                        Sv5CoreRouteReservationKind.Clearance, clearancePoint, Sv5PatternBaseCell.Air, clearance.SourceId);
                 }
 
-                RmapSpecialWorldPoint supportPoint = new RmapSpecialWorldPoint(point.X, point.Y - 1);
-                if (!RmapSpecialReservationPlanner.IsInWorld(supportPoint.X, supportPoint.Y)) continue;
-                Rmap16TerrainCell support = source.GetCell(supportPoint.X, supportPoint.Y);
-                if (support.SourceKind == Rmap16TerrainSourceKind.Route && string.Equals(support.SourceId,
+                Sv5SpecialWorldPoint supportPoint = new Sv5SpecialWorldPoint(point.X, point.Y - 1);
+                if (!Sv5SpecialReservationPlanner.IsInWorld(supportPoint.X, supportPoint.Y)) continue;
+                Sv5TerrainCell support = source.GetCell(supportPoint.X, supportPoint.Y);
+                if (support.SourceKind == Sv5TerrainSourceKind.Route && string.Equals(support.SourceId,
                     route.RouteId + "_SUPPORT", StringComparison.Ordinal))
                 {
-                    if (support.BaseCell != RmapPatternBaseCell.Solid && support.BaseCell != RmapPatternBaseCell.OneWayPlatform)
-                        throw new ArgumentException("RMAP16 route support must be SOLID or ONE_WAY.", nameof(source));
+                    if (support.BaseCell != Sv5PatternBaseCell.Solid && support.BaseCell != Sv5PatternBaseCell.OneWayPlatform)
+                        throw new ArgumentException("SV5 route support must be SOLID or ONE_WAY.", nameof(source));
                     yield return new Sv5CoreRouteCellReservation(route.RouteId, ordinal,
                         Sv5CoreRouteReservationKind.Support, supportPoint, support.BaseCell, support.SourceId);
                 }
             }
         }
 
-        private static IEnumerable<Sv5CoreAccessBinding> BuildAccessBindings(RmapSpecialReservationPlan source,
+        private static IEnumerable<Sv5CoreAccessBinding> BuildAccessBindings(Sv5SpecialReservationPlan source,
             IEnumerable<Sv5CoreRouteReservation> routes)
         {
             Sv5CoreRouteReservation[] values = (routes ?? Array.Empty<Sv5CoreRouteReservation>()).ToArray();
             var graphNodeIds = new HashSet<string>(source.GraphBindings.Select(value => value.NodeId), StringComparer.Ordinal);
-            foreach (RmapSpecialAccess access in source.Accesses)
+            foreach (Sv5SpecialAccess access in source.Accesses)
             {
                 string[] ids = values.Where(value => string.Equals(value.FromPortId, access.Id, StringComparison.Ordinal) ||
                     string.Equals(value.ToPortId, access.Id, StringComparison.Ordinal)).Select(value => value.RouteId).ToArray();
@@ -449,9 +449,9 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             return "{\n" +
                 "  \"format\": \"SV5_04_CORE_RESERVATION_V1\",\n" +
                 "  \"definition_digest\": \"" + plan.RouteSource.Definition.Digest + "\",\n" +
-                "  \"rmap14_biome_digest\": \"" + plan.Source.BiomePlan.Digest + "\",\n" +
-                "  \"rmap15_special_digest\": \"" + plan.Source.Digest + "\",\n" +
-                "  \"rmap16_route_source_digest\": \"" + plan.RouteSource.Digest + "\",\n" +
+                "  \"sv5_biome_digest\": \"" + plan.Source.BiomePlan.Digest + "\",\n" +
+                "  \"sv5_special_digest\": \"" + plan.Source.Digest + "\",\n" +
+                "  \"sv5_route_source_digest\": \"" + plan.RouteSource.Digest + "\",\n" +
                 "  \"core_reservation_digest\": \"" + plan.Digest + "\",\n" +
                 "  \"physical_site_count\": " + plan.Sites.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
                 "  \"source_core_cell_count\": " + plan.CoreCells.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
@@ -463,7 +463,7 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
                 "  \"preserved_unrouted_access_count\": " + (plan.AccessBindings.Count - bound).ToString(CultureInfo.InvariantCulture) + ",\n" +
                 "  \"route_reservation_row_count\": " + plan.RouteCells.Count.ToString(CultureInfo.InvariantCulture) + ",\n" +
                 "  \"consumer\": \"Sv5CoreReservationPlan.EvaluateTerrainCandidates\",\n" +
-                "  \"rng\": \"NONE_REUSED_RMAP15_RMAP16_OBJECTS\",\n" +
+                "  \"rng\": \"NONE_REUSED_SV515_SV516_OBJECTS\",\n" +
                 "  \"full_world_bake\": \"NOT_RUN\"\n" +
                 "}\n";
         }
@@ -482,8 +482,8 @@ namespace StarNight.Map.WorldGeneration.SpecialRegions
             string text = Convert.ToString(value, CultureInfo.InvariantCulture) ?? string.Empty;
             return "\"" + text.Replace("\"", "\"\"") + "\"";
         }
-        private static string Token(RmapPatternBaseCell value) => value == RmapPatternBaseCell.Air ? "A" :
-            value == RmapPatternBaseCell.Solid ? "S" : value == RmapPatternBaseCell.OneWayPlatform ? "O" :
+        private static string Token(Sv5PatternBaseCell value) => value == Sv5PatternBaseCell.Air ? "A" :
+            value == Sv5PatternBaseCell.Solid ? "S" : value == Sv5PatternBaseCell.OneWayPlatform ? "O" :
             throw new ArgumentOutOfRangeException(nameof(value));
     }
 }

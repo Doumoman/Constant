@@ -1,0 +1,88 @@
+{
+  "schema": "SV5_17_JUMP_RECIPE_PROFILE/v1",
+  "coordinate_scope": "24x32_LOCAL_INTEGER_CELLS",
+  "canvas": {"width": 24, "height": 32},
+  "base_fixture": "SV5_16_JUMP_OUTLINE_CANONICAL",
+  "base_fixture_digest": "0ac93bf0ddc1a203baa47517096516c2df98d67978d3c80131a13edcedd5df9c",
+  "variants": [
+    {
+      "recipe_id": "JUMP012_MIXED_R0",
+      "transform": "R0",
+      "source_recipe_id": "JUMP012_MIXED_R0",
+      "entry_support_id": "JS00_ENTRY_SOLID",
+      "exit_support_id": "JS09_EXIT_ONE_WAY"
+    },
+    {
+      "recipe_id": "JUMP012_MIXED_MX",
+      "transform": "MIRROR_X",
+      "source_recipe_id": "JUMP012_MIXED_R0",
+      "entry_support_id": "JS00_ENTRY_SOLID",
+      "exit_support_id": "JS09_EXIT_ONE_WAY"
+    }
+  ],
+  "mirror_x_rule": {
+    "x": "23-x",
+    "y": "y",
+    "left_to_right": "RIGHT_TO_LEFT",
+    "right_to_left": "LEFT_TO_RIGHT",
+    "left_face": "RIGHT",
+    "right_face": "LEFT",
+    "route_order": "UNCHANGED"
+  },
+  "segments": [
+    {
+      "segment_id": "SEG_ASCENT_A",
+      "ordered_link_ids": ["JS_LINK_00", "JS_LINK_01", "JS_LINK_02"],
+      "purpose": "THREE_PLUS_ONE_JUMPS"
+    },
+    {
+      "segment_id": "SEG_GRAB_TURN",
+      "ordered_link_ids": ["JS_LINK_03", "JS_LINK_04"],
+      "purpose": "PLUS_TWO_GRAB_THEN_LEVEL"
+    },
+    {
+      "segment_id": "SEG_ASCENT_B",
+      "ordered_link_ids": ["JS_LINK_05", "JS_LINK_06"],
+      "purpose": "TWO_PLUS_ONE_JUMPS"
+    },
+    {
+      "segment_id": "SEG_ASCENT_C",
+      "ordered_link_ids": ["JS_LINK_07", "JS_LINK_08"],
+      "purpose": "TWO_PLUS_ONE_JUMPS"
+    }
+  ],
+  "per_variant_counts": {
+    "supports": 10,
+    "base_support_cells": 27,
+    "outline_cells": 17,
+    "final_occupancy_cells": 44,
+    "route_links": 9,
+    "plus_one_jump_links": 7,
+    "plus_two_jump_grab_links": 1,
+    "level_jump_links": 1,
+    "grab_edges": 1,
+    "one_way_supports": 5,
+    "solid_supports": 5
+  },
+  "catalog_totals": {
+    "variants": 2,
+    "supports": 20,
+    "final_occupancy_cells": 88,
+    "route_links": 18,
+    "grab_edges": 2
+  },
+  "maximum_rise": 2,
+  "reverse_completion_required": false,
+  "static_recipe_only": true,
+  "swept_clearance_deferred_to": "SV5_18_JUMP_CLEARANCE",
+  "failure_recovery_deferred_to": "SV5_19_JUMP_RECOVERY",
+  "player_verification_deferred_to": "SV5_20_JUMP_PLAYER",
+  "minimum_new_tests": 30,
+  "minimum_total_focused_tests": 340,
+  "whole_world_builds_in_new_targeted_tests": 0,
+  "whole_world_searches_in_new_targeted_tests": 0,
+  "full_regression_runs_after_local_pass": 1,
+  "next_task": "SV5_18_JUMP_CLEARANCE",
+  "next_task_must_remain": "LOCKED",
+  "forbidden_identifiers": ["SectorId", "sector_id", "sector_index", "48x32"]
+}
